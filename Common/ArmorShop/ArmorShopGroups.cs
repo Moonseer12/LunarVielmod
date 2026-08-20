@@ -297,7 +297,7 @@ namespace Stellamod.Common.ArmorShop
             rad1.AddHead(ModContent.ItemType<FlowerHat>());
             rad1.AddBody(ModContent.ItemType<FlowerRobe>());
             rad1.AddLegs(ModContent.ItemType<FlowerPants>());
-            rad1.SetMaterial(ModContent.ItemType<RadianuiBar>());
+            rad1.SetMaterial(ModContent.ItemType<RadiantNectar>());
             rad1.Register();
             */
             //---------- Post ml

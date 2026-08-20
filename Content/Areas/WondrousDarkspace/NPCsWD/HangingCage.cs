@@ -1,9 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Stellamod.Content.Biomes;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Particles;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -239,14 +237,11 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.NPCsWD
             Timer++;
             if (Timer == 1)
             {
-
-                SoundStyle windUpSound = new SoundStyle("Stellamod/Assets/Sounds/StormDragon_WaveCharge");
+                SoundStyle windUpSound = new("Stellamod/Assets/Sounds/StormDragon_WaveCharge");
                 windUpSound.PitchVariance = 0.2f;
                 SoundEngine.PlaySound(windUpSound, NPC.position);
-
             }
             OutlineColor = Color.Lerp(OutlineColor, Color.Yellow, 0.1f);
-            float interpolant = Timer / 60f;
             if (Timer >= 60f)
             {
                 if (MultiplayerHelper.IsHost)
@@ -266,7 +261,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.NPCsWD
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (!spawnInfo.Player.GetModPlayer<MyPlayer>().ZoneWonder)
+            if (!spawnInfo.Player.GetModPlayer<BiomePlayer>().ZoneWonder)
                 return 0;
             return ScarletSpawnChance.Wondrous_Spawn_Rate;
         }

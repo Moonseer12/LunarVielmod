@@ -78,15 +78,5 @@ namespace Stellamod.Items.Weapons.Ranged
             Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
             return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }
-
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.WaterGun);
-            recipe.AddIngredient(ModContent.ItemType<IllurineScale>(), 8);
-            recipe.AddIngredient(ItemID.Ectoplasm, 4);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
-        }
     }
 }

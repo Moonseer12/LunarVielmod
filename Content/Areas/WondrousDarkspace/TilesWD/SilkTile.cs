@@ -1,16 +1,11 @@
-﻿using ReLogic.Content;
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Common.Shaders.MagicTrails;
+using Stellamod.Content.Biomes;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
 using Stellamod.Effects.Darkspace;
-using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
-using System;
-using System.Xml;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent.Creative;
@@ -119,7 +114,7 @@ public class MiracleSilkRenderer : ModSystem
     {
         orig(self);
         renderSilk--;
-        if (renderSilk > 0 || Main.LocalPlayer.GetModPlayer<MyPlayer>().ZoneWonder) 
+        if (renderSilk > 0 || Main.LocalPlayer.GetModPlayer<BiomePlayer>().ZoneWonder) 
         {
             PixelationManager.QueueSpritebatchDrawAction(DrawSilkStrands, DrawLayer.OverPlayers);
         }

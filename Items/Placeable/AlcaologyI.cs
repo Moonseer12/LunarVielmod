@@ -1,6 +1,4 @@
-﻿using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Harvesting;
-using Stellamod.Tiles;
+﻿using Stellamod.Tiles;
 using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
@@ -24,19 +22,6 @@ namespace Stellamod.Items.Placeable
             Item.maxStack = 20;
             Item.width = 38;
             Item.height = 24;
-        }
-
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.WorkBench, 1);
-            recipe.AddIngredient(ItemID.Solidifier, 1);
-            recipe.AddIngredient(ItemID.Furnace, 1);
-            recipe.AddIngredient(ModContent.ItemType<Cinderscrap>(), 30);
-            recipe.AddIngredient(ModContent.ItemType<FlowerBatch>(), 2);
-            recipe.AddIngredient(ModContent.ItemType<AlcadizMetal>(), 10);
-            recipe.AddTile(TileID.Anvils);
-            recipe.Register();
         }
     }
 }

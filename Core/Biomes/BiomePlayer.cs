@@ -1,16 +1,12 @@
 ﻿using Stellamod.Assets.Biomes;
+using Stellamod.Buffs;
 using Stellamod.Common.Particles;
-using Stellamod.Content.Areas.PunkerTown.BossesPT.Gothivia;
 using Stellamod.Content.Areas.SpringHills;
 using Stellamod.Content.Gores.Foreground;
 using Stellamod.Core.Foreground;
-using Stellamod.Core.Particles;
-using Stellamod.Core.Utilities;
 using Stellamod.Visual.Particles;
 using Stellamod.WorldG;
 using Terraria;
-using Terraria.GameContent.Liquid;
-using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -25,6 +21,21 @@ namespace Stellamod.Content.Biomes
     public class BiomePlayer : ModPlayer
     {
         private float _windCounter;
+        public bool ZoneFable = false;
+        public bool ZoneAbyss;
+        public bool ZoneAurelus;
+        public bool ZoneGovheil;
+        public bool ZoneAlcadzia;
+        public bool ZoneVillage;
+        public bool ZoneCinder;
+        public bool ZoneDrakonic;
+        public bool ZoneIlluria;
+        public bool ZoneBloodCathedral;
+        public bool ZoneAshotiTemple;
+        public bool ZoneMineshaft;
+        public bool ZoneColloseum;
+        public bool ZoneMothlight;
+        public bool ZoneWonder;
         public bool ZoneIshtar;
         public bool ZoneSacredUnknowns;
         public bool ZoneEveroseVillage;
@@ -49,18 +60,89 @@ namespace Stellamod.Content.Biomes
                 Player localPlayer = Player;
                 StellaWorld stellaWorld = ModContent.GetInstance<StellaWorld>();
                 int heightOffset = 100;
-                Rectangle biomeRect = new Rectangle(stellaWorld.CoralwaysLocation.X, stellaWorld.CoralwaysLocation.Y + heightOffset, 1000, 1800 - heightOffset);
+                Rectangle biomeRect = new(stellaWorld.CoralwaysLocation.X, stellaWorld.CoralwaysLocation.Y + heightOffset, 1000, 1800 - heightOffset);
                 return localPlayer.Center.ToTileCoordinates().Y > biomeRect.Bottom - 400 && localPlayer.Center.ToTileCoordinates().Y < biomeRect.Bottom;
             }
         }
         public bool ZoneCrimsonBridewell;
+        public override void ResetEffects()
+        {
+            if (ZoneColloseum)
+                Player.ZoneDesert = true;
+        }
+        public override void PostUpdate()
+        {
+            if (ZoneIshtar)// && !DownedBossTracker.IsDowned(DownedBossFlag.Zui))
+            {
+                Main.LocalPlayer.AddBuff(ModContent.BuffType<SigfriedsInsanity>(), 10);
+            }
+            if (ZoneIlluria)
+            {
+                if (Main.shimmerAlpha <= 1)
+                {
+                    Main.shimmerAlpha += 0.02f;
+                }
+                else
+                {
+                    Main.shimmerAlpha = 1.02f;
+                }
+                if (Main.shimmerBrightenDelay <= 0.2f)
+                {
+                    Main.shimmerBrightenDelay += 0.05f;
+                }
+                else
+                {
+                    Main.shimmerBrightenDelay = 0.811f;
+                }
+                if (Main.shimmerDarken <= 1.4f)
+                {
+                    Main.shimmerDarken += 0.06f;
+                }
+                else
+                {
+                    Main.shimmerDarken = 1.41f;
+                }
+            }
+            else
+            {
+                if (Main.shimmerAlpha >= 0)
+                {
+                    Main.shimmerAlpha -= 0.01f;
+                }
+                else
+                {
+                    Main.shimmerAlpha = 0f;
+                }
+                if (Main.shimmerBrightenDelay >= 0f)
+                {
+                    Main.shimmerBrightenDelay -= 0.01f;
+                }
+                else
+                {
+                    Main.shimmerBrightenDelay = 0f;
+                }
+                if (Main.shimmerDarken >= 0f)
+                {
+                    Main.shimmerDarken -= 0.01f;
+                }
+                else
+                {
+                    Main.shimmerDarken = 0f;
+                }
+            }
+        }
+        public override void PostUpdateEquips()
+        {
+            Player.ZoneLihzhardTemple = BiomeTileCounts.InAshotiTemple;
+        }
         public override void PostUpdateMiscEffects()
         {
             base.PostUpdateMiscEffects();
+            Player.ManageSpecialBiomeVisuals("Stellamod:Illuria", ZoneIlluria);
             if (Main.netMode == NetmodeID.Server)
                 return;
 
-            if (Player.GetModPlayer<MyPlayer>().ZoneAlcadzia || ZoneWorldsEnd)
+            if (ZoneAlcadzia || ZoneWorldsEnd)
             {
                 Main.GraveyardVisualIntensity = 0.4f;
             }
@@ -79,7 +161,7 @@ namespace Stellamod.Content.Biomes
                 Player.ManageSpecialBiomeVisuals("Stellamod:HeatedDepths", ZoneHeatedDepths);
 
 
-                if ((Player.GetModPlayer<MyPlayer>().ZoneCinder || ZoneHeatedDepths || Player.ZoneUnderworldHeight) && !Player.GetModPlayer<MyPlayer>().ZoneWonder)
+                if ((ZoneCinder || ZoneHeatedDepths || Player.ZoneUnderworldHeight) && !ZoneWonder)
                 {
                     WorldDepthGradient depthGradient = ScreenShader.GetInstance<WorldDepthGradient>();
                     depthGradient.alpha = 1;
@@ -90,7 +172,7 @@ namespace Stellamod.Content.Biomes
                     float end = stellaWorld.HeatedDepthsEnd;
                     float steps = end - top;
                     float progress = (Player.position.ToTileCoordinates().Y - top) / steps;
-                    Vector3 gradientStrength = new Vector3();
+                    Vector3 gradientStrength = new();
                     gradientStrength.X = MathHelper.Lerp(0f, 0.2f, progress);
                     gradientStrength.Y = MathHelper.Lerp(0.4f, 0.8f, progress);
                     gradientStrength.Z = 0.18f * 0.5f;
@@ -98,7 +180,7 @@ namespace Stellamod.Content.Biomes
                     depthGradient.gradientColor = Color.Red.ToVector3();
                 }
 
-                if (Player.GetModPlayer<MyPlayer>().ZoneCinder)
+                if (ZoneCinder)
                 {
                     FlameParticles2();
                     return;
@@ -109,12 +191,11 @@ namespace Stellamod.Content.Biomes
                 }
             }
         }
-        private void FlameParticles2()
+        public static void FlameParticles2()
         {
-
             if (Main.rand.NextBool(2))
             {
-                Vector2 pos = new Vector2();
+                Vector2 pos = new();
                 pos.X = Main.rand.Next(0, Main.screenWidth * 2);
                 pos.Y = Main.rand.Next(0, Main.screenHeight);
                 pos += Main.screenPosition - Main.screenWidth * Vector2.UnitX;
@@ -122,7 +203,7 @@ namespace Stellamod.Content.Biomes
             }
             if (Main.rand.NextBool(6))
             {
-                Vector2 pos = new Vector2();
+                Vector2 pos = new();
                 pos.X = Main.rand.Next(0, Main.screenWidth * 2);
                 pos.Y = Main.rand.Next(0, Main.screenHeight);
                 pos += Main.screenPosition - Main.screenWidth * Vector2.UnitX;
@@ -130,7 +211,7 @@ namespace Stellamod.Content.Biomes
             }
             if (Main.rand.NextBool(2))
             {
-                Vector2 pos = new Vector2();
+                Vector2 pos = new();
                 pos.X = Main.rand.Next(0, Main.screenWidth * 2);
                 pos.Y = Main.rand.Next(0, Main.screenHeight);
                 pos += Main.screenPosition - Main.screenWidth * Vector2.UnitX;
@@ -138,7 +219,7 @@ namespace Stellamod.Content.Biomes
             }
             if (Main.rand.NextBool(5))
             {
-                Vector2 pos = new Vector2();
+                Vector2 pos = new();
                 pos.X = Main.rand.Next(0, Main.screenWidth * 2);
                 pos.Y = Main.rand.Next(0, Main.screenHeight);
                 pos += Main.screenPosition - Main.screenWidth * Vector2.UnitX;
@@ -146,14 +227,14 @@ namespace Stellamod.Content.Biomes
             }
             if (Main.rand.NextBool(2))
             {
-                Vector2 pos = new Vector2();
+                Vector2 pos = new();
                 pos.X = Main.rand.Next(0, Main.screenWidth * 2);
                 pos.Y = Main.rand.Next(0, Main.screenHeight);
                 pos += Main.screenPosition - Main.screenWidth * Vector2.UnitX;
                 Particles.CinderEmberDustBackground.Spawn(CinderEmberDustData.Default with { position = pos, velocity = -Vector2.UnitY * 0.1f });
             }
         }
-        private void FlameParticles()
+        public static void FlameParticles()
         {
             if (Main.rand.NextBool(12))
             {
@@ -174,8 +255,7 @@ namespace Stellamod.Content.Biomes
         }
         private void AddForegroundOrBackground()
         {
-            MyPlayer myPlayer = Player.GetModPlayer<MyPlayer>();
-            if (myPlayer.ZoneIlluria || myPlayer.ZoneIshtar || myPlayer.ZoneAbyss)
+            if (ZoneIlluria || ZoneIshtar || ZoneAbyss)
             {
                 if (Main.rand.NextBool(5))
                 {
@@ -188,7 +268,7 @@ namespace Stellamod.Content.Biomes
                 }
             }
 
-            if (Main.raining && (Player.ZoneForest || myPlayer.ZoneVillage))
+            if (Main.raining && (Player.ZoneForest || ZoneVillage))
             {
                 if (Main.rand.NextBool(5))
                 {
@@ -196,7 +276,7 @@ namespace Stellamod.Content.Biomes
                 }
             }
 
-            if ((Player.ZoneDesert))
+            if (Player.ZoneDesert)
             {
                 if (Main.rand.NextBool(5))
                 {

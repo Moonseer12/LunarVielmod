@@ -40,7 +40,6 @@ namespace Stellamod.Items.Accessories.Igniter
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetModPlayer<MyPlayer>().MagicTomeDusts = true;
         }
     }
 }

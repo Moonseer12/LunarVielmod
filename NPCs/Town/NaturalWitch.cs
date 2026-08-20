@@ -3,7 +3,6 @@ using Stellamod.Content.Biomes;
 using Stellamod.Helpers;
 using Stellamod.Items.Accessories.Foods;
 using Stellamod.Items.Armors.Pieces.RareMetals;
-using Stellamod.Items.Harvesting;
 using Stellamod.Items.Ores;
 using System;
 using Terraria;

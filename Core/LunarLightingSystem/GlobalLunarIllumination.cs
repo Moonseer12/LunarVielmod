@@ -7,7 +7,6 @@ namespace Stellamod.Core.LunarLightingSystem
 {
     public class GlobalLumSystem : ModSystem
     {
-
         public static float GlobalLightStrength;
         public static float GlobalLum = 0.3f;
         public override void PostUpdateEverything()
@@ -19,7 +18,6 @@ namespace Stellamod.Core.LunarLightingSystem
             {
                 GlobalLum = 0.3f;
             }
-
             if (Main.LocalPlayer.ZoneUnderworldHeight)
             {
                 GlobalLum = 0.1f;
@@ -28,34 +26,26 @@ namespace Stellamod.Core.LunarLightingSystem
             {
                 GlobalLum = 0.5f;
             }
-        
-
-            if(Main.LocalPlayer.GetModPlayer<MyPlayer>().ZoneDrakonic || Main.LocalPlayer.GetModPlayer<MyPlayer>().ZoneCinder)
+            if(biomePlayer.ZoneDrakonic || biomePlayer.ZoneCinder)
             {
                 GlobalLum = 0.65f;
             }
             GlobalLightStrength = MathHelper.Lerp(GlobalLightStrength, GlobalLum, 0.1f);
-  
         }
     }
 
     public class GlobalLunarIllumination : GlobalWall
     {
-
         public override void ModifyLight(int i, int j, int type, ref float r, ref float g, ref float b)
         {
             var config = ModContent.GetInstance<LunarVeilClientConfig>();
             if (!config.BeamingLights)
                 return;
-
-          
             Tile tile = Main.tile[i, j];
             if (tile.HasTile)
                 return;
             if (tile.WallType > 0)
                 return;
-   
-
             float lightStrength = GlobalLumSystem.GlobalLightStrength;
             if (lightStrength > 0)
             {
@@ -63,8 +53,6 @@ namespace Stellamod.Core.LunarLightingSystem
                 g = MathHelper.Clamp(g + lightStrength, 0, 1);
                 b = MathHelper.Clamp(b + lightStrength, 0, 1);
             }
-        
-
         }
     }
 }

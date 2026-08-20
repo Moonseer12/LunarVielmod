@@ -41,15 +41,6 @@ namespace Stellamod.Items.Weapons.Ranged
             Item.noMelee = true;
         }
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemType<RadianuiBar>(), 20);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
-        }
-
-
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
 

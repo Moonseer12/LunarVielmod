@@ -55,14 +55,5 @@ namespace Stellamod.TilesNew.IceTiles
             Item.consumable = true;
             Item.createTile = ModContent.TileType<RunicIceCathedralTile>();
         }
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe(5);
-            recipe.AddIngredient(ItemID.IceBlock, 1);
-            recipe.AddIngredient(ItemID.GrayBrick, 1);
-            recipe.AddTile(TileID.Furnaces);
-            recipe.Register();
-        }
-        // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
     }
 }

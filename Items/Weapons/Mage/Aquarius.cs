@@ -46,15 +46,6 @@ namespace Stellamod.Items.Weapons.Mage
             Item.shootSpeed = 30;
         }
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<PureHeart>(), 1);
-            recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.Register();
-        }
-
-
         public override void PostUpdate()
         {
             Lighting.AddLight(Item.Center, Color.WhiteSmoke.ToVector3() * 0.55f * Main.essScale); // Makes this item glow when thrown out of inventory.

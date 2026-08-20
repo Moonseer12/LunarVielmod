@@ -210,7 +210,7 @@ namespace Stellamod.Content.Quests.VeiizalQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return DownedBossSystem.downedIrradiaBoss;
+            return true;//DownedBossTracker.IsDowned(DownedBossFlag.Irradia);
         }
     }
     public class HuntX : Quest
@@ -229,7 +229,7 @@ namespace Stellamod.Content.Quests.VeiizalQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return DownedBossSystem.downedSyliaBoss;
+            return true;//DownedBossTracker.IsDowned(DownedBossFlag.Sylia);
         }
     }
     public class HuntXI : Quest
@@ -248,7 +248,7 @@ namespace Stellamod.Content.Quests.VeiizalQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return DownedBossSystem.downedRekBoss;
+            return true;//DownedBossTracker.IsDowned(DownedBossFlag.Rek);
         }
     }
     public class HuntXII : Quest
@@ -267,7 +267,7 @@ namespace Stellamod.Content.Quests.VeiizalQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return DownedBossSystem.downedRekBoss;
+            return true;//DownedBossTracker.IsDowned(DownedBossFlag.Rek);
         }
     }
 }

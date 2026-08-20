@@ -14,7 +14,6 @@ using Stellamod.Items;
 using Stellamod.Items.Accessories.Players;
 using Stellamod.Items.Weapons.Melee;
 using Stellamod.NPCs.Bosses.IrradiaNHavoc.Irradia;
-using Stellamod.NPCs.Bosses.Verlia.Projectiles;
 using Stellamod.NPCs.Town;
 using Stellamod.UI.Dialogue;
 using System;
@@ -112,14 +111,6 @@ namespace Stellamod
                         Main.npc[n].netUpdate2 = true;
                     }
                     break;
-                case MessageType.CompleteMerenaQuest:
-                    var questType = (MerenaQuestSystem.QuestType)reader.ReadByte();
-                    MerenaQuestSystem.HandleCompleteQuest(questType);
-                    break;
-
-                case MessageType.CompleteZuiQuest:
-                    ZuiQuestSystem.QuestsCompleted++;
-                    break;
 
                 case MessageType.StartBossFromDialogue:
                     StartBossFromDialogue((DialogueType)reader.ReadInt32());
@@ -129,15 +120,6 @@ namespace Stellamod
                     StartDialogue((DialogueType)reader.ReadInt32());
                     break;
 
-                case MessageType.STARBLOCK:
-                    //EventWorld.Aurorean = false;
-                    if (Main.netMode == NetmodeID.Server)
-                    {
-                        NetworkText auroeanStarfallEnded = NetworkText.FromLiteral("The Aurorean Starfall has been blocked! :(");
-                        ChatHelper.BroadcastChatMessage(auroeanStarfallEnded, new Color(234, 96, 114));
-                    }
-
-                    break;
                 case MessageType.DashPlayerSync:
                     {
 
@@ -320,18 +302,6 @@ namespace Stellamod
         {
             switch (dialogueType)
             {
-                case DialogueType.Start_Verlia:
-                    foreach (NPC npc in Main.ActiveNPCs)
-                    {
-                        if (npc.type == ModContent.NPCType<StarteV>())
-                        {
-                            StarteV verlia = npc.ModNPC as StarteV;
-                            verlia.State = StarteV.ActionState.Death;
-                            verlia.ResetTimers();
-                        }
-                    }
-                    break;
-
                 case DialogueType.Start_Irradia:
                     foreach (NPC npc in Main.ActiveNPCs)
                     {
@@ -344,9 +314,6 @@ namespace Stellamod
                     }
 
                     break;
-                case DialogueType.Start_Goth:
-
-                    break;
             }
         }
         private static void StartDialogue(DialogueType dialogueType)
@@ -355,34 +322,12 @@ namespace Stellamod
                 return;
             switch (dialogueType)
             {
-                case DialogueType.Start_Verlia:
-                    {
-                        DialogueSystem dialogueSystem = ModContent.GetInstance<DialogueSystem>();
-
-                        //2. Create a new instance of your dialogue
-                        VerliasDialogue exampleDialogue = new VerliasDialogue();
-
-                        //3. Start it
-                        dialogueSystem.StartDialogue(exampleDialogue);
-                    }
-                    break;
                 case DialogueType.Start_Irradia:
                     {
                         DialogueSystem dialogueSystem = ModContent.GetInstance<DialogueSystem>();
 
                         //2. Create a new instance of your dialogue
                         IrradiaDialogue exampleDialogue = new IrradiaDialogue();
-
-                        //3. Start it
-                        dialogueSystem.StartDialogue(exampleDialogue);
-                    }
-                    break;
-                case DialogueType.Start_Goth:
-                    {
-                        DialogueSystem dialogueSystem = ModContent.GetInstance<DialogueSystem>();
-
-                        //2. Create a new instance of your dialogue
-                        GothiviaDialogue exampleDialogue = new GothiviaDialogue();
 
                         //3. Start it
                         dialogueSystem.StartDialogue(exampleDialogue);

@@ -15,14 +15,14 @@ public class LavaStyle : PixelWaterStyle
     {
 
         BiomePlayer biomePlayer = player.GetModPlayer<BiomePlayer>();
-        if (biomePlayer.ZoneHeatedDepths && !player.GetModPlayer<MyPlayer>().ZoneWonder)
+        if (biomePlayer.ZoneHeatedDepths && !player.GetModPlayer<BiomePlayer>().ZoneWonder)
             return true;
 
 
         return 
             player.ZoneUnderworldHeight || 
-            player.GetModPlayer<MyPlayer>().ZoneCinder || 
-            player.GetModPlayer<MyPlayer>().ZoneDrakonic;
+            player.GetModPlayer<BiomePlayer>().ZoneCinder || 
+            player.GetModPlayer<BiomePlayer>().ZoneDrakonic;
     }
     public override void ModifyPixelWater(ref PixelWater pixelWater)
     {

@@ -28,13 +28,5 @@ namespace Stellamod.Items.Consumables
             Item.useStyle = ItemUseStyleID.Swing;
             Item.rare = ItemRarityID.Orange;
         }
-
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ModContent.ItemType<RadianuiBar>(), 1);
-            recipe.AddTile(TileID.DemonAltar);
-            recipe.Register();
-        }
     }
 }

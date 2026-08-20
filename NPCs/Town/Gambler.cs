@@ -361,13 +361,6 @@ namespace Stellamod.NPCs.Town
                         shopSpecialCurrency = Stellamod.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
                     })
 
-                    .Add(new Item(ModContent.ItemType<Items.Consumables.Gambit>())
-                    {
-                        shopCustomPrice = 5,
-                        shopSpecialCurrency = Stellamod.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
-
-
                     .Add(new Item(ModContent.ItemType<Items.Accessories.Igniter.ReverieExtenderPowder>())
                     {
                         shopCustomPrice = 5,

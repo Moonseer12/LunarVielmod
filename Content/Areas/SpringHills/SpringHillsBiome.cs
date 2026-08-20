@@ -12,10 +12,8 @@ namespace Stellamod.Content.Areas.SpringHills
 {
     public class SpringHillsBiome : BaseUrdveilBiome
     {
-        // Select all the scenery
         public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<NoBackgroundStyle>();
         public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Normal;
-        // Select Music
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
         public override int Music
         {
@@ -27,7 +25,6 @@ namespace Stellamod.Content.Areas.SpringHills
                 return music;
             }
         }
-
         public override bool IsBiomeActive(Player player)
         {
             bool isaActive = BiomeTileCounts.InForest && player.ZoneOverworldHeight || BiomeTileCounts.InSpringHills;
@@ -43,18 +40,14 @@ namespace Stellamod.Content.Areas.SpringHills
                 return false;
             if (player.InModBiome<XixVillageBiome>())
                 return false;
-
             if (player.ZoneBeach)
                 return false;
             if (player.ZoneSnow)
                 return false;
-
             if (player.InZonePurity())
                 return true;
-
             return true;
         }
-
         public override string BestiaryIcon => base.BestiaryIcon;
         public override string BackgroundPath => base.BackgroundPath;
         public override Color? BackgroundColor => base.BackgroundColor;
@@ -63,7 +56,6 @@ namespace Stellamod.Content.Areas.SpringHills
             base.OnEnter(player);
             player.GetModPlayer<BiomePlayer>().ZoneSpringHills = true;
         }
-
         public override void OnLeave(Player player)
         {
             base.OnLeave(player);

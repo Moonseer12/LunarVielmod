@@ -409,7 +409,6 @@ namespace Stellamod.NPCs.Bosses.IrradiaNHavoc.Irradia
         {
             p2 = NPC.life < NPC.lifeMax * 0.5f;
             bee--;
-            //Main.LocalPlayer.GetModPlayer<MyPlayer>().FocusOn(base.NPC.Center, 10f);
             NPC.damage = 0;
             GothiviaStartPosTime++;
 
@@ -1341,7 +1340,6 @@ namespace Stellamod.NPCs.Bosses.IrradiaNHavoc.Irradia
 
             // ItemDropRule.MasterModeCommonDrop for the relic
 
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Gambit>(), 1, 3, 7));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Twirlers>(), 1, 1, 1));
             //npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ManifestedCommitment>(), 1, 1, 1));
 
@@ -1404,7 +1402,6 @@ namespace Stellamod.NPCs.Bosses.IrradiaNHavoc.Irradia
             {
                 Terraria.Graphics.Effects.Filters.Scene["Shockwave"].Deactivate();
             }
-            NPC.SetEventFlagCleared(ref DownedBossSystem.downedIrradiaBoss, -1);
         }
 
     }

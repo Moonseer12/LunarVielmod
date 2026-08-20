@@ -112,7 +112,7 @@ namespace Stellamod.Content.Areas.Dungeon.BossesDG.Bisinine
 
         public bool CanSpawn()
         {
-            return !NPC.AnyNPCs(ModContent.NPCType<Bishinine>()) && !DownedBossSystem.downedBishinineBoss;
+            return !NPC.AnyNPCs(ModContent.NPCType<Bishinine>()) && !DownedBossTracker.IsDowned(DownedBossFlag.Bishinine);
         }
     }
 }

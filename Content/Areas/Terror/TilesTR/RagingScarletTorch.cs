@@ -66,16 +66,6 @@ public class RagingScarletTorch : ModItem
             Lighting.AddLight(Item.Center, 1f, 0.3f, 0.3f);
         }
     }
-
-    // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
-    public override void AddRecipes()
-    {
-        CreateRecipe()
-            .AddIngredient(ItemID.Torch, 50)
-            .AddIngredient(ItemID.Vertebrae, 1)
-            .SortAfterFirstRecipesOf(ItemID.Torch)
-            .Register();
-    }
 }
 
 //// Torches are special tiles that support the block swap feature and the biome torch feature. ExampleSurfaceBiome shows how the biome torch is assigned.

@@ -84,12 +84,6 @@ namespace Stellamod.Items.Weapons.Ranged
 
         }
 
-
-        //Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Items/Accessories/Brooches/AdvancedBroochesBackpack").Value;
-        //	spriteBatch.Draw(iconTexture, position, null, drawColor, 0f, origin, scale, SpriteEffects.None, 0);
-
-        //	return false;
-
         public override bool AltFunctionUse(Player player)
         {
             return true;

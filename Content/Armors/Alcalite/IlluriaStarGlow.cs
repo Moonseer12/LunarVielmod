@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Armors.Alcalite
@@ -18,12 +16,6 @@ namespace Stellamod.Content.Armors.Alcalite
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-            if (!player.GetModPlayer<MyPlayer>().HasAlcaliteSet)
-            {
-                Projectile.Kill();
-                return;
-            }
-
             Projectile.Center = player.Center;
         }
 
@@ -31,11 +23,8 @@ namespace Stellamod.Content.Armors.Alcalite
         {
             string texture = "Stellamod/Assets/NoiseTextures/ZuiEffect";
             Texture2D maskTexture = ModContent.Request<Texture2D>(texture).Value;
-
-            Vector2 textureSize = new Vector2(143, 143);
+            Vector2 textureSize = new(143, 143);
             Vector2 drawOrigin = textureSize / 2;
-
-            //Lerping
             float progress = VectorHelper.Osc(0, 1);
             float alpha = VectorHelper.Osc(0, 1);
             Color color = Color.Lerp(Color.LightGoldenrodYellow, Color.DarkGoldenrod, progress);

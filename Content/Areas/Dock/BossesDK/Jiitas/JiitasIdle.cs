@@ -138,7 +138,7 @@ namespace Stellamod.Content.Areas.Dock.BossesDK.Jiitas
 
         public bool CanSpawn()
         {
-            return !NPC.AnyNPCs(ModContent.NPCType<Jiitas>()) && !DownedBossSystem.downedJiitasBoss;
+            return !NPC.AnyNPCs(ModContent.NPCType<Jiitas>()) && !DownedBossTracker.IsDowned(DownedBossFlag.Jiitas);
         }
     }
 }

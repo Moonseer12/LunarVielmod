@@ -90,17 +90,5 @@ namespace Stellamod.Items.Accessories.Wings
             Vector2 position = new Vector2(Item.position.X, Item.position.Y + y);
             Item.position = position;
         }
-
-
-
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.Feather, 5);
-            recipe.AddIngredient(ItemID.SoulofFlight, 20);
-            recipe.AddIngredient(ModContent.ItemType<RadianuiBar>(), 20);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.Register();
-        }
     }
 }

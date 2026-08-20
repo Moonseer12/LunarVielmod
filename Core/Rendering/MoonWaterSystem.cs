@@ -458,7 +458,7 @@ public class MoonWaterSystem : ModSystem
         float targetWaterAlpha = 1f;
         if (Main.LocalPlayer.GetModPlayer<BiomePlayer>().ZoneDeepBelowCoralways)
             targetWaterAlpha = 0.1f;
-        if (Main.LocalPlayer.GetModPlayer<MyPlayer>().ZoneWonder)
+        if (Main.LocalPlayer.GetModPlayer<BiomePlayer>().ZoneWonder)
             targetWaterAlpha = 0.95f;
         waterAlpha = MathHelper.Lerp(waterAlpha, targetWaterAlpha, 0.1f);
     }

@@ -7,7 +7,6 @@ using Stellamod.Items.Accessories;
 using Stellamod.Items.Armors.Vanity.Verlia;
 using Stellamod.Items.Consumables;
 using Stellamod.Items.Ores;
-using Stellamod.Items.Quest.Zui;
 using Stellamod.NPCs.Bosses.Zui.Projectiles;
 using Stellamod.NPCs.Town;
 using System;
@@ -2176,14 +2175,9 @@ namespace Stellamod.NPCs.Bosses.Zui
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Consumables.Gambit>(), 1, 5, 10));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MagiciansCodeHat>(), 1, 1, 1));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RadianuiBar>(), 1, 10, 40));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShopNote>(), 1, 1, 1));
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<ZuiBomb>()));
-            LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CompletedFlowerBag>(), minimumDropped: 1, maximumDropped: 3));
-            npcLoot.Add(notExpertRule);
         }
 
         private void FinishResetTimers()
@@ -2232,10 +2226,6 @@ namespace Stellamod.NPCs.Bosses.Zui
             {
                 NPC.NewNPC(entitySource, (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ZuiDeath>());
             }
-
-            NPC.SetEventFlagCleared(ref DownedBossSystem.downedZuiBoss, -1);
-            ZuiQuestSystem.QuestsCompleted += 30;
-            ZuiQuestSystem.SendCompleteQuestPacket();
         }
     }
 }

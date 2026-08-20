@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Stellamod.Helpers;
-using Stellamod.Items.Harvesting;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -120,16 +119,6 @@ namespace Stellamod.NPCs.Underground
             //You can't be in the surface and underground at the same time so this should work
             //0.05f should make it 20 less Core than normal spawns.
             return SpawnRates.GetFlowerSpawnChance(spawnInfo);
-        }
-
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ItemID.Moonglow, 1, 1, 30));
-            npcLoot.Add(ItemDropRule.Common(ItemID.Daybloom, 1, 1, 30));
-            npcLoot.Add(ItemDropRule.Common(ItemID.Shiverthorn, 1, 1, 30));
-            npcLoot.Add(ItemDropRule.Common(ItemID.Vine, 3, 1, 15));
-            npcLoot.Add(ItemDropRule.Common(ItemID.JungleSpores, 2, 1, 15));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FlowerBatch>(), 1, 1, 3));
         }
 
         Vector2 Drawoffset => new Vector2(0, NPC.gfxOffY) + Vector2.UnitX * NPC.spriteDirection * 0 + new Vector2(0, -30);

@@ -39,10 +39,8 @@ public class WonderousDarkspaceBackground : CustomBG
 
     public override bool IsActive()
     {
-        return false;
         BiomePlayer biomePlayer = Main.LocalPlayer.GetModPlayer<BiomePlayer>();
-        MyPlayer myPlayer = Main.LocalPlayer.GetModPlayer<MyPlayer>();
-        return myPlayer.ZoneWonder && !myPlayer.ZoneCinder;
+        return biomePlayer.ZoneWonder && !biomePlayer.ZoneCinder;
     }
 }
 
@@ -115,6 +113,6 @@ public class DarkspaceBG : CustomBG
     public override bool IsActive()
     {
         DrawOffset = new Vector2(0, 64);
-        return Main.LocalPlayer.GetModPlayer<MyPlayer>().ZoneWonder;
+        return Main.LocalPlayer.GetModPlayer<BiomePlayer>().ZoneWonder;
     }
 }

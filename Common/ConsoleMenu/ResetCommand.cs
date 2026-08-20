@@ -37,7 +37,6 @@ public class ResetCommand : ConsoleCommand
                 player.GetModPlayer<LevelingPlayer>().ResetStats();
                 return true;
             case "boss":
-                DownedBossSystem.ResetFlags();
                 DownedBossTracker.ResetFlags();
                 DownedBossRewardPlayer rewardPlayer = player.GetModPlayer<DownedBossRewardPlayer>();
                 rewardPlayer.ResetFlags();

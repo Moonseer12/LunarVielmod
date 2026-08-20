@@ -23,7 +23,6 @@ public class ForestBG : CustomBG
         BackLayer.Parallax = FarParallax;
         BackLayer.DrawOffset = Vector2.Zero;
         AddLayer(BackLayer);
-
     }
 
     private void AddMidLayer()
@@ -43,6 +42,7 @@ public class ForestBG : CustomBG
         FrontLayer.DrawOffset = Vector2.Zero;
         AddLayer(FrontLayer);
     }
+
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
@@ -50,7 +50,6 @@ public class ForestBG : CustomBG
         AddFarLayer();
         AddMidLayer();
         AddCloseLayer();
-
         BleedLayer = new CustomBGLayer();
         BleedLayer.SetTexture("Assets/Textures/Backgrounds/ForestUnderground");
         BleedLayer.Parallax = CloseParallax;
@@ -64,9 +63,8 @@ public class ForestBG : CustomBG
         DrawScale = 1f;
         DrawOffset = new Vector2(0, 400);
         ParallaxYFactor = 0.35f;
-
         BiomePlayer biomePlayer = Main.LocalPlayer.GetModPlayer<BiomePlayer>();
-        bool isActive = biomePlayer.ZoneForest || biomePlayer.ZoneSpringHills || biomePlayer.ZoneEveroseVillage || Main.LocalPlayer.GetModPlayer<MyPlayer>().ZoneVillage;
+        bool isActive = biomePlayer.ZoneForest || biomePlayer.ZoneSpringHills || biomePlayer.ZoneEveroseVillage || Main.LocalPlayer.GetModPlayer<BiomePlayer>().ZoneVillage;
         return isActive;
     }
 }

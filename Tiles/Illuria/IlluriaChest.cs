@@ -85,7 +85,7 @@ namespace Stellamod.Tiles.Illuria
             DustType = dustType;
 
             //Locked until post plant
-            return NPC.downedPlantBoss;
+            return true;
         }
 
         public static string MapChestName(string name, int i, int j)

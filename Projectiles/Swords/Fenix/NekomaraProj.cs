@@ -94,7 +94,6 @@ namespace Stellamod.Projectiles.Swords.Fenix
             Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.Projectile.Center, 2212f, 6f);
             Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X + speedXa, Projectile.position.Y + speedYa, speedXa * 0, speedYa * 0, ModContent.ProjectileType<KaBoomSigil>(), (int)(Projectile.damage * 1.5f), 0f, Projectile.owner, 0f, 0f);
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Starblast"), Projectile.position);
-            // Item.NewItem(Projectile.GetSource_FromThis(), Projectile.getRect(), ModContent.ItemType<AuroreanStarI>(), Main.rand.Next(1, 1));
         }
 
         public override void PostDraw(Color lightColor)

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Stellamod.Backgrounds;
 using Stellamod.Content.Areas.Ishtar;
+using Stellamod.Content.Biomes;
 using Stellamod.Core.Biomes;
 using Terraria;
 using Terraria.Graphics.Capture;
@@ -8,29 +9,16 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Assets.Biomes
 {
-    // Shows setting up two basic biomes. For a more complicated example, please request.
     public class FableBiome : BaseUrdveilBiome
     {
-        public bool IsPrimaryBiome = true; // Allows this biome to impact NPC prices
-
-
-        // Select all the scenery
-        public override ModWaterStyle WaterStyle => ModContent.GetInstance<IshtarWaterStyle>(); // Sets a water style for when inside this biome
-        public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<FabledBackgroundStyle>(); //ModContent.Find<ModSurfaceBackgroundStyle>("Stellamod/FabledBackgroundStyle");
+        public bool IsPrimaryBiome = true;
+        public override ModWaterStyle WaterStyle => ModContent.GetInstance<IshtarWaterStyle>();
+        public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<FabledBackgroundStyle>();
         public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Normal;
-
-        // Select Music
-
-
-
         public override int Music
         {
             get
             {
-                //Put your if statement here
-
-
-                //Normal music
                 if (Main.dayTime)
                 {
                     return MusicLoader.GetMusicSlot(Mod, "Assets/Music/OggFabledWilds");
@@ -41,31 +29,20 @@ namespace Stellamod.Assets.Biomes
                 }
             }
         }
-
         public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
-
-        // Populate the Bestiary Filter
         public override string BestiaryIcon => base.BestiaryIcon;
         public override string BackgroundPath => base.BackgroundPath;
         public override Color? BackgroundColor => base.BackgroundColor;
-
-        // Use SetStaticDefaults to assign the display name
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Cathedral of the Moon");
-        }
-
-        // Calculate when the biome is active.
         public override bool IsBiomeActive(Player player) => BiomeTileCounts.InFable;
         public override void OnEnter(Player player)
         {
             base.OnEnter(player);
-            player.GetModPlayer<MyPlayer>().ZoneFable = true;
+            player.GetModPlayer<BiomePlayer>().ZoneFable = true;
         }
         public override void OnLeave(Player player)
         {
             base.OnLeave(player);
-            player.GetModPlayer<MyPlayer>().ZoneFable = false;
+            player.GetModPlayer<BiomePlayer>().ZoneFable = false;
         }
     }
 }

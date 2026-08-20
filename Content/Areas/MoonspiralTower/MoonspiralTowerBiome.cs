@@ -16,10 +16,7 @@ namespace Stellamod.Content.Areas.MoonspiralTower
     {
         public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<StarbloomBackgroundStyle>();
         public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Normal;
-
-        // Select Music
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
-
         public override int Music
         {
             get
@@ -27,12 +24,9 @@ namespace Stellamod.Content.Areas.MoonspiralTower
                 return MusicLoader.GetMusicSlot(Mod, "Assets/Music/MoonspiralTower");
             }
         }
-
-
         public override string BestiaryIcon => base.BestiaryIcon;
         public override string BackgroundPath => base.BackgroundPath;
         public override Color? BackgroundColor => base.BackgroundColor;
-
         public override bool IsBiomeActive(Player player) => BiomeTileCounts.InMoonspiralTower;
         public override void OnEnter(Player player)
         {

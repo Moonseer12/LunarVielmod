@@ -1,4 +1,5 @@
 ﻿using Stellamod.Common.QuestSystem;
+using Stellamod.Content.Biomes;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Items.Accessories;
 using Stellamod.Items.Weapons.Melee.Greatswords;
@@ -35,7 +36,7 @@ namespace Stellamod.Content.Quests.DelgrimQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return player.GetModPlayer<MyPlayer>().ZoneColloseum;
+            return player.GetModPlayer<BiomePlayer>().ZoneColloseum;
         }
     }
     public class MysteriousPlacesII : DelgrimQuest
@@ -54,7 +55,7 @@ namespace Stellamod.Content.Quests.DelgrimQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return player.GetModPlayer<MyPlayer>().ZoneAbyss;
+            return player.GetModPlayer<BiomePlayer>().ZoneAbyss;
         }
     }
     public class MysteriousPlacesIII : DelgrimQuest
@@ -73,7 +74,7 @@ namespace Stellamod.Content.Quests.DelgrimQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return player.GetModPlayer<MyPlayer>().ZoneDrakonic;
+            return player.GetModPlayer<BiomePlayer>().ZoneDrakonic;
         }
     }
     public class MysteriousPlacesIV : DelgrimQuest
@@ -92,7 +93,7 @@ namespace Stellamod.Content.Quests.DelgrimQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return player.GetModPlayer<MyPlayer>().ZoneGovheil;
+            return player.GetModPlayer<BiomePlayer>().ZoneGovheil;
         }
     }
     public class MysteriousPlacesV : DelgrimQuest
@@ -111,7 +112,7 @@ namespace Stellamod.Content.Quests.DelgrimQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return player.GetModPlayer<MyPlayer>().ZoneAlcadzia;
+            return player.GetModPlayer<BiomePlayer>().ZoneAlcadzia;
         }
 
 
@@ -132,7 +133,7 @@ namespace Stellamod.Content.Quests.DelgrimQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return player.GetModPlayer<MyPlayer>().ZoneIlluria;
+            return player.GetModPlayer<BiomePlayer>().ZoneIlluria;
         }
     }
 
@@ -172,7 +173,7 @@ namespace Stellamod.Content.Quests.DelgrimQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return player.GetModPlayer<MyPlayer>().ZoneMothlight;
+            return player.GetModPlayer<BiomePlayer>().ZoneMothlight;
         }
     }
 }

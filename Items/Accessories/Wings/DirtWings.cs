@@ -36,16 +36,5 @@ namespace Stellamod.Items.Accessories.Wings
             maxAscentMultiplier = 3f;
             constantAscend = 0.135f;
         }
-
-        // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
-        public override void AddRecipes()
-        {
-            CreateRecipe()
-                .AddIngredient(ItemID.DirtBlock, 999)
-                .AddIngredient(ItemID.SoulofFlight, 20)
-                .AddTile(TileID.MythrilAnvil)
-                .SortBefore(Main.recipe.First(recipe => recipe.createItem.wingSlot != -1)) // Places this recipe before any wing so every wing stays together in the crafting menu.
-                .Register();
-        }
     }
 }

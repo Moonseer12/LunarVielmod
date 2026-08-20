@@ -1,8 +1,8 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
+using Stellamod.Content.Biomes;
 using Stellamod.Core.Backgrounds;
-using Stellamod.Helpers;
 using Terraria;
 
 namespace Stellamod.Content.Areas.Underground;
@@ -29,8 +29,8 @@ public class MineshaftBackground : CustomBG
         Vector2[] offsets = new Vector2[10];
         for (int i = 0; i < numBackgrounds; i++)
         {
-            offsets[i] = Vector2.Lerp(new Vector2(0f, 0), new Vector2(0f, 1f), (float)i / (float)numBackgrounds);
-            parallax[i] = Vector2.Lerp(new Vector2(0.01f, 0.01f), Vector2.Zero, (float)i / (float)numBackgrounds) * (CameraMovement) * 0.01f;
+            offsets[i] = Vector2.Lerp(new Vector2(0f, 0), new Vector2(0f, 1f), i / (float)numBackgrounds);
+            parallax[i] = Vector2.Lerp(new Vector2(0.01f, 0.01f), Vector2.Zero, i / (float)numBackgrounds) * CameraMovement * 0.01f;
         }
 
         AtlassedParallaxingBackgroundShader backgroundShader = AtlassedParallaxingBackgroundShader.Instance;
@@ -47,12 +47,9 @@ public class MineshaftBackground : CustomBG
             DepthStencilState.None,
             RasterizerState.CullNone,
             backgroundShader.Effect);
-
         Color baseColor = Color.Lerp(Color.White, Color.Black, 0.75f);
-      //  baseColor = Color.Lerp(baseColor, Main.ColorOfTheSkies, 0.5f);
         Color drawColor = baseColor * Alpha;
-
-        Rectangle drawRect = new Rectangle(0, 0, Main.screenWidth, Main.screenHeight);
+        Rectangle drawRect = new(0, 0, Main.screenWidth, Main.screenHeight);
         for (int i = numBackgrounds; i >= 0; i--)
         {
             SpritebatchDrawer drawer = SpritebatchDrawer.FromTextureAsset(_backgroundTextureAsset, Main.screenPosition);
@@ -63,12 +60,11 @@ public class MineshaftBackground : CustomBG
             drawer.dstRect = drawRect;
             spriteBatch.Draw(drawer);
         }
-
         spriteBatch.End();
     }
 
     public override bool IsActive()
     {
-        return Main.LocalPlayer.GetModPlayer<MyPlayer>().ZoneMineshaft;
+        return Main.LocalPlayer.GetModPlayer<BiomePlayer>().ZoneMineshaft;
     }
 }

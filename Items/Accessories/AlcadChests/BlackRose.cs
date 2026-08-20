@@ -55,15 +55,5 @@ namespace Stellamod.Items.Accessories.AlcadChests
                 player.statLife -= 10;
             }
         }
-
-        public override void AddRecipes()
-        {
-            base.AddRecipes();
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.ManaFlower);
-            recipe.AddIngredient(ModContent.ItemType<BlackRose>());
-            recipe.AddTile(TileID.TinkerersWorkbench);
-            recipe.Register();
-        }
     }
 }

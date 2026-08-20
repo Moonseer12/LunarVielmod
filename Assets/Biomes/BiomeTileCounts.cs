@@ -36,9 +36,6 @@ namespace Stellamod
         public int GovheilCount;
         public static bool InGovheil => ModContent.GetInstance<BiomeTileCounts>().GovheilCount > 30;
 
-        public int StarbloomCount;
-        public static bool InStarbloom => ModContent.GetInstance<BiomeTileCounts>().StarbloomCount > 20;
-
         public int NaxtrinCount;
         public static bool InNaxtrin => ModContent.GetInstance<BiomeTileCounts>().NaxtrinCount > 10;
 
@@ -72,12 +69,6 @@ namespace Stellamod
 
         public int ManorCount;
         public static bool InManor => ModContent.GetInstance<BiomeTileCounts>().ManorCount > 10;
-
-        public int MechCount;
-        public static bool InMech => ModContent.GetInstance<BiomeTileCounts>().MechCount > 5;
-
-        public int LabCount;
-        public static bool InLab => ModContent.GetInstance<BiomeTileCounts>().LabCount > 5;
 
         public int IlluriaCount;
         public static bool InIlluria => ModContent.GetInstance<BiomeTileCounts>().IlluriaCount > 5;
@@ -168,7 +159,6 @@ namespace Stellamod
             AbyssCount = tileCounts[ModContent.TileType<AbyssalDirt>()];
             AurelusCount = tileCounts[ModContent.TileType<AurelusTempleBlock>()];
             GovheilCount = tileCounts[ModContent.TileType<GovheilCastleTile>()];
-            StarbloomCount = tileCounts[ModContent.TileType<StarbloomTempleBlock>()];
             NaxtrinCount = tileCounts[ModContent.TileType<NoxianBlock>()];
             RoyalCapitalCount = tileCounts[ModContent.TileType<AlcazBlock>()];
             VeriCount = tileCounts[ModContent.TileType<VeriplantDirt>()];
@@ -178,8 +168,6 @@ namespace Stellamod
             EveroseCount = tileCounts[ModContent.TileType<VeriplantGrass>()];
             CinderCount = tileCounts[ModContent.TileType<CindersparkDirt>()];
             ManorCount = tileCounts[ModContent.TileType<ManorBlock>()];
-            MechCount = tileCounts[ModContent.TileType<StarbloomTempleBlock>()];
-            LabCount = tileCounts[ModContent.TileType<LostScrapT>()];
             IlluriaCount = tileCounts[ModContent.TileType<IlluriaGrass>()];
             VeilCount = tileCounts[ModContent.TileType<CatagrassBlock>()];
             IshtarCount = tileCounts[ModContent.TileType<IshtarMoss>()] + tileCounts[ModContent.TileType<IshtarTempleBlock>()];

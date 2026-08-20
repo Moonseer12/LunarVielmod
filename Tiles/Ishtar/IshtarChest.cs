@@ -85,7 +85,7 @@ namespace Stellamod.Tiles.Ishtar
             DustType = dustType;
 
             //Locked until post plant
-            return DownedBossSystem.downedZuiBoss = true;
+            return true;
         }
 
         public static string MapChestName(string name, int i, int j)

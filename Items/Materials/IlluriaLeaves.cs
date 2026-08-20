@@ -28,14 +28,5 @@ namespace Stellamod.Items.Materials
             Item.consumable = true;
             Item.createTile = ModContent.TileType<Tiles.IlluriaLeafTile>();
         }
-
-        // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe(10);
-            recipe.AddIngredient(ModContent.ItemType<IlluriaGrassBlock>(), 1);
-            recipe.AddTile(TileID.LivingLoom);
-            recipe.Register();
-        }
     }
 }

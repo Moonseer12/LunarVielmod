@@ -8,7 +8,6 @@ using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Particles;
 using Stellamod.Helpers;
 using Stellamod.Items;
-using Stellamod.Items.Harvesting;
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;

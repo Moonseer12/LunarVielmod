@@ -25,7 +25,7 @@ namespace Stellamod.Core.Palettes
 
         private float _blackWhiteLerp;
 
-        private MyPlayer MyPlayer => Player.GetModPlayer<MyPlayer>();
+        private BiomePlayer MyPlayer => Player.GetModPlayer<BiomePlayer>();
 
         private FilterManager FilterManager => Filters.Scene;
 
@@ -102,28 +102,27 @@ namespace Stellamod.Core.Palettes
             LunarVeilClientConfig clientConfig = ModContent.GetInstance<LunarVeilClientConfig>();
             ScreenShaderData screenShaderData;
             bool abyssPaletteActive = (MyPlayer.ZoneAbyss || MyPlayer.ZoneAurelus) && clientConfig.PaletteShadersToggle;
-    //        bool rustyPaletteActive = (MyPlayer.ZoneGovheil || MyPlayer.ZoneAcid) && clientConfig.PaletteShadersToggle;
             bool hellPaletteActive = ((clientConfig.VanillaBiomesPaletteShadersToggle && Player.ZoneUnderworldHeight) || (MyPlayer.ZoneCinder || MyPlayer.ZoneDrakonic) && clientConfig.PaletteShadersToggle);
 
-            if (Player.GetModPlayer<MyPlayer>().ZoneWonder)
+            if (MyPlayer.ZoneWonder)
                 hellPaletteActive = false;
 
             bool royalCapitalPaletteActive = MyPlayer.ZoneAlcadzia && clientConfig.PaletteShadersToggle;
 
             bool dungeonPaletteActive = clientConfig.VanillaBiomesPaletteShadersToggle && Player.ZoneDungeon;
             bool desertPaletteActive = clientConfig.VanillaBiomesPaletteShadersToggle
-               && (Player.ZoneDesert || Player.GetModPlayer<MyPlayer>().ZoneAshotiTemple)
+               && (Player.ZoneDesert || MyPlayer.ZoneAshotiTemple)
                && !(Player.ZoneCrimson || Player.ZoneCorrupt)
                && Player.ZoneUndergroundDesert;
 
             bool desertTopPaletteActive = clientConfig.VanillaBiomesPaletteShadersToggle
-           && (Player.ZoneDesert || Player.GetModPlayer<MyPlayer>().ZoneAshotiTemple || Player.GetModPlayer<MyPlayer>().ZoneColloseum)
+           && (Player.ZoneDesert || MyPlayer.ZoneAshotiTemple || MyPlayer.ZoneColloseum)
            && !(Player.ZoneCrimson || Player.ZoneCorrupt)
            && !Player.ZoneUndergroundDesert;
 
 
-            bool fablePaletteActive = Player.GetModPlayer<MyPlayer>().ZoneFable && clientConfig.PaletteShadersToggle;
-            bool mistyPaletteActive = Player.GetModPlayer<BiomePlayer>().ZoneMistyDungeon && clientConfig.PaletteShadersToggle;
+            bool fablePaletteActive = MyPlayer.ZoneFable && clientConfig.PaletteShadersToggle;
+            bool mistyPaletteActive = MyPlayer.ZoneMistyDungeon && clientConfig.PaletteShadersToggle;
             bool bloodPaletteActive = MyPlayer.ZoneBloodCathedral && !Main.dayTime && clientConfig.PaletteShadersToggle;
             //  bloodPaletteActive |= NPC.AnyNPCs(ModContent.NPCType<SanguineSingularity>());
          //   bloodPaletteActive = true;
@@ -248,7 +247,7 @@ namespace Stellamod.Core.Palettes
             {
                 darkness = 0;
             }
-            if (Player.GetModPlayer<MyPlayer>().ZoneCinder || Player.GetModPlayer<MyPlayer>().ZoneWonder || Player.GetModPlayer<BiomePlayer>().ZoneMistyDungeon)
+            if (MyPlayer.ZoneCinder || MyPlayer.ZoneWonder || MyPlayer.ZoneMistyDungeon)
                 darkness = 0;
 
             _targetVignetteStrength = darkness;

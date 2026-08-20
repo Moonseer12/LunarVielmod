@@ -125,13 +125,7 @@ namespace Stellamod.NPCs.Town
             .Add(new Item(ItemID.Book) { shopCustomPrice = Item.buyPrice(copper: 50) })
             .Add(new Item(ItemID.FallenStar) { shopCustomPrice = Item.buyPrice(silver: 75) })
             .Add(new Item(ItemID.AbigailsFlower) { shopCustomPrice = Item.buyPrice(gold: 1) })
-            .Add(new Item(ModContent.ItemType<BurnedCarianTome>()))
-            .Add<AlcadBomb>(MerenaQuestSystem.ShopConditionKillVerlia) //{ shopCustomPrice = Item.buyPrice(silver: 10) })//{ shopCustomPrice = Item.buyPrice(platinum: 1) })
-            .Add<PearlescentScrap>(MerenaQuestSystem.ShopConditionKillVerlia)
-            .Add<AlsisMask>(MerenaQuestSystem.ShopConditionTome)
-            .Add<AlsisChestplate>(MerenaQuestSystem.ShopConditionTome)
-            .Add<AlsisMask>(MerenaQuestSystem.ShopConditionTome)//{ shopCustomPrice = Item.buyPrice(platinum: 1) })//{ shopCustomPrice = Item.buyPrice(silver: 10) })
-            .Add<AlcaricMush>(MerenaQuestSystem.ShopConditionTome); //{ shopCustomPrice = Item.buyPrice(gold: 2) })
+            .Add(new Item(ModContent.ItemType<BurnedCarianTome>()));
             npcShop.Register(); // Name of this shop tab		
         }
 

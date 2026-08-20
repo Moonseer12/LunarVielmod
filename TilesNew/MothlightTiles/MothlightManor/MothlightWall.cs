@@ -46,13 +46,5 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
             Item.consumable = true;
             Item.createWall = ModContent.WallType<MothlightWall>();
         }
-
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(ModContent.ItemType<MothlightBrickBlock>(), 1);
-            recipe.AddTile(TileID.WorkBenches);
-            recipe.Register();
-        }
     }
 }

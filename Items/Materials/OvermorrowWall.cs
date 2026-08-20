@@ -26,13 +26,5 @@ namespace Stellamod.Items.Materials
             Item.consumable = true;
             Item.createWall = ModContent.WallType<Tiles.OvermorrowWallblock>();
         }
-
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(ModContent.ItemType<OvermorrowWood>(), 1);
-            recipe.AddTile(TileID.WorkBenches);
-            recipe.Register();
-        }
     }
 }

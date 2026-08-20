@@ -248,9 +248,9 @@ public class DaedusLibrarian : VeilTownNPC
         .Add<CocoSpark>(Condition.DownedEowOrBoc)
         .Add<ShinobiTome>(Condition.DownedEowOrBoc)
         .Add<ShadeHandTome>(Condition.DownedEowOrBoc)
-        .Add<VoidsGrasp>(CustomConditions.PostGintzia)
-        .Add<StarShower>(CustomConditions.PostGintzia)
-        .Add<TheDeafen>(CustomConditions.PostGintzia);
+        .Add<VoidsGrasp>()
+        .Add<StarShower>()
+        .Add<TheDeafen>();
         npcShop.Register();
     }
 }

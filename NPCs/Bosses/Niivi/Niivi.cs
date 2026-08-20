@@ -1671,12 +1671,6 @@ namespace Stellamod.NPCs.Bosses.Niivi
             TargetHeadRotation = NPC.Center.DirectionTo(Target.Center).ToRotation();
             if (Timer >= 120)
             {
-                if (!DownedBossSystem.downedNiiviBoss)
-                {
-                    NPC.SetEventFlagCleared(ref DownedBossSystem.downedNiiviBoss, -1);
-                }
-
-
                 NPC.active = false;
             }
         }
@@ -1685,7 +1679,6 @@ namespace Stellamod.NPCs.Bosses.Niivi
         public override void OnKill()
         {
             ResetShaders();
-            NPC.SetEventFlagCleared(ref DownedBossSystem.downedNiiviBoss, -1);
         }
 
         private void ResetShaders()
@@ -1694,16 +1687,6 @@ namespace Stellamod.NPCs.Bosses.Niivi
             shaderSystem.UnTintScreen();
             shaderSystem.UnDistortScreen();
             shaderSystem.UnVignetteScreen();
-        }
-
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            base.ModifyNPCLoot(npcLoot);
-            LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
-            notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<PureHeart>(), minimumDropped: 1, maximumDropped: 1));
-            npcLoot.Add(notExpertRule);
-
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<PureHeart>()));
         }
     }
 }

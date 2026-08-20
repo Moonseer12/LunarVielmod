@@ -2907,7 +2907,7 @@ public class STARBOMBERV2 : ScarletBoss,
 
     public bool CanSpawn()
     {
-        return !DownedBossSystem.downedSTARBoss && !NPC.AnyNPCs(Type);
+        return !DownedBossTracker.IsDowned(DownedBossFlag.StarBomber) && !NPC.AnyNPCs(Type);
     }
     #endregion
 }

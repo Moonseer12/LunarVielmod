@@ -21,9 +21,8 @@ namespace Stellamod.Items
 
         private bool CanShimmer(On_Item.orig_CanShimmer orig, Item self)
         {
-            //Cannot shimmer until goth is dead
-            if (self.type == ItemID.RodofDiscord && !DownedBossSystem.downedGothBoss)
-                return false;
+            //if (self.type == ItemID.RodofDiscord && !DownedBossTracker.IsDowned(DownedBossFlag.Ereshkigal))
+            //    return false;
             return orig(self);
         }
     }

@@ -84,7 +84,7 @@ namespace Stellamod.Content.Quests.ZuiQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return DownedBossSystem.downedStoneGolemBoss;
+            return DownedBossTracker.IsDowned(DownedBossFlag.StoneGolem);
         }
     }
 
@@ -103,7 +103,7 @@ namespace Stellamod.Content.Quests.ZuiQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return DownedBossSystem.downedJackBoss;
+            return DownedBossTracker.IsDowned(DownedBossFlag.Jack);
         }
     }
     public class ReadyUp : ZuiQuest
@@ -141,7 +141,7 @@ namespace Stellamod.Content.Quests.ZuiQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return DownedBossSystem.downedSOMBoss;
+            return DownedBossTracker.IsDowned(DownedBossFlag.Verlian_Singularity);
         }
     }
     public class KillWallofFlesh : ZuiQuest
@@ -198,7 +198,7 @@ namespace Stellamod.Content.Quests.ZuiQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return DownedBossSystem.downedZuiBoss;
+            return true;//DownedBossTracker.IsDowned(DownedBossFlag.Zui);
         }
     }
     public class GetVoidalPassageway : ZuiQuest
@@ -241,7 +241,7 @@ namespace Stellamod.Content.Quests.ZuiQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return DownedBossSystem.downedSupernovaFragmentBoss;
+            return true;
         }
     }
     public class DestroySingularityIII : ZuiQuest
@@ -260,7 +260,7 @@ namespace Stellamod.Content.Quests.ZuiQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return DownedBossSystem.downedSupernovaFragmentBoss;
+            return true;
         }
     }
     public class KillEreshkigal : ZuiQuest
@@ -279,7 +279,7 @@ namespace Stellamod.Content.Quests.ZuiQuest
 
         public override bool CheckCompletion(Player player)
         {
-            return DownedBossSystem.downedSupernovaFragmentBoss;
+            return true;
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Stellamod.Skies
     {
         private Vector2 _parallax;
         private Vector2 _lastCameraPos;
-        public bool IsActive => Main.LocalPlayer.GetModPlayer<MyPlayer>().ZoneAlcadzia 
+        public bool IsActive => Main.LocalPlayer.GetModPlayer<BiomePlayer>().ZoneAlcadzia 
             || NPC.AnyNPCs(ModContent.NPCType<VerlianSingularity>()) 
             || NPC.AnyNPCs(ModContent.NPCType<E>()) 
             || Main.LocalPlayer.GetModPlayer<BiomePlayer>().ZoneMoonspiralTower 

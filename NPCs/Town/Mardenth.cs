@@ -123,10 +123,6 @@ namespace Stellamod.NPCs.Town
         {
             return false;
         }
-        //public override bool CanTownNPCSpawn(int numTownNPCs)
-        //{
-        //	return AlcadSpawnSystem.TownedGia;
-        //}
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
@@ -175,52 +171,6 @@ namespace Stellamod.NPCs.Town
 
             npcShop.Register(); // Name of this shop tab
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //	else if (Main.moonPhase < 4) {
-        // shop.item[nextSlot++].SetDefaults(ItemType<ExampleGun>());
-        //		shop.item[nextSlot].SetDefaults(ItemType<ExampleBullet>());
-        //	}
-        //	else if (Main.moonPhase < 6) {
-        // shop.item[nextSlot++].SetDefaults(ItemType<ExampleStaff>());
-        // 	}
-        //
-        // 	// todo: Here is an example of how your npc can sell items from other mods.
-        // 	// var modSummonersAssociation = ModLoader.TryGetMod("SummonersAssociation");
-        // 	// if (ModLoader.TryGetMod("SummonersAssociation", out Mod modSummonersAssociation)) {
-        // 	// 	shop.item[nextSlot].SetDefaults(modSummonersAssociation.ItemType("BloodTalisman"));
-        // 	// 	nextSlot++;
-        // 	// }
-        //
-        // 	// if (!Main.LocalPlayer.GetModPlayer<ExamplePlayer>().examplePersonGiftReceived && GetInstance<ExampleConfigServer>().ExamplePersonFreeGiftList != null) {
-        // 	// 	foreach (var item in GetInstance<ExampleConfigServer>().ExamplePersonFreeGiftList) {
-        // 	// 		if (Item.IsUnloaded) continue;
-        // 	// 		shop.item[nextSlot].SetDefaults(Item.Type);
-        // 	// 		shop.item[nextSlot].shopCustomPrice = 0;
-        // 	// 		shop.item[nextSlot].GetGlobalItem<ExampleInstancedGlobalItem>().examplePersonFreeGift = true;
-        // 	// 		nextSlot++;
-        // 	// 		//TODO: Have tModLoader handle index issues.
-        // 	// 	}
-        // 	// }
-        // }
-
-
-
-
-
-
-
     }
 }
 

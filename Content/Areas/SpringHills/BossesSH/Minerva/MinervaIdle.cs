@@ -124,7 +124,7 @@ namespace Stellamod.Content.Areas.SpringHills.BossesSH.Minerva
 
         public bool CanSpawn()
         {
-            return !NPC.AnyNPCs(ModContent.NPCType<Minerva>()) && !DownedBossSystem.downedMinervaBoss;
+            return !NPC.AnyNPCs(ModContent.NPCType<Minerva>()) && !DownedBossTracker.IsDowned(DownedBossFlag.Minerva);
         }
     }
 }

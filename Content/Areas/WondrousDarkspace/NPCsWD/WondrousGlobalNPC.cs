@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Stellamod.Content.Biomes;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -9,24 +10,17 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.NPCsWD
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
         {
             base.EditSpawnPool(pool, spawnInfo);
-            if (!spawnInfo.Player.GetModPlayer<MyPlayer>().ZoneWonder)
+            if (!spawnInfo.Player.GetModPlayer<BiomePlayer>().ZoneWonder)
                 return;
-
-            //   pool[NPCID.Shimmerfly] *= 0.5f;
-            //    pool[NPCID.ShimmerSlime] *= 0.5f;
-            //    pool[NPCID.GraniteFlyer] *= 0.5f;
-            //    pool[NPCID.GraniteGolem] *= 0.5f;
         }
-
-
 
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
             base.EditSpawnRate(player, ref spawnRate, ref maxSpawns);
-            if (!player.GetModPlayer<MyPlayer>().ZoneWonder)
+            if (!player.GetModPlayer<BiomePlayer>().ZoneWonder)
                 return;
-            spawnRate = (int)((float)spawnRate * 0.5f);
-            maxSpawns = (int)((float)maxSpawns * 1.5f);
+            spawnRate = (int)(spawnRate * 0.5f);
+            maxSpawns = (int)(maxSpawns * 1.5f);
         }
     }
 }

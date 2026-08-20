@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Stellamod.Common.IgnitersNPowders;
 using Stellamod.Content.CommonMaterials;
 using System.Collections.Generic;
 
@@ -56,13 +57,8 @@ namespace Stellamod.Items.Accessories.Igniter
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-
-            player.GetModPlayer<MyPlayer>().IgniterVelocity = 2f;
-
+            IgniterPlayer igniterPlayer = player.GetModPlayer<IgniterPlayer>();
+            igniterPlayer.extenderBonus += 1f;
         }
-
-
-
-
     }
 }

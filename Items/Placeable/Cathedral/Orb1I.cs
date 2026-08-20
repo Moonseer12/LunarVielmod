@@ -1,5 +1,4 @@
-﻿using Stellamod.Items.Harvesting;
-using Stellamod.Tiles.Structures.Cathedral;
+﻿using Stellamod.Tiles.Structures.Cathedral;
 using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
@@ -23,15 +22,6 @@ namespace Stellamod.Items.Placeable.Cathedral
             Item.maxStack = 20;
             Item.width = 38;
             Item.height = 24;
-        }
-
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.CrystalShard, 30);
-            recipe.AddIngredient(ModContent.ItemType<AlcadizMetal>(), 1);
-            recipe.AddTile(TileID.Hellforge);
-            recipe.Register();
         }
     }
 }

@@ -16,7 +16,6 @@ namespace Stellamod.Content.Areas.Dungeon
     public class MistyDungeonSurfaceBiome : BaseUrdveilBiome
     {
         public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Normal;
-        // Select Music
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
         public override int Music
         {
@@ -25,11 +24,6 @@ namespace Stellamod.Content.Areas.Dungeon
                 return -1;
             }
         }
-        public override void SpecialVisuals(Player player, bool isActive)
-        {
-
-        }
-
         public override bool IsBiomeActive(Player player)
         {
             bool inMistyDungeon = BiomeTileCounts.InMistyDungeon;
@@ -38,17 +32,14 @@ namespace Stellamod.Content.Areas.Dungeon
         public override string BestiaryIcon => base.BestiaryIcon;
         public override string BackgroundPath => base.BackgroundPath;
         public override Color? BackgroundColor => base.BackgroundColor;
-
         public override bool ShowTitleCard()
         {
             return false;
         }
-
         public override void OnEnter(Player player)
         {
             base.OnEnter(player);
             player.GetModPlayer<BiomePlayer>().ZoneMistyDungeonAnywhere = true;
-
         }
         public override void OnLeave(Player player)
         {
@@ -59,7 +50,6 @@ namespace Stellamod.Content.Areas.Dungeon
     public class MistyDungeonBiome : BaseUrdveilBiome
     {
         public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Normal;
-        // Select Music
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
         public override int Music
         {
@@ -68,11 +58,6 @@ namespace Stellamod.Content.Areas.Dungeon
                 return MusicLoader.GetMusicSlot(Mod, "Assets/Music/ManorWorld");
             }
         }
-        public override void SpecialVisuals(Player player, bool isActive)
-        {
-
-        }
-
         public override bool IsBiomeActive(Player player)
         {
             bool inMistyDungeon = BiomeTileCounts.InMistyDungeon;
@@ -83,13 +68,10 @@ namespace Stellamod.Content.Areas.Dungeon
         public override string BestiaryIcon => base.BestiaryIcon;
         public override string BackgroundPath => base.BackgroundPath;
         public override Color? BackgroundColor => base.BackgroundColor;
-
-
         public override void OnEnter(Player player)
         {
             base.OnEnter(player);
             player.GetModPlayer<BiomePlayer>().ZoneMistyDungeon = true;
-
         }
         public override void OnLeave(Player player)
         {

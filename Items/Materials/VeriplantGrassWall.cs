@@ -25,12 +25,5 @@ namespace Stellamod.Items.Materials
             Item.consumable = true;
             Item.createWall = ModContent.WallType<Tiles.VeriplantWall>();
         }
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe(4);
-            recipe.AddIngredient(ModContent.ItemType<VeriplantGrassBlock>(), 1);
-            recipe.AddTile(TileID.WorkBenches);
-            recipe.Register();
-        }
     }
 }

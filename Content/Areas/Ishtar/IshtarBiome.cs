@@ -17,13 +17,11 @@ public class IshtarBiome : ModBiome
     public override bool IsBiomeActive(Player player) => BiomeTileCounts.InIshtar;
     public override void OnEnter(Player player)
     {
-        player.GetModPlayer<MyPlayer>().ZoneIshtar = true;
         player.GetModPlayer<BiomePlayer>().ZoneIshtar = true;
     }
 
     public override void OnLeave(Player player)
     {
-        player.GetModPlayer<MyPlayer>().ZoneIshtar = false;
         player.GetModPlayer<BiomePlayer>().ZoneIshtar = true;
     }
 }

@@ -296,7 +296,6 @@ namespace Stellamod.NPCs.Town
                 //.Add<BossItem>()
                 .Add(new Item(ModContent.ItemType<Bongos>()) { shopCustomPrice = Item.buyPrice(gold: 5) })// This example sets a custom price, ExampleNPCShop.cs has more info on custom prices and currency. 
                 .Add(new Item(ModContent.ItemType<ClamsPearl>()) { shopCustomPrice = Item.buyPrice(gold: 5) })
-                //.Add(new Item(ModContent.ItemType<FrileBar>()) { shopCustomPrice = Item.buyPrice(silver: 50) })
                 .Add(new Item(ModContent.ItemType<GintzlMetal>()) { shopCustomPrice = Item.buyPrice(silver: 3) })
                 .Add(new Item(ModContent.ItemType<GintzlSpear>()) { shopCustomPrice = Item.buyPrice(copper: 10) })
                 .Add(new Item(ModContent.ItemType<BroochesTableI>()) { shopCustomPrice = Item.buyPrice(gold: 1) })

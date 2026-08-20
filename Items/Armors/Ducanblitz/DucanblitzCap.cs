@@ -50,9 +50,7 @@ namespace Stellamod.Items.Armors.Ducanblitz
         // UpdateArmorSet allows you to give set bonuses to the armor.
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = LangText.SetBonus(this);//"Enemies are less likely to target you!" + "\nBlades of Cinder and Rhamenthal will fight alongside you" + "\nEvery few seconds you'll gain a major increase to Melee Damage" + "\nAn upgraded Govheil set essentially.");  // This is the setbonus tooltip
-            player.GetModPlayer<MyPlayer>().DucanB = true;
-            player.GetModPlayer<MyPlayer>().DucanBCooldown++;
+            player.setBonus = LangText.SetBonus(this);
             player.aggro *= 2;
             player.hasPaladinShield = true;
 

@@ -48,14 +48,5 @@ namespace Stellamod.Items.Weapons.Melee
 
 
         }
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe();
-
-            recipe.AddIngredient(ItemID.DirtBlock, 99);
-            recipe.AddIngredient(ItemID.Arkhalis, 1);
-
-            recipe.Register();
-        }
     }
 }

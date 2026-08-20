@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Stellamod.Content.Biomes;
 using Stellamod.Helpers;
 using Stellamod.NPCs.Bosses.Zui;
 using Terraria;
@@ -62,12 +63,12 @@ namespace Stellamod.Items.Consumables
 
 
 
-            if (!player.GetModPlayer<MyPlayer>().ZoneVillage)
+            if (!player.GetModPlayer<BiomePlayer>().ZoneVillage)
             {
                 return false;
             }
 
-            else if (player.GetModPlayer<MyPlayer>().ZoneVillage)
+            else if (player.GetModPlayer<BiomePlayer>().ZoneVillage)
             {
 
                 if (NPC.AnyNPCs(ModContent.NPCType<ZuiTheTraveller>()))
