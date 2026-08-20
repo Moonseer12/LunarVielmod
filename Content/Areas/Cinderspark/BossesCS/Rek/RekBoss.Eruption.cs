@@ -16,10 +16,6 @@ public partial class RekBoss
     private void AI_Eruption()
     {
         Timer++;
-        Vector2 eruptionLeft = FindEruptionLeft();
-        Vector2 eruptionRight = FindEruptionRight();
-        eruptionLeft.Y -= 384;
-        eruptionRight.Y -= 384;
         switch (AttackCycle)
         {
             case 0:
@@ -31,25 +27,13 @@ public partial class RekBoss
                         ScreenShaderSystem screenShaderSystem = ModContent.GetInstance<ScreenShaderSystem>();
                         //    screenShaderSystem.DistortScreen(TextureRegistry.NormalNoise1, scrollSpeed: new Vector2(0.0005f), timer: Eruption_SinTime, blend: 0.02f );
                         screenShaderSystem.TintScreen(Color.Red, 0.05f, timer: Eruption_SinTime);
-    
-                        Teleport(eruptionLeft);
+
+                        Teleport(_lavaArenaRectangle.BottomLeft());
                     }
 
+                    this.GetAnimator().PlayAnimation(ANIM_IDLE, AnimationParams.Default with { IsLooping = true });
                     if (Timer >= Eruption_GraceTime)
                     {
-                        if (Timer >= Eruption_GraceTime * 5)
-                        {
-                            this.GetAnimator().PlayAnimation(ANIM_MOUTH_BIG_OPEN_HOLD, AnimationParams.Default with { IsLooping = true });
-                        }
-                        else if (Timer >= Eruption_GraceTime * 4)
-                        {
-                            this.GetAnimator().PlayAnimation(ANIM_MOUTH_BIG_OPEN_READY, AnimationParams.Default with { IsLooping = false });
-                        }
-                        else
-                        {
-                            this.GetAnimator().PlayAnimation(ANIM_MOUTHOPEN, AnimationParams.Default with { IsLooping = false });
-                        }
-
                         if (Timer % 24 == 0)
                         {
                             if (MultiplayerHelper.IsHost)
@@ -67,7 +51,13 @@ public partial class RekBoss
                         }
                     }
 
-                    Vector2 pointToMoveTo = Vector2.Lerp(eruptionLeft, eruptionRight, Timer / Eruption_SinTime);
+
+                    Vector2 start = _lavaArenaRectangle.BottomLeft();
+                    Vector2 end = _lavaArenaRectangle.BottomRight();
+
+                    start.Y += 64;
+                    end.Y += 64;
+                    Vector2 pointToMoveTo = Vector2.Lerp(start, end, Timer / Eruption_SinTime);
                     pointToMoveTo.Y += MathF.Sin(Timer * Eruption_SinFrequency) * Eruption_SinHeight;
                     Vector2 targetVelocity = pointToMoveTo - NPC.Center;
                     NPC.velocity = Vector2.Lerp(NPC.velocity, targetVelocity, 0.4f);
