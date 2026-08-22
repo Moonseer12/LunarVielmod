@@ -4,7 +4,6 @@ using Stellamod.Common.SummonerSystem;
 using Stellamod.Helpers;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,11 +11,6 @@ namespace Stellamod.Common.SummonerSystem.UI
 {
     public class SummoningBell : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
-        }
-
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             var bellPlayer = Main.LocalPlayer.GetModPlayer<BellPlayer>();

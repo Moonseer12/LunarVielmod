@@ -12,7 +12,6 @@ using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -154,12 +153,6 @@ namespace Stellamod.Content.Areas.MoonspiralTower.WeaponsMT
 
     public class TomeOfTheSingularity : AbstractMagicTome
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Void's Grasp");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults2()
         {
             base.SetDefaults2();

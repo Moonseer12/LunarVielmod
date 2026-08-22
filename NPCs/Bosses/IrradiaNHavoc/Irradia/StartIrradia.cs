@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Stellamod.Helpers;
-using Stellamod.UI.Dialogue;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -93,7 +92,6 @@ namespace Stellamod.NPCs.Bosses.IrradiaNHavoc.Irradia
                     counter++;
 
                     NPC.velocity.X *= 0f;
-                    Starter();
                     break;
 
                 case ActionState.Death:
@@ -194,32 +192,6 @@ namespace Stellamod.NPCs.Bosses.IrradiaNHavoc.Irradia
             timer = 0;
             frameCounter = 0;
             frameTick = 0;
-        }
-        public void Starter()
-        {
-            timer++;
-            if (timer == 1)
-            {
-                if (Main.netMode == NetmodeID.SinglePlayer)
-                {
-                    DialogueSystem dialogueSystem = ModContent.GetInstance<DialogueSystem>();
-
-                    //2. Create a new instance of your dialogue
-                    IrradiaDialogue exampleDialogue = new IrradiaDialogue();
-
-                    //3. Start it
-                    dialogueSystem.StartDialogue(exampleDialogue);
-                }
-                else
-                {
-                    Stellamod.WriteToPacket(Stellamod.Instance.GetPacket(),
-                        (byte)MessageType.StartDialogue,
-                        (int)DialogueType.Start_Irradia).Send(-1);
-                }
-                NPC.netUpdate = true;
-            }
-
-
         }
 
         public void killyoself()

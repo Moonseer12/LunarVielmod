@@ -1,6 +1,5 @@
-﻿using Stellamod.Assets;
-using Stellamod.Items.Accessories;
-using Stellamod.Items.Accessories.Players;
+﻿using Stellamod.Common.DashSystem;
+using Stellamod.Assets;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

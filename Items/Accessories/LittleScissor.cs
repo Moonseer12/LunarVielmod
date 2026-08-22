@@ -1,12 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
-using Stellamod.Helpers;
+﻿using Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
 using Stellamod.Projectiles.Summons.VoidMonsters;
-using Stellamod.Projectiles.Swords;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -177,7 +172,6 @@ namespace Stellamod.Items.Accessories
         public override void SetStaticDefaults()
         {
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()

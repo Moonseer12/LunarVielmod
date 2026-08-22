@@ -1,7 +1,6 @@
 ﻿using Stellamod.Common.ArmorRework;
 using Stellamod.Helpers;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,7 +13,6 @@ namespace Stellamod.Content.Armors.Stone
         {
             base.SetStaticDefaults();
             ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ArmorSetSystem.RegisterArmorSet<StoniaHat, StoniaChestplate, StoniaBoots>(ArmorGroup.Act_I);
         }
 
@@ -50,12 +48,6 @@ namespace Stellamod.Content.Armors.Stone
     [AutoloadEquip(EquipType.Body)]
     public class StoniaChestplate : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            base.SetStaticDefaults();
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 18; // Width of the item
@@ -76,12 +68,6 @@ namespace Stellamod.Content.Armors.Stone
     [AutoloadEquip(EquipType.Legs)]
     public class StoniaBoots : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            base.SetStaticDefaults();
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 18; // Width of the item

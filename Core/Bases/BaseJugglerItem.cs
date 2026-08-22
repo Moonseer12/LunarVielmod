@@ -15,7 +15,7 @@ namespace Stellamod.Core.Bases
             Item.width = 16;
             Item.height = 16;
             Item.damage = 19;
-            Item.DamageType = DamageClass.Throwing;
+            Item.DamageType = DamageClass.Ranged;
             Item.useTime = 24;
             Item.useAnimation = 24;
             Item.useStyle = ItemUseStyleID.Swing;

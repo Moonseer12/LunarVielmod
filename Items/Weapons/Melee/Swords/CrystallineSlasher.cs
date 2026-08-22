@@ -1,11 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Players;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.Bases;
-using Stellamod.Helpers;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -21,8 +18,6 @@ namespace Stellamod.Items.Weapons.Melee.Swords
 
     public class CrystallineSlasher : BaseSwingItem
     {
-        // The Display Name and Tooltip of this item can be edited in the 'Localization/en-US_Mods.Stellamod.hjson' file.
-        public override DamageClass AlternateClass => DamageClass.Ranged;
         public override void SetDefaults()
         {
             Item.damage = 8;

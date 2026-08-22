@@ -7,17 +7,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Ranged
 {
-    public class Venatici : ClassSwapItem
+    public class Venatici : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 21;
-            Item.mana = 10;
-        }
-
-
         public override void SetDefaults()
         {
             Item.damage = 41;

@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using SpiritMod.Tiles;
-using Stellamod.Gores;
+﻿using Stellamod.Gores;
 using System;
 using Terraria;
 using Terraria.ID;

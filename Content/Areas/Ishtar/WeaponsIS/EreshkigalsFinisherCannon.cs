@@ -19,7 +19,6 @@ using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -1308,11 +1307,6 @@ public class EreshkigalsFinisherCannonHold : ModProjectile,
 
 public class EreshkigalsFinisherCannon : BaseGun
 {
-    public override void SetStaticDefaults()
-    {
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
-
     public override void SetDefaults()
     {
         //base.SetDefaults();

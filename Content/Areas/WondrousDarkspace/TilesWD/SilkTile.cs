@@ -8,7 +8,6 @@ using Stellamod.Effects.Darkspace;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -341,13 +340,6 @@ public class MiracleSilkTile : ModTile
 }
 public class SilkTileBlock : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        // Tooltip.SetDefault("Super silk!");
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-    }
-
     public override void SetDefaults()
     {
         Item.DefaultToPlaceableTile(ModContent.TileType<SilkTile>());
@@ -355,13 +347,6 @@ public class SilkTileBlock : ModItem
 }
 public class MiracleSilkTileBlock : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        // Tooltip.SetDefault("Super silk!");
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-    }
-
     public override void SetDefaults()
     {
         Item.DefaultToPlaceableTile(ModContent.TileType<MiracleSilkTile>());

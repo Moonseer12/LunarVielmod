@@ -6,21 +6,12 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Thrown
 {
-    public class DogmaBalls : ClassSwapItem
+    public class DogmaBalls : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Melee;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 62;
-            Item.mana = 0;
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 124;
-            Item.DamageType = DamageClass.Throwing;
+            Item.DamageType = DamageClass.Ranged;
             Item.width = 40;
             Item.noUseGraphic = true;
             Item.height = 40;

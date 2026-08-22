@@ -7,16 +7,13 @@ using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Items;
 using Stellamod.Trailing;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -24,11 +21,6 @@ namespace Stellamod.Content.Areas.PunkerTown.ItemsPT;
 
 public class TheIrradiaspear : BaseSwingItemV2
 {
-    public override void SetStaticDefaults()
-    {
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
-
     public override void SetDefaults2()
     {
         base.SetDefaults2();

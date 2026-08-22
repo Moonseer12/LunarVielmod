@@ -1,6 +1,5 @@
-﻿using Stellamod.Core.Tooltips;
-using Stellamod.Helpers;
-using Stellamod.Items.Accessories.Players;
+﻿using Stellamod.Common.DashSystem;
+using Stellamod.Core.Tooltips;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;

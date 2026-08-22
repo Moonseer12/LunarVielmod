@@ -1,10 +1,7 @@
-﻿using Stellamod.Content.Areas.Collosseum.WeaponsCL;
-using Stellamod.Content.Areas.Shop.ItemsShop;
+﻿using Stellamod.Content.Areas.Shop.ItemsShop;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Items.Accessories;
-using Stellamod.Items.Armors.Pieces.RareMetals;
 using Stellamod.Items.Placeable;
 using Stellamod.Items.Weapons.Mage;
 using Stellamod.Items.Weapons.Thrown;
@@ -14,7 +11,6 @@ using System.IO;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.Localization;
@@ -330,11 +326,6 @@ namespace Stellamod.NPCs.Town
                     item.shopCustomPrice = value / 2;
                 }
             }
-        }
-
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GintzeMask>()));
         }
 
         // Make this Town NPC teleport to the King and/or Queen statue when triggered. Return toKingStatue for only King Statues. Return !toKingStatue for only Queen Statues. Return true for both.

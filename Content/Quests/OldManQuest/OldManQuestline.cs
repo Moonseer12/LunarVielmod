@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common.QuestSystem;
+using Stellamod.Content.Areas.Underground.EnemiesUG;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Items.Accessories;
-using Stellamod.NPCs.Underground;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

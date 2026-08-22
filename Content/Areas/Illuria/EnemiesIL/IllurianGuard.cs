@@ -1,6 +1,6 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Content.Areas.Illuria.ArmorIL;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Dusts;
-using Stellamod.Items.Armors.Illurian;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;

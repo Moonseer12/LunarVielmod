@@ -5,21 +5,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
-    public class PrismaticBalls : ClassSwapItem
+    public class PrismaticBalls : ModItem
     {
-        public int dir;
-        public override DamageClass AlternateClass => DamageClass.Throwing;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 13;
-            Item.mana = 0;
-        }
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Prismatic Cryadia Ball");
-            // Tooltip.SetDefault("Shoots fast homing sparks of everlasting crystal light!");
-        }
         public override void SetDefaults()
         {
             Item.damage = 23;

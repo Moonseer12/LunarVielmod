@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Stellamod.Helpers;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,12 +13,11 @@ namespace Stellamod.Core.Bases
         public override void SetStaticDefaults()
         {
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1; // How many items are needed in order to research duplication of this item in Journey mode. See https://terraria.gamepedia.com/Journey_Mode/Research_list for a list of Corely used research amounts depending on item type.
         }
 
         public override void PostUpdate()
         {
-            Lighting.AddLight(Item.Center, Color.WhiteSmoke.ToVector3() * 0.55f * Main.essScale); // Makes this item glow when thrown out of inventory.
+            Lighting.AddLight(Item.Center, Color.WhiteSmoke.ToVector3() * 0.55f * Main.essScale);
         }
 
         public override void SetDefaults()

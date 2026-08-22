@@ -1,6 +1,5 @@
 ﻿using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,15 +8,6 @@ namespace Stellamod.Common.QuestSystem
     public class QuestResetter : ModItem
     {
         private int _useIndex;
-        public override void SetStaticDefaults()
-        {
-            /* Tooltip.SetDefault("Meatballs" +
-				"\nDo not be worried, this mushes reality into bit bits and then shoots it!" +
-				"\nYou can never miss :P"); */
-            // DisplayName.SetDefault("Teraciz");
-
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
 
         public override void SetDefaults()
         {

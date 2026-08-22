@@ -81,9 +81,8 @@ namespace Stellamod.Items.Weapons.Ranged.GunSwapping
         }
     }
 
-    public class GunHolster : ClassSwapItem
+    public class GunHolster : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Magic;
         private Item _leftHand;
         private Item _rightHand;
         public Item LeftHand
@@ -127,11 +126,6 @@ namespace Stellamod.Items.Weapons.Ranged.GunSwapping
 
         public MiniGun HeldLeftHandGun => LeftHandItem as MiniGun;
         public MiniGun HeldRightHandGun => RightHandItem as MiniGun;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.mana = 2;
-        }
 
         public override void SetDefaults()
         {

@@ -1,5 +1,4 @@
 ﻿using Stellamod.Helpers;
-using Stellamod.UI.Dialogue;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -67,13 +66,6 @@ namespace Stellamod.NPCs.Bosses.Zui.Projectiles
             timer++;
             if (timer == 1)
             {
-                DialogueSystem dialogueSystem = ModContent.GetInstance<DialogueSystem>();
-
-                //2. Create a new instance of your dialogue
-                ZuiBeatDialogue exampleDialogue = new ZuiBeatDialogue();
-
-                //3. Start it
-                dialogueSystem.StartDialogue(exampleDialogue);
                 CombatText.NewText(NPC.getRect(), Color.Gold, LangText.Misc("ZuiDeath.1"), true, false);
             }
 

@@ -12,16 +12,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Summon
 {
-    public class VoidStaff : ClassSwapItem
+    public class VoidStaff : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 4;
-            Item.mana = 10;
-        }
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Gelatal Slaff");

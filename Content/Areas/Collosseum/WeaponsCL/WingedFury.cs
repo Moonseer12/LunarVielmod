@@ -1,16 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Content.Areas.SpringHills.WeaponsSH;
-using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Content.CommonMaterials;
 using Stellamod.Core;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
-using Stellamod.Helpers;
 using Stellamod.Items;
-using Stellamod.Items.Ores;
-using Stellamod.Trails;
 using Stellamod.Visual.Particles;
-using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;

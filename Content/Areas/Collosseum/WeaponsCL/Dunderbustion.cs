@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
@@ -9,9 +7,7 @@ using Stellamod.Core;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Items;
-using Stellamod.Items.Ores;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;

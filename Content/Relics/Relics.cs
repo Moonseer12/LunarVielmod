@@ -14,7 +14,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
-using Terraria.GameContent.Creative;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
 using Terraria.Localization;
@@ -27,12 +26,6 @@ public abstract class AbstractRelicItem<ItemClass, TileClass> : ModItem
     where TileClass : ModTile
     where ItemClass : ModItem
 {
-
-    public override void SetStaticDefaults()
-    {
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
-
     public override void SetDefaults()
     {
         Item.width = 12;

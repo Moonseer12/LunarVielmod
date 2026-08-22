@@ -1,9 +1,4 @@
-﻿
-using Microsoft.Xna.Framework;
-using Stellamod.Content.CommonMaterials;
-using Stellamod.Helpers;
-using Stellamod.Items.Ores;
-using Stellamod.Projectiles.Slashers.GrailAxe;
+﻿using Stellamod.Projectiles.Slashers.GrailAxe;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -13,25 +8,10 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Melee
 {
-    public class GrailAxe : ClassSwapItem
+    public class GrailAxe : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Melee;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 25;
-            Item.mana = 6;
-        }
         public int AttackCounter = 1;
         public int combowombo = 0;
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Gutinier"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-            /* Tooltip.SetDefault("Classful weapon!" +
-                "\nDivergency Inspired!"); */
-        }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             // Here we add a tooltipline that will later be removed, showcasing how to remove tooltips from an item

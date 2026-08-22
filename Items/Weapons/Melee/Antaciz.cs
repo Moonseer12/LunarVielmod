@@ -7,15 +7,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Melee
 {
-    public class Antaciz : ClassSwapItem
+    public class Antaciz : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Throwing;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 5;
-        }
-
         public override void SetDefaults()
         {
 

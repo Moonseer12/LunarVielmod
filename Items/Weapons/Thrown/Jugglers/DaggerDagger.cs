@@ -12,7 +12,7 @@ namespace Stellamod.Items.Weapons.Thrown.Jugglers
         {
             base.SetDefaults();
             Item.damage = 232;
-            Item.DamageType = DamageClass.Throwing;
+            Item.DamageType = DamageClass.Ranged;
             Item.width = 24;
             Item.height = 24;
             Item.noUseGraphic = true;

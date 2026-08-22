@@ -1,21 +1,16 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
+using Stellamod.Common.DashSystem;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items.Accessories.Players;
 using Stellamod.Items.Weapons.Mage.Stein;
 using Stellamod.Projectiles.IgniterExplosions.Stein;
-using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 

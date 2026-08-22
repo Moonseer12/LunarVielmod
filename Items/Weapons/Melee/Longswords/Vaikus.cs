@@ -25,8 +25,6 @@ namespace Stellamod.Items.Weapons.Melee.Longswords
 
     public class Vaikus : BaseSwingItem
     {
-        // The Display Name and Tooltip of this item can be edited in the 'Localization/en-US_Mods.Stellamod.hjson' file.
-        public override DamageClass AlternateClass => DamageClass.Ranged;
         public override void SetDefaults()
         {
             Item.damage = 15;

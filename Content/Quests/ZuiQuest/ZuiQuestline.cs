@@ -1,11 +1,8 @@
 ﻿using Stellamod.Common.QuestSystem;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Helpers;
 using Stellamod.Items;
 using Stellamod.Items.Accessories;
-using Stellamod.Items.Armors.Witchen;
 using Stellamod.Items.Consumables;
-using Stellamod.Items.Special;
 using Stellamod.Items.Weapons.Ranged;
 using Stellamod.Items.Weapons.Summon;
 using Stellamod.Items.Weapons.Thrown;
@@ -206,10 +203,7 @@ namespace Stellamod.Content.Quests.ZuiQuest
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            AddReward(ModContent.ItemType<WitchenHat>(), 1);
-            AddReward(ModContent.ItemType<WitchenRobe>(), 1);
-            AddReward(ModContent.ItemType<WitchenPants>(), 1);
-
+            AddReward(ModContent.ItemType<Hookarama>(), 1);
             IsAutoQuest = true;
         }
 

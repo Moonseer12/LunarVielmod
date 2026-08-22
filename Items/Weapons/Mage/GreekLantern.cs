@@ -4,21 +4,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
-    public class GreekLantern : ClassSwapItem
+    public class GreekLantern : ModItem
     {
-        public int dir;
-        public override DamageClass AlternateClass => DamageClass.Summon;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 15;
-            Item.mana = 6;
-        }
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Pearlescent Ice Ball");
-            // Tooltip.SetDefault("Shoots fast homing sparks of light!");
-        }
         public override void SetDefaults()
         {
             Item.damage = 30;

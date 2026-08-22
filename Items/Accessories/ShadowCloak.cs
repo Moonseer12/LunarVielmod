@@ -2,7 +2,6 @@
 using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,8 +13,7 @@ namespace Stellamod.Items.Accessories
         {
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true; // Makes the item have an animation while in world (not held.). Use in combination with RegisterItemAnimation
-            ItemID.Sets.ItemNoGravity[Item.type] = true; // Makes the item have no gravity
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
         public override void PostUpdate()
         {

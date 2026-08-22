@@ -15,20 +15,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Ranged
 {
-    public class Ikaniye : ClassSwapItem
+    public class Ikaniye : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 160;
-            Item.mana = 20;
-        }
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("DeathShot"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-        }
         public override Vector2? HoldoutOffset()
         {
             return new Vector2(-6, 0);

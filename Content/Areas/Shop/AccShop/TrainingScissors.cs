@@ -1,4 +1,4 @@
-﻿using Stellamod.Items.Accessories.Players;
+﻿using Stellamod.Common.DashSystem;
 using Terraria;
 using Terraria.ModLoader;
 

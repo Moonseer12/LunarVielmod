@@ -1,9 +1,7 @@
 ﻿using Stellamod.Assets;
-using Stellamod.Helpers;
-using Stellamod.Items.Accessories.Players;
+using Stellamod.Common.DashSystem;
 using Stellamod.Visual.Particles;
 using System.IO;
-using System.Runtime.Intrinsics.X86;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -24,7 +22,7 @@ public class DeadRomancePlayer : ModPlayer
     public bool hitParry;
     public bool successfulReflect;
     public Vector2? dashVelocity;
-    public float swingRatio => attackSpeedStacks / 20f;
+    public float SwingRatio => attackSpeedStacks / 20f;
     public int punishNPCIndex;
     public override void ResetEffects()
     {

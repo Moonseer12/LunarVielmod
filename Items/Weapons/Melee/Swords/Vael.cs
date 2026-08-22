@@ -3,7 +3,6 @@ using Stellamod.Common.Players;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.Bases;
-using Stellamod.Helpers;
 using Stellamod.Visual.Explosions;
 using Stellamod.Visual.GIFEffects;
 using System.Collections.Generic;
@@ -21,8 +20,6 @@ namespace Stellamod.Items.Weapons.Melee.Swords;
 
 public class Vael : BaseSwingItem
 {
-    // The Display Name and Tooltip of this item can be edited in the 'Localization/en-US_Mods.Stellamod.hjson' file.
-    public override DamageClass AlternateClass => DamageClass.Ranged;
 
     public override void SetDefaults()
     {

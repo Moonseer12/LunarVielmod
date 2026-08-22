@@ -9,16 +9,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Summon
 {
-    public class JacksonPollock : ClassSwapItem
+    public class JacksonPollock : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 25;
-            Item.mana = 10;
-        }
         public override void SetDefaults()
         {
             Item.damage = 50;

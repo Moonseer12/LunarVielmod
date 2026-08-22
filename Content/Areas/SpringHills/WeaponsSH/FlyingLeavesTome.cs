@@ -15,7 +15,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Terraria;
 using Terraria.GameContent;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -23,12 +22,6 @@ namespace Stellamod.Content.Areas.SpringHills.WeaponsSH;
 
 public class FlyingLeavesTome : AbstractMagicTome
 {
-    public override void SetStaticDefaults()
-    {
-        // DisplayName.SetDefault("Void's Grasp");
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
-
     public override void SetDefaults2()
     {
         base.SetDefaults2();

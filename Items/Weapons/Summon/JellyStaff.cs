@@ -9,21 +9,11 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Summon
 {
-    public class JellyStaff : ClassSwapItem
+    public class JellyStaff : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 7;
-            Item.mana = 10;
-        }
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Gelatal Slaff");
-            // Tooltip.SetDefault("Summons an Jelly boi to fight for you");
-            ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true; // This lets the player target anywhere on the whole screen while using a controller.
+            ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true; // This lets the player target anywhere on the whole screen while using a controller
             ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
         }
 

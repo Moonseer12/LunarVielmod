@@ -1,26 +1,16 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
-using Stellamod.Items.Ores;
 using Stellamod.Projectiles.Spears;
 using Stellamod.Trailing;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Melee.Spears
 {
     public class GladiatorSpear : BaseSwingItemV2
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Gladiator Spear");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults2()
         {
             base.SetDefaults2();

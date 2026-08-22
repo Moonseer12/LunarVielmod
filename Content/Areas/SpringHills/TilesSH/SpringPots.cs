@@ -1,18 +1,10 @@
 ﻿using Stellamod.Tiles;
-using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.SpringHills.TilesSH
 {
     public class SpringPotFlowerItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -30,13 +22,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
 
     public class SpringPotFlowerBlueItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -53,12 +38,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
 
     public class SpringPotFlowerRedItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -76,13 +55,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
 
     public class SpringPotFlowerPinkItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -100,13 +72,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     }
     public class HangingSpringPotFlowerItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -131,13 +96,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     }
     public class HangingSpringPotFlowerBlueItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -162,13 +120,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     }
     public class HangingSpringPotFlowerPinkItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -193,13 +144,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     }
     public class HangingSpringPotFlowerRedItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();

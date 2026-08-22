@@ -1,14 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Buffs;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+﻿using Stellamod.Buffs;
 using Stellamod.Items.Accessories;
 using Stellamod.Items.Armors.Vanity.Verlia;
 using Stellamod.Items.Consumables;
-using Stellamod.Items.Ores;
 using Stellamod.NPCs.Bosses.Zui.Projectiles;
-using Stellamod.NPCs.Town;
 using System;
 using System.IO;
 using Terraria;
@@ -2175,9 +2169,6 @@ namespace Stellamod.NPCs.Bosses.Zui
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MagiciansCodeHat>(), 1, 1, 1));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShopNote>(), 1, 1, 1));
-            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<ZuiBomb>()));
         }
 
         private void FinishResetTimers()

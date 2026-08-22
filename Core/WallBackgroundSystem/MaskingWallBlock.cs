@@ -1,5 +1,4 @@
 ﻿using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,11 +6,6 @@ namespace Stellamod.Core.WallBackgroundSystem
 {
     public class MaskingWallBlock : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("This is a modded wall.");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 400;
-        }
         public override void SetDefaults()
         {
             Item.width = 12;

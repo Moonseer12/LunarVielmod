@@ -7,16 +7,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
-    public class BurnedCarianTome : ClassSwapItem
+    public class BurnedCarianTome : ModItem
     {
-        public int dir;
-        public override DamageClass AlternateClass => DamageClass.Summon;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 4;
-            Item.mana = 6;
-        }
         public override void SetDefaults()
         {
             Item.width = 30;

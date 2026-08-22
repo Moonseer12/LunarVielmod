@@ -8,25 +8,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
-    public class Dulahaun : ClassSwapItem
+    public class Dulahaun : ModItem
     {
-        //Alternate class you want it to change to
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        //Defaults for the other class
-        public override void SetClassSwappedDefaults()
-        {
-            //Do if(IsSwapped) if you want to check for the alternate class
-            //Stats to have when in the other class
-            Item.damage = 100;
-            Item.knockBack = 12;
-            Item.mana = 20;
-        }
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Star-Gilded Bongo");
-            // Tooltip.SetDefault("Bong bong boom :)");
-        }
         public override void SetDefaults()
         {
             Item.damage = 375;

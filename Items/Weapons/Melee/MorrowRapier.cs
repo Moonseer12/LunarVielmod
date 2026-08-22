@@ -1,31 +1,18 @@
-﻿
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Melee
 {
-    public class MorrowRapier : ClassSwapItem
+    public class MorrowRapier : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Ranged;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 7;
-            Item.mana = 0;
-        }
         public override void SetStaticDefaults()
         {
-            // Tooltip.SetDefault("Poke poke-dont get the wrong idea of the weapon function-poke");
-
-            ItemID.Sets.SkipsInitialUseSound[Item.type] = true; // This skips use animation-tied sound playback, so that we're able to make it be tied to use time instead in the UseItem() hook.
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            ItemID.Sets.SkipsInitialUseSound[Item.type] = true;
         }
         public override void SetDefaults()
         {

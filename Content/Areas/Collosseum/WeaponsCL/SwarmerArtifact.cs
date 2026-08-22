@@ -6,11 +6,8 @@ using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Gores;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
 using Stellamod.Items;
-using Stellamod.Items.Ores;
 using Stellamod.Visual.Particles;
-
 using System.IO;
 using Terraria;
 using Terraria.Audio;

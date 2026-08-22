@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Stellamod.Tiles;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 
 namespace Stellamod.TilesNew.Veil
@@ -10,13 +9,6 @@ namespace Stellamod.TilesNew.Veil
     //Wall Version
     public class EreshkigalStatueItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();

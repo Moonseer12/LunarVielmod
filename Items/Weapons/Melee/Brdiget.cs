@@ -6,25 +6,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Melee
 {
-    public class Bridget : ClassSwapItem
+    public class Bridget : ModItem
     {
-        //Alternate class you want it to change to
-        public override DamageClass AlternateClass => DamageClass.Throwing;
-
-        //Defaults for the other class
-        public override void SetClassSwappedDefaults()
-        {
-            //Do if(IsSwapped) if you want to check for the alternate class
-            //Stats to have when in the other class
-            Item.damage = 2;
-        }
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Spinny Winny damage the binny");
-
-        }
-
-
         public override void SetDefaults()
         {
 

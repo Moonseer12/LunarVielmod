@@ -1,26 +1,17 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Graphics.PackedVector;
-using ReLogic.Content;
-using ReLogic.Graphics;
-using Stellamod.Buffs;
+﻿using ReLogic.Content;
+using Stellamod.Common.DashSystem;
 using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Core;
 using Stellamod.Core.Tooltips;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
-using Stellamod.Items.Accessories.Players;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using Terraria.UI;
 
 namespace Stellamod.Common.ArmorRework
 {

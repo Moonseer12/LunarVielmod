@@ -1,6 +1,5 @@
 ﻿using Stellamod.Common.XixianFlaskSystem;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,16 +7,6 @@ namespace Stellamod.Content.Areas.Riverside.AccRS
 {
     public class InsourcedBrew : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Book of Wooden Illusion");
-            /* Tooltip.SetDefault("Increased Regeneration!" +
-				"\n +3% damage" +
-				"\n Increases crit strike change by 5% "); */
-
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 24;
@@ -25,8 +14,6 @@ namespace Stellamod.Content.Areas.Riverside.AccRS
             Item.value = Item.sellPrice(silver: 25);
             Item.rare = ItemRarityID.Green;
             Item.accessory = true;
-
-
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

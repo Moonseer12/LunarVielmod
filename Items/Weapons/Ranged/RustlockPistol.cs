@@ -6,20 +6,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Ranged
 {
-    public class RustlockPistol : ClassSwapItem
+    public class RustlockPistol : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Generic;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 15;
-            Item.mana = 0;
-        }
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Western Pistol"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-        }
         public override Vector2? HoldoutOffset()
         {
             return new Vector2(-4, 0);

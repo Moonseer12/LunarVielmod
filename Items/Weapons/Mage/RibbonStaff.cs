@@ -7,15 +7,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
-    public class RibbonStaff : ClassSwapItem
+    public class RibbonStaff : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Summon;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 32;
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 67;

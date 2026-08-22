@@ -8,16 +8,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
-    public class FrameStaff : ClassSwapItem
+    public class FrameStaff : ModItem
     {
-        public int dir;
-        public override DamageClass AlternateClass => DamageClass.Summon;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 50;
-            Item.mana = 6;
-        }
         public override void SetDefaults()
         {
             Item.width = 64;

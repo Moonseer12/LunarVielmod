@@ -2,9 +2,7 @@
 using Stellamod.Common.IgnitersNPowders;
 using Stellamod.Content.CommonMaterials;
 using System.Collections.Generic;
-
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 

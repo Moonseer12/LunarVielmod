@@ -1,10 +1,7 @@
 using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
-using Stellamod.Common.Players;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System;
@@ -92,7 +89,7 @@ public class VoidBlaster : BaseGun
         base.AddRecipes();
         this.RegisterBrew(
             mold: ModContent.ItemType<BlankGun>(),
-            material: ModContent.ItemType<PearlescentScrap>());
+            material: ModContent.ItemType<ConvulgingMater>());
     }
 
 }

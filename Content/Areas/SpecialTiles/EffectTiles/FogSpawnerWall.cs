@@ -2,7 +2,6 @@
 using Stellamod.Core.Foggy;
 using Stellamod.Core.LunarLightingSystem;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,11 +9,6 @@ namespace Stellamod.Content.Areas.SpecialTiles.EffectTiles
 {
     public class FogSpawnerWallItem : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("This is a modded wall.");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 400;
-        }
         public override void SetDefaults()
         {
             Item.width = 12;

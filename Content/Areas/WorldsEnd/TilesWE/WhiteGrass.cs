@@ -10,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
@@ -57,12 +56,6 @@ namespace Stellamod.Content.Areas.WorldsEnd.TilesWE
 
     public class WhiteGrassBlock : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             Item.width = 12;

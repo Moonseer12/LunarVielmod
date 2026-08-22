@@ -23,8 +23,6 @@ namespace Stellamod.Items.Weapons.Melee.Greatswords
 
     public class NoxianRider : BaseSwingItem
     {
-        // The Display Name and Tooltip of this item can be edited in the 'Localization/en-US_Mods.Stellamod.hjson' file.
-        public override DamageClass AlternateClass => DamageClass.Throwing;
         public override void SetDefaults()
         {
             Item.damage = 16;

@@ -1,18 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
+using Stellamod.Common.DashSystem;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Particles;
-using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
 using Stellamod.Items;
-using Stellamod.Items.Accessories.Players;
 using Stellamod.Visual.Particles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -201,17 +192,14 @@ namespace Stellamod.Content.Areas.Cinderspark.AccCS
                 Projectile.velocity.X = -oldVelocity.X;
             if(Projectile.velocity.Y != oldVelocity.Y)
                 Projectile.velocity.Y = -oldVelocity.Y;
-
-            float boomSize = Main.rand.NextFloat(0.03f, 0.04f);
             for (float n = 0; n < 2f; n++)
             {
-                var spawnParams = new DustParticleSpawnParams();
+                DustParticleSpawnParams spawnParams = new();
                 spawnParams.innerColor = Color.OrangeRed;
                 spawnParams.outerColor = Color.Red;
                 spawnParams.scaleRange = new Vector2(0.1f, 3f);
                 DustParticle.Spawn(Projectile.Center, -Projectile.oldVelocity.RotatedByRandom(1.5f) * Main.rand.NextFloat(0.5f, 1f), spawnParams);
             }
-
             SmokeParticle sp = Particle<SmokeParticle>.SpawnInAlphaLayer(Projectile.Center, -Vector2.UnitY, Color.White, Scale: 1f);
             sp.initialColor = Color.White * 0.14f;
             return false;
@@ -220,22 +208,19 @@ namespace Stellamod.Content.Areas.Cinderspark.AccCS
         public override void OnKill(int timeLeft)
         {
             base.OnKill(timeLeft);
-            float boomSize = Main.rand.NextFloat(0.03f, 0.04f);
             for (float n = 0; n < 2f; n++)
             {
-                var spawnParams = new DustParticleSpawnParams();
+                DustParticleSpawnParams spawnParams = new();
                 spawnParams.innerColor = Color.OrangeRed;
                 spawnParams.outerColor = Color.Red;
                 spawnParams.scaleRange = new Vector2(0.1f, 3f);
                 DustParticle.Spawn(Projectile.Center, -Projectile.oldVelocity.RotatedByRandom(1.5f) * Main.rand.NextFloat(0.5f, 1f), spawnParams);
             }
-
             for(int n = 0; n < 3; n++)
             {
                 SmokeParticle sp = Particle<SmokeParticle>.SpawnInAlphaLayer(Projectile.Center  + Main.rand.NextVector2Circular(32, 32), -Vector2.UnitY, Color.White, Scale: 1.5f);
                 sp.initialColor = Color.White * 0.24f;
             }
-      
         }
     }
 }

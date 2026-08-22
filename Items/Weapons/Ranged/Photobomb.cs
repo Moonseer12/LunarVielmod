@@ -1,33 +1,14 @@
 ﻿using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles.Paint;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Ranged
 {
 
-    public class Photobomb : ClassSwapItem
+    public class Photobomb : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 4;
-            Item.mana = 2;
-        }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Wooden Crossbow"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-            /* Tooltip.SetDefault("Use a small crossbow and shoot three bolts!"
-                + "\n'Triple Threat!'"); */
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 9;

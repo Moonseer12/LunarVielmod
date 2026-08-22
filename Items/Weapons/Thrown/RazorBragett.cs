@@ -1,5 +1,4 @@
 ﻿using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Ores;
 using Stellamod.Projectiles;
 using Terraria;
 using Terraria.ID;
@@ -7,21 +6,12 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Thrown
 {
-    public class RazorBragett : ClassSwapItem
+    public class RazorBragett : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Ranged;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 4;
-            Item.mana = 0;
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 8;
-            Item.DamageType = DamageClass.Throwing;
+            Item.DamageType = DamageClass.Ranged;
             Item.width = 40;
             Item.noUseGraphic = true;
             Item.height = 40;

@@ -9,16 +9,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Ranged
 {
-    public class GlocketRouncher : ClassSwapItem
+    public class GlocketRouncher : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Summon;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 175;
-            Item.mana = 40;
-        }
         public override void SetDefaults()
         {
             Item.damage = 350;

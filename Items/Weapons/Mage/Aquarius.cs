@@ -9,19 +9,11 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
-    public class Aquarius : ClassSwapItem
+    public class Aquarius : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Melee;
-
         public override void SetStaticDefaults()
         {
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-        }
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.mana = 0;
-            Item.damage = 100;
         }
 
         public override void SetDefaults()

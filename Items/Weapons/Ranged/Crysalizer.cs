@@ -10,17 +10,9 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Ranged
 {
-    public class Crysalizer : ClassSwapItem
+    public class Crysalizer : ModItem
     {
         public int WinterboundArrow;
-
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 28;
-            Item.mana = 8;
-        }
 
         public override void SetDefaults()
         {

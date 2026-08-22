@@ -1,7 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Materials;
-
+﻿using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles;
 using System.Collections.Generic;
 using Terraria;
@@ -10,10 +7,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Ranged
 {
-    public class PoisonedAngel : ClassSwapItem
+    public class PoisonedAngel : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Throwing;
-
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
 
@@ -69,20 +64,8 @@ namespace Stellamod.Items.Weapons.Ranged
         public override void AddRecipes()
         {
             base.AddRecipes();
-         //   this.RegisterBrew(mold: ModContent.ItemType<BlankJuggler>(), material: ModContent.ItemType<VirulentPlating>());
+            this.RegisterBrew(mold: ModContent.ItemType<BlankJuggler>(), material: ModContent.ItemType<MarshScrap>());
         }
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-

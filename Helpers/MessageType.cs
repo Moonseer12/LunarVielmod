@@ -11,9 +11,6 @@
         BoonData,
         CompleteZuiQuest,
         CreatePortal,
-        StartBossFromDialogue,
-        StartDialogue,
-        BreakString,
         DashPlayerSync,
         ResetColosseum,
         StartColosseum,
@@ -35,12 +32,5 @@
         ZTileSync,
         ChangeNPCAI,
         LevelingPlayerSync,
-    }
-
-    public enum DialogueType : byte
-    {
-        Start_Verlia,
-        Start_Irradia,
-        Start_Goth
     }
 }

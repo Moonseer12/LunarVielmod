@@ -8,22 +8,14 @@ using Terraria.ID;
 using Terraria.ModLoader;
 namespace Stellamod.Items.Weapons.Thrown
 {
-    public class ThePenetrator : ClassSwapItem
+    public class ThePenetrator : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Ranged;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 26;
-            Item.mana = 0;
-        }
         private int _attackStyle;
         public override void SetDefaults()
         {
             Item.width = 96;
             Item.height = 96;
-            Item.DamageType = DamageClass.Throwing;
+            Item.DamageType = DamageClass.Ranged;
             Item.damage = 42;
             Item.useTime = 100;
             Item.useAnimation = 100;
@@ -48,7 +40,6 @@ namespace Stellamod.Items.Weapons.Thrown
             {
                 Item.damage = 196;
                 Item.UseSound = null;
-                Item.DamageType = DamageClass.Ranged;
                 Item.useTime = 18;
                 Item.useAnimation = 18;
                 Item.noUseGraphic = true;
@@ -58,7 +49,6 @@ namespace Stellamod.Items.Weapons.Thrown
             else if (_attackStyle == 0)
             {
                 Item.damage = 100;
-                Item.DamageType = DamageClass.Throwing;
                 Item.useTime = 18;
                 Item.useAnimation = 18;
                 Item.noUseGraphic = true;

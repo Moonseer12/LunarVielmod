@@ -1,8 +1,7 @@
 ﻿using ReLogic.Content;
+using Stellamod.Common.DashSystem;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
-using Stellamod.Items.Accessories.Players;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.DataStructures;

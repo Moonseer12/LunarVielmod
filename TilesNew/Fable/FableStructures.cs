@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Stellamod.Tiles;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 
 namespace Stellamod.TilesNew.Fable
@@ -10,13 +9,6 @@ namespace Stellamod.TilesNew.Fable
     //Wall Version
     public class FableBarItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -48,13 +40,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class FableBigMushroomItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -86,13 +71,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class FableSmallMushroomItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -124,13 +102,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class FableLogItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -162,13 +133,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class FableBenchItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -201,13 +165,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class FableGGrassMossItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -239,13 +196,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class FableGrassMossBigItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -277,13 +227,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class FablePikeItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -315,13 +258,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class FablePikeBigItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -353,13 +289,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class FableSpikesItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -391,13 +320,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class FableStonesItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -429,13 +351,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class FableTableItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -467,13 +382,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class wall1Item : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -505,13 +413,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class wall2Item : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -543,13 +444,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class wall3Item : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -581,13 +475,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class wall4Item : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -619,13 +506,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class wall5Item : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -657,13 +537,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class wall6Item : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -695,13 +568,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class wall7Item : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -733,13 +599,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class FableBookshelf1Item : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -771,13 +630,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class FableBookshelf2Item : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -809,13 +661,6 @@ namespace Stellamod.TilesNew.Fable
 
     public class FableBookshelf3Item : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();

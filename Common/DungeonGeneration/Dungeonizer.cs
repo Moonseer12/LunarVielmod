@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
@@ -124,18 +123,6 @@ namespace Stellamod.Common.DungeonGeneration
     }
     public class DungeonGenerationTester : ModItem
     {
-        private int _useIndex;
-
-        public override void SetStaticDefaults()
-        {
-            /* Tooltip.SetDefault("Meatballs" +
-				"\nDo not be worried, this mushes reality into bit bits and then shoots it!" +
-				"\nYou can never miss :P"); */
-            // DisplayName.SetDefault("Teraciz");
-
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 62;

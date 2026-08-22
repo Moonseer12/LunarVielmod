@@ -1,5 +1,4 @@
 ﻿using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,16 +9,6 @@ namespace Stellamod.Items.Armors.Vanity.Nyxia
     [AutoloadEquip(EquipType.Legs)]
     public class NyxiaThighs : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Astolfo's skirt!");
-            /* Tooltip.SetDefault("Woa it even smells like water!"
-				+ "\n5% increased movement speed" +
-				"\nRizz Thighs"); */
-
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 18; // Width of the item

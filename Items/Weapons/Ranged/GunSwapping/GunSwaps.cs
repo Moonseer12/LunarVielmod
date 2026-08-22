@@ -1,10 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Content.CommonMaterials;
 using Stellamod.Gores;
-using Stellamod.Helpers;
 using Stellamod.Items.Materials;
-using Stellamod.Items.Ores;
 using Stellamod.Projectiles.GunHolster;
 using Stellamod.Projectiles.Steins;
 using System.Collections.Generic;
@@ -1479,7 +1475,7 @@ namespace Stellamod.Items.Weapons.Ranged.GunSwapping
         public override void AddRecipes()
         {
             base.AddRecipes();
-        //    this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<VirulentPlating>());
+            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<MarshScrap>());
         }
     }
 
@@ -1555,7 +1551,7 @@ namespace Stellamod.Items.Weapons.Ranged.GunSwapping
         public override void AddRecipes()
         {
             base.AddRecipes();
-       //     this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<VirulentPlating>());
+            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<MarshScrap>());
         }
     }
 

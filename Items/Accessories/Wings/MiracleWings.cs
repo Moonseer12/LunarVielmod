@@ -4,7 +4,6 @@ using Stellamod.Content.CommonMaterials;
 using Stellamod.Helpers;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -41,12 +40,7 @@ namespace Stellamod.Items.Accessories.Wings
     {
         public override void SetStaticDefaults()
         {
-            // These wings use the same values as the solar wings
-            // Fly time: 180 ticks = 3 seconds
-            // Fly speed: 9
-            // Acceleration multiplier: 2.5
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(169, 9f, 1.5f, true, hoverFlySpeedOverride: 18f);
         }
 

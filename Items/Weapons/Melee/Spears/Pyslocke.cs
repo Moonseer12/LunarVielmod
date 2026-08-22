@@ -1,34 +1,22 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Players;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Projectiles.IgniterExplosions;
-using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-
-
-
 
 namespace Stellamod.Items.Weapons.Melee.Spears
 {
     public class Pyslocke : BaseSwingItem
     {
-        // The Display Name and Tooltip of this item can be edited in the 'Localization/en-US_Mods.Urdveil.hjson' file.
-        public override DamageClass AlternateClass => DamageClass.Ranged;
         public override void SetDefaults()
         {
             Item.damage = 20;

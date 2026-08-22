@@ -1,8 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Stellamod.Common.DashSystem;
 using Stellamod.Common.Players;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Items.Accessories.Players;
 using Stellamod.Visual.Explosions;
 using System.Collections.Generic;
 using Terraria;
@@ -22,7 +19,7 @@ namespace Stellamod.Core.Bases
         Stein,
         Dualsword
     }
-    public abstract class BaseSwingItem : ClassSwapItem
+    public abstract class BaseSwingItem : ModItem
     {
         public const int Special_Move_Cost = 2;
         public int comboWaitTime = 60;

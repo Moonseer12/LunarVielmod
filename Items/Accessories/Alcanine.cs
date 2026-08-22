@@ -1,7 +1,5 @@
 ﻿using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Materials;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,16 +7,6 @@ namespace Stellamod.Items.Accessories
 {
     public class Alcanine : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Book of Wooden Illusion");
-            /* Tooltip.SetDefault("Increased Regeneration!" +
-				"\n +3% damage" +
-				"\n Increases crit strike change by 5% "); */
-
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 24;
@@ -32,7 +20,7 @@ namespace Stellamod.Items.Accessories
         public override void AddRecipes()
         {
             base.AddRecipes();
-        //    this.RegisterBrew(mold: ModContent.ItemType<BlankAccessory>(), material: ModContent.ItemType<VirulentPlating>());
+            this.RegisterBrew(mold: ModContent.ItemType<BlankAccessory>(), material: ModContent.ItemType<MarshScrap>());
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

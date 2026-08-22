@@ -5,7 +5,6 @@ using Stellamod.Common;
 using Stellamod.Content.Areas.PunkerTown.TilesPT;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -58,13 +57,6 @@ namespace Stellamod.TilesNew.RainforestTiles
 
     public class RainforestGrassBlock : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             Item.width = 12;

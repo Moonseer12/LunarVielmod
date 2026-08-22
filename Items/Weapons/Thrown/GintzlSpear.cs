@@ -1,5 +1,4 @@
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Ores;
 using Stellamod.Projectiles.Thrown;
 using Terraria;
 using Terraria.ID;
@@ -9,15 +8,10 @@ namespace Stellamod.Items.Weapons.Thrown
 {
     public class GintzlSpear : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("GreyBricks"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 12;
-            Item.DamageType = DamageClass.Throwing;
+            Item.DamageType = DamageClass.Ranged;
             Item.width = 40;
             Item.noUseGraphic = true;
             Item.height = 40;

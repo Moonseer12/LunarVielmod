@@ -3,28 +3,18 @@ using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles.Magic;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
-    public class AlcadBomb : ClassSwapItem
+    public class AlcadBomb : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Summon;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 80;
-            Item.mana = 0;
-        }
         public override void SetStaticDefaults()
         {
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 7));
-            ItemID.Sets.AnimatesAsSoul[Item.type] = true; // Makes the item have an animation while in world (not held.). Use in combination with RegisterItemAnimation
-            ItemID.Sets.ItemNoGravity[Item.type] = true; // Makes the item have no gravity
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            ItemID.Sets.AnimatesAsSoul[Item.type] = true;
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
         public override void SetDefaults()

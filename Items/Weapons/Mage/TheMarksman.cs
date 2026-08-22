@@ -8,16 +8,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
-    public class TheMarksman : ClassSwapItem
+    public class TheMarksman : ModItem
     {
-        public int dir;
-        public override DamageClass AlternateClass => DamageClass.Summon;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 21;
-            Item.mana = 150;
-        }
         public override void SetDefaults()
         {
             Item.staff[Item.type] = true;

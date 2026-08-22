@@ -6,19 +6,11 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
-    public class TorrentialLance : ClassSwapItem
+    public class TorrentialLance : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Magic;
         public override Vector2? HoldoutOffset()
         {
             return new Vector2(-3f, -2f);
-        }
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.DamageType = DamageClass.Melee;
-            Item.damage = 27;
-            Item.mana = 0;
         }
 
         public override void SetDefaults()

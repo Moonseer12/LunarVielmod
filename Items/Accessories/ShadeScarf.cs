@@ -1,7 +1,6 @@
-﻿using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Accessories.Players;
+﻿using Stellamod.Common.DashSystem;
+using Stellamod.Content.CommonMaterials;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,11 +9,6 @@ namespace Stellamod.Items.Accessories
     [AutoloadEquip(EquipType.Waist)] // Load the spritesheet you create as a shield for the player when it is equipped.
     public class ShadeScarf : AbstractDashItem
     {
-        public override void SetStaticDefaults()
-        {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();

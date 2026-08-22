@@ -1,9 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Content.CommonMaterials;
 using Stellamod.Items;
 using Stellamod.Projectiles;
 using Terraria;
-using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 

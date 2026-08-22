@@ -1,6 +1,4 @@
-﻿
-using Terraria;
-using Terraria.GameContent.Creative;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,13 +6,6 @@ namespace Stellamod.Items.Materials
 {
     public class AlcadzBlock : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             Item.width = 12;
@@ -27,12 +18,6 @@ namespace Stellamod.Items.Materials
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<Tiles.RoyalCapital.AlcazBlock>();
-        }
-
-        // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
-        public override void AddRecipes()
-        {
-
         }
     }
 }

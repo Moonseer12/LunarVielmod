@@ -5,7 +5,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
-using Terraria.GameContent.Creative;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
 using Terraria.Localization;
@@ -16,14 +15,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
 {
     public class AcademyChestItem : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Gilded Chest");
-            // Tooltip.SetDefault("A chest dedicated to the feral warriors of the morrow");
-
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 26;
@@ -39,9 +30,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
             Item.createTile = ModContent.TileType<AcademyChest>();
             Item.placeStyle = 1; // Use this to place the chest in its locked style
         }
-
-        // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
-
     }
     public class AcademyChest : ModTile
     {

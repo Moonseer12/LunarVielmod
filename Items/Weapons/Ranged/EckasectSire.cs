@@ -7,33 +7,16 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Ranged
 {
 
-    public class EckasectSire : ClassSwapItem
+    public class EckasectSire : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Ranged;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 11;
-            Item.mana = 0;
-        }
         public int AttackCounter = 1;
         public int combowombo = 0;
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Wooden Crossbow"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-            /* Tooltip.SetDefault("Use a small crossbow and shoot three bolts!"
-                + "\n'Triple Threat!'"); */
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-
-        }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
 

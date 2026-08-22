@@ -3,12 +3,9 @@ using Stellamod.Common.Players;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.Bases;
-using Stellamod.Helpers;
-using Stellamod.Trails;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -16,13 +13,6 @@ namespace Stellamod.Items.Weapons.Melee.Swords
 {
     public class Pavelspire : BaseSwingItem
     {
-        public override DamageClass AlternateClass => DamageClass.Magic;
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 4;
-            Item.mana = 6;
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 9;

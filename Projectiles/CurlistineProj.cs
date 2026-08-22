@@ -19,8 +19,7 @@ namespace Stellamod.Projectiles
         Vector2 initialPos;
         Vector2 wantedEndPoint;
         bool initialization = false;
-        float AoERadiusSquared = 36000;//it's squared for less expensive calculations
-        public bool[] hitByThisStardustExplosion = new bool[200] { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, };
+        float AoERadiusSquared = 36000;
         float t = 0;
 
         public static Vector2 CubicBezier(Vector2 start, Vector2 controlPoint1, Vector2 controlPoint2, Vector2 end, float t)
@@ -59,7 +58,7 @@ namespace Stellamod.Projectiles
                         distanceSQ = Projectile.Center.DistanceSQ(target.Center);
                     }
                 }
-            if (target != null && target.DistanceSQ(Projectile.Center) < 10000000 && target.active && !hitByThisStardustExplosion[target.whoAmI])
+            if (target != null && target.DistanceSQ(Projectile.Center) < 10000000 && target.active)
             {
                 wantedEndPoint = initialPos - (target.Center - initialPos);
                 if (Projectile.ai[0] < 10)
@@ -86,9 +85,8 @@ namespace Stellamod.Projectiles
                 for (int i = 0; i < Main.maxNPCs; i++)
                 {
                     NPC npc = Main.npc[i];
-                    if (npc.Center.DistanceSQ(Projectile.Center) < AoERadiusSquared && !npc.dontTakeDamage && !hitByThisStardustExplosion[npc.whoAmI])
+                    if (npc.Center.DistanceSQ(Projectile.Center) < AoERadiusSquared && !npc.dontTakeDamage)
                     {
-                        hitByThisStardustExplosion[npc.whoAmI] = true;
                         NPC.HitInfo hitInfo = new();
                         hitInfo.Damage = Projectile.damage;
                         //(int)Main.player[Projectile.owner].GetDamage(DamageClass.Summon).ApplyTo(Projectile.damage)

@@ -1,15 +1,12 @@
-﻿using Mono.Cecil;
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Stellamod.Content.Special.DeadRomancesExcalibur;
 
@@ -71,7 +68,7 @@ public class DeadRomancesExcaliburSlash : BaseSwingProjectileV2
             Color lerp1 = Color.Lerp(Color.White, Color.DarkRed, interpolant);
             return Color.Lerp(Color.Transparent, lerp1, interpolant) * 0.3f * ratio;
         }
-        SlashEffect slashEffect = new SlashEffect();
+        SlashEffect slashEffect = new();
         slashEffect.BaseColor = Color.White;
         slashEffect.HighlightColor = Color.White;
         slashEffect.RimHighlightColor = Color.DarkRed;
@@ -79,7 +76,7 @@ public class DeadRomancesExcaliburSlash : BaseSwingProjectileV2
         slashEffect.BlendState = BlendState.Additive;
         slashEffect.WindTexture = TrailRegistry.CausticTrail.Value;
 
-        SlashTrailer bladeSlashes = new SlashTrailer();
+        SlashTrailer bladeSlashes = new();
         bladeSlashes.Shader = slashEffect;
         bladeSlashes.TrailWidthFunction = GetTrailWidth;
         bladeSlashes.TrailColorFunction = GetTrailColor;
@@ -100,13 +97,13 @@ public class DeadRomancesExcaliburSlash : BaseSwingProjectileV2
             Color lerp1 = Color.Lerp(Color.White, Color.Goldenrod, interpolant);
             return Color.Lerp(Color.Transparent, lerp1, interpolant) * ratio;
         }
-        BlackFireShader blackFireShader = new BlackFireShader();
+        BlackFireShader blackFireShader = new();
         blackFireShader.SetDefaults();
         blackFireShader.InnerColor = Color.Black;
         blackFireShader.OuterEmiteColor = Color.Black;
         blackFireShader.OuterColor = Color.Goldenrod;
 
-        SlashTrailer slashTrailer = new SlashTrailer();
+        SlashTrailer slashTrailer = new();
         slashTrailer.Shader = blackFireShader;
         slashTrailer.TrailWidthFunction = GetTrailWidth;
         slashTrailer.TrailColorFunction = GetTrailColor;
@@ -132,8 +129,8 @@ public class DeadRomancesExcaliburSlash : BaseSwingProjectileV2
         SoundStyle oddSwing = Main.rand.NextBool(2) ? swingSound1 : swingSound3;
         SoundStyle evenSwing = Main.rand.NextBool(2) ? swingSound2 : swingSound4;
 
-        oddSwing.Pitch = MathHelper.Lerp(0f, 0.75f, Owner.GetModPlayer<DeadRomancePlayer>().swingRatio);
-        evenSwing.Pitch = MathHelper.Lerp(0f, 0.75f, Owner.GetModPlayer<DeadRomancePlayer>().swingRatio);
+        oddSwing.Pitch = MathHelper.Lerp(0f, 0.75f, Owner.GetModPlayer<DeadRomancePlayer>().SwingRatio);
+        evenSwing.Pitch = MathHelper.Lerp(0f, 0.75f, Owner.GetModPlayer<DeadRomancePlayer>().SwingRatio);
 
         Add(new OvalSwing
         {

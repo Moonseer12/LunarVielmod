@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Content.CommonMaterials;
 using Stellamod.Dusts;
 using Stellamod.Items;
 using Terraria;

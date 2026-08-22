@@ -9,7 +9,6 @@ using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -17,11 +16,6 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
 {
     public class Scatterbombs : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.DefaultToCombatTool(0.05f, 0.5f, 2);

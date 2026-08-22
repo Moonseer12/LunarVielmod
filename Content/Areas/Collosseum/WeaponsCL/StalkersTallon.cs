@@ -1,22 +1,16 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Trailers;
 using Stellamod.Core;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Items;
-using Stellamod.Items.Ores;
 using Stellamod.Projectiles.IgniterExplosions;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -24,12 +18,6 @@ namespace Stellamod.Content.Areas.Collosseum.WeaponsCL
 {
     public class StalkersTallon : BaseSwingItemV2
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Gladiator Spear");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults2()
         {
             base.SetDefaults2();

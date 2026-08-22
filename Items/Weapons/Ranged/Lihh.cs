@@ -9,17 +9,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Ranged
 {
-    public class Lihh : ClassSwapItem
+    public class Lihh : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Generic;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 41;
-            Item.mana = 0;
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 82;

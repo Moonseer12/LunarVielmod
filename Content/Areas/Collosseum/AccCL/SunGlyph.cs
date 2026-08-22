@@ -1,10 +1,6 @@
-
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Palettes;
 using Stellamod.Items;
-using Stellamod.Items.Ores;
 using Terraria;
 using Terraria.ModLoader;
 

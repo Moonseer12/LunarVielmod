@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework.Input;
-using MonoMod.Core.Utils;
 using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.BlackSystem;
@@ -8,12 +7,10 @@ using Stellamod.Common.SirestiasShop;
 using Stellamod.Common.UI;
 using Stellamod.Common.WeaponUpgrade.UI;
 using Stellamod.Content.Areas.SpringHills.NPCsSH;
-using Stellamod.Content.Armors.Sanctorous;
+using Stellamod.Content.Areas.TheFalling.ArmorTF;
 using Stellamod.Core.Camera;
-using Stellamod.Core.Utilities;
 using Stellamod.Core.ZTileSystem;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.UI;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
@@ -23,13 +20,11 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
 using Terraria.GameInput;
-using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.UI;
 using Terraria.UI.Chat;
-using static Stellamod.WorldG.StructureManager.Snapshot;
 
 namespace Stellamod.Common.WaypointSystem;
 

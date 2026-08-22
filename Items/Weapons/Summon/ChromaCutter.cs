@@ -11,16 +11,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Summon
 {
-    public class ChromaCutter : ClassSwapItem
+    public class ChromaCutter : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Melee;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 35;
-            Item.mana = 0;
-        }
         private int _chromaCounter = 0;
         public int AttackCounter = 1;
         public int combowombo = 0;

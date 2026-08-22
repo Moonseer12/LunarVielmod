@@ -9,7 +9,6 @@ using Stellamod.Projectiles.Magic;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -17,12 +16,6 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR;
 
 public class Pericarditis : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        // DisplayName.SetDefault("Sun Blast Staff");
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
-
     public override void SetDefaults()
     {
         Item.DefaultToArtifact();

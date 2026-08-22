@@ -20,7 +20,6 @@ namespace Stellamod
         public bool RadiantBomb = false;
         public int RadiantBombCooldown = 0;
         public int Bridget = 0;
-        public bool Waterwhisps;
 
         public void ShakeAtPosition(Vector2 position, float distance, float strength)
         {
@@ -60,7 +59,6 @@ namespace Stellamod
 
         public override void ResetEffects()
         {
-            Waterwhisps = false;
             RadiantBomb = false;
             if (SwordComboR <= 0)
             {

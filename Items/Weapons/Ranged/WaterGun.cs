@@ -10,15 +10,10 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Ranged
 {
-    public class WaterGun : ClassSwapItem
+    public class WaterGun : ModItem
     {
         private int _index;
         private int _comboCounter;
-        public override DamageClass AlternateClass => DamageClass.Magic;
-        public override void SetClassSwappedDefaults()
-        {
-            Item.mana = 4;
-        }
 
         public override void SetDefaults()
         {

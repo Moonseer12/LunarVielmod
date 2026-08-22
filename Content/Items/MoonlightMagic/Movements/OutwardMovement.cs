@@ -16,8 +16,6 @@ namespace Stellamod.Content.Items.MoonlightMagic.Movements
         Vector2 initialPos;
         Vector2 wantedEndPoint;
         bool initialization = false;
-        float AoERadiusSquared = 36000;//it's squared for less expensive calculations
-        public bool[] hitByThisStardustExplosion = new bool[200] { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, };
         float t = 0;
 
         public static Vector2 CubicBezier(Vector2 start, Vector2 controlPoint1, Vector2 controlPoint2, Vector2 end, float t)
@@ -59,7 +57,7 @@ namespace Stellamod.Content.Items.MoonlightMagic.Movements
                         distanceSQ = Projectile.Center.DistanceSQ(target.Center);
                     }
                 }
-            if (target != null && target.DistanceSQ(Projectile.Center) < 10000000 && target.active && !hitByThisStardustExplosion[target.whoAmI])
+            if (target != null && target.DistanceSQ(Projectile.Center) < 10000000 && target.active)
             {
                 wantedEndPoint = initialPos - (target.Center - initialPos);
                 if (TimerSpeed < 10)
@@ -71,11 +69,6 @@ namespace Stellamod.Content.Items.MoonlightMagic.Movements
             {
                 controlPoint1 = Projectile.Center + Main.rand.NextVector2CircularEdge(1000, 1000);
                 controlPoint2 = endPoint + Main.rand.NextVector2CircularEdge(1000, 1000);
-                //controlPoint2 = Vector2.Lerp(endPoint, initialPos, 0.33f) + Main.player[Projectile.owner].velocity * 70;
-                //if (target != null)
-                //    controlPoint1 = Vector2.Lerp(endPoint, initialPos, 0.66f) + target.velocity * 70;
-                //else
-                //    Projectile.Kill();
                 initialization = true;
             }
             Projectile.velocity = Vector2.Zero;

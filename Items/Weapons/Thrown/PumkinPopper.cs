@@ -20,7 +20,7 @@ namespace Stellamod.Items.Weapons.Thrown
             Item.rare = ItemRarityID.Green;
             Item.autoReuse = true;
             Item.useTurn = true;
-            Item.DamageType = DamageClass.Throwing;
+            Item.DamageType = DamageClass.Ranged;
             Item.shoot = ModContent.ProjectileType<PumkinBomb>();
             Item.shootSpeed = 9f;
             Item.useAnimation = 20;

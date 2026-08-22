@@ -1,5 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.DashSystem;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.WeaponTypes;
 using Stellamod.Content.Areas.MoonspiralTower.VerliaBoss;
@@ -9,15 +10,12 @@ using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
 using Stellamod.Effects.RoyalMagic;
 using Stellamod.Items;
-using Stellamod.Items.Accessories.Players;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static System.Net.Mime.MediaTypeNames;
-
 
 namespace Stellamod.Content.Areas.MoonspiralTower.AccMT;
 

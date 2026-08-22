@@ -1,20 +1,13 @@
 ﻿using Stellamod.Common.IgnitersNPowders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Items;
-
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Terror.AccTR;
 
 public class GremoryExtenderPowder : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
-
     public override void SetDefaults()
     {
         Item.DefaultToAccessory();

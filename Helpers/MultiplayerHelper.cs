@@ -1,4 +1,5 @@
-﻿using Stellamod.Common.DungeonGeneration;
+﻿using Stellamod.Common.DashSystem;
+using Stellamod.Common.DungeonGeneration;
 using Stellamod.Common.Players;
 using Stellamod.Common.WaypointSystem;
 using Stellamod.Content.Areas.Collosseum.Event.Common;
@@ -7,23 +8,15 @@ using Stellamod.Content.Special.DeadRomancesExcalibur;
 using Stellamod.Core;
 using Stellamod.Core.PlayerLevelingSystem;
 using Stellamod.Core.RibbonSystem;
-using Stellamod.Core.Utilities;
 using Stellamod.Core.ZTileSystem;
-using Stellamod.Helpers;
 using Stellamod.Items;
-using Stellamod.Items.Accessories.Players;
 using Stellamod.Items.Weapons.Melee;
-using Stellamod.NPCs.Bosses.IrradiaNHavoc.Irradia;
-using Stellamod.NPCs.Town;
-using Stellamod.UI.Dialogue;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
-using Terraria.Chat;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace Stellamod
@@ -110,14 +103,6 @@ namespace Stellamod
                         Main.npc[n].netUpdate = true;
                         Main.npc[n].netUpdate2 = true;
                     }
-                    break;
-
-                case MessageType.StartBossFromDialogue:
-                    StartBossFromDialogue((DialogueType)reader.ReadInt32());
-                    break;
-
-                case MessageType.StartDialogue:
-                    StartDialogue((DialogueType)reader.ReadInt32());
                     break;
 
                 case MessageType.DashPlayerSync:
@@ -293,44 +278,6 @@ namespace Stellamod
                         float ai2 = reader.ReadSingle();
                         float ai3 = reader.ReadSingle();
                         NPCUtilities.HandleNPCAIChange(npcWhoAmI, ai0, ai1, ai2, ai3);
-                    }
-                    break;
-            }
-        }
-
-        private static void StartBossFromDialogue(DialogueType dialogueType)
-        {
-            switch (dialogueType)
-            {
-                case DialogueType.Start_Irradia:
-                    foreach (NPC npc in Main.ActiveNPCs)
-                    {
-                        if (npc.type == ModContent.NPCType<StartIrradia>())
-                        {
-                            StartIrradia verlia = npc.ModNPC as StartIrradia;
-                            verlia.State = StartIrradia.ActionState.Death;
-                            verlia.ResetTimers();
-                        }
-                    }
-
-                    break;
-            }
-        }
-        private static void StartDialogue(DialogueType dialogueType)
-        {
-            if (Main.netMode == NetmodeID.Server)
-                return;
-            switch (dialogueType)
-            {
-                case DialogueType.Start_Irradia:
-                    {
-                        DialogueSystem dialogueSystem = ModContent.GetInstance<DialogueSystem>();
-
-                        //2. Create a new instance of your dialogue
-                        IrradiaDialogue exampleDialogue = new IrradiaDialogue();
-
-                        //3. Start it
-                        dialogueSystem.StartDialogue(exampleDialogue);
                     }
                     break;
             }

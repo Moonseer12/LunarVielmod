@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using SpiritMod.Tiles;
 using System;
 using Terraria;
 using Terraria.ID;

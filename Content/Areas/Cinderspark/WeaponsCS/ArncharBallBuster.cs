@@ -10,7 +10,6 @@ using Stellamod.Visual.Particles;
 using System;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -372,11 +371,6 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
 
     public class ArncharBallBuster : BaseGun
     {
-        public override void SetStaticDefaults()
-        {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             //base.SetDefaults();

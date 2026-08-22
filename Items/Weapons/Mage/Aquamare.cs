@@ -2,27 +2,13 @@
 using Stellamod.Projectiles.Magic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
-    public class Aquamare : ClassSwapItem
+    public class Aquamare : ModItem
     {
-        public int dir;
-        public override DamageClass AlternateClass => DamageClass.Ranged;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 40;
-            Item.mana = 0;
-        }
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Fungal Flace");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
         public int Star;
         public override void SetDefaults()
         {

@@ -6,38 +6,22 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
 namespace Stellamod.Items.Weapons.Melee
 {
-    public class Angelenthal : ClassSwapItem
+    public class Angelenthal : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Melee;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 45;
-            Item.mana = 0;
-        }
-
         public int AttackCounter = 1;
         public int combowombo = 0;
 
         public override void SetStaticDefaults()
         {
-
-
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(1, 60));
-            ItemID.Sets.AnimatesAsSoul[Item.type] = true; // Makes the item have an animation while in world (not held.). Use in combination with RegisterItemAnimation
-            ItemID.Sets.ItemNoGravity[Item.type] = true; // Makes the item have no gravity
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            // DisplayName.SetDefault("Frost Swing");
-            /* Tooltip.SetDefault("Shoots one bone bolt to swirl and kill your enemies after attacking!" +
-			"\nHitting foes with the melee swing builds damage towards the swing of the weapon"); */
+            ItemID.Sets.AnimatesAsSoul[Item.type] = true;
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

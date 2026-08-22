@@ -1,14 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Assets;
-using Stellamod.Trails;
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
 namespace Stellamod.Projectiles.Magic
 {
@@ -23,8 +16,6 @@ namespace Stellamod.Projectiles.Magic
         Vector2 initialPos;
         Vector2 wantedEndPoint;
         bool initialization = false;
-        float AoERadiusSquared = 36000;//it's squared for less expensive calculations
-        public bool[] hitByThisStardustExplosion = new bool[200] { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, };
         float t = 0;
 
         public static Vector2 CubicBezier(Vector2 start, Vector2 controlPoint1, Vector2 controlPoint2, Vector2 end, float t)
@@ -66,7 +57,7 @@ namespace Stellamod.Projectiles.Magic
                         distanceSQ = Projectile.Center.DistanceSQ(target.Center);
                     }
                 }
-            if (target != null && target.DistanceSQ(Projectile.Center) < 10000000 && target.active && !hitByThisStardustExplosion[target.whoAmI])
+            if (target != null && target.DistanceSQ(Projectile.Center) < 10000000 && target.active)
             {
                 wantedEndPoint = initialPos - (target.Center - initialPos);
                 if (Projectile.ai[0] < 10)

@@ -1,9 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
-using Stellamod.Helpers;
-using Stellamod.Projectiles.Swords;
-using Stellamod.Trails;
+﻿using Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -41,7 +36,7 @@ namespace Stellamod.Projectiles.Thrown
             Projectile.height = 98;
             Projectile.aiStyle = -1;
             Projectile.friendly = true;
-            Projectile.DamageType = DamageClass.Throwing;
+            Projectile.DamageType = DamageClass.Ranged;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = false;
             Projectile.penetrate = -1;

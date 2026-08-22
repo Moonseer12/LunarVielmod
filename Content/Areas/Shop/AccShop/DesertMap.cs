@@ -1,14 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Items.Accessories.Players;
-using Stellamod.WorldG;
-using System;
-using System.Collections.Generic;
-
-using System.Text;
-using System.Threading.Tasks;
+﻿using Stellamod.Common.DashSystem;
 using Terraria;
 using Terraria.ID;
-using Terraria.Map;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Shop.AccShop
@@ -28,7 +20,7 @@ namespace Stellamod.Content.Areas.Shop.AccShop
             Item.UseSound = SoundID.MaxMana;
         }
 
-        private void Reveal(int x, int y)
+        public static void Reveal(int x, int y)
         {
             if(WorldGen.InWorld(x, y))
             {
@@ -36,16 +28,13 @@ namespace Stellamod.Content.Areas.Shop.AccShop
             }
         }
 
-        private bool IsValidTile(int tileType)
+        public static bool IsValidTile(int tileType)
         {
             return TileID.Sets.isDesertBiomeSand[tileType];
         }
 
         public override bool? UseItem(Player player)
         {
-            WorldMap worldMap = Main.Map;
-
-            //extra padding to avoid oceans
             int padding = 500;
             for(int x = padding; x < Main.maxTilesX - padding; x++)
             {

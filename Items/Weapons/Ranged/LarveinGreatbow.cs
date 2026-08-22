@@ -8,17 +8,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Ranged
 {
-    public class LarveinGreatbow : ClassSwapItem
+    public class LarveinGreatbow : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 27;
-            Item.mana = 0;
-        }
-        public int WinterboundArrow;
         public override void SetDefaults()
         {
             Item.damage = 58;

@@ -18,8 +18,6 @@ namespace Stellamod.Content.Areas.MoonspiralTower.VerliaBoss.Projectiles;
         private Vector2 initialPos;
         private Vector2 wantedEndPoint;
         private bool initialization = false;
-        private float AoERadiusSquared = 36000;//it's squared for less expensive calculations
-        public bool[] hitByThisStardustExplosion = new bool[200] { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, };
         private float t = 0;
         public static Vector2 CubicBezier(Vector2 start, Vector2 controlPoint1, Vector2 controlPoint2, Vector2 end, float t)
         {
@@ -70,7 +68,7 @@ namespace Stellamod.Content.Areas.MoonspiralTower.VerliaBoss.Projectiles;
                 }
             }
 
-            if (target != null && target.DistanceSQ(Projectile.Center) < 500 && !hitByThisStardustExplosion[target.whoAmI])
+            if (target != null && target.DistanceSQ(Projectile.Center) < 500)
             {
                 wantedEndPoint = initialPos - (target.Center - initialPos);
                 if (Projectile.ai[0] < 200)

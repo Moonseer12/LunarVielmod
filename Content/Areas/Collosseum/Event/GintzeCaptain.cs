@@ -1,16 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Collosseum.Event.Common;
 using Stellamod.Content.Areas.Collosseum.Event.Projectiles;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
-using Stellamod.Items.Armors.Pieces.RareMetals;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Collosseum.Event
@@ -213,11 +207,6 @@ namespace Stellamod.Content.Areas.Collosseum.Event
         public override void HitEffect(NPC.HitInfo hit)
         {
             GintzeHitEffect(hit);
-        }
-
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GintzeMask>(), 80, 1, 1));
         }
 
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)

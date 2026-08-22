@@ -1,7 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Buffs.Minions;
+﻿using Stellamod.Buffs.Minions;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Materials;
 using Stellamod.Projectiles.Summons.Minions;
 using Terraria;
 using Terraria.DataStructures;
@@ -10,16 +8,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Summon
 {
-    public class BucketScrapper : ClassSwapItem
+    public class BucketScrapper : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 4;
-            Item.mana = 10;
-        }
         public override void SetDefaults()
         {
             Item.width = 56;
@@ -58,7 +48,7 @@ namespace Stellamod.Items.Weapons.Summon
         public override void AddRecipes()
         {
             base.AddRecipes();
-         //   this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<VirulentPlating>());
+            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<MarshScrap>());
         }
     }
 }

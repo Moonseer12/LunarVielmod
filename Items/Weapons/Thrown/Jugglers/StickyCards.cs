@@ -1,6 +1,5 @@
 ﻿using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Helpers;
 using Stellamod.Projectiles.Thrown.Jugglers;
 using Terraria;
 using Terraria.ID;
@@ -15,7 +14,7 @@ namespace Stellamod.Items.Weapons.Thrown.Jugglers
         {
             base.SetDefaults();
             Item.damage = 90;
-            Item.DamageType = DamageClass.Throwing;
+            Item.DamageType = DamageClass.Ranged;
             Item.width = 24;
             Item.height = 24;
             Item.noUseGraphic = true;

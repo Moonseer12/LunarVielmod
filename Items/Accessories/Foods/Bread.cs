@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,23 +8,6 @@ namespace Stellamod.Items.Accessories.Foods
 {
     public class Bread : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 25;
-        }
-
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
-        {
-
-            // Here we add a tooltipline that will later be removed, showcasing how to remove tooltips from an item
-            var line = new TooltipLine(Mod, "Bread", "Put one on as an accessory, eat for temporary effects!")
-            {
-                OverrideColor = new Color(308, 71, 99)
-
-            };
-            tooltips.Add(line);
-        }
-
         public override void SetDefaults()
         {
             Item.DefaultToFood(48, 34, BuffID.WellFed, 20600);

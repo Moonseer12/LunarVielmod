@@ -1,6 +1,5 @@
 ﻿using Stellamod.Common.SummonerSystem;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,11 +7,6 @@ namespace Stellamod.Content.Areas.Shop.AccShop
 {
     public class PaperPaws : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.DefaultToAccessory();

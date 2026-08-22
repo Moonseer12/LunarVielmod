@@ -1,5 +1,4 @@
 ﻿using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Materials;
 using Stellamod.Projectiles.Thrown;
 using Terraria;
 using Terraria.ID;
@@ -7,21 +6,12 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Thrown
 {
-    public class Ragsaw : ClassSwapItem
+    public class Ragsaw : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Ranged;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 23;
-            Item.mana = 0;
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 45;
-            Item.DamageType = DamageClass.Throwing;
+            Item.DamageType = DamageClass.Ranged;
             Item.width = 40;
             Item.noUseGraphic = true;
             Item.height = 40;
@@ -42,7 +32,7 @@ namespace Stellamod.Items.Weapons.Thrown
         public override void AddRecipes()
         {
             base.AddRecipes();
-        //    this.RegisterBrew(mold: ModContent.ItemType<BlankJuggler>(), material: ModContent.ItemType<VirulentPlating>());
+            this.RegisterBrew(mold: ModContent.ItemType<BlankJuggler>(), material: ModContent.ItemType<MarshScrap>());
         }
     }
 }

@@ -1,10 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Common.WeaponTypes;
+﻿using Stellamod.Common.WeaponTypes;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Items;
-using Stellamod.Items.Ores;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;

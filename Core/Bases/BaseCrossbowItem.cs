@@ -1,11 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
-using ReLogic.Content;
+﻿using ReLogic.Content;
+using Stellamod.Common.DashSystem;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
-using Stellamod.Items.Accessories.Players;
-using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;

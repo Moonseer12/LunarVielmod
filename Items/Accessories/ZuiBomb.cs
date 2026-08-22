@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Accessories
@@ -8,17 +7,6 @@ namespace Stellamod.Items.Accessories
     // Load the spritesheet you create as a shield for the player when it is equipped.
     public class ZuiBomb : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Steali");
-            /* Tooltip.SetDefault("A small fast dash that provides invincibility as you dash" +
-				"\nIncreased regeneration" +
-				"\nYou may not attack while this is in use" +
-				"\nHollow Knight inspiried!"); */
-
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 24;

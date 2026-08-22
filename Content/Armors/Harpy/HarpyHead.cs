@@ -7,7 +7,6 @@ using Stellamod.Helpers;
 using System;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -222,12 +221,6 @@ public class HarpyHead : ModItem
 [AutoloadEquip(EquipType.Body)]
 public class HarpyBody : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        base.SetStaticDefaults();
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
-
     public override void SetDefaults()
     {
         Item.width = 18; // Width of the item

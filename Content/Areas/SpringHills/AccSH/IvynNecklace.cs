@@ -1,6 +1,6 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.DashSystem;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Items;
-using Stellamod.Items.Accessories.Players;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -25,7 +25,6 @@ namespace Stellamod.Content.Areas.SpringHills.AccSH
             DashPlayer dashPlayer = player.GetModPlayer<DashPlayer>();
             dashPlayer.MaxDashCount += 1;
         }
-
 
         public override void AddRecipes()
         {

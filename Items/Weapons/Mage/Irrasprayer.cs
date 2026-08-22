@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Materials;
+﻿using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles.Gun;
 using Terraria;
 using Terraria.ID;
@@ -8,14 +6,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
-    public class Irrasprayer : ClassSwapItem
+    public class Irrasprayer : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Ranged;
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 20;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 62;
@@ -49,7 +41,7 @@ namespace Stellamod.Items.Weapons.Mage
         public override void AddRecipes()
         {
             base.AddRecipes();
-        //    this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<VirulentPlating>());
+            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<MarshScrap>());
         }
     }
 }

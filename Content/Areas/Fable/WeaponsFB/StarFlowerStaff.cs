@@ -7,19 +7,13 @@ using Stellamod.Helpers;
 using Stellamod.Items;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
+
 namespace Stellamod.Content.Areas.Fable.WeaponsFB
 {
     public class StarFlowerStaff : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Sun Blast Staff");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.staff[Item.type] = true;

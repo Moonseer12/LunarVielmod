@@ -10,21 +10,11 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Summon
 {
-    public class AlcadizDagger : ClassSwapItem
+    public class AlcadizDagger : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 4;
-            Item.mana = 10;
-        }
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Arnchar Remote");
-            // Tooltip.SetDefault("Summons an Arnchar Drone to fight for you");
-            ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true; // This lets the player target anywhere on the whole screen while using a controller.
+            ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
             ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
         }
 

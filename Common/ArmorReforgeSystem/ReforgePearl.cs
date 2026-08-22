@@ -1,6 +1,5 @@
 ﻿using ReLogic.Content;
-using Stellamod.Content.CommonMaterials;
-using Stellamod.Core.Utilities;
+using Stellamod.Content.Areas.Underground;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;

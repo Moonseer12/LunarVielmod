@@ -11,7 +11,6 @@ using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -19,14 +18,6 @@ namespace Stellamod.Content.Areas.PunkerTown.ItemsPT;
 
 public class BlackEye : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        // DisplayName.SetDefault("Wooden Crossbow"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-        /* Tooltip.SetDefault("Use a small crossbow and shoot three bolts!"
-            + "\n'Triple Threat!'"); */
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
-
     public override void SetDefaults()
     {
         Item.damage = 666;

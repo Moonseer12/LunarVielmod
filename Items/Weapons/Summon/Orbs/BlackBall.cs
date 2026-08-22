@@ -11,16 +11,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Summon.Orbs
 {
-    public class BlackBall : ClassSwapItem
+    public class BlackBall : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Throwing;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 20;
-            Item.mana = 0;
-        }
         public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(BlackballDebuff.TagDamage);
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {

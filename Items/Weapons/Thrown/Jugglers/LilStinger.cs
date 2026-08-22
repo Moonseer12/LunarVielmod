@@ -7,21 +7,13 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Thrown.Jugglers
 {
-    public class LilStinger : ClassSwapItem
+    public class LilStinger : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Ranged;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 20;
-            Item.mana = 0;
-        }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             base.ModifyTooltips(tooltips);
             var line = new TooltipLine(Mod, "", "");
-            line = new TooltipLine(Mod, "Alcarishasd", Helpers.LangText.Common("Juggler"))
+            line = new TooltipLine(Mod, "Alcarishasd", LangText.Common("Juggler"))
             {
                 OverrideColor = ColorFunctions.JugglerWeaponType
             };
@@ -31,7 +23,7 @@ namespace Stellamod.Items.Weapons.Thrown.Jugglers
         public override void SetDefaults()
         {
             Item.damage = 42;
-            Item.DamageType = DamageClass.Throwing;
+            Item.DamageType = DamageClass.Ranged;
             Item.width = 24;
             Item.height = 24;
             Item.noUseGraphic = true;

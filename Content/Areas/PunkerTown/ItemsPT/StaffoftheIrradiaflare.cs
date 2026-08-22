@@ -5,7 +5,6 @@ using Stellamod.Items;
 using Stellamod.Projectiles.Magic;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,11 +13,6 @@ namespace Stellamod.Content.Areas.PunkerTown.ItemsPT;
 public class StaffoftheIrradiaflare : ModItem
 {
     private int _dir;
-    public override void SetStaticDefaults()
-    {
-        // DisplayName.SetDefault("Staff of the Irradiaflare");
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
 
     public override void SetDefaults()
     {

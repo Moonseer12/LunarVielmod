@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Stellamod.Tiles;
-using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.SpringHills.TilesSH
@@ -8,13 +7,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     //Wall Version
     public class StoneUnderBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -36,13 +28,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
 
     public class StoneObeliskBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -63,13 +48,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
 
     public class StoneTombBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -90,13 +68,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
 
     public class BrokenCarraigeBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();

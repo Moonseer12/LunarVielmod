@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Common.GunSystem;
+﻿using Stellamod.Common.GunSystem;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Items;
 using Stellamod.Visual.Particles;
@@ -13,7 +12,7 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB;
 
 public class MiniPistol : BaseGun
 {
-    private int _comboCounter;
+    public int _comboCounter;
     public override void SetDefaults()
     {
         base.SetDefaults();
@@ -52,7 +51,6 @@ public class MiniPistol : BaseGun
     {
         Item.ArmorPenetration = 15;
         float rot = velocity.ToRotation();
-        float spread = 0.4f;
         muzzleOrigin = new Vector2(68, 9);
         Vector2 offset = new Vector2(1.5f, -0.1f * player.direction).RotatedBy(rot);
         Item.useTime = (int)MathHelper.Lerp(4, 32, MathHelper.Clamp((float)(remainingAmmo - 75) / 25, 0f, 1f));
@@ -68,7 +66,7 @@ public class MiniPistol : BaseGun
                 faintSmokeParticle.Scale *= 0.5f;
                 faintSmokeParticle.dampening = 0.1f;
             }
-            SoundStyle shootSound = new SoundStyle("Stellamod/Assets/Sounds/MiniPistol2");
+            SoundStyle shootSound = new("Stellamod/Assets/Sounds/MiniPistol2");
             shootSound = shootSound with { PitchVariance = 0.66f, Volume = 0.4f };
             SoundEngine.PlaySound(shootSound, position);
             Item.useTime = 31;
@@ -92,14 +90,14 @@ public class MiniPistol : BaseGun
         int Sound = Main.rand.Next(1, 3);
         if (Sound == 1)
         {
-            SoundStyle shootSound = new SoundStyle("Stellamod/Assets/Sounds/MiniPistol");
+            SoundStyle shootSound = new("Stellamod/Assets/Sounds/MiniPistol");
             shootSound.Volume = 0.05f;
             shootSound.PitchVariance = 0.5f;
             SoundEngine.PlaySound(shootSound);
         }
         else
         {
-            SoundStyle shootSound = new SoundStyle("Stellamod/Assets/Sounds/MiniPistol3");
+            SoundStyle shootSound = new("Stellamod/Assets/Sounds/MiniPistol3");
             shootSound.Volume = 0.05f;
             shootSound.PitchVariance = 0.5f;
             SoundEngine.PlaySound(shootSound);
@@ -122,6 +120,6 @@ public class MiniPistol : BaseGun
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew<HypnotizedSoul, BlankGun>();
+        this.RegisterBrew<AlcadizScrap, BlankGun>();
     }
 }

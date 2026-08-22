@@ -1,6 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using ReLogic.Content;
-using Stellamod.Items.Accessories.Players;
+﻿using ReLogic.Content;
+using Stellamod.Common.DashSystem;
 using Terraria;
 using Terraria.ModLoader;
 

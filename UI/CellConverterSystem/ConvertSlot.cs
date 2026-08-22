@@ -34,7 +34,7 @@ public class ConvertSlot : UIElement
     /// </summary>
     public bool Valid(Item item)
     {
-        return item.ModItem is ClassSwapItem || item.IsAir;
+        return item.IsAir;
     }
 
     public void HandleMouseItem()

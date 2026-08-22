@@ -1,15 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Armors.Leather;
-using Stellamod.Content.Armors.Terric;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
-using Stellamod.Projectiles.Swords.Altride;
 using System;
 using System.IO;
 using Terraria;

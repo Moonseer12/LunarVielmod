@@ -1,28 +1,12 @@
-﻿using Stellamod.Items.Ores;
-using Stellamod.Projectiles.Magic;
+﻿using Stellamod.Projectiles.Magic;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
-    public class Relagis : ClassSwapItem
+    public class Relagis : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Ranged;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 40;
-            Item.mana = 0;
-            Item.useAmmo = AmmoID.Bullet;
-        }
-
-        public override void SetStaticDefaults()
-        {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 80;

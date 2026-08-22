@@ -11,7 +11,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -117,7 +116,6 @@ namespace Stellamod.Content.Armors.Elegant
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ArmorSetSystem.RegisterArmorSet<ElagentHead, ElagentBody, ElagentLegs>(ArmorGroup.Act_I);
         }
 
@@ -153,12 +151,6 @@ namespace Stellamod.Content.Armors.Elegant
     [AutoloadEquip(EquipType.Body)]
     public class ElagentBody : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            base.SetStaticDefaults();
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 18; // Width of the item
@@ -180,11 +172,6 @@ namespace Stellamod.Content.Armors.Elegant
     [AutoloadEquip(EquipType.Legs)]
     public class ElagentLegs : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 28;

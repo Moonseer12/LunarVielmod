@@ -1,7 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Helpers;
-using System;
+﻿using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -27,7 +24,7 @@ namespace Stellamod.Projectiles
             Projectile.height = 64;
             Projectile.penetrate = 8;
             Projectile.knockBack = 12.9f;
-            Projectile.DamageType = DamageClass.Throwing;
+            Projectile.DamageType = DamageClass.Ranged;
             Projectile.friendly = true;
         }
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

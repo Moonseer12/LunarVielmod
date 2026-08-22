@@ -1,14 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Common.ArmorRework;
-using Stellamod.Common.GunSystem;
+﻿using Stellamod.Common.ArmorRework;
+using Stellamod.Common.DashSystem;
 using Stellamod.Common.IgnitersNPowders;
 using Stellamod.Common.SummonerSystem;
 using Stellamod.Common.XixianFlaskSystem;
-using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Areas.Underground;
 using Stellamod.Content.Items.MoonlightMagic;
-using Stellamod.Helpers;
-using Stellamod.Items.Accessories.Players;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;

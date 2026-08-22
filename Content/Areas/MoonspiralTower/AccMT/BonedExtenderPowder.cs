@@ -3,12 +3,9 @@ using Stellamod.Common.IgnitersNPowders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Items;
 using System.Collections.Generic;
-
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Content.Areas.MoonspiralTower.AccMT
 {
@@ -29,7 +26,6 @@ namespace Stellamod.Content.Areas.MoonspiralTower.AccMT
         {
             player.GetModPlayer<IgniterPlayer>().multishot = true;
             player.GetModPlayer<IgniterPlayer>().igniterDamageBonus -= 0.5f;
-
         }
     }
 }

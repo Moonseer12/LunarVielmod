@@ -6,7 +6,6 @@ using Stellamod.Helpers;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -165,7 +164,6 @@ public class AlcaliteMask : ModItem
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         ArmorSetSystem.RegisterArmorSet<AlcaliteMask, AlcaliteRobe, AlcaliteTrunks>(ArmorGroup.Act_III);
     }
 

@@ -6,39 +6,19 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
 namespace Stellamod.Items.Weapons.Melee
 {
-    public class Yumiko : ClassSwapItem
+    public class Yumiko : ModItem
     {
-        //Alternate class you want it to change to
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        //Defaults for the other class
-        public override void SetClassSwappedDefaults()
-        {
-            //Do if(IsSwapped) if you want to check for the alternate class
-            //Stats to have when in the other class
-            Item.damage = 115;
-            Item.mana = 22;
-            Item.useTime = 50;
-            Item.useAnimation = 50;
-        }
         public override void SetStaticDefaults()
         {
-
-
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(1, 60));
-            ItemID.Sets.AnimatesAsSoul[Item.type] = true; // Makes the item have an animation while in world (not held.). Use in combination with RegisterItemAnimation
-            ItemID.Sets.ItemNoGravity[Item.type] = true; // Makes the item have no gravity
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            // DisplayName.SetDefault("Frost Swing");
-            /* Tooltip.SetDefault("Shoots one bone bolt to swirl and kill your enemies after attacking!" +
-			"\nHitting foes with the melee swing builds damage towards the swing of the weapon"); */
+            ItemID.Sets.AnimatesAsSoul[Item.type] = true;
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

@@ -1,7 +1,6 @@
 ﻿
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Stellamod.TilesNew.MothlightTiles.MothlightBrick;
@@ -28,11 +27,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
 
     public class MothlightWallBlock : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("silky walls!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 400;
-        }
         public override void SetDefaults()
         {
             Item.width = 12;

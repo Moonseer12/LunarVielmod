@@ -1,18 +1,12 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Buffs.Minions;
+﻿using Stellamod.Buffs.Minions;
 using Stellamod.Common.ArmorRework;
-using Stellamod.Content.Areas.Illuria.ArmorsIL;
 using Stellamod.Core.Effects;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Trailing;
-using Stellamod.Trails;
 using System;
 using System.IO;
 using Terraria;
 using Terraria.GameContent;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -261,8 +255,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.ArmorWD
         }
     }
 
-    // The AutoloadEquip attribute automatically attaches an equip texture to this item.
-    // Providing the EquipType.Head value here will result in TML expecting a X_Head.png file to be placed next to the item's main texture.
     [AutoloadEquip(EquipType.Head)]
     public class DaediaMask : ModItem
     {
@@ -270,7 +262,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.ArmorWD
         {
             base.SetStaticDefaults();
             ArmorSetSystem.RegisterArmorSet<DaediaMask, DaediaBreastplate, DaediaThighs>(ArmorGroup.Act_I);
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
@@ -289,32 +280,20 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.ArmorWD
             armorStatsPlayer.defenseBonus += 3;
         }
 
-        // IsArmorSet determines what armor pieces are needed for the setbonus to take effect
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<DaediaBreastplate>() && legs.type == ModContent.ItemType<DaediaThighs>();
         }
 
-        // UpdateArmorSet allows you to give set bonuses to the armor.
         public override void UpdateArmorSet(Player player)
         {
             player.GetModPlayer<DaediaPlayer>().hasDaediaSetBonus = true;
         }
-
-        // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
     }
 
-    // The AutoloadEquip attribute automatically attaches an equip texture to this item.
-    // Providing the EquipType.Body value here will result in TML expecting X_Arms.png, X_Body.png and X_FemaleBody.png sprite-sheet files to be placed next to the item's main texture.
     [AutoloadEquip(EquipType.Body)]
     public class DaediaBreastplate : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            base.SetStaticDefaults();
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 18; // Width of the item
@@ -328,23 +307,12 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.ArmorWD
             ArmorStatsPlayer armorStatsPlayer = player.GetModPlayer<ArmorStatsPlayer>();
             armorStatsPlayer.accessorySlots += 2;
             armorStatsPlayer.defenseBonus += 3;
-
         }
-
-        // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
-
     }
 
-    // The AutoloadEquip attribute automatically attaches an equip texture to this item.
-    // Providing the EquipType.Legs value here will result in TML expecting a X_Legs.png file to be placed next to the item's main texture.
     [AutoloadEquip(EquipType.Legs)]
     public class DaediaThighs : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 18; // Width of the item
@@ -358,9 +326,5 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.ArmorWD
             armorStatsPlayer.minionAggressiveness += 100;
             armorStatsPlayer.defenseBonus += 2;
         }
-
-
-        // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
-
     }
 }

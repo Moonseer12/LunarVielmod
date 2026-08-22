@@ -8,17 +8,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Ranged
 {
-    public class RazzleDazzle : ClassSwapItem
+    public class RazzleDazzle : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Summon;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 31;
-            Item.mana = 20;
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 62;

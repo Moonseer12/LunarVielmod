@@ -1,10 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Common.XixianFlaskSystem;
+﻿using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Content.CommonMaterials;
-
 using Stellamod.Core.Particles;
-using Stellamod.Items.Materials;
-using Stellamod.Items.Ores;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.ModLoader;

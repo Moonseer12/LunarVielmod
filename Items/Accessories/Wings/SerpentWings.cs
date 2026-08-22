@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Stellamod.Helpers;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -40,8 +39,6 @@ namespace Stellamod.Items.Accessories.Wings
     {
         public override void SetStaticDefaults()
         {
-
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(1800, 9f, 3);
            
         }

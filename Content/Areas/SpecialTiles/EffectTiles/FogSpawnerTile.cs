@@ -6,7 +6,6 @@ using Stellamod.Core.Foggy;
 using Stellamod.Core.LunarLightingSystem;
 using Stellamod.Helpers;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -90,12 +89,6 @@ namespace Stellamod.Content.Areas.SpecialTiles.EffectTiles
 
     public class FogSpawnerBlock : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 12;
@@ -109,7 +102,5 @@ namespace Stellamod.Content.Areas.SpecialTiles.EffectTiles
             Item.consumable = true;
             Item.createTile = ModContent.TileType<FogSpawnerTile>();
         }
-
-
     }
 }

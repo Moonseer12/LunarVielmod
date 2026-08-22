@@ -4,28 +4,16 @@ using Stellamod.Helpers;
 using Stellamod.Items.Materials;
 using Stellamod.Projectiles.Gun;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Ranged
 {
-    public class Polaris : ClassSwapItem
+    public class Polaris : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Magic;
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Wooden Crossbow"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-            /* Tooltip.SetDefault("Use a small crossbow and shoot three bolts!"
-                + "\n'Triple Threat!'"); */
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-        }
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.mana = 20;
-            Item.damage = 375;
         }
 
         public override void SetDefaults()

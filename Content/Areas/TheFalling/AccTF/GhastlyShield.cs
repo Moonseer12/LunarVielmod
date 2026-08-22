@@ -8,7 +8,6 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.WorldBuilding;
 
 namespace Stellamod.Content.Areas.TheFalling.AccTF;
 

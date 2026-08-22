@@ -13,7 +13,6 @@ using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
@@ -312,7 +311,6 @@ public class AlsisMask : ModItem
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         ArmorSetSystem.RegisterArmorSet<AlsisMask, AlsisChestplate, AlsisGreaves>(ArmorGroup.Act_III);
     }
 
@@ -346,12 +344,6 @@ public class AlsisMask : ModItem
 [AutoloadEquip(EquipType.Body)]
 public class AlsisChestplate : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        base.SetStaticDefaults();
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
-
     public override void SetDefaults()
     {
         Item.width = 18; // Width of the item
@@ -374,12 +366,6 @@ public class AlsisChestplate : ModItem
 [AutoloadEquip(EquipType.Legs)]
 public class AlsisGreaves : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        base.SetStaticDefaults();
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
-
     public override void SetDefaults()
     {
         Item.width = 18; // Width of the item

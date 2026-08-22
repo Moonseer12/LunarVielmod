@@ -4,7 +4,6 @@ using Stellamod.Common;
 using Stellamod.Core.TabletSystem;
 using Stellamod.Tiles;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -12,13 +11,6 @@ namespace Stellamod.Content.Areas.SpringHills.TabletsSH
 {
     public class SpringTabletItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -27,13 +19,6 @@ namespace Stellamod.Content.Areas.SpringHills.TabletsSH
     }
     public class SpringTabletDashItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -42,13 +27,6 @@ namespace Stellamod.Content.Areas.SpringHills.TabletsSH
     }
     public class SpringTabletStaminaItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -57,13 +35,6 @@ namespace Stellamod.Content.Areas.SpringHills.TabletsSH
     }
     public class SpringTabletBossItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -72,13 +43,6 @@ namespace Stellamod.Content.Areas.SpringHills.TabletsSH
     }
     public class SpringTabletXixianFlaskItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();

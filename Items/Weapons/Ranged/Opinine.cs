@@ -1,24 +1,13 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Items.Ores;
-using Stellamod.Projectiles.Bow;
+﻿using Stellamod.Projectiles.Bow;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
 namespace Stellamod.Items.Weapons.Ranged
 {
-    public class Opinine : ClassSwapItem
+    public class Opinine : ModItem
     {
-        public int dir;
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 55;
-            Item.mana = 10;
-        }
         public override void SetDefaults()
         {
             Item.damage = 110;

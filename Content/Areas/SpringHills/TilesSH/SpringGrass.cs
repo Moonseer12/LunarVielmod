@@ -1,5 +1,4 @@
 ﻿using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -100,13 +99,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
 
     public class SpringGrassBlock : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             Item.width = 12;
@@ -120,7 +112,5 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
             Item.consumable = true;
             Item.createTile = ModContent.TileType<SpringGrass>();
         }
-
-        // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
     }
 }

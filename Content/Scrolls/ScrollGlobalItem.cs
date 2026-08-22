@@ -1,13 +1,10 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.ArmorRework;
+using Stellamod.Common.DashSystem;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Tooltips;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
-using Stellamod.Items.Accessories.Players;
-using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;
@@ -18,7 +15,6 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
 namespace Stellamod.Content.Scrolls;
-
 
 public enum ScrollAbility : byte
 {

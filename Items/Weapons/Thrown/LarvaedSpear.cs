@@ -1,5 +1,4 @@
 ﻿using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Materials;
 using Stellamod.Projectiles.Thrown;
 using Terraria;
 using Terraria.ID;
@@ -7,21 +6,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Thrown
 {
-    public class LarvaedSpear : ClassSwapItem
+    public class LarvaedSpear : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Ranged;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 10;
-            Item.mana = 0;
-        }
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Pearlescent Ice Ball");
-            // Tooltip.SetDefault("Shoots fast homing sparks of light!");
-        }
         public override void SetDefaults()
         {
             Item.damage = 20;
@@ -30,7 +16,7 @@ namespace Stellamod.Items.Weapons.Thrown
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
             Item.knockBack = 2f;
-            Item.DamageType = DamageClass.Throwing;
+            Item.DamageType = DamageClass.Ranged;
             Item.value = 200;
             Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.DD2_DarkMageAttack;

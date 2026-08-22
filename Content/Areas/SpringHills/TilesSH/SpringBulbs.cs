@@ -2,20 +2,12 @@
 using Stellamod.Dusts;
 using Stellamod.Tiles;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.SpringHills.TilesSH
 {
     public class HangingBulbSmallItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -67,13 +59,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
 
     public class HangingBulbLongItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -115,12 +100,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
 
     public class HangingBulbLargeItem : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -158,11 +137,5 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
             }
             Lighting.AddLight(worldPos, Color.LightGoldenrodYellow.ToVector3() * 0.5f);
         }
-
     }
-
-
-
-
-
 }

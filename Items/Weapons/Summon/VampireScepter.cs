@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Buffs.Minions;
+﻿using Stellamod.Buffs.Minions;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles.Summons.Minions;
 using System;
@@ -14,7 +13,6 @@ namespace Stellamod.Items.Weapons.Summon
     public class VampirePlayer : ModPlayer
     {
         public bool lifesteal;
-        public bool isMagic;
         public float cooldown;
         public override void ResetEffects()
         {
@@ -31,7 +29,7 @@ namespace Stellamod.Items.Weapons.Summon
         public override void OnHitNPCWithProj(Projectile proj, NPC target, NPC.HitInfo hit, int damageDone)
         {
             base.OnHitNPCWithProj(proj, target, hit, damageDone);
-            if (lifesteal && (!isMagic && proj.DamageType == DamageClass.Summon) || (isMagic && proj.DamageType == DamageClass.Magic))
+            if (lifesteal)
             {
                 float distanceToTarget = Vector2.Distance(Player.position, target.position);
                 //10 tile radius
@@ -60,9 +58,8 @@ namespace Stellamod.Items.Weapons.Summon
         }
     }
 
-    public class VampireScepter : ClassSwapItem
+    public class VampireScepter : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Magic;
 
         public override void SetDefaults()
         {
@@ -96,14 +93,6 @@ namespace Stellamod.Items.Weapons.Summon
             // Minions have to be spawned manually, then have originalDamage assigned to the damage of the summon item
             var projectile = Projectile.NewProjectileDirect(source, position, velocity, type, damage, knockback, player.whoAmI);
             projectile.originalDamage = Item.damage;
-            player.GetModPlayer<VampirePlayer>().isMagic = IsSwapped;
-            if (IsSwapped)
-            {
-                projectile.DamageType = Item.DamageType;
-            }
-
-
-            // Since we spawned the projectile manually already, we do not need the game to spawn it for ourselves anymore, so return false
             return false;
         }
         public override void AddRecipes()

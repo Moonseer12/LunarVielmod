@@ -1372,6 +1372,8 @@ Gutinier: {
 		Classful weapon!
 			Divergency Inspired!
 		'''
+	BasicSlash: ""
+	StaminaSlash: No Effect
 }
 
 HornedNail: {
@@ -2819,6 +2821,8 @@ SkyrageShasher: {
 GladiatorSpear: {
 	DisplayName: Gladiator Spear
 	Tooltip: Tear through the bones of your fellow competitors.
+	BasicSlash: ""
+	StaminaSlash: No Effect
 }
 
 Infernis: {

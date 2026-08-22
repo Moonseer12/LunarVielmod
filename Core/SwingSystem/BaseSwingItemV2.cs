@@ -1,11 +1,8 @@
-﻿using Stellamod.Common.GunSystem;
+﻿using Stellamod.Common.DashSystem;
+using Stellamod.Common.GunSystem;
 using Stellamod.Content.Scrolls;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Tooltips;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
-using Stellamod.Items.Accessories.Players;
-using Stellamod.Visual.Explosions;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;

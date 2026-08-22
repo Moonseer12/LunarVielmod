@@ -10,10 +10,8 @@ using Stellamod.Items;
 using Stellamod.Projectiles.IgniterExplosions;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
-
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -22,11 +20,6 @@ namespace Stellamod.Content.Areas.Cinderspark.AccCS;
 
 public class TomedDustingFlames : AbstractIgniterAddon
 {
-    public override void SetStaticDefaults()
-    {
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
-
     public override void SetDefaults()
     {
         Item.DefaultToAccessory();

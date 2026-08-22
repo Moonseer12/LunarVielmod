@@ -8,26 +8,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Melee
 {
-    public class Verstibloom : ClassSwapItem
+    public class Verstibloom : ModItem
     {
-        //Alternate class you want it to change to
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        //Defaults for the other class
-        public override void SetClassSwappedDefaults()
-        {
-            //Do if(IsSwapped) if you want to check for the alternate class
-            //Stats to have when in the other class
-            Item.damage = 8;
-            Item.mana = 20;
-            Item.knockBack = 12;
-        }
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Frost Swing");
-            /* Tooltip.SetDefault("Shoots one bone bolt to swirl and kill your enemies after attacking!" +
-			"\nHitting foes with the melee swing builds damage towards the swing of the weapon"); */
-        }
         public override void SetDefaults()
         {
             Item.damage = 16;

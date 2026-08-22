@@ -6,16 +6,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
-    public class BookOfSkullsII : ClassSwapItem
+    public class BookOfSkullsII : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Summon;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 44;
-            Item.mana = 6;
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 144;

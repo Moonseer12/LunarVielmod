@@ -7,11 +7,6 @@ namespace Stellamod.Items.Weapons.Thrown
 {
     public class Plate : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Cactius"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 21;
@@ -26,7 +21,7 @@ namespace Stellamod.Items.Weapons.Thrown
             Item.shootSpeed = 15;
             Item.autoReuse = true;
             Item.useTurn = true;
-            Item.DamageType = DamageClass.Throwing;
+            Item.DamageType = DamageClass.Ranged;
             Item.shoot = ModContent.ProjectileType<Plateproj>();
             Item.shootSpeed = 16;
             Item.useAnimation = 20;

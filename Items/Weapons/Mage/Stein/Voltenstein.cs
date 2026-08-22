@@ -1,7 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Helpers;
-using Stellamod.Items.Materials;
 using Stellamod.Projectiles.Steins;
 using System.Collections.Generic;
 using Terraria;
@@ -11,16 +9,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage.Stein
 {
-    public class Voltenstein : ClassSwapItem
+    public class Voltenstein : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Melee;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 14;
-            Item.mana = 0;
-        }
         public int AttackCounter = 1;
         public int combowombo = 1;
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -35,11 +25,6 @@ namespace Stellamod.Items.Weapons.Mage.Stein
             tooltips.Add(line);
         }
 
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Doorlauncher"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-            // Tooltip.SetDefault("Electrical nail, thats weird");
-        }
         public override void SetDefaults()
         {
             Item.damage = 29;
@@ -104,7 +89,7 @@ namespace Stellamod.Items.Weapons.Mage.Stein
         public override void AddRecipes()
         {
             base.AddRecipes();
-        //    this.RegisterBrew(mold: ModContent.ItemType<BlankStein>(), material: ModContent.ItemType<VirulentPlating>());
+            this.RegisterBrew(mold: ModContent.ItemType<BlankStein>(), material: ModContent.ItemType<MarshScrap>());
         }
 
 

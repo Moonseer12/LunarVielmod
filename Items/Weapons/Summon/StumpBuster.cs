@@ -6,15 +6,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Summon
 {
-    public class StumpBuster : ClassSwapItem
+    public class StumpBuster : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 7;
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 15;

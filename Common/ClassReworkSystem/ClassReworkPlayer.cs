@@ -1,8 +1,9 @@
-﻿using Stellamod.Common.XixianFlaskSystem;
+﻿using Stellamod.Common.DashSystem;
+using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Core.ClassSelect;
-using Stellamod.Items.Accessories.Players;
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
@@ -20,7 +21,7 @@ public class ClassReworkPlayer : ModPlayer
             if (_quiverAmmoItem == null)
             {
                 _quiverAmmoItem = new Item(0);
-                _quiverAmmoItem.SetDefaults(0);
+                _quiverAmmoItem.SetDefaults(ItemID.None);
             }
             return _quiverAmmoItem;
         }

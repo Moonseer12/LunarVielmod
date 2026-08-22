@@ -1,5 +1,5 @@
-﻿using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Armors.Illurian;
+﻿using Stellamod.Content.Areas.Illuria.ArmorIL;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Items.Weapons.Mage;
 using System;
 using Terraria;

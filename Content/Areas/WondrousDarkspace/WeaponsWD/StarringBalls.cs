@@ -17,17 +17,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
 {
-    public class StarringBalls : ClassSwapItem
+    public class StarringBalls : ModItem
     {
-        public int dir;
-        public override DamageClass AlternateClass => DamageClass.Throwing;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 16;
-            Item.mana = 0;
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 33;

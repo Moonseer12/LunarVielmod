@@ -4,7 +4,6 @@ using Stellamod.Core.LunarLightingSystem;
 using Stellamod.Helpers;
 using System;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -179,12 +178,6 @@ public abstract class BaseBarrierBlock : ModTile
 }
 public class BossBarrierBlockItem : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        // Tooltip.SetDefault("Super silk!");
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-    }
-
     public override void SetDefaults()
     {
         Item.width = 12;
@@ -277,12 +270,6 @@ public class BossBarrierBlock : ModTile
 }
 public abstract class BarrierBlockItem<T> : ModItem where T : BaseBarrierBlock
 {
-    public override void SetStaticDefaults()
-    {
-        // Tooltip.SetDefault("Super silk!");
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-    }
-
     public override void SetDefaults()
     {
         Item.width = 12;

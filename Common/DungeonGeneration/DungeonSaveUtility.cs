@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -15,11 +14,6 @@ namespace Stellamod.Common.DungeonGeneration
 {
     public class DungeonSaveHelper : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 62;

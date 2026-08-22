@@ -7,9 +7,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Ranged
 {
-    public class Hitme : ClassSwapItem
+    public class Hitme : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Throwing;
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
 

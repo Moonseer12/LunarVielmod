@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
-using Terraria.GameContent.Creative;
 using Terraria.GameContent.Metadata;
 using Terraria.ID;
 using Terraria.Localization;
@@ -413,12 +412,6 @@ namespace Stellamod.TilesNew.RainforestTiles
 
     public class RainforestTreeAcorn : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 12;

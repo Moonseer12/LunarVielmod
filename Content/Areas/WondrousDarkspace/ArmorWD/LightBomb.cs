@@ -1,43 +1,16 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Content.Areas.WondrousDarkspace.ArmorWD
 {
     public class LightBomb : ModProjectile
     {
-        /*
-		 
-		//This is a lot of unused variables!!!!
-	
-		private int ProjectileSpawnedCount = 0;
-		private int ProjectileSpawnedMax = 20;
-		private bool MouseRightBool = false;
-		private bool Morrowflames = false;
-		private bool MouseLeftBool = true;
-		private object player;
-		NPC target;
-
-		int afterImgCancelDrawCount2 = 0;
-		Vector2 endPoint;
-		Vector2 controlPoint1;
-		Vector2 controlPoint2;
-		Vector2 initialPos;
-		Vector2 wantedEndPoint;
-		bool initialization = false;
-		float AoERadiusSquared = 36000;//it's squared for less expensive calculations
-		public bool[] hitByThisStardustExplosion = new bool[200] { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, };
-		*/
-
         int afterImgCancelDrawCount = 0;
         float ta = 0;
         float TimerR = 0;
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Charm Spragald");
             Main.projFrames[Projectile.type] = 1;
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 3;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
@@ -131,11 +104,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.ArmorWD
                     Main.EntitySpriteDraw(texture, interpolatedPos - Main.screenPosition + Projectile.Size / 2 + new Vector2(-20, -15), null, afterImgColor * (1 - i / (float)Projectile.oldPos.Length), rotationToDraw, texture.Size() / 2, 1, SpriteEffects.None, 0);
                 }
             }
-
-
-            //Could probably do something like:
-            //DrawHelper.AfterImagePreDraw(Projectile projectile, float saturation, float luminosity, Color afterImageColor);
-            //return false;
             return false;
         }
     }

@@ -11,20 +11,12 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Summon
 {
-    public class Pegasus : ClassSwapItem
+    public class Pegasus : ModItem
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Gelatal Slaff");
-            // Tooltip.SetDefault("Summons an Jelly boi to fight for you");
-            ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true; // This lets the player target anywhere on the whole screen while using a controller.
+            ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
             ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
-        }
-
-        public override DamageClass AlternateClass => DamageClass.Generic;
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 50;
         }
 
         public override void SetDefaults()

@@ -1,23 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Common.QuestSystem;
-using Stellamod.Content.Ammo;
-using Stellamod.Content.Areas.Snow.AccsSN;
-using Stellamod.Content.Areas.SpringHills.WeaponsSH;
-using Stellamod.Content.Currencies;
+﻿using Stellamod.Common.QuestSystem;
 using Stellamod.Content.Quests.ZuiQuest;
 using Stellamod.Core;
-using Stellamod.Helpers;
-using Stellamod.Items.Accessories;
 using Stellamod.Items.Armors.Vanity.Nyxia;
 using Stellamod.Items.Armors.Vanity.Solarian;
-using Stellamod.Items.Armors.Witchen;
-using Stellamod.Items.Consumables;
-using Stellamod.Items.Weapons.Mage;
-using Stellamod.Items.Weapons.Ranged;
-using Stellamod.Items.Weapons.Ranged.GunSwapping;
-using Stellamod.Items.Weapons.Summon;
-using Stellamod.Items.Weapons.Thrown;
 using Stellamod.NPCs.Bosses.Zui;
 using System;
 using System.Collections.Generic;
@@ -25,9 +10,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.Utilities;
 
 namespace Stellamod.NPCs.Town
 {
@@ -50,7 +33,7 @@ namespace Stellamod.NPCs.Town
             NPCID.Sets.NoTownNPCHappiness[Type] = true;
 
             // Influences how the NPC looks in the Bestiary
-            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers()
+            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new()
             {
                 Velocity = 1f, // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
                 Direction = 1 // -1 is left and 1 is right. NPCs are drawn facing the left by default but ExamplePerson will be drawn facing the right
@@ -84,7 +67,7 @@ namespace Stellamod.NPCs.Town
             NPC.friendly = true; // NPC Will not attack player
             NPC.width = 54;
             NPC.height = 130;
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.damage = 90;
             NPC.defense = 42;
             NPC.lifeMax = 2000;

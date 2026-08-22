@@ -1,6 +1,4 @@
 ﻿using Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
-using Stellamod.Content.Armors.ForestCore;
-using Stellamod.Helpers;
 using Stellamod.Projectiles.Summons.Minions;
 using Terraria;
 using Terraria.ModLoader;
@@ -87,8 +85,6 @@ namespace Stellamod.Buffs.Minions
             }
         }
     }
-
-    public class FCMinionBuff : MinionBuff<ForestCoreBow> { }
 
     public class HallowWandMinionBuff : MinionBuff<HallowWandMinionProj> { }
 

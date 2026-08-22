@@ -1,17 +1,13 @@
 ﻿using Stellamod.Common.ArmorReforge;
 using Stellamod.Common.UI;
-using Stellamod.Content.CommonMaterials;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+using Stellamod.Content.Areas.Underground;
 using Stellamod.UI;
-using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameInput;
 using Terraria.ModLoader;
 using Terraria.UI;
-
 
 namespace Stellamod.Common.ArmorReforgeSystem;
 

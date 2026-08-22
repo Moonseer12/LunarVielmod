@@ -1,32 +1,32 @@
-﻿using Stellamod.Content.Areas.WondrousDarkspace.ArmorWD;
-using Stellamod.Content.Armors.Artisan;
+﻿using Stellamod.Content.Areas.Abyss.ArmorAB;
+using Stellamod.Content.Areas.Collosseum.ArmorCL;
+using Stellamod.Content.Areas.Hallowrooms.ArmorHR;
+using Stellamod.Content.Areas.Illuria.ArmorIL;
+using Stellamod.Content.Areas.Ishtar.ArmorIS;
+using Stellamod.Content.Areas.Jungle.ArmorJN;
+using Stellamod.Content.Areas.Jungle.ArmorRadiant;
+using Stellamod.Content.Areas.Junkyard.ArmorJY;
+using Stellamod.Content.Areas.MoonspiralTower.ArmorMT;
+using Stellamod.Content.Areas.PunkerTown.ArmorPT;
+using Stellamod.Content.Areas.Snow.ArmorSN;
+using Stellamod.Content.Areas.SpringHills.ArmorSH;
+using Stellamod.Content.Areas.Terror.ArmorTR;
+using Stellamod.Content.Areas.TheFalling.ArmorTF;
+using Stellamod.Content.Areas.Underground.ArmorUG;
+using Stellamod.Content.Areas.Underground.TilesUG;
+using Stellamod.Content.Areas.WaterSide.ArmorWS;
+using Stellamod.Content.Areas.WondrousDarkspace.ArmorWD;
+using Stellamod.Content.Armors.Appretience;
 using Stellamod.Content.Armors.Astrasilk;
-using Stellamod.Content.Armors.Candlelight;
-using Stellamod.Content.Armors.Celestia;
+using Stellamod.Content.Armors.Daeden;
+using Stellamod.Content.Armors.Ducanblitz;
+using Stellamod.Content.Armors.Eldritchian;
 using Stellamod.Content.Armors.Elegant;
-using Stellamod.Content.Armors.Fishy;
-using Stellamod.Content.Armors.ForestCore;
-using Stellamod.Content.Armors.GovheilKing;
-using Stellamod.Content.Armors.GovheilQueen;
-using Stellamod.Content.Armors.HeavyMetal;
-using Stellamod.Content.Armors.Huntrian;
-using Stellamod.Content.Armors.Leather;
+using Stellamod.Content.Armors.Jianxin;
 using Stellamod.Content.Armors.Lovestruck;
-using Stellamod.Content.Armors.LunarianVoid;
-using Stellamod.Content.Armors.Miracle;
-using Stellamod.Content.Armors.Sanctorous;
-using Stellamod.Content.Armors.Scrappy;
-using Stellamod.Content.Armors.ShadeWraith;
-using Stellamod.Content.Armors.Staffigy;
-using Stellamod.Content.Armors.Terric;
-using Stellamod.Content.Armors.Verlian;
-using Stellamod.Content.Armors.Vextin;
-using Stellamod.Content.Armors.Virulent;
-using Stellamod.Content.Armors.Winterborn;
+using Stellamod.Content.Armors.Ulven;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Armors.Jianxin;
 using Stellamod.Items.Materials;
-using Stellamod.Items.Ores;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -43,294 +43,237 @@ namespace Stellamod.Common.ArmorShop
             base.PostSetupContent();
             Armors = new List<ArmorShopSet>();
 
-
-            //Ivythorn Set done
-            ArmorShopSet ivythornSet = new ArmorShopSet();
+            ArmorShopSet ivythornSet = new();
             ivythornSet.AddHead(ModContent.ItemType<ForestCoreHead>());
             ivythornSet.AddBody(ModContent.ItemType<ForestCoreBody>());
             ivythornSet.AddLegs(ModContent.ItemType<ForestCoreLegs>());
             ivythornSet.SetMaterial(ModContent.ItemType<Ivythorn>());
             ivythornSet.Register();
 
-            //leather done
-            ArmorShopSet leth = new ArmorShopSet();
+            ArmorShopSet leth = new();
             leth.AddHead(ModContent.ItemType<LeatherHead>());
             leth.AddBody(ModContent.ItemType<LeatherBody>());
             leth.AddLegs(ModContent.ItemType<LeatherLegs>());
             leth.SetMaterial(ItemID.Leather);
             leth.Register();
 
-            //Winterborn Set done
-            ArmorShopSet winterbornSet = new ArmorShopSet();
+            ArmorShopSet winterbornSet = new();
             winterbornSet.AddHead(ModContent.ItemType<WinterbornHead>());
             winterbornSet.AddBody(ModContent.ItemType<WinterbornBody>());
             winterbornSet.AddLegs(ModContent.ItemType<WinterbornLegs>());
             winterbornSet.SetMaterial(ModContent.ItemType<WinterbornShard>());
             winterbornSet.Register();
 
-            //Celestial Moon Set done
-            ArmorShopSet celestiaMoonSet = new ArmorShopSet();
+            ArmorShopSet celestiaMoonSet = new();
             celestiaMoonSet.AddHead(ModContent.ItemType<CelestiaMoonHelmet>());
             celestiaMoonSet.AddBody(ModContent.ItemType<CelestiaMoonBreastplate>());
             celestiaMoonSet.AddLegs(ModContent.ItemType<CelestiaMoonLegs>());
             celestiaMoonSet.SetMaterial(ModContent.ItemType<GlisteningOre>());
             celestiaMoonSet.Register();
 
-            //Shadewrath done
-            ArmorShopSet SW = new ArmorShopSet();
+            ArmorShopSet SW = new();
             SW.AddHead(ModContent.ItemType<ShadeWraithHead>());
             SW.AddBody(ModContent.ItemType<ShadeWraithBody>());
             SW.AddLegs(ModContent.ItemType<ShadeWraithLegs>());
             SW.SetMaterial(ItemID.GraniteBlock);
             SW.Register();
 
-            //lovestruck done
-            ArmorShopSet los = new ArmorShopSet();
+            ArmorShopSet los = new();
             los.AddHead(ModContent.ItemType<LovestruckMask>());
             los.AddBody(ModContent.ItemType<LovestruckBreastplate>());
             los.AddLegs(ModContent.ItemType<LovestruckLegs>());
             los.SetMaterial(ModContent.ItemType<AuroreanStarI>());
             los.Register();
 
-            //Astrasilk done
-            ArmorShopSet astr = new ArmorShopSet();
+            ArmorShopSet astr = new();
             astr.AddHead(ModContent.ItemType<AstrasilkHead>());
             astr.AddBody(ModContent.ItemType<AstrasilkBody>());
             astr.AddLegs(ModContent.ItemType<AstrasilkLegs>());
             astr.SetMaterial(ModContent.ItemType<AuroreanStarI>());
             astr.Register();
 
-
-            //Heavy metal/gitnzl done
-            ArmorShopSet GintzeSet = new ArmorShopSet();
+            ArmorShopSet GintzeSet = new();
             GintzeSet.AddHead(ModContent.ItemType<HeavyMetalHead>());
             GintzeSet.AddBody(ModContent.ItemType<HeavyMetalBody>());
             GintzeSet.AddLegs(ModContent.ItemType<HeavyMetalLegs>());
             GintzeSet.SetMaterial(ModContent.ItemType<GintzlMetal>());
             GintzeSet.Register();
 
-            //dread/teric done
-            ArmorShopSet terr = new ArmorShopSet();
+            ArmorShopSet terr = new();
             terr.AddHead(ModContent.ItemType<TerricHead>());
             terr.AddBody(ModContent.ItemType<TerricBody>());
             terr.AddLegs(ModContent.ItemType<TerricLegs>());
             terr.SetMaterial(ModContent.ItemType<TerrorFragments>());
             terr.Register();
 
-            //Daedia done
-            ArmorShopSet Daedia = new ArmorShopSet();
+            ArmorShopSet Daedia = new();
             Daedia.AddHead(ModContent.ItemType<DaediaMask>());
             Daedia.AddBody(ModContent.ItemType<DaediaBreastplate>());
             Daedia.AddLegs(ModContent.ItemType<DaediaThighs>());
             Daedia.SetMaterial(ModContent.ItemType<HypnotizedSoul>());
             Daedia.Register();
 
-            //Staffigy done
-            ArmorShopSet staff = new ArmorShopSet();
+            ArmorShopSet staff = new();
             staff.AddHead(ModContent.ItemType<StaffigyHat>());
             staff.AddBody(ModContent.ItemType<StaffigyRobe>());
             staff.AddLegs(ModContent.ItemType<StaffigyPants>());
             staff.SetMaterial(ModContent.ItemType<HypnotizedSoul>());
             staff.Register();
 
-            //vextin done
-            ArmorShopSet Vext = new ArmorShopSet();
+            ArmorShopSet Vext = new();
             Vext.AddHead(ModContent.ItemType<VextinMask>());
             Vext.AddBody(ModContent.ItemType<VextinRobe>());
             Vext.AddLegs(ModContent.ItemType<VextinBoots>());
             Vext.SetMaterial(ItemID.AntlionMandible);
             Vext.Register();
 
-            //huntrian done
-            ArmorShopSet hunt = new ArmorShopSet();
+            ArmorShopSet hunt = new();
             hunt.AddHead(ModContent.ItemType<HuntrianHelmet>());
             hunt.AddBody(ModContent.ItemType<HuntrianChestplate>());
             hunt.AddLegs(ModContent.ItemType<HuntrianBoots>());
             hunt.SetMaterial(ItemID.Stinger);
             hunt.Register();
 
-
-            ArmorShopSet fishy = new ArmorShopSet();
+            ArmorShopSet fishy = new();
             fishy.AddHead(ModContent.ItemType<FishyHead>());
             fishy.AddBody(ModContent.ItemType<FishyBody>());
             fishy.AddLegs(ModContent.ItemType<FishyLegs>());
             fishy.SetMaterial(ModContent.ItemType<MusicalHarmonise>());
             fishy.Register();
 
-            //---------- Late Prehm
-
-            //LVoid armor done
-            ArmorShopSet Luvo = new ArmorShopSet();
+            ArmorShopSet Luvo = new();
             Luvo.AddHead(ModContent.ItemType<LunarianVoidHead>());
             Luvo.AddBody(ModContent.ItemType<LunarianVoidBody>());
             Luvo.AddLegs(ModContent.ItemType<LunarianVoidLegs>());
             Luvo.SetMaterial(ModContent.ItemType<ConvulgingMater>());
             Luvo.Register();
 
-
-            //Verl done
-            ArmorShopSet Verl = new ArmorShopSet();
+            ArmorShopSet Verl = new();
             Verl.AddHead(ModContent.ItemType<VerlMask>());
             Verl.AddBody(ModContent.ItemType<VerlBreastplate>());
             Verl.AddLegs(ModContent.ItemType<VerlLeggings>());
             Verl.SetMaterial(ModContent.ItemType<PearlescentScrap>());
             Verl.Register();
 
-
-            //Elegant done
-            ArmorShopSet Ele = new ArmorShopSet();
+            ArmorShopSet Ele = new();
             Ele.AddHead(ModContent.ItemType<ElagentHead>());
             Ele.AddBody(ModContent.ItemType<ElagentBody>());
             Ele.AddLegs(ModContent.ItemType<ElagentLegs>());
             Ele.SetMaterial(ItemID.Feather);
             Ele.Register();
 
-
-
-            //---------- Hardmode
-
-            //Virulent Armor done
-            ArmorShopSet Vir = new ArmorShopSet();
+            ArmorShopSet Vir = new();
             Vir.AddHead(ModContent.ItemType<VirulentHelm>());
             Vir.AddBody(ModContent.ItemType<VirulentArmor>());
             Vir.AddLegs(ModContent.ItemType<VirulentLegs>());
             Vir.SetMaterial(ModContent.ItemType<MechanizedSoul>());
             Vir.Register();
 
-
-            //kaleido done
-            ArmorShopSet Paint = new ArmorShopSet();
+            ArmorShopSet Paint = new();
             Paint.AddHead(ModContent.ItemType<ArtisanMask>());
             Paint.AddBody(ModContent.ItemType<ArtisanBreastplate>());
             Paint.AddLegs(ModContent.ItemType<ArtisanThighs>());
             Paint.SetMaterial(ModContent.ItemType<KaleidoscopicInk>());
             Paint.Register();
 
-            //---------- Post mech
-
-
-            //Scarppy done
-            ArmorShopSet SCP = new ArmorShopSet();
+            ArmorShopSet SCP = new();
             SCP.AddHead(ModContent.ItemType<ScrappyHead>());
             SCP.AddBody(ModContent.ItemType<ScrappyBody>());
             SCP.AddLegs(ModContent.ItemType<ScrappyLegs>());
             SCP.SetMaterial(ModContent.ItemType<MechanizedSoul>());
             SCP.Register();
 
-            //Govheil done
-            ArmorShopSet Gov1 = new ArmorShopSet();
+            ArmorShopSet Gov1 = new();
             Gov1.AddHead(ModContent.ItemType<GovheilHelmet>());
             Gov1.AddBody(ModContent.ItemType<GovheilChainplate>());
             Gov1.AddLegs(ModContent.ItemType<GovheilThighs>());
             Gov1.SetMaterial(ModContent.ItemType<MarshScrap>());
             Gov1.Register();
 
-
-            //Govheil 2 done
-            ArmorShopSet Gov2 = new ArmorShopSet();
+            ArmorShopSet Gov2 = new();
             Gov2.AddHead(ModContent.ItemType<GovheilMask>());
             Gov2.AddBody(ModContent.ItemType<GovheilBreastplate>());
             Gov2.AddLegs(ModContent.ItemType<GovheilQueenThighs>());
             Gov2.SetMaterial(ModContent.ItemType<MarshScrap>());
             Gov2.Register();
 
-            ArmorShopSet miracle = new ArmorShopSet();
+            ArmorShopSet miracle = new();
             miracle.AddHead(ModContent.ItemType<MiracleHead>());
             miracle.AddBody(ModContent.ItemType<MiracleBody>());
             miracle.SetMaterial(ModContent.ItemType<MiracleThread>());
             miracle.Register();
 
-            //---------- Chlorophyte
-            ArmorShopSet silk = new ArmorShopSet();
+            ArmorShopSet silk = new();
             silk.AddHead(ModContent.ItemType<CandlelightHood>());
             silk.AddBody(ModContent.ItemType<CandlelightBody>());
             silk.AddLegs(ModContent.ItemType<CandlelightLegs>());
             silk.SetMaterial(ModContent.ItemType<EreshkinCandle>());
             silk.Register();
-            //Daeden
-            /*
-            ArmorShopSet dae = new ArmorShopSet();
+            
+            ArmorShopSet dae = new();
             dae.AddHead(ModContent.ItemType<DaedenMask>());
             dae.AddBody(ModContent.ItemType<DaedenChestplate>());
             dae.AddLegs(ModContent.ItemType<DaedenLegs>());
             dae.SetMaterial(ItemID.ChlorophyteBar);
             dae.Register();
 
-
-            //Ulven
-            ArmorShopSet Ulv = new ArmorShopSet();
+            ArmorShopSet Ulv = new();
             Ulv.AddHead(ModContent.ItemType<UlvenHelmet>());
             Ulv.AddBody(ModContent.ItemType<UlvenChestplate>());
             Ulv.AddLegs(ModContent.ItemType<UlvenGreaves>());
             Ulv.SetMaterial(ItemID.ChlorophyteBar);
             Ulv.Register();
 
-            //Appretience
-            ArmorShopSet Appre = new ArmorShopSet();
+            ArmorShopSet Appre = new();
             Appre.AddHead(ModContent.ItemType<AppretienceHat>());
             Appre.AddBody(ModContent.ItemType<AppretienceBreastplate>());
             Appre.AddLegs(ModContent.ItemType<AppretiencePants>());
             Appre.SetMaterial(ItemID.ChlorophyteBar);
             Appre.Register();
 
-            //---------- Post plant
-
-            //Illurian1
-            ArmorShopSet Ill = new ArmorShopSet();
+            ArmorShopSet Ill = new();
             Ill.AddHead(ModContent.ItemType<IllurianCrestmask>());
             Ill.AddBody(ModContent.ItemType<IllurianCrestplate>());
             Ill.AddLegs(ModContent.ItemType<IllurianCrestpants>());
             Ill.SetMaterial(ModContent.ItemType<IllurineScale>());
             Ill.Register();
 
-            //Illurian2
-            ArmorShopSet Ill2 = new ArmorShopSet();
+            ArmorShopSet Ill2 = new();
             Ill2.AddHead(ModContent.ItemType<IllurianWarriorHelm>());
             Ill2.AddBody(ModContent.ItemType<IllurianWarriorChestplate>());
             Ill2.AddLegs(ModContent.ItemType<IllurianWarriorGreaves>());
             Ill2.SetMaterial(ModContent.ItemType<IllurineScale>());
             Ill2.Register();
 
-
-            //radianui1
-            ArmorShopSet rad1 = new ArmorShopSet();
+            ArmorShopSet rad1 = new();
             rad1.AddHead(ModContent.ItemType<FlowerHat>());
             rad1.AddBody(ModContent.ItemType<FlowerRobe>());
             rad1.AddLegs(ModContent.ItemType<FlowerPants>());
             rad1.SetMaterial(ModContent.ItemType<RadiantNectar>());
             rad1.Register();
-            */
-            //---------- Post ml
-
-            ArmorShopSet sanc = new ArmorShopSet();
+            
+            ArmorShopSet sanc = new();
             sanc.AddHead(ModContent.ItemType<SanctorousHead>());
             sanc.AddBody(ModContent.ItemType<SanctorousBody>());
             sanc.AddLegs(ModContent.ItemType<SanctorousLegs>());
             sanc.SetMaterial(ModContent.ItemType<FallenEyes>());
             sanc.Register();
 
-
-            //Eldrit
-            /*
-            ArmorShopSet eldritch = new ArmorShopSet();
+            ArmorShopSet eldritch = new();
             eldritch.AddHead(ModContent.ItemType<EldritchianHood>());
             eldritch.AddBody(ModContent.ItemType<EldritchianCloak>());
             eldritch.AddLegs(ModContent.ItemType<EldritchianLegs>());
             eldritch.SetMaterial(ItemID.LunarBar);
             eldritch.Register();
-            */
-            //Ducanbltize done 
-
-            /*
-            ArmorShopSet ducan = new ArmorShopSet();
+            
+            ArmorShopSet ducan = new();
             ducan.AddHead(ModContent.ItemType<DucanblitzCap>());
             ducan.AddBody(ModContent.ItemType<DucanblitzBreastplate>());
             ducan.AddLegs(ModContent.ItemType<DucanblitzThighs>());
             ducan.SetMaterial(ItemID.LunarBar);
-            ducan.Register();*/
+            ducan.Register();
 
-            //Jianxin
-            ArmorShopSet JianxinSet = new ArmorShopSet();
+            ArmorShopSet JianxinSet = new();
             JianxinSet.AddHead(ModContent.ItemType<JianxinMask>());
             JianxinSet.AddBody(ModContent.ItemType<JianxinCoat>());
             JianxinSet.AddLegs(ModContent.ItemType<JianxinPants>());

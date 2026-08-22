@@ -2,33 +2,14 @@
 using Stellamod.Items.Materials;
 using Stellamod.Projectiles.Magic;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
 
-    public class Bincle : ClassSwapItem
+    public class Bincle : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Ranged;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 60;
-            Item.mana = 0;
-            Item.useAmmo = AmmoID.Bullet;
-        }
-
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Wooden Crossbow"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-            /* Tooltip.SetDefault("Use a small crossbow and shoot three bolts!"
-                + "\n'Triple Threat!'"); */
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 120;

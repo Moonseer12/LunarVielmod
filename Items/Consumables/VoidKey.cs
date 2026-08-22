@@ -1,5 +1,4 @@
 ﻿using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,13 +6,6 @@ namespace Stellamod.Items.Consumables
 {
     public class VoidKey : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            /* Tooltip.SetDefault("I thank you for your contribution, return to me, I await your arrival " +
-				"\n at the top of my palace, we will dance soon <3"); */
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 28;

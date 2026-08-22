@@ -1,12 +1,6 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.DashSystem;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Items;
-using Stellamod.Items.Accessories;
-using Stellamod.Items.Accessories.Players;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
 

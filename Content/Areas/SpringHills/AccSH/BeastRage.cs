@@ -1,13 +1,7 @@
-﻿using Stellamod.Common.XixianFlaskSystem;
+﻿using Stellamod.Common.DashSystem;
+using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Core.Particles;
-using Stellamod.Helpers;
-using Stellamod.Items.Accessories.Players;
 using Stellamod.Visual.Particles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
@@ -39,7 +33,7 @@ namespace Stellamod.Content.Areas.SpringHills.AccSH
             if (!beastRagePlayer.hasBeastRage)
                 return;
             player.AddBuff(ModContent.BuffType<RagingBeast>(), 240);
-            SoundStyle rageSound = new SoundStyle("Stellamod/Assets/Sounds/DMHeart__Spawn");
+            SoundStyle rageSound = new("Stellamod/Assets/Sounds/DMHeart__Spawn");
             rageSound.Volume = 0.4f;
             SoundEngine.PlaySound(rageSound, player.position);
             FXUtil.ShakeCamera(player.position, 1024, 8);

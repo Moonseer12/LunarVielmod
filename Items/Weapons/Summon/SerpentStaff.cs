@@ -11,23 +11,13 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Summon
 {
-    public class SerpentStaff : ClassSwapItem
+    public class SerpentStaff : ModItem
     {
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Irradiated Creeper Staff");
-            // Tooltip.SetDefault("Summons an Irradiated Creeper to fight with you");
-            ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true; // This lets the player target anywhere on the whole screen while using a controller.
+            ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
             ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
             ItemID.Sets.StaffMinionSlotsRequired[Item.type] = 1f;
-        }
-
-        public override void SetClassSwappedDefaults()
-        {
-            base.SetClassSwappedDefaults();
-            Item.damage = 45;
         }
 
         public override void SetDefaults()

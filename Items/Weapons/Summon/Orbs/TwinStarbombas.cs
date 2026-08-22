@@ -12,16 +12,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Summon.Orbs
 {
-    public class TwinStarbombas : ClassSwapItem
+    public class TwinStarbombas : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Throwing;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 22;
-            Item.mana = 0;
-        }
         public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(TwinStarbombasDebuff.TagDamage);
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {

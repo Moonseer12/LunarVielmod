@@ -2,9 +2,7 @@
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Effects.Trails;
-using Stellamod.Helpers;
 using Stellamod.Items;
-using Stellamod.Items.Ores;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -56,7 +54,7 @@ namespace Stellamod.Content.Areas.Collosseum.WeaponsCL
                 WindColor = Color.DarkGray,
                 LightColor = Color.LightGray,
                 RimHighlightColor = Color.White,
-                BlendState = Microsoft.Xna.Framework.Graphics.BlendState.Additive
+                BlendState = BlendState.Additive
             };
 
             Trailer.Shader = SlashEffect;

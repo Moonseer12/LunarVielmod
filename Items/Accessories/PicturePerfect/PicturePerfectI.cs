@@ -1,7 +1,6 @@
-﻿using Stellamod.Content.Armors.Artisan;
+﻿using Stellamod.Content.Areas.Hallowrooms.ArmorHR;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 

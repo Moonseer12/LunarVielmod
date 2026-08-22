@@ -4,7 +4,6 @@ using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.SpringHills.WeaponsSH
@@ -60,11 +59,6 @@ namespace Stellamod.Content.Areas.SpringHills.WeaponsSH
 
     public class ThornedBook : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.DefaultToAccessory();

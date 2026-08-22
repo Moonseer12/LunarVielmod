@@ -1,35 +1,13 @@
-﻿
-using Microsoft.Xna.Framework;
-using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Materials;
+﻿using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles.Swords;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Melee
 {
-    public class Kilvier : ClassSwapItem
+    public class Kilvier : ModItem
     {
-        //Alternate class you want it to change to
-        public override DamageClass AlternateClass => DamageClass.Throwing;
-
-        //Defaults for the other class
-        public override void SetClassSwappedDefaults()
-        {
-            //Do if(IsSwapped) if you want to check for the alternate class
-            //Stats to have when in the other class
-            Item.damage = 26;
-
-            Item.knockBack = 15;
-        }
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("This sword feels warm, what is this Materials?"); // The (English) text shown below your weapon's name.
-
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
         public override void SetDefaults()
         {
             Item.width = 40; // The item texture's width.
@@ -64,7 +42,7 @@ namespace Stellamod.Items.Weapons.Melee
         public override void AddRecipes()
         {
             base.AddRecipes();
-         //   this.RegisterBrew(mold: ModContent.ItemType<BlankJuggler>(), material: ModContent.ItemType<VirulentPlating>());
+            this.RegisterBrew(mold: ModContent.ItemType<BlankJuggler>(), material: ModContent.ItemType<MarshScrap>());
         }
         // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
     }

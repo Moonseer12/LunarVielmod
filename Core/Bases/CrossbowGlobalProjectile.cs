@@ -1,10 +1,9 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
-using Stellamod.Content.Armors.Leather;
+using Stellamod.Content.Areas.SpringHills.ArmorSH;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;

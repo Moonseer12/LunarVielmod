@@ -1,7 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Buffs.Minions;
+﻿using Stellamod.Buffs.Minions;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Materials;
 using Stellamod.Projectiles.Summons.Minions;
 using Terraria;
 using Terraria.Audio;
@@ -11,21 +9,11 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Summon
 {
-    public class CentipedeStaff : ClassSwapItem
+    public class CentipedeStaff : ModItem
     {
-
-        public override DamageClass AlternateClass => DamageClass.Magic;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 18;
-            Item.mana = 18;
-        }
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Irradiated Creeper Staff");
-            // Tooltip.SetDefault("Summons an Irradiated Creeper to fight with you");
-            ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true; // This lets the player target anywhere on the whole screen while using a controller.
+            ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
             ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
             ItemID.Sets.StaffMinionSlotsRequired[Item.type] = 1f;
         }
@@ -66,7 +54,7 @@ namespace Stellamod.Items.Weapons.Summon
         public override void AddRecipes()
         {
             base.AddRecipes();
-      //      this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<VirulentPlating>());
+            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<MarshScrap>());
         }
     }
 }

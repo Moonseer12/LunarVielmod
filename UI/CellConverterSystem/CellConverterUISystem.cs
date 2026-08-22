@@ -92,35 +92,11 @@ namespace Stellamod.UI.CellConverterSystem
 
         public bool CanSwap()
         {
-            Item material = converterUIState.converterUI.convertSlot.Item;
-            if (material.ModItem is ClassSwapItem item)
-            {
-                if (item.IsSwapped)
-                    return false;
-                else
-                    return true;
-            }
-
-            if (material.IsAir)
-            {
-                return false;
-            }
-
             return false;
         }
 
         public void CellConvert()
         {
-            //Add the result to the inventory
-            Player player = Main.LocalPlayer;
-            Item item = converterUIState.converterUI.convertSlot.Item;
-            if (item.ModItem is ClassSwapItem swapItem)
-            {
-                swapItem.SwapDamageType();
-                SoundEngine.PlaySound(new SoundStyle($"Stellamod/Assets/Sounds/Converted"));
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Main.LocalPlayer.Center, 1024f, 16f);
-                item.NetStateChanged();
-            }
         }
 
         public override void PreSaveAndQuit()

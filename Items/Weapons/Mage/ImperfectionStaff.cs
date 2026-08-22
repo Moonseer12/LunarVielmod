@@ -11,28 +11,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Mage
 {
-    public class ImperfectionStaff : ClassSwapItem
+    public class ImperfectionStaff : ModItem
     {
-        //Alternate class you want it to change to
-        public override DamageClass AlternateClass => DamageClass.Summon;
-
-        //Defaults for the other class
-        public override void SetClassSwappedDefaults()
-        {
-            //Do if(IsSwapped) if you want to check for the alternate class
-            //Stats to have when in the other class
-            Item.damage = 25;
-            Item.knockBack = 3;
-            Item.mana = 4;
-            Item.useTime = 45;
-            Item.useAnimation = 45;
-        }
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Spinny Winny damage the binny");
-
-        }
-
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
 

@@ -2,24 +2,15 @@
 using Stellamod.Common.ArmorRework;
 using Stellamod.Content.Achievements;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Effects;
-using Stellamod.Helpers;
-using Stellamod.Items.Consumables;
-using Stellamod.NPCs.Town;
-using Stellamod.WorldG;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
 namespace Stellamod.Content.Bar.Drinks;
-
 
 public class Cab : ModItem
 {

@@ -1,28 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Stellamod.Projectiles.Thrown;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Weapons.Thrown
 {
-    public class WindmillShuriken : ClassSwapItem
+    public class WindmillShuriken : ModItem
     {
-        public int dir;
-        public override DamageClass AlternateClass => DamageClass.Ranged;
-
-        public override void SetClassSwappedDefaults()
-        {
-            Item.damage = 5;
-
-        }
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Assassin's Shuriken");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 10;
@@ -37,7 +22,7 @@ namespace Stellamod.Items.Weapons.Thrown
             Item.shootSpeed = 13;
             Item.autoReuse = true;
             Item.useTurn = true;
-            Item.DamageType = DamageClass.Throwing;
+            Item.DamageType = DamageClass.Ranged;
             Item.shoot = ModContent.ProjectileType<WindmillShurikenProj>();
             Item.shootSpeed = 20f;
             Item.useAnimation = 18;

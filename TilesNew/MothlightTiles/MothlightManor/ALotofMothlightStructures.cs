@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Stellamod.Tiles;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 
 namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
@@ -10,13 +9,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightBanner
     public class MothlightBannerBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -40,13 +32,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightBannerHanger
     public class MothlightBannerHangerBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -70,13 +55,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightBannerSmall
     public class MothlightBannerSmallBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -100,13 +78,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightBookshelf
     public class MothlightBookshelfBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -130,13 +101,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightBowl
     public class MothlightBowlBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -160,13 +124,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightChairLeft
     public class MothlightChairLeftBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -190,13 +147,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightChairRight
     public class MothlightChairRightBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -220,13 +170,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightClock
     public class MothlightClockBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -250,13 +193,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightDoor
     public class MothlightDoorBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -280,13 +216,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightFloor
     public class MothlightFloorBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -310,13 +239,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightFlowerbad
     public class MothlightFlowerbedBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -340,13 +262,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightHanger
     public class MothlightHangerBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -370,13 +285,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightLeftStairs
     public class MothlightLeftStairsBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -400,13 +308,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightRightStairs
     public class MothlightRightStairsBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -430,13 +331,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightTable
     public class MothlightTableBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -460,13 +354,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightWindow
     public class MothlightWindowBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -492,13 +379,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightBiggerTable
     public class MothlightHighTableBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -522,13 +402,6 @@ namespace Stellamod.TilesNew.MothlightTiles.MothlightManor
     #region MothlightPalendine
     public class MothlightPalendineBlock : DecorativeWallItem
     {
-        public override void SetStaticDefaults()
-        {
-            // Tooltip.SetDefault("Super silk!");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
-
-        }
-
         public override void SetDefaults()
         {
             base.SetDefaults();

@@ -9,7 +9,6 @@ using Stellamod.Trailing;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -17,11 +16,6 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
 {
     public class ScarecrowSaber : BaseSwingItemV2
     {
-        public override void SetStaticDefaults()
-        {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults2()
         {
             base.SetDefaults2();

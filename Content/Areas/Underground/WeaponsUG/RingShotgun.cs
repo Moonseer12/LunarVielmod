@@ -10,7 +10,6 @@ using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -19,12 +18,6 @@ namespace Stellamod.Content.Areas.Underground.WeaponsUG;
 
 public class RingShotgun : BaseGun
 {
-    public override void SetStaticDefaults()
-    {
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
-
-
     public override Vector2? HoldoutOffset()
     {
         return new Vector2(-4, 0);
