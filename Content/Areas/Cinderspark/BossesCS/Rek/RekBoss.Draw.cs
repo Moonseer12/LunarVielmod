@@ -298,6 +298,18 @@ public partial class RekBoss : IWaterSilhouette
     {
         system.SilhouettesToDraw.Add(DrawWetWhite);
     }
+    private void DrawSaw(int index)
+    {
+        ref RekSegment segment = ref Segments[index];
+        if (segment.sawBladeAlpha <= 0)
+            return;
+
+        Asset<Texture2D> textureAsset = SawTextureAsset;
+        SpritebatchDrawer drawer = SpritebatchDrawer.FromTextureAsset(textureAsset, segment.position);
+        drawer.rotation = segment.rotation;
+        drawer.scale = Vector2.One * segment.sawBladeAlpha;
+        Main.spriteBatch.Draw(drawer);
+    }
 
     private void DrawSegment(int index)
     {
@@ -331,6 +343,54 @@ public partial class RekBoss : IWaterSilhouette
                 for (float f = 0; f < MathHelper.TwoPi; f += MathHelper.PiOver2)
                 {
                     Main.spriteBatch.Draw(drawer with { worldPosition = pos + (f + Main.GlobalTimeWrappedHourly * 2).ToRotationVector2() * ExtraMath.Osc(4f, 8f, speed: 2) * segment.burnAlpha });
+                }
+                for (float f = 0; f < MathHelper.TwoPi; f += MathHelper.PiOver2)
+                {
+                    Main.spriteBatch.Draw(drawer with { worldPosition = pos + (f + Main.GlobalTimeWrappedHourly * 2).ToRotationVector2() * ExtraMath.Osc(4f, 8f, speed: 2) * 0.3f });
+                }
+                break;
+            case 5:
+            case 6:
+
+                break;
+        }
+    }
+    private void DrawSegmentGlow(int index)
+    {
+        ref RekSegment segment = ref Segments[index];
+        Asset<Texture2D> textureAsset = BodySegmentsTextures[segment.bodyFrame];
+        SpritebatchDrawer drawer = SpritebatchDrawer.FromTextureAsset(textureAsset, segment.position);
+        drawer.rotation = segment.rotation;
+        switch (segment.bodyFrame)
+        {
+            default:
+                drawer.VerticalFrame(0, 3);
+                drawer.CenterOrigin();
+                break;
+            case 5:
+            case 6:
+                drawer.CenterOrigin();
+                break;
+        }
+
+        Main.spriteBatch.Draw(drawer);
+        switch (segment.bodyFrame)
+        {
+            default:
+                drawer.VerticalFrame(1, 3);
+                drawer.CenterOrigin();
+                drawer.color = Color.White * segment.burnAlpha * ExtraMath.Osc(0.5f, 1f, speed: 3) * 0.5f;
+                drawer.color.A = 0;
+                Main.spriteBatch.Draw(drawer);
+
+                Vector2 pos = drawer.worldPosition;
+                for (float f = 0; f < MathHelper.TwoPi; f += MathHelper.PiOver2)
+                {
+                    Main.spriteBatch.Draw(drawer with { worldPosition = pos + (f + Main.GlobalTimeWrappedHourly * 2).ToRotationVector2() * ExtraMath.Osc(4f, 8f, speed: 2) * segment.burnAlpha });
+                }
+                for (float f = 0; f < MathHelper.TwoPi; f += MathHelper.PiOver2)
+                {
+                    Main.spriteBatch.Draw(drawer with { worldPosition = pos + (f + Main.GlobalTimeWrappedHourly * 2).ToRotationVector2() * ExtraMath.Osc(4f, 8f, speed: 2) * 0.3f });
                 }
                 break;
             case 5:
@@ -377,6 +437,18 @@ public partial class RekBoss : IWaterSilhouette
         Main.spriteBatch.Draw(glowDrawer);
     }
 
+    private void DrawSegmentAura(int index)
+    {
+        ref RekSegment segment = ref Segments[index];
+        var glowCircle = AssetManager.GlowMask.SimpleGlowCircle;
+        SpritebatchDrawer glowDrawer = SpritebatchDrawer.FromTextureAsset(glowCircle, segment.position);
+        glowDrawer.scale *= 0.38f * MathHelper.Lerp(1f, 0.2f, (float)index / (float)Segments.Length);
+        glowDrawer.color = Color.White * 0.33f;
+        glowDrawer.color.R = (byte)(index * 9);
+        glowDrawer.color.A = 0;
+        Main.spriteBatch.Draw(glowDrawer);
+    }
+
     private void DrawAfterImages(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
     {
         for (int i = 0; i < NPC.oldPos.Length; i++)
@@ -396,6 +468,11 @@ public partial class RekBoss : IWaterSilhouette
             PixelationManager.QueuePrimitivesDrawAction(DrawSlashEffect, DrawLayer.OverNPCsAdditive);
             PixelationManager.QueuePrimitivesDrawAction(DrawFlameTrail, DrawLayer.OverNPCsAdditive);
         }
+       
+        for (int i = 1; i < Segments.Length; i++)
+        {
+            DrawSaw(i);
+        }
         //Ok, so we draw everything here yah?
         for (int i = 1; i < Segments.Length; i++)
         {
@@ -405,6 +482,24 @@ public partial class RekBoss : IWaterSilhouette
         {
             DrawSegmentHeat(i);
         }
+
+        RekAuraShader torchShader = ShaderContent.GetInstance<RekAuraShader>();
+        torchShader.Time = Main.GlobalTimeWrappedHourly * 4;
+        torchShader.Strength = 0.5f;
+        torchShader.NoiseTexture = AssetManager.Noise.Whirly.Value;
+        torchShader.InnerColor = Color.Lerp(Color.Yellow, Color.OrangeRed, 0.35f);
+        torchShader.BloomColor = Color.Red;
+        torchShader.DitherTexture = AssetManager.Dithering.Dither8x8Double;
+        torchShader.SpriteSize = AssetManager.GlowMask.SimpleGlowCircle.Size();
+        SpritebatchParams @params = SpritebatchParams.InWorldAndZoomed() with { effect = torchShader.Effect };
+        using(new SpritebatchContext(spriteBatch, @params))
+        {
+            for (int i = 1; i < Segments.Length; i++)
+            {
+                DrawSegmentAura(i);
+            }
+        }
+
         DrawAfterImages(spriteBatch, screenPos, drawColor);
         NPC.DrawAnimator(spriteBatch, drawColor);
         OutlineRenderer.Queue(DrawWhite);

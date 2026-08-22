@@ -41,6 +41,28 @@ public partial class RekBoss
             i++;
         }
     }
+    private void SegmentsMeteorFloatAlways()
+    {
+        float surface = LavaSurface();
+        foreach (var segment in Segments)
+        {
+            segment.isBurning = true;
+            segment.deadly = true;
+            segment.position += segment.velocity;
+            Point segmentTile = segment.position.ToTileCoordinates();
+            if (segment.position.Y >= surface + 128)
+            {
+                if (segment.velocity.Y > 1)
+                    segment.velocity *= 0.88f;
+                segment.velocity.Y -= 0.15f;
+            }
+            else
+            {
+                segment.velocity.Y *= 0.96f;
+                segment.velocity.Y += 0.02f;
+            }
+        }
+    }
     private void AI_VolcanicMeteor()
     {
         Timer++;
@@ -86,6 +108,27 @@ public partial class RekBoss
                         NPC.TargetClosest();
                         Teleport(_arenaCenter + new Vector2(0, -999));
                     }
+
+
+                    int i = 0;
+                    //All parts should glow and float up
+                    foreach (var segment in Segments)
+                    {
+                        if(AttackCount < i)
+                        {
+                            float ratio = 1f;
+                            if (segment.velocity.Y > 1)
+                                segment.velocity.Y *= 0.95f;
+                            segment.velocity.Y -= ratio * 0.58f;
+                            segment.rotation += 0.05f * ratio;
+                            segment.isBurning = true;
+                            segment.deadly = true;
+                            segment.position += segment.velocity;
+                        }
+       
+                        i++;
+                    }
+
                     OffsetCameraModifier.FocusTargetOffset = new Vector2(0, -252);
                     SegmentsMeteorFloat();
                     if (Timer % TimeBetweenMeteors == 0)

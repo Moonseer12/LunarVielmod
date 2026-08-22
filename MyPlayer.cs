@@ -1,4 +1,4 @@
-﻿using Stellamod.Items.Weapons.Melee;
+using Stellamod.Items.Weapons.Melee;
 using Stellamod.Projectiles.Swords;
 using Terraria;
 using Terraria.Audio;

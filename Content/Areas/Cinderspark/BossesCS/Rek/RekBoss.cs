@@ -44,6 +44,7 @@ public partial class RekBoss : ScarletBoss
         public Vector2 position;
         public Vector2 velocity;
         public Vector2 size;
+        public Vector2 initialPosition;
         public float scale;
         public float rotation;
         public bool isBurning;
@@ -53,6 +54,7 @@ public partial class RekBoss : ScarletBoss
         public bool noWorm;
         public float burnAlpha;
         public int bodyFrame;
+        public float sawBladeAlpha;
     }
     public ChainWithLengths _chain;
     public ChainWithLengths Chain
@@ -236,6 +238,16 @@ public partial class RekBoss : ScarletBoss
         }
     }
 
+    private Asset<Texture2D> _sawTextureAsset;
+    private Asset<Texture2D> SawTextureAsset
+    {
+        get
+        {
+            _sawTextureAsset ??= ModContent.Request<Texture2D>(base.Texture + "_Saw");
+            return _sawTextureAsset;
+        }
+    }
+
     private RekSegment[] _segments;
     public RekSegment[] Segments
     {
@@ -277,7 +289,7 @@ public partial class RekBoss : ScarletBoss
         }
     }
 
-    private AIState TestAttack => AIState.VolcanicMeteor;
+    private AIState TestAttack => AIState.Eruption;
     public override string Texture => TextureRegistry.EmptyTexture;
     public override void SetStaticDefaults()
     {
@@ -369,6 +381,9 @@ public partial class RekBoss : ScarletBoss
             var segment = Segments[i];
             segment.deadly = false;
             segment.isBurningNoWarning = false;
+
+            //This value you should be set specifically for everything that uses saw visual
+            segment.sawBladeAlpha = 0;
         }
         _showAfterImages = false;
         _ouroborosTrail = false;
@@ -475,7 +490,7 @@ public partial class RekBoss : ScarletBoss
         {
             var segment = Segments[i];
             segment.burnAlpha = MathHelper.Lerp(segment.burnAlpha, (segment.isBurning || segment.isBurningNoWarning) ? 1f : 0f, 0.05f);
-            if ((segment.isBurning || segment.isBurningNoWarning) && Main.rand.NextBool(15))
+            if ((segment.isBurning || segment.isBurningNoWarning) && Main.rand.NextBool(32))
             {
                 Dust.NewDustPerfect(segment.position + Main.rand.NextVector2Circular(48, 48), DustID.Torch, -Vector2.UnitY, Scale: 2f);
             }
