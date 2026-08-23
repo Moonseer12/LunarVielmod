@@ -1,7 +1,6 @@
-﻿using Stellamod.Tiles;
+﻿using Stellamod.Core.DecorativeTileSystem;
 using Terraria;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Content.Areas.SpecialTiles.EffectTiles
 {
@@ -35,6 +34,5 @@ namespace Stellamod.Content.Areas.SpecialTiles.EffectTiles
             DesyncAnimations = false;
             BlackIsTransparency = true;
         }
-
     }
 }

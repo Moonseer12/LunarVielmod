@@ -1,6 +1,4 @@
-﻿using Stellamod.Assets.Biomes;
-using Stellamod.Content.Biomes;
-using Stellamod.Core.Backgrounds;
+﻿using Stellamod.Core.Backgrounds;
 using Stellamod.Core.LunarLightingSystem;
 using Stellamod.Visual.Particles;
 using Stellamod.WorldG;
@@ -66,10 +64,9 @@ public class HarmonicCoralwaysTileGlow : GlobalTile
         }
     }
 }
-public class HarmonicCoralwaysBiome : ModBiome,
+public class HarmonicCoralwaysBiome : BaseUrdveilBiome,
     IBackLightModifier
 {
-    //   public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<NoBackgroundStyle>();
     public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Normal;
 
     // Select Music
@@ -135,7 +132,6 @@ public class HarmonicCoralwaysBiome : ModBiome,
     }
     public override void OnLeave(Player player)
     {
-        base.OnLeave(player);
         player.GetModPlayer<BiomePlayer>().ZoneHarmonicCoralways = false;
         if (Main.netMode == NetmodeID.Server)
             return;

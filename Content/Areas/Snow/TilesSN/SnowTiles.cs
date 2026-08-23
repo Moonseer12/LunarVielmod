@@ -1,10 +1,5 @@
 ﻿using ReLogic.Content;
-using Stellamod.Assets;
-using Stellamod.Common.Shaders;
-using Stellamod.Core.Pixelation;
-using Stellamod.Core.Rendering;
 using Stellamod.WorldG;
-using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
@@ -113,7 +108,7 @@ public class ThickSnowRenderer : ModSystem
         int frameCount = 4;
         int frameWidth = _snowPileAsset.Width();
         int frameHeight = _snowPileAsset.Height() / frameCount;
-        Rectangle sourceRect = new Rectangle(0, frameHeight * index, frameWidth, frameHeight);
+        Rectangle sourceRect = new(0, frameHeight * index, frameWidth, frameHeight);
         return sourceRect;
     }
 

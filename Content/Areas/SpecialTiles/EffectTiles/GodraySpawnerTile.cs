@@ -1,11 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Common.Shaders;
-using Stellamod.Core.Foggy;
+﻿using Stellamod.Core.DecorativeTileSystem;
 using Stellamod.Core.Godrays;
-using Stellamod.Helpers;
-using Stellamod.Tiles;
-using System;
 using Terraria;
 using Terraria.ModLoader;
 

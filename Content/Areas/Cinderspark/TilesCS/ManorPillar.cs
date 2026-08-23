@@ -1,9 +1,4 @@
-﻿using Stellamod.Tiles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Stellamod.Core.DecorativeTileSystem;
 using Terraria.ModLoader;
 using Terraria;
 

@@ -1,8 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Areas.RoyalCapital.BossesRC.STARBOMBER.Projectiles;
-using Stellamod.Helpers;
 using System;
 using Terraria;
 using Terraria.GameContent;

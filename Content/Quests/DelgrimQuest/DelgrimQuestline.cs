@@ -1,5 +1,5 @@
 ﻿using Stellamod.Common.QuestSystem;
-using Stellamod.Content.Biomes;
+using Stellamod.Content.Areas;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Items.Accessories;
 using Stellamod.Items.Weapons.Melee.Greatswords;

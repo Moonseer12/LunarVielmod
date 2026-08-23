@@ -1,5 +1,4 @@
-﻿using Stellamod.Assets.Biomes;
-using Terraria;
+﻿using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;

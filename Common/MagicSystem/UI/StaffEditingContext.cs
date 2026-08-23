@@ -1,4 +1,4 @@
-﻿using Stellamod.Content.Items.MoonlightMagic;
+﻿using Stellamod.Content.MoonlightMagic;
 using Terraria;
 namespace Stellamod.Common.MagicSystem.UI
 {

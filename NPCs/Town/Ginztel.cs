@@ -2,7 +2,6 @@
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Dusts;
 using Stellamod.Items.Accessories;
-using Stellamod.Items.Placeable;
 using Stellamod.Items.Weapons.Mage;
 using Stellamod.Items.Weapons.Thrown;
 using System;
@@ -294,7 +293,6 @@ namespace Stellamod.NPCs.Town
                 .Add(new Item(ModContent.ItemType<ClamsPearl>()) { shopCustomPrice = Item.buyPrice(gold: 5) })
                 .Add(new Item(ModContent.ItemType<GintzlMetal>()) { shopCustomPrice = Item.buyPrice(silver: 3) })
                 .Add(new Item(ModContent.ItemType<GintzlSpear>()) { shopCustomPrice = Item.buyPrice(copper: 10) })
-                .Add(new Item(ModContent.ItemType<BroochesTableI>()) { shopCustomPrice = Item.buyPrice(gold: 1) })
          
                 .Add(new Item(ItemID.HermesBoots) { shopCustomPrice = Item.buyPrice(gold: 4) })
                 .Add(new Item(ItemID.CloudinaBottle) { shopCustomPrice = Item.buyPrice(gold: 1) })

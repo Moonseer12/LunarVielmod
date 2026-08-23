@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Stellamod.Buffs.Minions;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Areas.Jungle.WeaponsRadiant;
+using Stellamod.Content.Areas.Jungle.WeaponsJN;
 using Stellamod.Helpers;
 using Stellamod.Trails;
 using System.IO;

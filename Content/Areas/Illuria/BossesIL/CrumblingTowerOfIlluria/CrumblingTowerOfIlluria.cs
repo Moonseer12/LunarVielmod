@@ -2,8 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Areas.Collosseum.BossesCL.CommanderGintzia.Hands;
-using Stellamod.Content.Areas.Collosseum.BossesCL.EliteCommander.Projectiles;
+using Stellamod.Content.Areas.Desert.BossesCL.CommanderGintzia.Hands;
+using Stellamod.Content.Areas.Desert.BossesCL.EliteCommander.Projectiles;
 using Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria.Projectiles;
 using Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant.Projectiles;
 using Stellamod.Core;

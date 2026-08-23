@@ -1,8 +1,8 @@
 ﻿using Stellamod.Common.QuestSystem;
+using Stellamod.Content.Areas.Abyss.ItemsAB;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Items;
 using Stellamod.Items.Accessories;
-using Stellamod.Items.Consumables;
 using Stellamod.Items.Weapons.Ranged;
 using Stellamod.Items.Weapons.Summon;
 using Stellamod.Items.Weapons.Thrown;
@@ -184,7 +184,6 @@ namespace Stellamod.Content.Quests.ZuiQuest
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            AddReward(ModContent.ItemType<IshtarKey>(), 1);
             IsAutoQuest = true;
         }
 

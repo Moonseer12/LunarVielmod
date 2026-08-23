@@ -1,6 +1,4 @@
-﻿using Stellamod.Assets.Biomes;
-using Stellamod.Content.Biomes;
-using Stellamod.Core.Biomes;
+﻿using Stellamod.Content.Areas.RoyalCapital;
 using Stellamod.Core.LunarLightingSystem;
 using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
@@ -98,7 +96,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace
         }
         public override void OnLeave(Player player)
         {
-            base.OnLeave(player);
             player.GetModPlayer<BiomePlayer>().ZoneWonder = false;
             if (Main.netMode == NetmodeID.Server)
                 return;

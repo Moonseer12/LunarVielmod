@@ -8,6 +8,8 @@ namespace Stellamod.Assets
     {
         public static class Textures
         {
+            public static string BackgroundPath => "Assets/Textures/Backgrounds/";
+            public static string BackgroundPath2 => "Stellamod/Assets/Textures/Backgrounds/";
             public static Asset<Texture2D> EmptyBigTexture = ModContent.Request<Texture2D>("Stellamod/Assets/Textures/EmptyBigTexture");
             public static class Noise
             {

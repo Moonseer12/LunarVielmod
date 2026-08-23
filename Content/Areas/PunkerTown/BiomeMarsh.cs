@@ -1,9 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Assets.Biomes;
-using Stellamod.Backgrounds;
-using Stellamod.Content.Biomes;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -22,7 +17,7 @@ namespace Stellamod.Content.Areas.PunkerTown
       
             if (spawnInfo.Player.InModBiome<BiomeMarsh>())
             {
-                List<int> vanillaNpcs = new List<int>();
+                List<int> vanillaNpcs = new();
                 if(Main.dayTime)
                     vanillaNpcs.Add(NPCID.JungleSlime);
                 vanillaNpcs.Add(NPCID.JungleBat);
@@ -43,7 +38,7 @@ namespace Stellamod.Content.Areas.PunkerTown
             base.EditSpawnRate(player, ref spawnRate, ref maxSpawns);
         }
     }
-    public class BiomeMarsh : ModBiome
+    public class BiomeMarsh : BaseUrdveilBiome
     {
         public override int Music
         {
@@ -76,7 +71,11 @@ namespace Stellamod.Content.Areas.PunkerTown
         public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<RainForestBackgroundStyle>();
 
         public override bool IsBiomeActive(Player player) => (player.ZoneOverworldHeight || player.ZoneDirtLayerHeight) && BiomeTileCounts.InMarsh;
-        public override void OnEnter(Player player) => player.GetModPlayer<BiomePlayer>().ZoneMarsh = true;
+        public override void OnEnter(Player player)
+        {
+            base.OnEnter(player);
+            player.GetModPlayer<BiomePlayer>().ZoneMarsh = true;
+        }
         public override void OnLeave(Player player) => player.GetModPlayer<BiomePlayer>().ZoneMarsh = false;
     }
 }

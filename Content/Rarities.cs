@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Stellamod.Content.Items.MoonlightMagic;
+using Stellamod.Content.MoonlightMagic;
 using Stellamod.Helpers;
 using Stellamod.Items;
 using Stellamod.Trails;

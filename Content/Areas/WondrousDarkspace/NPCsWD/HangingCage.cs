@@ -1,5 +1,4 @@
-﻿using Stellamod.Content.Biomes;
-using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Particles;
 using Stellamod.Dusts;
 using Stellamod.Visual.Particles;

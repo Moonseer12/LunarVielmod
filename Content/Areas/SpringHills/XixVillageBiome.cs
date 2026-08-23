@@ -1,8 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Backgrounds;
-using Stellamod.Content.Biomes;
-using Stellamod.Core.Biomes;
-using Terraria;
+﻿using Terraria;
 using Terraria.Graphics.Capture;
 using Terraria.ModLoader;
 
@@ -36,10 +32,6 @@ namespace Stellamod.Content.Areas.SpringHills
             base.OnEnter(player);
             player.GetModPlayer<BiomePlayer>().ZoneVillage = true;
         }
-        public override void OnLeave(Player player)
-        {
-            base.OnLeave(player);
-            player.GetModPlayer<BiomePlayer>().ZoneVillage = false;
-        }
+        public override void OnLeave(Player player) => player.GetModPlayer<BiomePlayer>().ZoneVillage = false;
     }
 }

@@ -1,5 +1,4 @@
 ﻿using ReLogic.Content;
-using Stellamod.Assets.Biomes;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles;
 using System;

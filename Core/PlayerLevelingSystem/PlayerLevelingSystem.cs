@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.ArmorRework;
 using Stellamod.Content.Achievements;
-using Stellamod.Content.Items.MoonlightMagic;
+using Stellamod.Content.MoonlightMagic;
 using System.IO;
 using Terraria;
 using Terraria.ID;

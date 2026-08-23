@@ -1,5 +1,4 @@
-﻿using Stellamod.Tiles;
-using System.Drawing;
+﻿using Stellamod.Core.DecorativeTileSystem;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Illuria.TilesIL

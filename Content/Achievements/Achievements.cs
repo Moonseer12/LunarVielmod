@@ -1,5 +1,5 @@
 ﻿using Stellamod.Content.Areas.Abyss.BossesAB.VerlianSingularity;
-using Stellamod.Content.Areas.Collosseum.BossesCL.CommanderGintzia;
+using Stellamod.Content.Areas.Desert.BossesCL.CommanderGintzia;
 using Stellamod.Content.Areas.Fable.BossesFB.JackTheScholar;
 using Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant;
 using Stellamod.Content.Areas.WaterSide.BossesWS;

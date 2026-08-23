@@ -1,11 +1,5 @@
-﻿using Stellamod.Content.Biomes;
-using Stellamod.Core.Backgrounds;
+﻿using Stellamod.Core.Backgrounds;
 using Stellamod.Effects.Aegislav;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;

@@ -1,13 +1,9 @@
-﻿using Newtonsoft.Json.Linq;
-using ReLogic.Peripherals.RGB;
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.ConsoleMenu;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Biomes;
-using Stellamod.Core.Effects;
+using Stellamod.Content.Areas;
 using Stellamod.Core.Rendering;
 using Stellamod.Effects.RoyalMagic;
-using System;
 using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
@@ -82,7 +78,7 @@ public class AegisCloudsRenderer : ModSystem
         Parallax();
 
         SpriteBatch spriteBatch = Main.spriteBatch;
-        shader.ConvectionTexture = AssetManager.LoadBackground("AegislavCloudConvection").Value;
+        shader.ConvectionTexture = ModContent.Request<Texture2D>(AssetRegistry.Textures.BackgroundPath2 + "AegislavCloudConvection").Value;
         shader.Time = Main.GlobalTimeWrappedHourly * 4;
         shader.Res = new Vector2(Main.screenWidth, Main.screenHeight);
         shader.Parallax = -_movementDiff * 24;
@@ -115,9 +111,9 @@ public class AegisCloudsRenderer : ModSystem
         BackgroundParallaxShader parallaxShader = ShaderContent.GetInstance<BackgroundParallaxShader>();
         parallaxShader.Parallax = Main.Camera.Center * 0.00025f * new Vector2(0.33f, 0.18f) * 0.83f;
 
-        Texture2D tex = AssetManager.LoadBackground("AegislavJail").Value;
-        Texture2D texGlow = AssetManager.LoadBackground("AegislavJailGlow").Value;
-        Rectangle dstRect = new Rectangle(0, 0, Main.screenWidth, Main.screenHeight);
+        Texture2D tex = ModContent.Request<Texture2D>(AssetRegistry.Textures.BackgroundPath2 + "AegislavJail").Value;
+        Texture2D texGlow = ModContent.Request<Texture2D>(AssetRegistry.Textures.BackgroundPath2 + "AegislavJailGlow").Value;
+        Rectangle dstRect = new(0, 0, Main.screenWidth, Main.screenHeight);
 
         spriteBatch.Begin(
             SpriteSortMode.Deferred,

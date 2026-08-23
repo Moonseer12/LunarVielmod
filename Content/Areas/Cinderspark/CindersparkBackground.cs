@@ -1,7 +1,5 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
-using Stellamod.Common.Shaders;
-using Stellamod.Content.Biomes;
 using Stellamod.Core.Backgrounds;
 using Terraria;
 using Terraria.ModLoader;
@@ -14,7 +12,7 @@ public class CindersparkBackground : CustomBG
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
-        _backgroundTextureAsset = AssetManager.LoadBackground("Cinderspark");
+        _backgroundTextureAsset = ModContent.Request<Texture2D>(AssetRegistry.Textures.BackgroundPath2 + "Cinderspark");
     }
 
     public override bool UseCustomDrawing()

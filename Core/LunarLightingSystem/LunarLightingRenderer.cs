@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using ReLogic.Threading;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Biomes;
+using Stellamod.Content.Areas;
 using Stellamod.Core.Foggy;
 using Stellamod.Core.Rendering;
 using System;

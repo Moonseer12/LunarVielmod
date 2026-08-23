@@ -1,6 +1,3 @@
-using Microsoft.Xna.Framework;
-using Stellamod.Content.CommonMaterials;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -20,46 +17,6 @@ namespace Stellamod.Tiles
             Main.tileLighted[Type] = true;
             Main.tileBlockLight[Type] = true;
             AddMapEntry(new Color(100, 25, 40));
-
-            MineResist = 3f;
-            MinPick = 65;
-            // name.SetDefault("Arnchar");
-            RegisterItemDrop(ModContent.ItemType<Cinderscrap>());
-        }
-
-        public override void RandomUpdate(int i, int j)
-        {
-            Tile tile = Framing.GetTileSafely(i, j);
-            Tile tileBelow = Framing.GetTileSafely(i, j + 1);
-            //Tile tileAbove = Framing.GetTileSafely(i, j - 1);
-
-            //Try place vine
-            if (WorldGen.genRand.NextBool(3) && !tileBelow.HasTile)
-            {
-                if (!tile.BottomSlope)
-                {
-                    tileBelow.TileType = (ushort)ModContent.TileType<CindersparkVines>();
-                    tileBelow.HasTile = true;
-                    WorldGen.SquareTileFrame(i, j + 1, true);
-                    if (Main.netMode == NetmodeID.Server)
-                    {
-                        NetMessage.SendTileSquare(-1, i, j + 1, 3, TileChangeType.None);
-                    }
-                }
-            }
-            if (WorldGen.genRand.NextBool(3) && !tileBelow.HasTile)
-            {
-                if (!tile.BottomSlope)
-                {
-                    tileBelow.TileType = (ushort)ModContent.TileType<CindersparkVines>();
-                    tileBelow.HasTile = true;
-                    WorldGen.SquareTileFrame(i, j + 1, true);
-                    if (Main.netMode == NetmodeID.Server)
-                    {
-                        NetMessage.SendTileSquare(-1, i, j + 1, 3, TileChangeType.None);
-                    }
-                }
-            }
         }
     }
 }

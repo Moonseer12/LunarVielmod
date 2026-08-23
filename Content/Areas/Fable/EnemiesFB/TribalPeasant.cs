@@ -1,5 +1,4 @@
-﻿using Stellamod.Content.Biomes;
-using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;

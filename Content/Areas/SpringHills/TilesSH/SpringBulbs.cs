@@ -1,6 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Dusts;
-using Stellamod.Tiles;
+﻿using Stellamod.Dusts;
+using Stellamod.Core.DecorativeTileSystem;
 using Terraria;
 using Terraria.ModLoader;
 

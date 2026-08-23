@@ -1,0 +1,87 @@
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Stellamod.Core.Particles;
+using Stellamod.Helpers;
+using Stellamod.Visual.Particles;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace Stellamod.Content.Areas.Desert.BossesCL.Gustbeak.Projectiles
+{
+    public class WindBlast : AbstractWindProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+            ProjectileID.Sets.TrailCacheLength[Type] = 16;
+            ProjectileID.Sets.TrailingMode[Type] = 2;
+        }
+
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            Projectile.width = 16;
+            Projectile.height = 16;
+            Projectile.hostile = true;
+            Projectile.timeLeft = 180;
+            Projectile.light = 0.2f;
+            Projectile.penetrate = -1;
+        }
+
+        public override void AI()
+        {
+            base.AI();
+            if (Timer == 1)
+            {
+                for (float i = 0; i < 3; i++)
+                {
+                    var donutParticle = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero) * 4 * MathHelper.Lerp(15, 1f, i / 3f));
+                    donutParticle.Scale *= MathHelper.Lerp(0.3f, 1f, i / 3f);
+                    donutParticle.Velocity *= 0.1f;
+                }
+            }
+            float chargeProgress = Timer / 60f;
+            int divisor = (int)MathHelper.Lerp(6, 6, chargeProgress);
+            if (Timer % divisor == 0)
+            {
+                //Spawn new slashes on our little wind orb
+                float range = MathHelper.Lerp(16, 16, chargeProgress);
+                Vector2 offset = Main.rand.NextVector2CircularEdge(range, range);
+                float rotation = offset.ToRotation();
+                // rotation += Main.rand.NextFloat(-1f, 1f);
+                Wind.NewSlash(offset, rotation);
+
+                offset = Main.rand.NextVector2CircularEdge(range, range);
+                rotation = offset.ToRotation();
+                //rotation += Main.rand.NextFloat(-1f, 1f);
+                Wind.NewSlash(offset, rotation);
+            }
+
+            Projectile.velocity *= 1.012f;
+            Wind.ExpandMultiplier = 0.5f;
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            base.PreDraw(ref lightColor);
+            for (float f = 0f; f < 1f; f += 0.25f)
+            {
+                Vector2 drawPos = Projectile.Center - Main.screenPosition;
+                float rotation = f * MathHelper.TwoPi;
+                Vector2 offset = rotation.ToRotationVector2() * 6;
+                drawPos += offset;
+                DrawWindBall(drawPos, ref lightColor);
+            }
+            DrawWindBall(Projectile.Center - Main.screenPosition, ref lightColor);
+            return false;
+        }
+        public override void OnKill(int timeLeft)
+        {
+            base.OnKill(timeLeft);
+            var source = Projectile.GetSource_FromThis();
+            Projectile.NewProjectile(source, Projectile.Center, Vector2.Zero,
+                ModContent.ProjectileType<WindBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+        }
+    }
+}

@@ -1,6 +1,5 @@
 using ReLogic.Content;
 using Stellamod.Content.Areas.Abyss.AccAB;
-using Stellamod.Content.Biomes;
 using Stellamod.Content.CommonMaterials;
 using System;
 using Terraria;

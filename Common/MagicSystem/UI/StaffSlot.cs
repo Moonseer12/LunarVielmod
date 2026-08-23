@@ -1,5 +1,5 @@
 ﻿using ReLogic.Content;
-using Stellamod.Content.Items.MoonlightMagic;
+using Stellamod.Content.MoonlightMagic;
 using Stellamod.Helpers;
 using Terraria;
 using Terraria.GameInput;

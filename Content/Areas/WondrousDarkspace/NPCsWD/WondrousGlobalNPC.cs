@@ -1,5 +1,4 @@
-﻿using Stellamod.Content.Biomes;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 

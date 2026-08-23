@@ -1,12 +1,4 @@
-﻿using Stellamod.Backgrounds;
-using Stellamod.Content.Biomes;
-using Stellamod.Core.Biomes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
+﻿using Terraria;
 using Terraria.Graphics.Capture;
 using Terraria.ModLoader;
 
@@ -33,10 +25,6 @@ namespace Stellamod.Content.Areas.MoonspiralTower
             base.OnEnter(player);
             player.GetModPlayer<BiomePlayer>().ZoneMoonspiralTower = true;
         }
-        public override void OnLeave(Player player)
-        {
-            base.OnLeave(player);
-            player.GetModPlayer<BiomePlayer>().ZoneMoonspiralTower = false;
-        }
+        public override void OnLeave(Player player) => player.GetModPlayer<BiomePlayer>().ZoneMoonspiralTower = false;
     }
 }

@@ -1,4 +1,4 @@
-﻿using Stellamod.Content.Biomes;
+﻿using Stellamod.Content.Areas;
 using Terraria;
 
 namespace Stellamod.Core.Rendering;

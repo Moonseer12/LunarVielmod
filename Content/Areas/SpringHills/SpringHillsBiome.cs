@@ -1,9 +1,7 @@
-﻿using Stellamod.Assets.Biomes;
-using Stellamod.Content.Areas.Dungeon;
+﻿using Stellamod.Content.Areas.Fable;
+using Stellamod.Content.Areas.RoyalCapital;
 using Stellamod.Content.Areas.Terror;
 using Stellamod.Content.Areas.WorldsEnd;
-using Stellamod.Content.Biomes;
-using Stellamod.Core.Biomes;
 using Terraria;
 using Terraria.Graphics.Capture;
 using Terraria.ModLoader;
@@ -56,10 +54,6 @@ namespace Stellamod.Content.Areas.SpringHills
             base.OnEnter(player);
             player.GetModPlayer<BiomePlayer>().ZoneSpringHills = true;
         }
-        public override void OnLeave(Player player)
-        {
-            base.OnLeave(player);
-            player.GetModPlayer<BiomePlayer>().ZoneSpringHills = false;
-        }
+        public override void OnLeave(Player player) => player.GetModPlayer<BiomePlayer>().ZoneSpringHills = false;
     }
 }

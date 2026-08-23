@@ -1,14 +1,12 @@
-﻿using Stellamod.Assets.Biomes;
-using Stellamod.Content.Biomes;
+﻿using Stellamod.Content.Areas.RoyalCapital;
 using Terraria;
 using Terraria.Graphics.Capture;
-using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Terror
 {
-    public class CrimsonBridewellBiome : ModBiome
+    public class CrimsonBridewellBiome : BaseUrdveilBiome
     {
         public override ModWaterStyle WaterStyle => ModContent.GetInstance<StarbloomWaterStyle>();
         public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<NoBackgroundStyle>();
@@ -38,18 +36,13 @@ namespace Stellamod.Content.Areas.Terror
             if (Main.netMode == NetmodeID.Server)
                 return;
             return;
-
-            SkyManager.Instance.Activate("Stellamod:AegislavSky", player.Center);
         }
         public override void OnLeave(Player player)
         {
-            base.OnLeave(player);
             player.GetModPlayer<BiomePlayer>().ZoneCrimsonBridewell = false;
             if (Main.netMode == NetmodeID.Server)
                 return;
             return;
-
-            SkyManager.Instance.Deactivate("Stellamod:AegislavSky", player.Center);
         }
     }
 }

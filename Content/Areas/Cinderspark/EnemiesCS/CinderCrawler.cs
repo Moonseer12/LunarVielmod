@@ -1,5 +1,4 @@
-﻿using Stellamod.Assets.Biomes;
-using Stellamod.Common;
+﻿using Stellamod.Common;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles;
 using System;

@@ -1,4 +1,4 @@
-﻿using Stellamod.Tiles;
+﻿using Stellamod.Core.DecorativeTileSystem;
 using Terraria;
 using Terraria.ModLoader;
 

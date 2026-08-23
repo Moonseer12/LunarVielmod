@@ -2,10 +2,7 @@
 using Stellamod.Common.ArmorShop;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Tooltips;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
 using Stellamod.Items;
-using Stellamod.Items.Materials.Molds;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;
@@ -18,7 +15,6 @@ using Terraria.UI;
 using Terraria.UI.Chat;
 
 namespace Stellamod.UI.CollectionSystem;
-
 
 public class CollectionItemTabCraft : UIElement
 {

@@ -1,16 +1,10 @@
 ﻿using Stellamod.Assets;
-using Stellamod.Assets.Biomes;
-using Stellamod.Backgrounds;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Biomes;
-using Stellamod.Core.Biomes;
-using Stellamod.Helpers;
-using System;
+using Stellamod.Content.Areas.RoyalCapital;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
 
 namespace Stellamod.Content.Areas.WorldsEnd
 {
@@ -83,48 +77,7 @@ namespace Stellamod.Content.Areas.WorldsEnd
             return (_isActive || _drawOpacity > 0.001f) && !Main.gameMenu;
         }
     }
-    public class WorldsEndBackgroundStyle : ModSurfaceBackgroundStyle
-    {
-        // Use this to keep far Backgrounds like the mountains.
-        public override void ModifyFarFades(float[] fades, float transitionSpeed)
-        {
-            for (int i = 0; i < fades.Length; i++)
-            {
-                if (i == Slot)
-                {
-                    fades[i] += transitionSpeed;
-                    if (fades[i] > 1f)
-                    {
-                        fades[i] = 1f;
-                    }
-                }
-                else
-                {
-                    fades[i] -= transitionSpeed;
-                    if (fades[i] < 0f)
-                    {
-                        fades[i] = 0f;
-                    }
-                }
-            }
-        }
-
-        public override int ChooseFarTexture()
-        {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/GreyGrassBackgroundFar");
-        }
-
-        public override int ChooseMiddleTexture()
-        {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/GreyGrassBackgroundMid");
-        }
-
-        public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
-        {
-            return BackgroundTextureLoader.GetBackgroundSlot(Mod, "Assets/Textures/Backgrounds/GreyGrassBackgroundClose");
-        }
-    }
-
+    
     public class WorldsEndBiome : BaseUrdveilBiome
     {
         public override int Music
@@ -152,7 +105,6 @@ namespace Stellamod.Content.Areas.WorldsEnd
         }
         public override void OnLeave(Player player)
         {
-            base.OnLeave(player);
             player.GetModPlayer<BiomePlayer>().ZoneWorldsEnd = false;
             if (Main.netMode == NetmodeID.Server)
                 return;

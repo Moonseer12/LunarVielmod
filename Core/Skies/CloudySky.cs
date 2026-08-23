@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Content.Biomes;
+using Stellamod.Content.Areas;
 using Stellamod.Helpers;
 using Terraria;
 using Terraria.Graphics.Effects;

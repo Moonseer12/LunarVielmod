@@ -1,9 +1,9 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Biomes;
 using Stellamod.Core.Backgrounds;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Underground;
 
@@ -13,7 +13,7 @@ public class MineshaftBackground : CustomBG
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
-        _backgroundTextureAsset = AssetManager.LoadBackground("Mineshafts");
+        _backgroundTextureAsset = ModContent.Request<Texture2D>(AssetRegistry.Textures.BackgroundPath2 + "Mineshafts");
     }
 
     public override bool UseCustomDrawing()

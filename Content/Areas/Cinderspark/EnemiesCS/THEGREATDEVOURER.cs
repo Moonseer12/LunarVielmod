@@ -1,5 +1,4 @@
-﻿using Stellamod.Assets.Biomes;
-using Stellamod.Content.Areas.Cinderspark.WeaponsCS;
+﻿using Stellamod.Content.Areas.Cinderspark.WeaponsCS;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.Audio;

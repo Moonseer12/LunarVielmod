@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Stellamod.Assets;
-using Stellamod.Content.Areas.Collosseum.AccCL;
+using Stellamod.Content.Areas.Desert.AccCL;
 using Stellamod.Core.MaskingShaderSystem;
 using Stellamod.Helpers;
 using Stellamod.Trails;

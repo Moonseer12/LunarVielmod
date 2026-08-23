@@ -1,5 +1,4 @@
-﻿using Stellamod.Helpers;
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
@@ -50,7 +49,6 @@ namespace Stellamod.NPCs.Critters
                 NPC.CloneDefaults(ClonedNPCID);
                 NPC.width = 24;
                 NPC.height = 16;
-                NPC.catchItem = ModContent.ItemType<SnowWalkerItem>();
                 AIType = ClonedNPCID;
             }
 
@@ -121,31 +119,6 @@ namespace Stellamod.NPCs.Critters
             public override void PostAI()
             {
                 NPC.spriteDirection = NPC.direction;
-            }
-        }
-
-        public class SnowWalkerItem : ModItem
-        {
-            public override void SetDefaults()
-            {
-                // useStyle = 1;
-                // autoReuse = true;
-                // useTurn = true;
-                // useAnimation = 15;
-                // useTime = 10;
-                // maxStack = CommonMaxStack;
-                // consumable = true;
-                // width = 12;
-                // height = 12;
-                // makeNPC = 361;
-                // noUseGraphic = true;
-
-                // Cloning ItemID.Frog sets the preceding values
-                Item.CloneDefaults(ItemID.Frog);
-                Item.makeNPC = ModContent.NPCType<SnowWalkerNPC>();
-                Item.value += Item.buyPrice(0, 0, 30, 0); // Make this critter worth slightly more than the frog
-                Item.rare = ItemRarityID.Blue;
-                Item.bait = 25;
             }
         }
     }

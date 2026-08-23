@@ -1,11 +1,9 @@
-﻿using Stellamod.Content.Biomes;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Content.Areas.Ishtar;
 
-public class IshtarBiome : ModBiome
+public class IshtarBiome : BaseUrdveilBiome
 {
     public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<IshtarBackgroundStyle>();
     public override ModWaterStyle WaterStyle => ModContent.GetInstance<IshtarWaterStyle>();
@@ -17,11 +15,8 @@ public class IshtarBiome : ModBiome
     public override bool IsBiomeActive(Player player) => BiomeTileCounts.InIshtar;
     public override void OnEnter(Player player)
     {
+        base.OnEnter(player);
         player.GetModPlayer<BiomePlayer>().ZoneIshtar = true;
     }
-
-    public override void OnLeave(Player player)
-    {
-        player.GetModPlayer<BiomePlayer>().ZoneIshtar = true;
-    }
+    public override void OnLeave(Player player) => player.GetModPlayer<BiomePlayer>().ZoneIshtar = true;
 }

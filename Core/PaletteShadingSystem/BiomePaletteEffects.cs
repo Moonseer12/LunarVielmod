@@ -1,8 +1,8 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
+using Stellamod.Content.Areas;
 using Stellamod.Content.Areas.Ishtar.BossesIS.SanguineSingularity;
 using Stellamod.Content.Areas.RoyalCapital.BossesRC.RoyalFox;
-using Stellamod.Content.Biomes;
 using Stellamod.Core.Palettes;
 using Terraria;
 using Terraria.ID;

@@ -1,8 +1,8 @@
 ﻿using Stellamod.Common.QuestSystem;
 using Stellamod.Content.Quests.ZuiQuest;
+using Stellamod.Content.Vanity.Nyxia;
+using Stellamod.Content.Vanity.Solarian;
 using Stellamod.Core;
-using Stellamod.Items.Armors.Vanity.Nyxia;
-using Stellamod.Items.Armors.Vanity.Solarian;
 using Stellamod.NPCs.Bosses.Zui;
 using System;
 using System.Collections.Generic;
@@ -170,8 +170,6 @@ namespace Stellamod.NPCs.Town
         public override void AddShops()
         {
             var npcShop = new NPCShop(Type, ShopName)
-            .Add(new Item(ItemID.Bottle) { shopCustomPrice = Item.buyPrice(copper: 50) })
-            .Add(new Item(ItemID.JungleRose) { shopCustomPrice = Item.buyPrice(gold: 1) })
             .Add<NyxiaHat>()
             .Add<NyxiaRobe>()
             .Add<NyxiaThighs>()

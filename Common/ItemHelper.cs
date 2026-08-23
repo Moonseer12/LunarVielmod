@@ -2,7 +2,7 @@
 using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Content.Ammo;
 using Stellamod.Content.Bar.Drinks;
-using Stellamod.Content.Items.MoonlightMagic;
+using Stellamod.Content.MoonlightMagic;
 using Stellamod.Projectiles.Arrows;
 using System.Collections.Generic;
 using Terraria;

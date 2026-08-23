@@ -1,21 +1,13 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Assets;
-using Stellamod.Common.Shaders;
-using Stellamod.Common.Shaders.MagicTrails;
+﻿using Stellamod.Assets;
 using Stellamod.Core;
 using Stellamod.Core.Particles;
 using Stellamod.Core.ProjectileHelpers;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
-using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Stellamod.Tiles.SpecialDecorativeWall;
-using static Terraria.GameContent.Animations.IL_Actions.Sprites;
 
 namespace Stellamod.Content.Areas.Cinderspark.BossesCS.Skullrunner.Projectiles
 {

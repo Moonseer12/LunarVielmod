@@ -1,0 +1,23 @@
+﻿using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace Stellamod.Content.Areas.WaterSide;
+
+public class HarmonicWaterStyle : ModWaterStyle
+{
+    public override int ChooseWaterfallStyle() => ModContent.GetInstance<HarmonicWaterfallStyle>().Slot;
+    public override int GetSplashDust() => DustID.Water;
+    public override int GetDropletGore() => GoreID.WaterDrip;
+    public override Color BiomeHairColor() => Color.Blue;
+    public override void LightColorMultiplier(ref float r, ref float g, ref float b)
+    {
+        r = 0.5f;
+        g = 0.5f;
+        b = 1f;
+    }
+}
+public class HarmonicWaterfallStyle : ModWaterfallStyle
+{
+    public override void AddLight(int i, int j) => Lighting.AddLight(new Vector2(i, j).ToWorldCoordinates(), Color.White.ToVector3() * 0.5f);
+}

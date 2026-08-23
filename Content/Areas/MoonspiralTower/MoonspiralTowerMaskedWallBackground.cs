@@ -1,6 +1,5 @@
 ﻿using ReLogic.Content;
-using Stellamod.Content.Areas.MoonspiralTower.VerliaBoss;
-using Stellamod.Content.Biomes;
+using Stellamod.Assets;
 using Stellamod.Core.WallBackgroundSystem;
 using Terraria;
 using Terraria.ModLoader;
@@ -18,11 +17,11 @@ namespace Stellamod.Content.Areas.MoonspiralTower
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            _moonspiralTowerFrontGlowBallTextureAsset = ModContent.Request<Texture2D>("Stellamod/Assets/Textures/Backgrounds/MoonspiralTowerFrontGlowBall");
-            _moonspiralTowerFrontPaneTextureAsset = ModContent.Request<Texture2D>("Stellamod/Assets/Textures/Backgrounds/MoonspiralTowerFrontPane");
-            _moonspiralTowerFrontTextureAsset = ModContent.Request<Texture2D>("Stellamod/Assets/Textures/Backgrounds/MoonspiralTowerFront");
-            _moonspiralTowerMidTextureAsset = ModContent.Request<Texture2D>("Stellamod/Assets/Textures/Backgrounds/MoonspiralTowerMid");
-            _moonspiralTowerBackTextureAsset = ModContent.Request<Texture2D>("Stellamod/Assets/Textures/Backgrounds/MoonspiralTowerFar");
+            _moonspiralTowerFrontGlowBallTextureAsset = ModContent.Request<Texture2D>(AssetRegistry.Textures.BackgroundPath2 + "MoonspiralTowerFrontGlowBall");
+            _moonspiralTowerFrontPaneTextureAsset = ModContent.Request<Texture2D>(AssetRegistry.Textures.BackgroundPath2 + "MoonspiralTowerFrontPane");
+            _moonspiralTowerFrontTextureAsset = ModContent.Request<Texture2D>(AssetRegistry.Textures.BackgroundPath2 + "MoonspiralTowerFront");
+            _moonspiralTowerMidTextureAsset = ModContent.Request<Texture2D>(AssetRegistry.Textures.BackgroundPath2 + "MoonspiralTowerMid");
+            _moonspiralTowerBackTextureAsset = ModContent.Request<Texture2D>(AssetRegistry.Textures.BackgroundPath2 + "MoonspiralTowerFar");
         }
 
         public override void Unload()

@@ -1,7 +1,7 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.BossBannerSystem;
-using Stellamod.Content.Areas.Collosseum.BossesCL.CommanderGintzia;
+using Stellamod.Content.Areas.Desert.BossesCL.CommanderGintzia;
 using Stellamod.Content.Areas.SpringHills.BossesSH.Ravager;
 using Stellamod.Content.BossPages;
 using Stellamod.Core.Camera;

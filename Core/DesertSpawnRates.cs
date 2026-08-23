@@ -1,6 +1,6 @@
-﻿using Stellamod.Content.Areas.Collosseum;
-using Stellamod.Content.Areas.Collosseum.NPCsCL;
-using Stellamod.Content.Biomes;
+﻿using Stellamod.Content.Areas;
+using Stellamod.Content.Areas.Desert;
+using Stellamod.Content.Areas.Desert.NPCsCL;
 using System;
 using System.Collections.Generic;
 using System.Linq;

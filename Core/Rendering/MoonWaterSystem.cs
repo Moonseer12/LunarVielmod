@@ -1,8 +1,8 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
+using Stellamod.Content.Areas;
 using Stellamod.Content.Areas.WaterSide.BossesWS;
-using Stellamod.Content.Biomes;
 using Stellamod.Core.Utilities;
 using Stellamod.Helpers;
 using System;
@@ -571,7 +571,7 @@ public class MoonWaterSystem : ModSystem
             lavaShader.NormalNoiseTexture = _pixelWater.NoiseTexture.Value;
             lavaShader.InnerColor = Color.Lerp(Color.Yellow, Color.Red, 0.5f);
             lavaShader.BloomColor = Color.Red;
-            lavaShader.RockTexture = AssetManager.LoadBackground("LavaRocks").Value;
+            lavaShader.RockTexture = ModContent.Request<Texture2D>(AssetRegistry.Textures.BackgroundPath2 + "LavaRocks").Value;
             lavaShader.GlowMap = ModContent.Request<Texture2D>("Stellamod/Assets/NoiseTextures/Clouds6").Value;
             lavaShader.HeightMap = _waterHeightMapRT;
             lavaShader.Effect.CurrentTechnique = lavaShader.Effect.Techniques["SpriteDrawing"];

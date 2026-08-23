@@ -1,10 +1,8 @@
-﻿using Stellamod.Assets.Biomes;
-using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace Stellamod.Content.Areas.Fable.EnemiesFB
 {
@@ -29,16 +27,6 @@ namespace Stellamod.Content.Areas.Fable.EnemiesFB
             NPC.noTileCollide = false;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (spawnInfo.Player.InModBiome<CathedralBiome>())
-            {
-                return 0.1f;
-            }
-
-            return SpawnCondition.Cavern.Chance * 0f;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

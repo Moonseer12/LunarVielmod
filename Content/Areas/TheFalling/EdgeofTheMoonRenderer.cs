@@ -1,7 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Biomes;
 using Stellamod.Core.Rendering;
 using Stellamod.Core.Utilities;
 using Stellamod.Helpers;
@@ -432,7 +431,7 @@ public class EdgeofTheMoonRenderer : ModSystem
 }
 
 
-public class EdgeofTheMoonBiome : ModBiome
+public class EdgeofTheMoonBiome : BaseUrdveilBiome
 {
     //   public override ModWaterStyle WaterStyle => nul
     public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.GetInstance<NoBackgroundStyle>();
@@ -470,7 +469,6 @@ public class EdgeofTheMoonBiome : ModBiome
 
     public override void OnLeave(Player player)
     {
-        base.OnLeave(player);
         player.GetModPlayer<BiomePlayer>().ZoneEdgeoftheMoon = false;
         if (Main.netMode == NetmodeID.Server)
             return;

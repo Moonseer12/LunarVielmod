@@ -1,0 +1,81 @@
+﻿using Microsoft.Xna.Framework;
+using Stellamod.Helpers;
+using System.Collections.Generic;
+using Terraria.Localization;
+using Terraria.ModLoader;
+
+namespace Stellamod.Content.MoonlightMagic
+{
+    public class SlotTooltipItem : ModItem
+    {
+        public override string Texture => TextureRegistry.EmptyTexture;
+        public bool isTimedSlot;
+        public bool isMismatch;
+        public bool isSynergy;
+        public bool noSynergy;
+        public void Reset()
+        {
+            isTimedSlot = false;
+            isMismatch = false;
+            isSynergy = false;
+            noSynergy = false;
+        }
+
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            base.ModifyTooltips(tooltips);
+            tooltips.Clear();
+            TooltipLine tooltipLine;
+            if (isMismatch)
+            {
+                tooltipLine = new TooltipLine(Mod, "EnchantmentMismatchHelp",
+                    Language.GetTextValue("Mods.Stellamod.Enchantments.EnchantmentMismatch"));
+                tooltipLine.OverrideColor = Color.IndianRed;
+                tooltips.Add(tooltipLine);
+                return;
+            }
+
+            if (isSynergy)
+            {
+                tooltipLine = new TooltipLine(Mod, "EnchantmentSynergy",
+                    Language.GetTextValue("Mods.Stellamod.Enchantments.EnchantmentCommonSynergy", "5"));
+                tooltipLine.OverrideColor = Color.LightGreen;
+                tooltips.Add(tooltipLine);
+                return;
+            }
+
+            if (noSynergy)
+            {
+                tooltipLine = new TooltipLine(Mod, "EnchantmentSynergy",
+                    Language.GetTextValue("Mods.Stellamod.Enchantments.EnchantmentCommonNoSynergy"));
+                tooltipLine.OverrideColor = Color.Gray;
+                tooltips.Add(tooltipLine);
+                return;
+            }
+            if (isTimedSlot)
+            {
+                tooltipLine = new TooltipLine(Mod, "EnchantmentTimedHelp",
+                    Language.GetTextValue("Mods.Stellamod.Enchantments.EnchantmentTimerSlotHelp"));
+                tooltipLine.OverrideColor = Color.White;
+                tooltips.Add(tooltipLine);
+            }
+            else
+            {
+                tooltipLine = new TooltipLine(Mod, "EnchantmentHelp",
+                    Language.GetTextValue("Mods.Stellamod.Enchantments.EnchantmentNormalSlotHelp"));
+                tooltipLine.OverrideColor = Color.White;
+                tooltips.Add(tooltipLine);
+            }
+
+
+        }
+
+        private void AddNoSynergyText(List<TooltipLine> tooltips)
+        {
+            var tooltipLine = new TooltipLine(Mod, "NoSynergyHelp",
+             Language.GetTextValue("Mods.Stellamod.Enchantments.EnchantmentCommonNoSynergy"));
+            tooltipLine.OverrideColor = Color.Gray;
+            tooltips.Add(tooltipLine);
+        }
+    }
+}

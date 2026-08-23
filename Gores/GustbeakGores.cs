@@ -1,4 +1,4 @@
-﻿using Stellamod.Content.Areas.Collosseum.BossesCL.Gustbeak;
+﻿using Stellamod.Content.Areas.Desert.BossesCL.Gustbeak;
 using Stellamod.Helpers;
 using Terraria.ModLoader;
 

@@ -1,6 +1,4 @@
-﻿using Stellamod.Assets.Biomes;
-using Stellamod.Content.Biomes;
-using Stellamod.Core.Biomes;
+﻿using Stellamod.Content.Areas.RoyalCapital;
 using Terraria;
 using Terraria.Graphics.Capture;
 using Terraria.Graphics.Effects;
@@ -43,11 +41,9 @@ public class AegislavBiome : BaseUrdveilBiome
     }
     public override void OnLeave(Player player)
     {
-        base.OnLeave(player);
         player.GetModPlayer<BiomePlayer>().ZoneAegislavSurface = false;
         if (Main.netMode == NetmodeID.Server)
             return;
-
         SkyManager.Instance.Deactivate("Stellamod:AegislavSky", player.Center);
     }
 }

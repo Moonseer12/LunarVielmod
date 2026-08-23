@@ -1,0 +1,467 @@
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Stellamod.Helpers;
+using System;
+using Terraria;
+using Terraria.ModLoader;
+
+namespace Stellamod.Content.Areas.Desert.BossesCL.Gustbeak
+{
+    public partial class Gustbeak
+    {
+        public abstract class BaseGustbeakSegment
+        {
+            public Vector2 position;
+            public float rotation;
+            public float globalRotation;
+            public float length;
+            public Vector2? drawOriginOverride;
+            public float invisibility;
+
+            public float frameCounter;
+            public int frame;
+            public SpriteEffects spriteEffects;
+            public BaseGustbeakSegment[] children;
+            public bool drawArmored;
+            public bool drawOutline;
+            public Color outlineColor;
+            public virtual void AI()
+            {
+                if (children != null)
+                {
+                    //Update everything attached to this segment
+                    for (int i = 0; i < children.Length; i++)
+                    {
+                        var child = children[i];
+                        child.position = position;
+                        child.spriteEffects = spriteEffects;
+                        child.rotation = rotation;
+                        child.invisibility = invisibility;
+                        child.AI();
+                    }
+                }
+            }
+            public void DrawOutlines(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+            {
+                Vector2 left = screenPos + new Vector2(-2, 0);
+                Vector2 right = screenPos + new Vector2(2, 0);
+                Vector2 up = screenPos + new Vector2(0, -2);
+                Vector2 down = screenPos + new Vector2(0, 2);
+
+                bool oldDrawArmored = drawArmored;
+                drawArmored = false;
+                drawOutline = true;
+                Color oC = outlineColor * invisibility;
+                Draw(spriteBatch, left, oC);
+                Draw(spriteBatch, right, oC);
+                Draw(spriteBatch, up, oC);
+                Draw(spriteBatch, down, oC);
+                drawOutline = false;
+                drawArmored = oldDrawArmored;
+            }
+            public virtual void Draw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+            {
+
+            }
+
+            protected virtual Texture2D GetTexture(string name)
+            {
+                string path = this.GetType().DirectoryHere() + $"/Gustbeak_{name}";
+                Texture2D texture = ModContent.Request<Texture2D>(path).Value;
+                return texture;
+            }
+            protected virtual Texture2D GetArmoredTexture(string name)
+            {
+                string path = this.GetType().DirectoryHere() + $"/Gustbeak_{name}_Armored";
+                if (ModContent.RequestIfExists<Texture2D>(path, out var asset))
+                {
+                    return asset.Value;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        public abstract class BaseGustbeakBodySegment : BaseGustbeakSegment
+        {
+            public virtual string Texture { get; }
+            public override void Draw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+            {
+                base.Draw(spriteBatch, screenPos, drawColor);
+                Color colorToDrawIn = Color.White.MultiplyRGBA(drawColor) * invisibility;
+                if (drawOutline)
+                    colorToDrawIn = drawColor;
+                Texture2D texture = GetTexture(Texture);
+                Vector2 drawPos = position - screenPos;
+                Vector2 drawOrigin = texture.Size() / 2;
+                if (drawOriginOverride.HasValue)
+                {
+                    drawOrigin = drawOriginOverride.Value;
+                    if (spriteEffects == SpriteEffects.FlipVertically)
+                    {
+                        drawOrigin.Y = texture.Size().Y - drawOrigin.Y;
+                    }
+                }
+                float drawScale = 1f;
+                float drawRotation = rotation + globalRotation;
+                spriteBatch.Draw(texture, drawPos, null, colorToDrawIn, drawRotation, drawOrigin, drawScale, spriteEffects, 0);
+
+
+                texture = GetArmoredTexture(Texture);
+                if (!drawArmored || texture == null)
+                    return;
+                spriteBatch.Draw(texture, drawPos, null, colorToDrawIn, drawRotation, drawOrigin, drawScale, spriteEffects, 0);
+            }
+        }
+        public abstract class BaseGustbeakWingSegment : BaseGustbeakSegment
+        {
+            public virtual string Texture { get; }
+            public enum AnimationState
+            {
+                Flap,
+                Hold_Up,
+                Hold_Out,
+                Rest_Down,
+                Rest,
+            }
+
+            private AnimationState _animationState;
+            public AnimationState Animation
+            {
+                get
+                {
+                    return _animationState;
+                }
+                set
+                {
+                    switch (value)
+                    {
+                        case AnimationState.Hold_Up:
+                            if (CheckCurrentAnimation(AnimationState.Hold_Up, AnimationState.Hold_Out))
+                                return;
+                            break;
+                        case AnimationState.Rest_Down:
+                            if (CheckCurrentAnimation(AnimationState.Rest_Down, AnimationState.Rest))
+                                return;
+                            break;
+                    }
+                    _animationState = value;
+                }
+            }
+
+
+            private bool CheckCurrentAnimation(params AnimationState[] animations)
+            {
+                for (int i = 0; i < animations.Length; i++)
+                {
+                    AnimationState animation = animations[i];
+                    if (Animation == animation)
+                        return true;
+                }
+                return false;
+            }
+
+            public float WingAnimationSpeedMult { get; set; } = 1f;
+            public override void AI()
+            {
+                base.AI();
+                switch (Animation)
+                {
+                    default:
+                    case AnimationState.Flap:
+                        frameCounter += 0.25f * WingAnimationSpeedMult;
+                        if (frameCounter >= 1f)
+                        {
+                            frameCounter = 0;
+                            frame++;
+                        }
+
+                        if (frame >= 9)
+                        {
+                            frame = 0;
+                        }
+                        break;
+                    case AnimationState.Hold_Up:
+                        frameCounter += 0.25f * WingAnimationSpeedMult;
+                        if (frameCounter >= 1f)
+                        {
+                            frameCounter = 0;
+                            frame++;
+                        }
+
+                        if (frame == 1)
+                        {
+                            frame = 1;
+                            Animation = AnimationState.Hold_Out;
+                        }
+                        break;
+                    case AnimationState.Hold_Out:
+                        frame = 1;
+                        break;
+                    case AnimationState.Rest_Down:
+                        frameCounter += 0.25f * WingAnimationSpeedMult;
+                        if (frameCounter >= 1f)
+                        {
+                            frameCounter = 0;
+                            frame++;
+                        }
+
+                        if (frame == 8)
+                        {
+                            frame = 8;
+                            Animation = AnimationState.Rest;
+                        }
+                        break;
+                    case AnimationState.Rest:
+                        frame = 8;
+                        break;
+                }
+            }
+
+
+
+            public override void Draw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+            {
+                base.Draw(spriteBatch, screenPos, drawColor);
+                Color colorToDrawIn = Color.White.MultiplyRGB(drawColor) * invisibility;
+                Texture2D texture = GetTexture(Texture);
+                Vector2 drawPos = position - screenPos;
+                Rectangle animationFrame = texture.GetFrame(frame, totalFrameCount: 9);
+                Vector2 drawOrigin = new Vector2(132, 90);
+                float drawRotation = rotation + MathHelper.ToRadians(45) + globalRotation;
+                float drawScale = 1f;
+
+
+                if (drawOriginOverride.HasValue)
+                {
+                    drawOrigin = drawOriginOverride.Value;
+                    if (spriteEffects == SpriteEffects.FlipVertically)
+                    {
+                        drawOrigin.Y = animationFrame.Size().Y - drawOrigin.Y;
+                        drawRotation -= MathHelper.ToRadians(90);
+                    }
+                }
+
+                spriteBatch.Draw(texture, drawPos, animationFrame, colorToDrawIn, drawRotation, drawOrigin, drawScale, spriteEffects, 0);
+            }
+        }
+
+
+        public class GustbeakBodyFront : BaseGustbeakBodySegment
+        {
+            public override string Texture => "BodyFront";
+            public override void AI()
+            {
+                base.AI();
+            }
+        }
+
+        public class GustbeakBodyMiddle : BaseGustbeakBodySegment
+        {
+            public override string Texture => "BodyMiddle";
+            public override void AI()
+            {
+                base.AI();
+            }
+        }
+
+        public class GustbeakBodyBack : BaseGustbeakBodySegment
+        {
+            public override string Texture => "BodyBack";
+            public override void AI()
+            {
+                base.AI();
+            }
+        }
+
+        public class GustbeakFrontLegFront : BaseGustbeakBodySegment
+        {
+            public override string Texture => "FrontLegFront";
+            public override void AI()
+            {
+                base.AI();
+                drawOriginOverride = new Vector2(20, -8);
+                rotation += MathF.Sin(Main.GlobalTimeWrappedHourly * 2) * 0.25f;
+            }
+        }
+
+        public class GustbeakFrontLegBack : BaseGustbeakBodySegment
+        {
+            public override string Texture => "FrontLegBack";
+            public override void AI()
+            {
+                base.AI();
+                drawOriginOverride = new Vector2(-10, 0);
+                rotation += MathF.Sin(Main.GlobalTimeWrappedHourly * 2) * 0.25f;
+            }
+        }
+
+        public class GustbeakBackLegFront : BaseGustbeakBodySegment
+        {
+            public override string Texture => "BackLegFront";
+            public override void AI()
+            {
+                base.AI();
+                drawOriginOverride = new Vector2(8, -8);
+                rotation += MathF.Sin(Main.GlobalTimeWrappedHourly * 2) * 0.25f;
+            }
+        }
+
+        public class GustbeakBackLegBack : BaseGustbeakBodySegment
+        {
+            public override string Texture => "BackLegBack";
+            public override void AI()
+            {
+                base.AI();
+                drawOriginOverride = new Vector2(-8, 0);
+                rotation += MathF.Sin(Main.GlobalTimeWrappedHourly * 2) * 0.25f;
+            }
+        }
+
+        public class GustbeakTail : BaseGustbeakBodySegment
+        {
+            public override string Texture => "Tail";
+            public override void AI()
+            {
+                base.AI();
+                rotation += MathF.Sin(Main.GlobalTimeWrappedHourly * 2) * 0.25f;
+            }
+        }
+
+
+        public class GustbeakWingFront : BaseGustbeakWingSegment
+        {
+            public override string Texture => "WingsFront";
+            public override void AI()
+            {
+                base.AI();
+                drawOriginOverride = new Vector2(132, 90);
+            }
+        }
+
+        public class GustbeakWingBack : BaseGustbeakWingSegment
+        {
+            public override string Texture => "WingsBack";
+            public override void AI()
+            {
+                base.AI();
+                drawOriginOverride = new Vector2(132, 128);
+            }
+        }
+
+        public class GustbeakHead : BaseGustbeakSegment
+        {
+            public enum AnimationState
+            {
+                Idle,
+                Open_Mouth,
+                Keep_Open,
+                Close_Mouth
+            }
+
+            private AnimationState _animationState;
+            public AnimationState Animation
+            {
+                get
+                {
+                    return _animationState;
+                }
+                set
+                {
+                    switch (value)
+                    {
+                        case AnimationState.Open_Mouth:
+                            if (CheckCurrentAnimation(AnimationState.Open_Mouth, AnimationState.Keep_Open))
+                                return;
+                            break;
+                        case AnimationState.Close_Mouth:
+                            if (CheckCurrentAnimation(AnimationState.Close_Mouth, AnimationState.Idle))
+                                return;
+                            break;
+                    }
+                    _animationState = value;
+                }
+            }
+
+            public bool drawHelmet = true;
+
+            private bool CheckCurrentAnimation(params AnimationState[] animations)
+            {
+                for (int i = 0; i < animations.Length; i++)
+                {
+                    AnimationState animation = animations[i];
+                    if (Animation == animation)
+                        return true;
+                }
+                return false;
+            }
+
+            public override void AI()
+            {
+                base.AI();
+                switch (Animation)
+                {
+                    default:
+                    case AnimationState.Open_Mouth:
+                        frameCounter += 0.35f;
+                        if (frameCounter >= 1f)
+                        {
+                            frameCounter = 0;
+                            frame++;
+                        }
+
+                        if (frame >= 3)
+                        {
+                            Animation = AnimationState.Keep_Open;
+                        }
+                        break;
+                    case AnimationState.Keep_Open:
+                        frame = 3;
+                        break;
+                    case AnimationState.Close_Mouth:
+                        frameCounter += 0.35f;
+                        if (frameCounter >= 1f)
+                        {
+                            frameCounter = 0;
+                            frame--;
+                        }
+                        if (frame <= 0)
+                        {
+                            frame = 0;
+                            Animation = AnimationState.Idle;
+                        }
+                        break;
+                    case AnimationState.Idle:
+                        frame = 0;
+                        break;
+                }
+            }
+
+            public override void Draw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+            {
+                base.Draw(spriteBatch, screenPos, drawColor);
+                Color colorToDrawIn = Color.White.MultiplyRGB(drawColor) * invisibility;
+                Texture2D texture = GetTexture("Head");
+                Vector2 drawPos = position - screenPos;
+                Rectangle animationFrame = texture.GetFrame(frame, totalFrameCount: 4);
+                Vector2 drawOrigin = animationFrame.Size() / 2;
+                float drawScale = 1f;
+                float drawRotation = rotation + globalRotation;
+                spriteBatch.Draw(texture, drawPos, animationFrame, colorToDrawIn, drawRotation, drawOrigin, drawScale, spriteEffects, 0);
+
+                if (drawHelmet)
+                {
+                    texture = GetTexture("Head_Helmet");
+                    drawPos = position - screenPos;
+                    animationFrame = texture.GetFrame(frame, totalFrameCount: 4);
+                    drawOrigin = animationFrame.Size() / 2;
+                    drawScale = 1f;
+                    drawRotation = rotation + globalRotation;
+                    spriteBatch.Draw(texture, drawPos, animationFrame, colorToDrawIn, drawRotation, drawOrigin, drawScale, spriteEffects, 0);
+                }
+            }
+        }
+    }
+}

@@ -1,9 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using Stellamod.Assets.Biomes;
+﻿using ReLogic.Content;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Materials;
 using System.IO;
 using Terraria;
 using Terraria.GameContent;

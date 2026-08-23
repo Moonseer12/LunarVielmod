@@ -1,8 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
-using static Stellamod.Tiles.SpecialDecorativeWall;
 
 namespace Stellamod.Core
 {

@@ -1,7 +1,4 @@
 ﻿using Stellamod.Buffs;
-using Stellamod.Items.Accessories;
-using Stellamod.Items.Armors.Vanity.Verlia;
-using Stellamod.Items.Consumables;
 using Stellamod.NPCs.Bosses.Zui.Projectiles;
 using System;
 using System.IO;
@@ -10,7 +7,6 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 

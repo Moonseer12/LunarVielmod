@@ -4,7 +4,7 @@ using Stellamod.Common.IgnitersNPowders;
 using Stellamod.Common.SummonerSystem;
 using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Content.Areas.Underground;
-using Stellamod.Content.Items.MoonlightMagic;
+using Stellamod.Content.MoonlightMagic;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;

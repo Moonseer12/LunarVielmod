@@ -1,9 +1,7 @@
 ﻿using ReLogic.Content;
+using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Biomes;
-using Stellamod.Core.Pixelation;
 using Stellamod.Core.WallBackgroundSystem;
-using Stellamod.Helpers;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -15,7 +13,7 @@ public class MistyDungeonMaskedWallBackground : MaskedWallBackground
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
-        _mistyDungeonTextureAsset = ModContent.Request<Texture2D>("Stellamod/Assets/Textures/Backgrounds/MistyDungeon");
+        _mistyDungeonTextureAsset = ModContent.Request<Texture2D>(AssetRegistry.Textures.BackgroundPath2 + "MistyDungeon");
     }
 
     public override void Unload()
@@ -53,7 +51,7 @@ public class MistyDungeonMaskedWallBackground : MaskedWallBackground
 
         for (int i = 0; i < 4; i++)
         {
-            parallax[i] = Vector2.Lerp(new Vector2(0.01f, 0f), Vector2.Zero, (float)i / 4f) * (cameraMovement) * 0.01f;
+            parallax[i] = Vector2.Lerp(new Vector2(0.01f, 0f), Vector2.Zero, i / 4f) * cameraMovement * 0.01f;
         }
         backgroundShader.Parallax = parallax;
         backgroundShader.FadeToColor = Color.Blue * 0.5f;

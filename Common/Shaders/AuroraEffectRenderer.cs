@@ -1,9 +1,7 @@
 ﻿using Stellamod.Assets;
-using Stellamod.Content.Biomes;
+using Stellamod.Content.Areas;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Rendering;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;

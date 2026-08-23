@@ -26,7 +26,7 @@ namespace Stellamod.Content.Areas.WaterSide.AccWS
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew<ConvulgingMater, BlankAccessory>();
+            this.RegisterBrew<MusicalHarmonise, BlankAccessory>();
         }
     }
 }

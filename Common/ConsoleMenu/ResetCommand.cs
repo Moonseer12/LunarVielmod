@@ -1,4 +1,4 @@
-﻿using Stellamod.Content.Areas.Collosseum.Event.Common;
+﻿using Stellamod.Content.Areas.Desert.Event.Common;
 using Stellamod.Core.PlayerLevelingSystem;
 using Terraria;
 using Terraria.ModLoader;

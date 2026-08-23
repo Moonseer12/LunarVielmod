@@ -1,5 +1,6 @@
-﻿using Stellamod.Assets.Biomes;
+﻿using Stellamod.Content.Areas.Cinderspark;
 using Stellamod.Content.Areas.Ishtar;
+using Stellamod.Content.Areas.Underground;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
@@ -17,7 +18,7 @@ namespace Stellamod.NPCs
                 spawnInfo.Player.InModBiome<CindersparkBiome>() ||
                 spawnInfo.Player.InModBiome<IshtarBiome>())
                 return 0;
-            return (SpawnCondition.Cavern.Chance * SpawnRates.Flower_Spawn_Chance);
+            return SpawnCondition.Cavern.Chance * SpawnRates.Flower_Spawn_Chance;
         }
 
 
@@ -25,7 +26,7 @@ namespace Stellamod.NPCs
         {
             if (!spawnInfo.Player.InModBiome<MineshaftBiome>())
                 return 0;
-            return (SpawnCondition.Cavern.Chance * SpawnRates.Mechanical_Enemy_Spawn_Chance);
+            return SpawnCondition.Cavern.Chance * SpawnRates.Mechanical_Enemy_Spawn_Chance;
         }
 
         public static float GetIshtarEnemySpawnChance(NPCSpawnInfo spawnInfo)

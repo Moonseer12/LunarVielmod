@@ -1,8 +1,7 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Common;
+using Stellamod.Core.DecorativeTileSystem;
 using Stellamod.Core.TabletSystem;
-using Stellamod.Tiles;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;

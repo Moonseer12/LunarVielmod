@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Stellamod.Content.Areas.Collosseum.BossesCL.Gustbeak.Projectiles;
+using Stellamod.Content.Areas.Desert.BossesCL.Gustbeak.Projectiles;
 using Stellamod.Helpers;
 using Terraria;
 using Terraria.Audio;

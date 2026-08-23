@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using Stellamod.Content.Items.MoonlightMagic;
+using Stellamod.Content.MoonlightMagic;
 using Stellamod.Content.Quests.ZuiQuest;
 using Stellamod.Core;
 using Stellamod.Helpers;

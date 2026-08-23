@@ -1,10 +1,9 @@
-﻿using Stellamod.Content.Biomes;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Junkyard;
 
-public class JunkyardBiome : ModBiome
+public class JunkyardBiome : BaseUrdveilBiome
 {
     public override int Music
     {
@@ -24,7 +23,10 @@ public class JunkyardBiome : ModBiome
     {
         return BiomeTileCounts.InJunkyard && !player.ZoneOverworldHeight;
     }
-
-    public override void OnEnter(Player player) => player.GetModPlayer<BiomePlayer>().ZoneJunkyard = true;
+    public override void OnEnter(Player player)
+    {
+        base.OnEnter(player);
+        player.GetModPlayer<BiomePlayer>().ZoneJunkyard = true;
+    }
     public override void OnLeave(Player player) => player.GetModPlayer<BiomePlayer>().ZoneJunkyard = false;
 }

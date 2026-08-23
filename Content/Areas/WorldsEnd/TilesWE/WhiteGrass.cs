@@ -3,7 +3,7 @@ using Stellamod.Content.Areas.SpringHills.TilesSH;
 using Stellamod.Core.Utilities;
 using Stellamod.Core.ZTileSystem;
 using Stellamod.Helpers;
-using Stellamod.Tiles.Abyss;
+using Stellamod.Content.Areas.Abyss.TilesAB;
 using System;
 using System.Collections.Generic;
 using System.Linq;

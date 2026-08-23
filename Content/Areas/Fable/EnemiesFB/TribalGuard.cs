@@ -1,5 +1,4 @@
-﻿using Stellamod.Assets.Biomes;
-using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -43,7 +42,7 @@ namespace Stellamod.Content.Areas.Fable.EnemiesFB
             NPC.DeathSound = SoundID.DD2_SkeletonDeath;
             NPC.value = 563f;
             NPC.knockBackResist = .45f;
-            NPC.aiStyle = 3;
+            NPC.aiStyle = NPCAIStyleID.Fighter;
             AIType = NPCID.SnowFlinx;
         }
 

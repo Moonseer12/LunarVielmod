@@ -2,7 +2,7 @@
 using Stellamod.Common.DungeonGeneration;
 using Stellamod.Common.Players;
 using Stellamod.Common.WaypointSystem;
-using Stellamod.Content.Areas.Collosseum.Event.Common;
+using Stellamod.Content.Areas.Desert.Event.Common;
 using Stellamod.Content.Areas.Fable.WeaponsFB;
 using Stellamod.Content.Special.DeadRomancesExcalibur;
 using Stellamod.Core;

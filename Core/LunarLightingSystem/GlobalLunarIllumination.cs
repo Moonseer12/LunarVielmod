@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Stellamod.Content.Biomes;
+using Stellamod.Content.Areas;
 using Terraria;
 using Terraria.ModLoader;
 
