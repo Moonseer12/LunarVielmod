@@ -32,5 +32,6 @@
         ZTileSync,
         ChangeNPCAI,
         LevelingPlayerSync,
+        ClassReworkPlayerSync
     }
 }

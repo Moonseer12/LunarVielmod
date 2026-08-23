@@ -44,7 +44,7 @@ public class MagicalFish : ForegroundLayer
         parallax.X = 1.5f;
         parallax.Y = 1.5f;
 
- //       Main.NewText(drawAlpha);
+        //       Main.NewText(drawAlpha);
     }
 }
 
@@ -74,7 +74,7 @@ public class HarmonicMagicalFish : ForegroundLayer
     public override void SetLayering(ref float zLayer, ref Vector2 parallax)
     {
         base.SetLayering(ref zLayer, ref parallax);
-        
+
         shader = HologramShader;
         _glowMask ??= ModContent.Request<Texture2D>(Texture + "_GlowMask");
         HologramShader.NoiseTexture = _glowMask.Value;

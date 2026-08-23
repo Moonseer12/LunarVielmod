@@ -1,25 +1,16 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Areas.Tundra.Snow.WeaponsSN;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Effects;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
 using Stellamod.Items;
-using Stellamod.Trailing;
 using Stellamod.Visual.Particles;
-using System;
 using System.Buffers;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -98,7 +89,7 @@ public class MagicMoonblade : ModProjectile
         base.SendExtraAI(writer);
         writer.WriteVector2(_initialPosition);
     }
-    
+
     public override void ReceiveExtraAI(BinaryReader reader)
     {
         base.ReceiveExtraAI(reader);
@@ -121,7 +112,7 @@ public class MagicMoonblade : ModProjectile
         Projectile.tileCollide = false;
         Projectile.usesLocalNPCImmunity = true;
         Projectile.localNPCHitCooldown = -1;
-        Projectile.extraUpdates = (int)(Mult-1);
+        Projectile.extraUpdates = (int)(Mult - 1);
     }
     public override bool ShouldUpdatePosition()
     {
@@ -155,13 +146,13 @@ public class MagicMoonblade : ModProjectile
     private void AI_ThrowOut()
     {
         Timer++;
-        if(Timer == 1)
+        if (Timer == 1)
         {
             SoundStyle softSummon = new SoundStyle("Stellamod/Assets/Sounds/SoftSummon2");
             softSummon.PitchVariance = 0.3f;
             SoundEngine.PlaySound(softSummon, Projectile.position);
             _swingTrailCache = ArrayPool<Vector2>.Shared.Rent(200);
-            for(int i = 0; i < _swingTrailCache.Length; i++)
+            for (int i = 0; i < _swingTrailCache.Length; i++)
             {
                 _swingTrailCache[i] = Vector2.Zero;
             }
@@ -184,13 +175,13 @@ public class MagicMoonblade : ModProjectile
         easeinTime *= Mult;
         float ease = EasingFunction.InOutExpo(Timer / easeinTime);
         Vector2 pos = Vector2.Lerp(_initialPosition, targetSwingStart, ease);
-        _direction = (targetSwingStart.X >  _initialPosition.X) ? 1 : -1;
+        _direction = (targetSwingStart.X > _initialPosition.X) ? 1 : -1;
         _scale = MathHelper.Lerp(0f, 1f, EasingFunction.OutExpo(Timer / 30f));
         _alpha = 1f;
         Projectile.friendly = false;
         Projectile.Center = pos;
         Projectile.rotation += MathHelper.Lerp(0.15f, 0.25f, EasingFunction.InOutSine(Timer / easeinTime)) / Mult;
-        if(Timer >= easeinTime)
+        if (Timer >= easeinTime)
         {
             SwitchState(SwingState.Swing);
         }
@@ -203,7 +194,7 @@ public class MagicMoonblade : ModProjectile
             return;
 
         Timer++;
-        if(Timer == 1)
+        if (Timer == 1)
         {
             _initialPosition = Projectile.velocity + _randOffset; ;
             _initialRotation = Projectile.rotation;
@@ -241,7 +232,7 @@ public class MagicMoonblade : ModProjectile
         Vector2 startSwing = _swingCenter + upVelocity;
         Vector2 endSwing = _swingCenter - upVelocity * 2;
         float swingTime = 60f * Mult;
-   
+
         _ovalSwing ??= new OvalSwing();
         _ovalSwing.XSwingRadius = 64;
         _ovalSwing.YSwingRadius = 128;
@@ -267,8 +258,8 @@ public class MagicMoonblade : ModProjectile
         Projectile.friendly = true;
         Projectile.Center = interp;
         Projectile.rotation = (Projectile.Center - _initialPosition).ToRotation() + MathHelper.PiOver4;
-   
-        if(Timer >= swingTime)
+
+        if (Timer >= swingTime)
         {
             Projectile.Kill();
         }
@@ -292,12 +283,12 @@ public class MagicMoonblade : ModProjectile
         shader.LaserTexture = TrailRegistry.StarTrail;
         shader.InnerColor = Color.White;
         shader.OuterColor = Color.SkyBlue;
-       // TrailDrawer.Draw(Main.spriteBatch, Projectile.oldPos, GetTrailColor, GetTrailWidth, shader, Projectile.Size / 2f);
+        // TrailDrawer.Draw(Main.spriteBatch, Projectile.oldPos, GetTrailColor, GetTrailWidth, shader, Projectile.Size / 2f);
     }
     private Color GetSlashTrailColor(float w)
     {
         Color slashColor = Color.Lerp(Color.White, Color.Black, w);
- //       slashColor = Color.Lerp(Color.Black, Color.White, flashRatio);
+        //       slashColor = Color.Lerp(Color.Black, Color.White, flashRatio);
         return slashColor;
     }
 
@@ -323,7 +314,7 @@ public class MagicMoonblade : ModProjectile
     private Color SlashEffectColor(float ratio)
     {
         Color lerp1 = Color.Lerp(Color.LightCyan, Color.Blue, ratio);
-        return Color.Lerp(Color.Transparent, lerp1, ratio) * MathHelper.Lerp(1f, 0f, EasingFunction.InExpo(Timer / 60f * Mult)) * _alpha ;
+        return Color.Lerp(Color.Transparent, lerp1, ratio) * MathHelper.Lerp(1f, 0f, EasingFunction.InExpo(Timer / 60f * Mult)) * _alpha;
     }
     private SlashTrailer _slashTrailer;
     private void DrawSlashTrail(GraphicsDevice gDevice)
@@ -332,7 +323,7 @@ public class MagicMoonblade : ModProjectile
         if (_swingTrailCache == null)
             return;
 
-       
+
         //   _auraTrailer.DrawTrail(ref lightColor, _swingTrailCache);
         //    _wideTrailer.DrawTrail(ref lightColor, _swingTrailCache);
         float flashRatio = EasingFunction.QuadraticBump(Timer / 60f * Mult);
@@ -415,7 +406,7 @@ public class MagicMoonblade : ModProjectile
             Vector2 pos = Projectile.oldPos[i];
             drawer2.worldPosition = pos + Projectile.Size * 0.5f;
             drawer2.rotation = Projectile.oldRot[i];
-            float ratio = (float)i / (float)Projectile.oldPos.Length;
+            float ratio = i / (float)Projectile.oldPos.Length;
             ratio = 1f - ratio;
             drawer2.color = Color.White * ratio * 0.1f;
             drawer2.color *= _alpha;

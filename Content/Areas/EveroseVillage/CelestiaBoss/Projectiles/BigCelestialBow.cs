@@ -1,15 +1,12 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
+using Stellamod.Content.Areas.PunkerTown.BossesPT.Steamroller;
 using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss;
 using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss.Projectiles;
-using Stellamod.Content.Areas.PunkerTown.BossesPT.Steamroller;
 using Stellamod.Content.Areas.Tundra.Snow.WeaponsSN;
-using Stellamod.Core.Palettes;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -639,7 +636,7 @@ public class BigCelestialArrow : ModProjectile
     public override void OnKill(int timeLeft)
     {
         base.OnKill(timeLeft);
-        base.OnKill(timeLeft);
+  
         var fx = FXUtil.GlowCircleBoom(Projectile.Center, Color.White, Color.Turquoise, Color.DarkTurquoise);
         fx.Scale *= 0.66f;
         float numDust = 4;

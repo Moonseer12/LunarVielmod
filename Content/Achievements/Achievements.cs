@@ -1,7 +1,7 @@
-﻿using Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity;
 using Stellamod.Content.Areas.Desert.BossesCL.CommanderGintzia;
 using Stellamod.Content.Areas.Fable.BossesFB.JackTheScholar;
 using Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant;
+using Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity;
 using Stellamod.Content.Areas.WaterSide.BossesWS.LeviathanEel;
 using Terraria.GameContent.Achievements;
 using Terraria.ModLoader;

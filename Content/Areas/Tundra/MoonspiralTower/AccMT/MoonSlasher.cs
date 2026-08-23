@@ -1,17 +1,12 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Areas.Tundra.Abyss.AccAB;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Items;
 using Stellamod.Visual.Particles;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -103,7 +98,7 @@ public class FlyingMoonSlash : ModProjectile,
         if (ParentProjectileType == 0)
             return Color.Blue;
         var proj = ModContent.GetModProjectile(ParentProjectileType);
-        if(proj is BaseSwingProjectileV2 v2)
+        if (proj is BaseSwingProjectileV2 v2)
         {
             return v2.glowAfterImageColor;
         }
@@ -115,8 +110,8 @@ public class FlyingMoonSlash : ModProjectile,
         Timer++;
         Projectile.rotation = Projectile.velocity.ToRotation();
         Projectile.velocity *= 0.9f;
-               
-        
+
+
         if (Timer % 16 == 0)
         {
             Vector2 pos = Projectile.Center + Main.rand.NextVector2Circular(64, 64);
@@ -136,7 +131,7 @@ public class FlyingMoonSlash : ModProjectile,
             fx.VectorScale *= 0.5f;
             fx.OuterGlowColor = GetPrimaryColor();
         }
-               
+
     }
 
     public override bool PreDraw(ref Color lightColor)
@@ -181,7 +176,7 @@ public class FlyingMoonSlash : ModProjectile,
 
         Main.spriteBatch.RestartDefaults();
         return false;
-//        return base.PreDraw(ref lightColor);
+        //        return base.PreDraw(ref lightColor);
     }
 
     public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

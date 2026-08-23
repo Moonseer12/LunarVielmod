@@ -1,4 +1,5 @@
-﻿using Stellamod.Common.DashSystem;
+using Stellamod.Common.ClassReworkSystem;
+using Stellamod.Common.DashSystem;
 using Stellamod.Common.DungeonGeneration;
 using Stellamod.Common.Players;
 using Stellamod.Common.WaypointSystem;
@@ -278,6 +279,12 @@ namespace Stellamod
                         float ai2 = reader.ReadSingle();
                         float ai3 = reader.ReadSingle();
                         NPCUtilities.HandleNPCAIChange(npcWhoAmI, ai0, ai1, ai2, ai3);
+                    }
+                    break;
+                case MessageType.ClassReworkPlayerSync:
+                    {
+                        ClassReworkPlayer reworkPlayer = Main.LocalPlayer.GetModPlayer<ClassReworkPlayer>();
+                        reworkPlayer.playerClass = (PlayerClass)reader.ReadSingle();
                     }
                     break;
             }

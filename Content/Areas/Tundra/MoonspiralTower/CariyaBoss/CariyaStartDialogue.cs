@@ -1,5 +1,4 @@
-﻿using Stellamod.Core.DialogueSystem;
-using Stellamod.Core.Utilities;
+using Stellamod.Core.DialogueSystem;
 using Terraria;
 using Terraria.ModLoader;
 

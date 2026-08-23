@@ -1,6 +1,4 @@
 ﻿using Stellamod.Common.BossBannerSystem;
-using Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity;
-using Stellamod.Content.Areas.Tundra.Abyss.ItemsAB;
 using Stellamod.Content.Areas.Cinderspark.BossesCS.Skullrunner;
 using Stellamod.Content.Areas.Desert.BossesCL.CommanderGintzia;
 using Stellamod.Content.Areas.Desert.BossesCL.EliteCommander;
@@ -12,8 +10,6 @@ using Stellamod.Content.Areas.Fable.BossesFB.JackTheScholar;
 using Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria;
 using Stellamod.Content.Areas.Illuria.BossesIL.EStyr;
 using Stellamod.Content.Areas.Ishtar.BossesIS.SanguineSingularity;
-using Stellamod.Content.Areas.Tundra.MoonspiralTower.CariyaBoss;
-using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.Gothivia;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.PunkerPrime;
@@ -26,6 +22,9 @@ using Stellamod.Content.Areas.SpringHills.BossesSH.Jiitas;
 using Stellamod.Content.Areas.SpringHills.BossesSH.Minerva;
 using Stellamod.Content.Areas.SpringHills.BossesSH.Ravager;
 using Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant;
+using Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.CariyaBoss;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss;
 using Stellamod.Content.Areas.Underground;
 using Stellamod.Content.Areas.Underground.BunnyStormBoss;
 using Stellamod.Content.Areas.WaterSide.BossesWS.LeviathanEel;
@@ -36,6 +35,7 @@ using Stellamod.Content.Relics;
 using Stellamod.Content.Vanity.IllurianGeneralHat;
 using Stellamod.Content.Insources;
 using Terraria.ModLoader;
+using Stellamod.Content.Areas.Tundra.Abyss.ItemsAB;
 
 namespace Stellamod.Content.BossPages
 {
@@ -54,7 +54,6 @@ namespace Stellamod.Content.BossPages
         }
     }
 
-
     public class JackPage : BossPage
     {
         public override void SetStaticDefaults()
@@ -69,7 +68,6 @@ namespace Stellamod.Content.BossPages
             AddMasterModeReward<JackRelicItem>();
         }
     }
-
 
     public class DaedusPage : BossPage
     {
@@ -181,8 +179,6 @@ namespace Stellamod.Content.BossPages
             StarRanking = 3;
             AddMasterModeReward<CommanderGintziaRelicItem>();
         }
-
-
     }
 
     public class JiitasPage : BossPage
@@ -198,6 +194,7 @@ namespace Stellamod.Content.BossPages
             StarRanking = 1;
         }
     }
+
     public class CelestiaPage : BossPage
     {
         public override void SetStaticDefaults()
@@ -211,6 +208,7 @@ namespace Stellamod.Content.BossPages
             AddMasterModeReward<CelestiaRelicItem>();
         }
     }
+
     public class SkullrunnerPage : BossPage
     {
         public override void SetStaticDefaults()
@@ -224,6 +222,7 @@ namespace Stellamod.Content.BossPages
             AddMasterModeReward<SkullrunnerRelicItem>();
         }
     }
+
     public class EPage : BossPage
     {
         public override void SetStaticDefaults()
@@ -237,6 +236,7 @@ namespace Stellamod.Content.BossPages
             AddMasterModeReward<ERelicItem>();
         }
     }
+
     public class STARBOMBERPage : BossPage
     {
         public override void SetStaticDefaults()
@@ -264,6 +264,7 @@ namespace Stellamod.Content.BossPages
             StarRanking = 4;
         }
     }
+
     public class CariyaPage : BossPage
     {
         public override void SetStaticDefaults()
@@ -277,6 +278,7 @@ namespace Stellamod.Content.BossPages
             AddMasterModeReward<CariyaRelicItem>(stack: 1);
         }
     }
+
     public class KingJellyfishPage : BossPage
     {
         public override void SetStaticDefaults()
@@ -304,6 +306,7 @@ namespace Stellamod.Content.BossPages
             AddMasterModeReward<LeviathanEelRelicItem>(stack: 1);
         }
     }
+
     public class GothiviaPage : BossPage
     {
         public override void SetStaticDefaults()
@@ -317,6 +320,7 @@ namespace Stellamod.Content.BossPages
             AddMasterModeReward<GothiviaRelicItem>(stack: 1);
         }
     }
+
     public class RoyalFoxPage : BossPage
     {
         public override void SetStaticDefaults()
@@ -345,7 +349,6 @@ namespace Stellamod.Content.BossPages
             AddMasterModeReward<VerliaRelicItem>(stack: 1);
         }
     }
-
 
     public class BishininePage : BossPage
     {
@@ -390,6 +393,7 @@ namespace Stellamod.Content.BossPages
             AddMasterModeReward<PunkerPrimeRelicItem>(stack: 1);
         }
     }
+
     public class DescendingTwinsPage : BossPage
     {
         public override void SetStaticDefaults()
@@ -404,6 +408,7 @@ namespace Stellamod.Content.BossPages
             AddMasterModeReward<DescendingTwinsRelicItem>(stack: 1);
         }
     }
+
     public class SteamrollerPage : BossPage
     {
         public override void SetStaticDefaults()
@@ -418,7 +423,6 @@ namespace Stellamod.Content.BossPages
             AddMasterModeReward<SteamrollerRelicItem>(stack: 1);
         }
     }
-
 
     public class TowerOfIlluriaPage : BossPage
     {

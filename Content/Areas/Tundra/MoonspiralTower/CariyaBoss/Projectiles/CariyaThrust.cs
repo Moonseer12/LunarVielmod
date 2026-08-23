@@ -1,8 +1,6 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss;
 using Stellamod.Core.Particles;
-using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -36,9 +34,9 @@ public class CariyaThrust : ModProjectile
     public override void AI()
     {
         base.AI();
-   
+
         Timer++;
-        if(Timer == 1)
+        if (Timer == 1)
         {
             SoundStyle thrustSound = AssetRegistry.Sounds.Cariya.Carianpokie with { PitchVariance = 0.3f };
             SoundEngine.PlaySound(thrustSound, Projectile.position);
@@ -81,12 +79,12 @@ public class CariyaThrust : ModProjectile
     }
     public override bool PreDraw(ref Color lightColor)
     {
-        float outAlpha = EasingFunction.InOutSine((float)Projectile.timeLeft / 30f);
+        float outAlpha = EasingFunction.InOutSine(Projectile.timeLeft / 30f);
         SpritebatchDrawer afterDrawer = SpritebatchDrawer.FromProjectile(Projectile);
         for (int i = 0; i < Projectile.oldPos.Length; i++)
         {
             Vector2 pos = Projectile.oldPos[i] + Projectile.Size * 0.5f;
-            float ratio = (float)i / (float)Projectile.oldPos.Length;
+            float ratio = i / (float)Projectile.oldPos.Length;
             afterDrawer.color = Color.Lerp(Color.LightBlue, Color.DarkBlue, ratio) * 0.15f * outAlpha;
             afterDrawer.color.A = 0;
             afterDrawer.worldPosition = pos;
@@ -121,7 +119,7 @@ public class CariyaThrust : ModProjectile
 
         Main.spriteBatch.RestartDefaults();
         return false;
-    //    return base.PreDraw(ref lightColor);
+        //    return base.PreDraw(ref lightColor);
     }
     public override void OnKill(int timeLeft)
     {

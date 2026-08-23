@@ -1,4 +1,4 @@
-﻿using Stellamod.Common.QuestSystem;
+using Stellamod.Common.QuestSystem;
 using Stellamod.Content.Quests.ZuiQuest;
 using Stellamod.Content.Vanity.Nyxia;
 using Stellamod.Content.Vanity.Solarian;

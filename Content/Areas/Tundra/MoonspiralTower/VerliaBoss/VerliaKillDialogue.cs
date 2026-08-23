@@ -1,5 +1,4 @@
-﻿using Stellamod.Core.DialogueSystem;
-using Stellamod.Core.Utilities;
+using Stellamod.Core.DialogueSystem;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -18,14 +17,12 @@ public class VerliaKillDialogue : BaseDialogue
         return 7;
     }
 
-
     public override void OnComplete()
     {
         base.OnComplete();
         int index = NPC.FindFirstNPC(ModContent.NPCType<VerliaIdle>());
         if (index == -1)
             return;
-
         Vector2 position = Main.npc[index].position;
         int x = (int)position.X;
         int y = (int)position.Y;

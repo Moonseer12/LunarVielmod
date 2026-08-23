@@ -1,10 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Common.IgnitersNPowders;
+﻿using Stellamod.Common.IgnitersNPowders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Items;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.AccMT
