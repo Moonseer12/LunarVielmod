@@ -8,7 +8,6 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.GameContent.Animations.Actions.Sprites;
 
 namespace Stellamod.Content.Areas.Cinderspark.BossesCS.Rek.Projectiles;
 
@@ -102,10 +101,10 @@ public class PacMeteorBoom : ModProjectile
                 Dust.NewDustPerfect(Projectile.Center + Main.rand.NextVector2Circular(48, 192) + new Vector2(0, -64), DustID.Lava, vel, Scale: 2f);
             }
         }
-        if(Parent.ModNPC is RekBoss rek)
+        if (Parent.ModNPC is RekBoss rek)
         {
             Projectile.Center = rek.Segments[SegmentIndex].position;
-            Projectile.velocity = (rek.Segments[SegmentIndex].rotation-MathHelper.PiOver2).ToRotationVector2() * Projectile.velocity.Length();
+            Projectile.velocity = (rek.Segments[SegmentIndex].rotation - MathHelper.PiOver2).ToRotationVector2() * Projectile.velocity.Length();
         }
         if (!Parent.active)
             Projectile.active = false;
@@ -114,27 +113,32 @@ public class PacMeteorBoom : ModProjectile
 
     private void DrawTorchInner(SpriteBatch spriteBatch, Vector2 position, float rotation, float scale)
     {
-        SpritebatchDrawer drawer = SpritebatchDrawer.FromProjectile(Projectile);
-        drawer.color = Color.Lerp(Color.White, Color.OrangeRed, AttackProgress);
-        drawer.color.A = 0;
-        drawer.rotation = rotation;
-        drawer.LeftCenterOrigin();
-        drawer.worldPosition = position;
-        drawer.scale *= MathHelper.SmoothStep(1f, 3f, AttackProgress);
-        drawer.scale.Y *= MathHelper.SmoothStep(0, 1.5f, EasingFunction.OutExpo(AttackProgress));
-        drawer.scale.X *= scale;
-        spriteBatch.Draw(drawer);
+        if (Parent.ModNPC is RekBoss rek)
+        {
 
-        drawer.color = Color.DarkRed;
-        drawer.color.A = 0;
-        drawer.scale *= 1.12f;
-        spriteBatch.Draw(drawer);
+            SpritebatchDrawer drawer = SpritebatchDrawer.FromProjectile(Projectile);
+            drawer.worldPosition = rek.Segments[SegmentIndex].position;
+            drawer.color = Color.Lerp(Color.White, Color.OrangeRed, AttackProgress);
+            drawer.color.A = 0;
+            drawer.rotation = rotation;
+            drawer.LeftCenterOrigin();
+            drawer.worldPosition = position;
+            drawer.scale *= MathHelper.SmoothStep(1f, 3f, AttackProgress);
+            drawer.scale.Y *= MathHelper.SmoothStep(0, 1.5f, EasingFunction.OutExpo(AttackProgress));
+            drawer.scale.X *= scale;
+            spriteBatch.Draw(drawer);
 
-        drawer.color = Color.DarkRed;
-        drawer.color.A = 0;
-        drawer.scale *= 1.12f;
-        drawer.scale.Y *= 0.8f;
-        spriteBatch.Draw(drawer);
+            drawer.color = Color.DarkRed;
+            drawer.color.A = 0;
+            drawer.scale *= 1.12f;
+            spriteBatch.Draw(drawer);
+
+            drawer.color = Color.DarkRed;
+            drawer.color.A = 0;
+            drawer.scale *= 1.12f;
+            drawer.scale.Y *= 0.8f;
+            spriteBatch.Draw(drawer);
+        }
     }
 
 

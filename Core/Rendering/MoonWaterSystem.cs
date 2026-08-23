@@ -2,21 +2,15 @@
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas;
-using Stellamod.Content.Areas.WaterSide.BossesWS;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+using Stellamod.Core.LunarLightingSystem;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Reflection;
 using System.Runtime.CompilerServices;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Drawing;
 using Terraria.Graphics.Effects;
-using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 
 namespace Stellamod.Core.Rendering;
@@ -142,6 +136,12 @@ public static class WaterHelpers
 {
     [UnsafeAccessor(UnsafeAccessorKind.Method, Name = "DrawWaters")]
     public static extern void DrawWaters(Main instance, bool isBackground);
+
+
+    //GetScreenDrawArea(unscaledPosition, vector + (Main.Camera.UnscaledPosition - Main.Camera.ScaledPosition), out var firstTileX, out var lastTileX, out var firstTileY, out var lastTileY);
+    [UnsafeAccessor(UnsafeAccessorKind.Method, Name = "GetScreenDrawArea")]
+    public static extern void GetScreenDrawArea(TileDrawing tileDrawing, Vector2 unscaledPosition, Vector2 offset, out int firstTileX, out int lastTileX, out int firstTileY, out int lastTileY);
+
 
 }
 public abstract class PixelWaterStyle : ModType
@@ -330,6 +330,9 @@ public class MoonWaterSystem : ModSystem
             return;
         if (Main.gameMenu)
             return;
+        if (!LightingHelper.CanRenderPostProcessingEffects)
+            return;
+
 
         SpriteBatch spriteBatch = Main.spriteBatch;
 
@@ -368,9 +371,12 @@ public class MoonWaterSystem : ModSystem
             return;
         if (_waterEffect == null)
             return;
-
-        if (!Lighting.UsingNewLighting)
+        if (!LightingHelper.CanRenderPostProcessingEffects)
+        {
+            _allowDraw = true;
             return;
+        }
+
         if (layer == RenderLayers.ForegroundWater)
         {
             //This is called right before the front water gets drawn
@@ -479,6 +485,7 @@ public class MoonWaterSystem : ModSystem
 
     private void RenderHook(On_Main.orig_CheckMonoliths orig)
     {
+
         orig();
         var config = ModContent.GetInstance<LunarVeilClientConfig>();
         if (!config.LiquidsToggle)
@@ -494,20 +501,10 @@ public class MoonWaterSystem : ModSystem
             return;
 
         //var sw = Stopwatch.StartNew();
-        CalculateHeightsToDraw();
-        //sw.Stop();
-        //Main.NewText($"Heights to draw {sw.ElapsedMilliseconds}ms"); ;
-
-
-        //sw = Stopwatch.StartNew();
+        if(Main.GameUpdateCount % 8 == 0)
+            CalculateHeightsToDraw();
         RenderIntoHeightMapTarget();
-        //sw.Stop();
-      //  Main.NewText($"Render Height Map Target {sw.ElapsedMilliseconds}ms"); ;
-
-        //sw = Stopwatch.StartNew();
         RenderIntoWaterTextureTarget();
-        //sw.Stop();
-       // Main.NewText($"Render Cool Water Target {sw.ElapsedMilliseconds}ms"); ;
 
     }
 
@@ -799,18 +796,15 @@ public class MoonWaterSystem : ModSystem
 
     private void CalculateHeightsToDraw()
     {
-        //Get the tile drawing area
         TileDrawing tilesRenderer = Main.instance.TilesRenderer;
         Vector2 unscaledPosition = Main.Camera.UnscaledPosition;
         Vector2 vector = new Vector2((float)Main.offScreenRange, (float)Main.offScreenRange);
-        object[] args = new object[] { unscaledPosition, vector + (Main.Camera.UnscaledPosition - Main.Camera.ScaledPosition), null, null, null, null };
-        typeof(TileDrawing).GetMethod("GetScreenDrawArea", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(tilesRenderer, args);
-
+        WaterHelpers.GetScreenDrawArea(tilesRenderer, unscaledPosition, vector, out int firstTileX, out int lastTileX, out int firstTileY, out int lastTileY);
         int maxGradientHeight = 32;
         _heightsToDraw.Clear();
-        for (int i = (int)args[4]; i < (int)args[5] + 4; i++)
+        for (int i = firstTileY; i < lastTileY + 4; i++)
         {
-            for (int j = (int)args[2] - 2; j < (int)args[3] + 2; j++)
+            for (int j = firstTileX - 2; j < lastTileX + 2; j++)
             {
                 Tile tile = Main.tile[j, i];
                 Tile firstAboveTile = Main.tile[j, i - 1];

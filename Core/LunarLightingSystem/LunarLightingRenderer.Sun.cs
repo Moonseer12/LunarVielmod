@@ -5,33 +5,6 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Core.LunarLightingSystem;
 
-public static class LightingHelper
-{
-    /// <summary>
-    /// Interpolates between 0-1 near the end of a day/night cycle, to make the transition a bit sooner
-    /// </summary>
-    public static float DayLightEase
-    {
-        get
-        {
-            float easingTime = 2400;
-            float dayLength = (float)Main.dayLength;
-            if (!Main.dayTime)
-            {
-                dayLength = (float)Main.nightLength;
-            }
-
-            float inTime = (float)Main.time;
-            float inEasing = EasingFunction.InOutSine(inTime / easingTime);
-            float outTime = (float)Main.time;
-            float outDown = outTime - (dayLength - easingTime);
-            float outEasing = EasingFunction.InOutSine(outDown / easingTime);
-            float a = inEasing * MathHelper.Lerp(1f, 0f, outEasing);
-            return a;
-        }
-    }
-}
-
 public partial class LunarLightingRenderer
 {
     public Color GetSunColor()
@@ -86,7 +59,7 @@ public partial class LunarLightingRenderer
             return;
 
         Vector2 stepSize = Vector2.One / new Vector2(Main.screenWidth, Main.screenHeight);
-        stepSize *= 4 * -SunLightManager.ShadowDirection;
+        stepSize *= 4 * -LightingGlobals.ShadowDirection;
 
         var shader = ShaderContent.GetInstance<SunLightShader>();
         shader.StepSize = stepSize;
@@ -122,7 +95,7 @@ public partial class LunarLightingRenderer
         Effect effect = GameShaders.Misc["LunarVeil:SunShadow"].Shader;
         effect.Parameters["mipBias"].SetValue(0.1f);
 
-        Vector2 sunDirection = SunLightManager.ShadowDirection.SafeNormalize(Vector2.Zero);
+        Vector2 sunDirection = LightingGlobals.ShadowDirection;
         effect.Parameters["sunDirection"].SetValue(-sunDirection * 1400);
         effect.Parameters["falloff"].SetValue(0.1f);
         effect.Parameters["uScreenResolution"].SetValue(Main.ScreenSize.ToVector2());
