@@ -4,7 +4,7 @@ using Stellamod.Content.Dialogue;
 using Stellamod.Content.Vanity.RedFeatherHat;
 using Stellamod.Core;
 using Stellamod.Helpers;
-using Stellamod.Items.Insources;
+using Stellamod.Content.Insources;
 using System;
 using System.Collections.Generic;
 using Terraria;

@@ -1,6 +1,6 @@
 ﻿using Stellamod.Buffs;
 using Stellamod.Common.Particles;
-using Stellamod.Content.Areas.Abyss;
+using Stellamod.Content.Areas.Tundra.Abyss;
 using Stellamod.Content.Areas.Fable;
 using Stellamod.Content.Areas.SpringHills;
 using Stellamod.Content.Gores.Foreground;

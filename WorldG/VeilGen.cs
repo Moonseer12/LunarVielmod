@@ -1,7 +1,7 @@
 ﻿using ReLogic.Content;
 using ReLogic.Utilities;
 using Stellamod.Common.DungeonGeneration;
-using Stellamod.Content.Areas.Abyss.TilesAB;
+using Stellamod.Content.Areas.Tundra.Abyss.TilesAB;
 using Stellamod.Content.Areas.MothlightManor.TilesMM;
 using Stellamod.Content.Areas.PunkerTown.TilesPT;
 using Stellamod.Content.Areas.SpringHills.TilesSH;

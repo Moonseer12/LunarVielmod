@@ -1,6 +1,6 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Areas.Abyss.AccAB;
+using Stellamod.Content.Areas.Tundra.Abyss.AccAB;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;

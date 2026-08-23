@@ -2,8 +2,8 @@
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
-using Stellamod.Content.Areas.MoonspiralTower.WeaponsMT;
-using Stellamod.Content.Areas.WaterSide.KingJellyfishBoss;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT;
+using Stellamod.Content.Areas.WaterSide.BossesWS.KingJellyfishBoss;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;

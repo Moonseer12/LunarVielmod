@@ -2,7 +2,7 @@
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Dusts;
-using Stellamod.Gores;
+using Stellamod.Content.Gores;
 using Stellamod.Helpers;
 using Stellamod.Items;
 using Stellamod.Projectiles.Summons.Orbs;

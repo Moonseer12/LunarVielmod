@@ -1,5 +1,5 @@
 ﻿using Stellamod.Common.QuestSystem;
-using Stellamod.Content.Areas.Abyss.ItemsAB;
+using Stellamod.Content.Areas.Tundra.Abyss.ItemsAB;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Items;
 using Stellamod.Items.Accessories;

@@ -15,7 +15,7 @@ using Stellamod.Core.Pixelation;
 using Stellamod.Core.TriggersSystem.Triggers;
 using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Gores;
+using Stellamod.Content.Gores;
 using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
 using System;

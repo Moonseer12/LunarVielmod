@@ -5,7 +5,7 @@ using Stellamod.Assets;
 using Stellamod.Common.Players;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
-using Stellamod.Content.Areas.WaterSide.KingJellyfishBoss;
+using Stellamod.Content.Areas.WaterSide.BossesWS.KingJellyfishBoss;
 using Stellamod.Content.Armors.Radianthal;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Gores;

@@ -1,4 +1,4 @@
-﻿using Stellamod.Content.Areas.Abyss;
+﻿using Stellamod.Content.Areas.Tundra.Abyss;
 using Stellamod.Content.Areas.Fable;
 using Stellamod.Content.Areas.PunkerTown;
 using Stellamod.Content.Areas.SpringHills;

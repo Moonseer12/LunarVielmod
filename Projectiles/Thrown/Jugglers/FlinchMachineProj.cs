@@ -2,7 +2,7 @@
 
 using Stellamod.Core.Bases;
 using Stellamod.Dusts;
-using Stellamod.Gores;
+using Stellamod.Content.Gores;
 using Stellamod.Helpers;
 using Terraria;
 using Terraria.Audio;

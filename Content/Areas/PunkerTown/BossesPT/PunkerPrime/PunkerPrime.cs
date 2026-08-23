@@ -7,7 +7,7 @@ using Stellamod.Core.Camera;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Gores;
+using Stellamod.Content.Gores;
 using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
 using System;

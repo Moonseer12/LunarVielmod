@@ -8,7 +8,7 @@ using Stellamod.Core;
 using Stellamod.Core.DrawEffects;
 using Stellamod.Core.Palettes;
 using Stellamod.Core.Utilities;
-using Stellamod.Gores;
+using Stellamod.Content.Gores;
 using Stellamod.Helpers;
 using Stellamod.Items.Placeable;
 using Stellamod.Projectiles;

@@ -1,5 +1,5 @@
 ﻿using Stellamod.Content.Areas.Cinderspark.BossesCS.Rek;
-using Stellamod.Tiles;
+using Stellamod.Content.Areas.Cinderspark.TilesCS;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

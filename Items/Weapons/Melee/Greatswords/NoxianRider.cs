@@ -4,7 +4,7 @@ using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.Bases;
-using Stellamod.Gores.NKR;
+using Stellamod.Content.Gores.NKR;
 using Stellamod.Helpers;
 using Stellamod.Visual.Explosions;
 using Stellamod.Visual.GIFEffects;

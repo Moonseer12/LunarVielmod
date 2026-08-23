@@ -1,5 +1,5 @@
 ﻿using Stellamod.Content.CommonMaterials;
-using Stellamod.Gores;
+using Stellamod.Content.Gores;
 using Stellamod.Items.Materials;
 using Stellamod.Projectiles.GunHolster;
 using Stellamod.Projectiles.Steins;

@@ -1,13 +1,13 @@
-﻿using Stellamod.Content.Areas.Abyss.ArmorAB;
+﻿using Stellamod.Content.Areas.Tundra.Abyss.ArmorAB;
 using Stellamod.Content.Areas.Desert.ArmorCL;
 using Stellamod.Content.Areas.Hallowrooms.ArmorHR;
 using Stellamod.Content.Areas.Illuria.ArmorIL;
 using Stellamod.Content.Areas.Ishtar.ArmorIS;
 using Stellamod.Content.Areas.Jungle.ArmorJN;
 using Stellamod.Content.Areas.Junkyard.ArmorJY;
-using Stellamod.Content.Areas.MoonspiralTower.ArmorMT;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.ArmorMT;
 using Stellamod.Content.Areas.PunkerTown.ArmorPT;
-using Stellamod.Content.Areas.Snow.ArmorSN;
+using Stellamod.Content.Areas.Tundra.Snow.ArmorSN;
 using Stellamod.Content.Areas.SpringHills.ArmorSH;
 using Stellamod.Content.Areas.Terror.ArmorTR;
 using Stellamod.Content.Areas.TheFalling.ArmorTF;

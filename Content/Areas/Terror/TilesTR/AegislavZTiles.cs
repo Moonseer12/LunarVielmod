@@ -1,5 +1,5 @@
 ﻿using ReLogic.Content;
-using Stellamod.Content.Areas.MoonspiralTower.TilesMT;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.TilesMT;
 using Stellamod.Core.ZTileSystem;
 using Stellamod.Helpers;
 using Terraria;

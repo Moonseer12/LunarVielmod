@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.BossBannerSystem;
-using Stellamod.Content.Areas.Abyss.BossesAB.VerlianSingularity;
-using Stellamod.Content.Areas.Abyss.ItemsAB;
+using Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity;
+using Stellamod.Content.Areas.Tundra.Abyss.ItemsAB;
 using Stellamod.Content.Areas.Cinderspark.BossesCS.Skullrunner;
 using Stellamod.Content.Areas.Desert.BossesCL.CommanderGintzia;
 using Stellamod.Content.Areas.Desert.BossesCL.EliteCommander;
@@ -12,8 +12,8 @@ using Stellamod.Content.Areas.Fable.BossesFB.JackTheScholar;
 using Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria;
 using Stellamod.Content.Areas.Illuria.BossesIL.EStyr;
 using Stellamod.Content.Areas.Ishtar.BossesIS.SanguineSingularity;
-using Stellamod.Content.Areas.MoonspiralTower.CariyaBoss;
-using Stellamod.Content.Areas.MoonspiralTower.VerliaBoss;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.CariyaBoss;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.Gothivia;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.PunkerPrime;
@@ -28,13 +28,13 @@ using Stellamod.Content.Areas.SpringHills.BossesSH.Ravager;
 using Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant;
 using Stellamod.Content.Areas.Underground;
 using Stellamod.Content.Areas.Underground.BunnyStormBoss;
-using Stellamod.Content.Areas.WaterSide.BossesWS;
-using Stellamod.Content.Areas.WaterSide.KingJellyfishBoss;
+using Stellamod.Content.Areas.WaterSide.BossesWS.LeviathanEel;
+using Stellamod.Content.Areas.WaterSide.BossesWS.KingJellyfishBoss;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Currencies;
 using Stellamod.Content.Relics;
 using Stellamod.Content.Vanity.IllurianGeneralHat;
-using Stellamod.Items.Insources;
+using Stellamod.Content.Insources;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.BossPages

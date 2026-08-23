@@ -1,6 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
-using Stellamod.Content.Areas.MoonspiralTower.WeaponsMT;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;

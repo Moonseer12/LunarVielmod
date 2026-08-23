@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Stellamod.Buffs;
-using Stellamod.Gores;
+using Stellamod.Content.Gores;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;

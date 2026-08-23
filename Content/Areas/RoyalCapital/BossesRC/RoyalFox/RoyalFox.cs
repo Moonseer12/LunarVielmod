@@ -2,7 +2,7 @@
 using ReLogic.Content;
 using Steamworks;
 using Stellamod.Assets;
-using Stellamod.Content.Areas.MoonspiralTower.VerliaBoss.Projectiles;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss.Projectiles;
 using Stellamod.Content.Areas.RoyalCapital.BossesRC.RoyalFox.Projectiles;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
