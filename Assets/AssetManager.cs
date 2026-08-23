@@ -247,10 +247,5 @@ namespace Stellamod.Assets
             Noise.AuroraRays = null;
             Noise.FlamethrowerNoise = null;
         }
-
-        public static Asset<Texture2D> LoadBackground(string name)
-        {
-            return ModContent.Request<Texture2D>($"Stellamod/Assets/Textures/Backgrounds/{name}");
-        }
     }
 }
