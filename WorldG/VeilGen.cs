@@ -2,11 +2,9 @@
 using ReLogic.Utilities;
 using Stellamod.Common.DungeonGeneration;
 using Stellamod.Content.Areas.Tundra.Abyss.TilesAB;
-using Stellamod.Content.Areas.MothlightManor.TilesMM;
 using Stellamod.Content.Areas.PunkerTown.TilesPT;
 using Stellamod.Content.Areas.SpringHills.TilesSH;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Tiles;
 using System;
 using System.Collections.Generic;
 using System.IO;

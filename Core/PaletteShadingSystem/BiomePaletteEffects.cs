@@ -5,7 +5,6 @@ using Stellamod.Content.Areas.Ishtar.BossesIS.SanguineSingularity;
 using Stellamod.Content.Areas.RoyalCapital.BossesRC.RoyalFox;
 using Stellamod.Core.Palettes;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Core.PaletteShadingSystem
@@ -68,8 +67,6 @@ namespace Stellamod.Core.PaletteShadingSystem
         public override bool IsActive(Player player)
         {
             BiomePlayer myPlayer = player.GetModPlayer<BiomePlayer>();
-            if (myPlayer.ZoneAbyss)
-                return true;
             if (myPlayer.ZoneAurelus)
                 return true;
             return false;

@@ -20,8 +20,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             TileID.Sets.IgnoredByNpcStepUp[Type] = true; // This line makes NPCs not try to step up this tile during their movement. Only use this for furniture with solid tops.
 
             DustType = ModContent.DustType<Sparkle>();
-            DustType = ModContent.DustType<Dusts.SalfaceDust>();
-            AdjTiles = new int[] { TileID.Bookcases };
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
