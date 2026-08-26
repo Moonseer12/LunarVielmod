@@ -1,8 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted;
-using Stellamod.Content.Areas.Fable.BossesFB.JackTheScholar;
+﻿using Stellamod.Content.Areas.Fable.BossesFB.JackTheScholar;
 using Stellamod.Core;
-using Stellamod.Helpers;
 using System;
 using System.Collections.Generic;
 using Terraria;

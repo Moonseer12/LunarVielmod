@@ -43,7 +43,7 @@ namespace Stellamod.Core.DecorativeTileSystem
                 return _specialWall;
             }
         }
-        public override string Texture => "Stellamod/Tiles/ExampleDecorativeWallItem";
+        public override string Texture => "Stellamod/Core/DecorativeTileSystem/ExampleDecorativeWallItem";
         public override void SetDefaults()
         {
             Item.width = 12;

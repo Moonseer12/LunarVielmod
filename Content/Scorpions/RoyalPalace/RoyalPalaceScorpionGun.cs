@@ -1,5 +1,4 @@
-﻿using Stellamod.Buffs.Scorpion;
-using Stellamod.Common.ScorpionMountSystem;
+﻿using Stellamod.Common.ScorpionMountSystem;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

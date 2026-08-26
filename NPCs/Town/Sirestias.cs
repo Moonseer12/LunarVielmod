@@ -1,18 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using Stellamod.Core;
-using Stellamod.Helpers;
-
+﻿using Stellamod.Core;
 using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.Utilities;
 
 namespace Stellamod.NPCs.Town
 {

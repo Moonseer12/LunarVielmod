@@ -1,13 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Assets;
-using Stellamod.Buffs.Minions;
-using Stellamod.Helpers;
-using Stellamod.Projectiles.IgniterExplosions;
-using Stellamod.Trails;
+﻿using Stellamod.Buffs.Minions;
+using Stellamod.Content.Areas.PunkerTown.WeaponsPT;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 

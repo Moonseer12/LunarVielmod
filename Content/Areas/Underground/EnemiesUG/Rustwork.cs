@@ -1,11 +1,10 @@
 ﻿using ReLogic.Content;
-using Stellamod.NPCs;
+using Stellamod.Common;
 using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -37,10 +36,9 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
 
         public override void SetStaticDefaults()
         {
-            Main.npcFrameCount[NPC.type] = 1;
             NPCID.Sets.TrailCacheLength[NPC.type] = 3;
             NPCID.Sets.TrailingMode[NPC.type] = 0;
-
+            this.AddToMineshaft();
         }
 
         public override void SetDefaults()
@@ -99,19 +97,13 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
             }
         }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return SpawnRates.GetMechanicalEnemySpawnChance(spawnInfo);
-        }
-
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             // We can use AddRange instead of calling Add multiple times in order to add multiple items at once
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-            {
+            bestiaryEntry.Info.AddRange([
 				// Sets the description of this NPC that is listed in the bestiary.
 				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "An old rusted cog with some magical abilities"))
-            });
+            ]);
         }
 
         public override void HitEffect(NPC.HitInfo hit)

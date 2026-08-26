@@ -2,8 +2,6 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Core.DialogueSystem;
 using Stellamod.Core.NPCHelpers;
-using Stellamod.Helpers;
-using Stellamod.NPCs;
 using Stellamod.UI.DialogueTowning;
 using System;
 using System.Collections.Generic;
@@ -94,7 +92,7 @@ namespace Stellamod.Core
             float yDiff = MathF.Abs(NPC.frame.Size().Y - NPC.Size.Y);
             drawPos += DrawOffset;
 
-            Vector2 drawOrigin = new Vector2(NPC.frame.Width * 0.5f, NPC.frame.Height);
+            Vector2 drawOrigin = new(NPC.frame.Width * 0.5f, NPC.frame.Height);
             float drawRotation = NPC.rotation;
             Vector2 drawScale = NPC.scale * Vector2.One;
             if (breathe)
@@ -102,13 +100,6 @@ namespace Stellamod.Core
                 drawScale = Vector2.Lerp(drawScale, new Vector2(1.1f, 0.9f), ExtraMath.Osc(0f, 1f));
             }
             SpriteEffects spriteEffects = NPC.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-
-            float outlineOffset = 2;
-            Vector2 left = drawPos + Vector2.UnitX * -outlineOffset;
-            Vector2 right = drawPos + Vector2.UnitX * outlineOffset;
-            Vector2 up = drawPos + Vector2.UnitY * -outlineOffset;
-            Vector2 down = drawPos + Vector2.UnitY * outlineOffset;
-            Color outlineColor = Color.White;
             spriteBatch.Draw(texture, drawPos, NPC.frame, drawColor, drawRotation, drawOrigin, drawScale, spriteEffects, 0f);
             return false;
         }

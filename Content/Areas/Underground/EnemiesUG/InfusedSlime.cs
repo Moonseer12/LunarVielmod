@@ -1,5 +1,5 @@
-﻿using Stellamod.Items.Weapons.Ranged.GunSwapping;
-using Stellamod.NPCs;
+﻿using Stellamod.Common;
+using Stellamod.Items.Weapons.Ranged.GunSwapping;
 using Stellamod.Projectiles;
 using System;
 using Terraria;
@@ -15,6 +15,7 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[NPC.type] = 23;
+            this.AddToMineshaft();
         }
 
         public override void SetDefaults()
@@ -138,10 +139,6 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
             Visuals();
         }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return SpawnRates.GetMechanicalEnemySpawnChance(spawnInfo);
-        }
         private void Visuals()
         {
             if (Main.rand.NextBool(16))

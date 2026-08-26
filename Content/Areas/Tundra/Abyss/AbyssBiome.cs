@@ -1,9 +1,10 @@
-﻿using Terraria;
+using Stellamod.Core.LunarLightingSystem;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Tundra.Abyss
 {
-    public class AbyssBiome : BaseUrdveilBiome
+    public class AbyssBiome : BaseUrdveilBiome, IBackLightModifier
     {
         public override int Music => MusicLoader.GetMusicSlot(Mod, "Assets/Music/Hidding_In_The_Shadows");
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
@@ -17,5 +18,9 @@ namespace Stellamod.Content.Areas.Tundra.Abyss
             player.GetModPlayer<BiomePlayer>().ZoneAbyss = true;
         }
         public override void OnLeave(Player player) => player.GetModPlayer<BiomePlayer>().ZoneAbyss = false;
+        public void ModifyBackLight(ref Color backLightColor)
+        {
+            backLightColor = Color.Lerp(backLightColor, Color.White, 0.45f);
+        }
     }
 }

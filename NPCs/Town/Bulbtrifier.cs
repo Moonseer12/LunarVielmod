@@ -1,8 +1,6 @@
 ﻿using Stellamod.Content.Bar.Drinks;
 using Stellamod.Content.Dialogue;
 using Stellamod.Core;
-using Stellamod.Helpers;
-using Stellamod.WorldG;
 using System;
 using System.Collections.Generic;
 using Terraria;

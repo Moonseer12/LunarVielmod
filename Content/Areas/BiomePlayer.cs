@@ -60,7 +60,7 @@ namespace Stellamod.Content.Areas
             get
             {
                 Player localPlayer = Player;
-                StellaWorld stellaWorld = ModContent.GetInstance<StellaWorld>();
+                VeilGen stellaWorld = ModContent.GetInstance<VeilGen>();
                 int heightOffset = 100;
                 Rectangle biomeRect = new(stellaWorld.CoralwaysLocation.X, stellaWorld.CoralwaysLocation.Y + heightOffset, 1000, 1800 - heightOffset);
                 return localPlayer.Center.ToTileCoordinates().Y > biomeRect.Bottom - 400 && localPlayer.Center.ToTileCoordinates().Y < biomeRect.Bottom;
@@ -169,7 +169,7 @@ namespace Stellamod.Content.Areas
                     depthGradient.alpha = 1;
 
 
-                    StellaWorld stellaWorld = ModContent.GetInstance<StellaWorld>();
+                    VeilGen stellaWorld = ModContent.GetInstance<VeilGen>();
                     float top = stellaWorld.HeatedDepthsStart;
                     float end = stellaWorld.HeatedDepthsEnd;
                     float steps = end - top;
@@ -259,12 +259,12 @@ namespace Stellamod.Content.Areas
         {
             if (ZoneIlluria || ZoneIshtar || ZoneAbyss)
             {
-                if (Main.rand.NextBool(5))
+                if (Main.rand.NextBool(15))
                 {
                     ForegroundParticleRenderer.NewParticle<Starstrike>();
                 }
 
-                if (Main.rand.NextBool(5))
+                if (Main.rand.NextBool(15))
                 {
                     ForegroundParticleRenderer.NewParticle<Snowstrike>();
                 }

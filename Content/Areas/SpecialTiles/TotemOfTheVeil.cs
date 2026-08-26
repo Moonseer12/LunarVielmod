@@ -313,7 +313,7 @@ public class TotemOfTheVeilTile : ModTile
     }
     public override void SpecialDraw(int i, int j, SpriteBatch spriteBatch)
     {
-        Vector2 worldPos = (new Vector2(i, j + 1) + VeilGen.TileAdj) * 16;
+        Vector2 worldPos = (new Vector2(i, j + 1) + TileHelper.TileAdj) * 16;
         worldPos.X += 10;
         worldPos.Y += 16;
 

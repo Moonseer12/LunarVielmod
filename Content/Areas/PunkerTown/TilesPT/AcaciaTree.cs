@@ -335,7 +335,7 @@ namespace Stellamod.Content.Areas.PunkerTown.TilesPT
         public override void SpecialDraw(int i, int j, SpriteBatch spriteBatch)
         {
             _random.SetSeed(i + j);
-            Vector2 pos = (new Vector2(i + 1, j) + VeilGen.TileAdj) * 16;
+            Vector2 pos = (new Vector2(i + 1, j) + TileHelper.TileAdj) * 16;
 
             Color color = Lighting.GetColor(i, j);
             Rectangle frame = GetTopFrame(_random.Next(0, 5));
@@ -415,7 +415,7 @@ namespace Stellamod.Content.Areas.PunkerTown.TilesPT
 
         private void DrawBranches(int i, int j, SpriteBatch spriteBatch)
         {
-            Vector2 pos2 = (new Vector2(i + 1, j) + VeilGen.TileAdj) * 16;
+            Vector2 pos2 = (new Vector2(i + 1, j) + TileHelper.TileAdj) * 16;
             Color color2 = Lighting.GetColor(i, j);
             _random.SetSeed(i + j);
             SpriteEffects flip = 0;

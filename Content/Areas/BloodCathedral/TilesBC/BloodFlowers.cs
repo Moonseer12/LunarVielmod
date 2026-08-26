@@ -12,15 +12,6 @@ namespace Stellamod.Content.Areas.BloodCathedral.TilesBC
             base.SetDefaults();
             Item.createWall = ModContent.WallType<BloodFlower1>();
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class BloodFlower1 : DecorativeWall
@@ -43,15 +34,6 @@ namespace Stellamod.Content.Areas.BloodCathedral.TilesBC
             base.SetDefaults();
             Item.createWall = ModContent.WallType<BloodFlower2>();
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class BloodFlower2 : DecorativeWall
@@ -73,15 +55,6 @@ namespace Stellamod.Content.Areas.BloodCathedral.TilesBC
             base.SetDefaults();
             Item.createWall = ModContent.WallType<BloodFlower3>();
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class BloodFlower3 : DecorativeWall
@@ -103,15 +76,6 @@ namespace Stellamod.Content.Areas.BloodCathedral.TilesBC
             base.SetDefaults();
             Item.createWall = ModContent.WallType<BloodFlower4>();
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class BloodFlower4 : DecorativeWall
@@ -133,15 +97,6 @@ namespace Stellamod.Content.Areas.BloodCathedral.TilesBC
             base.SetDefaults();
             Item.createWall = ModContent.WallType<BloodFlower5>();
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class BloodFlower5 : DecorativeWall

@@ -140,7 +140,7 @@ public class DeadTreeTop : ModTile
     public override void SpecialDraw(int i, int j, SpriteBatch spriteBatch)
     {
         _random.SetSeed(i + j);
-        Vector2 pos = (new Vector2(i + 1, j) + VeilGen.TileAdj) * 16;
+        Vector2 pos = (new Vector2(i + 1, j) + TileHelper.TileAdj) * 16;
 
         Color color = Lighting.GetColor(i, j);
         Rectangle frame = GetTopFrame(_random.Next(0, 3));
@@ -201,7 +201,7 @@ public class DeadTree : ModTile
 
     private void DrawBranches(int i, int j, SpriteBatch spriteBatch)
     {
-        Vector2 pos2 = (new Vector2(i + 1, j) + VeilGen.TileAdj) * 16;
+        Vector2 pos2 = (new Vector2(i + 1, j) + TileHelper.TileAdj) * 16;
         Color color2 = Lighting.GetColor(i, j);
         _random.SetSeed(i + j);
         SpriteEffects flip = 0;
@@ -371,7 +371,7 @@ public class BigDeadTree : ModTile
         bool right = Framing.GetTileSafely(i + 1, j).TileType == ModContent.TileType<BigDeadTree>();
         if (left && right && !down)
         {
-            Vector2 pos = (new Vector2(i + 1, j + 2) + VeilGen.TileAdj) * 16;
+            Vector2 pos = (new Vector2(i + 1, j + 2) + TileHelper.TileAdj) * 16;
             Color color = Lighting.GetColor(i, j);
             pos -= new Vector2(0, 40);
             spriteBatch.Draw(_rootsTextureAsset.Value, pos - Main.screenPosition, null, color.MultiplyRGB(Color.Gray),

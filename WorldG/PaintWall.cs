@@ -1,10 +1,8 @@
 ﻿using Terraria;
 using Terraria.WorldBuilding;
 
-
 namespace Stellamod.WorldG;
-public partial class StellaWorld
-{
+
     public class PaintWall : GenAction
     {
         private byte _type;
@@ -33,4 +31,3 @@ public partial class StellaWorld
             return UnitApply(origin, x, y, args);
         }
     }
-}

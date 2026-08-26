@@ -1,4 +1,4 @@
-﻿using Stellamod.NPCs;
+﻿using Stellamod.Common;
 using Stellamod.Projectiles;
 using Terraria;
 using Terraria.Audio;
@@ -14,6 +14,7 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[NPC.type] = 13;
+            this.AddToMineshaft();
         }
 
         public override void SetDefaults()
@@ -83,10 +84,6 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
             {
                 Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Electric);
             }
-        }
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return SpawnRates.GetMechanicalEnemySpawnChance(spawnInfo);
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

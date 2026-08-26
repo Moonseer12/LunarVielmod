@@ -1,10 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Content.Areas.Shop.AccShop;
-using Stellamod.Content.Dialogue;
+﻿using Stellamod.Content.Dialogue;
 using Stellamod.Content.Vanity.AcademyOutfit;
 using Stellamod.Core;
-using Stellamod.Helpers;
-using Stellamod.Content.Insources;
 using System;
 using System.Collections.Generic;
 using Terraria;

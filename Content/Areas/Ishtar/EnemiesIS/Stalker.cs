@@ -1,5 +1,5 @@
-﻿using Stellamod.Items.Weapons.Thrown.Jugglers;
-using Stellamod.NPCs;
+﻿using Stellamod.Common;
+using Stellamod.Items.Weapons.Thrown.Jugglers;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -12,6 +12,7 @@ namespace Stellamod.Content.Areas.Ishtar.EnemiesIS
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[Type] = 16;
+            this.AddToIshtar();
         }
 
         public override void SetDefaults()
@@ -24,7 +25,7 @@ namespace Stellamod.Content.Areas.Ishtar.EnemiesIS
             NPC.aiStyle = NPCAIStyleID.Fighter;
             NPC.HitSound = SoundID.NPCHit29;
             NPC.DeathSound = SoundID.NPCDeath32;
-            SpawnModBiomes = new int[1] { ModContent.GetInstance<IshtarBiome>().Type };
+            SpawnModBiomes = [ModContent.GetInstance<IshtarBiome>().Type];
         }
 
         public override void FindFrame(int frameHeight)
@@ -46,10 +47,5 @@ namespace Stellamod.Content.Areas.Ishtar.EnemiesIS
             NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 30, (int)NPC.Center.Y, NPC.type);
 			return NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 45, (int)NPC.Center.Y, NPC.type);
 		}
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return SpawnRates.GetIshtarEnemySpawnChance(spawnInfo);
-        }
     }
 }

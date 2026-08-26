@@ -1,5 +1,7 @@
-﻿using Stellamod.Content.Areas.Tundra.Abyss;
+﻿using Stellamod.Content.Areas.Desert;
+using Stellamod.Content.Areas.Desert.NPCsCL;
 using Stellamod.Content.Areas.Fable;
+using Stellamod.Content.Areas.Ishtar;
 using Stellamod.Content.Areas.PunkerTown;
 using Stellamod.Content.Areas.SpringHills;
 using Stellamod.Content.Areas.Terror;
@@ -7,6 +9,7 @@ using Stellamod.Content.Areas.Tundra.Abyss;
 using Stellamod.Content.Areas.Underground;
 using Stellamod.Content.Areas.WaterSide;
 using System.Collections.Generic;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -19,16 +22,18 @@ public class SpawnSets : ModSystem
 {
     public override void SetupContent()
     {
-        SpringEnemy = new List<int>();
-        HarmonicEnemy = new List<int>();
-        MarshEnemy = new List<int>();
-        AegislavSurfaceEnemy = new List<int>();
-        HeatedDepthsEnemy = new List<int>();
-        FableEnemy = new List<int>();
-        AbyssEnemy = new List<int>();
+        SpringEnemy = new();
+        HarmonicEnemy = new();
+        MarshEnemy = new();
+        AegislavSurfaceEnemy = new();
+        HeatedDepthsEnemy = new();
+        FableEnemy = new();
+        AbyssEnemy = new();
+        IshtarEnemy = new();
+        UndergroundEnemy = new();
+        MineshaftEnemy = new();
         ModifiedWeights = NPCID.Sets.Factory.CreateFloatSet(1f);
         base.SetupContent();
-
     }
     public static List<int> SpringEnemy;
     public static List<int> HarmonicEnemy;
@@ -37,6 +42,9 @@ public class SpawnSets : ModSystem
     public static List<int> HeatedDepthsEnemy;
     public static List<int> FableEnemy;
     public static List<int> AbyssEnemy;
+    public static List<int> IshtarEnemy;
+    public static List<int> UndergroundEnemy;
+    public static List<int> MineshaftEnemy;
     public static float[] ModifiedWeights;
 }
 
@@ -67,11 +75,26 @@ public static class NPCSpawnExtensions
     {
         SpawnSets.FableEnemy.Add(npc.Type);
     }
+
     public static void AddToAbyss(this ModNPC npc)
     {
         SpawnSets.AbyssEnemy.Add(npc.Type);
     }
 
+    public static void AddToIshtar(this ModNPC npc)
+    {
+        SpawnSets.IshtarEnemy.Add(npc.Type);
+    }
+
+    public static void AddToUnderground(this ModNPC npc)
+    {
+        SpawnSets.UndergroundEnemy.Add(npc.Type);
+    }
+
+    public static void AddToMineshaft(this ModNPC npc)
+    {
+        SpawnSets.MineshaftEnemy.Add(npc.Type);
+    }
 
     public static void ModifySpawnWeight(this ModNPC npc, float multiplier)
     {
@@ -82,7 +105,7 @@ public static class NPCSpawnExtensions
 public class NPCSpawnHelper : GlobalNPC
 {
 
-    private void AddEnemiesFromSpawnSet(List<int> set, IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
+    public static void AddEnemiesFromSpawnSet(List<int> set, IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
     {
         for (int i = 0; i < set.Count; i++)
         {
@@ -96,14 +119,43 @@ public class NPCSpawnHelper : GlobalNPC
         }
     }
 
+    public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
+    {
+        base.EditSpawnRate(player, ref spawnRate, ref maxSpawns);
+        //More towns people
+        if (Main.dayTime && player.InModBiome<DesertTownBiome>())
+        {
+            float spRate = spawnRate;
+            spawnRate = (int)(spRate * 0.3f);
+            maxSpawns *= 2;
+        }
+    }
+
     public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
     {
         base.EditSpawnPool(pool, spawnInfo);
+        if (Main.dayTime)
+        {
+            if (pool.ContainsKey(NPCID.Vulture))
+            {
+                pool[NPCID.Vulture] = 0f;
+            }
+
+            if (pool.ContainsKey(NPCID.Antlion))
+            {
+                pool[NPCID.Antlion] = 0f;
+            }
+
+            int desertPerson = ModContent.NPCType<DesertPerson>();
+            if (pool.ContainsKey(desertPerson))
+            {
+                pool[desertPerson] *= 2;
+            }
+        }
         if (spawnInfo.Player.ZoneForest || spawnInfo.Player.ZonePurity || spawnInfo.Player.InModBiome<SpringHillsBiome>())
         {
             AddEnemiesFromSpawnSet(SpawnSets.SpringEnemy, pool, spawnInfo);
         }
-
         if (spawnInfo.Player.InModBiome<BiomeMarsh>())
         {
             AddEnemiesFromSpawnSet(SpawnSets.MarshEnemy, pool, spawnInfo);
@@ -138,6 +190,18 @@ public class NPCSpawnHelper : GlobalNPC
         if (spawnInfo.Player.InModBiome<AbyssBiome>())
         {
             AddEnemiesFromSpawnSet(SpawnSets.AbyssEnemy, pool, spawnInfo);
+        }
+        if (spawnInfo.Player.InModBiome<IshtarBiome>())
+        {
+            AddEnemiesFromSpawnSet(SpawnSets.IshtarEnemy, pool, spawnInfo);
+        }
+        if (spawnInfo.Player.ZoneNormalCaverns)
+        {
+            AddEnemiesFromSpawnSet(SpawnSets.UndergroundEnemy, pool, spawnInfo);
+        }
+        if (spawnInfo.Player.InModBiome<MineshaftBiome>())
+        {
+            AddEnemiesFromSpawnSet(SpawnSets.MineshaftEnemy, pool, spawnInfo);
         }
     }
 }

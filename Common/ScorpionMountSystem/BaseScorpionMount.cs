@@ -1,7 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using Stellamod.Buffs.Scorpion;
+﻿using ReLogic.Content;
+using Stellamod.Content.Scorpions.RoyalPalace;
 using System;
 using System.Collections.Generic;
 using System.Linq;

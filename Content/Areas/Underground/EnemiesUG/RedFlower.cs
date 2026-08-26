@@ -1,5 +1,5 @@
 ﻿using ReLogic.Content;
-using Stellamod.NPCs;
+using Stellamod.Common;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -15,9 +15,9 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
         private Vector2 BloodCystPos;
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Blood Cyst");
             NPCID.Sets.TrailCacheLength[NPC.type] = 2;
             NPCID.Sets.TrailingMode[NPC.type] = 0;
+            this.AddToUnderground();
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -25,7 +25,7 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
             Hit = true;
             if (NPC.life <= 0)
             {
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.NPC.Center, 2048f, 16f);
+                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(NPC.Center, 2048f, 16f);
                 SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Harv1"));
                 CombatText.NewText(NPC.getRect(), Color.YellowGreen, LangText.Misc("Flower"), true, false);
             }
@@ -109,13 +109,6 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
             NPC.knockBackResist = 0f;
             NPC.aiStyle = -1;
             NPC.noGravity = true;
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            //You can't be in the surface and underground at the same time so this should work
-            //0.05f should make it 20 less Core than normal spawns.
-            return SpawnRates.GetFlowerSpawnChance(spawnInfo);
         }
 
         Vector2 Drawoffset => new Vector2(0, NPC.gfxOffY) + Vector2.UnitX * NPC.spriteDirection * 0 + new Vector2(0, -30);

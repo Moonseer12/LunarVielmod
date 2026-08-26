@@ -363,7 +363,7 @@ public abstract class AbstractRelicTile<ItemType, BossType> : ModTile
     public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
     {
         /*
-        Vector2 worldPos = (new Vector2(i, j+1) + VeilGen.TileAdj) * 16;
+        Vector2 worldPos = (new Vector2(i, j+1) + TileHelper.TileAdj) * 16;
         SpritebatchDrawer drawer = SpritebatchDrawer.FromTextureAsset(RelicTextureAsset.Value, worldPos);
         drawer.color = Lighting.GetColor(new Point(i, j));
         drawer.BottomCenterOrigin();

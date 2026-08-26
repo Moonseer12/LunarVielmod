@@ -1,5 +1,5 @@
-﻿using Stellamod.Buffs.Scorpion;
-using Stellamod.Common.ScorpionMountSystem;
+﻿using Stellamod.Common.ScorpionMountSystem;
+using Stellamod.Content.Scorpions.RoyalPalace;
 using Stellamod.Dusts;
 using System.Collections.Generic;
 using Terraria;

@@ -4,7 +4,6 @@ using Stellamod.Content.Areas.Desert.BossesCL.EliteCommander;
 using Stellamod.Content.Areas.Desert.BossesCL.Gustbeak;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.TitleSystem;
-using Stellamod.NPCs;
 using System.IO;
 using Terraria;
 using Terraria.Audio;

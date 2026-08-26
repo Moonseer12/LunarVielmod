@@ -1,9 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Content.Areas.Shop.AccShop;
+﻿using Stellamod.Content.Areas.Shop.AccShop;
 using Stellamod.Content.Dialogue;
 using Stellamod.Content.Vanity.RedFeatherHat;
 using Stellamod.Core;
-using Stellamod.Helpers;
 using Stellamod.Content.Insources;
 using System;
 using System.Collections.Generic;
@@ -13,7 +11,6 @@ using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using static Terraria.GameContent.Animations.IL_Actions.NPCs;
 
 namespace Stellamod.NPCs.Town;
 

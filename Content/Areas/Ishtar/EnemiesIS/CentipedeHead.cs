@@ -19,7 +19,7 @@ namespace Stellamod.Content.Areas.Ishtar.EnemiesIS
 
         public override void SetStaticDefaults()
         {
-            Main.npcFrameCount[NPC.type] = 1;
+            this.AddToIshtar();
         }
 
         public override void SetDefaults()
@@ -136,11 +136,6 @@ namespace Stellamod.Content.Areas.Ishtar.EnemiesIS
             {
                 NPC.velocity.X *= 0.99f;
             }
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return SpawnRates.GetIshtarEnemySpawnChance(spawnInfo);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

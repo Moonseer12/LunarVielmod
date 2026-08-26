@@ -1,6 +1,4 @@
 ﻿using Stellamod.Core;
-using Stellamod.Helpers;
-using Stellamod.NPCs;
 using Stellamod.WorldG;
 using System;
 using System.Collections.Generic;
@@ -86,8 +84,7 @@ public class GothiviaIdle : VeilTownNPC
     {
         base.SetPointSpawnerDefaults(ref spawner);
         spawner.isGlobal = true;
-        StellaWorld stellaWorld = ModContent.GetInstance<StellaWorld>();
-        Point spawnPoint = stellaWorld.MarshLocation + stellaWorld.GothiviaSpawnOffset;
+        Point spawnPoint = ModContent.GetInstance<VeilGen>().MarshLocation + VeilGen.GothiviaSpawnOffset;
         spawner.spawnTileOffset = spawnPoint;
     }
     public override void OpenTownDialogue(ref string text, ref string portrait, ref float timeBetweenTexts, ref SoundStyle? talkingSound, List<Tuple<string, Action>> buttons)

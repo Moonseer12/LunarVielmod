@@ -1,4 +1,4 @@
-﻿using Stellamod.NPCs;
+﻿using Stellamod.Common;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -16,6 +16,7 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
             Main.npcFrameCount[NPC.type] = 6;
             NPCID.Sets.TrailCacheLength[NPC.type] = 8;
             NPCID.Sets.TrailingMode[NPC.type] = 0;
+            this.AddToMineshaft();
         }
 
         public override void SetDefaults()
@@ -163,11 +164,6 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
                 Color.White, NPC.rotation, drawOrigin, 1, spriteEffects, 0);
 
             return false;
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return SpawnRates.GetMechanicalEnemySpawnChance(spawnInfo);
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

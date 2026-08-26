@@ -72,7 +72,7 @@ public class StaffoftheIrradiaflare : ModItem
         base.AddRecipes();
         this.RegisterBrew(
             mold: ModContent.ItemType<BlankStaff>(),
-            material: ModContent.ItemType<MechanizedSoul>());
+            material: ModContent.ItemType<MarshScrap>());
     }
 }
 

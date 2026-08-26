@@ -24,8 +24,7 @@ public class HarmonicCoralwaysEffects : ModPlayer
         if (!Main.rand.NextBool(100))
             return;
 
-        Rectangle spawnRect = new Rectangle(0, 0, Main.screenWidth, Main.screenHeight);
-        Vector2 pos = new Vector2();
+        Vector2 pos = new();
         pos.X = Main.rand.NextFloat(Main.screenPosition.X, Main.screenPosition.X + Main.screenWidth);
         pos.Y = Main.rand.NextFloat(Main.screenPosition.Y, Main.screenPosition.Y + Main.screenHeight);
         var bp = BubbleParticle.Spawn(pos, -Vector2.UnitY, Scale: Main.rand.NextFloat(0.4f, 0.8f));
@@ -76,7 +75,6 @@ public class HarmonicCoralwaysBiome : BaseUrdveilBiome,
     {
         get
         {
-            Player localPlayer = Main.LocalPlayer;
             if (IsDeepBelow)
             {
                 return MusicLoader.GetMusicSlot(Mod, "Assets/Music/SongsDeepBelow");
@@ -102,10 +100,9 @@ public class HarmonicCoralwaysBiome : BaseUrdveilBiome,
     }
     public override bool IsBiomeActive(Player player)
     {
-        StellaWorld stellaWorld = ModContent.GetInstance<StellaWorld>();
+        VeilGen stellaWorld = ModContent.GetInstance<VeilGen>();
         int heightOffset = 100;
-        int width = 1000;
-        Rectangle biomeRect = new Rectangle(stellaWorld.CoralwaysLocation.X- 300, stellaWorld.CoralwaysLocation.Y + heightOffset, 1000, 1800 - heightOffset);
+        Rectangle biomeRect = new(stellaWorld.CoralwaysLocation.X- 300, stellaWorld.CoralwaysLocation.Y + heightOffset, 1000, 1800 - heightOffset);
         return biomeRect.Contains(player.Center.ToTileCoordinates());
     }
 

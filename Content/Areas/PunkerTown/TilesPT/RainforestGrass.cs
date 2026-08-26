@@ -14,7 +14,7 @@ namespace Stellamod.Content.Areas.PunkerTown.TilesPT
             TileID.Sets.JungleBiome[Type] = 1;
             TileID.Sets.Grass[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = false;
-            GrassTileSystem.RegisterGrassyTile<TallGrass>(Type);
+            //GrassTileSystem.RegisterGrassyTile<TallGrass>(Type);
 
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = true;
@@ -31,16 +31,7 @@ namespace Stellamod.Content.Areas.PunkerTown.TilesPT
 
 
             Main.tileBlockLight[Type] = true;
-            RegisterItemDrop(ModContent.ItemType<RainforestGrassBlock>());
-            // DustType = Main.rand.Next(110, 113);
-
-            MineResist = 1f;
-            MinPick = 25;
-
             AddMapEntry(new Color(110, 74, 51));
-
-            // TODO: implement
-            // SetModTree(new Trees.ExampleTree());
         }
 
         public override void NumDust(int i, int j, bool fail, ref int num)

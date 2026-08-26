@@ -1,5 +1,5 @@
 ﻿using Stellamod.Common.ArmorRework;
-using Stellamod.Items.Accessories.PicturePerfect;
+using Stellamod.Content.Areas.Hallowrooms.AccHR;
 using Stellamod.Projectiles;
 using Stellamod.Projectiles.Paint;
 using Terraria;

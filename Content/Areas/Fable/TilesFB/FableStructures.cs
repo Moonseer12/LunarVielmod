@@ -13,15 +13,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<FableBar>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class FableBar : BehindDecorativeWall
@@ -44,15 +35,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<FableBigMushroom>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class FableBigMushroom : BehindDecorativeWall
@@ -75,15 +57,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<FableSmallMushroom>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class FableSmallMushroom : BehindDecorativeWall
@@ -106,15 +79,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<FableLog>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class FableLog : BehindDecorativeWall
@@ -137,15 +101,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<FableBench>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class FableBench : BehindDecorativeWall
@@ -169,15 +124,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<FableGrassMoss>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class FableGrassMoss : DecorativeWall
@@ -200,15 +146,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<FableGrassMossBig>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class FableGrassMossBig : DecorativeWall
@@ -231,15 +168,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<FablePike>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class FablePike : DecorativeWall
@@ -262,15 +190,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<FablePikeBig>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class FablePikeBig : DecorativeWall
@@ -293,15 +212,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<FableSpikes>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class FableSpikes : DecorativeWall
@@ -324,15 +234,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<FableStones>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class FableStones : DecorativeWall
@@ -355,15 +256,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<FableTable>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class FableTable : DecorativeWall
@@ -386,15 +278,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<wall1>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class wall1 : BehindDecorativeWall
@@ -417,15 +300,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<wall2>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class wall2 : BehindDecorativeWall
@@ -448,15 +322,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<wall3>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class wall3 : BehindDecorativeWall
@@ -479,15 +344,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<wall4>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class wall4 : BehindDecorativeWall
@@ -510,15 +366,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<wall5>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class wall5 : BehindDecorativeWall
@@ -541,15 +388,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<wall6>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class wall6 : BehindDecorativeWall
@@ -572,15 +410,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<wall7>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class wall7 : BehindDecorativeWall
@@ -603,15 +432,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<FableBookshelf1>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class FableBookshelf1 : DecorativeWall
@@ -634,15 +454,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<FableBookshelf2>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class FableBookshelf2 : DecorativeWall
@@ -665,15 +476,6 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
             Item.createWall = ModContent.WallType<FableBookshelf3>();
 
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class FableBookshelf3 : DecorativeWall

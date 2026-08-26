@@ -1,4 +1,4 @@
-﻿using Stellamod.NPCs;
+﻿using Stellamod.Common;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -13,13 +13,14 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[NPC.type] = 16;
+            this.AddToMineshaft();
         }
 
         public override void SetDefaults()
         {
             NPC.width = 34;
             NPC.height = 40;
-            NPC.aiStyle = 3;
+            NPC.aiStyle = NPCAIStyleID.Fighter;
             NPC.damage = 34;
             NPC.defense = 8;
             NPC.lifeMax = 140;
@@ -27,7 +28,6 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
             NPC.DeathSound = SoundID.DD2_SkeletonDeath;
             NPC.value = 563f;
             NPC.knockBackResist = .45f;
-            NPC.aiStyle = 3;
             AIType = NPCID.SnowFlinx;
         }
 
@@ -102,10 +102,5 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
             NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 30, (int)NPC.Center.Y, NPC.type);
 			return NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 45, (int)NPC.Center.Y, NPC.type);
 		}
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return SpawnRates.GetMechanicalEnemySpawnChance(spawnInfo) * 0.2f;
-        }
     }
 }

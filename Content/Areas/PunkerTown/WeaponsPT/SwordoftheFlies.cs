@@ -17,7 +17,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace Stellamod.Content.Areas.PunkerTown.ItemsPT;
+namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT;
 
 
 

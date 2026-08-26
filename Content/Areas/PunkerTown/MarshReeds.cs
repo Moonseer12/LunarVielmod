@@ -25,7 +25,7 @@ namespace Stellamod.Content.Areas.PunkerTown
         }
         public override float GetFloorY()
         {
-            Point marshFloor = ModContent.GetInstance<StellaWorld>().MarshLocation;
+            Point marshFloor = ModContent.GetInstance<VeilGen>().MarshLocation;
             return marshFloor.ToWorldCoordinates().Y;
         }
     }

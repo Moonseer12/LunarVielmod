@@ -84,7 +84,7 @@ public static class TileUtilities
     }
     public static Point FallToSolidTile(int x, int y, int direction = 1)
     {
-        Point start = new Point(x, y);
+        Point start = new(x, y);
         Point current = start;
         for (int i = 0; i < Main.maxTilesY; i++)
         {

@@ -12,15 +12,6 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.TilesMT
             base.SetDefaults();
             Item.createWall = ModContent.WallType<GiantCrystal1>();
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class GiantCrystal1 : DecorativeWall
@@ -43,15 +34,6 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.TilesMT
             base.SetDefaults();
             Item.createWall = ModContent.WallType<GiantCrystal2>();
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class GiantCrystal2 : DecorativeWall
@@ -73,15 +55,6 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.TilesMT
             base.SetDefaults();
             Item.createWall = ModContent.WallType<MedCrystal1>();
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class MedCrystal1 : DecorativeWall
@@ -103,15 +76,6 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.TilesMT
             base.SetDefaults();
             Item.createWall = ModContent.WallType<MedCrystal2>();
         }
-
-        public override void PostDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D iconTexture = ModContent.Request<Texture2D>("Stellamod/Tiles/ExampleDecorativeWallItem").Value;
-            Vector2 drawOrigin = Vector2.Zero;
-            Vector2 drawPosition = position + drawOrigin;
-            spriteBatch.Draw(iconTexture, drawPosition, null, drawColor, 0f, drawOrigin, 0.5f, SpriteEffects.None, 0);
-        }
-
     }
 
     public class MedCrystal2 : DecorativeWall

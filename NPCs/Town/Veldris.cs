@@ -1,9 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Common.ArmorReforgeSystem;
-using Stellamod.Common.WeaponUpgrade.UI;
+﻿using Stellamod.Common.ArmorReforgeSystem;
 using Stellamod.Core;
-using Stellamod.Helpers;
 using Stellamod.Items.Weapons.Melee.Swords;
 using Stellamod.Items.Weapons.Ranged;
 using Stellamod.Items.Weapons.Ranged.GunSwapping;
@@ -14,9 +10,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.Utilities;
 
 namespace Stellamod.NPCs.Town
 {

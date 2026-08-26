@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Dusts;
+﻿using Stellamod.Dusts;
 using Stellamod.WorldG;
 using System;
 using System.Collections.Generic;
@@ -75,7 +73,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
                 return;
             }
 
-            if (!VeilGen.IsRainforestTreeGround(i - 1, j + 3, 4))
+            if (!IsRainforestTreeGround(i - 1, j + 3, 4))
                 return;
 
             int height = Main.rand.Next(10, 75);
@@ -104,7 +102,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
                     Main.tile[i + g, j + h].ClearTile();
             }
 
-            VeilGen.PlaceRaintrees(i, j + 3, height);
+            PlaceRaintrees(i, j + 3, height);
         }
 
         private bool IsAir(int x, int y, int w) // method from worldgen, but needs to skip sapling and platform
@@ -123,6 +121,57 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
         {
             num = 1;
         }
+
+    public static bool IsRainforestTreeGround(int x, int y, int w)
+    {
+        for (int k = 0; k < w; k++)
+        {
+            Tile tile = Framing.GetTileSafely(x + k, y);
+            if (!(tile.HasTile && tile.Slope == SlopeType.Solid && !tile.IsHalfBlock && (tile.TileType == ModContent.TileType<SpringGrass>())))
+                return false;
+
+            Tile tile2 = Framing.GetTileSafely(x + k, y - 1);
+            if (tile2.HasTile && Main.tileSolid[tile2.TileType])
+                return false;
+        }
+
+        return true;
+    }
+
+    public static void PlaceRaintrees(int treex, int treey, int height)
+    {
+        treey -= 1;
+
+        if (treey - height < 1)
+            return;
+
+        for (int x = -1; x < 3; x++)
+        {
+            for (int y = 0; y < (height + 2); y++)
+            {
+                WorldGen.KillTile(treex + x, treey - y);
+            }
+        }
+
+        VeilGen.PlaceMultitile(new Point16(treex, treey - 1), ModContent.TileType<RainforestTreeBase>());
+
+        for (int x = 0; x < 2; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                WorldGen.PlaceTile(treex + x, treey - (y + 2), ModContent.TileType<RainforestTree>(), true, true);
+            }
+        }
+
+        for (int x = -1; x < 3; x++)
+        {
+            for (int y = 0; y < (height + 2); y++)
+            {
+                WorldGen.TileFrame(treex + x, treey + y);
+            }
+        }
+    }
+
     }
 
     public class RainForestTreeTopSystem : ModSystem
@@ -203,7 +252,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
 
         private void DrawBranches(int i, int j, SpriteBatch spriteBatch)
         {
-            Vector2 pos2 = (new Vector2(i + 1, j) + VeilGen.TileAdj) * 16;
+            Vector2 pos2 = (new Vector2(i + 1, j) + TileHelper.TileAdj) * 16;
             Color color2 = Lighting.GetColor(i, j);
             _random.SetSeed(i + j);
             SpriteEffects Flipper = 0;
@@ -249,7 +298,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
             if (shouldDraw && right && !up && down)
             {
                 Texture2D tex = ModContent.Request<Texture2D>(Texture + "Top").Value;
-                Vector2 pos = (new Vector2(i + 1, j) + VeilGen.TileAdj) * 16;
+                Vector2 pos = (new Vector2(i + 1, j) + TileHelper.TileAdj) * 16;
 
                 Color color = Lighting.GetColor(i, j);
                 spriteBatch.Draw(tex, pos - Main.screenPosition, null, color, GetLeafSway(3, 0.05f, 0.008f), new Vector2(tex.Width / 2, tex.Height), 1, 0, 1);
@@ -279,7 +328,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
             if (shouldDraw && right && !up && down)
             {
                 Texture2D tex = ModContent.Request<Texture2D>(Texture + "Back").Value;
-                Vector2 pos = (new Vector2(i + 1, j) + VeilGen.TileAdj) * 16;
+                Vector2 pos = (new Vector2(i + 1, j) + TileHelper.TileAdj) * 16;
 
                 Color color = Lighting.GetColor(i, j);
 

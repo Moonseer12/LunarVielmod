@@ -80,7 +80,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace
         }
         public override bool IsBiomeActive(Player player)
         {
-            StellaWorld stellaWorld = ModContent.GetInstance<StellaWorld>();
+            VeilGen stellaWorld = ModContent.GetInstance<VeilGen>();
             return BiomeTileCounts.InDarkspace && !player.ZoneOverworldHeight && !player.ZoneSkyHeight && player.position.ToTileCoordinates().Y > stellaWorld.DarkspaceStart;
         }
         public override string BestiaryIcon => base.BestiaryIcon;

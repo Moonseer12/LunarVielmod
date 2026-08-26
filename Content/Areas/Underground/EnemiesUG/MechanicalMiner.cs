@@ -1,4 +1,4 @@
-﻿using Stellamod.NPCs;
+﻿using Stellamod.Common;
 using Stellamod.Projectiles;
 using Terraria;
 using Terraria.Audio;
@@ -16,13 +16,14 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[NPC.type] = 16;
+            this.AddToMineshaft();
         }
 
         public override void SetDefaults()
         {
             NPC.width = 42;
             NPC.height = 48;
-            NPC.aiStyle = 3;
+            NPC.aiStyle = NPCAIStyleID.Fighter;
             NPC.damage = 40;
             NPC.defense = 12;
             NPC.lifeMax = 170;
@@ -30,7 +31,6 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
             NPC.DeathSound = new SoundStyle("Stellamod/Assets/Sounds/Gintze_Death") with { PitchVariance = 0.1f };
             NPC.value = 563f;
             NPC.knockBackResist = .45f;
-            NPC.aiStyle = 3;
             AIType = NPCID.SnowFlinx;
         }
 
@@ -138,10 +138,6 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
             DrawHelper.DrawDimLight(NPC, huntrianColorXyz.X, huntrianColorXyz.Y, huntrianColorXyz.Z, Color.White, Color.WhiteSmoke, 0);
             Lighting.AddLight(screenPos, Color.White.ToVector3() * 1.0f * Main.essScale);
             return base.PreDraw(spriteBatch, screenPos, drawColor);
-        }
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return SpawnRates.GetMechanicalEnemySpawnChance(spawnInfo);
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

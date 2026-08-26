@@ -1,7 +1,4 @@
-﻿using Stellamod.Content.Armors.Alsis;
-using Stellamod.Content.CommonMaterials;
-using Stellamod.Core;
-using Stellamod.Helpers;
+﻿using Stellamod.Core;
 using Stellamod.Items.Weapons.Mage;
 using System.Collections.Generic;
 using Terraria;

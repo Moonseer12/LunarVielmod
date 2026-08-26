@@ -55,7 +55,7 @@ namespace Stellamod.Content.Areas.PunkerTown.TilesPT.Elevator
         {
             base.PostDraw(i, j, spriteBatch);
             Texture2D texture = TextureAssets.Tile[Type].Value;
-            Vector2 worldCoordinates = (new Vector2(i, j - 1) + VeilGen.TileAdj) * 16;
+            Vector2 worldCoordinates = (new Vector2(i, j - 1) + TileHelper.TileAdj) * 16;
            // worldCoordinates.X;
             Vector2 drawPosition = worldCoordinates - Main.screenPosition;
             spriteBatch.Draw(texture, drawPosition, null, Lighting.GetColor(i, j).MultiplyRGB(Color.DarkGray), 0, Vector2.Zero, 1, SpriteEffects.None, 0);

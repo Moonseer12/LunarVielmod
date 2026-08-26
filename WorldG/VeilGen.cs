@@ -1,10 +1,5 @@
 ﻿using ReLogic.Content;
-using ReLogic.Utilities;
 using Stellamod.Common.DungeonGeneration;
-using Stellamod.Content.Areas.Tundra.Abyss.TilesAB;
-using Stellamod.Content.Areas.PunkerTown.TilesPT;
-using Stellamod.Content.Areas.SpringHills.TilesSH;
-using Stellamod.Content.CommonMaterials;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,6 +7,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 using Terraria.ObjectData;
 using Terraria.Utilities;
 using Terraria.WorldBuilding;
@@ -186,12 +182,12 @@ public class GenerationTextureManager : ModSystem
         Mod mod = Stellamod.Instance;
         foreach (var file in mod.GetFileNames())
         {
-            if (file.Contains("WorldGenTextures/"))
+            if (file.Contains("WorldGen/"))
             {
                 string path = "Stellamod/" + file;
                 path = path.Replace(".rawimg", "");
                 Asset<Texture2D> worldGenTexture = ModContent.Request<Texture2D>(path, AssetRequestMode.ImmediateLoad);
-                GenerationPrefab prefab = new GenerationPrefab(Path.GetFileNameWithoutExtension(file), worldGenTexture);
+                GenerationPrefab prefab = new (Path.GetFileNameWithoutExtension(file), worldGenTexture);
                 Console.WriteLine($"Prefab {prefab.Name}");
                 Prefabs.Add(prefab.Name, prefab);
             }
@@ -299,20 +295,57 @@ public static class DungeonLayouter
 }
 public record struct CellularAutomataParams(int Steps, float RandomFill, int BirthLimit, int DeathLimit);
 
-public static class VeilGen
+public class VeilGen : ModSystem
 {
-    public static Vector2 TileAdj => (Lighting.Mode == Terraria.Graphics.Light.LightMode.Retro || Lighting.Mode == Terraria.Graphics.Light.LightMode.Trippy) ? Vector2.Zero : Vector2.One * 12;
+    public Point AbyssCenter;
+    public Point RoyalCapitalLocation;
+    public Point VeizalHillStartLcoation;
+    public Point VeizalHillEndLocation;
+    public Point MistyHillStartLocation;
+    public Point MistyHillEndLocation;
+    public Point MistyDungeonLocation;
+    public Point FableFarEdgeLocation;
+    public Point FableLocation;
+    public Point FableHillStartLocation;
+    public Point FableHillEndLocation;
+    public Point DesertLocation;
+    public Point WitchTownLocation;
+    public Point ManorLocation;
+    public Point MarshLocation;
+    public Point AlcadLocation;
+    public Point CoralwaysLocation;
+    public Point SnowClumpOriginPoint;
+    public static Point GothiviaSpawnOffset => new(246, -99);
+
+    public int CindersparkStart;
+    public int CindersparkEnd;
+    public int DarkspaceStart;
+    public int DarkspaceEnd;
+    public int HeatedDepthsStart;
+    public int HeatedDepthsEnd;
+    public const int Desert_Padding = 200;
 
     public static readonly Room[] MineshaftPrefabs = DungeonSaveUtility.GetDungeonPrefabs("Mineshafts");
 
+    public static float GetFableHillHeight(float x)
+    {
+        float bump = x * (4 - x * 4);
+        float mountains = MathF.Sin(x * 1) * 0.5f + 0.5f;
+        float mountains2 = MathF.Sin(x * 1) * 0.5f + 0.7f;
+        float dips = MathF.Sin(x * 16) * 0.1f;
+        float roughness = MathF.Sin(x * 76) * 0.01f;
+        float roughness2 = MathF.Sin(x * 101) * 0.005f;
+        float y = bump * mountains * mountains2 - dips - roughness - roughness2;
+        return y + 0.1f;
+    }
 
     public static void QuickOrePatch(int x, int y, int tileType)
     {
-        VeilGen.Walker(x, y, WorldGen.genRand.Next(50, 90), tileType, maxDist: 3);
+        Walker(x, y, WorldGen.genRand.Next(50, 90), tileType, maxDist: 3);
     }
     public static void Walker(int x, int y, int steps, int tileType, int maxDist)
     {
-        Point walkerPoint = new Point(x,y);
+        Point walkerPoint = new(x,y);
         Point originalPoint = walkerPoint;
         var genRand = WorldGen.genRand;
         for (int s = 0; s < steps; s++)
@@ -352,6 +385,36 @@ public static class VeilGen
     }
 
 
+    public static void PruneLonelyTiles(Rectangle areaRectangle)
+    {
+        for(int x = areaRectangle.Left; x < areaRectangle.Right; x++)
+        {
+            for(int y = areaRectangle.Top; y < areaRectangle.Bottom; y++)
+            {
+                Tile tile = Main.tile[x, y];
+                Tile tileAbove = Main.tile[x, y - 1];
+                Tile tileBelow = Main.tile[x, y + 1];
+                Tile tileLeft = Main.tile[x - 1, y];
+                Tile tileRight = Main.tile[x + 1, y];
+
+                int count = 0;
+                if (tileAbove.HasTile)
+                    count++;
+                if (tileBelow.HasTile)
+                    count++;
+                if (tileLeft.HasTile)
+                    count++;
+                if (tileRight.HasTile)
+                    count++;
+
+
+                if (count <= 1 && tile.HasTile)
+                    tile.ClearTile();
+            }
+        }
+    }
+
+
     /// <summary>
     /// Checks if a tile is exposed to air only on cardinal directions, it will not check diagonals
     /// This function assumes that it will not have an out of bounds exception, clamp boundaries before using it
@@ -369,7 +432,7 @@ public static class VeilGen
 
     public static void WallWalker(int x, int y, int steps, int wallType, int maxDist, byte paint = 0)
     {
-        Point walkerPoint = new Point(x, y);
+        Point walkerPoint = new(x, y);
         Point originalPoint = walkerPoint;
         var genRand = WorldGen.genRand;
         for (int s = 0; s < steps; s++)
@@ -707,22 +770,6 @@ public static class VeilGen
         }
     }
 
-    public static bool PlaceMineshaft(int x, int y) => PlaceMineshaft(new Point(x, y));
-    public static (Rectangle rect, Room[] map) GenerateMineshaft(UnifiedRandom genRand)
-    {
-        (int, int)[] layout = DungeonLayouter.GenerateLayout(40, genRand);
-        Point[] vertices = new Point[layout.Length];
-        for (int v = 0; v < vertices.Length; v++)
-        {
-            vertices[v] = new Point(layout[v].Item1, layout[v].Item2);
-        }
-
-        DungeonChart simpleChart = DungeonChart.FromMap(layout);
-        Room[] map = Dungeonizer.CreateDungeonFromChart(MineshaftPrefabs, simpleChart, genRand);
-        Rectangle rectangle = Dungeonizer.GetDungeonBounds(map);
-        return (rectangle, map);
-    }
-
     public static void SettleLiquids()
     {
         Liquid.QuickWater(3);
@@ -773,61 +820,6 @@ public static class VeilGen
 
         Liquid.quickSettle = false;
     }
-    public static bool PlaceMineshaft(Point startTile, Rectangle rectangle, Room[] map)
-    {
-        if (Structurizer.CanPlaceStructureHere(rectangle))
-            return false;
-
-        Point point = startTile;
-        Point vectorToOrigin = (point - rectangle.Top().ToPoint());
-        rectangle.Location += vectorToOrigin;
-        //Main.NewText(map.Length);
-        //Just a failsafe
-        while (rectangle.Right().X >= Main.maxTilesX)
-            rectangle.Location -= new Point(32, 0);
-
-        int width = rectangle.Width;
-        width -= 150;
-        int height = rectangle.Height;
-
-        for (int r = 0; r < map.Length; r++)
-        {
-            Room room = map[r];
-            Point bottomLeft = room.bounds.BottomLeft().ToPoint();
-            Point offset = rectangle.Top().ToPoint();
-
-            int tileX = offset.X;
-            int tileY = offset.Y;
-
-            bottomLeft.X += tileX;
-            bottomLeft.Y += tileY;
-            bottomLeft.Y -= map[0].bounds.Height;
-
-            
-            /*
-            if (VeilGen.IsTileNearby(bottomLeft.X, bottomLeft.Y, 25, TileSets.BlockMineshafts))
-                continue;
-            */
-            Structurizer.ReadStruct(bottomLeft, room.prefab, Structurizer.DefaultTileBlend);
-            Structurizer.ProtectStructure(bottomLeft, room.prefab);
-        }
-        return true;
-    }
-    public static bool PlaceMineshaft(Point startTile)
-    {
-        (int, int)[] layout = DungeonLayouter.GenerateLayout(42, Main.rand);
-        Point[] vertices = new Point[layout.Length];
-        for (int v = 0; v < vertices.Length; v++)
-        {
-            vertices[v] = new Point(layout[v].Item1, layout[v].Item2);
-        }
-  //      DungeonGenerationHelper
-       // DungeonGenerationHelper.vertices = vertices;
-        DungeonChart simpleChart = DungeonChart.FromMap(layout);
-        Room[] map = Dungeonizer.CreateDungeonFromChart(MineshaftPrefabs, simpleChart, Main.rand);
-        Rectangle rectangle = Dungeonizer.GetDungeonBounds(map);
-        return PlaceMineshaft(startTile, rectangle, map);
-    }
     public static float GetMarshHeight(float x)
     {
         float bump = x * (4 - x * 4);
@@ -840,177 +832,6 @@ public static class VeilGen
         return y + 0.1f;
     }
 
-    public static void GenerateMarshFoliage(Point startTile, int length)
-    {
-        var genRand = WorldGen.genRand;
-
-        //Generate the terrain
-        Point endTile = startTile + new Point(length, 0);
-        int mountainHeight = 200;
-        int[] heights = new int[length];
-        int grassTileType = ModContent.TileType<RainforestGrass>();
-        for (int x = startTile.X; x < endTile.X; x++)
-        {
-            float localX = x - startTile.X;
-            float ratio = localX / length;
-            int height = (int)(GetMarshHeight(ratio) * mountainHeight);
-            heights[x - startTile.X] = height;
-        }
-
-        ushort uGrassTileType = (ushort)grassTileType;
-        //Generate big trees, mangrove trees
-        for (int x = startTile.X; x < endTile.X; x++)
-        {
-            float localX = x - startTile.X;
-            float ratio = localX / length;
-            int heightIndex = x - startTile.X;
-            int height = heights[heightIndex];
-
-            int y = startTile.Y - height;
-            Tile tile = Main.tile[x, startTile.Y - height];
-
-            Rectangle scanArea = new Rectangle(x, y, 5, 2);
-            Point point = new Point(x - scanArea.Width / 2, y);
-            Dictionary<ushort, int> dictionary = new Dictionary<ushort, int>();
-            WorldUtils.Gen(point, new Shapes.Rectangle(scanArea.Width, scanArea.Height), new Actions.TileScanner(uGrassTileType).Output(dictionary));
-            int tileCount = dictionary[uGrassTileType];
-
-            if (tileCount >= 5)
-            {
-                if (genRand.NextBool(16))
-                {
-                    int treeHeight = genRand.Next(20, 48);
-                    VeilGen.PlaceMangroveTrees(x, y, treeHeight);
-                }
-            }
-        }
-
-        //Now we're going to place acacia trees
-        ushort bigTreeTileType = (ushort)ModContent.TileType<MangroveTree>();
-        for (int x = startTile.X; x < endTile.X; x++)
-        {
-            float localX = x - startTile.X;
-            float ratio = localX / length;
-            int heightIndex = x - startTile.X;
-            int height = heights[heightIndex];
-
-            int y = startTile.Y - height;
-            Tile tile = Main.tile[x, startTile.Y - height];
-
-            Rectangle scanArea = new Rectangle(x, y, 5, 2);
-            Point point = new Point(x - scanArea.Width / 2, y);
-            Dictionary<ushort, int> dictionary = new Dictionary<ushort, int>();
-            WorldUtils.Gen(point, new Shapes.Rectangle(scanArea.Width, scanArea.Height), new Actions.TileScanner(uGrassTileType, bigTreeTileType).Output(dictionary));
-            int tileCount = dictionary[uGrassTileType];
-            int mangroveTreeCount = dictionary[bigTreeTileType];
-
-            if (tileCount >= 5 && mangroveTreeCount <= 0)
-            {
-                if (genRand.NextBool(8))
-                {
-                    int treeHeight = genRand.Next(12, 20);
-                    VeilGen.PlaceAcaciaTrees(x, y, treeHeight);
-                }
-            }
-        }
-
-        //Spawn surface waters
-        int numWaterBlotches = Main.rand.Next(10, 15);
-        for (int n = 0; n < numWaterBlotches; n++)
-        {
-            int randX = genRand.Next(startTile.X, endTile.X);
-
-            int heightIndex = randX - startTile.X;
-            int height = heights[heightIndex];
-
-            int randY = startTile.Y - height - 20;
-
-            int radius = 12;
-            Point point = new Point(randX, randY);
-            WorldUtils.Gen(point,
-                new Shapes.Circle(radius / 2, radius / 2),
-                new Actions.SetLiquid(type: LiquidID.Water));
-        }
-
-        //Spawn underground waters
-        numWaterBlotches = genRand.Next(60, 80);
-        for (int n = 0; n < numWaterBlotches; n++)
-        {
-            int randX = genRand.Next(startTile.X, endTile.X);
-
-            int heightIndex = randX - startTile.X;
-            int height = heights[heightIndex];
-
-            int randY = startTile.Y - height + 10 + genRand.Next(0, 100);
-            randY = (int)MathHelper.Clamp(randY, startTile.Y - height, startTile.Y);
-
-            int radius = genRand.Next(8, 20);
-            Point point = new Point(randX, randY);
-
-            WorldUtils.Gen(point,
-                new Shapes.Circle(radius / 2, radius / 2),
-                new Actions.ClearTile(true));
-
-            WorldUtils.Gen(point,
-                new Shapes.Circle(radius / 3, radius / 3),
-                new Actions.SetLiquid(type: LiquidID.Water));
-        }
-
-        //Grass up the holes we just made
-        for (int x = startTile.X; x < endTile.X; x++)
-        {
-            int heightIndex = x - startTile.X;
-            int height = heights[heightIndex];
-            for (int y = startTile.Y - height + 7; y < Main.maxTilesY / 2; y++)
-            {
-                Tile tile = Main.tile[x, y];
-                if (!tile.HasTile)
-                    continue;
-
-                bool touchingAir = WorldGen.TileIsExposedToAir(x, y);
-                if (touchingAir && (tile.TileType == ModContent.TileType<RainforestGrass>()) && genRand.NextBool(2))
-                {
-                    Point point = new Point(x, y);
-                    int steps = genRand.Next(1, 4);
-                    Vector2 baseDirection = -Vector2.UnitY;
-                    int caveWidth = 3;
-
-                    for (int s = 0; s < steps; s++)
-                    {
-                        if (point.X - caveWidth > 0 && point.X + caveWidth < Main.maxTilesX && point.Y + caveWidth < Main.maxTilesY && point.Y - caveWidth > 0)
-                        {
-                            WorldUtils.Gen(point, new Shapes.Circle(caveWidth, caveWidth),
-                                new Actions.PlaceWall(WallID.JungleUnsafe));
-                        }
-
-                        point += (baseDirection * caveWidth).RotatedByRandom(MathHelper.ToRadians(30)).ToPoint();
-                    }
-                }
-            }
-        }
-    }
-    public static void GenerateMarsh(Point startTile, int length)
-    {
-        var genRand = WorldGen.genRand;
-
-        //Generate the terrain
-        Point endTile = startTile + new Point(length, 0);
-        int mountainHeight = 200;
-        int[] heights = new int[length];
-        int grassTileType = ModContent.TileType<RainforestGrass>();
-        for (int x = startTile.X; x < endTile.X; x++)
-        {
-            float localX = x - startTile.X;
-
-            float ratio = localX / length;
-            int height = (int)(GetMarshHeight(ratio) * mountainHeight);
-            heights[x - startTile.X] = height;
-            for (int y = 0; y < height; y++)
-            {
-                WorldGen.PlaceTile(x, startTile.Y - y, grassTileType);
-            }
-        }
-    }
     public static bool IsAir(int x, int y, int w)
     {
         for (int k = 0; k < w; k++)
@@ -1023,21 +844,6 @@ public static class VeilGen
         return true;
     }
 
-    public static bool IsRainforestTreeGround(int x, int y, int w)
-    {
-        for (int k = 0; k < w; k++)
-        {
-            Tile tile = Framing.GetTileSafely(x + k, y);
-            if (!(tile.HasTile && tile.Slope == SlopeType.Solid && !tile.IsHalfBlock && (tile.TileType == ModContent.TileType<RainforestGrass>())))
-                return false;
-
-            Tile tile2 = Framing.GetTileSafely(x + k, y - 1);
-            if (tile2.HasTile && Main.tileSolid[tile2.TileType])
-                return false;
-        }
-
-        return true;
-    }
     public static void PlaceMultitile(Point16 position, int type, int style = 0)
     {
         var data = TileObjectData.GetTileData(type, style); //magic numbers and uneccisary params begone!
@@ -1072,44 +878,6 @@ public static class VeilGen
                 tile.TileFrameX = (short)((x + data.Width * xVariants) * (data.CoordinateWidth + data.CoordinatePadding)); //set the X frame appropriately
                 tile.TileFrameY = (short)(y * (data.CoordinateHeights[y > 0 ? y - 1 : y] + data.CoordinatePadding) + yVariants * yHeight); //set the Y frame appropriately
                 tile.HasTile = true; //activate the tile
-            }
-        }
-    }
-    public static void PlaceMangroveTrees(int treex, int treey, int height)
-    {
-
-        if (treey - height < 1)
-            return;
-
-        for (int x = -1; x < 3; x++)
-        {
-            for (int y = 0; y < (height + 2); y++)
-            {
-                WorldGen.KillTile(treex + x, treey - y);
-            }
-        }
-
-        WorldGen.PlaceTile(treex, treey, ModContent.TileType<MangroveTree>(), true, true);
-        for (int x = 0; x < 3; x++)
-        {
-            for (int y = 0; y < height; y++)
-            {
-                if (y == height - 1 && x == 1)
-                {
-                    WorldGen.PlaceTile(treex + x, treey - (y), ModContent.TileType<MangroveTreeTop>(), true, true);
-                }
-                else
-                {
-                    WorldGen.PlaceTile(treex + x, treey - (y), ModContent.TileType<MangroveTree>(), true, true);
-                }
-            }
-        }
-
-        for (int x = -1; x < 3; x++)
-        {
-            for (int y = 0; y < (height + 2); y++)
-            {
-                WorldGen.TileFrame(treex + x, treey + y);
             }
         }
     }
@@ -1189,380 +957,104 @@ public static class VeilGen
             WorldGen.TileFrame(treex, treey + y);
         }
     }
-    public static void PlaceAcaciaTrees(int treex, int treey, int height)
+
+    public static void ClearTrees(Rectangle rectangle)
     {
-        if (treey - height < 1)
-            return;
+        int startX = rectangle.Location.X;
+        int endX = startX + rectangle.Width;
+        int startY = rectangle.Location.Y;
+        int endY = rectangle.Location.Y + rectangle.Height;
 
-        for (int x = -1; x < 3; x++)
+        startX = Math.Clamp(startX, 0, Main.maxTilesX - 1);
+        endX = Math.Clamp(endX, 0, Main.maxTilesX - 1);
+        startY = Math.Clamp(startY, 0, Main.maxTilesY - 1);
+        endY = Math.Clamp(endY, 0, Main.maxTilesY - 1);
+
+        for (int x = startX; x < endX; x++)
         {
-            for (int y = 0; y < (height + 2); y++)
+            for (int y = startY; y < endY; y++)
             {
-                WorldGen.KillTile(treex + x, treey - y);
-            }
-        }
-
-        WorldGen.PlaceTile(treex, treey, ModContent.TileType<AcaciaTree>(), true, true);
-        for (int y = 0; y < height; y++)
-        {
-            if (y == height - 1)
-            {
-                WorldGen.PlaceTile(treex, treey - (y + 1), ModContent.TileType<AcaciaTreeTop>(), true, true);
-            }
-            else
-            {
-                WorldGen.PlaceTile(treex, treey - (y + 1), ModContent.TileType<AcaciaTree>(), true, true);
-
-            }
-
-        }
-
-        for (int y = 0; y < (height + 2); y++)
-        {
-            WorldGen.TileFrame(treex, treey + y);
-        }
-    }
-    public static void PlaceRaintrees(int treex, int treey, int height)
-    {
-        treey -= 1;
-
-        if (treey - height < 1)
-            return;
-
-        for (int x = -1; x < 3; x++)
-        {
-            for (int y = 0; y < (height + 2); y++)
-            {
-                WorldGen.KillTile(treex + x, treey - y);
-            }
-        }
-
-        PlaceMultitile(new Point16(treex, treey - 1), ModContent.TileType<RainforestTreeBase>());
-
-        for (int x = 0; x < 2; x++)
-        {
-            for (int y = 0; y < height; y++)
-            {
-                WorldGen.PlaceTile(treex + x, treey - (y + 2), ModContent.TileType<RainforestTree>(), true, true);
-            }
-        }
-
-        for (int x = -1; x < 3; x++)
-        {
-            for (int y = 0; y < (height + 2); y++)
-            {
-                WorldGen.TileFrame(treex + x, treey + y);
-            }
-        }
-    }
-
-    public static void GenerateIceSpike(Vector2 cavePosition, double width, Vector2D endOffset, ushort tileId = TileID.IceBlock)
-    {
-        WorldUtils.Gen(cavePosition.ToPoint(), new Shapes.Tail(width, endOffset), Actions.Chain(new GenAction[]
-        {
-                new Actions.SetTile(tileId),
-        }));
-    }
-
-    public static void GenerateFallingIceCavern(Vector2 cavePosition, Vector2 baseCaveDirection, Vector2 pullDirection, Vector2 caveStrength, int caveWidth, int caveSteps)
-    {
-        var genRand = WorldGen.genRand;
-        Vector2 caveVelocity = baseCaveDirection;
-        ushort[] wallTypes = new ushort[]
-        {
-            WallID.SnowWallUnsafe,
-            WallID.IceUnsafe
-        };
-
-        Vector2 pullVelocity = pullDirection;
-        Vector2 startVelocity = baseCaveDirection;
-        float sharpness = 1f;
-        int ignoreTile = ModContent.TileType<AbyssalDirt>();
-        for (int s = 0; s < caveSteps; s++)
-        {
-            float radiansOffset = MathF.Sin(s * 0.5f) * MathHelper.ToRadians(45);
-            float degreesToRotate = sharpness;
-            float length = caveVelocity.Length();
-            float targetAngle = (pullVelocity - startVelocity).ToRotation();
-            Vector2 newVelocity = caveVelocity.ToRotation().AngleTowards(targetAngle,
-                MathHelper.ToRadians(degreesToRotate)).ToRotationVector2() * length;
-            caveVelocity = newVelocity;
-
-            if (cavePosition.X < Main.maxTilesX - 15 && cavePosition.X >= 15)
-            {
-                WorldGen.TileRunner((int)cavePosition.X, (int)cavePosition.Y,
-                    genRand.NextFloat(caveStrength.X, caveStrength.Y),
-                    genRand.Next(7, 25), -1, ignoreTileType: ignoreTile);
-            }
-
-            //Place Walls
-            for (int w = 0; w < 5; w++)
-            {
-                ushort wallType = wallTypes[genRand.Next(0, wallTypes.Length)];
-                if (genRand.NextBool(2))
+                Tile tile = Main.tile[x, y];
+                if (TileID.Sets.IsATreeTrunk[tile.TileType])
                 {
-                    wallType = WallID.IceUnsafe;
+                    tile.ClearEverything();
+                }
+            }
+        }
+    }
+
+    public static void GenerateBowlLake(Point waterStart, Point waterEnd, int maxLakeDepth)
+    {
+        //Generate water bowl
+        while (!WorldGen.SolidTile(waterStart))
+            waterStart.Y++;
+
+        while (!WorldGen.SolidTile(waterEnd))
+            waterEnd.Y++;
+        for (int lakeX = waterStart.X; lakeX < waterEnd.X; lakeX++)
+        {
+            float ratio = (lakeX - waterStart.X) / (float)(waterEnd.X - waterStart.X);
+            float bump = EasingFunction.QuadraticBump(ratio);
+            int depth = (int)MathHelper.Lerp(0, maxLakeDepth, bump);
+
+            int startY = (int)Main.worldSurface - 100;
+            while (!WorldGen.SolidTile(lakeX, startY))
+                startY++;
+            int endY = startY + depth;
+            int d = 0;
+            for (int lakeY = startY; lakeY < endY; lakeY++)
+            {
+                WorldGen.KillTile(lakeX, lakeY);
+                WorldGen.KillWall(lakeX, lakeY);
+                d++;
+                if (d > 10)
+                {
+                    WorldGen.PlaceLiquid(lakeX, lakeY, (byte)LiquidID.Water, byte.MaxValue);
+                }
+            }
+        }
+    }
+
+    public static void ClearLonelyTiles(Rectangle rectangle)
+    {
+        int startX = rectangle.Location.X;
+        int endX = startX + rectangle.Width;
+        int startY = rectangle.Location.Y;
+        int endY = rectangle.Location.Y + rectangle.Height;
+
+        //Add 1 extra tile of fluff since we're checking adjacent tiles
+        startX = Math.Clamp(startX, 1, Main.maxTilesX - 2);
+        endX = Math.Clamp(endX, 1, Main.maxTilesX - 2);
+        startY = Math.Clamp(startY, 1, Main.maxTilesY - 2);
+        endY = Math.Clamp(endY, 1, Main.maxTilesY - 2);
+
+        for (int x = startX; x < endX; x++)
+        {
+            for (int y = startY; y < endY; y++)
+            {
+                Tile tile = Main.tile[x, y];
+                if (!tile.HasTile)
+                    continue;
+
+                int adjacentCount = 0;
+                for (int i = -1; i <= 1; i++)
+                {
+                    for (int j = -1; j <= 1; j++)
+                    {
+                        //Ignore diagonals
+                        if (i != 0 && j != 0)
+                            continue;
+                        if (i == 0 && j == 0)
+                            continue;
+                        Tile adjacentTile = Main.tile[x + i, y + j];
+                        if (adjacentTile.HasTile && Main.tileSolid[adjacentTile.TileType])
+                            adjacentCount++;
+                    }
                 }
 
-                Vector2 wallVelocity = genRand.NextVector2Circular(32, 32);
-                Vector2 wallPosition = cavePosition + wallVelocity;
-                WorldUtils.Gen(wallPosition.ToPoint(), new Shapes.Circle(4, 4), Actions.Chain(new GenAction[]
-                {
-                    new Actions.PlaceWall(wallType),
-                    new Actions.Smooth(true)
-                }));
+                if (adjacentCount <= 1)
+                    tile.ClearEverything();
             }
-
-
-            // Update the cave position.
-            cavePosition += caveVelocity * caveWidth * 0.5f;
-        }
-    }
-
-    public static void GenerateIceCavern(Vector2 cavePosition, Vector2 baseCaveDirection, Vector2 caveStrength, int caveWidth, int caveSteps)
-    {
-        var genRand = WorldGen.genRand;
-        Vector2 caveVelocity = baseCaveDirection;
-        ushort[] wallTypes = new ushort[]
-        {
-            WallID.SnowWallUnsafe,
-            WallID.IceUnsafe
-        };
-
-        int ignoreTile = ModContent.TileType<AbyssalDirt>();
-        for (int s = 0; s < caveSteps; s++)
-        {
-            float radiansOffset = MathF.Sin(s * 0.5f) * MathHelper.ToRadians(45);
-            Vector2 shiftedVelocity = baseCaveDirection.RotatedBy(radiansOffset);
-            caveVelocity = shiftedVelocity;
-
-            if (cavePosition.X < Main.maxTilesX - 15 && cavePosition.X >= 15)
-            {
-                WorldGen.TileRunner((int)cavePosition.X, (int)cavePosition.Y,
-                    genRand.NextFloat(caveStrength.X, caveStrength.Y),
-                    genRand.Next(7, 25), -1, ignoreTileType: ignoreTile);
-            }
-
-            //Make Stalagtites
-            if (genRand.NextBool(2))
-            {
-                Vector2D endOffset = new Vector2D(
-                    genRand.Next(-10, 10),
-                    genRand.Next(-20, -3));
-                Vector2 spikePosition = cavePosition;
-                spikePosition += new Vector2(0, -10);
-                GenerateIceSpike(spikePosition, width: 25, endOffset);
-            }
-
-            //Make Stalagmites
-            if (genRand.NextBool(4))
-            {
-                Vector2D endOffset = new Vector2D(
-                    genRand.Next(-10, 10),
-                    genRand.Next(3, 7));
-                Vector2 spikePosition = cavePosition;
-                spikePosition += new Vector2(0, 15);
-                GenerateIceSpike(spikePosition, width: 15, endOffset);
-            }
-
-            //Place Walls
-            for (int w = 0; w < 5; w++)
-            {
-                ushort wallType = wallTypes[genRand.Next(0, wallTypes.Length)];
-                if (genRand.NextBool(2))
-                {
-                    wallType = WallID.IceUnsafe;
-                }
-
-                Vector2 wallVelocity = genRand.NextVector2Circular(32, 32);
-                Vector2 wallPosition = cavePosition + wallVelocity;
-                WorldUtils.Gen(wallPosition.ToPoint(), new Shapes.Circle(4, 4), Actions.Chain(new GenAction[]
-                {
-                    new Actions.PlaceWall(wallType),
-                    new Actions.Smooth(true)
-                }));
-            }
-
-
-            // Update the cave position.
-            cavePosition += caveVelocity * caveWidth * 0.5f;
-        }
-    }
-
-    public static void PlaceMarble(Point granitePoint, Vector2 radiusSize, int caveWidth = 5)
-    {
-        var genRand = WorldGen.genRand;
-        int maxRadius = (int)radiusSize.Y;
-        int radius = genRand.Next((int)radiusSize.X, (int)radiusSize.Y);
-        float sizeMultiplier = radius / (float)maxRadius;
-        WorldUtils.Gen(granitePoint, new Shapes.Circle(radius, radius),
-            new Actions.SetTile(TileID.Marble));
-        for (int n = 0; n < 150; n++)
-        {
-            int r = genRand.Next(radius - 30, radius + 16);
-            Point tileRunnePoint = granitePoint + genRand.NextVector2CircularEdge(r, r).ToPoint();
-            Vector2 strength = new Vector2(3, 4);
-            WorldGen.TileRunner(tileRunnePoint.X, tileRunnePoint.Y,
-                genRand.NextFloat(strength.X, strength.Y),
-                genRand.Next(4, 5), -1);
-        }
-        for (int n = 0; n < 450; n++)
-        {
-            int r = genRand.Next(radius - 30, radius + 16);
-            Point tileRunnePoint = granitePoint + genRand.NextVector2CircularEdge(r, r).ToPoint();
-            Vector2 strength = new Vector2(8, 10);
-            WorldGen.TileRunner(tileRunnePoint.X, tileRunnePoint.Y,
-                genRand.NextFloat(strength.X, strength.Y),
-                genRand.Next(4, 5), TileID.Marble);
-        }
-
-        Vector2 cavePosition = new Vector2(granitePoint.X, granitePoint.Y) - new Vector2(radius, radius / 4);
-
-        //Starting cave direction
-        Vector2 baseCaveDirection = Vector2.UnitX;//.RotatedBy(WorldGen.genRand.NextFloatDirection() * 0.54f);
-
-        //How much the tile runner is gonna carve out
-        Vector2 caveStrength = new Vector2(12, 14);
-
-        //Chance to open up
-        int caveSteps = (int)(50f * sizeMultiplier);
-        int caveSeed = genRand.Next();
-
-        //Why make my own noise functions when I can just use this?!?!?1 Hhahahaha
-        float i = cavePosition.X;
-        Vector2 caveVelocity = baseCaveDirection;
-
-        ushort[] wallTypes = new ushort[]
-        {
-            WallID.MarbleUnsafe,
-            WallID.MarbleBlock
-        };
-
-        for (int w = 0; w < 800; w++)
-        {
-            Point shadowOrbPoint = granitePoint + genRand.NextVector2Circular(radius, radius).ToPoint();
-            ushort wallType = wallTypes[genRand.Next(0, wallTypes.Length)];
-            WorldUtils.Gen(shadowOrbPoint, new Shapes.Circle(4, 4), Actions.Chain(new GenAction[]
-            {
-                new Actions.PlaceWall(wallType),
-                new Actions.Smooth(true)
-            }));
-        }
-
-
-        for (int j = 0; j < caveSteps; j++)
-        {
-
-            Vector2 newVelocity = caveVelocity;
-            newVelocity.Y += MathF.Sin(j * 2f) * 8;
-            if (cavePosition.X < Main.maxTilesX - 15 && cavePosition.X >= 15)
-            {
-                ushort wallType = wallTypes[genRand.Next(0, wallTypes.Length)];
-                WorldUtils.Gen(cavePosition.ToPoint(), new Shapes.Circle(6, 6), Actions.Chain(new GenAction[]
-                {
-                    new Actions.PlaceWall(wallType),
-                    new Actions.Smooth(true)
-                }));
-                WorldGen.TileRunner((int)cavePosition.X, (int)cavePosition.Y,
-                    genRand.NextFloat(caveStrength.X, caveStrength.Y),
-                    genRand.Next(4, 20), -1);
-            }
-
-            // Update the cave position.
-            cavePosition += newVelocity * caveWidth * 0.5f;
-            //  caveStrength *= 0.99f;
-        }
-    }
-
-    public static void PlaceGranite(Point granitePoint, Vector2 radiusSize, int caveWidth = 5)
-    {
-        var genRand = WorldGen.genRand;
-
-
-        int radius = genRand.Next((int)radiusSize.X, (int)radiusSize.Y);
-        float sizeMultiplier = radius / radiusSize.Y;
-        WorldUtils.Gen(granitePoint, new Shapes.Circle(radius, radius),
-            new Actions.SetTile(TileID.Granite));
-        for (int n = 0; n < 150; n++)
-        {
-            int r = genRand.Next(radius - 30, radius + 16);
-            Point tileRunnePoint = granitePoint + genRand.NextVector2CircularEdge(r, r).ToPoint();
-            Vector2 strength = new Vector2(3, 4);
-            WorldGen.TileRunner(tileRunnePoint.X, tileRunnePoint.Y,
-                genRand.NextFloat(strength.X, strength.Y),
-                genRand.Next(4, 5), -1);
-        }
-        for (int n = 0; n < 450; n++)
-        {
-            int r = genRand.Next(radius - 30, radius + 16);
-            Point tileRunnePoint = granitePoint + genRand.NextVector2CircularEdge(r, r).ToPoint();
-            Vector2 strength = new Vector2(8, 10);
-            WorldGen.TileRunner(tileRunnePoint.X, tileRunnePoint.Y,
-                genRand.NextFloat(strength.X, strength.Y),
-                genRand.Next(4, 5), TileID.Granite);
-        }
-
-        Vector2 cavePosition = new Vector2(granitePoint.X, granitePoint.Y) - new Vector2(radius / 4, radius);
-
-        //Starting cave direction
-        Vector2 baseCaveDirection = Vector2.UnitY;//.RotatedBy(WorldGen.genRand.NextFloatDirection() * 0.54f);
-
-        //How much the tile runner is gonna carve out
-        Vector2 caveStrength = new Vector2(12, 14);
-
-        //Chance to open up
-        int caveSteps = (int)(50f * sizeMultiplier);
-        int caveSeed = genRand.Next();
-
-        //Why make my own noise functions when I can just use this?!?!?1 Hhahahaha
-        float i = cavePosition.X;
-        Vector2 caveVelocity = baseCaveDirection;
-
-        ushort[] wallTypes = new ushort[]
-        {
-            WallID.GraniteUnsafe,
-            WallID.GraniteBlock
-        };
-
-        for (int w = 0; w < 800; w++)
-        {
-            Point shadowOrbPoint = granitePoint + genRand.NextVector2Circular(radius, radius).ToPoint();
-            ushort wallType = wallTypes[genRand.Next(0, wallTypes.Length)];
-            WorldUtils.Gen(shadowOrbPoint, new Shapes.Circle(4, 4), Actions.Chain(new GenAction[]
-            {
-                new Actions.PlaceWall(wallType),
-                new Actions.Smooth(true)
-            }));
-        }
-
-
-        for (int j = 0; j < caveSteps; j++)
-        {
-
-            Vector2 newVelocity = caveVelocity;
-            newVelocity.X += MathF.Sin(j) * 8;
-            if (cavePosition.X < Main.maxTilesX - 15 && cavePosition.X >= 15)
-            {
-                ushort wallType = wallTypes[genRand.Next(0, wallTypes.Length)];
-                WorldUtils.Gen(cavePosition.ToPoint(), new Shapes.Circle(6, 6), Actions.Chain(new GenAction[]
-                {
-                    new Actions.PlaceWall(wallType),
-                    new Actions.Smooth(true)
-                }));
-                if (genRand.NextBool(3))
-                {
-                    WorldUtils.Gen(cavePosition.ToPoint(), new Shapes.Circle(4, 4),
-                        new Actions.SetLiquid(type: LiquidID.Water));
-                }
-
-                WorldGen.TileRunner((int)cavePosition.X, (int)cavePosition.Y,
-                    genRand.NextFloat(caveStrength.X, caveStrength.Y),
-                    genRand.Next(4, 5), -1);
-            }
-
-            // Update the cave position.
-            cavePosition += newVelocity * caveWidth * 0.5f;
-            //  caveStrength *= 0.99f;
         }
     }
 
@@ -1681,121 +1173,9 @@ public static class VeilGen
         }
     }
 
-    public static void GenerateDuneHole(Vector2 cavePosition, Vector2 baseCaveDirection, Vector2 caveStrength, Vector2 pullDirection, int caveWidth, int caveSteps, int tileToPlace = -1, bool addTile = false)
-    {
-        var genRand = WorldGen.genRand;
-        int caveSeed = genRand.Next();
-
-        //Why make my own noise functions when I can just use this?!?!?1 Hhahahaha
-        float i = cavePosition.X;
-        Vector2 caveVelocity = baseCaveDirection;
-        Vector2 breakStrength = caveStrength;
-
-        Vector2 startVelocity = caveVelocity;
-        Vector2 pullVelocity = pullDirection;
-        float counter = 0;
-        ushort t = (ushort)tileToPlace;
-        for (int j = 0; j < caveSteps; j++)
-        {
-            counter++;
-            breakStrength *= 0.9995f;
-
-
-            if (cavePosition.X < Main.maxTilesX - 15 && cavePosition.X >= 15)
-            {
-                WorldUtils.Gen(new Point((int)cavePosition.X, (int)cavePosition.Y),
-                                    new Shapes.Circle(8, 8), new Actions.ClearTile());
-            }
-
-            // Update the cave position.
-            cavePosition += caveVelocity * caveWidth * 0.5f;
-            //  caveStrength *= 0.99f;
-        }
-    }
-    public static void GenerateDuneHoleEdges(Vector2 cavePosition, Vector2 baseCaveDirection, Vector2 caveStrength, Vector2 pullDirection, int caveWidth, int caveSteps, int tileToPlace = -1, bool addTile = false)
-    {
-        var genRand = WorldGen.genRand;
-        int caveSeed = genRand.Next();
-
-        //Why make my own noise functions when I can just use this?!?!?1 Hhahahaha
-        float i = cavePosition.X;
-        Vector2 caveVelocity = baseCaveDirection;
-        Vector2 breakStrength = caveStrength;
-
-        Vector2 startVelocity = caveVelocity;
-        Vector2 pullVelocity = pullDirection;
-        float counter = 0;
-        ushort t = (ushort)tileToPlace;
-        for (int j = 0; j < caveSteps; j++)
-        {
-
-            counter++;
-            breakStrength *= 0.9995f;
-
-
-            if (cavePosition.X < Main.maxTilesX - 15 && cavePosition.X >= 15)
-            {
-                if (j > 6)
-                {
-
-
-                    WorldGen.TileRunner((int)cavePosition.X, (int)cavePosition.Y,
-                                          genRand.NextFloat(breakStrength.X, breakStrength.Y),
-                                          genRand.Next(4, 5), tileToPlace, addTile);
-                }
-
-
-            }
-
-            // Update the cave position.
-            cavePosition += caveVelocity * caveWidth * 0.5f;
-            //  caveStrength *= 0.99f;
-        }
-    }
-    public static void GenerateDuneCave(Vector2 cavePosition, Vector2 baseCaveDirection, Vector2 caveStrength, Vector2 pullDirection, int caveWidth, int caveSteps, int tileToPlace = -1, bool addTile = false)
-    {
-        var genRand = WorldGen.genRand;
-        int caveSeed = genRand.Next();
-
-        //Why make my own noise functions when I can just use this?!?!?1 Hhahahaha
-        float i = cavePosition.X;
-        Vector2 caveVelocity = baseCaveDirection;
-        Vector2 breakStrength = caveStrength;
-
-        Vector2 startVelocity = caveVelocity;
-        Vector2 pullVelocity = pullDirection;
-        float counter = 0;
-        ushort t = (ushort)tileToPlace;
-        for (int j = 0; j < caveSteps; j++)
-        {
-            if (t == TileID.Sandstone && j < 16)
-                continue;
-            counter++;
-            breakStrength *= 0.9995f;
-
-
-            if (cavePosition.X < Main.maxTilesX - 15 && cavePosition.X >= 15)
-            {
-
-                if (tileToPlace == -1)
-                {
-                    WorldUtils.Gen(new Point((int)cavePosition.X, (int)cavePosition.Y),
-                        new Shapes.Circle(8, 8), new Actions.ClearTile());
-                }
-                WorldGen.TileRunner((int)cavePosition.X, (int)cavePosition.Y,
-                    genRand.NextFloat(breakStrength.X, breakStrength.Y),
-                    genRand.Next(4, 5), tileToPlace, addTile);
-            }
-
-            // Update the cave position.
-            cavePosition += caveVelocity * caveWidth * 0.5f;
-            //  caveStrength *= 0.99f;
-        }
-    }
     public static void GenerateSimpleCave(Vector2 cavePosition, Vector2 baseCaveDirection, Vector2 caveStrength, Vector2 pullDirection, int caveWidth, int caveSteps, int tileToPlace = -1, bool addTile = false)
     {
         var genRand = WorldGen.genRand;
-        int caveSeed = genRand.Next();
 
         //Why make my own noise functions when I can just use this?!?!?1 Hhahahaha
         float i = cavePosition.X;
@@ -1829,48 +1209,6 @@ public static class VeilGen
             // Update the cave position.
             cavePosition += caveVelocity * caveWidth * 0.5f;
             //  caveStrength *= 0.99f;
-        }
-    }
-    public static void GenerateDuneCave(Vector2 cavePosition, Vector2 baseCaveDirection, Vector2 caveStrength, Vector2 pullDirection, int caveWidth, int caveSteps, int tileToPlace = -1)
-    {
-        var genRand = WorldGen.genRand;
-        int caveSeed = genRand.Next();
-
-        //Why make my own noise functions when I can just use this?!?!?1 Hhahahaha
-        float i = cavePosition.X;
-        Vector2 caveVelocity = baseCaveDirection;
-        Vector2 breakStrength = caveStrength;
-
-        Vector2 startVelocity = caveVelocity;
-        Vector2 pullVelocity = pullDirection;
-        float counter = 0;
-        bool shouldBreak = false;
-        for (int j = 0; j < caveSteps; j++)
-        {
-
-            counter++;
-            breakStrength *= 0.9995f;
-
-            float tilePercent = VeilGen.TilePercentNoAir(cavePosition.ToPoint(), new Rectangle((int)cavePosition.X, (int)cavePosition.Y, 20, 20), TileID.Dirt, TileID.Stone);
-
-            if (shouldBreak)
-                break;
-
-            if (cavePosition.X < Main.maxTilesX - 15 && cavePosition.X >= 15)
-            {
-                WorldGen.TileRunner((int)cavePosition.X, (int)cavePosition.Y,
-                    genRand.NextFloat(breakStrength.X, breakStrength.Y),
-                    genRand.Next(4, 5), tileToPlace);
-            }
-
-            // Update the cave position.
-            cavePosition += caveVelocity * caveWidth * 0.5f;
-
-
-            if (tilePercent < 0.5f && j > caveSteps / 2)
-            {
-                shouldBreak = true;
-            }
         }
     }
 
@@ -2216,194 +1554,6 @@ public static class VeilGen
 
             // Update the cave position.
             cavePosition += caveDirection * caveWidth * 0.5f;
-        }
-    }
-
-    public static void GenerateVirulentCave(Vector2 cavePosition,
-        Vector2 seedPosition,
-        Vector2 baseCaveDirection,
-        Vector2 caveStrength,
-        int caveWidth,
-        int caveSteps)
-    {
-        var genRand = WorldGen.genRand;
-        int caveSeed = genRand.Next();
-        Vector2 caveVelocity = baseCaveDirection;
-        float sharpness = 1f;
-        for (int j = 0; j < caveSteps; j++)
-        {
-            float degreesToRotate = sharpness;
-            float length = caveVelocity.Length();
-            float targetAngle = (seedPosition - cavePosition).ToRotation();
-            Vector2 newVelocity = caveVelocity.ToRotation().AngleTowards(targetAngle, MathHelper.ToRadians(degreesToRotate)).ToRotationVector2() * length;
-            caveVelocity = newVelocity;
-            if (cavePosition.X < Main.maxTilesX - 15 && cavePosition.X >= 15)
-            {
-                WorldGen.TileRunner((int)cavePosition.X, (int)cavePosition.Y,
-                    genRand.NextFloat(caveStrength.X, caveStrength.Y),
-                    genRand.Next(4, 5), -1);
-            }
-
-            // Update the cave position.
-            cavePosition += caveVelocity * caveWidth * 0.5f;
-        }
-    }
-
-
-    public static void GenerateJungleTreeCaves(Vector2 cavePosition, Vector2 baseCaveDirection, Vector2 caveStrength,
-        int caveWidth,
-        int caveSteps,
-        int splitSteps,
-        int splitDenominator)
-    {
-        var genRand = WorldGen.genRand;
-        int caveSeed = genRand.Next();
-
-        //Why make my own noise functions when I can just use this?!?!?1 Hhahahaha
-        float i = cavePosition.X;
-        Vector2 caveVelocity = baseCaveDirection;
-        Vector2 pullDirection = genRand.NextVector2Circular(1, 1);
-        Vector2 targetPosition = caveVelocity + pullDirection;
-        float sharpness = 1;
-        int counter = 1;
-
-        for (int j = 0; j < caveSteps; j++)
-        {
-            //Homing
-            float degreesToRotate = sharpness;
-            float length = caveVelocity.Length();
-            float targetAngle = (targetPosition - caveVelocity).ToRotation();
-            Vector2 newVelocity = caveVelocity.ToRotation().AngleTowards(targetAngle, MathHelper.ToRadians(degreesToRotate)).ToRotationVector2() * length;
-            caveVelocity = newVelocity;
-
-
-            if (genRand.NextBool(3))
-            {
-                targetPosition = targetPosition.RotatedByRandom(MathHelper.ToRadians(15));
-            }
-
-            if (genRand.NextBool(splitDenominator) && j > 4)
-            {
-                int clearingCaveWidth = caveWidth / 2;
-                int clearingCaveSteps = splitSteps;
-
-                //Cave position in tiles
-                Vector2 clearingPosition = new Vector2((int)cavePosition.X, (int)cavePosition.Y);
-
-                //Starting cave direction
-                float dir = counter % 2 == 0 ? 1 : -1;
-                counter++;
-                Vector2 clearingCaveDirection = baseCaveDirection.RotatedBy(dir * MathHelper.PiOver2);
-
-                //How much the tile runner is gonna carve out
-                Vector2 clearingCaveStrength = caveStrength * 0.5f;
-
-                VeilGen.GenerateJungleTreeCaves(clearingPosition,
-                    clearingCaveDirection,
-                    clearingCaveStrength,
-                    clearingCaveWidth,
-                    clearingCaveSteps,
-                    genRand.Next(splitSteps / 2, splitSteps),
-                    splitDenominator * 640);
-            }
-
-            /*
-            Point cavePoint = cavePosition.ToPoint();
-            Dictionary<ushort, int> dictionary = new Dictionary<ushort, int>();
-            WorldUtils.Gen(cavePoint, new Shapes.Rectangle(20, 10), new Actions.TileScanner(TileID.Mud, TileID.Stone).Output(dictionary));
-            int mudCount = dictionary[TileID.Mud];
-            int stoneCount = dictionary[TileID.Stone];
-            if(stoneCount > mudCount)
-            {
-                return;
-            }
-            */
-            if (cavePosition.X < Main.maxTilesX - 15 && cavePosition.X >= 15)
-            {
-                WorldGen.TileRunner((int)cavePosition.X, (int)cavePosition.Y,
-                    genRand.NextFloat(caveStrength.X, caveStrength.Y),
-                    genRand.Next(4, 5), -1);
-            }
-
-
-
-            // Update the cave position.
-            cavePosition += caveVelocity * caveWidth * 0.5f;
-            //  caveStrength *= 0.99f;
-        }
-    }
-
-    public static void GenerateTreeCaves(Vector2 cavePosition, Vector2 baseCaveDirection, Vector2 caveStrength,
-        int caveWidth,
-        int caveSteps,
-        int splitDenominator)
-    {
-        var genRand = WorldGen.genRand;
-        int caveSeed = genRand.Next();
-
-        //Why make my own noise functions when I can just use this?!?!?1 Hhahahaha
-        float i = cavePosition.X;
-        Vector2 caveVelocity = baseCaveDirection;
-        Vector2 pullDirection = genRand.NextVector2Circular(1, 1);
-        Vector2 targetPosition = caveVelocity + pullDirection;
-        float sharpness = 1;
-        int counter = 1;
-        for (int j = 0; j < caveSteps; j++)
-        {
-            //Homing
-            float degreesToRotate = sharpness;
-            float length = caveVelocity.Length();
-            float targetAngle = (targetPosition - caveVelocity).ToRotation();
-            Vector2 newVelocity = caveVelocity.ToRotation().AngleTowards(targetAngle, MathHelper.ToRadians(degreesToRotate)).ToRotationVector2() * length;
-            caveVelocity = newVelocity;
-
-
-            if (genRand.NextBool(3))
-            {
-                targetPosition = targetPosition.RotatedByRandom(MathHelper.ToRadians(30));
-            }
-
-            if (genRand.NextBool(splitDenominator) && j > 4)
-            {
-                int clearingCaveWidth = caveWidth / 2;
-                int clearingCaveSteps = caveSteps;
-
-                //Cave position in tiles
-                Vector2 clearingPosition = new Vector2((int)cavePosition.X, (int)cavePosition.Y);
-
-                //Starting cave direction
-                float dir = counter % 2 == 0 ? 1 : -1;
-                counter++;
-                Vector2 clearingCaveDirection = baseCaveDirection.RotatedBy(dir * MathHelper.PiOver2);
-
-                //How much the tile runner is gonna carve out
-                Vector2 clearingCaveStrength = caveStrength * 0.5f;
-
-                VeilGen.GenerateTreeCaves(clearingPosition,
-                    clearingCaveDirection,
-                    clearingCaveStrength,
-                    clearingCaveWidth,
-                    clearingCaveSteps,
-                    splitDenominator * 640);
-            }
-
-            if (cavePosition.X < Main.maxTilesX - 15 && cavePosition.X >= 15)
-            {
-                /*
-                //digging 
-                ShapeData shapeData = new ShapeData();
-                Point point = new Point((int)cavePosition.X, (int)cavePosition.Y);
-                WorldUtils.Gen(point, new Shapes.Circle(3, 3), new Actions.ClearTile());
-                */
-
-                WorldGen.TileRunner((int)cavePosition.X, (int)cavePosition.Y,
-                    genRand.NextFloat(caveStrength.X, caveStrength.Y),
-                    genRand.Next(4, 5), -1);
-            }
-
-            // Update the cave position.
-            cavePosition += caveVelocity * caveWidth * 0.5f;
-            //  caveStrength *= 0.99f;
         }
     }
 
@@ -2754,465 +1904,6 @@ public static class VeilGen
         float tilePercent = count / (float)tileM;
         return tilePercent;
     }
-    public static void GenerateColosseum(Point tilePoint, StructureMap structureMap = null)
-    {
-        var genRand = WorldGen.genRand;
-        string GetMiniStructurePath()
-        {
-            int num = genRand.Next(1, 3);
-            string baseStructurePath = $"Structures/Colosseum/SquareHouse{num}";
-            return baseStructurePath;
-        }
-
-        string GetStructurePath()
-        {
-            int num = genRand.Next(1, 5);
-            string baseStructurePath = $"Structures/Colosseum/House{num}";
-            return baseStructurePath;
-        }
-
-        int[] tileBlend = new int[]
-        {
-            TileID.RubyGemspark
-        };
-
-        void Arena(Point tilePoint)
-        {
-            var structure = "Structures/Colosseum/TheColosseum";
-            Rectangle rectangle = Structurizer.ReadRectangle(structure);
-            rectangle.Location = tilePoint;
-            Structurizer.ReadStruct(tilePoint, structure, tileBlend);
-            Structurizer.ProtectStructure(tilePoint, structure, structureMap);
-            for (int beamX = rectangle.Location.X;
-             beamX < rectangle.Location.X + rectangle.Width; beamX += 8)
-            {
-                //Place beams
-                int beamY = rectangle.Location.Y;
-                Tile tile = Main.tile[beamX, beamY];
-                if (!tile.HasTile)
-                    continue;
-
-                int solidCount = 0;
-                while (solidCount < 5)
-                {
-                    tile = Main.tile[beamX, beamY];
-                    if (!tile.HasTile)
-                    {
-                        WorldGen.PlaceTile(beamX, beamY, TileID.SandstoneColumn);
-                    }
-                    else
-                    {
-                        solidCount++;
-                    }
-                    beamY++;
-                }
-            }
-        }
-        void PlaceAir(Point tilePoint)
-        {
-            string structure = "Structures/Colosseum/Elevator";
-            Rectangle rectangle = Structurizer.ReadRectangle(structure);
-            rectangle.Location = tilePoint;
-            var chestIndices = Structurizer.ReadStruct(tilePoint, structure, tileBlend);
-            Structurizer.ProtectStructure(tilePoint, structure, structureMap);
-        }
-
-        void PlaceBigStructure(Point tilePoint)
-        {
-            string structure = GetStructurePath();
-            Rectangle rectangle = Structurizer.ReadRectangle(structure);
-            rectangle.Location = tilePoint;
-            var chestIndices = Structurizer.ReadStruct(tilePoint, structure, tileBlend);
-            if (chestIndices.Length != 0)
-            {
-                foreach (int chestIndex in chestIndices)
-                {
-                    if (chestIndex == -1)
-                        continue;
-                    Chest chest = Main.chest[chestIndex];
-                    var itemsToAdd = new List<(int type, int stack)>();
-
-                    int chestItemIndex = 0;
-                    foreach (var itemToAdd in itemsToAdd)
-                    {
-                        Item item = new Item();
-                        item.SetDefaults(itemToAdd.type);
-                        item.stack = itemToAdd.stack;
-                        chest.item[chestItemIndex] = item;
-                        chestItemIndex++;
-                        if (chestItemIndex >= 40)
-                            break; // Make sure not to exceed the capacity of the chest
-                    }
-                }
-            }
-
-            for (int beamX = rectangle.Location.X;
-                beamX < rectangle.Location.X + rectangle.Width; beamX += 8)
-            {
-                //Place beams
-                int beamY = rectangle.Location.Y;
-                Tile tile = Main.tile[beamX, beamY];
-                if (!tile.HasTile)
-                    continue;
-                int solidCount = 0;
-                while (solidCount < 5)
-                {
-                    tile = Main.tile[beamX, beamY];
-                    if (!tile.HasTile)
-                    {
-                        WorldGen.PlaceTile(beamX, beamY, TileID.SandstoneColumn);
-                    }
-                    else
-                    {
-                        solidCount++;
-                    }
-                    beamY++;
-                }
-            }
-            Structurizer.ProtectStructure(tilePoint, structure, structureMap);
-        }
-        void PlaceSmallStructure(Point tilePoint)
-        {
-            string structure = GetMiniStructurePath();
-            Rectangle rectangle = Structurizer.ReadRectangle(structure);
-            rectangle.Location = tilePoint;
-            var chestIndices = Structurizer.ReadStruct(tilePoint, structure, tileBlend);
-            if (chestIndices.Length != 0)
-            {
-                foreach (int chestIndex in chestIndices)
-                {
-                    if (chestIndex == -1)
-                        continue;
-                    Chest chest = Main.chest[chestIndex];
-                    var itemsToAdd = new List<(int type, int stack)>();
-
-                    int chestItemIndex = 0;
-                    foreach (var itemToAdd in itemsToAdd)
-                    {
-                        Item item = new Item();
-                        item.SetDefaults(itemToAdd.type);
-                        item.stack = itemToAdd.stack;
-                        chest.item[chestItemIndex] = item;
-                        chestItemIndex++;
-                        if (chestItemIndex >= 40)
-                            break; // Make sure not to exceed the capacity of the chest
-                    }
-                }
-            }
-            Structurizer.ProtectStructure(tilePoint, structure, structureMap);
-
-            for (int beamX = rectangle.Location.X;
-                beamX < rectangle.Location.X + rectangle.Width; beamX += 8)
-            {
-                //Place beams
-                int beamY = rectangle.Location.Y;
-                Tile tile = Main.tile[beamX, beamY];
-                if (!tile.HasTile)
-                    continue;
-                int solidCount = 0;
-                while (solidCount < 5)
-                {
-                    tile = Main.tile[beamX, beamY];
-                    if (!tile.HasTile)
-                    {
-                        WorldGen.PlaceTile(beamX, beamY, TileID.SandstoneColumn);
-                    }
-                    else
-                    {
-                        solidCount++;
-                    }
-                    beamY++;
-                }
-            }
-        }
-        PlaceAir(tilePoint + new Point(48, 100));
-        PlaceAir(tilePoint + new Point(50, 100));
-        int upOffset = 18;
-        PlaceBigStructure(tilePoint);
-        PlaceBigStructure(tilePoint + new Point(24, 0));
-        PlaceBigStructure(tilePoint + new Point(24 + 32, 0));
-        PlaceBigStructure(tilePoint + new Point(24 + 32 + 24, 0));
-
-        tilePoint.Y -= upOffset;
-        PlaceBigStructure(tilePoint);
-        PlaceBigStructure(tilePoint + new Point(24, 0));
-        PlaceBigStructure(tilePoint + new Point(24 + 32, 0));
-        PlaceBigStructure(tilePoint + new Point(24 + 32 + 24, 0));
-
-
-        tilePoint.Y -= upOffset;
-        PlaceBigStructure(tilePoint + new Point(4, 0));
-        PlaceBigStructure(tilePoint + new Point(24 + 4, 0));
-        PlaceBigStructure(tilePoint + new Point(24 + 32 - 4, 0));
-        PlaceBigStructure(tilePoint + new Point(24 + 32 + 24 - 4, 0));
-
-        tilePoint.Y -= upOffset;
-        PlaceSmallStructure(tilePoint + new Point(34, 0));
-        PlaceSmallStructure(tilePoint + new Point(52, 0));
-
-        tilePoint.Y -= upOffset;
-        PlaceSmallStructure(tilePoint + new Point(16, 1));
-        PlaceSmallStructure(tilePoint + new Point(34, 1));
-        PlaceSmallStructure(tilePoint + new Point(52, 1));
-        PlaceSmallStructure(tilePoint + new Point(70, 1));
-
-        tilePoint.Y -= upOffset;
-        Arena(tilePoint + new Point(-21, -1));
-
-        /*
-        //Layer 6
-      
-        */
-    }
-    public static void GenerateMineshaftTunnel(Point tilePoint, Point tileDirection, int tunnelLength)
-    {
-        var genRand = WorldGen.genRand;
-        string GetStructurePath()
-        {
-            int num = genRand.Next(1, 15);
-            string baseStructurePath = $"Structures/Catacombs/CaRoom{num}";
-            return baseStructurePath;
-        }
-
-        int[] tileBlend = new int[]
-        {
-
-        };
-
-        for (int t = 0; t < tunnelLength; t++)
-        {
-            string structure = GetStructurePath();
-            Rectangle rectangle = Structurizer.ReadRectangle(structure);
-            rectangle.Location = tilePoint;
-            if (TilePercent(tilePoint, rectangle, TileID.Dirt, TileID.Stone) < 0.7f)
-            {
-                break;
-            }
-
-            int[] chestIndices = Structurizer.ReadStruct(tilePoint, structure, null);
-            if (chestIndices.Length != 0)
-            {
-                foreach (int chestIndex in chestIndices)
-                {
-                    if (chestIndex == -1)
-                        continue;
-                    Chest chest = Main.chest[chestIndex];
-                    var itemsToAdd = new List<(int type, int stack)>();
-                    if (genRand.NextBool(2))
-                    {
-                        switch (genRand.Next(6))
-                        {
-                            case 0:
-                                itemsToAdd.Add((ItemID.MagicMirror, 1));
-                                break;
-                            case 1:
-                                itemsToAdd.Add((ItemID.HermesBoots, 1));
-                                break;
-                            case 2:
-                                itemsToAdd.Add((ItemID.FlareGun, 1));
-                                itemsToAdd.Add((ItemID.Flare, genRand.Next(20, 30)));
-                                break;
-                            case 3:
-                                itemsToAdd.Add((ItemID.Mace, 1));
-                                break;
-                            case 4:
-                                itemsToAdd.Add((ItemID.LavaCharm, 1));
-                                break;
-                            case 5:
-                                itemsToAdd.Add((ItemID.Aglet, 1));
-                                break;
-                        }
-                    }
-
-                    itemsToAdd.Add((ModContent.ItemType<MinersGold>(), genRand.Next(3, 5)));
-                    if (genRand.NextBool(3))
-                    {
-                        switch (genRand.Next(0, 2))
-                        {
-                            case 0:
-                                itemsToAdd.Add((ItemID.Bomb, genRand.Next(3, 7)));
-                                break;
-                            case 1:
-                                itemsToAdd.Add((ItemID.Dynamite, genRand.Next(1, 3)));
-                                break;
-                        }
-                    }
-
-                    if (genRand.NextBool(3))
-                    {
-                        switch (genRand.Next(0, 2))
-                        {
-                            case 0:
-                                itemsToAdd.Add((ItemID.Torch, genRand.Next(3, 7)));
-                                break;
-                            case 1:
-                                itemsToAdd.Add((ItemID.SpelunkerGlowstick, genRand.Next(5, 10)));
-                                break;
-                        }
-                    }
-
-                    if (genRand.NextBool(3))
-                    {
-                        switch (genRand.Next(0, 2))
-                        {
-                            case 0:
-                                itemsToAdd.Add((ItemID.LesserHealingPotion, genRand.Next(2, 4)));
-                                break;
-                            case 1:
-                                itemsToAdd.Add((ItemID.LesserManaPotion, genRand.Next(1, 3)));
-                                break;
-                        }
-                    }
-
-                    if (genRand.NextBool(3))
-                    {
-                        switch (genRand.Next(0, 6))
-                        {
-                            case 0:
-                                itemsToAdd.Add((ItemID.SpelunkerPotion, genRand.Next(2, 4)));
-                                break;
-                            case 1:
-                                itemsToAdd.Add((ItemID.PotionOfReturn, genRand.Next(1, 3)));
-                                break;
-                            case 2:
-                                itemsToAdd.Add((ItemID.HunterPotion, genRand.Next(1, 3)));
-                                break;
-                            case 3:
-                                itemsToAdd.Add((ItemID.MiningPotion, genRand.Next(1, 3)));
-                                break;
-                            case 4:
-                                itemsToAdd.Add((ItemID.TrapsightPotion, genRand.Next(1, 3)));
-                                break;
-                            case 5:
-                                itemsToAdd.Add((ItemID.ObsidianSkinPotion, genRand.Next(1, 3)));
-                                break;
-                        }
-                    }
-                    for (int n = 0; n < 4; n++)
-                    {
-                        if (genRand.NextBool(4))
-                        {
-                            switch (genRand.Next(0, 7))
-                            {
-                                case 0:
-                                    itemsToAdd.Add((ItemID.Amethyst, genRand.Next(3, 10)));
-                                    break;
-                                case 1:
-                                    itemsToAdd.Add((ItemID.Emerald, genRand.Next(3, 10)));
-                                    break;
-                                case 2:
-                                    itemsToAdd.Add((ItemID.Sapphire, genRand.Next(3, 10)));
-                                    break;
-                                case 3:
-                                    itemsToAdd.Add((ItemID.Topaz, genRand.Next(3, 10)));
-                                    break;
-                                case 4:
-                                    itemsToAdd.Add((ItemID.Ruby, genRand.Next(3, 10)));
-                                    break;
-                                case 5:
-                                    itemsToAdd.Add((ItemID.Diamond, genRand.Next(3, 10)));
-                                    break;
-                                case 6:
-                                    itemsToAdd.Add((ItemID.Amber, genRand.Next(3, 10)));
-                                    break;
-                            }
-                        }
-                    }
-
-                    for (int n = 0; n < 4; n++)
-                    {
-                        if (genRand.NextBool(4))
-                        {
-                            switch (genRand.Next(0, 8))
-                            {
-                                case 0:
-                                    itemsToAdd.Add((ItemID.CopperOre, genRand.Next(3, 10)));
-                                    break;
-                                case 1:
-                                    itemsToAdd.Add((ItemID.TinOre, genRand.Next(3, 10)));
-                                    break;
-                                case 2:
-                                    itemsToAdd.Add((ItemID.IronOre, genRand.Next(3, 10)));
-                                    break;
-                                case 3:
-                                    itemsToAdd.Add((ItemID.LeadOre, genRand.Next(3, 10)));
-                                    break;
-                                case 4:
-                                    itemsToAdd.Add((ItemID.SilverOre, genRand.Next(3, 10)));
-                                    break;
-                                case 5:
-                                    itemsToAdd.Add((ItemID.TungstenOre, genRand.Next(3, 10)));
-                                    break;
-                                case 6:
-                                    itemsToAdd.Add((ItemID.GoldOre, genRand.Next(3, 10)));
-                                    break;
-                                case 7:
-                                    itemsToAdd.Add((ItemID.PlatinumOre, genRand.Next(3, 10)));
-                                    break;
-                            }
-                        }
-                    }
-
-                    if (genRand.NextBool(1))
-                    {
-                        switch (genRand.Next(3))
-                        {
-                            case 0:
-                                itemsToAdd.Add((ItemID.CopperCoin, genRand.Next(45, 100)));
-                                break;
-                            case 1:
-                                itemsToAdd.Add((ItemID.SilverCoin, genRand.Next(45, 100)));
-                                break;
-                            case 2:
-                                itemsToAdd.Add((ItemID.GoldCoin, genRand.Next(1, 3)));
-                                break;
-                        }
-                    }
-
-                    if (genRand.NextBool(100))
-                    {
-                        itemsToAdd.Add((ItemID.MiningHelmet, 1));
-                        itemsToAdd.Add((ItemID.MiningPants, 1));
-                        itemsToAdd.Add((ItemID.MiningShirt, 1));
-                    }
-
-                    int chestItemIndex = 0;
-                    foreach (var itemToAdd in itemsToAdd)
-                    {
-                        Item item = new Item();
-                        item.SetDefaults(itemToAdd.type);
-                        item.stack = itemToAdd.stack;
-                        chest.item[chestItemIndex] = item;
-                        chestItemIndex++;
-                        if (chestItemIndex >= 40)
-                            break; // Make sure not to exceed the capacity of the chest
-                    }
-                }
-
-            }
-
-
-            Structurizer.ProtectStructure(tilePoint, structure);
-
-            if (tileDirection.X != 0)
-            {
-                tilePoint.X += tileDirection.X * rectangle.Width;
-            }
-            else if (tileDirection.Y != 0)
-            {
-                tilePoint.Y += tileDirection.Y * (rectangle.Height + 1);
-            }
-
-            if (genRand.NextBool(4) && tileDirection != new Point(0, -1))
-            {
-                GenerateMineshaftTunnel(tilePoint, new Point(0, -1), tunnelLength / 2);
-            }
-            else if (genRand.NextBool(2) && tileDirection != new Point(1, 0))
-            {
-                GenerateMineshaftTunnel(tilePoint, new Point(1, 0), tunnelLength / 2);
-            }
-        }
-    }
 
     public static void GenerateWiggleCave(Vector2 cavePosition, Vector2 baseCaveDirection, Vector2 caveStrength, int caveWidth, int caveSteps)
     {
@@ -3321,5 +2012,53 @@ public static class VeilGen
             // Update the cave position.
             cavePosition += caveDirection * caveWidth * 0.5f;
         }
+    }
+
+    public override void NetSend(BinaryWriter writer)
+    {
+        base.NetSend(writer);
+        writer.Write(MarshLocation.X);
+        writer.Write(MarshLocation.Y);
+        writer.Write(CoralwaysLocation.X);
+        writer.Write(CoralwaysLocation.Y);
+    }
+    public override void NetReceive(BinaryReader reader)
+    {
+        base.NetReceive(reader);
+        Point marshLocation = new();
+        marshLocation.X = reader.ReadInt32();
+        marshLocation.Y = reader.ReadInt32();
+        MarshLocation = marshLocation;
+
+        Point coralwaysLocation = new();
+        coralwaysLocation.X = reader.ReadInt32();
+        coralwaysLocation.Y = reader.ReadInt32();
+        CoralwaysLocation = coralwaysLocation;
+    }
+
+    public override void SaveWorldData(TagCompound tag)
+    {
+        tag["MarshLocation"] = MarshLocation;
+        tag["FableHillLocation"] = FableHillStartLocation;
+        tag["CoralwaysLocation"] = CoralwaysLocation;
+        tag["CindersparkStart"] = CindersparkStart;
+        tag["CindersparkEnd"] = CindersparkEnd;
+        tag["DarkspaceStart"] = DarkspaceStart;
+        tag["DarkspaceEnd"] = DarkspaceEnd;
+        tag["HeatedDepthsStart"] = HeatedDepthsStart;
+        tag["HeatedDepthsEnd"] = HeatedDepthsEnd;
+    }
+
+    public override void LoadWorldData(TagCompound tag)
+    {
+        MarshLocation = tag.Get<Point>("MarshLocation");
+        FableHillStartLocation = tag.Get<Point>("FableHillLocation");
+        CoralwaysLocation = tag.Get<Point>("CoralwaysLocation");
+        CindersparkStart = tag.Get<int>("CindersparkStart");
+        CindersparkEnd = tag.Get<int>("CindersparkEnd");
+        DarkspaceStart = tag.Get<int>("DarkspaceStart");
+        DarkspaceEnd = tag.Get<int>("DarkspaceEnd");
+        HeatedDepthsStart = tag.Get<int>("HeatedDepthsStart");
+        HeatedDepthsEnd = tag.Get<int>("HeatedDepthsEnd");
     }
 }

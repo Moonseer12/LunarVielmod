@@ -117,7 +117,7 @@ public class ThickSnowRenderer : ModSystem
         _snowRandom.SetSeed(i + j);
         if (!_snowRandom.NextBool(3))
             return;
-        Vector2 snowPosition = (new Vector2(i, j) + VeilGen.TileAdj) * 16;
+        Vector2 snowPosition = (new Vector2(i, j) + TileHelper.TileAdj) * 16;
         snowPosition.Y += 4;
         snowPosition -= new Vector2(Main.offScreenRange);
 

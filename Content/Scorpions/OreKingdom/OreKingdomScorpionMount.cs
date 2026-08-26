@@ -2,7 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace Stellamod.Items.Weapons.Scorpions.OreKingdom
+namespace Stellamod.Content.Scorpions.OreKingdom
 {
     public class OreKingdomScorpionMount : BaseScorpionMount
     {

@@ -2,8 +2,6 @@
 using Stellamod.Content.Areas.Shop.ItemsShop;
 using Stellamod.Content.Areas.Tundra.Snow.WeaponsSN;
 using Stellamod.Core;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
 using Stellamod.Items.Weapons.Mage.Tomes;
 using System;
 using System.Collections.Generic;

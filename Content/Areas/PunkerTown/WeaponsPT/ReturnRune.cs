@@ -25,7 +25,7 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew<MechanizedSoul, BlankRune>();
+            this.RegisterBrew<MarshScrap, BlankRune>();
         }
     }
 
