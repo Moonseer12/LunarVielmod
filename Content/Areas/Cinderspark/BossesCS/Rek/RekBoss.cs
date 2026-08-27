@@ -60,6 +60,13 @@ public partial class RekBoss : ScarletBoss
         public float sawBladeAlpha;
         public float lastSawBladeAlpha;
         public bool killed;
+        public float SizeMultiplier
+        {
+            get
+            {
+                return size.LengthSquared() / (63 * 63);
+            }
+        }
     }
     public ChainWithLengths _chain;
     public ChainWithLengths Chain
@@ -146,7 +153,7 @@ public partial class RekBoss : ScarletBoss
         {
             if(_phase == 2)
             {
-                return 0.8f;
+                return 0.75f;
             }
             return 1f;
         }
@@ -222,14 +229,6 @@ public partial class RekBoss : ScarletBoss
                     switch (pattern)
                     {
                         case 0:
-                            if (NPC.AnyNPCs(ModContent.NPCType<BigMoltenPlatform>()))
-                            {
-                                _destroyArena = true;
-                            }
-                            else
-                            {
-                                _destroyArena = false;
-                            }
                             return AIState.VolcanicSpear;
                         case 1:
                             return AIState.Eruption;
@@ -342,7 +341,7 @@ public partial class RekBoss : ScarletBoss
             return Vector2.Dot(-Vector2.UnitX, NPC.rotation.ToRotationVector2()) > 0;
         }
     }
-    private AIState TestAttack => AIState.VolcanicSpear;
+    private AIState TestAttack => default;
     public override string Texture => TextureRegistry.EmptyTexture;
     public override bool CanHitPlayer(Player target, ref int cooldownSlot)
     {
@@ -456,7 +455,7 @@ public partial class RekBoss : ScarletBoss
             //This value you should be set specifically for everything that uses saw visual
             segment.sawBladeAlpha = 0;
         }
-        Main.NewText(_patternIndex);
+
         _showAfterImages = false;
         _ouroborosTrail = false;
         _showMouthAura = false;
