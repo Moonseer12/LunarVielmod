@@ -9,8 +9,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<GintzeSpectator1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<GintzeSpectator1>());
         }
     }
 
@@ -18,8 +17,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<GintzeSpectator2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<GintzeSpectator2>());
         }
     }
 
@@ -27,8 +25,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<GintzeSpectator3>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<GintzeSpectator3>());
         }
     }
 
@@ -36,8 +33,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<GintzeSpectator4>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<GintzeSpectator4>());
         }
     }
 
@@ -45,8 +41,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<GintzeSpectator5>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<GintzeSpectator5>());
         }
     }
 
@@ -54,8 +49,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<GintzeSpectator6>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<GintzeSpectator6>());
         }
     }
 
@@ -63,8 +57,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<GintzeSpectator7>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<GintzeSpectator7>());
         }
     }
 

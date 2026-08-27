@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Buffs;
 using Stellamod.Helpers;
 using Stellamod.Projectiles.Slashers.Vixyl;

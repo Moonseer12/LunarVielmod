@@ -24,16 +24,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            Item.width = 12;
-            Item.height = 12;
-            Item.maxStack = Item.CommonMaxStack;
-            Item.useTurn = true;
-            Item.autoReuse = true;
-            Item.useAnimation = 10;
-            Item.useTime = 10;
-            Item.useStyle = ItemUseStyleID.Swing;
-            Item.consumable = true;
-            Item.createTile = ModContent.TileType<ChiseledSandstoneT>();
+            Item.DefaultToPlaceableTile(ModContent.TileType<ChiseledSandstoneT>());
         }
     }
 }

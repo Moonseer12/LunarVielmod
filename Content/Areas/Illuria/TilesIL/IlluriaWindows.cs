@@ -7,8 +7,7 @@ namespace Stellamod.Content.Areas.Illuria.TilesIL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<IlluriaWindows1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<IlluriaWindows1>());
         }
     }
 
@@ -25,8 +24,7 @@ namespace Stellamod.Content.Areas.Illuria.TilesIL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<IlluriaWindows2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<IlluriaWindows2>());
         }
     }
 
@@ -44,8 +42,7 @@ namespace Stellamod.Content.Areas.Illuria.TilesIL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<IlluriaWindows3>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<IlluriaWindows3>());
         }
     }
 
@@ -62,8 +59,7 @@ namespace Stellamod.Content.Areas.Illuria.TilesIL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<IlluriaWindows4>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<IlluriaWindows4>());
         }
     }
 

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Buffs;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Helpers;
@@ -86,11 +86,7 @@ namespace Stellamod.Items.Accessories
     {
         public override void SetDefaults()
         {
-            Item.width = 20;
-            Item.height = 20;
-            Item.value = 2500;
-            Item.rare = ItemRarityID.Lime;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
         public override void PostUpdate()

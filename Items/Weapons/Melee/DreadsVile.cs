@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Helpers;
 using Stellamod.Projectiles.Steins;
 using System.Collections.Generic;

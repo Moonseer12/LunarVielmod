@@ -58,17 +58,7 @@ public abstract class AbstractCollectibleItem<T> : ModItem where T : ModTile
     public override string Texture => this.PathHere() + "/CollectibleItem";
     public override void SetDefaults()
     {
-        Item.width = 12;
-        Item.height = 12;
-        Item.maxStack = Item.CommonMaxStack;
-        Item.useTurn = true;
-        Item.autoReuse = true;
-        Item.useAnimation = 10;
-        Item.useTime = 10;
-        Item.useStyle = ItemUseStyleID.Swing;
-        Item.consumable = true;
-        Item.value = 1;
-        Item.createTile = ModContent.TileType<T>();
+        Item.DefaultToPlaceableTile(ModContent.TileType<T>());
     }
 }
 

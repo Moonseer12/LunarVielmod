@@ -1,6 +1,6 @@
 ﻿
 
-using Microsoft.Xna.Framework;
+
 using Stellamod.Buffs.Minions;
 using Stellamod.Projectiles.Summons.Minions;
 using Terraria;

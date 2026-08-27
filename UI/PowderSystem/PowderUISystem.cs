@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Common.IgnitersNPowders;
 using System.Collections.Generic;
 using Terraria;

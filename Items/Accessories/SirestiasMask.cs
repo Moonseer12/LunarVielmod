@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Common;
 using Stellamod.Dusts;
 using Stellamod.Helpers;
@@ -49,9 +49,7 @@ namespace Stellamod.Items.Accessories
 
         public override void SetDefaults()
         {
-            Item.width = 28;
-            Item.height = 36;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
             Item.shopSpecialCurrency = Stellamod.NoHitCrystalCurrencyID;
             Item.shopCustomPrice = 5;
         }

@@ -1,5 +1,5 @@
 ﻿
-using Microsoft.Xna.Framework;
+
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;

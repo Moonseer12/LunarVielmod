@@ -1,6 +1,4 @@
-﻿
-using Stellamod.Helpers;
-using Stellamod.Items.Materials;
+﻿using Stellamod.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;

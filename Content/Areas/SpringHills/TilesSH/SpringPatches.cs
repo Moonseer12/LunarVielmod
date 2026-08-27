@@ -7,8 +7,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringPatch1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringPatch1>());
         }
     }
     public class SpringPatch1 : DecorativeWall
@@ -31,8 +30,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringPatch2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringPatch2>());
         }
     }
     public class SpringPatch2 : DecorativeWall
@@ -55,8 +53,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringPatch3>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringPatch3>());
         }
     }
     public class SpringPatch3 : DecorativeWall

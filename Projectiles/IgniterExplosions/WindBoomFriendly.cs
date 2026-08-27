@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Content.Areas.Desert.BossesCL.Gustbeak.Projectiles;
 using Stellamod.Helpers;
 using Terraria;

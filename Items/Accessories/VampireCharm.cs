@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles;
 using System;
@@ -81,11 +81,7 @@ namespace Stellamod.Items.Accessories
     {
         public override void SetDefaults()
         {
-            Item.width = 26;
-            Item.height = 28;
-            Item.value = Item.sellPrice(gold: 1);
-            Item.rare = ItemRarityID.LightRed;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

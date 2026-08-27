@@ -140,7 +140,7 @@ namespace Stellamod.Core.Bases
         {
             ShieldGlobalItem globalItem = item.GetGlobalItem<ShieldGlobalItem>();
             globalItem.isShield = true;
-            item.accessory = true;
+            item.DefaultToAccessory();
             item.shoot = shieldHoldProjectile;
 
         }

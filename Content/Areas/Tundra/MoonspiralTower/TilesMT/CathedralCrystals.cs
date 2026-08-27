@@ -9,8 +9,7 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.TilesMT
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<GiantCrystal1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<GiantCrystal1>());
         }
     }
 
@@ -31,8 +30,7 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.TilesMT
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<GiantCrystal2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<GiantCrystal2>());
         }
     }
 
@@ -52,8 +50,7 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.TilesMT
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MedCrystal1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MedCrystal1>());
         }
     }
 
@@ -73,8 +70,7 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.TilesMT
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MedCrystal2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MedCrystal2>());
         }
     }
 

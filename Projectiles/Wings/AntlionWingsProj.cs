@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Items.Accessories.Wings;
 using Terraria;
 using Terraria.ModLoader;

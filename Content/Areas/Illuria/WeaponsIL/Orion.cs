@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using Stellamod;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
@@ -9,7 +9,6 @@ using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
 using Stellamod.Helpers;
 using Stellamod.Items;
-using Stellamod.Items.Materials;
 using Stellamod.Projectiles.IgniterExplosions;
 using Stellamod.Projectiles.Thrown;
 using Stellamod.Visual.Particles;

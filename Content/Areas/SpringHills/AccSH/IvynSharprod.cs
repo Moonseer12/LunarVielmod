@@ -10,9 +10,7 @@ namespace Stellamod.Content.Areas.SpringHills.AccSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.accessory = true;
-            Item.rare = ItemRarityID.Blue;
+            Item.DefaultToAccessory();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

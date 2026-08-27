@@ -9,8 +9,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FuneralBed>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FuneralBed>());
         }
     }
 

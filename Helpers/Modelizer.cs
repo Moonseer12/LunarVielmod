@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.WorldG.StructureManager;
 using Terraria;
 using Terraria.ID;

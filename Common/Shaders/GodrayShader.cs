@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Terraria;
 
 namespace Stellamod.Common.Shaders

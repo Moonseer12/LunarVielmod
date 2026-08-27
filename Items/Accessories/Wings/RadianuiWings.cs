@@ -42,11 +42,7 @@ namespace Stellamod.Items.Accessories.Wings
 
         public override void SetDefaults()
         {
-            Item.width = 34;
-            Item.height = 38;
-            Item.value = Item.sellPrice(gold: 10);
-            Item.rare = ItemRarityID.LightPurple;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

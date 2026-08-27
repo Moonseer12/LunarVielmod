@@ -9,8 +9,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.TilesSN
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<BorealReinforcement>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<BorealReinforcement>());
         }
     }
 

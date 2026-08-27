@@ -445,11 +445,7 @@ public class FastFlight : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 22;
-        Item.height = 20;
-        Item.value = 10000;
-        Item.rare = ItemRarityID.Green;
-        Item.accessory = true;
+        Item.DefaultToAccessory();
     }
 
     public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
@@ -475,11 +471,7 @@ public class MoonFlight : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 22;
-        Item.height = 20;
-        Item.value = 10000;
-        Item.rare = ItemRarityID.Green;
-        Item.accessory = true;
+        Item.DefaultToAccessory();
     }
 
 

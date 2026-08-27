@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Core.Particles;
 
 namespace Stellamod.Visual.Particles

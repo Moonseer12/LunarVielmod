@@ -1,9 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Helpers;
-using Stellamod.Items.Materials;
-
-
+﻿using Stellamod.Helpers;
 using Stellamod.NPCs.Bosses.IrradiaNHavoc.Irradia;
 using System.Collections.Generic;
 using Terraria;

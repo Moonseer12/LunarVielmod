@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Common.ArmorRework;
 using System;
 using System.Collections.Generic;

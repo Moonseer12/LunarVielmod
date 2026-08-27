@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using Stellamod.Assets;
 using Stellamod.Helpers;
 
@@ -57,7 +57,7 @@ namespace Stellamod.Core.Effects.Trails
             SparkleColor = Color.DarkBlue;
 
             TrailTexture = AssetRegistry.Textures.Trails.BulbyTrail.Value;
-            NoiseTexture = AssetRegistry.Textures.Noise.Perlin.Value;
+            NoiseTexture = AssetRegistry.Textures.Noise.PerlinNoise.Value;
         }
 
         private readonly EffectParameter TransformMatrixParam;

@@ -7,8 +7,7 @@ namespace Stellamod.Content.Areas.Illuria.TilesIL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<IlluriaBanner>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<IlluriaBanner>());
         }
     }
     public class IlluriaBanner : DecorativeWall
@@ -27,8 +26,7 @@ namespace Stellamod.Content.Areas.Illuria.TilesIL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<IlluriaWalls>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<IlluriaWalls>());
         }
     }
     public class IlluriaWalls : DecorativeWall

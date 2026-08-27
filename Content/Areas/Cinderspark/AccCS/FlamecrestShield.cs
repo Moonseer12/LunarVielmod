@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.NPCHelpers;
@@ -229,12 +227,8 @@ namespace Stellamod.Content.Areas.Cinderspark.AccCS
     {
         public override void SetDefaults()
         {
-            Item.width = 30;
-            Item.height = 34;
-            Item.accessory = true;
-            Item.rare = ItemRarityID.LightRed;
+            Item.DefaultToAccessory();
             Item.defense = 4;
-            Item.value = Item.sellPrice(gold: 2);
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

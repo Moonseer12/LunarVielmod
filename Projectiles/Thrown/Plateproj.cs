@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Assets;
 using Stellamod.Content.Gores;
 using Stellamod.Trails;

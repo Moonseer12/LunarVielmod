@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using Terraria;

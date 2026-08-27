@@ -9,9 +9,7 @@ namespace Stellamod.Content.Areas.BloodCathedral.TilesBC
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<BloodHall>();
-
+            Item.DefaultToPlaceableWall(ModContent.WallType<BloodHall>());
         }
     }
 

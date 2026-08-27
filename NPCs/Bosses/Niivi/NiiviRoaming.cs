@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 
 using Stellamod.NPCs.Bosses.Niivi.Projectiles;
 using Stellamod.NPCs.Town;

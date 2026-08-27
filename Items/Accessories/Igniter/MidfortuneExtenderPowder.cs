@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Common.IgnitersNPowders;
 using Stellamod.Content.CommonMaterials;
 using System.Collections.Generic;
@@ -30,13 +30,7 @@ namespace Stellamod.Items.Accessories.Igniter
         }
         public override void SetDefaults()
         {
-            Item.width = 24;
-            Item.height = 28;
-            Item.value = Item.sellPrice(silver: 25);
-            Item.rare = ItemRarityID.Pink;
-            Item.accessory = true;
-
-
+            Item.DefaultToAccessory();
         }
 
         public override void AddRecipes()

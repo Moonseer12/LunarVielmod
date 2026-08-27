@@ -9,8 +9,7 @@ namespace Stellamod.Content.Areas.BloodCathedral.TilesBC
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<BloodFlower1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<BloodFlower1>());
         }
     }
 
@@ -31,8 +30,7 @@ namespace Stellamod.Content.Areas.BloodCathedral.TilesBC
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<BloodFlower2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<BloodFlower2>());
         }
     }
 
@@ -52,8 +50,7 @@ namespace Stellamod.Content.Areas.BloodCathedral.TilesBC
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<BloodFlower3>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<BloodFlower3>());
         }
     }
 
@@ -73,8 +70,7 @@ namespace Stellamod.Content.Areas.BloodCathedral.TilesBC
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<BloodFlower4>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<BloodFlower4>());
         }
     }
 
@@ -94,8 +90,7 @@ namespace Stellamod.Content.Areas.BloodCathedral.TilesBC
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<BloodFlower5>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<BloodFlower5>());
         }
     }
 

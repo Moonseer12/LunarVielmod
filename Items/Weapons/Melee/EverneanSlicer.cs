@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using Stellamod.Projectiles.Swords.Altride;
 using Terraria;
 using Terraria.DataStructures;

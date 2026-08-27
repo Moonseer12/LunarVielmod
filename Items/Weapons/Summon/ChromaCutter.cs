@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Buffs.Minions;
 using Stellamod.Helpers;
 using Stellamod.Projectiles.Summons.Minions;

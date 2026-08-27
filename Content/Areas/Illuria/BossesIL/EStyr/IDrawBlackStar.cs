@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿
 
 namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
 {

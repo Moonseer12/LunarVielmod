@@ -1,9 +1,14 @@
-﻿using ReLogic.Content;
+﻿using Microsoft.Xna.Framework.Input;
+using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.ArmorShop.UI;
 using Stellamod.Common.Shaders;
+using Stellamod.Core.Pixelation;
+using Stellamod.Core.Tooltips;
 using Stellamod.Core.Utilities;
 using Stellamod.Helpers;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
@@ -15,6 +20,12 @@ using Terraria.UI.Chat;
 
 namespace Stellamod.Common.UI
 {
+    public struct BannerDrawParameters
+    {
+        public Color color;
+        public Vector2 position;
+        public float scale;
+    }
     public sealed class BannerItemBrowserView : UIPanel
     {
         private float _scale;
@@ -27,10 +38,7 @@ namespace Stellamod.Common.UI
         private Vector2 _startMousePos;
         private Vector2 _startOffset;
         private float[] _scales;
-        public BannerItemBrowserView(Item[] items,
-            Action<Item> selectFunction,
-            Func<Item, bool> viewFunction,
-            Func<Item, bool> selectedFunction= null)
+        public BannerItemBrowserView(Item[] items, BannerShopParameters shopParameters)
         {
             _scale = 1f;
             _scale = 1f;
@@ -49,11 +57,15 @@ namespace Stellamod.Common.UI
             //Setup drawing
             ClothesLineTextureAsset = ModContent.Request<Texture2D>(this.GetTypeDirectoryWithSlash() + "Clothesline");
             SlotTextureAsset = ModContent.Request<Texture2D>(this.GetTypeDirectoryWithSlash() + "Banner");
+            ShopParameters = shopParameters;
+            if (shopParameters.SlotTextureOverride != null)
+                SlotTextureAsset = shopParameters.SlotTextureOverride;
             Width.Set(32, 0f);
             Height.Set(32, 0f);
-            SelectFunction = selectFunction;
-            ViewFunction = viewFunction;
-            IsSelectedFunction = selectedFunction;
+            SelectFunction = shopParameters.SelectItemFunction;
+            ViewFunction = shopParameters.ViewItemFunction;
+            IsSelectedFunction = shopParameters.SelectedItemFunction;
+            DrawFunction = shopParameters.DrawFunction;
         }
 
         private void AddVelocity(UIMouseEvent evt, UIElement listeningElement)
@@ -83,11 +95,15 @@ namespace Stellamod.Common.UI
             SelectFunction(HoveringItem);
         }
 
+        public BannerShopParameters ShopParameters;
         public Asset<Texture2D> ClothesLineTextureAsset;
         public Asset<Texture2D> SlotTextureAsset;
         public readonly Action<Item> SelectFunction;
         public readonly Func<Item, bool> ViewFunction;
         public readonly Func<Item, bool> IsSelectedFunction;
+        public readonly Action<SpriteBatch, Item, BannerDrawParameters> DrawFunction;
+        public readonly Action<Item> HoverTooltipFunction;
+        public readonly Action BuyFunction;
         public Item[] Items;
         public Item HoveringItem;
         public float transitionInterpolant;
@@ -125,8 +141,16 @@ namespace Stellamod.Common.UI
 
             if (IsMouseHovering && _hovering)
             {
-                Main.HoverItem = HoveringItem;
-                Main.hoverItemName = HoveringItem.HoverName;
+                if (HoverTooltipFunction != null)
+                {
+                    HoverTooltipFunction(HoveringItem);
+                }
+                else
+                {
+                    Main.HoverItem = HoveringItem;
+                    Main.hoverItemName = HoveringItem.HoverName;
+                }
+      
             }
 
             Vector2 topLeft = rectangle.TopLeft();
@@ -237,11 +261,23 @@ namespace Stellamod.Common.UI
                     spriteBatch.End();
                     spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Additive, anisotropicClamp, DepthStencilState.None, Main.Rasterizer, whiteShader.Effect, Main.UIScaleMatrix);
 
-                    Vector2 offset = new Vector2(2, 2);
-                    ItemSlot.DrawItemIcon(item, _context, spriteBatch, iconCenterPos + new Vector2(offset.X, 0), drawScale * _scales[i] * extraScaleMul, 32, iconColor * transitionInterpolant);
-                    ItemSlot.DrawItemIcon(item, _context, spriteBatch, iconCenterPos - new Vector2(offset.X, 0), drawScale * _scales[i] * extraScaleMul, 32, iconColor * transitionInterpolant);
-                    ItemSlot.DrawItemIcon(item, _context, spriteBatch, iconCenterPos + new Vector2(0, offset.Y), drawScale * _scales[i] * extraScaleMul, 32, iconColor * transitionInterpolant);
-                    ItemSlot.DrawItemIcon(item, _context, spriteBatch, iconCenterPos - new Vector2(0, offset.Y), drawScale * _scales[i] * extraScaleMul, 32, iconColor * transitionInterpolant);
+                    if(ShopParameters.DrawWhitesFunction != null)
+                    {
+                        BannerDrawParameters drawParameters = new BannerDrawParameters();
+                        drawParameters.position = iconCenterPos;
+                        drawParameters.scale = drawScale * _scales[i] * extraScaleMul;
+                        drawParameters.color = iconColor * transitionInterpolant;
+                        ShopParameters.DrawWhitesFunction(spriteBatch, item, drawParameters);
+                    }
+                    else
+                    {
+                        Vector2 offset = new Vector2(2, 2);
+                        ItemSlot.DrawItemIcon(item, _context, spriteBatch, iconCenterPos + new Vector2(offset.X, 0), drawScale * _scales[i] * extraScaleMul, 32, iconColor * transitionInterpolant);
+                        ItemSlot.DrawItemIcon(item, _context, spriteBatch, iconCenterPos - new Vector2(offset.X, 0), drawScale * _scales[i] * extraScaleMul, 32, iconColor * transitionInterpolant);
+                        ItemSlot.DrawItemIcon(item, _context, spriteBatch, iconCenterPos + new Vector2(0, offset.Y), drawScale * _scales[i] * extraScaleMul, 32, iconColor * transitionInterpolant);
+                        ItemSlot.DrawItemIcon(item, _context, spriteBatch, iconCenterPos - new Vector2(0, offset.Y), drawScale * _scales[i] * extraScaleMul, 32, iconColor * transitionInterpolant);
+
+                    }
 
                     spriteBatch.End();
                     spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, anisotropicClamp, DepthStencilState.None, rasterizerState, default, Main.UIScaleMatrix);
@@ -254,7 +290,20 @@ namespace Stellamod.Common.UI
                     spriteBatch.Draw(glowDrawer);
                 }
 
-                ItemSlot.DrawItemIcon(item, _context, spriteBatch, iconCenterPos, drawScale * _scales[i] * extraScaleMul, 32, iconColor * transitionInterpolant);
+                if(DrawFunction != null)
+                {
+                    BannerDrawParameters drawParameters = new BannerDrawParameters();
+                    drawParameters.position = iconCenterPos;
+                    drawParameters.scale = drawScale * _scales[i] * extraScaleMul;
+                    drawParameters.color = iconColor * transitionInterpolant;
+                    DrawFunction(spriteBatch, item, drawParameters);
+                }
+                else
+                {
+                    ItemSlot.DrawItemIcon(item, _context, spriteBatch, iconCenterPos,
+                        drawScale * _scales[i] * extraScaleMul, 32, iconColor * transitionInterpolant);
+                }
+ 
                 if (HoveringItem.stack > 1)
                 {
                     ChatManager.DrawColorCodedStringWithShadow(spriteBatch, FontAssets.ItemStack.Value, item.stack.ToString(),
@@ -267,9 +316,18 @@ namespace Stellamod.Common.UI
                 {
                     _scales[i] = MathHelper.Lerp(_scales[i], 1.15f, 0.24f);
                     _hovering = true;
+
                     HoveringItem = item;
-                    Main.HoverItem = item;
-                    Main.hoverItemName = item.HoverName;
+                    if(HoverTooltipFunction != null)
+                    {
+                        HoverTooltipFunction(item);
+                    }
+                    else
+                    {
+                        Main.HoverItem = item;
+                        Main.hoverItemName = item.HoverName;
+                    }
+              
                 }
                 else
                 {

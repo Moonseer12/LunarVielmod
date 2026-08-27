@@ -9,8 +9,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FableBar>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FableBar>());
 
         }
     }
@@ -31,8 +30,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FableBigMushroom>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FableBigMushroom>());
 
         }
     }
@@ -53,8 +51,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FableSmallMushroom>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FableSmallMushroom>());
 
         }
     }
@@ -75,8 +72,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FableLog>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FableLog>());
 
         }
     }
@@ -97,8 +93,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FableBench>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FableBench>());
 
         }
     }
@@ -120,8 +115,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FableGrassMoss>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FableGrassMoss>());
 
         }
     }
@@ -142,8 +136,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FableGrassMossBig>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FableGrassMossBig>());
 
         }
     }
@@ -164,8 +157,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FablePike>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FablePike>());
 
         }
     }
@@ -186,8 +178,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FablePikeBig>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FablePikeBig>());
 
         }
     }
@@ -208,8 +199,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FableSpikes>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FableSpikes>());
 
         }
     }
@@ -230,8 +220,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FableStones>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FableStones>());
 
         }
     }
@@ -252,8 +241,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FableTable>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FableTable>());
 
         }
     }
@@ -274,8 +262,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<wall1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<wall1>());
 
         }
     }
@@ -296,8 +283,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<wall2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<wall2>());
 
         }
     }
@@ -318,8 +304,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<wall3>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<wall3>());
 
         }
     }
@@ -340,8 +325,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<wall4>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<wall4>());
 
         }
     }
@@ -362,8 +346,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<wall5>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<wall5>());
 
         }
     }
@@ -384,8 +367,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<wall6>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<wall6>());
 
         }
     }
@@ -406,8 +388,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<wall7>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<wall7>());
 
         }
     }
@@ -428,8 +409,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FableBookshelf1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FableBookshelf1>());
 
         }
     }
@@ -450,8 +430,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FableBookshelf2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FableBookshelf2>());
 
         }
     }
@@ -472,8 +451,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<FableBookshelf3>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FableBookshelf3>());
 
         }
     }

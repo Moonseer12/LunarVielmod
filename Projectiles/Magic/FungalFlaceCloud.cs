@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Dusts;
 using Terraria;
 using Terraria.ID;

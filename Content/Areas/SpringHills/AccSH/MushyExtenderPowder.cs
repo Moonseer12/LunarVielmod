@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Common.IgnitersNPowders;
 using Stellamod.Content.CommonMaterials;
 
@@ -28,11 +28,7 @@ namespace Stellamod.Content.Areas.SpringHills.AccSH
 
         public override void SetDefaults()
         {
-            Item.width = 24;
-            Item.height = 28;
-            Item.value = Item.sellPrice(silver: 25);
-            Item.rare = ItemRarityID.Pink;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -21,11 +21,7 @@ namespace Stellamod.Items.Accessories.Igniter
 
         public override void SetDefaults()
         {
-            Item.width = 24;
-            Item.height = 28;
-            Item.value = Item.sellPrice(gold: 5);
-            Item.rare = ItemRarityID.Pink;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

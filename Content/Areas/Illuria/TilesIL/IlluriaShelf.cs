@@ -9,10 +9,10 @@ namespace Stellamod.Content.Areas.Illuria.TilesIL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<IlluriaShelf1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<IlluriaShelf1>());
         }
     }
+
     public class IlluriaShelf1 : DecorativeWall
     {
         public override void SetStaticDefaults()
@@ -24,14 +24,11 @@ namespace Stellamod.Content.Areas.Illuria.TilesIL
         }
     }
 
-
-
     public class IlluriaShelf2Item : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<IlluriaShelf2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<IlluriaShelf2>());
         }
     }
     public class IlluriaShelf2 : DecorativeWall
@@ -45,15 +42,11 @@ namespace Stellamod.Content.Areas.Illuria.TilesIL
         }
     }
 
-
-
-
     public class IlluriaShelf3Item : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<IlluriaShelf3>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<IlluriaShelf3>());
         }
     }
     public class IlluriaShelf3 : DecorativeWall
@@ -67,18 +60,11 @@ namespace Stellamod.Content.Areas.Illuria.TilesIL
         }
     }
 
-
-
-
-
-
-
     public class IlluriaShelf4Item : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<IlluriaShelf4>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<IlluriaShelf4>());
         }
     }
     public class IlluriaShelf4 : DecorativeWall

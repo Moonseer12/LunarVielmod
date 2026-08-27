@@ -1,13 +1,9 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.BossBannerSystem;
-using Stellamod.Content.Areas.Desert.BossesCL.CommanderGintzia;
-using Stellamod.Content.Areas.SpringHills.BossesSH.Ravager;
 using Stellamod.Content.BossPages;
 using Stellamod.Core.Camera;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -28,18 +24,7 @@ public abstract class AbstractRelicItem<ItemClass, TileClass> : ModItem
 {
     public override void SetDefaults()
     {
-        Item.width = 12;
-        Item.height = 12;
-        Item.maxStack = Item.CommonMaxStack;
-        Item.master = true;
-        Item.masterOnly = true;
-        Item.useTurn = true;
-        Item.autoReuse = true;
-        Item.useAnimation = 10;
-        Item.useTime = 10;
-        Item.useStyle = ItemUseStyleID.Swing;
-        Item.consumable = true;
-        Item.createTile = ModContent.TileType<TileClass>();
+        Item.DefaultToPlaceableTile(ModContent.TileType<TileClass>());
     }
 }
 

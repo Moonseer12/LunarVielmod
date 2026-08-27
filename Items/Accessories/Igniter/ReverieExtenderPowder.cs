@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Common.IgnitersNPowders;
 using Stellamod.Content.CommonMaterials;
 using System.Collections.Generic;

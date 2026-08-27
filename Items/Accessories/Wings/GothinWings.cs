@@ -121,11 +121,7 @@ public class GothinWings : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 22;
-        Item.height = 20;
-        Item.value = 1;
-        Item.rare = ItemRarityID.LightRed;
-        Item.accessory = true;
+        Item.DefaultToAccessory();
     }
 
     public override void UpdateAccessory(Player player, bool hideVisual)

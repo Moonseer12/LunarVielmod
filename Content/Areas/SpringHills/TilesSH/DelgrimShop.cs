@@ -9,8 +9,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<DelgrimShop>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<DelgrimShop>());
         }
     }
 
@@ -25,7 +24,4 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
             //If you need other static defaults it go here
         }
     }
-
-
-
 }

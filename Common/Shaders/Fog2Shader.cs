@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿
 using ReLogic.Content;
 using Stellamod.Assets;
 using Terraria;

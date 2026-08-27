@@ -1,5 +1,5 @@
 ﻿
-using Microsoft.Xna.Framework;
+
 using Stellamod.Helpers;
 using Stellamod.Projectiles.Magic;
 using Stellamod.Projectiles.Slashers.Helios;

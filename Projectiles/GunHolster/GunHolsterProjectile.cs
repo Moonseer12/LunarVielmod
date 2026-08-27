@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using Stellamod.Buffs;
 using Stellamod.Common.ScorpionMountSystem;
 using Stellamod.Helpers;

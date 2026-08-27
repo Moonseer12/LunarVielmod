@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.UI;
 using Terraria;
 using Terraria.GameContent.UI.Elements;

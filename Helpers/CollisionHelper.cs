@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Core.LunarLightingSystem;
 using System;
 using Terraria;

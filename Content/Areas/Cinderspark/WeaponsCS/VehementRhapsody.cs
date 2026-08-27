@@ -1,5 +1,5 @@
 ﻿
-using Microsoft.Xna.Framework;
+
 using Stellamod.Buffs.Minions;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.SummonerSystem;

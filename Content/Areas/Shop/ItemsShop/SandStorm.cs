@@ -1,5 +1,5 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+
+
 using Stellamod.Assets;
 using Stellamod.Content.Areas.Illuria.BossesIL.EStyr;
 using Stellamod.Core.Bases;

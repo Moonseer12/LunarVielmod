@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Content.Areas.SpecialTiles.EffectTiles;
 using Terraria.ID;
 using Terraria.ModLoader;

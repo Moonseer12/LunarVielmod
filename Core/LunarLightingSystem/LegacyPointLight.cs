@@ -1,7 +1,7 @@
 ﻿
 
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+
+
 using Stellamod.Common.Shaders;
 using System;
 using Terraria;

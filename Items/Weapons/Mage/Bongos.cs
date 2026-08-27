@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles.IgniterExplosions;
 using Terraria;

@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using ReLogic.Content;
 using Stellamod.Common.UI;
 using Stellamod.Common.XixianFlaskSystem;

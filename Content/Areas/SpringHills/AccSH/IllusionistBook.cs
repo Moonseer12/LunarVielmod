@@ -11,11 +11,7 @@ namespace Stellamod.Content.Areas.SpringHills.AccSH
     {
         public override void SetDefaults()
         {
-            Item.width = 24;
-            Item.height = 28;
-            Item.value = Item.sellPrice(silver: 12);
-            Item.rare = ItemRarityID.Blue;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

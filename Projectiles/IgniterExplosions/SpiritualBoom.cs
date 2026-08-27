@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
 using Terraria;
 using Terraria.ModLoader;

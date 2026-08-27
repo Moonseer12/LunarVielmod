@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Projectiles;
 using System.Collections.Generic;
 using Terraria;

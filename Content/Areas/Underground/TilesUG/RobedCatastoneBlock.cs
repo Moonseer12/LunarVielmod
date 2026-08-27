@@ -1,5 +1,4 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Underground.TilesUG
@@ -22,16 +21,7 @@ namespace Stellamod.Content.Areas.Underground.TilesUG
     {
         public override void SetDefaults()
         {
-            Item.width = 12;
-            Item.height = 12;
-            Item.maxStack = Item.CommonMaxStack;
-            Item.useTurn = true;
-            Item.autoReuse = true;
-            Item.useAnimation = 5;
-            Item.useTime = 5;
-            Item.useStyle = ItemUseStyleID.Swing;
-            Item.consumable = true;
-            Item.createTile = ModContent.TileType<RobedCatastoneBlock>();
+            Item.DefaultToPlaceableTile(ModContent.TileType<RobedCatastoneBlock>());
         }
     }
 }

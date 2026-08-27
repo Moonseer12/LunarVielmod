@@ -1,4 +1,5 @@
-﻿using ReLogic.Content;
+﻿using Microsoft.Xna.Framework.Graphics.PackedVector;
+using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Assets.ContentReader.Aseprite;
 using Stellamod.Common.Shaders;
@@ -292,6 +293,11 @@ public partial class RekBoss : IWaterSilhouette
         {
             DrawSegmentWetWhite(i);
         }
+        for (int i = 1; i < Segments.Length; i++)
+        {
+      
+            DrawSaw(i);
+        }
     }
 
     public void PrepareSilhouetteDrawing(RekSilhouetteSystem system)
@@ -301,6 +307,10 @@ public partial class RekBoss : IWaterSilhouette
     private bool IsSegmentFacingLeft(int index) => Vector2.Dot(-Vector2.UnitX, Segments[index].rotation.ToRotationVector2()) > 0;
     private SpriteEffects GetSegmentSpriteEffects(int index)
     {
+        if (_saw)
+        {
+            return SpriteEffects.None;
+        }
         bool isFacingLeft = Vector2.Dot(-Vector2.UnitX, Segments[index].rotation.ToRotationVector2()) > 0;
         if (isFacingLeft)
         {
@@ -310,6 +320,8 @@ public partial class RekBoss : IWaterSilhouette
     }
     private void DrawSaw(int index)
     {
+        if (_saw && index % 2 == 0)
+            return;
         ref RekSegment segment = ref Segments[index];
         if (segment.sawBladeAlpha <= 0)
             return;
@@ -319,7 +331,7 @@ public partial class RekBoss : IWaterSilhouette
 
         drawer.rotation = segment.rotation;
         drawer.scale = Vector2.One * segment.sawBladeAlpha;
-        if (IsSegmentFacingLeft(index))
+        if (IsSegmentFacingLeft(index) && !_saw)
         {
             drawer.TopCenterOrigin();
             drawer.spriteEffects = SpriteEffects.FlipVertically | SpriteEffects.FlipHorizontally;
@@ -338,6 +350,38 @@ public partial class RekBoss : IWaterSilhouette
         Main.spriteBatch.Draw(drawer);
     }
 
+    private void DrawSpear()
+    {
+       
+        Vector2 GetDirection(int index)
+        {
+            switch (index)
+            {
+                default:
+                case 0:
+                    return Vector2.UnitY;
+                case 1:
+                    return -Vector2.UnitY;
+                case 2:
+                    return Vector2.UnitX;
+            }
+        }
+        for (int i = 0; i < _spearAlphas.Length; i++)
+        {
+            SpritebatchDrawer sprite = SpritebatchDrawer.FromTextureAsset(SpearTextureAsset, NPC.Center);
+            sprite.rotation = NPC.rotation;
+            sprite.VerticalFrame(i, _spearAlphas.Length);
+            sprite.LeftCenterOrigin();
+            sprite.drawOrigin.X += 32;
+            sprite.color = Color.Lerp(Color.Teal, Color.LightGreen, ExtraMath.Osc(0f, 1f, 16)) * 0.5f * _spearAlphas[i];
+            sprite.color.A = 0;
+            Vector2 offset = GetDirection(i);
+            offset *= MathHelper.Lerp(256, 0, _spearAlphas[i]);
+            sprite.worldPosition += offset;
+            Main.spriteBatch.Draw(sprite);
+        }
+    }
+
     private void DrawSegment(int index)
     {
         ref RekSegment segment = ref Segments[index];
@@ -345,6 +389,7 @@ public partial class RekBoss : IWaterSilhouette
         SpritebatchDrawer drawer = SpritebatchDrawer.FromTextureAsset(textureAsset, segment.position);
         drawer.rotation = segment.rotation;
         drawer.spriteEffects = GetSegmentSpriteEffects(index);
+        drawer.color = Color.Lerp(drawer.color, Color.Black, _huskAlpha * 0.4f);
         switch (segment.bodyFrame)
         {
             default:
@@ -569,7 +614,27 @@ public partial class RekBoss : IWaterSilhouette
             }
         }
 
+
+        if (_spearAlphas[0] > 0)
+        {
+
+            GlowingSwordMaskShader shader = GlowingSwordMaskShader.Instance;
+            shader.TrailTexture = TrailRegistry.BulbTrail;
+            shader.Distortion = 0.02f;
+            shader.DistortionTexture = TrailRegistry.WhispyTrail;
+            shader.Time = Main.GlobalTimeWrappedHourly * 16;
+            shader.Bloom = 0.8f;
+            shader.Tiling = Vector2.One * 0.75f;
+            shader.InnerColor = Color.Lerp(Color.OrangeRed, Color.DarkRed, ExtraMath.Osc(0f, 1f, 12));
+            shader.OuterColor = Color.DarkRed;
+            SpritebatchParams spearParams = SpritebatchParams.InWorldAndZoomed() with { effect = shader.Effect };
+            using (new SpritebatchContext(spriteBatch, spearParams))
+            {
+                DrawSpear();
+            }
+        }
         DrawAfterImages(spriteBatch, screenPos, drawColor);
+        drawColor = Color.Lerp(drawColor, Color.Black, _huskAlpha);
         NPC.DrawAnimator(spriteBatch, drawColor);
         if(_mouthAuraAlpha > 0)
         {

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Items.Weapons.Ranged.GunSwapping;
 using System.Collections.Generic;
 using Terraria;

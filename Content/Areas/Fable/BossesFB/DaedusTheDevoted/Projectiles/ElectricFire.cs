@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Core;
@@ -320,7 +320,7 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
 
         public override void OnKill(int timeLeft)
         {
-            SoundStyle shot = AssetRegistry.Sounds.Magic.RadiantCast1;
+            SoundStyle shot = AssetRegistry.Sounds.Magic.RadianceCast1;
             shot.PitchVariance = 0.3f;
             SoundEngine.PlaySound(shot, Projectile.position);
             SoundStyle shot2 = SoundID.DD2_BetsyFireballImpact;

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿
 using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Helpers;
 using System;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Terraria.ModLoader;
 using Terraria;
-using Microsoft.Xna.Framework;
+
 
 namespace Stellamod.Content.MoonlightMagic.Enchantments.Bloodlet
 {

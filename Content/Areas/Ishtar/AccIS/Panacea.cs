@@ -19,11 +19,7 @@ namespace Stellamod.Content.Areas.Ishtar.AccIS
     {
         public override void SetDefaults()
         {
-            Item.width = 28;
-            Item.height = 36;
-            Item.rare = ItemRarityID.LightRed;
-            Item.accessory = true;
-            Item.value = Item.sellPrice(gold: 2);
+            Item.DefaultToAccessory();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

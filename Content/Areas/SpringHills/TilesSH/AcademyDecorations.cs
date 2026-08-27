@@ -8,8 +8,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<WitchAcademyPoster>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<WitchAcademyPoster>());
         }
     }
 
@@ -28,8 +27,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<WitchAcademyBanner>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<WitchAcademyBanner>());
         }
     }
 
@@ -48,8 +46,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<WitchAcademyBookshelf>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<WitchAcademyBookshelf>());
         }
     }
 

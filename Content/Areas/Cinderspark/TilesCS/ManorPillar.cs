@@ -8,8 +8,7 @@ namespace Stellamod.Content.Areas.Cinderspark.TilesCS
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<ManorPillar>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<ManorPillar>());
         }
     }
     public class ManorPillar : DecorativeWall

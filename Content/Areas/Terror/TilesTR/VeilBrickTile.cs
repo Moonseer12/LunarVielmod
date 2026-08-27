@@ -24,16 +24,7 @@ namespace Stellamod.Content.Areas.Terror.TilesTR
     {
         public override void SetDefaults()
         {
-            Item.width = 12;
-            Item.height = 12;
-            Item.maxStack = Item.CommonMaxStack;
-            Item.useTurn = true;
-            Item.autoReuse = true;
-            Item.useAnimation = 2;
-            Item.useTime = 2;
-            Item.useStyle = ItemUseStyleID.Swing;
-            Item.consumable = true;
-            Item.createTile = ModContent.TileType<VeilBrickTile>();
+            Item.DefaultToPlaceableTile(ModContent.TileType<VeilBrickTile>());
         }
     }
 }

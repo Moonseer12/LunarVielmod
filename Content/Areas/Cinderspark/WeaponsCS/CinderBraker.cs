@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
@@ -9,7 +8,6 @@ using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
 using Stellamod.Helpers;
 using Stellamod.Items;
-using Stellamod.Items.Materials;
 using Stellamod.Projectiles.Swords;
 using Stellamod.Trailing;
 using Stellamod.Trails;
@@ -351,7 +349,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
                 SoundEngine.PlaySound(new SoundStyle($"{nameof(Stellamod)}/Assets/Sounds/MorrowExp"), Projectile.position);
                 SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Vinger2"), Projectile.position);
 
-                SoundStyle shot = AssetRegistry.Sounds.Magic.RadiantCast1;
+                SoundStyle shot = AssetRegistry.Sounds.Magic.RadianceCast1;
                 shot.PitchVariance = 0.3f;
                 SoundEngine.PlaySound(shot, Projectile.Bottom);
                 SoundStyle shot2 = SoundID.DD2_BetsyFireballImpact;

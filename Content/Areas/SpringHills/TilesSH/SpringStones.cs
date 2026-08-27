@@ -8,8 +8,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<StoneUnder>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<StoneUnder>());
         }
     }
 
@@ -29,8 +28,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<StoneObelisk>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<StoneObelisk>());
         }
     }
 
@@ -49,8 +47,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<StoneTomb>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<StoneTomb>());
         }
     }
 
@@ -69,8 +66,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<BrokenCarraige>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<BrokenCarraige>());
         }
     }
 

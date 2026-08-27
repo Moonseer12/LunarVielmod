@@ -9,11 +9,7 @@ namespace Stellamod.Content.Areas.WaterSide.AccWS
     {
         public override void SetDefaults()
         {
-            Item.width = 24;
-            Item.height = 28;
-            Item.value = Item.sellPrice(silver: 25);
-            Item.rare = ItemRarityID.Green;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

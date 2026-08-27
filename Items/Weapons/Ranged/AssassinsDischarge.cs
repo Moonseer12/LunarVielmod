@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Projectiles.Bow;
 using Terraria;
 using Terraria.ID;

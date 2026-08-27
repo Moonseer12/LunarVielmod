@@ -9,8 +9,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<GintzeCage1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<GintzeCage1>());
         }
     }
 
@@ -29,8 +28,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<GintzeCage2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<GintzeCage2>());
         }
     }
 
@@ -51,8 +49,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<GintzeCage3>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<GintzeCage3>());
         }
     }
 
@@ -73,8 +70,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<GintzeCage4>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<GintzeCage4>());
         }
     }
 
@@ -94,8 +90,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<GintzeCage5>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<GintzeCage5>());
         }
     }
 

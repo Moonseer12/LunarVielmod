@@ -12,40 +12,35 @@ namespace Stellamod.Content.Areas.SpringHills.TabletsSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringTablet>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringTablet>());
         }
     }
     public class SpringTabletDashItem : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringTabletDash>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringTabletDash>());
         }
     }
     public class SpringTabletStaminaItem : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringTabletStamina>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringTabletStamina>());
         }
     }
     public class SpringTabletBossItem : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringTabletBoss>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringTabletBoss>());
         }
     }
     public class SpringTabletXixianFlaskItem : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringTabletXixianFlask>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringTabletXixianFlask>());
         }
     }
     internal abstract class BaseTablet : DecorativeWall

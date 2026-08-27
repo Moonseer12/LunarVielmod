@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles;
 using Terraria;
 using Terraria.ID;
@@ -12,10 +11,7 @@ namespace Stellamod.Items.Accessories
         private float _starTimer;
         public override void SetDefaults()
         {
-            Item.width = 48;
-            Item.height = 42;
-            Item.rare = ItemRarityID.Lime;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

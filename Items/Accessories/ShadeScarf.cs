@@ -11,12 +11,7 @@ namespace Stellamod.Items.Accessories
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.width = 24;
-            Item.height = 28;
-            Item.value = Item.sellPrice(gold: 10);
-            Item.rare = ItemRarityID.Orange;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
         public override void AddRecipes()

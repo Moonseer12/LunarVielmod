@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Desert.BossesCL.Gustbeak.Projectiles;
 using Stellamod.Content.Areas.Desert.Event.Common;
@@ -10,7 +8,6 @@ using Stellamod.Core.Palettes;
 using Stellamod.Core.Utilities;
 using Stellamod.Content.Gores;
 using Stellamod.Helpers;
-using Stellamod.Items.Placeable;
 using Stellamod.Projectiles;
 using Stellamod.Visual.Particles;
 using System;

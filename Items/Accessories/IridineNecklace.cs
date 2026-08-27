@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 
 using Stellamod.Buffs;
 using Stellamod.Content.CommonMaterials;
@@ -55,10 +55,7 @@ namespace Stellamod.Items.Accessories
 
         public override void SetDefaults()
         {
-            Item.width = 20;
-            Item.height = 20;
-            Item.value = 2500;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
         public override void PostUpdate()

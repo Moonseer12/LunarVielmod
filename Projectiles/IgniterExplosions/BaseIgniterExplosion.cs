@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using Stellamod.Common.IgnitersNPowders;
 using Stellamod.Core.Pixelation;
 using Stellamod.Helpers;

@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using ReLogic.Content;
 using Stellamod.Assets;
 using System;
@@ -178,7 +178,7 @@ namespace Stellamod.Common.Shaders
             PrimaryTexture2 = TrailRegistry.SmallWhispyTrail;
             BloomTexture = TrailRegistry.VortexTrail;
             NoiseTexture = TrailRegistry.WhispyTrail;
-            DistortionTexture = AssetRegistry.Textures.Noise.Perlin;
+            DistortionTexture = AssetRegistry.Textures.Noise.PerlinNoise;
             Time = Main.GlobalTimeWrappedHourly * 8;
             Tiling = Vector2.One * 3;
         }

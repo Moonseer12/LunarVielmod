@@ -1,7 +1,4 @@
-﻿
-using Microsoft.Xna.Framework;
-using Stellamod.Dusts;
-using Stellamod.Items.Materials;
+﻿using Stellamod.Dusts;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -12,10 +9,7 @@ namespace Stellamod.Content.Areas.PunkerTown.TilesPT
         public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-
             DustType = ModContent.DustType<Solution>();
-            RegisterItemDrop(ModContent.ItemType<PunkWallBlock>());
-
             AddMapEntry(new Color(200, 200, 200));
         }
         public override void NumDust(int i, int j, bool fail, ref int num)

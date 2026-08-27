@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using ReLogic.Content;
 using Stellamod.Common.WeaponTypes;
 using Stellamod.Core.Tooltips;

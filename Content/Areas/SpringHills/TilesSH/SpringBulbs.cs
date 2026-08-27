@@ -9,8 +9,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<HangingBulbSmall>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<HangingBulbSmall>());
         }
     }
 
@@ -60,8 +59,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<HangingBulbLong>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<HangingBulbLong>());
         }
     }
     public class HangingBulbLong : BaseHangingBulbWall
@@ -101,8 +99,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<HangingBulbLarge>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<HangingBulbLarge>());
         }
     }
 

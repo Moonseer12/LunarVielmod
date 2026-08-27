@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using Microsoft.Xna.Framework.Input;
 using Stellamod.Helpers;
 using Stellamod.Projectiles.IgniterExplosions;

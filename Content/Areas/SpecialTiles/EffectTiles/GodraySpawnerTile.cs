@@ -11,8 +11,7 @@ namespace Stellamod.Content.Areas.SpecialTiles.EffectTiles
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<GodraySpawnerWall>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<GodraySpawnerWall>());
         }
     }
 

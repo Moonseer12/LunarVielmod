@@ -9,8 +9,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.TilesSN
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<LargeIceyStone>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<LargeIceyStone>());
         }
     }
 

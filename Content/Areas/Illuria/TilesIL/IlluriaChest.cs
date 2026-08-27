@@ -243,18 +243,7 @@ namespace Stellamod.Content.Areas.Illuria.TilesIL
     {
         public override void SetDefaults()
         {
-            Item.width = 26;
-            Item.height = 22;
-            Item.maxStack = 99;
-            Item.useTurn = true;
-            Item.autoReuse = true;
-            Item.useAnimation = 15;
-            Item.useTime = 10;
-            Item.useStyle = ItemUseStyleID.Swing;
-            Item.consumable = true;
-            Item.value = 500;
-            Item.createTile = ModContent.TileType<IlluriaChest>();
-            Item.placeStyle = 1;
+            Item.DefaultToPlaceableTile(ModContent.TileType<IlluriaChest>(), 1);
         }
     }
 }

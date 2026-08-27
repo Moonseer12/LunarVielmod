@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
@@ -172,7 +172,7 @@ namespace Stellamod.Common.HealthbarSystem
                 var shader = BossHealthbarShader.Instance;
                 shader.InnerColor = Color.Transparent;
                 shader.OuterColor = Color.White;
-                shader.NoiseTexture = AssetRegistry.Textures.Noise.Perlin;
+                shader.NoiseTexture = AssetRegistry.Textures.Noise.PerlinNoise;
 
                 spriteBatch.Draw(bossFillTexture.Value, fillTopLeft, null, Color.White * _easeInAlpha, 0f, default, _barFillScale, SpriteEffects.None, 0f);
 

@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Foggy;
@@ -91,16 +91,7 @@ namespace Stellamod.Content.Areas.SpecialTiles.EffectTiles
     {
         public override void SetDefaults()
         {
-            Item.width = 12;
-            Item.height = 12;
-            Item.maxStack = Item.CommonMaxStack;
-            Item.useTurn = true;
-            Item.autoReuse = true;
-            Item.useAnimation = 10;
-            Item.useTime = 10;
-            Item.useStyle = ItemUseStyleID.Swing;
-            Item.consumable = true;
-            Item.createTile = ModContent.TileType<FogSpawnerTile>();
+            Item.DefaultToPlaceableTile(ModContent.TileType<FogSpawnerTile>());
         }
     }
 }

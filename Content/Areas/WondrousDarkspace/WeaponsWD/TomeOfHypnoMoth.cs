@@ -11,8 +11,8 @@ using Stellamod.Dusts;
 using Stellamod.Helpers;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+
+
 using Stellamod.Projectiles;
 using Stellamod.Trails;
 using Terraria.GameContent;

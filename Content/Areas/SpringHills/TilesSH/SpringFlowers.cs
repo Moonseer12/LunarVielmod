@@ -8,8 +8,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringFlower>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringFlower>());
         }
     }
     public class SpringFlower : DecorativeWall
@@ -33,8 +32,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringFlowerBlueBush>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringFlowerBlueBush>());
         }
     }
     public class SpringFlowerBlueBush : DecorativeWall
@@ -58,8 +56,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringFlowerDarkPurple>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringFlowerDarkPurple>());
         }
     }
     public class SpringFlowerDarkPurple : DecorativeWall
@@ -84,8 +81,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringFlowerGrass>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringFlowerGrass>());
         }
     }
     public class SpringFlowerGrass : DecorativeWall
@@ -109,8 +105,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringFlowerGrassSmall>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringFlowerGrassSmall>());
         }
     }
     public class SpringFlowerGrassSmall : DecorativeWall
@@ -135,8 +130,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringFlowerPurpleBush>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringFlowerPurpleBush>());
         }
     }
     public class SpringFlowerPurpleBush : DecorativeWall
@@ -160,8 +154,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringFlowerPurpleLeaf>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringFlowerPurpleLeaf>());
         }
     }
     public class SpringFlowerPurpleLeaf : DecorativeWall
@@ -184,8 +177,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringFlowerRedBush>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringFlowerRedBush>());
         }
     }
     public class SpringFlowerRedBush : DecorativeWall
@@ -210,8 +202,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringFlowerVine>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringFlowerVine>());
         }
     }
     public class SpringFlowerVine : DecorativeWall
@@ -235,8 +226,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringFlowerWhite>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringFlowerWhite>());
         }
     }
     public class SpringFlowerWhite : DecorativeWall
@@ -260,8 +250,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringFlowerWhiteBud>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringFlowerWhiteBud>());
         }
     }
     public class SpringFlowerWhiteBud : DecorativeWall
@@ -285,8 +274,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SpringFlowerWhiteBudSmall>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SpringFlowerWhiteBudSmall>());
         }
     }
     public class SpringFlowerWhiteBudSmall : DecorativeWall

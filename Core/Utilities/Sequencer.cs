@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Microsoft.Xna.Framework.Input;
 using Stellamod.Common.BlackSystem;
 using Stellamod.Content.Areas.Illuria.BossesIL.EStyr;

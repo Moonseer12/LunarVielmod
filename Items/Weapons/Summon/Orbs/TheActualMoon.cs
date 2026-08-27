@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Buffs.Whipfx;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Helpers;

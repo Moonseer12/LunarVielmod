@@ -176,12 +176,7 @@ namespace Stellamod.Items.Accessories
 
         public override void SetDefaults()
         {
-            Item.width = 44;
-            Item.height = 46;
-            Item.value = Item.sellPrice(gold: 10);
-            Item.rare = ItemRarityID.Expert;
-            Item.accessory = true;
-            Item.expert = true;
+            Item.DefaultToAccessory();
         }
 
         public override void PostUpdate()

@@ -1,5 +1,5 @@
 ﻿
-using Microsoft.Xna.Framework;
+
 using Stellamod.Projectiles.Pikmin;
 using Terraria;
 using Terraria.Audio;

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Content.Areas.SpringHills.BossesSH.Jiitas.Projectiles;
 using Terraria;
 using Terraria.Audio;

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Common.ArmorRework;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Items;
@@ -12,10 +12,7 @@ namespace Stellamod.Content.Areas.WaterSide.AccWS
     {
         public override void SetDefaults()
         {
-            Item.Size = new Vector2(20);
-            Item.accessory = true;
-            Item.value = Item.sellPrice(silver: 12);
-            Item.rare = ItemRarityID.Blue;
+            Item.DefaultToAccessory();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

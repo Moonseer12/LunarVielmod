@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Helpers;
 using Stellamod.Projectiles.Paint;

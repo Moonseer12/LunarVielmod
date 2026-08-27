@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using Stellamod.Content.Areas.Illuria.WeaponsIL;
 using Stellamod.Helpers;
 using Terraria;

@@ -8,8 +8,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<EreshStatue>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<EreshStatue>());
         }
     }
 

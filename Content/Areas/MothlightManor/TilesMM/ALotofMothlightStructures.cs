@@ -10,8 +10,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightBanner>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightBanner>());
         }
     }
 
@@ -33,8 +32,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightBannerHanger>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightBannerHanger>());
         }
     }
 
@@ -56,8 +54,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightBannerSmall>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightBannerSmall>());
         }
     }
 
@@ -79,8 +76,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightBookshelf>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightBookshelf>());
         }
     }
 
@@ -102,8 +98,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightBowl>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightBowl>());
         }
     }
 
@@ -125,8 +120,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightChairLeft>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightChairLeft>());
         }
     }
 
@@ -148,8 +142,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightChairRight>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightChairRight>());
         }
     }
 
@@ -171,8 +164,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightClock>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightClock>());
         }
     }
 
@@ -194,8 +186,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightDoor>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightDoor>());
         }
     }
 
@@ -217,8 +208,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightFloor>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightFloor>());
         }
     }
 
@@ -240,8 +230,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightFlowerbed>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightFlowerbed>());
         }
     }
 
@@ -263,8 +252,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightHanger>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightHanger>());
         }
     }
 
@@ -286,8 +274,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightLeftStairs>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightLeftStairs>());
         }
     }
 
@@ -309,8 +296,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightRightStairs>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightRightStairs>());
         }
     }
 
@@ -332,8 +318,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightTable>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightTable>());
         }
     }
 
@@ -355,8 +340,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightWindow>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightWindow>());
         }
     }
 
@@ -380,8 +364,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightHighTable>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightHighTable>());
         }
     }
 
@@ -403,8 +386,7 @@ namespace Stellamod.Content.Areas.MothlightManor.TilesMM
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<MothlightPalendine>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<MothlightPalendine>());
         }
     }
 

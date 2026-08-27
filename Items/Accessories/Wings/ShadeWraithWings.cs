@@ -20,11 +20,7 @@ namespace Stellamod.Items.Accessories.Wings
 
         public override void SetDefaults()
         {
-            Item.width = 22;
-            Item.height = 20;
-            Item.value = Item.sellPrice(gold: 10);
-            Item.rare = ItemRarityID.LightRed;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,

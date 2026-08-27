@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using Stellamod.Helpers;
 using System.Collections.Generic;
 using Terraria;
@@ -22,9 +22,7 @@ namespace Stellamod.Core.Bases
 
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.rare = ItemRarityID.Green;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)

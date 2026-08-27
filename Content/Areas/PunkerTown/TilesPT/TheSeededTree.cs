@@ -8,8 +8,7 @@ namespace Stellamod.Content.Areas.PunkerTown.TilesPT
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<TheSeededTree>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<TheSeededTree>());
         }
     }
 

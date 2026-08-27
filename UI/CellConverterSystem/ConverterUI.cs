@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Terraria.GameContent.UI.Elements;
 
 namespace Stellamod.UI.CellConverterSystem

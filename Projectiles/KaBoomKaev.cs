@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Helpers;
 using Stellamod.Projectiles.IgniterExplosions;
 using System;

@@ -25,7 +25,6 @@ using Stellamod.Content.Armors.Jianxin;
 using Stellamod.Content.Armors.Lovestruck;
 using Stellamod.Content.Armors.Ulven;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Materials;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -76,20 +75,6 @@ namespace Stellamod.Common.ArmorShop
             SW.AddLegs(ModContent.ItemType<ShadeWraithLegs>());
             SW.SetMaterial(ItemID.GraniteBlock);
             SW.Register();
-
-            ArmorShopSet los = new();
-            los.AddHead(ModContent.ItemType<LovestruckMask>());
-            los.AddBody(ModContent.ItemType<LovestruckBreastplate>());
-            los.AddLegs(ModContent.ItemType<LovestruckLegs>());
-            los.SetMaterial(ModContent.ItemType<AuroreanStarI>());
-            los.Register();
-
-            ArmorShopSet astr = new();
-            astr.AddHead(ModContent.ItemType<AstrasilkHead>());
-            astr.AddBody(ModContent.ItemType<AstrasilkBody>());
-            astr.AddLegs(ModContent.ItemType<AstrasilkLegs>());
-            astr.SetMaterial(ModContent.ItemType<AuroreanStarI>());
-            astr.Register();
 
             ArmorShopSet GintzeSet = new();
             GintzeSet.AddHead(ModContent.ItemType<HeavyMetalHead>());

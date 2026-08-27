@@ -1,6 +1,6 @@
 ﻿
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+
+
 using Stellamod.Helpers;
 using Stellamod.NPCs.Bosses.Niivi.Projectiles;
 using System;

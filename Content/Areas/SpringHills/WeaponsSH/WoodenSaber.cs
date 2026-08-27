@@ -1,5 +1,5 @@
 ﻿
-using Microsoft.Xna.Framework;
+
 using Stellamod.Common.Players;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;

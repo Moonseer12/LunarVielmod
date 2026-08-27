@@ -1,8 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Buffs.Whipfx;
+﻿using Stellamod.Buffs.Whipfx;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Helpers;
-using Stellamod.Items.Materials;
 using Stellamod.Projectiles.Summons.Orbs;
 using System.Collections.Generic;
 using Terraria;
@@ -74,7 +72,7 @@ namespace Stellamod.Items.Weapons.Summon.Orbs
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankOrb>(), material: ModContent.ItemType<AuroreanStarI>());
+            this.RegisterBrew(mold: ModContent.ItemType<BlankOrb>(), material: ModContent.ItemType<AlcaricMush>());
         }
     }
 }

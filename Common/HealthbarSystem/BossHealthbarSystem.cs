@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Core;
 using Stellamod.UI;
 using System.Collections.Generic;

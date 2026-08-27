@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using Stellamod.Common;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;

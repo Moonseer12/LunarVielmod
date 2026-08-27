@@ -9,8 +9,7 @@ namespace Stellamod.Content.Areas.Fable.TilesFB
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<EreshkigalStatue>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<EreshkigalStatue>());
         }
     }
 

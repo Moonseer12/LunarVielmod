@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Content.Trailers;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;

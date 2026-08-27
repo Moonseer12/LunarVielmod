@@ -1,5 +1,5 @@
 ﻿
-using Microsoft.Xna.Framework;
+
 using Stellamod.Helpers;
 using Stellamod.Projectiles.Slashers.DelgrimsHammer;
 using System.Collections.Generic;

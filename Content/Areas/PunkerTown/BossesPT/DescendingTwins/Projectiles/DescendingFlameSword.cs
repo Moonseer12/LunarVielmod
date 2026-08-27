@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
@@ -102,7 +102,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectile
         public override bool PreDraw(ref Color lightColor)
         {
             DescendingFlameTrailShader flameTrailShader = DescendingFlameTrailShader.Instance;
-            flameTrailShader.LaserTexture = AssetRegistry.Textures.Noise.JungleWaterCaustics;
+            flameTrailShader.LaserTexture = AssetRegistry.NoiseTextures.JungleWaterCaustics;
 
             flameTrailShader.Tiling = Vector2.One * new Vector2(4, 0.85f);
             Color innerColor = GetTwinColor();

@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using ReLogic.Content;
 using Stellamod.Assets;
 using Terraria;
@@ -9,7 +9,7 @@ namespace Stellamod.Core.Effects
     {
         public FoggyShader()
         {
-            FogTexture = AssetRegistry.Textures.Noise.CloudsSmall;
+            FogTexture = AssetRegistry.Textures.Noise.SmallClouds;
             SourceSize = FogTexture.Size();
             EdgePower = 0.66f;
             ProgressPower = 2f;

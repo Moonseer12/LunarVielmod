@@ -290,18 +290,7 @@ namespace Stellamod.Content.Areas.PunkerTown.TilesPT
     {
         public override void SetDefaults()
         {
-            Item.width = 26;
-            Item.height = 22;
-            Item.maxStack = 99;
-            Item.useTurn = true;
-            Item.autoReuse = true;
-            Item.useAnimation = 15;
-            Item.useTime = 10;
-            Item.useStyle = ItemUseStyleID.Swing;
-            Item.consumable = true;
-            Item.value = 500;
-            Item.createTile = ModContent.TileType<MorrowChest>();
-            Item.placeStyle = 1; // Use this to place the chest in its locked style
+            Item.DefaultToPlaceableTile(ModContent.TileType<MorrowChest>(), 1);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.DataStructures;
@@ -22,11 +22,7 @@ namespace Stellamod.Items.Accessories
 
         public override void SetDefaults()
         {
-            Item.width = 32;
-            Item.height = 36;
-            Item.value = 2500;
-            Item.rare = ItemRarityID.LightRed;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

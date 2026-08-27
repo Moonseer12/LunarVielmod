@@ -3,7 +3,6 @@ using Stellamod.Content.MoonlightMagic;
 using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Content.MoonlightMagic.Forms;
 using Stellamod.Items;
-using Stellamod.Items.Materials;
 using System.Collections.Generic;
 using Terraria.ModLoader;
 

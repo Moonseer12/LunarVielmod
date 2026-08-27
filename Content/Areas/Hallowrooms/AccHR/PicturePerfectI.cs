@@ -121,11 +121,7 @@ namespace Stellamod.Content.Areas.Hallowrooms.AccHR
     {
         public override void SetDefaults()
         {
-            Item.width = 24;
-            Item.height = 28;
-            Item.value = Item.sellPrice(gold: 10);
-            Item.rare = ItemRarityID.LightPurple;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
 

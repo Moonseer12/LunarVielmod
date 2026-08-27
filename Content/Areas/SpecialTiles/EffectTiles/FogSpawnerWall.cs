@@ -2,7 +2,6 @@
 using Stellamod.Core.Foggy;
 using Stellamod.Core.LunarLightingSystem;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.SpecialTiles.EffectTiles
@@ -11,16 +10,7 @@ namespace Stellamod.Content.Areas.SpecialTiles.EffectTiles
     {
         public override void SetDefaults()
         {
-            Item.width = 12;
-            Item.height = 12;
-            Item.maxStack = Item.CommonMaxStack;
-            Item.useTurn = true;
-            Item.autoReuse = true;
-            Item.useAnimation = 15;
-            Item.useTime = 7;
-            Item.useStyle = ItemUseStyleID.Swing;
-            Item.consumable = true;
-            Item.createWall = ModContent.WallType<FogSpawnerWall>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<FogSpawnerWall>());
         }
     }
 
@@ -41,7 +31,7 @@ namespace Stellamod.Content.Areas.SpecialTiles.EffectTiles
         public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
         {
             LunarLightingRenderer fogSystem = ModContent.GetInstance<LunarLightingRenderer>();
-            Point point = new Point(i, j);
+            Point point = new(i, j);
             Fog fog = fogSystem.SetupFog(point, FogCreateFunction);
             fog.updateFunc = FogUpdateFunction;
             fog.shaderFunc = FogShaderFunction;

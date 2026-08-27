@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Content.MoonlightMagic.Elements;
 using System;
 using System.Collections.Generic;

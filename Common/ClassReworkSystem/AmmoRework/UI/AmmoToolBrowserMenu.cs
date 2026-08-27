@@ -1,16 +1,12 @@
-﻿using Stellamod.Assets;
+﻿using Stellamod.Common.ArmorShop.UI;
 using Stellamod.Common.UI;
-using Stellamod.Core;
-using Stellamod.Helpers;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI.Chat;
-using static Terraria.GameContent.Animations.IL_Actions.Sprites;
 
 namespace Stellamod.Common.ClassReworkSystem.AmmoRework.UI;
 
@@ -35,7 +31,7 @@ public class AmmoToolBrowserMenu : UIPanel
         base.OnInitialize();
         Width.Pixels = 428;
         Height.Pixels = 236;
-       // Append(_view);
+        // Append(_view);
     }
 
     private void Refresh()
@@ -52,7 +48,12 @@ public class AmmoToolBrowserMenu : UIPanel
                 itemList.AddRange(ItemHelper.Act2Ammos);
             if (actSystem.act3)
                 itemList.AddRange(ItemHelper.Act3Ammos);
-            View = new(itemList.ToArray(), SelectCombatTool, ViewCombatTool, HasSelectedCombatTool);
+            BannerShopParameters shopParameters = new();
+            shopParameters.AvailableItemsFunction = () => itemList.ToArray();
+            shopParameters.SelectItemFunction = SelectCombatTool;
+            shopParameters.ViewItemFunction = ViewCombatTool;
+            shopParameters.SelectedItemFunction = HasSelectedCombatTool;
+            View = new(shopParameters.AvailableItemsFunction(), shopParameters);
             View.Width.Pixels = Width.Pixels;
             View.Height.Pixels = Height.Pixels;
             View.Activate();
@@ -125,7 +126,7 @@ public class AmmoToolBrowserMenu : UIPanel
         string text3 = LangText.Common("MagicQuiver");
         Vector2 size3 = FontAssets.DeathText.Value.MeasureString(text3);
         ChatManager.DrawColorCodedStringWithShadow(spriteBatch, FontAssets.DeathText.Value, text3,
-            centerPos + new Vector2(0, -452),  Color.White * textAlpha, 0f, size3 * 0.5f, new Vector2(1f), -1f, 1f);
+            centerPos + new Vector2(0, -452), Color.White * textAlpha, 0f, size3 * 0.5f, new Vector2(1f), -1f, 1f);
 
 
     }

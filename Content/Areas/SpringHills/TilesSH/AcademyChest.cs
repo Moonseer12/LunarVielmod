@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Dusts;
-using Stellamod.Helpers;
+﻿using Stellamod.Dusts;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -17,18 +15,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
     {
         public override void SetDefaults()
         {
-            Item.width = 26;
-            Item.height = 22;
-            Item.maxStack = 99;
-            Item.useTurn = true;
-            Item.autoReuse = true;
-            Item.useAnimation = 15;
-            Item.useTime = 10;
-            Item.useStyle = ItemUseStyleID.Swing;
-            Item.consumable = true;
-            Item.value = 500;
-            Item.createTile = ModContent.TileType<AcademyChest>();
-            Item.placeStyle = 1; // Use this to place the chest in its locked style
+            Item.DefaultToPlaceableTile(ModContent.TileType<AcademyChest>(), 1);
         }
     }
     public class AcademyChest : ModTile

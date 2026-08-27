@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿
 using Stellamod.Assets;
 using Stellamod.Core.Palettes;
 using Terraria;

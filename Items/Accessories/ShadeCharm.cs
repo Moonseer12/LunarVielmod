@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,19 +7,9 @@ namespace Stellamod.Items.Accessories
 {
     public class ShadeCharm : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Shade Charm");
-            // Tooltip.SetDefault("Decreases Mana Cost and lights up in the night");
-        }
-
         public override void SetDefaults()
         {
-            Item.width = 20;
-            Item.height = 20;
-            Item.value = 2500;
-            Item.rare = ItemRarityID.Green;
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

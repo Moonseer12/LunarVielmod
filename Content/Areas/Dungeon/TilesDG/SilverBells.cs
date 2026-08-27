@@ -8,8 +8,7 @@ namespace Stellamod.Content.Areas.Dungeon.TilesDG
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SilverBell1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SilverBell1>());
         }
     }
     public class SilverBell1 : DecorativeWall
@@ -26,8 +25,7 @@ namespace Stellamod.Content.Areas.Dungeon.TilesDG
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SilverBell2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SilverBell2>());
         }
     }
     public class SilverBell2 : DecorativeWall
@@ -44,11 +42,9 @@ namespace Stellamod.Content.Areas.Dungeon.TilesDG
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SilverBell3>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SilverBell3>());
         }
     }
-
     public class SilverBell3 : DecorativeWall
     {
         public override void SetStaticDefaults()
@@ -59,13 +55,11 @@ namespace Stellamod.Content.Areas.Dungeon.TilesDG
             StructureColor = BackgroundColor;
         }
     }
-
     public class RoundBell1Item : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<RoundBell1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<RoundBell1>());
         }
     }
     public class RoundBell1 : DecorativeWall
@@ -82,8 +76,7 @@ namespace Stellamod.Content.Areas.Dungeon.TilesDG
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<RoundBell2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<RoundBell2>());
         }
     }
     public class RoundBell2 : DecorativeWall
@@ -96,17 +89,11 @@ namespace Stellamod.Content.Areas.Dungeon.TilesDG
 
         }
     }
-
-
-
-
-
     public class LittleBellPile1Item : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<LittleBellPile1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<LittleBellPile1>());
         }
     }
     public class LittleBellPile1 : DecorativeWall
@@ -118,16 +105,11 @@ namespace Stellamod.Content.Areas.Dungeon.TilesDG
             StructureColor = BackgroundColor;
         }
     }
-
-
-
-
     public class LittleBellPile2Item : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<LittleBellPile2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<LittleBellPile2>());
         }
     }
     public class LittleBellPile2 : DecorativeWall
@@ -139,14 +121,11 @@ namespace Stellamod.Content.Areas.Dungeon.TilesDG
             StructureColor = BackgroundColor;
         }
     }
-
-
     public class BigBellPile1Item : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<BigBellPile1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<BigBellPile1>());
         }
     }
     public class BigBellPile1 : DecorativeWall
@@ -158,15 +137,11 @@ namespace Stellamod.Content.Areas.Dungeon.TilesDG
             StructureColor = BackgroundColor;
         }
     }
-
-
-
     public class BigBellPile2Item : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<BigBellPile2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<BigBellPile2>());
         }
     }
     public class BigBellPile2 : DecorativeWall
@@ -178,16 +153,11 @@ namespace Stellamod.Content.Areas.Dungeon.TilesDG
             StructureColor = BackgroundColor;
         }
     }
-
-
-
-
     public class BellSigil1Item : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<BellSigil1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<BellSigil1>());
         }
     }
     public class BellSigil1 : DecorativeWall
@@ -200,14 +170,11 @@ namespace Stellamod.Content.Areas.Dungeon.TilesDG
             StructureColor = BackgroundColor;
         }
     }
-
-
     public class BellSigil2Item : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<BellSigil2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<BellSigil2>());
         }
     }
     public class BellSigil2 : DecorativeWall
@@ -220,14 +187,11 @@ namespace Stellamod.Content.Areas.Dungeon.TilesDG
             StructureColor = BackgroundColor;
         }
     }
-
-
     public class BellSigil3Item : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<BellSigil3>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<BellSigil3>());
         }
     }
     public class BellSigil3 : DecorativeWall
@@ -244,8 +208,7 @@ namespace Stellamod.Content.Areas.Dungeon.TilesDG
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<BellSigil4>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<BellSigil4>());
         }
     }
     public class BellSigil4 : DecorativeWall
@@ -258,14 +221,11 @@ namespace Stellamod.Content.Areas.Dungeon.TilesDG
             StructureColor = BackgroundColor;
         }
     }
-
-
     public class BellSigil5Item : DecorativeWallItem
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<BellSigil5>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<BellSigil5>());
         }
     }
     public class BellSigil5 : DecorativeWall

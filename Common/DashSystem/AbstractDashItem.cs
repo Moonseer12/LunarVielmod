@@ -8,7 +8,7 @@ namespace Stellamod.Common.DashSystem
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
         public override bool CanEquipAccessory(Player player, int slot, bool modded)
         {

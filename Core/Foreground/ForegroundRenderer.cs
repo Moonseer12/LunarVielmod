@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using Newtonsoft.Json.Linq;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Effects;

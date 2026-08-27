@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Common.ScorpionMountSystem;
 using System.Collections.Generic;
 using Terraria;

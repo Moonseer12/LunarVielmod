@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Terraria;
 using Terraria.ModLoader;
 
@@ -9,14 +9,7 @@ namespace Stellamod.Items.Accessories
     {
         public override void SetDefaults()
         {
-            Item.width = 24;
-            Item.height = 28;
-            Item.value = Item.buyPrice(platinum: 3);
-     
-            Item.accessory = true;
-
-
-
+            Item.DefaultToAccessory();
         }
 
 

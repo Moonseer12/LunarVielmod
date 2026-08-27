@@ -74,10 +74,7 @@ namespace Stellamod.Content.Areas.Desert.AccCL
     {
         public override void SetDefaults()
         {
-            Item.width = 26;
-            Item.height = 34;
-            Item.value = Item.sellPrice(gold: 1);
-            Item.accessory = true;
+            Item.DefaultToAccessory();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

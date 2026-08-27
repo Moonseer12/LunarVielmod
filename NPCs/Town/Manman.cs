@@ -1,5 +1,5 @@
-﻿using Stellamod.Core;
-using Stellamod.UI.ArmorShopSystem;
+using Stellamod.Common.ArmorShop.UI;
+using Stellamod.Core;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -108,7 +108,7 @@ namespace Stellamod.NPCs.Town
             });
         }
 
-     
+
         public override List<string> SetNPCNameList()
         {
             return new List<string>() {
@@ -148,7 +148,7 @@ namespace Stellamod.NPCs.Town
             Main.CloseNPCChatOrSign();
             CloseTownDialogue();
             Main.playerInventory = true;
-            ArmorShopUISystem uiSystem = ModContent.GetInstance<ArmorShopUISystem>();
+            ArmorShopSystem uiSystem = ModContent.GetInstance<ArmorShopSystem>();
             uiSystem.OpenUI();
 
         }

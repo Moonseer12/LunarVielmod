@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using Stellamod.Common.QuestSystem;
 using Stellamod.Core;
 using Stellamod.Core.DialogueSystem;

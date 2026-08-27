@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Projectiles.Visual;
 using Terraria;
 using Terraria.ModLoader;

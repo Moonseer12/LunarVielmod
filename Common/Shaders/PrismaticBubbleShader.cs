@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Trails;
@@ -103,7 +103,7 @@ namespace Stellamod.Common.Shaders
             BlendState = BlendState.Additive;
             Distortion = 0.5f;
             Power = 8;
-            NoiseTexture = AssetRegistry.Textures.Noise.Perlin;
+            NoiseTexture = AssetRegistry.Textures.Noise.PerlinNoise;
             Time = Main.GlobalTimeWrappedHourly * 2;
             Tiling = Vector2.One * 0.4f;
         }

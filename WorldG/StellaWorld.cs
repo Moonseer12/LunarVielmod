@@ -1,4 +1,4 @@
-﻿using Stellamod.Content.Areas;
+using Stellamod.Content.Areas;
 using Stellamod.Content.Areas.Cinderspark;
 using Stellamod.Content.Areas.Desert;
 using Stellamod.Content.Areas.Dungeon;

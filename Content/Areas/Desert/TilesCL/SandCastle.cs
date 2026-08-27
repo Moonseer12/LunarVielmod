@@ -7,8 +7,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SandCastle1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SandCastle1>());
         }
     }
 
@@ -23,8 +22,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SandCastle2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SandCastle2>());
         }
     }
 
@@ -39,8 +37,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SandCastle3>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SandCastle3>());
         }
     }
 
@@ -55,8 +52,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SandCastle4>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SandCastle4>());
         }
     }
 
@@ -71,8 +67,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SandCastle5>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SandCastle5>());
         }
     }
 
@@ -87,8 +82,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SandCastle6>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SandCastle6>());
         }
     }
 
@@ -103,8 +97,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SandCastle6>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SandCastle6>());
         }
     }
 
@@ -120,8 +113,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<SandEreshkigal>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<SandEreshkigal>());
         }
     }
 

@@ -7,8 +7,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<DesertCatacombPillar1>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<DesertCatacombPillar1>());
         }
     }
 
@@ -24,8 +23,7 @@ namespace Stellamod.Content.Areas.Desert.TilesCL
     {
         public override void SetDefaults()
         {
-            base.SetDefaults();
-            Item.createWall = ModContent.WallType<DesertCatacombPillar2>();
+            Item.DefaultToPlaceableWall(ModContent.WallType<DesertCatacombPillar2>());
         }
     }
 

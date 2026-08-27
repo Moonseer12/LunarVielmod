@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿
 using Stellamod.Items.Weapons.Ranged.GunSwapping;
 using Stellamod.Projectiles.GunHolster;
 using Terraria;

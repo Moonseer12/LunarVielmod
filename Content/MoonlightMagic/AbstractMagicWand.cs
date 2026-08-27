@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿
+
 using Stellamod.Common;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Common.MagicSystem.UI;

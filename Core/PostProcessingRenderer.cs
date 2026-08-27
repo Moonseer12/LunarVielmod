@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.LunarLightingSystem;
 using System;
