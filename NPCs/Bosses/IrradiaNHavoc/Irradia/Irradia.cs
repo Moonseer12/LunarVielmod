@@ -1,13 +1,9 @@
-﻿using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Weapons.Ranged.GunSwapping;
-using Stellamod.Items.Weapons.Thrown;
-using Stellamod.NPCs.Bosses.IrradiaNHavoc.Havoc.Projectiles;
+﻿using Stellamod.NPCs.Bosses.IrradiaNHavoc.Havoc.Projectiles;
 using Stellamod.NPCs.Bosses.IrradiaNHavoc.Projectiles;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 

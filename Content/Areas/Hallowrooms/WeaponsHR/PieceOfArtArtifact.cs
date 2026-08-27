@@ -9,7 +9,6 @@ using Stellamod.Core.Pixelation;
 using Stellamod.Core.Rendering;
 using Stellamod.Dusts;
 using Stellamod.Items;
-using Stellamod.Projectiles.Paint;
 using Stellamod.Projectiles.Visual;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;

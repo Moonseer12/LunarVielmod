@@ -1,15 +1,8 @@
 ﻿using Stellamod.Assets;
-using Stellamod.Buffs;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.Gothivia.Projectiles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Effects.GothinFlames;
-using Stellamod.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.ModLoader;
 

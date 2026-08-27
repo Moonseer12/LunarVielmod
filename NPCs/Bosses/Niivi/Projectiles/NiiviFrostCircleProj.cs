@@ -1,10 +1,4 @@
-﻿
-
-using Stellamod.Assets;
-using Stellamod.Buffs;
-using Stellamod.Helpers;
-using Stellamod.Trails;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 namespace Stellamod.NPCs.Bosses.Niivi.Projectiles
@@ -41,16 +35,6 @@ namespace Stellamod.NPCs.Bosses.Niivi.Projectiles
             else
             {
                 Alpha -= 0.01f;
-            }
-
-
-            foreach (var player in Main.ActivePlayers)
-            {
-                float distance = Vector2.Distance(Projectile.Center, player.Center);
-                if (distance > CircleRadius)
-                {
-                    player.AddBuff(ModContent.BuffType<FlamesOfIlluria>(), 2);
-                }
             }
         }
 

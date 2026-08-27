@@ -1,4 +1,4 @@
-﻿using Stellamod.Buffs.Minions;
+﻿using Stellamod.Common;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Core.Effects;
 using Stellamod.Dusts;

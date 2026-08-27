@@ -1,7 +1,7 @@
 using Stellamod.Assets;
-using Stellamod.Buffs;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Common.Shaders;
+using Stellamod.Content.Buffs;
 using Stellamod.Core;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;

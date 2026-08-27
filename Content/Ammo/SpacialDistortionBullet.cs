@@ -1,4 +1,4 @@
-﻿using Stellamod.Buffs;
+﻿using Stellamod.Content.Buffs;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

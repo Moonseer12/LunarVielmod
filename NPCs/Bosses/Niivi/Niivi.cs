@@ -1649,18 +1649,6 @@ namespace Stellamod.NPCs.Bosses.Niivi
         {
             LookDirection = DirectionToTarget;
             DefaultOrientation();
-            Timer++;
-            if (Timer == 1)
-            {
-                NPC.velocity = -Vector2.UnitY;
-                if (MultiplayerHelper.IsHost)
-                {
-                    int itemIndex = Item.NewItem(NPC.GetSource_FromThis(), NPC.getRect(),
-                        ModContent.ItemType<IridineNecklace>(), Main.rand.Next(1, 1));
-                    NetMessage.SendData(MessageID.SyncItem, -1, -1, null, itemIndex, 1f);
-                }
-
-            }
             NPC.dontTakeDamage = true;
             NPC.velocity *= 1.05f;
             TargetHeadRotation = NPC.Center.DirectionTo(Target.Center).ToRotation();

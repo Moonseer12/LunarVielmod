@@ -1,4 +1,4 @@
-﻿using Stellamod.Helpers;
+﻿using Stellamod.Content.Areas.Junkyard.WeaponsJY;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

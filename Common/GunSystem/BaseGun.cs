@@ -1,16 +1,7 @@
-﻿
-
-using Microsoft.Xna.Framework.Input;
-using Stellamod.Assets;
-using Stellamod.Buffs;
-using Stellamod.Common.ArmorRework;
+﻿using Stellamod.Common.ArmorRework;
 using Stellamod.Common.Shaders;
-using Stellamod.Core.Particles;
-using Stellamod.Core.Utilities;
-using Stellamod.Dusts;
 using Stellamod.Effects.Generic;
 using Stellamod.Content.Gores;
-using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;
@@ -20,7 +11,6 @@ using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Common.GunSystem
 {

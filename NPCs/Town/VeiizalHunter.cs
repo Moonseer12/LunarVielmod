@@ -1,9 +1,9 @@
 ﻿using Stellamod.Common.QuestSystem;
+using Stellamod.Content.GunSwapping;
 using Stellamod.Content.Quests.VeiizalQuest;
 using Stellamod.Core;
 using Stellamod.Items.Weapons.Melee.Swords;
 using Stellamod.Items.Weapons.Ranged;
-using Stellamod.Items.Weapons.Ranged.GunSwapping;
 using Stellamod.Items.Weapons.Thrown;
 using System;
 using System.Collections.Generic;
@@ -173,11 +173,7 @@ namespace Stellamod.NPCs.Town
             .Add<AssassinsKnife>()
             .Add<AssassinsShuriken>()
             .Add<AssassinsSlash>()
-            .Add(new Item(ItemID.ThrowingKnife) { shopCustomPrice = Item.buyPrice(copper: 5) })
-            .Add(new Item(ItemID.Shuriken) { shopCustomPrice = Item.buyPrice(copper: 5) })
-            .Add(new Item(ItemID.BorealWood) { shopCustomPrice = Item.buyPrice(copper: 7) })
-            .Add(new Item(ItemID.ApplePie) { shopCustomPrice = Item.buyPrice(silver: 50) })
-            .Add<AssassinsRecharge>(Condition.DownedGolem);
+            .Add<AssassinsRecharge>();
             npcShop.Register(); // Name of this shop t
         }
     }

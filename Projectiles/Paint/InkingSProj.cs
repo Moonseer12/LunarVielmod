@@ -1,4 +1,5 @@
 ﻿using Stellamod.Content.Areas.Hallowrooms.ArmorHR;
+using Stellamod.Content.Areas.Hallowrooms.WeaponsHR;
 using Stellamod.Dusts;
 using Stellamod.Projectiles.Visual;
 using System;

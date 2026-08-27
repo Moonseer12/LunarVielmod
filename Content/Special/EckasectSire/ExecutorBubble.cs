@@ -1,0 +1,52 @@
+﻿using Terraria;
+using Terraria.ModLoader;
+
+namespace Stellamod.Content.Special.EckasectSire
+{
+    public class ExecutorBubble : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            Main.projFrames[Projectile.type] = 60;
+        }
+        public override void SetDefaults()
+        {
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Magic;
+            Projectile.width = 53;
+            Projectile.height = 53;
+            Projectile.penetrate = -1;
+            Projectile.tileCollide = false;
+            Projectile.timeLeft = 1280;
+            Projectile.scale = 1.5f;
+
+        }
+        public float Timer
+        {
+            get => Projectile.ai[0];
+            set => Projectile.ai[0] = value;
+        }
+
+        public override void AI()
+        {
+            if (++Projectile.frameCounter >= 1)
+            {
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 60)
+                {
+                    Projectile.frame = 0;
+                }
+            }
+            Projectile.scale *= 0.96f;
+            if (Projectile.scale <= 0)
+            {
+                Projectile.Kill();
+            }
+        }
+
+        public override void PostDraw(Color lightColor)
+        {
+            Lighting.AddLight(Projectile.Center, Color.Orange.ToVector3() * 1.75f * Main.essScale);
+        }
+    }
+}

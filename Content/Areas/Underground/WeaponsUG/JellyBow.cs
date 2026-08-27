@@ -1,9 +1,5 @@
-
-
 using Stellamod.Core.Bases;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Projectiles.IgniterExplosions;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -15,8 +11,6 @@ namespace Stellamod.Content.Areas.Underground.WeaponsUG
 {
     public class JellyBow : BaseCrossbowItem
     {
-
-
         public override void SetDefaults()
         {
             base.SetDefaults();

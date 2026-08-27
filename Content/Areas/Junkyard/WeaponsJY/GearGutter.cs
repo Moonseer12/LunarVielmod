@@ -1,20 +1,16 @@
-﻿
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Items;
-using Stellamod.Projectiles;
-using Stellamod.Projectiles.Gun;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Content.Areas.Junkyard.WeaponsJY;
 

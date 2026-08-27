@@ -1,7 +1,5 @@
-﻿
-
-using Stellamod.Common.ScorpionMountSystem;
-using Stellamod.Items.Weapons.Ranged.GunSwapping;
+﻿using Stellamod.Common.ScorpionMountSystem;
+using Stellamod.Content.GunSwapping;
 using Terraria;
 using Terraria.GameInput;
 using Terraria.ID;

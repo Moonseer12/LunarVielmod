@@ -1,12 +1,10 @@
 ﻿using Stellamod.Common.QuestSystem;
 using Stellamod.Content.Areas.Junkyard.WeaponsJY;
-using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.GunSwapping;
 using Stellamod.Content.Quests.DelgrimQuest;
 using Stellamod.Core;
-using Stellamod.Helpers;
 using Stellamod.Items.Weapons.Melee.Greatswords;
 using Stellamod.Items.Weapons.Ranged;
-using Stellamod.Items.Weapons.Ranged.GunSwapping;
 using Stellamod.UI.CellConverterSystem;
 using System;
 using System.Collections.Generic;

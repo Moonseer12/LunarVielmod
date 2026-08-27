@@ -1,6 +1,5 @@
-﻿
-using Stellamod.Assets;
-using Stellamod.Helpers;
+﻿using Stellamod.Assets;
+using Stellamod.Content.Areas.Junkyard.WeaponsJY;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

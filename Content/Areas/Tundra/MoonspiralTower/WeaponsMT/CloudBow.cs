@@ -1,7 +1,6 @@
-using Stellamod.Buffs;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Helpers;
+using Stellamod.Dusts;
 using Stellamod.Items;
 using System;
 using Terraria;
@@ -11,7 +10,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT;
-
 
 public class CloudBow : BaseCrossbowItem
 {
@@ -75,8 +73,6 @@ public class CloudBow : BaseCrossbowItem
     }
 }
 
-
-
 public class WobblingCloud : ModProjectile
 {
     private ref float Timer => ref Projectile.ai[0];
@@ -98,7 +94,6 @@ public class WobblingCloud : ModProjectile
         Projectile.localNPCHitCooldown = 15;
         Projectile.tileCollide = false;
     }
-
 
     public override void AI()
     {
@@ -127,14 +122,7 @@ public class WobblingCloud : ModProjectile
         Projectile.scale = outScale;
         DrawHelper.AnimateTopToBottom(Projectile, 4);
     }
-
 }
-
-
-
-
-
-
 
 public class CloudArrow : ModProjectile
 {
@@ -177,5 +165,42 @@ public class CloudArrow : ModProjectile
         {
             Dust.NewDustPerfect(Projectile.Center, DustID.Cloud, Projectile.velocity.RotatedByRandom(MathHelper.PiOver4) * 0.1f, 0, Color.White, Main.rand.NextFloat(1f, 2f)).noGravity = true;
         }
+    }
+}
+
+public class Clouded : ModBuff
+{
+    public override void SetStaticDefaults()
+    {
+        Main.debuff[Type] = true;
+        Main.pvpBuff[Type] = true;
+        Main.buffNoTimeDisplay[Type] = false;
+    }
+
+    public override void Update(NPC npc, ref int buffIndex)
+    {
+        base.Update(npc, ref buffIndex);
+        if (Main.rand.NextBool(8))
+        {
+            Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<GlyphDust>(), newColor: Color.White, Scale: Main.rand.NextFloat(0.5f, 1.5f));
+        }
+        float risingSpeed = -2f;
+
+        npc.defDefense -= 15;
+        npc.lifeRegen -= 4;
+        if (npc.velocity.Y > risingSpeed)
+            npc.velocity.Y = MathHelper.Lerp(npc.velocity.Y, risingSpeed, 0.5f);
+    }
+
+    public override void Update(Player player, ref int buffIndex)
+    {
+        if (Main.rand.NextBool(8))
+        {
+            Dust.NewDust(player.position, player.width, player.height, ModContent.DustType<GlyphDust>(), newColor: Color.White, Scale: Main.rand.NextFloat(0.5f, 1.5f));
+        }
+
+        float risingSpeed = -2f;
+        if (player.velocity.Y > risingSpeed)
+            player.velocity.Y = MathHelper.Lerp(player.velocity.Y, risingSpeed, 0.5f);
     }
 }

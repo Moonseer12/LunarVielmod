@@ -1,5 +1,4 @@
-﻿using Stellamod.Buffs;
-using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Content.CommonMaterials;
 using Stellamod.Items;
 using Terraria;
 using Terraria.Audio;
@@ -19,7 +18,7 @@ namespace Stellamod.Content.Areas.Jungle.AccJN
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             //Infinite Flight but only when you run out
-            if (player.wingTime <= 2 && player.controlJump && !player.HasBuff<Zuid>())
+            if (player.wingTime <= 2 && player.controlJump)
             {
                 player.AddBuff(BuffID.OnFire, 2);
                 player.lifeRegen -= 32;

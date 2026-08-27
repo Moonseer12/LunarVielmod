@@ -3,6 +3,7 @@ using Stellamod.Common.IgnitersNPowders;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.WeaponUpgrade.UI;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Core.Bases;
 using Stellamod.Core.Palettes;
 using Stellamod.Items;
 using Stellamod.Projectiles;

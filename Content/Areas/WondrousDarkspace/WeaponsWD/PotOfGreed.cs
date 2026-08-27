@@ -1,4 +1,4 @@
-﻿using Stellamod.Buffs.Minions;
+﻿using Stellamod.Common;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core;
 using Stellamod.Core.Effects;
@@ -15,6 +15,8 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
 {
+    public class PotOfGreedMinionBuff : MinionBuff<PotOfGreedMinionProj> { }
+
     public class PotOfGreed : ModItem
     {
         public override void SetDefaults()

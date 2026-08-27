@@ -1,4 +1,4 @@
-﻿using Stellamod.Projectiles.Arrows;
+﻿using Stellamod.Content.Ammo;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

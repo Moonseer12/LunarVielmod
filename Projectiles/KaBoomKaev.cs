@@ -1,6 +1,4 @@
-﻿
-using Stellamod.Helpers;
-using Stellamod.Projectiles.IgniterExplosions;
+﻿using Stellamod.Core.Bases;
 using System;
 using Terraria;
 

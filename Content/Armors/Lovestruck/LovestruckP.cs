@@ -1,6 +1,4 @@
-﻿
-using Stellamod.Buffs;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,10 +6,6 @@ namespace Stellamod.Content.Armors.Lovestruck
 {
     public class LovestruckP : ModProjectile
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Death Lovestruck");
-        }
         public override void SetDefaults()
         {
             Projectile.friendly = true;
@@ -24,39 +18,8 @@ namespace Stellamod.Content.Armors.Lovestruck
 
 
         }
-        public float Timer
-        {
-            get => Projectile.ai[0];
-            set => Projectile.ai[0] = value;
-        }
-
         public override void AI()
         {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             float maxDetectRadius = 2000f; // The maximum radius at which a projectile can detect a target
             float projSpeed = 22f; // The speed at which the projectile moves towards the target
 
@@ -93,7 +56,7 @@ namespace Stellamod.Content.Armors.Lovestruck
                 // 4. can take damage (e.g. moonlord core after all it's parts are downed)
                 // 5. hostile (!friendly)
                 // 6. not immortal (e.g. not a target dummy)
-                if (target.CanBeChasedBy() && target.HasBuff<Dusted>())
+                if (target.CanBeChasedBy())
                 {
                     // The DistanceSquared function returns a squared distance between 2 points, skipping relatively expensive square root calculations
                     float sqrDistanceToTarget = Vector2.DistanceSquared(target.Center, Projectile.Center);
@@ -133,5 +96,3 @@ namespace Stellamod.Content.Armors.Lovestruck
         }
     }
 }
-
-

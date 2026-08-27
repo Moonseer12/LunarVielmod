@@ -1,6 +1,4 @@
-﻿
-using Stellamod.Items.Weapons.Ranged.GunSwapping;
-using Stellamod.Projectiles.GunHolster;
+﻿using Stellamod.Content.GunSwapping;
 using Terraria;
 using Terraria.ModLoader;
 

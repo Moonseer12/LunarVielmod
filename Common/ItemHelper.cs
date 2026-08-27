@@ -3,7 +3,6 @@ using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Content.Ammo;
 using Stellamod.Content.Bar.Drinks;
 using Stellamod.Content.MoonlightMagic;
-using Stellamod.Projectiles.Arrows;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -116,9 +115,9 @@ namespace Stellamod.Common
                 ammos.Add(new Item(type));
             }
 
-            Act1Ammos = new List<Item>();
-            Act2Ammos = new List<Item>();
-            Act3Ammos = new List<Item>();
+            Act1Ammos = new();
+            Act2Ammos = new();
+            Act3Ammos = new();
 
             AddAmmo(ItemID.WoodenArrow);
             AddAmmo(ItemID.HellfireArrow);
@@ -129,7 +128,6 @@ namespace Stellamod.Common
             AddAmmo(ItemID.BoneArrow);
   
             AddAmmo(ItemID.ShimmerArrow);
-            //AddAmmo(ModContent.ItemType<BladedA>)
             AddAmmo(ItemID.MusketBall);
             AddAmmo(ItemID.SilverBullet);
             AddAmmo(ItemID.MeteorShot);
@@ -158,11 +156,9 @@ namespace Stellamod.Common
             AddAmmo(ItemID.IchorBullet);
 
             act = 2;
-            AddAmmo(ModContent.ItemType<FlowerArrowItem>());
+            AddAmmo(ModContent.ItemType<LiliumArrow>());
             AddAmmo(ModContent.ItemType<RadiantArrow>());
             AddAmmo(ItemID.MoonlordArrow);
-            //Bladed Arrow
-            //AddAmmo(ModContent.ItemType<Blaa>)
             AddAmmo(ItemID.MoonlordBullet);
             AddAmmo(ItemID.ChlorophyteBullet);
         }

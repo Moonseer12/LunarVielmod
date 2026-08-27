@@ -1,8 +1,4 @@
-﻿
-
-
-
-using Stellamod.Buffs;
+﻿using Stellamod.Content.Buffs;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;

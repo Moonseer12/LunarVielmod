@@ -1,14 +1,10 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Content.Areas.Hallowrooms.WeaponsHR;
 using Stellamod.Dusts;
-using Stellamod.Trails;
 using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 

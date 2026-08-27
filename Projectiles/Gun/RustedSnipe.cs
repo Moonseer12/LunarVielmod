@@ -1,8 +1,4 @@
-﻿
-
-using Stellamod.Assets;
-using Stellamod.Helpers;
-using Stellamod.Trails;
+﻿using Stellamod.Content.Areas.Junkyard.WeaponsJY;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

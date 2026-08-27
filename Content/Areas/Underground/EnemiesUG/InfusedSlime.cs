@@ -1,5 +1,5 @@
 ﻿using Stellamod.Common;
-using Stellamod.Items.Weapons.Ranged.GunSwapping;
+using Stellamod.Content.GunSwapping;
 using Stellamod.Projectiles;
 using System;
 using Terraria;

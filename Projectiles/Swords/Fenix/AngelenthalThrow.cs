@@ -1,12 +1,8 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Content.Areas.RoyalCapital.WeaponsRC;
 using Stellamod.Projectiles.IgniterExplosions;
-using Stellamod.Trails;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;

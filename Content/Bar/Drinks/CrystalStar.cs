@@ -38,4 +38,14 @@ namespace Stellamod.Content.Bar.Drinks
             return true;
         }
     }
+
+    public class CrystalLuck : ModBuff
+    {
+        public override void SetStaticDefaults()
+        {
+            Main.debuff[Type] = true;
+            Main.pvpBuff[Type] = true;
+            Main.buffNoTimeDisplay[Type] = false;
+        }
+    }
 }

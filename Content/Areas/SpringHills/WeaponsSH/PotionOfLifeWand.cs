@@ -1,16 +1,8 @@
-﻿
-
-using Stellamod.Buffs.Minions;
-using Stellamod.Common.SummonerSystem;
+﻿using Stellamod.Common.SummonerSystem;
 using Stellamod.Content.CommonMaterials;
-
 using Stellamod.Core.Bases;
-using Stellamod.Helpers;
 using Stellamod.Items;
-using Stellamod.Projectiles.Summons.Minions;
-using Stellamod.Trails;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 

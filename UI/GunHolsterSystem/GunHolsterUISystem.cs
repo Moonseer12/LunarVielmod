@@ -1,5 +1,4 @@
-﻿
-using Stellamod.Items.Weapons.Ranged.GunSwapping;
+﻿using Stellamod.Content.GunSwapping;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;

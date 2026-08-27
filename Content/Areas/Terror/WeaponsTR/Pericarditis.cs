@@ -2,10 +2,7 @@
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
 using Stellamod.Items;
-using Stellamod.Projectiles;
-using Stellamod.Projectiles.Magic;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -57,7 +54,6 @@ public class PericarditisProj : ModProjectile
     private ref float Timer => ref Projectile.ai[0];
     public override void SetStaticDefaults()
     {
-        // DisplayName.SetDefault("Pericarditis");
         ProjectileID.Sets.TrailCacheLength[Projectile.type] = 8;
         ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
     }
@@ -164,7 +160,7 @@ public class PericarditisProj : ModProjectile
         p3.Scale *= 3f;
         for (float n = 0; n < 6f; n++)
         {
-            var spawnParams = new DustParticleSpawnParams();
+            DustParticleSpawnParams spawnParams = new();
             spawnParams.innerColor = Color.White;
             spawnParams.outerColor = Color.DarkRed;
             spawnParams.scaleRange = new Vector2(0.1f, 1f);
@@ -177,6 +173,30 @@ public class PericarditisProj : ModProjectile
                                       ModContent.ProjectileType<BloodWaterProj>(), Projectile.damage / 2, 1f, Projectile.owner);
             Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
                 ModContent.ProjectileType<PericarditisBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+        }
+    }
+}
+    
+public class PericarditisBoom : BaseIgniterExplosion
+{
+    public override int FrameCount => 30;
+    public override void Start()
+    {
+        base.Start();
+        if (Main.myPlayer == Projectile.owner)
+        {
+            FXUtil.GlowCircleBoom(Projectile.Center, Color.Red, Color.DarkRed, Color.Purple);
+            SoundEngine.PlaySound(SoundID.DD2_ExplosiveTrapExplode, Projectile.position);
+            SoundEngine.PlaySound(SoundID.DD2_BetsysWrathImpact, Projectile.position);
+        }
+    }
+
+    public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+    {
+        base.OnHitNPC(target, hit, damageDone);
+        if (Main.rand.NextBool(3))
+        {
+            target.AddBuff(BuffID.Bleeding, 120);
         }
     }
 }

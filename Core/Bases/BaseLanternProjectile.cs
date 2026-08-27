@@ -1,14 +1,8 @@
-﻿
-
-using Stellamod.Buffs;
-using Stellamod.Common.ArmorReforge;
+﻿using Stellamod.Common.ArmorReforge;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.LunarLightingSystem;
-using Stellamod.Helpers;
 using System.IO;
-using System.Reflection;
 using Terraria;
-using Terraria.Graphics.Light;
 using Terraria.ID;
 using Terraria.ModLoader;
 

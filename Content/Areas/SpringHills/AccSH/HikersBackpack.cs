@@ -1,5 +1,4 @@
 ﻿using Stellamod.Content.CommonMaterials;
-
 using Stellamod.Items;
 using Terraria;
 using Terraria.ID;
@@ -13,7 +12,7 @@ namespace Stellamod.Content.Areas.SpringHills.AccSH
         {
             Projectile.width = 10;
             Projectile.height = 10;
-            Projectile.aiStyle = 14;
+            Projectile.aiStyle = ProjAIStyleID.GroundProjectile;
             Projectile.friendly = true;
             Projectile.DamageType = DamageClass.Summon;
             Projectile.penetrate = 10;

@@ -1,6 +1,4 @@
-﻿using Stellamod.Buffs;
-using Stellamod.Common.Particles;
-using Stellamod.Content.Areas.Tundra.Abyss;
+﻿using Stellamod.Common.Particles;
 using Stellamod.Content.Areas.Fable;
 using Stellamod.Content.Areas.SpringHills;
 using Stellamod.Content.Areas.Tundra.Abyss;
@@ -74,10 +72,6 @@ namespace Stellamod.Content.Areas
         }
         public override void PostUpdate()
         {
-            if (ZoneIshtar)// && !DownedBossTracker.IsDowned(DownedBossFlag.Zui))
-            {
-                Main.LocalPlayer.AddBuff(ModContent.BuffType<SigfriedsInsanity>(), 10);
-            }
             if (ZoneIlluria)
             {
                 if (Main.shimmerAlpha <= 1)

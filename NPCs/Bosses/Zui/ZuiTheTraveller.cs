@@ -1,5 +1,4 @@
-﻿using Stellamod.Buffs;
-using Stellamod.NPCs.Bosses.Zui.Projectiles;
+﻿using Stellamod.NPCs.Bosses.Zui.Projectiles;
 using System;
 using System.IO;
 using Terraria;
@@ -406,7 +405,6 @@ namespace Stellamod.NPCs.Bosses.Zui
             Lighting.AddLight(NPC.Center, RGB.X, RGB.Y, RGB.Z);
 
             Player player = Main.player[NPC.target];
-            player.AddBuff(ModContent.BuffType<Zuid>(), 30);
 
             if (!NPC.HasValidTarget)
             {

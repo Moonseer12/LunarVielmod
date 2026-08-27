@@ -1,7 +1,5 @@
-﻿
-using Stellamod.Buffs;
-using Stellamod.Helpers;
-using Stellamod.Projectiles.IgniterExplosions;
+﻿using Stellamod.Content.Buffs;
+using Stellamod.Core.Bases;
 using Terraria;
 using Terraria.ModLoader;
 

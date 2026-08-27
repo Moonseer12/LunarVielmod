@@ -1,8 +1,6 @@
 ﻿using ReLogic.Content;
-using Stellamod.Buffs;
 using Stellamod.Common.ArmorRework;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+using Stellamod.Content.Areas.Illuria.AccIL;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;

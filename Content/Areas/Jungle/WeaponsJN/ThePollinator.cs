@@ -1,11 +1,10 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.OrbSystem;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Dusts;
 using Stellamod.Content.Gores;
-using Stellamod.Helpers;
 using Stellamod.Items;
-using Stellamod.Projectiles.Summons.Orbs;
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;
