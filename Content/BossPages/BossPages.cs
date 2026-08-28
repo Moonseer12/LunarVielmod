@@ -10,10 +10,12 @@ using Stellamod.Content.Areas.Fable.BossesFB.JackTheScholar;
 using Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria;
 using Stellamod.Content.Areas.Illuria.BossesIL.EStyr;
 using Stellamod.Content.Areas.Ishtar.BossesIS.SanguineSingularity;
+using Stellamod.Content.Areas.PunkerTown.AccPT;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.Gothivia;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.PunkerPrime;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.Steamroller;
+using Stellamod.Content.Areas.PunkerTown.ItemsPT;
 using Stellamod.Content.Areas.RoyalCapital.BossesRC.RoyalFox;
 using Stellamod.Content.Areas.RoyalCapital.BossesRC.STARBOMBER;
 using Stellamod.Content.Areas.SpringHills.AccSH;
@@ -22,6 +24,7 @@ using Stellamod.Content.Areas.SpringHills.BossesSH.Jiitas;
 using Stellamod.Content.Areas.SpringHills.BossesSH.Minerva;
 using Stellamod.Content.Areas.SpringHills.BossesSH.Ravager;
 using Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant;
+using Stellamod.Content.Areas.SpringHills.WeaponsSH;
 using Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity;
 using Stellamod.Content.Areas.Tundra.MoonspiralTower.CariyaBoss;
 using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss;
@@ -36,6 +39,7 @@ using Stellamod.Content.Vanity.IllurianGeneralHat;
 using Stellamod.Content.Insources;
 using Terraria.ModLoader;
 using Stellamod.Content.Areas.Tundra.Abyss.ItemsAB;
+using Stellamod.Content.Areas.PunkerTown.ArmorPT;
 
 namespace Stellamod.Content.BossPages
 {
@@ -50,7 +54,14 @@ namespace Stellamod.Content.BossPages
             progression = 0;
             flag = DownedBossFlag.StoneGolem;
             StarRanking = 1;
+            AddReward<DragonShard>(1);
+            AddReward<StoneGolett>(1);
+            AddReward<StoniaHat>();
+            AddReward<StoniaChestplate>();
+            AddReward<StoniaBoots>();
+            AddReward<RuinMedal>(1);
             AddMasterModeReward<StoneGolemRelicItem>();
+            AddNoHitReward<DragonShard>();
         }
     }
 
@@ -190,7 +201,12 @@ namespace Stellamod.Content.BossPages
             bossNPC = ModContent.GetInstance<Jiitas>();
             progression = 2;
             flag = DownedBossFlag.Jiitas;
+            AddReward<DragonShard>();
+            AddReward<HeartPendant>();
+            AddReward<JewelsBow>();
             AddMasterModeReward<JiitasRelicItem>();
+            AddMasterModeReward<DragonShard>(2);
+            AddNoHitReward<Jiisword>();
             StarRanking = 1;
         }
     }
@@ -317,7 +333,12 @@ namespace Stellamod.Content.BossPages
             progression = 25;
             flag = DownedBossFlag.Gothivia;
             StarRanking = 8;
+            AddReward<GothinMask>();
+            AddReward<GothinRobe>();
+            AddReward<GothinPants>();
+            AddReward<GothinWings>();
             AddMasterModeReward<GothiviaRelicItem>(stack: 1);
+            AddNoHitReward<Gothinstein>();
         }
     }
 
@@ -375,6 +396,7 @@ namespace Stellamod.Content.BossPages
             progression = 20;
             flag = DownedBossFlag.SanguineSingularity;
             StarRanking = 6;
+
             AddMasterModeReward<SanguineSingularityRelicItem>();
         }
     }
@@ -390,7 +412,13 @@ namespace Stellamod.Content.BossPages
             flag = DownedBossFlag.PunkerPrime;
 
             StarRanking = 4;
+            AddReward<MechanicalArms>();
+            AddReward<DragonShard>(2);
+            AddReward<RuinMedal>(10);
             AddMasterModeReward<PunkerPrimeRelicItem>(stack: 1);
+            AddMasterModeReward<GlisteningPearl>(5);
+            AddMasterModeReward<DragonShard>();
+            AddNoHitReward<Boomboxer>();
         }
     }
 
@@ -405,7 +433,13 @@ namespace Stellamod.Content.BossPages
             flag = DownedBossFlag.DescendingTwins;
 
             StarRanking = 5;
+            AddReward<DeadEye>();
+            AddReward<DragonShard>(2);
+            AddReward<RuinMedal>(10);
+        
             AddMasterModeReward<DescendingTwinsRelicItem>(stack: 1);
+            AddMasterModeReward<GlisteningPearl>(5);
+            AddMasterModeReward<DragonShard>(1);
         }
     }
 
@@ -420,7 +454,12 @@ namespace Stellamod.Content.BossPages
             flag = DownedBossFlag.Steamroller;
 
             StarRanking = 6;
+            AddReward<SteamHatter>();
+            AddReward<DragonShard>(1);
+            AddReward<RuinMedal>(10);
             AddMasterModeReward<SteamrollerRelicItem>(stack: 1);
+            AddMasterModeReward<GlisteningPearl>(5);
+            AddMasterModeReward<DragonShard>(1);
         }
     }
 
@@ -434,7 +473,11 @@ namespace Stellamod.Content.BossPages
             progression = 18;
             flag = DownedBossFlag.CrumblingTowerOfIlluria;
             StarRanking = 4;
+            AddReward<DragonShard>(2);
+            AddReward<RuinMedal>(35);
+            AddReward<IllurineScale>(30);
             AddMasterModeReward<TowerofIlluriaRelicItem>();
+            AddMasterModeReward<GlisteningPearl>(5);
         }
     }
 }

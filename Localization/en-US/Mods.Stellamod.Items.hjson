@@ -202,6 +202,7 @@ Common: {
 	StyleSword: Sword Attack Style
 	BasicSlash: "{0}"
 	StaminaSlash: Special: {0}
+	WeaponTypeStein: Stein Weapon Type
 	WeaponTypeSword: Sword Weapon Type
 	WeaponTypeKnives: Knives Weapon Type
 	WeaponTypeScythe: Scythe Weapon Type
@@ -213,7 +214,7 @@ Common: {
 	XixianFlaskLock: This item is LOCKED, continue exploring and you may find it.
 	StaminaFlaskLock: This item is LOCKED, continue exploring and you may find it.
 	StaminaCost: Special attack costs {0} stamina to use
-	ExpandTooltipHelp: Press [{0}] for more information
+	ExpandTooltipHelp: Tap [{0}] for more information
 	BellLock: Real
 	BellUse: Put your minions into the bell, then hold [{0}] to summon them!
 	CastingTime: "{0} seconds added to your casting time"
@@ -236,7 +237,7 @@ Common: {
 		This item is a [c/FFA500:mold], which serves as a template for creating all sorts of useful items!
 		Take this back to the [c/FFA500:Magic Cauldron] at Witch Town to use it!
 		'''
-	ExpandableTooltipHelp: Hold {0} for more about this item type!
+	ExpandableTooltipHelp: Tap {0} for more about this item type!
 	MagicArtifact: Magic Artifact
 	MagicArtifactHelp:
 		'''
@@ -3786,11 +3787,6 @@ MushroomStave: {
 	Tooltip: Get off me!
 }
 
-StarbloomTempleBlock: {
-	DisplayName: Starbloom Temple Block
-	Tooltip: ""
-}
-
 ShadegraveStaff: {
 	Tooltip: Fires a dark bolt that explodes when it hits something and inflicts shadowflame
 	DisplayName: Shadegrave Artifact
@@ -6832,16 +6828,17 @@ Iknoctstein: {
 }
 
 Gothinstein: {
-	Tooltip:
+	Tooltip: Gothivia didn't have this...
+	DisplayName: Gothinstein
+	BasicSlash: Unleash a barrage of fists to pummel your target, every 10 hits, release a powerful flaming fist!
+	StaminaSlash:
 		'''
-		Gothivia didn't have this...
-		Tap to your cursor to dash into Gothivia's damage! 
+		Dash into Gothivia's damage! 
 		Hitting enemies will give you bonus damage and immunity for reward! 
 		Hitting an enemy will make next hit use faster! Missing will make it an extra long wait.
 		A combination of every other glove!
 		5 Words!
 		'''
-	DisplayName: Gothinstein
 }
 
 Friedstein: {
@@ -12168,4 +12165,65 @@ AbyssalDirtWallItem: {
 StarbloomTempleBlockItem: {
 	DisplayName: Starbloom Temple Block Item
 	Tooltip: ""
+}
+
+Fistanizer: {
+	DisplayName: Fistanizer
+	Tooltip:
+		'''
+		Increases the distance your fists go by 50%
+		'Not to be confused with wowanizer of course'
+		'''
+}
+
+DeadEye: {
+	DisplayName: Dead Eye
+	Tooltip: Your dash becomes nearly instant and deals damage!
+}
+
+SteamHatter: {
+	DisplayName: Steam Hatter
+	Tooltip:
+		'''
+		When you take damage, gain 10% increased attack speed and damage for 8 seconds 
+		This can stack up to 5 times!
+		'''
+}
+
+StoneGolett: {
+	DisplayName: Stone Golett
+	Tooltip: Summons a pet Stone Golett
+}
+
+JewelsBow: {
+	BasicSlash: ""
+	StaminaSlash: Shoots a spread of bouncing blue jewels!
+	DisplayName: Jewels Bow
+	Tooltip: Shine bright like a diamond
+}
+
+Jiisword: {
+	BasicSlash: Swirls around and thrusts out in its combo, throwing out a bomb!
+	StaminaSlash: Holds out the blade and throws out bombs all over...
+	DisplayName: Jiisword
+	Tooltip: Celebrate, for the day is approaching
+}
+
+HeartPendant: {
+	DisplayName: Heart Pendant
+	Tooltip:
+		'''
+		+1 Stamina
+		10% increased stamina regeneration
+		'''
+}
+
+Boomboxer: {
+	DisplayName: Boomboxer
+	Tooltip: "Summons a pet Boomboxer"
+}
+
+MechanicalArms: {
+	DisplayName: Mechanical Arms
+	Tooltip: "Grants 4 octopus like arms around you that'll shoot at your cursor!"
 }

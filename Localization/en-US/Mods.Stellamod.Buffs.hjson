@@ -1212,3 +1212,18 @@ CinderingWings: {
 	DisplayName: Cindering Wings
 	Description: Mods.Stellamod.Buffs.CinderingWings.Description
 }
+
+Steaming: {
+	DisplayName: Steaming
+	Description: I'm MAD!!!!
+}
+
+StoneGolettPetBuff: {
+	DisplayName: Stone Golett
+	Description: How does this thing fly, anyway?
+}
+
+BoomboxerPetBuff: {
+	DisplayName: Boomboxer
+	Description: Give me five big BOOMS
+}
