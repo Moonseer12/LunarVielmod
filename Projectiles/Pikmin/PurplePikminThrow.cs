@@ -1,6 +1,5 @@
-﻿
-using Stellamod.Assets;
-using Stellamod.Helpers;
+﻿using Stellamod.Assets;
+using Stellamod.Content.Areas.Desert.WeaponsCL;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

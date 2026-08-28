@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common.DashSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 
 namespace Stellamod.Content.Insources;
 

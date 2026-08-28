@@ -1,7 +1,7 @@
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -67,9 +67,7 @@ public class CloudBow : BaseCrossbowItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankBow>(),
-            material: ModContent.ItemType<PearlescentScrap>());
+        this.RegisterBrew<PearlescentScrap, BlankBow>();
     }
 }
 

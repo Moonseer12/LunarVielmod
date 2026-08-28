@@ -1,8 +1,8 @@
 ﻿using Stellamod.Common;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.Areas.Hallowrooms.ArmorHR;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -20,15 +20,9 @@ namespace Stellamod.Content.Areas.Hallowrooms.WeaponsHR
             Item.damage = 50;
             Item.knockBack = 3f;
             Item.mana = 20;
-            Item.width = 76;
-            Item.height = 80;
             Item.useTime = 18;
             Item.useAnimation = 18;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.value = Item.sellPrice(0, 0, 33, 0);
-            Item.rare = ItemRarityID.LightPurple;
-
-            // These below are needed for a minion weapon
             Item.noMelee = true;
             Item.DamageType = DamageClass.Summon;
 
@@ -52,7 +46,7 @@ namespace Stellamod.Content.Areas.Hallowrooms.WeaponsHR
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<KaleidoscopicInk>());
+            this.RegisterBrew<KaleidoscopicInk, BlankStaff>();
         }
     }
 

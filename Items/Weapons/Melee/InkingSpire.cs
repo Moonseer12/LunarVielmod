@@ -1,7 +1,7 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
 using Stellamod.Projectiles.Paint;
 using Stellamod.Trailing;
 using Terraria;
@@ -25,7 +25,7 @@ namespace Stellamod.Items.Weapons.Melee
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankSword>(), material: ModContent.ItemType<KaleidoscopicInk>());
+            this.RegisterBrew<KaleidoscopicInk, BlankSword>();
         }
     }
 

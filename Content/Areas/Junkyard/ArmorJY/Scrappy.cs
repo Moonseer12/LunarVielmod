@@ -55,7 +55,7 @@ public class ScrappyBullet : ScarletProjectile
         Timer++;
         if (Timer == 1)
         {
-            SoundStyle shootSound = new SoundStyle("Stellamod/Assets/Sounds/GunShootNew7");
+            SoundStyle shootSound = new("Stellamod/Assets/Sounds/GunShootNew7");
             shootSound.PitchVariance = 0.3f;
             shootSound.Volume = 0.005f;
             SoundEngine.PlaySound(shootSound, Projectile.position);
@@ -286,14 +286,6 @@ public class ScrappyHead : ModItem
         ArmorSetSystem.RegisterArmorSet<ScrappyHead, ScrappyBody, ScrappyLegs>(ArmorGroup.Act_II);
     }
 
-    public override void SetDefaults()
-    {
-        Item.width = 26; // Width of the item
-        Item.height = 22; // Height of the item
-        Item.value = Item.sellPrice(gold: 5); // How many coins the item is worth
-        Item.rare = ItemRarityID.Lime; // The rarity of the item
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();
@@ -311,7 +303,6 @@ public class ScrappyHead : ModItem
     public override void UpdateArmorSet(Player player)
     {
         player.GetModPlayer<ScrappyPlayer>().hasSetBonus = true;
-
     }
 }
 
@@ -319,15 +310,6 @@ public class ScrappyHead : ModItem
 [AutoloadEquip(EquipType.Body)]
 public class ScrappyBody : ModItem
 {
-    public override void SetDefaults()
-    {
-        Item.width = 34; // Width of the item
-        Item.height = 20; // Height of the item
-        Item.value = Item.sellPrice(gold: 6); // How many coins the item is worth
-        Item.rare = ItemRarityID.Lime; // The rarity of the item
-
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();
@@ -335,20 +317,10 @@ public class ScrappyBody : ModItem
         stats.defenseBonus += 6;
         stats.summonDamage += 0.4f;
     }
-
-
 }
 [AutoloadEquip(EquipType.Legs)]
 public class ScrappyLegs : ModItem
 {
-    public override void SetDefaults()
-    {
-        Item.width = 22; // Width of the item
-        Item.height = 12; // Height of the item
-        Item.value = Item.sellPrice(gold: 5);
-        Item.rare = ItemRarityID.Lime;
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();

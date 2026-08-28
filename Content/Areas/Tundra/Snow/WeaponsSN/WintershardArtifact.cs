@@ -1,17 +1,13 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
-using System;
 using System.Buffers;
 using System.IO;
 using Terraria;
@@ -236,9 +232,7 @@ public class WintershardArtifact : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankStaff>(),
-            material: ModContent.ItemType<WinterbornShard>());
+        this.RegisterBrew<WinterbornShard, BlankStaff>();
     }
 }
 

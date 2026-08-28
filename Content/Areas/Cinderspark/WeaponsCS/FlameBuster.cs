@@ -1,9 +1,8 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Players;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Projectiles.Gun;
 using Terraria;
 using Terraria.Audio;
@@ -20,8 +19,6 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         {
             base.SetDefaults();
             remainingAmmo = 29;
-            Item.width = 92;
-            Item.height = 44;
             Item.DamageType = DamageClass.Ranged;
             Item.damage = 12;
             Item.value = Item.sellPrice(gold: 2);
@@ -29,8 +26,6 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             Item.useAnimation = 29;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 6;
-            Item.value = Item.sellPrice(0, 5, 0, 0);
-            Item.rare = ItemRarityID.LightRed;
             Item.autoReuse = true;
             Item.shootSpeed = 15;
             Item.shoot = ProjectileID.Bullet;
@@ -121,7 +116,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<Cinderscrap>());
+            this.RegisterBrew<Cinderscrap, BlankGun>();
         }
     }
 }

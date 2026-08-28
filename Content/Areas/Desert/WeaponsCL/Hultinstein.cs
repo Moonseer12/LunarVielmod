@@ -1,7 +1,7 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Items;
 using Stellamod.Projectiles.Steins;
 using Stellamod.Visual.Particles;
 using System.IO;
@@ -31,9 +31,7 @@ public class Hultinstein : BaseSwingItemV2
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankStein>(),
-            material: ModContent.ItemType<GintzlMetal>());
+        this.RegisterBrew<GintzlMetal, BlankStein>();
     }
 }
 

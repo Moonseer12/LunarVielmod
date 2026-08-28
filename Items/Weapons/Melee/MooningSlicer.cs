@@ -1,16 +1,14 @@
-﻿
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Projectiles.Swords.Altride;
 using Stellamod.Trailing;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Items.Weapons.Melee
 {
@@ -28,7 +26,7 @@ namespace Stellamod.Items.Weapons.Melee
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankSword>(), material: ModContent.ItemType<WinterbornShard>());
+            this.RegisterBrew<WinterbornShard, BlankSword>();
         }
     }
 

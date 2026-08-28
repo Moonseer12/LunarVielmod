@@ -1,8 +1,7 @@
-﻿using Stellamod.Assets;
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Effects.Trails;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -36,9 +35,7 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(
-                mold: ModContent.ItemType<BlankSafunai>(),
-                material: ModContent.ItemType<GintzlMetal>());
+            this.RegisterBrew<GintzlMetal, BlankSafunai>();
         }
     }
     public class AlcarishProj : BaseSafunaiProjectile

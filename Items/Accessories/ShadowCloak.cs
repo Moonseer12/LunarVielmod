@@ -1,4 +1,4 @@
-﻿
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.DataStructures;
@@ -29,12 +29,6 @@ namespace Stellamod.Items.Accessories
         {
             base.UpdateAccessory(player, hideVisual);
 
-            //Shadow Visual
-            if (Main.rand.NextBool(5) && !hideVisual)
-            {
-                int count = Main.rand.Next(6);
-            }
-
             //Increased armor pen
             player.statDefense += 8;
             player.endurance += 0.04f;
@@ -62,7 +56,7 @@ namespace Stellamod.Items.Accessories
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankAccessory>(), material: ModContent.ItemType<AlcaricMush>());
+            this.RegisterBrew<AlcaricMush, BlankAccessory>();
         }
     }
 }

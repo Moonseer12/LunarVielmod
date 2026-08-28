@@ -1,5 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.SummonerSystem;
 using Stellamod.Content.CommonMaterials;
@@ -7,8 +8,6 @@ using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Projectiles.IgniterExplosions;
 using Stellamod.Visual.Particles;
 using System.IO;
@@ -222,9 +221,7 @@ public class SpiritCapsule : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankJuggler>(),
-            material: ModContent.ItemType<MiracleThread>());
+        this.RegisterBrew<MiracleThread, BlankJuggler>();
     }
 }
 

@@ -1,12 +1,10 @@
-﻿using Stellamod.Assets;
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -14,7 +12,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT;
-
 
 public class MoonChakrams : BaseSwingItemV2
 {
@@ -40,7 +37,7 @@ public class MoonChakramsSlash : BaseSwingProjectileV2
     {
         base.DefineCombo();
         trailOffsetOverride = 1;
-        ComboBuilder comboBuilder = new ComboBuilder();
+        ComboBuilder comboBuilder = new();
         comboBuilder.AddChakramSpin2(duration: 24, xSwingRadius: 96, ySwingRadius: 96, hitCount: 3, swingDegrees: 720);
         comboBuilder.AddChakramSpin2(duration: 24, xSwingRadius: 96, ySwingRadius: 96, hitCount: 3, swingDegrees: 720);
         comboBuilder.AddChakramUppercut(duration: 24, xSwingRadius: 96, hitCount: 3, swingDegrees: 135);

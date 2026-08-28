@@ -1,24 +1,23 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Trailers;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-
 namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT;
+
 /// <summary>
 /// Ghetting Spear - when it stabs, fire comes out of it, and it shoots 3 fireballs for its stamina that bounce (1 stamina)
 /// </summary>
 public class GhetsisSpear : BaseSwingItemV2
 {
-
     public override void SetDefaults2()
     {
         base.SetDefaults2();
@@ -29,16 +28,12 @@ public class GhetsisSpear : BaseSwingItemV2
         staminaCost = 2;
     }
 
-
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankSword>(),
-            material: ModContent.ItemType<MarshScrap>());
+        this.RegisterBrew<MarshScrap, BlankSword>();
     }
 }
-
 
 public class GhetsisSpearSlash : BaseSwingProjectileV2
 {

@@ -1,9 +1,7 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Projectiles.Magic;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -37,7 +35,7 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
             else
             {
                 hitCount++;
-                SoundStyle sound = new SoundStyle("Stellamod/Assets/Sounds/Pericarditis");
+                SoundStyle sound = new("Stellamod/Assets/Sounds/Pericarditis");
                 sound.Pitch = MathHelper.Lerp(0f, 1f, hitCount / 3f);
                 SoundEngine.PlaySound(sound, target.position);
                 if (hitCount < 3)
@@ -128,7 +126,7 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankBow>(), material: ModContent.ItemType<TerrorFragments>());
+            this.RegisterBrew<TerrorFragments, BlankBow>();
         }
     }
 }

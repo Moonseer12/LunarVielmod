@@ -1,12 +1,10 @@
-﻿
-
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Items.Weapons.Melee
 {
@@ -61,7 +59,7 @@ namespace Stellamod.Items.Weapons.Melee
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankSword>(), material: ModContent.ItemType<PearlescentScrap>());
+            this.RegisterBrew<PearlescentScrap, BlankSword>();
         }
     }
 }

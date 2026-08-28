@@ -1,10 +1,10 @@
-﻿using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Common.Shaders;
 using Stellamod.Common.SummonerSystem;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -34,7 +34,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<Cinderscrap>());
+            this.RegisterBrew<Cinderscrap, BlankStaff>();
         }
     }
 

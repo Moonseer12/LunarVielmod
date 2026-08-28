@@ -1,6 +1,5 @@
-﻿
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-
 using Stellamod.Projectiles;
 using Terraria;
 using Terraria.Audio;
@@ -42,7 +41,7 @@ namespace Stellamod.Items.Weapons.Ranged
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankBow>(), material: ModContent.ItemType<Cinderscrap>());
+            this.RegisterBrew<Cinderscrap, BlankBow>();
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {

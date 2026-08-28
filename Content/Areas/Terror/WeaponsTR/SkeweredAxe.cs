@@ -1,17 +1,14 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.Areas.Ishtar.BossesIS.SanguineSingularity;
-using Stellamod.Content.Areas.Underground.WeaponsUG;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -36,12 +33,9 @@ public class SkeweredAxe : BaseSwingItemV2
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankSword>(),
-            material: ModContent.ItemType<TerrorFragments>());
+        this.RegisterBrew<TerrorFragments, BlankSword>();
     }
 }
-
 
 public class SkeweredAxeBoom : ModProjectile
 {

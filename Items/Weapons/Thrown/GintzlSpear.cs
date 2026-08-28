@@ -1,3 +1,4 @@
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles.Thrown;
 using Terraria;
@@ -32,7 +33,7 @@ namespace Stellamod.Items.Weapons.Thrown
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankJuggler>(), material: ModContent.ItemType<GintzlMetal>());
+            this.RegisterBrew<GintzlMetal, BlankJuggler>();
         }
     }
 }

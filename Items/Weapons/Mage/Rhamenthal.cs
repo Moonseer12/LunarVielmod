@@ -1,12 +1,10 @@
-﻿
-
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles.Magic;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Items.Weapons.Mage
 {
@@ -94,7 +92,7 @@ namespace Stellamod.Items.Weapons.Mage
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankBow>(), material: ModContent.ItemType<AlcaricMush>());
+            this.RegisterBrew<AlcaricMush, BlankBow>();
         }
     }
 }

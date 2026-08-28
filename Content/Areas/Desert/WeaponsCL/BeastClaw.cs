@@ -1,11 +1,11 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -30,9 +30,7 @@ public class BeastClaw : BaseSwingItemV2
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew<
-            GintzlMetal,
-            BlankSword>();
+        this.RegisterBrew<GintzlMetal, BlankSword>();
     }
 }
 

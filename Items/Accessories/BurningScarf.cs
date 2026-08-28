@@ -14,10 +14,6 @@ namespace Stellamod.Items.Accessories
             base.SetDefaults();
             Item.damage = 23;
             Item.knockBack = 2;
-            Item.rare = ItemRarityID.Expert;
-            Item.expert = true;
-            Item.width = 38;
-            Item.height = 58;
         }
 
         public override void BeginDash(Player player)
@@ -27,7 +23,7 @@ namespace Stellamod.Items.Accessories
             SoundEngine.PlaySound(SoundID.Item73, player.position);
             for (int i = 0; i < 16; i++)
             {
-                float progress = (float)i / 16f;
+                float progress = i / 16f;
                 float rot = progress * MathHelper.TwoPi;
                 Vector2 vel = rot.ToRotationVector2() * 3;
                 Dust.NewDustPerfect(player.Center, DustID.Torch, vel, Scale: 2);
@@ -42,7 +38,7 @@ namespace Stellamod.Items.Accessories
             {
                 for (int i = 0; i < 12; i++)
                 {
-                    float progress = (float)i / 12f;
+                    float progress = i / 12f;
                     float rot = progress * MathHelper.TwoPi;
                     Vector2 vel = rot.ToRotationVector2() * 1.3f;
                     Dust d = Dust.NewDustPerfect(player.Center, DustID.Torch, vel, Scale: 2);

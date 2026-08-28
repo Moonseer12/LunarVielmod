@@ -1,12 +1,10 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using System.IO;
@@ -374,9 +372,7 @@ namespace Stellamod.Content.Areas.Underground.WeaponsUG
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(
-                mold: ModContent.ItemType<BlankGun>(),
-                material: ModContent.ItemType<MinersGold>());
+            this.RegisterBrew<MinersGold, BlankGun>();
         }
     }
 }

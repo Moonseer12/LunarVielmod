@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.IgnitersNPowders;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Stellamod.Projectiles;
 using Terraria.Audio;
 using Terraria.ModLoader;
@@ -16,7 +16,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
             DamageModifier = 5;
             ExplosionType = ModContent.ProjectileType<KaBoomShade>();
 
-            SoundStyle explosionSoundStyle = new SoundStyle($"Stellamod/Assets/Sounds/ExplosionBurstBomb");
+            SoundStyle explosionSoundStyle = new($"Stellamod/Assets/Sounds/ExplosionBurstBomb");
             explosionSoundStyle.PitchVariance = 0.15f;
             ExplosionSound = explosionSoundStyle;
             ExplosionScreenshakeAmt = 2f;
@@ -26,7 +26,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankBag>(), material: ModContent.ItemType<HypnotizedSoul>());
+            this.RegisterBrew<HypnotizedSoul, BlankBag>();
         }
     }
 }

@@ -1,11 +1,11 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Cinderspark.WeaponsCS;
 using Stellamod.Content.Areas.PunkerTown.WeaponsPT;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;

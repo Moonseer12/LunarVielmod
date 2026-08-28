@@ -1,21 +1,16 @@
-﻿using Stellamod.Assets;
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Trailing;
-using Stellamod.Trails;
 using Stellamod.Visual.Particles;
-using System.Threading;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
 
@@ -34,9 +29,7 @@ public class XScissor : BaseSwingItemV2
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew<
-            HypnotizedSoul,
-            BlankSword>();
+        this.RegisterBrew<HypnotizedSoul, BlankSword>();
     }
 }
 

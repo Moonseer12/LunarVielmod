@@ -1,12 +1,9 @@
-﻿
-
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Players;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
@@ -44,9 +41,9 @@ namespace Stellamod.Content.Areas.SpringHills.WeaponsSH
                 WindColor = Color.Green,
                 LightColor = Color.LightGreen,
                 RimHighlightColor = Color.White,
-                BlendState = Microsoft.Xna.Framework.Graphics.BlendState.Additive
+                BlendState = BlendState.Additive
             };
-            var SlashTrailer = new SlashTrailer();
+            SlashTrailer SlashTrailer = new();
             SlashTrailer.TrailWidthFunction = GetTrailWidth;
             SlashTrailer.Shader = SlashEffect;
             Trailer = SlashTrailer;

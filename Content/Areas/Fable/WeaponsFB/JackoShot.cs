@@ -1,11 +1,7 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Trails;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
@@ -42,16 +38,7 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
             base.AddRecipes();
             this.RegisterBrew<AlcadizScrap, BlankBow>();
         }
-
     }
-
-
-
-
-
-
-
-
 
     public class JackoShotBombArrow : ModProjectile
     {
@@ -72,7 +59,7 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
             Projectile.light = 0.5f; // How much light emit around the projectile
             Projectile.ignoreWater = true; // Does the projectile's speed be influenced by water?
             Projectile.tileCollide = true; // Can the projectile collide with tiles?
-            AIType = 1;
+            AIType = ProjectileID.WoodenArrowFriendly;
         }
 
         public override void AI()

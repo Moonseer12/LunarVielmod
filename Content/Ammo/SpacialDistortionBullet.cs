@@ -8,22 +8,13 @@ namespace Stellamod.Content.Ammo;
 
 public class SpacialDistortionBullet : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        Item.ResearchUnlockCount = 99;
-    }
-
     public override void SetDefaults()
     {
         Item.damage = 10; // The damage for projectiles isn't actually 12, it actually is the damage combined with the projectile and the item together.
         Item.DamageType = DamageClass.Ranged;
-        Item.width = 8;
-        Item.height = 8;
         Item.maxStack = Item.CommonMaxStack;
         Item.consumable = true; // This marks the item as consumable, making it automatically be consumed when it's used as ammunition, or something else, if possible.
         Item.knockBack = 1.5f;
-        Item.value = 10;
-        Item.rare = ItemRarityID.Orange;
         Item.shoot = ModContent.ProjectileType<SpacialDistortionBulletProj>(); // The projectile that weapons fire when using this item as ammunition.
         Item.shootSpeed = 16f; // The speed of the projectile.
         Item.ammo = AmmoID.Bullet; // The ammo class this ammo belongs to.
@@ -42,7 +33,7 @@ public class SpacialDistortionBulletProj : ModProjectile
     {
         Projectile.width = 4; // The width of projectile hitbox
         Projectile.height = 4; // The height of projectile hitbox
-        Projectile.aiStyle = 1; // The ai style of the projectile, please reference the source code of Terraria
+        Projectile.aiStyle = ProjAIStyleID.Arrow; // The ai style of the projectile, please reference the source code of Terraria
         Projectile.friendly = true; // Can the projectile deal damage to enemies?
         Projectile.hostile = false; // Can the projectile deal damage to the player?
         Projectile.DamageType = DamageClass.Ranged; // Is the projectile shoot by a ranged weapon?

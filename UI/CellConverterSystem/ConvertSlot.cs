@@ -1,5 +1,4 @@
-﻿using Stellamod.Items;
-using Terraria;
+﻿using Terraria;
 using Terraria.GameContent;
 using Terraria.GameInput;
 using Terraria.ID;

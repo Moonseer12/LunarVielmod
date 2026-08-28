@@ -1,9 +1,9 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -15,20 +15,15 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL;
 
 public class IllurianBible : ModItem
 {
-
     public override void SetDefaults()
     {
         Item.DefaultToArtifact();
-        Item.width = 30;
-        Item.height = 42;
         Item.DamageType = DamageClass.Magic;
         Item.damage = 91;
         Item.knockBack = 3;
-        Item.value = Item.sellPrice(gold: 1);
         Item.shootSpeed = 10;
         Item.autoReuse = true;
         Item.noMelee = true;
-        Item.rare = ItemRarityID.Lime;
         Item.mana = 15;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.useAnimation = 20;

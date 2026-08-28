@@ -1,13 +1,11 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -29,23 +27,6 @@ public class Hypnotizer : BaseCrossbowItem
     {
 
         base.ShootBow(player, source, shootParams);
-        int Sound = Main.rand.Next(1, 3);
-        /*
-        SoundStyle shootSound;
-        if (Sound == 1)
-        {
-            shootSound = new SoundStyle("Stellamod/Assets/Sounds/ArchariliteEnergyShot");
-        }
-        else
-        {
-            shootSound = new SoundStyle("Stellamod/Assets/Sounds/ArchariliteEnergyShot2");
-        }
-
-        shootSound.Volume = 0.5f;
-        shootSound.PitchVariance = 0.25f;
-            SoundEngine.PlaySound(shootSound, position);
-
-         */
         Vector2 position = shootParams.position;
         Vector2 velocity = shootParams.fireVelocity * 3;
         int damage = shootParams.damage;
@@ -65,8 +46,7 @@ public class Hypnotizer : BaseCrossbowItem
     public override void StaminaShootBow(Player player, EntitySource_ItemUse_WithAmmo source, ShootParams shootParams)
     {
         base.StaminaShootBow(player, source, shootParams);
-        var crossShot = Projectile.NewProjectileDirect(source, shootParams.position, shootParams.fireVelocity, ModContent.ProjectileType<HypnotizerArrow>(), shootParams.damage, shootParams.knockBack, player.whoAmI);
-       // crossShot.GetGlobalProjectile<CrossbowGlobalProjectile>().CrossbowShot = true;
+        Projectile.NewProjectileDirect(source, shootParams.position, shootParams.fireVelocity, ModContent.ProjectileType<HypnotizerArrow>(), shootParams.damage, shootParams.knockBack, player.whoAmI);
     }
     public override void AddRecipes()
     {

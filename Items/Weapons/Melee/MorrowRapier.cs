@@ -1,4 +1,4 @@
-﻿
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles;
 using Terraria;
@@ -51,7 +51,7 @@ namespace Stellamod.Items.Weapons.Melee
             // Because we're skipping sound playback on use animation start, we have to play it ourselves whenever the item is actually used.
             if (!Main.dedServ)
             {
-                SoundEngine.PlaySound((SoundStyle)Item.UseSound, player.Center);
+                SoundEngine.PlaySound(Item.UseSound, player.Center);
             }
 
             return null;
@@ -65,7 +65,7 @@ namespace Stellamod.Items.Weapons.Melee
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankSword>(), material: ModContent.ItemType<AlcadizScrap>());
+            this.RegisterBrew<AlcadizScrap, BlankSword>();
         }
     }
 }

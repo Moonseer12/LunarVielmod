@@ -1,6 +1,6 @@
-﻿using Stellamod.Common.XixianFlaskSystem;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Terraria.ID;
 
 namespace Stellamod.Content.Insources

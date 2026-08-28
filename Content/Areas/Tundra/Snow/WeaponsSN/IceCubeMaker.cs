@@ -1,8 +1,6 @@
-﻿
-using Stellamod.Common.GunSystem;
+﻿using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -69,7 +67,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<WinterbornShard>());
+            this.RegisterBrew<WinterbornShard, BlankGun>();
         }
     }
 

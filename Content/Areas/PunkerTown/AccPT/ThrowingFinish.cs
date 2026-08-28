@@ -1,6 +1,6 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Items;
 using Terraria;
 using Terraria.Audio;
 
@@ -27,7 +27,7 @@ public class ThrowingFinish : AbstractMeleeAddon
             SpinThrowDistance = 40,
             SpinDegrees = 1,
             AlwaysShowTrail = true,
-            Easing = (float lerpValue) => lerpValue,
+            Easing = lerpValue => lerpValue,
             Sound = swingSound3,
             HitCount = 6
         };

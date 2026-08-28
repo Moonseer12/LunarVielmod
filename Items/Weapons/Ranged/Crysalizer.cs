@@ -1,4 +1,4 @@
-﻿
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles.Bow;
 using Terraria;
@@ -6,7 +6,6 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Items.Weapons.Ranged
 {
@@ -40,7 +39,7 @@ namespace Stellamod.Items.Weapons.Ranged
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankBow>(), material: ModContent.ItemType<KaleidoscopicInk>());
+            this.RegisterBrew<KaleidoscopicInk, BlankBow>();
         }
         public override Vector2? HoldoutOffset()
         {

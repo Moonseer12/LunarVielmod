@@ -1,12 +1,9 @@
-﻿
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Projectiles.Gun;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -48,7 +45,7 @@ public class Shredder : BaseGun
 
     public override bool GunShot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
     {
-        SoundStyle shootSound = new SoundStyle("Stellamod/Assets/Sounds/StormDragon_CloudBolt");
+        SoundStyle shootSound = new("Stellamod/Assets/Sounds/StormDragon_CloudBolt");
         shootSound.PitchVariance = 0.3f;
         shootSound.Volume = 0.3f;
         SoundEngine.PlaySound(shootSound, player.position);
@@ -71,9 +68,7 @@ public class Shredder : BaseGun
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankGun>(), 
-            material: ModContent.ItemType<HypnotizedSoul>());
+        this.RegisterBrew<HypnotizedSoul, BlankGun>();
     }
 }
 

@@ -1,10 +1,7 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -20,19 +17,16 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         {
             Item.DefaultToCombatTool(0.05f, 0.5f, 2);
             Item.damage = 70;
-            Item.width = 50;
-            Item.height = 50;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
             Item.noUseGraphic = true;
-            Item.rare = ItemRarityID.Blue;
             Item.shoot = ModContent.ProjectileType<ScatterbombP>();
         }
 
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankOrb>(), material: ModContent.ItemType<Cinderscrap>());
+            this.RegisterBrew<Cinderscrap, BlankOrb>();
         }
 
         public override Vector2? HoldoutOffset()

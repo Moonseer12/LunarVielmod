@@ -1,9 +1,9 @@
 ﻿using ReLogic.Content;
 using Stellamod.Common;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using Stellamod.Trails;
 using System;
 using System.Collections.Generic;
@@ -31,15 +31,9 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
             Item.damage = 48;
             Item.knockBack = 3f;
             Item.mana = 10;
-            Item.width = 48;
-            Item.height = 62;
             Item.useTime = 36;
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.value = Item.sellPrice(0, 1, 33, 0);
-            Item.rare = ItemRarityID.LightRed;
-
-            // These below are needed for a minion weapon
             Item.noMelee = true;
             Item.UseSound = SoundID.Item46;
             Item.DamageType = DamageClass.Summon;
@@ -89,7 +83,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<IllurineScale>());
+            this.RegisterBrew<IllurineScale, BlankStaff>();
         }
     }
 

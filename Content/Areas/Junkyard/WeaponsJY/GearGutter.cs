@@ -1,10 +1,10 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -21,30 +21,14 @@ public class GearGutter : BaseGun
         base.SetDefaults();
         Item.damage = 254;
         Item.DamageType = DamageClass.Ranged;
-
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 6;
-        Item.value = Item.sellPrice(0, 0, 20, 0);
-        Item.rare = ItemRarityID.Blue;
         Item.UseSound = SoundID.Item5;
         Item.autoReuse = true;
-        Item.shoot = ProjectileID.Bullet;
-    
         Item.useAmmo = AmmoID.Bullet;
-
-
-
         Item.noUseGraphic = true;
-        Item.width = 84;
-        Item.height = 36;
         Item.useTime = 72;
         Item.useAnimation = 72;
-        Item.useStyle = ItemUseStyleID.Shoot;
-        Item.knockBack = 6;
-        Item.value = Item.buyPrice(0, 15, 0, 0);
-        Item.rare = ItemRarityID.LightRed;
-     //   Item.UseSound = new SoundStyle("Stellamod/Assets/Sounds/GunShootNew7") with { PitchVariance = 0.7f, Volume = 0.9f };
-        Item.autoReuse = true;
         Item.shootSpeed = 50f;
         Item.shoot = ModContent.ProjectileType<GearSniper>();
         Item.noMelee = true;
@@ -85,9 +69,7 @@ public class GearGutter : BaseGun
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankGun>(),
-            material: ModContent.ItemType<MechanizedSoul>());
+        this.RegisterBrew<MechanizedSoul, BlankGun>();
     }
 }
 

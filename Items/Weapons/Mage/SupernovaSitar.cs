@@ -1,5 +1,4 @@
-﻿
-
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles;
 using System.Collections.Generic;
@@ -85,7 +84,7 @@ namespace Stellamod.Items.Weapons.Mage
             }
 
             Vector2 frameOrigin = frame.Size() / 2f;
-            Vector2 offset = new Vector2(Item.width / 2 - frameOrigin.X, Item.height - frame.Height);
+            Vector2 offset = new(Item.width / 2 - frameOrigin.X, Item.height - frame.Height);
             Vector2 drawPos = Item.position - Main.screenPosition + frameOrigin + offset;
 
             float time = Main.GlobalTimeWrappedHourly;
@@ -120,7 +119,7 @@ namespace Stellamod.Items.Weapons.Mage
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<PearlescentScrap>());
+            this.RegisterBrew<PearlescentScrap, BlankStaff>();
         }
 
     }

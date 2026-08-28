@@ -1,6 +1,5 @@
-﻿
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,7 +9,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.AccsSN
     public class IceClimbersPlayer : ModPlayer
     {
         public bool hasIceClimbers;
-        public static bool[] ClimbableTiles = TileID.Sets.Factory.CreateBoolSet(false);
+        public bool[] ClimbableTiles = TileID.Sets.Factory.CreateBoolSet(false);
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
@@ -65,8 +64,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.AccsSN
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankAccessory>(), 
-                material: ModContent.ItemType<WinterbornShard>());
+            this.RegisterBrew<WinterbornShard, BlankAccessory>();
         }
     }
 }

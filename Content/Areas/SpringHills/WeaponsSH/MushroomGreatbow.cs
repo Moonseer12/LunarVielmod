@@ -1,12 +1,8 @@
-﻿
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-
 using Stellamod.Core.Bases;
-using Stellamod.Items;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.SpringHills.WeaponsSH
 {
@@ -28,7 +24,7 @@ namespace Stellamod.Content.Areas.SpringHills.WeaponsSH
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankBow>(), material: ModContent.ItemType<Mushroom>());
+            this.RegisterBrew<Mushroom, BlankBow>();
         }
     }
 }

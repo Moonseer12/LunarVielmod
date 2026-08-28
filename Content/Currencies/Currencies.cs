@@ -1,38 +1,47 @@
-﻿using Terraria;
+﻿using Stellamod.Content.Areas.Underground.TilesUG;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Stellamod.Content.Currencies
+namespace Stellamod.Content.Currencies;
+
+public class RuinMedal : ModItem
 {
-    public class RuinMedal : ModItem
+    public override void SetDefaults()
     {
-        public override void SetDefaults()
-        {
-            Item.width = 20;
-            Item.height = 20;
-            Item.maxStack = Item.CommonMaxStack;
-            Item.value = Item.buyPrice(0, 20, 0, 0);
-        }
+        Item.maxStack = Item.CommonMaxStack;
+        Item.value = Item.buyPrice(0, 20, 0, 0);
     }
+}
     
-    public class Ereshstyl : ModItem
+public class Ereshstyl : ModItem
+{
+    public override void SetDefaults()
     {
-        public override void SetDefaults()
-        {
-            Item.width = 20;
-            Item.height = 20;
-            Item.maxStack = Item.CommonMaxStack;
-            Item.value = Item.buyPrice(0, 20, 0, 0);
-        }
+        Item.maxStack = Item.CommonMaxStack;
+        Item.value = Item.buyPrice(0, 20, 0, 0);
+    }
+}
+
+public class NoHitCrystal : ModItem
+{
+    public override void SetDefaults()
+    {
+        Item.maxStack = Item.CommonMaxStack;
+        Item.value = Item.buyPrice(0, 20, 0, 0);
+    }
+ }
+
+public class DragonShard : ModItem
+{
+    public override void SetDefaults()
+    {
+        Item.rare = ItemRarityID.Orange;
+        Item.maxStack = Item.CommonMaxStack;
     }
 
-    public class NoHitCrystal : ModItem
+    public override void AddRecipes()
     {
-        public override void SetDefaults()
-        {
-            Item.width = 20;
-            Item.height = 20;
-            Item.maxStack = Item.CommonMaxStack;
-            Item.value = Item.buyPrice(0, 20, 0, 0);
-        }
+        CreateRecipe().AddIngredient<Dragonpiece>(50).Register();
     }
 }

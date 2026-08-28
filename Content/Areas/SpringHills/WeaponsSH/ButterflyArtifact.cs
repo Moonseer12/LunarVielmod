@@ -1,13 +1,12 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Desert.WeaponsCL;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System;
 using System.IO;
@@ -18,7 +17,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.SpringHills.WeaponsSH;
-
 
 public class ButterflyArtifact : ModItem
 {
@@ -88,9 +86,7 @@ public class ButterflyArtifact : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankStaff>(),
-            material: ModContent.ItemType<Ivythorn>());
+        this.RegisterBrew<Ivythorn, BlankStaff>();
     }
 }
 

@@ -1,8 +1,8 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Core;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -195,7 +195,7 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankBow>(), material: ModContent.ItemType<GintzlMetal>());
+            this.RegisterBrew<GintzlMetal, BlankBow>();
         }
     }
 }

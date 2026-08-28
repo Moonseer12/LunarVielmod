@@ -1,13 +1,10 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -24,13 +21,12 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             base.SetDefaults();
             Item.damage = 12;
             Item.knockBack = 4;
-            Item.rare = ItemRarityID.Green;
         }
 
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankBow>(), material: ModContent.ItemType<Cinderscrap>());
+            this.RegisterBrew<Cinderscrap, BlankBow>();
         }
 
         public override void StaminaShootBow(Player player, EntitySource_ItemUse_WithAmmo source, ShootParams shootParams)

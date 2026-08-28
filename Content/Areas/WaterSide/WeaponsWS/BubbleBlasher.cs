@@ -1,14 +1,11 @@
-
-
 using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Particles;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Projectiles.IgniterExplosions;
 using Stellamod.Visual.Particles;
 using System.IO;
@@ -16,7 +13,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Content.Areas.WaterSide.WeaponsWS
 {

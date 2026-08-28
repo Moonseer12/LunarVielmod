@@ -1,16 +1,9 @@
-
-
-
-
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
-using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Common.SummonerSystem;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Projectiles.Bow;
-using Stellamod.Trails;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -28,16 +21,12 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
             Item.knockBack = 3f;
         }
 
-
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankRune>(),
-                material: ModContent.ItemType<WinterbornShard>());
+            this.RegisterBrew<WinterbornShard, BlankRune>();
         }
     }
-
-
 
     public class IceboundMinionProj : AbstractBellSummon
     {

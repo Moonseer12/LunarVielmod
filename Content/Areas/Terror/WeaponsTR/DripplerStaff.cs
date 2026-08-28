@@ -1,7 +1,7 @@
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.SummonerSystem;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Items;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -25,7 +25,7 @@ public class DripplerStaff : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(mold: ModContent.ItemType<BlankRune>(), material: ModContent.ItemType<TerrorFragments>());
+        this.RegisterBrew<TerrorFragments, BlankRune>();
     }
 }
 

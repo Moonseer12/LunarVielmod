@@ -1,5 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.WaterSide.BossesWS.KingJellyfishBoss;
 using Stellamod.Content.Armors.Radianthal;
@@ -9,7 +10,6 @@ using Stellamod.Core.Bases;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Items;
 using Stellamod.Trailing;
 using Stellamod.Visual.Particles;
 using System;
@@ -20,9 +20,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-
 namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT;
-
 
 public class RuneSmasherPlayer : ModPlayer
 {
@@ -45,7 +43,7 @@ public class RuneSmasher : BaseSwingItemV2
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(mold: ModContent.ItemType<BlankSword>(), material: ModContent.ItemType<RadiantNectar>());
+        this.RegisterBrew<RadiantNectar, BlankSword>();
     }
 }
 

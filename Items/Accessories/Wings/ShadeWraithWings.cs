@@ -1,4 +1,5 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -37,7 +38,7 @@ namespace Stellamod.Items.Accessories.Wings
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankAccessory>(), material: ModContent.ItemType<AlcaricMush>());
+            this.RegisterBrew<AlcaricMush, BlankAccessory>();
         }
     }
 }

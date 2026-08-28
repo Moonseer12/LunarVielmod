@@ -1,13 +1,11 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -41,7 +39,7 @@ public class HypnotizingAura : ModProjectile
         Timer++;
         if (Timer == 1)
         {
-            SoundStyle spawnSound = new SoundStyle("Stellamod/Assets/Sounds/Parendine2");
+            SoundStyle spawnSound = new("Stellamod/Assets/Sounds/Parendine2");
             spawnSound.PitchVariance = 0.3f;
             spawnSound.Volume = 0.5f;
             spawnSound.Pitch = -0.3f;

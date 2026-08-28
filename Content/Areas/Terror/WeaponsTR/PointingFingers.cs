@@ -1,12 +1,11 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Ishtar.BossesIS.SanguineSingularity;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -15,7 +14,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Terror.WeaponsTR;
-
 
 public class PointingFingers : BaseSwingItemV2
 {
@@ -29,9 +27,7 @@ public class PointingFingers : BaseSwingItemV2
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew<
-            TerrorFragments, 
-            BlankSafunai>();
+        this.RegisterBrew<TerrorFragments, BlankSafunai>();
     }
 }
 

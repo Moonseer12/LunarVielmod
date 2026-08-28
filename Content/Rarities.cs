@@ -1,8 +1,4 @@
-﻿
-using Stellamod.Content.MoonlightMagic;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Trails;
+﻿using Stellamod.Common.MagicCauldron;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -13,7 +9,6 @@ namespace Stellamod.Content
         public override void SetDefaults(Item entity)
         {
             base.SetDefaults(entity);
-            Cauldron cauldron = ModContent.GetInstance<Cauldron>();
             int rarityType = Cauldron.MaterialRarity[entity.type];
             if (rarityType != 0)
             {

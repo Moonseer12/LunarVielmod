@@ -443,7 +443,6 @@ namespace Stellamod.Content.Areas.Ishtar.WeaponsIS
             Item.UseSound = SoundID.Item9;
             Item.mana = 12;
             Item.knockBack = 2;
-            Item.rare = ItemRarityID.Lime;
             Item.noUseGraphic = true;
             Item.autoReuse = false;
             Item.channel = true;

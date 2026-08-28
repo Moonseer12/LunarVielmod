@@ -1,7 +1,6 @@
-﻿
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Helpers;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -67,7 +66,7 @@ namespace Stellamod.Items.Accessories.Runes
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankRune>(), material: ModContent.ItemType<Ivythorn>());
+            this.RegisterBrew<Ivythorn, BlankRune>();
         }
     }
 }

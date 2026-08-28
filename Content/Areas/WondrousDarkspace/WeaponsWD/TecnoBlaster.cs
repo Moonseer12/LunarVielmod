@@ -1,9 +1,9 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
-using Stellamod.Items;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,7 +27,6 @@ public class TecnoBlaster : BaseGun
         Item.useAnimation = 12;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 6;
-  //      Item.UseSound = SoundID.Item36;
         Item.autoReuse = true;
         Item.shoot = ModContent.ProjectileType<TechnoBeam>();
         Item.shootSpeed = 15;
@@ -52,9 +51,7 @@ public class TecnoBlaster : BaseGun
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankGun>(),
-            material: ModContent.ItemType<MiracleThread>());
+        this.RegisterBrew<MiracleThread, BlankGun>();
     }
     public override void ShootEffects(Vector2 position, Vector2 velocity)
     {

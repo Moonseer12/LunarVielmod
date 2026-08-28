@@ -1,8 +1,8 @@
 ﻿using Stellamod.Common.ArmorRework;
 using Stellamod.Common.ArmorShop;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Tooltips;
-using Stellamod.Items;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;

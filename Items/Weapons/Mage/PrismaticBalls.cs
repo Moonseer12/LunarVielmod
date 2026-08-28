@@ -1,4 +1,5 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -33,16 +34,7 @@ namespace Stellamod.Items.Weapons.Mage
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankOrb>(), material: ModContent.ItemType<KaleidoscopicInk>());
+            this.RegisterBrew<KaleidoscopicInk, BlankOrb>();
         }
     }
 }
-
-
-
-
-
-
-
-
-

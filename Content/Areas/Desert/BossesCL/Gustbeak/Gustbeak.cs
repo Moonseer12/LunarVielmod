@@ -2,20 +2,17 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Desert.BossesCL.Gustbeak.Projectiles;
 using Stellamod.Content.Areas.Desert.Event.Common;
+using Stellamod.Content.Areas.Desert.WeaponsCL;
+using Stellamod.Content.Gores;
 using Stellamod.Core;
 using Stellamod.Core.DrawEffects;
 using Stellamod.Core.Palettes;
-using Stellamod.Core.Utilities;
-using Stellamod.Content.Gores;
-using Stellamod.Helpers;
-using Stellamod.Projectiles;
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -650,7 +647,7 @@ namespace Stellamod.Content.Areas.Desert.BossesCL.Gustbeak
                         ModContent.ProjectileType<AivanKaboom>(), 0, 0, Main.myPlayer);
                 }
 
-                SoundStyle explosionSoundStyle = new SoundStyle("Stellamod/Assets/Sounds/ExplosionGaseous");
+                SoundStyle explosionSoundStyle = new("Stellamod/Assets/Sounds/ExplosionGaseous");
                 explosionSoundStyle.PitchVariance = 0.15f;
                 SoundEngine.PlaySound(explosionSoundStyle, NPC.position);
 

@@ -1,7 +1,7 @@
 using Stellamod.Common;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.Buffs;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -53,7 +53,7 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.WeaponsAB
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<PearlescentScrap>());
+            this.RegisterBrew<PearlescentScrap, BlankStaff>();
         }
     }
 

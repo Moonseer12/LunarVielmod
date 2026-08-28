@@ -1,12 +1,8 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Trails;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -20,10 +16,6 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
         public override void SetDefaults()
         {
             Item.DefaultToArtifact();
-            Item.width = 40;
-            Item.height = 10;
-            Item.scale = 1f;
-            Item.rare = ItemRarityID.Green;
             Item.useTime = 100;
             Item.useAnimation = 100;
             Item.useStyle = ItemUseStyleID.Guitar;
@@ -39,7 +31,6 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
             // Gun Properties
             Item.shoot = ModContent.ProjectileType<Violarproj>();
             Item.shootSpeed = 4f;
-            Item.value = 5000;
         }
 
         public override Vector2? HoldoutOffset()
@@ -49,8 +40,7 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankOrb>(),
-                material: ModContent.ItemType<AlcadizScrap>());
+            this.RegisterBrew<AlcadizScrap, BlankOrb>();
         }
     }
 

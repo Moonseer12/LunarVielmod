@@ -1,8 +1,7 @@
-﻿
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.SummonerSystem;
+using Stellamod.Content.Areas.Terror.WeaponsTR;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
-using Stellamod.Projectiles;
 using System;
 using Terraria;
 using Terraria.Audio;

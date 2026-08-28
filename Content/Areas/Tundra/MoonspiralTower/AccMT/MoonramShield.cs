@@ -1,6 +1,7 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.DashSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.WeaponTypes;
 using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss;
@@ -9,7 +10,6 @@ using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
 using Stellamod.Effects.RoyalMagic;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;

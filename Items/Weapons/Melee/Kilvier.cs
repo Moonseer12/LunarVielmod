@@ -1,4 +1,5 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles.Swords;
 using Terraria;
 using Terraria.ID;
@@ -42,7 +43,7 @@ namespace Stellamod.Items.Weapons.Melee
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankJuggler>(), material: ModContent.ItemType<MarshScrap>());
+            this.RegisterBrew<MarshScrap, BlankJuggler>();
         }
         // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
     }

@@ -1,8 +1,10 @@
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles.Paint;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+
 namespace Stellamod.Items.Weapons.Thrown
 {
     public class ArtistsHeart : ModItem
@@ -31,7 +33,7 @@ namespace Stellamod.Items.Weapons.Thrown
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankJuggler>(), material: ModContent.ItemType<KaleidoscopicInk>());
+            this.RegisterBrew<KaleidoscopicInk, BlankJuggler>();
         }
     }
 }

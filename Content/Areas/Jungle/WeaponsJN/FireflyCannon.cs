@@ -1,11 +1,10 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -22,12 +21,8 @@ namespace Stellamod.Content.Areas.Jungle.WeaponsJN
         {
             base.SetDefaults();
             Item.damage = 216;
-            Item.width = 94;
-            Item.height = 36;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 12;
-            Item.value = Item.sellPrice(0, 1, 1, 29);
-            Item.rare = ItemRarityID.LightRed;
             Item.shootSpeed = 15;
             Item.autoReuse = false;
             Item.DamageType = DamageClass.Ranged;

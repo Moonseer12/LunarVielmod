@@ -1,12 +1,12 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.WaterSide.BossesWS.KingJellyfishBoss;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;
@@ -46,21 +46,18 @@ public class ElectricChainTome : AbstractMagicTome
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankStaff>(),
-            material: ModContent.ItemType<MarshScrap>());
+        this.RegisterBrew<MarshScrap, BlankStaff>();
     }
 
     public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
     {
         base.ModifyShootStats(player, ref position, ref velocity, ref type, ref damage, ref knockback);
         Vector2 target = Main.MouseWorld;
-        Vector2 vectorToMouse = (target - player.Center);
+        Vector2 vectorToMouse = target - player.Center;
         if (vectorToMouse.Length() < 800)
             velocity = vectorToMouse;
         else
             velocity = velocity.Resize(800);
-        // velocity = velocity.RotatedByRandom(MathHelper.ToRadians(22));
     }
     public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
     {

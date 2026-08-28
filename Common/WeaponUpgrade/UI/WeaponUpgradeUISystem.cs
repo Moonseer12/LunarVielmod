@@ -1,10 +1,7 @@
 ﻿using ReLogic.Content;
 using Stellamod.Common.UI;
-using Stellamod.Content.CommonMaterials;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+using Stellamod.Content.Currencies;
 using Stellamod.UI;
-using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;

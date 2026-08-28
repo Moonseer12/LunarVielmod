@@ -1,19 +1,15 @@
-﻿
-
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core;
 using Stellamod.Core.Effects;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Trailing;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
 {

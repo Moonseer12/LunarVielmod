@@ -15,8 +15,6 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         {
             base.SetDefaults();
             Item.DefaultToArtifact();
-            Item.width = 20;
-            Item.height = 54;
             Item.damage = 13;
             Item.knockBack = 8;
             Item.DamageType = DamageClass.Magic;
@@ -26,10 +24,8 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 2f;
-            Item.value = Item.sellPrice(gold: 1);
             Item.shoot = ModContent.ProjectileType<CombusterSparkProj1>();
             Item.shootSpeed = 5;
-            Item.rare = ItemRarityID.LightRed;
         }
 
         public override Vector2? HoldoutOffset()

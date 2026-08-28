@@ -95,18 +95,12 @@ namespace Stellamod.Common.IgnitersNPowders
         {
             Item.damage = 2;
             Item.knockBack = 2;
-            Item.width = 40;
-            Item.height = 40;
             Item.useTime = 50;
             Item.useAnimation = 50;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noUseGraphic = true;
             Item.noMelee = true;
             Item.DamageType = DamageClass.Ranged;
-            Item.value = 200;
-            Item.rare = ItemRarityID.Blue;
-
-
             SoundStyle soundStyle = SoundID.Item1;
             soundStyle.PitchVariance = 0.2f;
             Item.UseSound = soundStyle;
@@ -114,7 +108,6 @@ namespace Stellamod.Common.IgnitersNPowders
             Item.shoot = ModContent.ProjectileType<IgniterCardProjectile>();
             Item.crit = 4;
             Item.shootSpeed = 15;
-            Item.consumable = false;
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

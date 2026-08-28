@@ -1,7 +1,7 @@
-﻿using Stellamod.Common.XixianFlaskSystem;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Particles;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;

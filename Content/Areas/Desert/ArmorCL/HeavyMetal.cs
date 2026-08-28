@@ -281,14 +281,6 @@ namespace Stellamod.Content.Areas.Desert.ArmorCL
             ArmorSetSystem.RegisterArmorSet<HeavyMetalHead, HeavyMetalBody, HeavyMetalLegs>(ArmorGroup.Act_I);
         }
 
-        public override void SetDefaults()
-        {
-            Item.width = 40;
-            Item.height = 30;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.Blue;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<HeavyMetalBody>() && legs.type == ModContent.ItemType<HeavyMetalLegs>();
@@ -312,14 +304,6 @@ namespace Stellamod.Content.Areas.Desert.ArmorCL
     [AutoloadEquip(EquipType.Body)]
     public class HeavyMetalBody : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 30;
-            Item.height = 30;
-            Item.value = Item.sellPrice(0, 0, 20, 0);
-            Item.rare = ItemRarityID.Blue;
-        }
-
         public override void UpdateEquip(Player player)
         {
             base.UpdateEquip(player);
@@ -333,15 +317,6 @@ namespace Stellamod.Content.Areas.Desert.ArmorCL
     [AutoloadEquip(EquipType.Legs)]
     public class HeavyMetalLegs : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 28;
-            Item.height = 22;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.Blue;
-            Item.defense = 3;
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();

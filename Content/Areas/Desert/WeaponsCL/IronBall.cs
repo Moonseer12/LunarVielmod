@@ -1,6 +1,6 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Items;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
@@ -19,9 +19,7 @@ public class IronBall : BaseChainedBallItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew<
-            GintzlMetal,
-            BlankOrb>();
+        this.RegisterBrew<GintzlMetal, BlankOrb>();
     }
 }
 
@@ -36,7 +34,7 @@ public class IronBallProj : BaseChainedBallProjectile
 
         //Variables
         //Easing
-        easer = (float lerpValue) => Easing.InOutExpo(lerpValue, 7);
+        easer = lerpValue => Easing.InOutExpo(lerpValue, 7);
 
         //How far it drags behind you
         dragDistance = 126;

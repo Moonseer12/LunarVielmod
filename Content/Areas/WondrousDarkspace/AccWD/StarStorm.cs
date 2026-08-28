@@ -1,9 +1,8 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Items;
-using Stellamod.Projectiles;
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;
@@ -14,7 +13,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.AccWD;
 
 public class StarStorm : AbstractMeleeAddon
 {
-    private Dictionary<BaseSwingProjectileV2, bool> _hasShotSwingProj = new Dictionary<BaseSwingProjectileV2, bool>();
+    private Dictionary<BaseSwingProjectileV2, bool> _hasShotSwingProj = new();
     public override void OnSpawn(BaseSwingProjectileV2 projectile)
     {
         base.OnSpawn(projectile);

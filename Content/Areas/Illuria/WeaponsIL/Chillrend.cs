@@ -1,25 +1,17 @@
-﻿
-
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Cinderspark.WeaponsCS;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Effects;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Dusts;
-using Stellamod.Effects.RoyalMagic;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Trailing;
 using Stellamod.Visual.Particles;
-using System;
 using Terraria;
 using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -40,7 +32,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankSword>(), material: ModContent.ItemType<IllurineScale>());
+            this.RegisterBrew<IllurineScale, BlankSword>();
         }
     }
     public class ChillrendSlash : BaseSwingProjectileV2

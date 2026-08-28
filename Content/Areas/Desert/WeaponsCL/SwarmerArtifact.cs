@@ -1,12 +1,12 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.Steamroller;
 using Stellamod.Content.Areas.Tundra.Snow.WeaponsSN;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Gores;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;
@@ -90,9 +90,7 @@ public class SwarmerArtifact : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankStaff>(),
-            material: ModContent.ItemType<GintzlMetal>());
+        this.RegisterBrew<GintzlMetal, BlankStaff>();
     }
 }
 

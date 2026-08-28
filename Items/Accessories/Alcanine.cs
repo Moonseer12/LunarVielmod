@@ -1,6 +1,6 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Accessories
@@ -11,10 +11,11 @@ namespace Stellamod.Items.Accessories
         {
             Item.DefaultToAccessory();
         }
+
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankAccessory>(), material: ModContent.ItemType<MarshScrap>());
+            this.RegisterBrew<MarshScrap, BlankAccessory>();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

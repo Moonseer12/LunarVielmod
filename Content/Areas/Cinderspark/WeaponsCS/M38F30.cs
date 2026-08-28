@@ -1,16 +1,11 @@
-﻿
-using Stellamod.Common.GunSystem;
+﻿using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Projectiles.Gun;
-using Stellamod.Trails;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -22,13 +17,8 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         {
             base.SetDefaults();
             Item.damage = 22;
-            Item.width = 50;
-            Item.height = 50;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 4;
-            Item.value = Item.sellPrice(0, 1, 1, 29);
-            Item.rare = ItemRarityID.Green;
-
             Item.shootSpeed = 20;
             Item.autoReuse = true;
             Item.DamageType = DamageClass.Ranged;
@@ -57,7 +47,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<Cinderscrap>());
+            this.RegisterBrew<Cinderscrap, BlankGun>();
         }
 
         public override void ShootEffects(Vector2 position, Vector2 velocity)
@@ -67,10 +57,6 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
 
         public override bool GunShot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Vector2 origVect = new Vector2(velocity.X, velocity.Y);
-            //generate the remaining projectiles
-
-
             Vector2 newVelocity = velocity;
             newVelocity.Y -= 2;
             newVelocity.X *= 0.5f;

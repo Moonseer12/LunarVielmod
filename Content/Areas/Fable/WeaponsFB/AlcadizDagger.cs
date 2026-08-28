@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -26,15 +26,9 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
             Item.damage = 7;
             Item.knockBack = 3f;
             Item.mana = 10;
-            Item.width = 32;
-            Item.height = 32;
             Item.useTime = 36;
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = ItemRarityID.Blue;
-
-            // These below are needed for a minion weapon
             Item.noMelee = true;
             Item.DamageType = DamageClass.Summon;
             Item.buffType = ModContent.BuffType<StringMinionBuff>();
@@ -56,7 +50,7 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<AlcadizScrap>());
+            this.RegisterBrew<AlcadizScrap, BlankStaff>();
         }
     }
 

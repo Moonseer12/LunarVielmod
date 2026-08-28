@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.IgnitersNPowders;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -19,12 +19,9 @@ public class GremoryExtenderPowder : ModItem
         player.GetModPlayer<IgniterPlayer>().hasLifesteal = true;
     }
 
-
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankAccessory>(), 
-            material: ModContent.ItemType<TerrorFragments>());
+        this.RegisterBrew<TerrorFragments, BlankAccessory>();
     }
 }

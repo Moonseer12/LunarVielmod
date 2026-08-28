@@ -1,15 +1,10 @@
-﻿
-
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity.Projectiles;
 using Stellamod.Core;
 using Stellamod.Core.Particles;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Projectiles.Wings;
 using Stellamod.Skies;
 using Stellamod.Visual.Particles;
-using System;
 using System.IO;
 using Terraria;
 using Terraria.Audio;

@@ -1,11 +1,11 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Players;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Rendering.Materials;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -25,14 +25,10 @@ public class BurstingRifle : BaseGun
         Item.damage = 34;
         Item.ArmorPenetration = 15;
         Item.DamageType = DamageClass.Ranged;
-        Item.width = 40;
-        Item.height = 40;
         Item.useTime = 5;
         Item.useAnimation = 15;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 6;
-        Item.value = 100000;
-        Item.rare = ItemRarityID.LightPurple;
         Item.autoReuse = true;
         Item.shoot = ProjectileID.Bullet;
         Item.shootSpeed = 16;

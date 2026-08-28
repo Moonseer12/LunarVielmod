@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Stellamod.Trails;
 using System.Collections.Generic;
 using Terraria;
@@ -11,12 +11,8 @@ namespace Stellamod.Content.Areas.Junkyard.WeaponsJY;
 
 public class EelInfinite : BaseGun
 {
-
     public override void SetDefaults()
     {
-        Item.width = 114;
-        Item.height = 36;
-        Item.rare = ItemRarityID.LightRed;
         Item.damage = 26;
         Item.DamageType = DamageClass.Ranged;
         Item.useAnimation = 5;
@@ -24,7 +20,6 @@ public class EelInfinite : BaseGun
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.shoot = ModContent.ProjectileType<EelLightningBolt>();
         Item.shootSpeed = 1;
-        Item.value = Item.sellPrice(gold: 2);
         Item.UseSound = SoundID.DD2_LightningAuraZap with { PitchVariance = 0.6f };
         Item.noMelee = true;
         Item.noUseGraphic = true;
@@ -58,7 +53,7 @@ public class EelInfinite : BaseGun
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<MechanizedSoul>());
+        this.RegisterBrew<MechanizedSoul, BlankGun>();
     }
 }
 

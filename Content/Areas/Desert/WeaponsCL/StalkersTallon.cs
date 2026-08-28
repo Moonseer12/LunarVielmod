@@ -1,4 +1,4 @@
-﻿using Stellamod.Assets;
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Trailers;
 using Stellamod.Core;
@@ -6,7 +6,6 @@ using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using Stellamod.Projectiles.IgniterExplosions;
 using Stellamod.Visual.Particles;
 using Terraria;
@@ -33,7 +32,7 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankSword>(), material: ModContent.ItemType<GintzlMetal>());
+            this.RegisterBrew<GintzlMetal, BlankSword>();
         }
     }
 

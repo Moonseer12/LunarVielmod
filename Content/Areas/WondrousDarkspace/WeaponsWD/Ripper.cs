@@ -1,9 +1,8 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Trailing;
 using System.IO;
 using Terraria;
@@ -36,7 +35,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankSword>(), material: ModContent.ItemType<HypnotizedSoul>());
+            this.RegisterBrew<HypnotizedSoul, BlankSword>();
         }
     }
 

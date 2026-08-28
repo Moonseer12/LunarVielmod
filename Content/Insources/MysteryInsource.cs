@@ -1,6 +1,6 @@
-﻿using Stellamod.Common.XixianFlaskSystem;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Terraria;
 using Terraria.ID;
 
@@ -16,8 +16,7 @@ namespace Stellamod.Content.Insources
         {
             base.UseInsource(flaskPlayer);
             Player player = flaskPlayer.Player;
-            int[] buffPool = new int[]
-            {
+            int[] buffPool = [
                 BuffID.AmmoReservation,
                 BuffID.Archery,
                 BuffID.Endurance,
@@ -29,7 +28,7 @@ namespace Stellamod.Content.Insources
                 BuffID.Lifeforce,
                 BuffID.Lucky,
                 BuffID.WellFed3
-            };
+            ];
 
             player.AddBuff(buffPool[Main.rand.Next(0, buffPool.Length)], 60 * 15);
         }

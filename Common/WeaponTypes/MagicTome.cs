@@ -30,8 +30,6 @@ namespace Stellamod.Core.Bases
         public sealed override void SetDefaults()
         {
             base.SetDefaults();
-            Item.width = 24;
-            Item.height = 24;
             Item.damage = 42;
             Item.knockBack = 1;
             Item.DamageType = DamageClass.Magic;
@@ -40,10 +38,7 @@ namespace Stellamod.Core.Bases
             Item.useAnimation = 24;
             Item.useTime = 24;
             Item.UseSound = SoundID.Item20;
-
-            Item.rare = ItemRarityID.Green;
             Item.mana = 5;
-            Item.UseSound = SoundID.Item20;
             Item.autoReuse = true;
             Item.noMelee = true;
             Item.noUseGraphic = true;

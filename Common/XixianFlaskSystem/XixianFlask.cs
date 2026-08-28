@@ -1,7 +1,4 @@
-﻿
-
-using Stellamod.Helpers;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -62,17 +59,10 @@ namespace Stellamod.Common.XixianFlaskSystem
         {
             Item.useTime = 17;
             Item.useAnimation = 17;
-            Item.maxStack = 1;
             Item.useStyle = ItemUseStyleID.DrinkLong;
-            Item.value = Item.buyPrice(0, 3, 3, 40);
-            Item.rare = ItemRarityID.Green;
-            Item.consumable = false;
             Item.potion = true;
             Item.UseSound = SoundID.Item2;
-            Item.autoReuse = false;
         }
-
-
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {

@@ -1,10 +1,9 @@
-using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
@@ -25,16 +24,14 @@ public class CleanestCleaver : BaseSwingItemV2
         Item.shoot = ModContent.ProjectileType<CleanestCleaverSlash>();
         Item.autoReuse = true;
         staminaProjectileShoot = ModContent.ProjectileType<CleanestCleaverProg>();
-        meleeWeaponType = Core.Bases.MeleeWeaponType.Sword;
+        meleeWeaponType = MeleeWeaponType.Sword;
         staminaDamageMultiplier = 2;
     }
 
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankSword>(),
-            material: ModContent.ItemType<GintzlMetal>());
+        this.RegisterBrew<GintzlMetal, BlankSword>();
     }
 }
 public class CleanestCleaverSlash : BaseSwingProjectileV2

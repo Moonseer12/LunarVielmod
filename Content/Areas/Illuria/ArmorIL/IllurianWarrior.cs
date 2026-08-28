@@ -1,5 +1,4 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Illuria.ArmorIL
@@ -9,10 +8,6 @@ namespace Stellamod.Content.Areas.Illuria.ArmorIL
     {
         public override void SetDefaults()
         {
-            Item.width = 18;
-            Item.height = 18;
-            Item.value = Item.sellPrice(gold: 10);
-            Item.rare = ItemRarityID.LightRed;
             Item.defense = 26;
         }
 
@@ -33,10 +28,6 @@ namespace Stellamod.Content.Areas.Illuria.ArmorIL
     {
         public override void SetDefaults()
         {
-            Item.width = 18;
-            Item.height = 18;
-            Item.value = Item.sellPrice(gold: 10);
-            Item.rare = ItemRarityID.LightRed;
             Item.defense = 27;
         }
     }
@@ -46,10 +37,6 @@ namespace Stellamod.Content.Areas.Illuria.ArmorIL
     {
         public override void SetDefaults()
         {
-            Item.width = 18;
-            Item.height = 18;
-            Item.value = Item.sellPrice(gold: 10);
-            Item.rare = ItemRarityID.LightRed;
             Item.defense = 26;
         }
     }

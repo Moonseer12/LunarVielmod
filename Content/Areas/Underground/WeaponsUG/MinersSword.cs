@@ -1,13 +1,11 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -16,7 +14,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Underground.WeaponsUG;
-
 
 public class MinersSword : BaseSwingItemV2
 {
@@ -36,9 +33,7 @@ public class MinersSword : BaseSwingItemV2
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankSword>(),
-            material: ModContent.ItemType<MinersGold>());
+        this.RegisterBrew<MinersGold, BlankSword>();
     }
 }
 public class MinersSwordSlash : BaseSwingProjectileV2

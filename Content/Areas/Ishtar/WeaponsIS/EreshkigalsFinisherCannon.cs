@@ -2,6 +2,7 @@
 using ReLogic.Utilities;
 using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Tundra.Snow.WeaponsSN;
 using Stellamod.Content.CommonMaterials;
@@ -11,7 +12,6 @@ using Stellamod.Dusts;
 using Stellamod.Effects.Ereshkigal;
 using Stellamod.Effects.Generic;
 using Stellamod.Effects.RoyalMagic;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;
@@ -1309,14 +1309,9 @@ public class EreshkigalsFinisherCannon : BaseGun
 {
     public override void SetDefaults()
     {
-        //base.SetDefaults();
         Item.damage = 45;
-        Item.width = 50;
-        Item.height = 50;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 4;
-        Item.value = Item.sellPrice(0, 1, 1, 29);
-        Item.rare = ItemRarityID.Green;
         Item.DamageType = DamageClass.Ranged;
         Item.shootSpeed = 0;
         Item.useAnimation = 10;
@@ -1360,6 +1355,6 @@ public class EreshkigalsFinisherCannon : BaseGun
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<EreshkinCandle>());
+        this.RegisterBrew<EreshkinCandle, BlankGun>();
     }
 }

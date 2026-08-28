@@ -1,5 +1,4 @@
-﻿using Stellamod.Helpers;
-using Stellamod.Items;
+﻿using Stellamod.Common.MagicCauldron;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;

@@ -1,13 +1,10 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -57,7 +54,7 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT
             Timer++;
             if (Timer == 1)
             {
-                SoundStyle softSummon = new SoundStyle("Stellamod/Assets/Sounds/SoftSummon2");
+                SoundStyle softSummon = new("Stellamod/Assets/Sounds/SoftSummon2");
                 softSummon.PitchVariance = 0.3f;
                 if (IsSmall)
                     softSummon.Volume = 0.5f;
@@ -174,7 +171,7 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<PearlescentScrap>());
+            this.RegisterBrew<PearlescentScrap, BlankStaff>();
         }
 
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)

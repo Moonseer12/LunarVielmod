@@ -1,3 +1,4 @@
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.DataStructures;
@@ -33,7 +34,7 @@ namespace Stellamod.Items.Weapons.Ranged
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankBow>(), material: ModContent.ItemType<ConvulgingMater>());
+            this.RegisterBrew<ConvulgingMater, BlankBow>();
         }
         public override Vector2? HoldoutOffset()
         {

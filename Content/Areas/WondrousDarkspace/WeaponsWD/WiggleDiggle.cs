@@ -1,13 +1,9 @@
-﻿
-
-using Stellamod.Common.GunSystem;
+﻿using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
 using Stellamod.Content.Gores;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Trails;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;

@@ -1,8 +1,7 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.MoonlightMagic;
-using Stellamod.Items;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.SpringHills.AccSH
@@ -22,8 +21,7 @@ namespace Stellamod.Content.Areas.SpringHills.AccSH
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankAccessory>(),
-                material: ModContent.ItemType<Ivythorn>());
+            this.RegisterBrew<Ivythorn, BlankAccessory>();
         }
     }
 }

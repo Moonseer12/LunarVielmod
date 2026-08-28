@@ -1,16 +1,10 @@
-﻿using Stellamod.Assets;
-using Stellamod.Common.GunSystem;
+﻿using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -111,14 +105,10 @@ public class FossilLauncher : BaseGun
         base.SetDefaults();
         Item.damage = 12;
         Item.DamageType = DamageClass.Ranged;
-        Item.width = 40;
-        Item.height = 40;
         Item.useTime = 8;
         Item.useAnimation = 8;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 6;
-        Item.value = Item.sellPrice(0, 0, 20, 0);
-        Item.rare = ItemRarityID.Blue;
         Item.UseSound = SoundID.Item5;
         Item.autoReuse = true;
         Item.shoot = ProjectileID.Bullet;
@@ -192,9 +182,7 @@ public class FossilLauncher : BaseGun
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankGun>(),
-            material: ModContent.ItemType<GintzlMetal>());
+        this.RegisterBrew<GintzlMetal, BlankGun>();
     }
 }
 

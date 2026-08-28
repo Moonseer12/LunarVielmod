@@ -1,7 +1,7 @@
-﻿using Stellamod.Common.OrbSystem;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Common.OrbSystem;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
@@ -102,7 +102,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.WeaponsRC
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankOrb>(), material: ModContent.ItemType<AlcaricMush>());
+            this.RegisterBrew<AlcaricMush, BlankOrb>();
         }
     }
 

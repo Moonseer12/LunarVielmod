@@ -1,14 +1,10 @@
-﻿
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Projectiles.Swords;
 using Stellamod.Trailing;
 using Stellamod.Visual.Particles;
 using System;

@@ -316,14 +316,6 @@ public class VirulentHelm : ModItem
         ArmorSetSystem.RegisterArmorSet<VirulentHelm, VirulentArmor, VirulentLegs>(ArmorGroup.Act_II);
     }
 
-    public override void SetDefaults()
-    {
-        Item.width = 40;
-        Item.height = 30;
-        Item.value = 10000;
-        Item.rare = ItemRarityID.Blue;
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();
@@ -346,14 +338,6 @@ public class VirulentHelm : ModItem
 [AutoloadEquip(EquipType.Body)]
 public class VirulentArmor : ModItem
 {
-    public override void SetDefaults()
-    {
-        Item.width = 28;
-        Item.height = 22;
-        Item.value = 80000;
-        Item.rare = ItemRarityID.Blue;
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();
@@ -366,14 +350,6 @@ public class VirulentArmor : ModItem
 [AutoloadEquip(EquipType.Legs)]
 public class VirulentLegs : ModItem
 {
-    public override void SetDefaults()
-    {
-        Item.width = 28;
-        Item.height = 22;
-        Item.value = 10000;
-        Item.rare = ItemRarityID.Blue;
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();

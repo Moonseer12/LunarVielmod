@@ -1,7 +1,7 @@
-﻿using Stellamod.Content.Areas.Desert.WeaponsCL;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.Areas.Desert.WeaponsCL;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Items;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -78,8 +78,6 @@ public class StaffOFlame : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankStaff>(),
-            material: ModContent.ItemType<AlcadizScrap>());
+        this.RegisterBrew<AlcadizScrap, BlankStaff>();
     }
 }

@@ -1,12 +1,10 @@
-﻿using Stellamod.Common.WeaponTypes;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Common.WeaponTypes;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
-using System;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 

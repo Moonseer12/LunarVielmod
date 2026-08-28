@@ -1,4 +1,5 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles.Gun;
 using Terraria;
 using Terraria.ID;
@@ -41,7 +42,7 @@ namespace Stellamod.Items.Weapons.Mage
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<MarshScrap>());
+            this.RegisterBrew<MarshScrap, BlankGun>();
         }
     }
 }

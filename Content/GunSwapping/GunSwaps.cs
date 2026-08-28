@@ -1,6 +1,6 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Gores;
-using Stellamod.Items;
 using Stellamod.Projectiles.Steins;
 using System.Collections.Generic;
 using Terraria;
@@ -200,7 +200,7 @@ namespace Stellamod.Content.GunSwapping
 
             LeftHand = true;
 
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/MiniPistol3");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/MiniPistol3");
             soundStyle.PitchVariance = 0.5f;
             Item.UseSound = soundStyle;
 
@@ -237,7 +237,7 @@ namespace Stellamod.Content.GunSwapping
                 }
                 else
                 {
-                    SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/MiniPistol3");
+                    SoundStyle soundStyle = new("Stellamod/Assets/Sounds/MiniPistol3");
                     soundStyle.PitchVariance = 0.5f;
                     SoundEngine.PlaySound(soundStyle, position);
                 }
@@ -246,7 +246,7 @@ namespace Stellamod.Content.GunSwapping
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<GintzlMetal>());
+            this.RegisterBrew<GintzlMetal, BlankGun>();
         }
     }
 
@@ -379,7 +379,7 @@ namespace Stellamod.Content.GunSwapping
             Item.damage = 10;
             RightHand = true;
 
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/HarmonicBlasphemy1");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/HarmonicBlasphemy1");
             soundStyle.PitchVariance = 0.5f;
             Item.UseSound = soundStyle;
 
@@ -407,25 +407,25 @@ namespace Stellamod.Content.GunSwapping
                 Dust.NewDustPerfect(position, ModContent.DustType<Dusts.GlowDust>(), newDirection * Main.rand.NextFloat(8), 125, Color.DarkBlue, Main.rand.NextFloat(0.2f, 0.5f));
             }
             Dust.NewDustPerfect(position, ModContent.DustType<Dusts.GlowDust>(), new Vector2(0, 0), 125, Color.Blue, 1);
-            projToShoot = Main.rand.Next(new int[] { ModContent.ProjectileType<FroBall2>(), ModContent.ProjectileType<FroBall1>() });
+            projToShoot = Main.rand.Next([ModContent.ProjectileType<FroBall2>(), ModContent.ProjectileType<FroBall1>()]);
 
             if (Main.myPlayer == player.whoAmI)
             {
                 Projectile.NewProjectile(player.GetSource_FromThis(), position, velocity * 8, projToShoot, damage, knockback, player.whoAmI);
             }
 
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/HarmonicBlasphemy1");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/HarmonicBlasphemy1");
             soundStyle.PitchVariance = 0.5f;
             SoundEngine.PlaySound(soundStyle, position);
         }
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<WinterbornShard>());
+            this.RegisterBrew<WinterbornShard, BlankGun>();
         }
     }
 
-    public class MsFreeze : MiniGun//
+    public class MsFreeze : MiniGun
     {
         public override void SetDefaults()
         {
@@ -433,7 +433,7 @@ namespace Stellamod.Content.GunSwapping
             Item.damage = 14;
             LeftHand = true;
 
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/GunLaser");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunLaser");
             soundStyle.PitchVariance = 0.5f;
             Item.UseSound = soundStyle;
 
@@ -468,19 +468,19 @@ namespace Stellamod.Content.GunSwapping
 
             player.GetModPlayer<MyPlayer>().ShakeAtPosition(position, 1024f, 2f);
 
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/GunLaser");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunLaser");
             soundStyle.PitchVariance = 0.5f;
             SoundEngine.PlaySound(soundStyle, position);
         }
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<IllurineScale>());
+            this.RegisterBrew<IllurineScale, BlankGun>();
         }
     }
 
 
-    public class Piken : MiniGun//
+    public class Piken : MiniGun
     {
         private int _comboCounter;
         public override void SetDefaults()
@@ -572,7 +572,7 @@ namespace Stellamod.Content.GunSwapping
         }
     }
 
-    public class Electrifying : MiniGun//
+    public class Electrifying : MiniGun
     {
         public override void SetDefaults()
         {
@@ -582,7 +582,7 @@ namespace Stellamod.Content.GunSwapping
             RightHand = true;
             TwoHands = true;
 
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/GunElectric");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunElectric");
             soundStyle.PitchVariance = 0.5f;
             Item.UseSound = soundStyle;
 
@@ -630,11 +630,11 @@ namespace Stellamod.Content.GunSwapping
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<ConvulgingMater>());
+            this.RegisterBrew<ConvulgingMater, BlankGun>();
         }
     }
 
-    public class RavestBlast : MiniGun//
+    public class RavestBlast : MiniGun
     {
         public override void SetDefaults()
         {
@@ -729,12 +729,12 @@ namespace Stellamod.Content.GunSwapping
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<AlcaricMush>());
+            this.RegisterBrew<AlcaricMush, BlankGun>();
         }
     }
 
 
-    public class Devolver : MiniGun//
+    public class Devolver : MiniGun
     {
         //Damage of this gun
         public override void SetDefaults()
@@ -874,14 +874,14 @@ namespace Stellamod.Content.GunSwapping
                     ModContent.ProjectileType<DryganProj>(), damage, knockback, player.whoAmI);
             }
 
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/GunShootNew5");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunShootNew5");
             soundStyle.PitchVariance = 0.5f;
             SoundEngine.PlaySound(soundStyle, position);
         }
     }
 
 
-    public class Obel : MiniGun//
+    public class Obel : MiniGun
     {
         public override void SetDefaults()
         {
@@ -890,7 +890,7 @@ namespace Stellamod.Content.GunSwapping
             RightHand = true;
 
 
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/GunShootNew10");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunShootNew10");
             soundStyle.PitchVariance = 0.5f;
             Item.UseSound = soundStyle;
 
@@ -923,14 +923,14 @@ namespace Stellamod.Content.GunSwapping
                     ModContent.ProjectileType<EnergyBall>(), damage, knockback, player.whoAmI);
             }
 
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/GunShootNew10");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunShootNew10");
             soundStyle.PitchVariance = 0.5f;
             SoundEngine.PlaySound(soundStyle, position);
         }
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<PearlescentScrap>());
+            this.RegisterBrew<PearlescentScrap, BlankGun>();
         }
 
     }
@@ -985,7 +985,7 @@ namespace Stellamod.Content.GunSwapping
         }
     }
 
-    public class ShottyPitol : MiniGun//
+    public class ShottyPitol : MiniGun
     {
         public override void SetDefaults()
         {
@@ -1032,7 +1032,7 @@ namespace Stellamod.Content.GunSwapping
         }
     }
 
-    public class BubbleBussy : MiniGun //
+    public class BubbleBussy : MiniGun
     {
         public override void SetDefaults()
         {
@@ -1040,7 +1040,7 @@ namespace Stellamod.Content.GunSwapping
             Item.damage = 50;
             RightHand = true;
 
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/TentacleBubbleOut");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/TentacleBubbleOut");
             soundStyle.PitchVariance = 0.5f;
             Item.UseSound = soundStyle;
 
@@ -1069,14 +1069,14 @@ namespace Stellamod.Content.GunSwapping
                 Projectile.NewProjectile(player.GetSource_FromThis(), position, vel,
                 ModContent.ProjectileType<BubbleBussyProj>(), damage, knockback, player.whoAmI);
             }
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/TentacleBubbleOut");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/TentacleBubbleOut");
             soundStyle.PitchVariance = 0.5f;
             SoundEngine.PlaySound(soundStyle, position);
         }
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<AlcaricMush>());
+            this.RegisterBrew<AlcaricMush, BlankGun>();
         }
     }
 
@@ -1104,7 +1104,7 @@ namespace Stellamod.Content.GunSwapping
         public override void Fire(Player player, Vector2 position, Vector2 velocity, int damage, float knockback)
         {
             base.Fire(player, position, velocity, damage, knockback);
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/GunShootNew11");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunShootNew11");
             soundStyle.PitchVariance = 0.3f;
             soundStyle.Volume = 0.8f;
             SoundEngine.PlaySound(soundStyle, position);
@@ -1135,13 +1135,12 @@ namespace Stellamod.Content.GunSwapping
                 Projectile.NewProjectileDirect(player.GetSource_FromThis(), position, newDirection * 2 * Main.rand.NextFloat(12), ModContent.ProjectileType<BasterPartyProj>(), damage, knockback, player.whoAmI);
                 for (int k = 0; k < Main.rand.Next(1, 3); k++)
                 {
-                    int[] goreTypes = new int[]
-                    {
+                    int[] goreTypes = [
                         ModContent.GoreType<RibbonBlue>(),
                         ModContent.GoreType<RibbonPink>(),
                         ModContent.GoreType<RibbonWhite>(),
                         ModContent.GoreType<RibbonYellow>()
-                    };
+                    ];
 
                     int goreType = goreTypes[Main.rand.Next(0, goreTypes.Length)];
                     Gore.NewGore(player.GetSource_FromThis(), position + offset.RotatedByRandom(MathHelper.PiOver4) * distance * Main.rand.NextFloat(0.5f, 1f),
@@ -1189,7 +1188,7 @@ namespace Stellamod.Content.GunSwapping
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<TerrorFragments>());
+            this.RegisterBrew<TerrorFragments, BlankGun>();
         }
     }
 
@@ -1252,7 +1251,7 @@ namespace Stellamod.Content.GunSwapping
             RightHand = true;
             TwoHands = true;
 
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/GunBlasting");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunBlasting");
             soundStyle.PitchVariance = 0.5f;
             Item.UseSound = soundStyle;
 
@@ -1288,7 +1287,7 @@ namespace Stellamod.Content.GunSwapping
                     {
                         Projectile.NewProjectile(player.GetSource_FromThis(), position, velocity * 8, ModContent.ProjectileType<PINKX>(), damage, knockback, player.whoAmI);
                     }
-                    SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/GunBlasting");
+                    SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunBlasting");
                     soundStyle.PitchVariance = 0.5f;
                     SoundEngine.PlaySound(soundStyle);
                 }
@@ -1306,7 +1305,7 @@ namespace Stellamod.Content.GunSwapping
                         Projectile.NewProjectile(player.GetSource_FromThis(), position, velocity * 8, ModContent.ProjectileType<BLACKX>(), damage, knockBack, player.whoAmI);
                     }
 
-                    SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/GunBlasting");
+                    SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunBlasting");
                     soundStyle.PitchVariance = 0.5f;
                     SoundEngine.PlaySound(soundStyle);
                 }
@@ -1314,7 +1313,7 @@ namespace Stellamod.Content.GunSwapping
         }
     }
 
-    public class Gordon : MiniGun//
+    public class Gordon : MiniGun
     {
         public override void SetDefaults()
         {
@@ -1324,7 +1323,7 @@ namespace Stellamod.Content.GunSwapping
             RightHand = true;
             TwoHands = true;
 
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/GunBlasting");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunBlasting");
             soundStyle.PitchVariance = 0.5f;
             Item.UseSound = soundStyle;
 
@@ -1356,7 +1355,7 @@ namespace Stellamod.Content.GunSwapping
                 {
                     Projectile.NewProjectile(player.GetSource_FromThis(), position, velocity * 8, ModContent.ProjectileType<NLUX>(), damage, knockback, player.whoAmI);
                 }
-                SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/GunBlasting");
+                SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunBlasting");
                 soundStyle.PitchVariance = 0.5f;
                 SoundEngine.PlaySound(soundStyle);
             }
@@ -1364,7 +1363,7 @@ namespace Stellamod.Content.GunSwapping
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<ConvulgingMater>());
+            this.RegisterBrew<ConvulgingMater, BlankGun>();
         }
     }
 
@@ -1378,7 +1377,7 @@ namespace Stellamod.Content.GunSwapping
             RightHand = true;
             TwoHands = true;
 
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/GunBlasting");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunBlasting");
             soundStyle.PitchVariance = 0.5f;
             Item.UseSound = soundStyle;
 
@@ -1416,7 +1415,7 @@ namespace Stellamod.Content.GunSwapping
                 }
                 else
                 {
-                    SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/MiniPistol3");
+                    SoundStyle soundStyle = new("Stellamod/Assets/Sounds/MiniPistol3");
                     soundStyle.PitchVariance = 0.5f;
                     SoundEngine.PlaySound(soundStyle, position);
                 }
@@ -1425,11 +1424,11 @@ namespace Stellamod.Content.GunSwapping
         public override void AddRecipes()
         {
             base.AddRecipes();
-       //     this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<GrailBar>());
+            this.RegisterBrew<MinersGold, BlankGun>();
         }
     }
 
-    public class SrTetanus : MiniGun//
+    public class SrTetanus : MiniGun
     {
         public override void SetDefaults()
         {
@@ -1469,7 +1468,7 @@ namespace Stellamod.Content.GunSwapping
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<MarshScrap>());
+            this.RegisterBrew<MarshScrap, BlankGun>();
         }
     }
 
@@ -1545,7 +1544,7 @@ namespace Stellamod.Content.GunSwapping
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<MarshScrap>());
+            this.RegisterBrew<MarshScrap, BlankGun>();
         }
     }
 }

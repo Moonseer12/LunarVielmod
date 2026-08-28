@@ -1,9 +1,8 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -35,7 +34,7 @@ public class StarCall : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<MiracleThread>());
+        this.RegisterBrew<MiracleThread, BlankStaff>();
     }
 }
 
@@ -44,7 +43,6 @@ public class Starbomb : ModProjectile
 {
 
     private ref float Timer => ref Projectile.ai[0];
-    private float ScaleProgress => Easing.InExpo(Timer / 60f);
     public override void SetDefaults()
     {
         base.SetDefaults();

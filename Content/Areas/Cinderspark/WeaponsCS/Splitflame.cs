@@ -1,15 +1,11 @@
-﻿
-
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -26,16 +22,12 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             Item.DefaultToArtifact();
             Item.damage = 18;
             Item.mana = 180;
-            Item.width = 18;
-            Item.height = 21;
             Item.useTime = 40;
             Item.useAnimation = 40;
             Item.useStyle = ItemUseStyleID.HoldUp;
       
             Item.knockBack = 4f;
             Item.DamageType = DamageClass.Magic;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.DD2_BookStaffCast;
             Item.noMelee = true;
             Item.noUseGraphic = true;
@@ -63,7 +55,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<Cinderscrap>());
+            this.RegisterBrew<Cinderscrap, BlankStaff>();
         }
     }
 

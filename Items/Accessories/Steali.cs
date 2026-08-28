@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common.DashSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Accessories

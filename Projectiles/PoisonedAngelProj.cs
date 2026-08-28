@@ -1,8 +1,5 @@
-﻿
-
+﻿using Stellamod.Content.Areas.TheFalling.WeaponsF;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Projectiles.IgniterExplosions;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;

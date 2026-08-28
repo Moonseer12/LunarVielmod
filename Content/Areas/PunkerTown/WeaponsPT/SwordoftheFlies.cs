@@ -1,5 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
@@ -7,7 +8,6 @@ using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Effects.RoyalMagic;
-using Stellamod.Items;
 using Stellamod.Trailing;
 using Stellamod.Visual.Particles;
 using System;
@@ -16,10 +16,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-
 namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT;
-
-
 
 /// <summary>
 /// Sword of the flies - Slashing sends baby ivyn flies to attack enemies, also is a slower sword
@@ -40,12 +37,9 @@ public class SwordoftheFlies : BaseSwingItemV2
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankSword>(),
-            material: ModContent.ItemType<MarshScrap>());
+        this.RegisterBrew<MarshScrap, BlankSword>();
     }
 }
-
 
 public class SwordofTheFliesStorm : ModProjectile,
     IDrawToRenderTarget

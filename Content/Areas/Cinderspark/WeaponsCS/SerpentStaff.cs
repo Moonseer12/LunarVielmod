@@ -25,13 +25,10 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             Item.damage = 92;
             Item.knockBack = 6f;
             Item.mana = 10;
-            Item.width = 32;
-            Item.height = 32;
             Item.useTime = 36;
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.value = Item.sellPrice(0, 0, 33, 0);
-            Item.rare = ItemRarityID.Purple;
             Item.UseSound = SoundID.Item44;
 
             // These below are needed for a minion weapon

@@ -1,8 +1,8 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
+using Stellamod.Content.Areas.Desert.WeaponsCL;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

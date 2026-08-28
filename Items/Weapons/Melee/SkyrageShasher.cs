@@ -1,14 +1,12 @@
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
-
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
@@ -30,7 +28,7 @@ namespace Stellamod.Items.Weapons.Melee
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankSword>(), material: ModContent.ItemType<PearlescentScrap>());
+            this.RegisterBrew<PearlescentScrap, BlankSword>();
         }
     }
 
@@ -46,7 +44,7 @@ namespace Stellamod.Items.Weapons.Melee
 
                 for (int i = 0; i < _beamPoints.Length; i++)
                 {
-                    float ratio = (float)i / (float)_beamPoints.Length;
+                    float ratio = i / (float)_beamPoints.Length;
                     _beamPoints[i] = Vector2.Lerp(Projectile.Center, Projectile.Center + Projectile.velocity.SafeNormalize(Vector2.Zero) * BeamLength, ratio);
                 }
                 return _beamPoints;

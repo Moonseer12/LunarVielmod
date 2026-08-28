@@ -1,8 +1,7 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Projectiles.IgniterExplosions;
 using Stellamod.Visual.Particles;
 using Terraria;
@@ -20,15 +19,11 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             Item.DefaultToCombatTool(0.01f, 0.04f, 1);
             Item.damage = 8;
             Item.DamageType = DamageClass.Ranged;
-            Item.width = 24;
-            Item.height = 24;
             Item.noUseGraphic = true;
-            Item.value = Item.buyPrice(gold: 5);
             Item.useTime = 80;
             Item.useAnimation = 80;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 6;
-            Item.rare = ItemRarityID.LightPurple;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<CinderBomberProj>();
@@ -38,9 +33,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(
-                mold: ModContent.ItemType<BlankJuggler>(),
-                material: ModContent.ItemType<Cinderscrap>());
+            this.RegisterBrew<Cinderscrap, BlankJuggler>();
         }
     }
 

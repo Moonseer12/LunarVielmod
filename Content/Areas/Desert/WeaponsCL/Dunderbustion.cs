@@ -1,5 +1,6 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.CommonMaterials;
@@ -7,7 +8,6 @@ using Stellamod.Core;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -47,9 +47,7 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(
-                mold: ModContent.ItemType<BlankGun>(),
-                material: ModContent.ItemType<GintzlMetal>());
+            this.RegisterBrew<GintzlMetal, BlankGun>();
         }
     }
     public class DunderShot : ScarletProjectile

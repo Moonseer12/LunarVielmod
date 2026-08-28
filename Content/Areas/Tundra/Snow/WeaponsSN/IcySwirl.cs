@@ -1,12 +1,9 @@
-﻿
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -29,9 +26,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(
-                mold: ModContent.ItemType<BlankSword>(),
-                material: ModContent.ItemType<WinterbornShard>());
+            this.RegisterBrew<WinterbornShard, BlankSword>();
         }
     }
 

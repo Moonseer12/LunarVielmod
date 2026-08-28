@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Stellamod.Common;
+﻿using Stellamod.Common;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -58,7 +58,7 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<MarshScrap>());
+            this.RegisterBrew<MarshScrap, BlankStaff>();
         }
     }
 

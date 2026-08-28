@@ -1,6 +1,6 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.MoonlightMagic;
-using Stellamod.Items;
 
 namespace Stellamod.Content.Areas.SpringHills.WeaponsSH
 {

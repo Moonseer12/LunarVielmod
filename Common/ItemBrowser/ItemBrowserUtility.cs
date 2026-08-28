@@ -1,7 +1,7 @@
-﻿using Stellamod.Common.XixianFlaskSystem;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Items;
 using System;
 using System.Collections.Generic;
 using Terraria;

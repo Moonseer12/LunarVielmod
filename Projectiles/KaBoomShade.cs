@@ -15,7 +15,7 @@ namespace Stellamod.Projectiles
             base.Start();
             if (Main.myPlayer == Projectile.owner)
             {
-                var circle = EffectsHelper.SimpleExplosionCircle(Projectile, Color.Purple);
+                EffectsHelper.SimpleExplosionCircle(Projectile, Color.Purple);
             }
         }
 

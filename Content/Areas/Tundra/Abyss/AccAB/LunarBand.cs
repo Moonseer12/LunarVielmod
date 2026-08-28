@@ -1,6 +1,5 @@
-﻿using Stellamod.Content.CommonMaterials;
-using Stellamod.Helpers;
-using Stellamod.Items;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;
@@ -20,7 +19,7 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.AccAB
             Lighting.AddLight(Item.Center, Color.WhiteSmoke.ToVector3() * 0.55f * Main.essScale);
         }
 
-        private float CalculateDamageBoost()
+        public static float CalculateDamageBoost()
         {
             if (Main.dayTime)
                 return 0;
@@ -33,7 +32,7 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.AccAB
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             base.ModifyTooltips(tooltips);
-            TooltipLine line = new TooltipLine(Mod, "Strength", LangText.Common("LunarStrength", CalculateDamageBoost().ToString("P2")));
+            TooltipLine line = new(Mod, "Strength", LangText.Common("LunarStrength", CalculateDamageBoost().ToString("P2")));
             tooltips.Add(line);
         }
 
@@ -68,7 +67,7 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.AccAB
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankAccessory>(), material: ModContent.ItemType<ConvulgingMater>());
+            this.RegisterBrew<ConvulgingMater, BlankAccessory>();
         }
     }
 }

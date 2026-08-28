@@ -1,9 +1,6 @@
-﻿
-
-using Stellamod.Common.GunSystem;
+﻿using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Core.Utilities;
-using Stellamod.Items;
 using Stellamod.Projectiles;
 using Terraria;
 using Terraria.Audio;
@@ -21,19 +18,13 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
         {
             Item.damage = 7;
             Item.DamageType = DamageClass.Ranged;
-            Item.width = 32;
-            Item.height = 25;
             Item.useTime = 45;
             Item.useAnimation = 45;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 2;
-            Item.rare = ItemRarityID.Blue;
-            Item.autoReuse = false;
             Item.shootSpeed = 13f;
             Item.scale = 0.8f;
-            Item.noMelee = true; // The projectile will do the damage and not the item
-            Item.value = Item.buyPrice(silver: 3);
-
+            Item.noMelee = true;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<GardenWreckerBullet>();
             Item.shootSpeed = 5;
@@ -56,13 +47,9 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<AlcadizScrap>());
+            this.RegisterBrew<AlcadizScrap, BlankGun>();
         }
     }
-
-
-
-
 
     public class GardenWreckerBullet : ModProjectile
     {

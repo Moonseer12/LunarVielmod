@@ -10,7 +10,6 @@ using Stellamod.Content.Areas;
 using Stellamod.Content.Areas.Terror;
 using Stellamod.Content.Areas.TheFalling;
 using Stellamod.Content.Areas.WorldsEnd;
-using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Currencies;
 using Stellamod.Core.UI;
 using Stellamod.Skies;

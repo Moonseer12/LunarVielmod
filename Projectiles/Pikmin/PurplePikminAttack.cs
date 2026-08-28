@@ -1,5 +1,4 @@
-﻿
-using Stellamod.Helpers;
+﻿using Stellamod.Content.Areas.Desert.WeaponsCL;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -9,7 +8,6 @@ namespace Stellamod.Projectiles.Pikmin
 {
     public class PurplePikminAttack : ModProjectile
     {
-        private float _lighting;
         public override void SetStaticDefaults()
         {
             Main.projFrames[Projectile.type] = 30;
@@ -37,7 +35,7 @@ namespace Stellamod.Projectiles.Pikmin
             NPC target = Main.npc[targetNpc];
             if (target.active && !_setOffset)
             {
-                _offset = (target.position - Projectile.position);
+                _offset = target.position - Projectile.position;
                 _setOffset = true;
             }
             else if (!target.active)

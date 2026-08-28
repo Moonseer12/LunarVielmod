@@ -203,14 +203,6 @@ namespace Stellamod.Content.Areas.Hallowrooms.ArmorHR
             ArmorSetSystem.RegisterArmorSet<ArtisanMask, ArtisanBreastplate, ArtisanThighs>(ArmorGroup.Act_II);
         }
 
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 10); // How many coins the item is worth
-            Item.rare = ItemRarityID.LightPurple;// The rarity of the item
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();
@@ -237,14 +229,6 @@ namespace Stellamod.Content.Areas.Hallowrooms.ArmorHR
     [AutoloadEquip(EquipType.Body)]
     public class ArtisanBreastplate : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 10); // How many coins the item is worth
-            Item.rare = ItemRarityID.LightPurple; // The rarity of the item
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();
@@ -257,14 +241,6 @@ namespace Stellamod.Content.Areas.Hallowrooms.ArmorHR
     [AutoloadEquip(EquipType.Legs)]
     public class ArtisanThighs : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 10); // How many coins the item is worth
-            Item.rare = ItemRarityID.LightPurple; // The rarity of the item
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();

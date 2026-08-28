@@ -1,10 +1,10 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
-using Stellamod.Items;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -18,10 +18,6 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
         {
             base.SetDefaults();
             Item.DefaultToArtifact();
-            Item.width = 24;
-            Item.height = 24;
-            Item.rare = ItemRarityID.Blue;
-            Item.value = Item.sellPrice(0, 0, 33, 0);
             Item.damage = 7; // Sets the Item's damage. Note that projectiles shot by this weapon will use its and the used ammunition's damage added together.
             Item.DamageType = DamageClass.Magic;
             Item.mana = 6;
@@ -50,9 +46,7 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(
-                mold: ModContent.ItemType<BlankStaff>(),
-                material: ModContent.ItemType<GintzlMetal>());
+            this.RegisterBrew<GintzlMetal, BlankStaff>();
         }
     }
     public class WindArtifactBlast : ModProjectile

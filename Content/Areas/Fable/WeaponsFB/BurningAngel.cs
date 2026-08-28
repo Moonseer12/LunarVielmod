@@ -1,10 +1,9 @@
-﻿using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Projectiles;
 using Terraria;
 using Terraria.Audio;
@@ -33,17 +32,9 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankJuggler>(),
-                material: ModContent.ItemType<AlcadizScrap>());
+            this.RegisterBrew<AlcadizScrap, BlankJuggler>();
         }
     }
-
-
-
-
-
-
-
 
     public class BurningAngelSlash : BaseSwingProjectileV2
     {

@@ -1,10 +1,8 @@
-﻿
-using Stellamod.Assets;
-using Stellamod.Common.GunSystem;
+﻿using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -22,14 +20,10 @@ public class CogBomber : BaseGun
         Item.noUseGraphic = true;
         Item.damage = 72;
         Item.DamageType = DamageClass.Ranged;
-        Item.width = 62;
-        Item.height = 34;
         Item.useTime = 40;
         Item.useAnimation = 37;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 6;
-        Item.value = Item.buyPrice(0, 15, 0, 0);
-        Item.rare = ItemRarityID.LightRed;
         Item.UseSound = new SoundStyle("Stellamod/Assets/Sounds/gun1") with { PitchVariance = 0.7f };
         Item.autoReuse = true;
         Item.shootSpeed = 12f;
@@ -70,9 +64,7 @@ public class CogBomber : BaseGun
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankGun>(),
-            material: ModContent.ItemType<MechanizedSoul>());
+        this.RegisterBrew<MechanizedSoul, BlankGun>();
     }
 }
 public class CogBomb : ModProjectile

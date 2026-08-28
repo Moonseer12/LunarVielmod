@@ -1,8 +1,8 @@
-﻿using Stellamod.Content.Areas.Desert.WeaponsCL;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.Areas.Desert.WeaponsCL;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -70,9 +70,7 @@ public class StaffoftheIrradiaflare : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankStaff>(),
-            material: ModContent.ItemType<MarshScrap>());
+        this.RegisterBrew<MarshScrap, BlankStaff>();
     }
 }
 

@@ -1,6 +1,4 @@
-﻿
-using Stellamod.Helpers;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 namespace Stellamod.Projectiles.IgniterExplosions
@@ -31,7 +29,7 @@ namespace Stellamod.Projectiles.IgniterExplosions
             Timer++;
             if (Timer == 1)
             {
-                var circle = EffectsHelper.SimpleExplosionCircle(Projectile, Color.OrangeRed);
+                EffectsHelper.SimpleExplosionCircle(Projectile, Color.OrangeRed);
             }
 
             Projectile.rotation -= 0.01f;

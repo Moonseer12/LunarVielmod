@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -15,8 +15,6 @@ namespace Stellamod.Content.Areas.Junkyard.WeaponsJY
     {
         public override void SetDefaults()
         {
-            Item.width = 56;
-            Item.height = 56;
             Item.damage = 21;
             Item.DamageType = DamageClass.Summon;
             Item.knockBack = 2;
@@ -24,8 +22,6 @@ namespace Stellamod.Content.Areas.Junkyard.WeaponsJY
             Item.useTime = 15;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
-            Item.value = Item.sellPrice(0, 10, 0, 0);
-            Item.rare = ItemRarityID.Blue;
             Item.noMelee = true;
             Item.shootSpeed = 20f;
             Item.UseSound = SoundID.Item113;
@@ -51,7 +47,7 @@ namespace Stellamod.Content.Areas.Junkyard.WeaponsJY
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<MechanizedSoul>());
+            this.RegisterBrew<MechanizedSoul, BlankStaff>();
         }
     }
 

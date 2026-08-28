@@ -1,6 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Common.ArmorRework;
-using Stellamod.Items;
+using Stellamod.Common.MagicCauldron;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;

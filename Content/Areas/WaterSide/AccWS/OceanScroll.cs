@@ -1,9 +1,7 @@
-﻿
-using Stellamod.Common.ArmorRework;
+﻿using Stellamod.Common.ArmorRework;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.WaterSide.AccWS

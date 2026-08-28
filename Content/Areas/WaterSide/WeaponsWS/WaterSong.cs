@@ -1,13 +1,10 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
-using Stellamod.Content.Areas.Cinderspark.WeaponsCS;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Projectiles;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -68,7 +65,7 @@ namespace Stellamod.Content.Areas.WaterSide.WeaponsWS
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankBow>(), material: ModContent.ItemType<MusicalHarmonise>());
+            this.RegisterBrew<MusicalHarmonise, BlankBow>();
         }
     }
 

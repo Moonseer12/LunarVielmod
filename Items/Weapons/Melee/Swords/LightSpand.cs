@@ -1,8 +1,7 @@
-
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
 using Stellamod.Projectiles.Magic;
 using Stellamod.Trailing;
 using Terraria;

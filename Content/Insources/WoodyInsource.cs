@@ -1,5 +1,4 @@
 ﻿using Stellamod.Common.XixianFlaskSystem;
-using Stellamod.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

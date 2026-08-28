@@ -1,20 +1,14 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Desert.WeaponsCL;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -32,15 +26,11 @@ public class EternalFlameArtifact : ModItem
         Item.DefaultToArtifact();
         Item.damage = 18;
         Item.mana = 24;
-        Item.width = 18;
-        Item.height = 21;
         Item.useTime = Item.useAnimation = 15;
 
         Item.useStyle = ItemUseStyleID.HoldUp;
         Item.knockBack = 4f;
         Item.DamageType = DamageClass.Magic;
-        Item.value = 10000;
-        Item.rare = ItemRarityID.Orange;
         Item.UseSound = SoundID.DD2_BookStaffCast;
         Item.shoot = ModContent.ProjectileType<EternalFlameBall>();
         Item.shootSpeed = 4f;

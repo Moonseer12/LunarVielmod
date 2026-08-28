@@ -10,7 +10,6 @@ namespace Stellamod.Common.XixianFlaskSystem
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.rare = ItemRarityID.Green;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

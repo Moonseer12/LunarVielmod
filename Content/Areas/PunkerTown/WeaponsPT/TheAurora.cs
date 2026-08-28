@@ -1,9 +1,9 @@
-﻿using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;
@@ -43,13 +43,8 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
             //Dust Burst Towards Mouse
 
             int Sound = Main.rand.Next(1, 3);
-            SoundStyle shootSound = new SoundStyle("Stellamod/Assets/Sounds/MiniPistol");
-            if (Sound == 1)
-            {
-
-
-            }
-            else
+            SoundStyle shootSound = new("Stellamod/Assets/Sounds/MiniPistol");
+            if (Sound != 1)
             {
                 shootSound = new SoundStyle("Stellamod/Assets/Sounds/MiniPistol3");
             }
@@ -57,7 +52,7 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
             shootSound.Volume = 0.3f;
             SoundEngine.PlaySound(shootSound, position);
 
-            shootSound = new SoundStyle("Stellamod/Assets/Sounds/Starblast");
+            shootSound = new("Stellamod/Assets/Sounds/Starblast");
             shootSound.PitchVariance = 0.2f;
             SoundEngine.PlaySound(shootSound, position);
             float rot = velocity.ToRotation();
@@ -81,9 +76,7 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(
-                mold: ModContent.ItemType<BlankGun>(),
-                material: ModContent.ItemType<MarshScrap>());
+            this.RegisterBrew<MarshScrap, BlankGun>();
         }
     }
 

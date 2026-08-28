@@ -1,11 +1,8 @@
-﻿
-using Stellamod.Common.IgnitersNPowders;
+﻿using Stellamod.Common.IgnitersNPowders;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Items.Accessories.Igniter
 {
@@ -31,7 +28,7 @@ namespace Stellamod.Items.Accessories.Igniter
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankAccessory>(), material: ModContent.ItemType<AlcaricMush>());
+            this.RegisterBrew<AlcaricMush, BlankAccessory>();
         }
 
 

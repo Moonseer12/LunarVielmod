@@ -1,4 +1,6 @@
-﻿using Stellamod.Projectiles.Slashers.GrailAxe;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
+using Stellamod.Projectiles.Slashers.GrailAxe;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -90,7 +92,7 @@ namespace Stellamod.Items.Weapons.Melee
         public override void AddRecipes()
         {
             base.AddRecipes();
-         //   this.RegisterBrew(mold: ModContent.ItemType<BlankSword>(), material: ModContent.ItemType<GrailBar>());
+            this.RegisterBrew<MinersGold, BlankSword>();
         }
     }
 }

@@ -1,12 +1,8 @@
-﻿
-
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Trails;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
@@ -26,9 +22,7 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(
-                mold: ModContent.ItemType<BlankBow>(),
-                material: ModContent.ItemType<AlcadizScrap>());
+            this.RegisterBrew<AlcadizScrap, BlankBow>();
         }
 
         public override void ShootBow(Player player, EntitySource_ItemUse_WithAmmo source, ShootParams shootParams)

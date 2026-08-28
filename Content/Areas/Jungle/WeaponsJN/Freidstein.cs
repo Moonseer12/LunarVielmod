@@ -1,11 +1,11 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using Stellamod.Items.Weapons.Mage.Stein;
 using Stellamod.Projectiles.IgniterExplosions.Stein;
 using Stellamod.Projectiles.Steins;
@@ -37,9 +37,7 @@ namespace Stellamod.Content.Areas.Jungle.WeaponsJN
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(
-                mold: ModContent.ItemType<BlankStein>(),
-                material: ModContent.ItemType<RadiantNectar>());
+            this.RegisterBrew<RadiantNectar, BlankStein>();
         }
 
     }

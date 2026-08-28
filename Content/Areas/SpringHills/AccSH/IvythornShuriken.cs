@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.DashSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -29,9 +29,7 @@ public class IvythornShuriken : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankAccessory>(),
-            material: ModContent.ItemType<Ivythorn>());
+        this.RegisterBrew<Ivythorn, BlankAccessory>();
     }
 }
 

@@ -1,9 +1,9 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -22,18 +22,12 @@ public class BlackEye : ModItem
         Item.width = 32;
         Item.mana = 50;
         Item.height = 25;
-        Item.useTime = 80;
-        Item.useAnimation = 80;
         Item.useStyle = ItemUseStyleID.Shoot;
-
         Item.knockBack = 2;
-        Item.rare = ItemRarityID.Purple;
-        Item.autoReuse = false;
         Item.shootSpeed = 30f;
         Item.shoot = ModContent.ProjectileType<BlackEyeProj>();
         Item.scale = 0.8f;
-        Item.noMelee = true; // The projectile will do the damage and not the item
-        Item.value = Item.buyPrice(gold: 95);
+        Item.noMelee = true;
         Item.noUseGraphic = true;
     }
 

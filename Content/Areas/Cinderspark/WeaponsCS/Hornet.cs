@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.Areas.Fable.WeaponsFB;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -16,10 +16,6 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.width = 62;
-            Item.height = 32;
-            Item.scale = 1f;
-            Item.rare = ItemRarityID.Green;
             Item.useTime = 16;
             Item.useAnimation = 16;
             Item.useStyle = ItemUseStyleID.Shoot;
@@ -35,8 +31,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             // Gun Properties
             Item.shoot = ProjectileID.PurificationPowder;
             Item.shootSpeed = 8f;
-            Item.useAmmo = AmmoID.Bullet; // Restrict the type of ammo the weapon can use, so that the weapon cannot use other ammos
-            Item.value = 10000;
+            Item.useAmmo = AmmoID.Bullet;
         }
 
         public override void SetMagazine(ref GunReloadParams fireParams)
@@ -92,7 +87,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<Cinderscrap>());
+            this.RegisterBrew<Cinderscrap, BlankGun>();
         }
     }
 

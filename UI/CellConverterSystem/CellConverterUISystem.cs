@@ -1,8 +1,5 @@
-﻿
-using Stellamod.Items;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
-using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
@@ -31,7 +28,7 @@ namespace Stellamod.UI.CellConverterSystem
 
         public override void UpdateUI(GameTime gameTime)
         {
-            Vector2 worldPos = new Vector2(CellConverterX * 16, CellConverterY * 16);
+            Vector2 worldPos = new(CellConverterX * 16, CellConverterY * 16);
             float dist = Vector2.Distance(Main.LocalPlayer.position, CellConverterPos);
             if (dist > 160)
             {

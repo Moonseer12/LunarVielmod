@@ -1,10 +1,10 @@
 ﻿using Stellamod.Common;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core;
 using Stellamod.Core.Effects;
 using Stellamod.Core.Particles;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using Stellamod.Trailing;
 using Stellamod.Visual.Particles;
 using Terraria;
@@ -44,7 +44,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<HypnotizedSoul>());
+            this.RegisterBrew<HypnotizedSoul, BlankStaff>();
         }
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)

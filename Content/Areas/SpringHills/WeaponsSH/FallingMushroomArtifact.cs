@@ -1,14 +1,12 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Desert.WeaponsCL;
 using Stellamod.Content.CommonMaterials;
-
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -66,9 +64,7 @@ public class FallingMushroomArtifact : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankStaff>(),
-            material: ModContent.ItemType<Mushroom>());
+        this.RegisterBrew<Mushroom, BlankStaff>();
     }
 }
 

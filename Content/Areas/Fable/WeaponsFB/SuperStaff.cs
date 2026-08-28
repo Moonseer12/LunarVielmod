@@ -1,12 +1,11 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System;
@@ -28,13 +27,10 @@ public class SuperStaff : ModItem
         Item.useTime = Item.useAnimation = 45;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 2;
-        Item.rare = ItemRarityID.Green;
         Item.autoReuse = false;
         Item.shootSpeed = 30f;
         Item.shoot = ModContent.ProjectileType<SuperStaffHold>();
-        Item.scale = 1f;
-        Item.noMelee = true; // The projectile will do the damage and not the item
-        Item.value = Item.buyPrice(silver: 12);
+        Item.noMelee = true;
         Item.noUseGraphic = true;
         Item.channel = true;
         Item.mana = 4;
@@ -42,9 +38,7 @@ public class SuperStaff : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankStaff>(),
-            material: ModContent.ItemType<AlcadizScrap>());
+        this.RegisterBrew<AlcadizScrap, BlankStaff>();
     }
 }
 

@@ -1,6 +1,6 @@
-﻿using Stellamod.Content.Areas.Hallowrooms.ArmorHR;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.Areas.Hallowrooms.ArmorHR;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common.DashSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Accessories
@@ -17,9 +17,7 @@ namespace Stellamod.Items.Accessories
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(
-                mold: ModContent.ItemType<BlankAccessory>(), 
-                material: ModContent.ItemType<PearlescentScrap>());
+            this.RegisterBrew<PearlescentScrap, BlankAccessory>();
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {

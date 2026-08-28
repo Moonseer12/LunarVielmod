@@ -1,14 +1,13 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.MoonlightMagic;
 using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Content.MoonlightMagic.Forms;
-using Stellamod.Items;
 using System.Collections.Generic;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.MothlightManor.WeaponsMM
 {
-
     public class CresbrahntWand : AbstractMagicWand
     {
         public override void SetDefaults2()
@@ -30,11 +29,11 @@ namespace Stellamod.Content.Areas.MothlightManor.WeaponsMM
             elements.Add(ModContent.ItemType<MothlightElement>());
             elements.Add(ModContent.ItemType<PhantasmalElement>());
         }
+
         public override void AddRecipes()
         {
             base.AddRecipes();
-               this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<MothlightWing>());
+            this.RegisterBrew<MothlightWing, BlankStaff>();
         }
     }
 }
-

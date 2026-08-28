@@ -1,7 +1,5 @@
-﻿
-
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Helpers;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -77,13 +75,13 @@ namespace Stellamod.Items.Accessories.Wings
             float hoverSpeed = 5;
             float hoverRange = 0.2f;
             float y = VectorHelper.Osc(-hoverRange, hoverRange, hoverSpeed);
-            Vector2 position = new Vector2(Item.position.X, Item.position.Y + y);
+            Vector2 position = new(Item.position.X, Item.position.Y + y);
             Item.position = position;
         }
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankAccessory>(), material: ModContent.ItemType<MiracleThread>());
+            this.RegisterBrew<MiracleThread, BlankAccessory>();
         }
     }
 }

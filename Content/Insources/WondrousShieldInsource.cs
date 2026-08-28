@@ -1,7 +1,7 @@
 ﻿using ReLogic.Content;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;

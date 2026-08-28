@@ -1,28 +1,15 @@
-﻿using Stellamod.Core.Bases;
-using Stellamod.Items.Weapons.Mage.Tomes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria.ModLoader;
-using Terraria;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Terraria.Audio;
-using Terraria.DataStructures;
-
-
-using Stellamod.Projectiles;
-using Stellamod.Trails;
-using Terraria.GameContent;
-using Terraria.Graphics.Shaders;
-using Terraria.ID;
-using Stellamod.Items;
+using Stellamod.Core.Bases;
 using Stellamod.Core.Effects;
 using Stellamod.Trailing;
-using Stellamod.Content.CommonMaterials;
-using Stellamod.Core.Utilities;
+using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
+using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
 {
@@ -43,7 +30,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
     }
     public class TomeOfHypnoMothHold : BaseMagicTomeProjectile
     {
-        private int Star;
         private float _dustTimer;
         public override void SetDefaults()
         {
@@ -192,7 +178,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
             }
             for (int i = 0; i < 7; i++)
             {
-                Dust.NewDustPerfect(Projectile.Center, 205, (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(25.0), 0, default, 1f).noGravity = false;
+                Dust.NewDustPerfect(Projectile.Center, DustID.VenomStaff, (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(25.0), 0, default, 1f).noGravity = false;
             }
         }
 
@@ -286,6 +272,60 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
             Main.spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, null, Color.White, Projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             return false;
         }
+    }
 
+    public class MooningKaboom : ModProjectile
+    {
+        public float Timer
+        {
+            get => Projectile.ai[0];
+            set => Projectile.ai[0] = value;
+        }
+
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("FrostShotIN");
+            Main.projFrames[Projectile.type] = 28;
+        }
+
+        public override void SetDefaults()
+        {
+            Projectile.friendly = true;
+            Projectile.width = 227;
+            Projectile.height = 220;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 28;
+            Projectile.scale = 1f;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = -1;
+        }
+
+        public override void AI()
+        {
+
+            Vector3 RGB = new(0.89f, 2.53f, 2.55f);
+            // The multiplication here wasn't doing anything
+            Lighting.AddLight(Projectile.position, RGB.X, RGB.Y, RGB.Z);
+
+        }
+
+        public override bool PreAI()
+        {
+            Projectile.tileCollide = false;
+            if (++Projectile.frameCounter >= 1)
+            {
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 28)
+                {
+                    Projectile.frame = 0;
+                }
+            }
+            return true;
+        }
+
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return new Color(200, 200, 200, 0) * (1f - Projectile.alpha / 50f);
+        }
     }
 }

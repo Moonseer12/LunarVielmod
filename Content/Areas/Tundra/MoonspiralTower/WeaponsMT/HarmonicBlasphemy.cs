@@ -1,9 +1,9 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -93,9 +93,7 @@ public class HarmonicBlasphemy : BaseGun
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankGun>(), 
-            material: ModContent.ItemType<PearlescentScrap>());
+        this.RegisterBrew<PearlescentScrap, BlankGun>();
     }
 }
 

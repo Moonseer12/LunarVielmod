@@ -1,11 +1,12 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles.Bow;
 using Stellamod.Projectiles.Thrown;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
+
 namespace Stellamod.Items.Weapons.Thrown
 {
     public class ThePenetrator : ModItem
@@ -110,7 +111,7 @@ namespace Stellamod.Items.Weapons.Thrown
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankJuggler>(), material: ModContent.ItemType<MiracleThread>());
+            this.RegisterBrew<MiracleThread, BlankJuggler>();
         }
     }
 }

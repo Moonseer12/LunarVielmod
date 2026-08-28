@@ -1,8 +1,6 @@
-﻿
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Projectiles.IgniterExplosions;
 using Terraria;
 using Terraria.Audio;
@@ -43,7 +41,7 @@ namespace Stellamod.Items.Weapons.Mage
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<ConvulgingMater>());
+            this.RegisterBrew<ConvulgingMater, BlankStaff>();
         }
     }
 

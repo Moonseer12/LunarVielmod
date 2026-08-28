@@ -1,10 +1,9 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Items;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Desert.WeaponsCL
 {
@@ -14,7 +13,6 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
         {
             base.SetDefaults();
             Item.damage = 6;
-            Item.rare = ItemRarityID.Blue;
         }
 
         public override void ShootBow(Player player, EntitySource_ItemUse_WithAmmo source, ShootParams shootParams)
@@ -32,7 +30,7 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankBow>(), material: ModContent.ItemType<GintzlMetal>());
+            this.RegisterBrew<GintzlMetal, BlankBow>();
         }
     }
 }

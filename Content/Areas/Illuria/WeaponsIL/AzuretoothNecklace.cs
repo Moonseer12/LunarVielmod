@@ -1,13 +1,12 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
 using Stellamod.Effects.Generic;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;
@@ -23,9 +22,6 @@ public class AzuretoothNecklace : ModItem
     public override void SetDefaults()
     {
         Item.DefaultToArtifact();
-        Item.width = 26;
-        Item.height = 32;
-        Item.rare = ItemRarityID.Lime;
         Item.knockBack = 2;
 
         Item.DamageType = DamageClass.Magic;
@@ -38,22 +34,17 @@ public class AzuretoothNecklace : ModItem
 
         Item.shoot = ModContent.ProjectileType<AzuretoothNecklaceHold>();
         Item.shootSpeed = 10;
-        Item.autoReuse = false;
         Item.noMelee = true;
         Item.channel = true;
         Item.noUseGraphic = true;
     }
 
-
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankStaff>(), 
-            material: ModContent.ItemType<IllurineScale>());
+        this.RegisterBrew<IllurineScale, BlankStaff>();
     }
 }
-
 
 public class AzuretoothDragon : ModProjectile
 {

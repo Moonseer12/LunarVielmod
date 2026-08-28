@@ -1,14 +1,10 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core;
 using Stellamod.Core.Bases;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Projectiles.Bow;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -54,9 +50,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(
-                mold: ModContent.ItemType<BlankBow>(),
-                material: ModContent.ItemType<WinterbornShard>());
+            this.RegisterBrew<WinterbornShard, BlankBow>();
         }
     }
     public class IcingIc : ScarletProjectile

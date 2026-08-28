@@ -1,19 +1,7 @@
-﻿using ReLogic.Content;
-using Stellamod.Common.ArmorRework;
-using Stellamod.Core.Utilities;
-using Stellamod.Items;
-using Terraria;
-using Terraria.GameContent.UI.Elements;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.ModLoader.UI.Elements;
-using Terraria.UI;
+﻿using Terraria.UI;
 
 namespace Stellamod.UI.CollectionSystem
 {
-
-
-
     public class LevelingTabStatsPanelUIState : UIState
     {
         public LevelTabStatsPanel ui;
@@ -28,9 +16,6 @@ namespace Stellamod.UI.CollectionSystem
             Append(ui);
         }
     }
-
-
-
 
     public class LevelingLeftPanelUIState : UIState
     {
@@ -47,7 +32,6 @@ namespace Stellamod.UI.CollectionSystem
         }
     }
 
-
     public class CollectionArmorUIState : UIState
     {
         public CollectionArmorInfoUI ui;
@@ -62,7 +46,6 @@ namespace Stellamod.UI.CollectionSystem
             Append(ui);
         }
     }
-
 
     public class CollectionItemTabRecipeUIState : UIState
     {

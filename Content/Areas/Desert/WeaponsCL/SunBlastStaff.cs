@@ -1,9 +1,9 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -20,13 +20,9 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
             base.SetDefaults();
             Item.staff[Item.type] = true;
             Item.damage = 22;
-            Item.width = 50;
-            Item.height = 50;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 4;
-            Item.value = Item.sellPrice(0, 1, 1, 29);
-            Item.rare = ItemRarityID.Blue;
             Item.shootSpeed = 35;
             Item.autoReuse = true;
 
@@ -48,14 +44,9 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<GintzlMetal>());
+            this.RegisterBrew<GintzlMetal, BlankStaff>();
         }
     }
-
-
-
-
-
 
     public class SunDeathG : ModProjectile
     {

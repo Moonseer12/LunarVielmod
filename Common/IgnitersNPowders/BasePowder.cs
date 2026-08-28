@@ -1,9 +1,6 @@
-﻿
-using Stellamod.Helpers;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Common.IgnitersNPowders
@@ -17,9 +14,6 @@ namespace Stellamod.Common.IgnitersNPowders
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.width = 16;
-            Item.height = 16;
-            Item.rare = ItemRarityID.Green;
             DamageModifier = 1f;
         }
 

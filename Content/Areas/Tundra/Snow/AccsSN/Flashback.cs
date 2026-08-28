@@ -1,18 +1,11 @@
-﻿using Stellamod.Content.CommonMaterials;
-using Stellamod.Helpers;
-using Stellamod.Items;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Visual.Particles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Tundra.Snow.AccsSN;
-
 
 public class FlashbackPlayer : ModPlayer
 {
@@ -74,7 +67,7 @@ public class FlashbackPlayer : ModPlayer
         base.OnHurt(info);
         if (!hasFlashback)
             return;
-        SoundStyle warp = new SoundStyle("Stellamod/Assets/Sounds/ArcaneExplode");
+        SoundStyle warp = new("Stellamod/Assets/Sounds/ArcaneExplode");
         warp.PitchVariance = 0.2f;
         SoundEngine.PlaySound(warp);
         _flashbackTimer = flashbackTime;

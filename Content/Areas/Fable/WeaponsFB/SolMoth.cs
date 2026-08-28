@@ -1,11 +1,8 @@
-
-
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.SummonerSystem;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -26,12 +23,9 @@ public class SolMoth : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(mold: ModContent.ItemType<BlankRune>(),
-            material: ModContent.ItemType<AlcadizScrap>());
+        this.RegisterBrew<AlcadizScrap, BlankRune>();
     }
 }
-
-
 
 public class SolMothMinionProj : AbstractBellSummon
 {

@@ -1,8 +1,8 @@
 ﻿using Stellamod.Common;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -65,7 +65,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<WinterbornShard>());
+            this.RegisterBrew<WinterbornShard, BlankStaff>();
         }
     }
 

@@ -1,16 +1,11 @@
-﻿
-
-using Stellamod;
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Projectiles.IgniterExplosions;
-using Stellamod.Projectiles.Thrown;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -45,7 +40,7 @@ public class Orion : ModItem
 
     public override void AddRecipes()
     {
-        this.RegisterBrew<GhastlySpirit, BlankStaff>();
+        this.RegisterBrew<IllurineScale, BlankStaff>();
     }
 }
 

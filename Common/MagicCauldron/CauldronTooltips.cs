@@ -1,6 +1,4 @@
 ﻿using Stellamod.Core.Tooltips;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
@@ -13,7 +11,7 @@ namespace Stellamod.Common.MagicCauldron
         {
             if (item.GetGlobalItem<MoldGlobalItem>().isMold)
             {
-                TooltipLine moldLine = new TooltipLine(Mod, "MoldHelpingText", LangText.Common("CauldronMoldHelp"));
+                TooltipLine moldLine = new(Mod, "MoldHelpingText", LangText.Common("CauldronMoldHelp"));
                 lines.Add(moldLine);
             }
         }
@@ -27,7 +25,7 @@ namespace Stellamod.Common.MagicCauldron
             Cauldron cauldron = ModContent.GetInstance<Cauldron>();
             if (cauldron.IsMaterial(item.type))
             {
-                TooltipLine materialLine = new TooltipLine(Mod, "BrewingMaterialLabel", LangText.Common("CauldronMaterialLabel"));
+                TooltipLine materialLine = new(Mod, "BrewingMaterialLabel", LangText.Common("CauldronMaterialLabel"));
                 tooltips.Add(materialLine);
             }
         }
@@ -40,7 +38,7 @@ namespace Stellamod.Common.MagicCauldron
             Cauldron cauldron = ModContent.GetInstance<Cauldron>();
             if (cauldron.IsMaterial(item.type))
             {
-                TooltipLine materialLine = new TooltipLine(Mod, "BrewingMaterialHelpingText", LangText.Common("CauldronMaterialHelp"));
+                TooltipLine materialLine = new(Mod, "BrewingMaterialHelpingText", LangText.Common("CauldronMaterialHelp"));
                 lines.Add(materialLine);
             }
         }

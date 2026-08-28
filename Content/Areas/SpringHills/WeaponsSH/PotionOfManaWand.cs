@@ -1,12 +1,7 @@
-﻿
-
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.SummonerSystem;
 using Stellamod.Content.CommonMaterials;
-
 using Stellamod.Core.Bases;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Trails;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,8 +21,7 @@ public class PotionOfManaWand : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(mold: ModContent.ItemType<BlankRune>(),
-            material: ModContent.ItemType<Mushroom>());
+        this.RegisterBrew<Mushroom, BlankRune>();
     }
 }
 

@@ -1,13 +1,10 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Particles;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
-using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -357,7 +354,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             spriteBatch.Draw(glowMask, drawPos, null, glowColor, Main.GlobalTimeWrappedHourly * 8, glowDrawOrigin, Projectile.scale * ExtraMath.Osc(0.99f, 1.01f, speed: 8) * 0.6f, SpriteEffects.None, 0);
             for (int i = 0; i < Projectile.oldPos.Length; i++)
             {
-                float ratio = (float)i / (float)Projectile.oldPos.Length;
+                float ratio = i / (float)Projectile.oldPos.Length;
                 Vector2 oldCenter = Projectile.oldPos[i] + Projectile.Size / 2f - Main.screenPosition;
                 Color afo = glowColor;
                 afo = Color.Lerp(afo, Color.Black, MathHelper.SmoothStep(0f, 1f, EasingFunction.InOutExpo7(ratio)));
@@ -373,14 +370,9 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
     {
         public override void SetDefaults()
         {
-            //base.SetDefaults();
             Item.damage = 45;
-            Item.width = 50;
-            Item.height = 50;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 4;
-            Item.value = Item.sellPrice(0, 1, 1, 29);
-            Item.rare = ItemRarityID.Green;
             Item.DamageType = DamageClass.Ranged;
             Item.shootSpeed = 40f;
             Item.useAnimation = 10;
@@ -411,7 +403,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<Cinderscrap>());
+            this.RegisterBrew<Cinderscrap, BlankGun>();
         }
     }
 }

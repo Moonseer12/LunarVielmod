@@ -1,10 +1,7 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.Bases;
-using Stellamod.Helpers;
 using Stellamod.Projectiles;
 using Terraria;
 using Terraria.Audio;
@@ -12,7 +9,6 @@ using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Content.Areas.Fable.WeaponsFB
 {
@@ -24,7 +20,6 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
             base.SetDefaults();
             Item.damage = 14;
             Item.knockBack = 4;
-            Item.rare = ItemRarityID.Green;
         }
 
         public override void ShootBow(Player player, EntitySource_ItemUse_WithAmmo source, ShootParams shootParams)

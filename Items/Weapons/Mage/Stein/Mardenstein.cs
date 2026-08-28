@@ -1,6 +1,5 @@
-﻿
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Helpers;
 using Stellamod.Projectiles.Steins;
 using System.Collections.Generic;
 using Terraria;
@@ -96,7 +95,7 @@ namespace Stellamod.Items.Weapons.Mage.Stein
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStein>(), material: ModContent.ItemType<MiracleThread>());
+            this.RegisterBrew<MiracleThread, BlankStein>();
         }
 
     }

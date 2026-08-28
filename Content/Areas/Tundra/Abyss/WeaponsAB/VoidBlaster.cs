@@ -1,8 +1,8 @@
 using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -87,9 +87,7 @@ public class VoidBlaster : BaseGun
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankGun>(),
-            material: ModContent.ItemType<ConvulgingMater>());
+        this.RegisterBrew<ConvulgingMater, BlankGun>();
     }
 
 }

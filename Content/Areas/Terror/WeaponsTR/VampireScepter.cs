@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -247,7 +247,7 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<TerrorFragments>());
+            this.RegisterBrew<TerrorFragments, BlankStaff>();
         }
     }
 }

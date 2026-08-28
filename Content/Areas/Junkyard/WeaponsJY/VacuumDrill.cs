@@ -1,10 +1,10 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System;
@@ -22,17 +22,11 @@ public class VacuumDrill : BaseGun
     public override void SetDefaults()
     {
         base.SetDefaults();
-        Item.width = 62;
-        Item.height = 32;
-        Item.rare = ItemRarityID.Green;
         Item.useTime = 60;
         Item.useAnimation = 60;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.autoReuse = false;
         Item.UseSound = SoundID.DD2_LightningAuraZap;
-
-        // Weapon Properties
-        Item.value = Item.sellPrice(gold: 2);
         Item.DamageType = DamageClass.Ranged;
         Item.damage = 42;
         Item.knockBack = 1;
@@ -76,9 +70,7 @@ public class VacuumDrill : BaseGun
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankGun>(),
-            material: ModContent.ItemType<MechanizedSoul>());
+        this.RegisterBrew<MechanizedSoul, BlankGun>();
     }
 }
 

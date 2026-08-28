@@ -98,14 +98,6 @@ public class GovheilHelmet : ModItem
         ArmorSetSystem.RegisterArmorSet<GovheilHelmet, GovheilChainplate, GovheilThighs>(ArmorGroup.Act_II);
     }
 
-    public override void SetDefaults()
-    {
-        Item.width = 18; // Width of the item
-        Item.height = 18; // Height of the item
-        Item.value = Item.sellPrice(gold: 10); // How many coins the item is worth
-        Item.rare = ItemRarityID.LightRed; // The rarity of the item
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();
@@ -128,14 +120,6 @@ public class GovheilHelmet : ModItem
 [AutoloadEquip(EquipType.Body)]
 public class GovheilChainplate : ModItem
 {
-    public override void SetDefaults()
-    {
-        Item.width = 18; // Width of the item
-        Item.height = 18; // Height of the item
-        Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-        Item.rare = ItemRarityID.LightRed; // The rarity of the item
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();
@@ -148,14 +132,6 @@ public class GovheilChainplate : ModItem
 [AutoloadEquip(EquipType.Legs)]
 public class GovheilThighs : ModItem
 {
-    public override void SetDefaults()
-    {
-        Item.width = 18; // Width of the item
-        Item.height = 18; // Height of the item
-        Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-        Item.rare = ItemRarityID.LightRed; // The rarity of the item
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();

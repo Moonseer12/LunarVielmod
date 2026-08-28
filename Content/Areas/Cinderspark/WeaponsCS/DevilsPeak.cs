@@ -1,22 +1,18 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Cards;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS;
 
@@ -26,7 +22,6 @@ public class DevilsPeak : BaseSwingItemV2
     {
         base.SetDefaults2();
         Item.damage = 21;
-        Item.rare = ItemRarityID.Green;
         Item.shoot = ModContent.ProjectileType<DevilsPeakSlash>();
         staminaProjectileShoot = ModContent.ProjectileType<DevilsPeakStaminaSlash>();
         meleeWeaponType = MeleeWeaponType.Scythe;

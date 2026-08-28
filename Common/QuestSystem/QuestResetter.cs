@@ -7,14 +7,9 @@ namespace Stellamod.Common.QuestSystem
 {
     public class QuestResetter : ModItem
     {
-        private int _useIndex;
-
         public override void SetDefaults()
         {
-            Item.width = 62;
-            Item.height = 32;
             Item.scale = 0.9f;
-            Item.rare = ItemRarityID.Green;
             Item.useTime = 2;
             Item.useAnimation = 2;
             Item.useStyle = ItemUseStyleID.Shoot;

@@ -1,20 +1,13 @@
-﻿
-using Stellamod.Common.ClassReworkSystem;
+﻿using Stellamod.Common.ClassReworkSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.WeaponTypes;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Particles;
 using Stellamod.Core.ProjectileHelpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Cinderspark.AccCS

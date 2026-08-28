@@ -1,11 +1,9 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Cinderspark.WeaponsCS;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Projectiles;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -19,18 +17,13 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.width = 24;
-            Item.height = 24;
             Item.damage = 9;
             Item.DamageType = DamageClass.Ranged;
             Item.noUseGraphic = true;
-            Item.height = 40;
             Item.useTime = 70;
             Item.useAnimation = 70;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 6;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.LightPurple;
             Item.UseSound = SoundID.DD2_GhastlyGlaivePierce;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<HornetLob>();
@@ -40,9 +33,7 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(
-                mold: ModContent.ItemType<BlankJuggler>(), 
-                material: ModContent.ItemType<AlcadizScrap>());
+            this.RegisterBrew<AlcadizScrap, BlankJuggler>();
         }
     }
 

@@ -1,14 +1,12 @@
-﻿
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Items.Accessories
 {
     public class ClamsPearl : ModItem
     {
-
         public override void SetDefaults()
         {
             Item.DefaultToAccessory();
@@ -22,9 +20,7 @@ namespace Stellamod.Items.Accessories
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew<Mushroom, BlankAccessory>();
+            this.RegisterBrew<MusicalHarmonise, BlankAccessory>();
         }
     }
 }
-
-

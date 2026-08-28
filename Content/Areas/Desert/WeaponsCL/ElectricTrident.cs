@@ -1,12 +1,11 @@
 ﻿using ReLogic.Content;
-using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Palettes;
 using Stellamod.Core.Particles;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;

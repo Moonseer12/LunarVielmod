@@ -1,6 +1,6 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Items;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;

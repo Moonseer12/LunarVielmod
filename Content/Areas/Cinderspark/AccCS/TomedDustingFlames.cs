@@ -1,20 +1,17 @@
-﻿
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.IgnitersNPowders;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
 using Stellamod.Effects.Generic;
-using Stellamod.Items;
 using Stellamod.Projectiles.IgniterExplosions;
 using Stellamod.Visual.Particles;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Content.Areas.Cinderspark.AccCS;
 

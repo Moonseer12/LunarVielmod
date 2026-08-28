@@ -1,5 +1,5 @@
-﻿using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Projectiles.IgniterExplosions;
 using Terraria;
 using Terraria.Audio;
@@ -7,7 +7,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Fable.AccFB;
-
 
 public class FireEmblemPlayer : ModPlayer
 {
@@ -78,6 +77,6 @@ public class FireEmblem : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(mold: ModContent.ItemType<BlankAccessory>(), material: ModContent.ItemType<AlcadizScrap>());
+        this.RegisterBrew<AlcadizScrap, BlankAccessory>();
     }
 }

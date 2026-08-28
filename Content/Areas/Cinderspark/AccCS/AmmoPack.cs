@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.ArmorRework;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Terraria;
 using Terraria.ModLoader;
 

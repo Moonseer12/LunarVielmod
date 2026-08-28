@@ -1,7 +1,6 @@
-﻿using Stellamod.Content.CommonMaterials;
-
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -34,7 +33,7 @@ namespace Stellamod.Content.Areas.SpringHills.WeaponsSH
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankJuggler>(), material: ModContent.ItemType<Mushroom>());
+            this.RegisterBrew<Mushroom, BlankJuggler>();
         }
     }
     public class BasicBaseballProj : BaseJugglerProjectile

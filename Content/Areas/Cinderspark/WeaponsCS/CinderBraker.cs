@@ -1,22 +1,13 @@
-﻿using Stellamod.Assets;
-using Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Projectiles.Swords;
-using Stellamod.Trailing;
-using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 

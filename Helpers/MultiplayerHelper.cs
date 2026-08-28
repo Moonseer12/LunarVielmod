@@ -1,6 +1,7 @@
 using Stellamod.Common.ClassReworkSystem;
 using Stellamod.Common.DashSystem;
 using Stellamod.Common.DungeonGeneration;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Players;
 using Stellamod.Common.WaypointSystem;
 using Stellamod.Content.Areas.Desert.Event.Common;
@@ -11,7 +12,6 @@ using Stellamod.Core;
 using Stellamod.Core.PlayerLevelingSystem;
 using Stellamod.Core.RibbonSystem;
 using Stellamod.Core.ZTileSystem;
-using Stellamod.Items;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,7 +37,7 @@ namespace Stellamod
         public static List<Item> ReadItemList(this BinaryReader reader)
         {
             int length = reader.ReadInt32();
-            List<Item> itemList = new List<Item>();
+            List<Item> itemList = new();
             for (int i = 0; i < length; i++)
             {
                 itemList.Add(new Item(reader.ReadInt32()));

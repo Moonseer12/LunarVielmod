@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -18,14 +18,10 @@ public class MiniPistol : BaseGun
         base.SetDefaults();
         Item.damage = 4;
         Item.DamageType = DamageClass.Ranged;
-        Item.width = 40;
-        Item.height = 40;
         Item.useTime = 31;
         Item.useAnimation = 31;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 6;
-        Item.value = 100000;
-        Item.rare = ItemRarityID.Pink;
         Item.UseSound = SoundID.Item36;
         Item.autoReuse = true;
         Item.shoot = ProjectileID.Bullet;

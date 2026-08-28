@@ -1,10 +1,7 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.Bases;
-using Stellamod.Helpers;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -20,7 +17,6 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
         {
             base.SetDefaults();
             Item.damage = 19;
-            Item.rare = ItemRarityID.Green;
         }
 
         public override void StaminaShootBow(Player player, EntitySource_ItemUse_WithAmmo source, ShootParams shootParams)
@@ -30,7 +26,7 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
             Vector2 bulletVelocity = shootParams.velocity * shootParams.chargeStrength * 24;
             Projectile.NewProjectile(source, shootParams.position, bulletVelocity,
                 ModContent.ProjectileType<HuntrianArrow>(), (int)bowDamage, shootParams.knockBack, player.whoAmI);
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/HeatFeather");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/HeatFeather");
             soundStyle.PitchVariance = 0.2f;
             SoundEngine.PlaySound(soundStyle, player.position);
         }

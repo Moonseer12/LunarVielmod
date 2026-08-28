@@ -1,12 +1,8 @@
-﻿
-
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Items;
-using Stellamod.Projectiles;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;

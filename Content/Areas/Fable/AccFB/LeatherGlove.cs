@@ -1,5 +1,5 @@
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -20,8 +20,7 @@ namespace Stellamod.Content.Areas.Fable.AccFB
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankAccessory>(),
-                material: ModContent.ItemType<AlcadizScrap>());
+            this.RegisterBrew<AlcadizScrap, BlankAccessory>();
         }
     }
 }

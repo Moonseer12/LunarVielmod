@@ -1,10 +1,9 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
-using Stellamod.Items;
-using Stellamod.Projectiles;
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;
@@ -22,14 +21,10 @@ public class TheTingler : BaseGun
         base.SetDefaults();
         Item.damage = 22;
         Item.DamageType = DamageClass.Ranged;
-        Item.width = 50;
-        Item.height = 24;
         Item.useTime = 12;
         Item.useAnimation = 12;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 6;
-        Item.value = Item.buyPrice(0, 15, 0, 0);
-        Item.rare = ItemRarityID.LightRed;
         Item.UseSound = new SoundStyle("Stellamod/Assets/Sounds/GallinLock") with { PitchVariance = 0.75f };
         Item.autoReuse = true;
         Item.shootSpeed = 19f;
@@ -37,7 +32,6 @@ public class TheTingler : BaseGun
         Item.noMelee = true;
         Item.noUseGraphic = true;
         muzzleOrigin = new Vector2(51, 14);
-
     }
 
     public override Vector2? HoldoutOffset()
@@ -75,9 +69,7 @@ public class TheTingler : BaseGun
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankGun>(),
-            material: ModContent.ItemType<MechanizedSoul>());
+        this.RegisterBrew<MechanizedSoul, BlankGun>();
     }
 }
 

@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.IgnitersNPowders;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -16,7 +16,7 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.AccMT
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankAccessory>(), material: ModContent.ItemType<PearlescentScrap>());
+            this.RegisterBrew<PearlescentScrap, BlankAccessory>();
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

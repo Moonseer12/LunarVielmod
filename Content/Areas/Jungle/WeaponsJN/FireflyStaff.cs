@@ -64,15 +64,9 @@ namespace Stellamod.Content.Areas.Jungle.WeaponsJN
             Item.damage = 30;
             Item.knockBack = 3f;
             Item.mana = 10;
-            Item.width = 48;
-            Item.height = 72;
             Item.useTime = 36;
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = ItemRarityID.LightRed;
-
-            // These below are needed for a minion weapon
             Item.noMelee = true;
             Item.UseSound = SoundID.Item46;
             Item.DamageType = DamageClass.Summon;

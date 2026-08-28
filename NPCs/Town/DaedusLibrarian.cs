@@ -2,7 +2,6 @@
 using Stellamod.Content.Areas.Shop.ItemsShop;
 using Stellamod.Content.Areas.Tundra.Snow.WeaponsSN;
 using Stellamod.Core;
-using Stellamod.Items.Weapons.Mage.Tomes;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -243,9 +242,9 @@ public class DaedusLibrarian : VeilTownNPC
         .Add<WintersStom>()
         .Add<SandStorm>()
         .Add<BloodySpew>()
-        .Add<CocoSpark>(Condition.DownedEowOrBoc)
-        .Add<ShinobiTome>(Condition.DownedEowOrBoc)
-        .Add<ShadeHandTome>(Condition.DownedEowOrBoc)
+        .Add<CocoSpark>()
+        .Add<ShinobiTome>()
+        .Add<ShadeHandTome>()
         .Add<VoidsGrasp>()
         .Add<StarShower>()
         .Add<TheDeafen>();

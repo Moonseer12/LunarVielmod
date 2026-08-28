@@ -1,11 +1,8 @@
-﻿
-
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Projectiles;
 using Stellamod.Trailing;
 using Stellamod.Visual.Particles;
@@ -32,7 +29,7 @@ namespace Stellamod.Items.Weapons.Melee.Swords
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankSword>(), material: ModContent.ItemType<WinterbornShard>());
+            this.RegisterBrew<WinterbornShard, BlankSword>();
         }
     }
 

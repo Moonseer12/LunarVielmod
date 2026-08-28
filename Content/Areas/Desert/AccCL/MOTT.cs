@@ -1,5 +1,5 @@
-﻿using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

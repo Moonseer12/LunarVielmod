@@ -1,6 +1,4 @@
-﻿
-
-using Stellamod.Core.Utilities;
+﻿using Stellamod.Content.Areas.Desert.WeaponsCL;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;

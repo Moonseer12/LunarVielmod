@@ -1,6 +1,6 @@
 ﻿using ReLogic.Content;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
@@ -24,12 +24,12 @@ public class LeafGliderDrawLayer : PlayerDrawLayer
         if (holdingOutTimer <= 0)
             return;
 
-        Asset<Texture2D> wingsTextureAsset = ModContent.Request<Texture2D>(this.GetType().DirectoryHere() + "/LeafGlider_Hold");
+        Asset<Texture2D> wingsTextureAsset = ModContent.Request<Texture2D>(GetType().DirectoryHere() + "/LeafGlider_Hold");
         float ease = EasingFunction.InOutSine(holdingOutTimer / 30f);
         Color wingColor = Color.White;
         float rotation = ExtraMath.Osc(-0.05f, 0.05f);
 
-        var drawData = new DrawData(
+        DrawData drawData = new(
             wingsTextureAsset.Value,
             drawInfo.drawPlayer.Center - Main.screenPosition + new Vector2(0, -16),
             null,

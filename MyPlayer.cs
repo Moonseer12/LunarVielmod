@@ -1,8 +1,5 @@
-using Stellamod.Items.Weapons.Melee;
 using Stellamod.Projectiles.Swords;
 using Terraria;
-using Terraria.Audio;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod

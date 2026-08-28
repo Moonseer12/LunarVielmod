@@ -1,4 +1,4 @@
-﻿using Stellamod.Items;
+﻿using Stellamod.Common.MagicCauldron;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

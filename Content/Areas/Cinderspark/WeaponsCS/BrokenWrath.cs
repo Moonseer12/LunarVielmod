@@ -1,9 +1,7 @@
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
-using Stellamod.Projectiles.Gun;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -21,14 +19,10 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             base.SetDefaults();
             Item.damage = 16;
             Item.DamageType = DamageClass.Ranged;
-            Item.width = 40;
-            Item.height = 40;
             Item.useTime = 32;
             Item.useAnimation = 32;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 6;
-            Item.value = Item.sellPrice(0, 0, 20, 0);
-            Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item5;
             Item.autoReuse = true;
             Item.shoot = ProjectileID.Bullet;
@@ -84,7 +78,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             SoundEngine.PlaySound(shootSound, player.position);
 
 
-            Vector2 origVect = new Vector2(velocity.X, velocity.Y);
+            Vector2 origVect = new(velocity.X, velocity.Y);
             Vector2 newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(72, 1300) / 23));
             Projectile.NewProjectile(source, position, newVect, ModContent.ProjectileType<BTech1>(), damage, knockback, player.whoAmI, 0f, 0f);
             newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(72, 1300) / 23));
@@ -98,9 +92,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(
-                mold: ModContent.ItemType<BlankGun>(),
-                material: ModContent.ItemType<Cinderscrap>());
+            this.RegisterBrew<Cinderscrap, BlankGun>();
         }
     }
 

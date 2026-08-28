@@ -1,11 +1,10 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Achievements;
 using Stellamod.Core;
 using Stellamod.Core.LunarLightingSystem;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using System.Linq;

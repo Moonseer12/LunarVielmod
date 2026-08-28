@@ -1,8 +1,8 @@
 ﻿using ReLogic.Content;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Items;
 using Stellamod.Trailing;
 using Stellamod.Visual.Particles;
 using System;
@@ -10,7 +10,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT;
 
@@ -34,12 +33,9 @@ public class GhetsisKeyblade : BaseSwingItemV2
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankSword>(),
-            material: ModContent.ItemType<MarshScrap>());
+        this.RegisterBrew<MarshScrap, BlankSword>();
     }
 }
-
 
 public class GhetsisKeybladeSlash : BaseSwingProjectileV2
 {

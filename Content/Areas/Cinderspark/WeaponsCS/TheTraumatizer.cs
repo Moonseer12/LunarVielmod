@@ -1,15 +1,11 @@
-﻿
-
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.GunSystem;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;
@@ -30,14 +26,10 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             Item.useTime = 16;
             Item.useAnimation = 16;
             Item.DamageType = DamageClass.Ranged;
-            Item.width = 80;
-            Item.height = 38;
             Item.useTime = 16;
             Item.useAnimation = 16;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 2;
-            Item.rare = ItemRarityID.LightRed;
-            Item.autoReuse = false;
             Item.shootSpeed = 30f;
             Item.shoot = ModContent.ProjectileType<TraumatizingRay>();
             Item.scale = 1f;
@@ -70,7 +62,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<Cinderscrap>());
+            this.RegisterBrew<Cinderscrap, BlankGun>();
         }
     }
     public class TraumatizingRay : ModProjectile

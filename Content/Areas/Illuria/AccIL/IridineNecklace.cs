@@ -1,5 +1,5 @@
-﻿using Stellamod.Content.CommonMaterials;
-using Stellamod.Items;
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -102,7 +102,7 @@ namespace Stellamod.Content.Areas.Illuria.AccIL
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew<GhastlySpirit, BlankAccessory>();
+            this.RegisterBrew<IllurineScale, BlankAccessory>();
         }
     }
 }

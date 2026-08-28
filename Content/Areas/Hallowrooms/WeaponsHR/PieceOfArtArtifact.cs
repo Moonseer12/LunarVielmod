@@ -1,5 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Hallowrooms.ArmorHR;
 using Stellamod.Content.Areas.Tundra.Snow.WeaponsSN;
@@ -8,7 +9,6 @@ using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Rendering;
 using Stellamod.Dusts;
-using Stellamod.Items;
 using Stellamod.Projectiles.Visual;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
@@ -32,9 +32,7 @@ public class PieceOfArtArtifact : ModItem
         Item.useAnimation = 100;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 2;
-        Item.value = 10000;
         Item.noMelee = true;
-        Item.rare = ItemRarityID.LightPurple;
         Item.UseSound = SoundID.Item1;
         Item.autoReuse = true;
         Item.shoot = ModContent.ProjectileType<PieceOfArtRainbow>();
@@ -52,9 +50,7 @@ public class PieceOfArtArtifact : ModItem
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(
-            mold: ModContent.ItemType<BlankStaff>(), 
-            material: ModContent.ItemType<KaleidoscopicInk>());
+        this.RegisterBrew<KaleidoscopicInk, BlankStaff>();
     }
 }
 

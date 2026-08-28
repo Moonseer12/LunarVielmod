@@ -1,11 +1,8 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Helpers;
-using Stellamod.Items;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
@@ -167,7 +164,7 @@ namespace Stellamod.Content.Areas.Terror.AccTR
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankRune>(), material: ModContent.ItemType<TerrorFragments>());
+            this.RegisterBrew<TerrorFragments, BlankRune>();
         }
     }
 }

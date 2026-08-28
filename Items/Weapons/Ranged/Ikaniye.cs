@@ -1,12 +1,7 @@
-
-
-using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Trails;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -60,13 +55,13 @@ namespace Stellamod.Items.Weapons.Ranged
             int Sound = Main.rand.Next(1, 3);
             if (Sound == 1)
             {
-                SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/GunBigNew1");
+                SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunBigNew1");
                 soundStyle.PitchVariance = 0.5f;
                 SoundEngine.PlaySound(soundStyle, position);
             }
             else
             {
-                SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/GunBigNew1");
+                SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunBigNew1");
                 soundStyle.PitchVariance = 1.5f;
                 SoundEngine.PlaySound(soundStyle, position);
             }
@@ -77,7 +72,7 @@ namespace Stellamod.Items.Weapons.Ranged
         public override void AddRecipes()
         {
             base.AddRecipes();
-            this.RegisterBrew(mold: ModContent.ItemType<BlankGun>(), material: ModContent.ItemType<AlcaricMush>());
+            this.RegisterBrew<AlcaricMush, BlankGun>();
         }
 
     }

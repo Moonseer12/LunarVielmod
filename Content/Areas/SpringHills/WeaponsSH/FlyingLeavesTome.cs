@@ -1,9 +1,9 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
-using Stellamod.Items;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.GameContent;
@@ -24,7 +24,6 @@ public class FlyingLeavesTome : AbstractMagicTome
         Item.shootSpeed = 15f;
         Item.mana = 4;
         Item.useTime = Item.useAnimation = 7;
-
     }
 
     public override Color GetTomeHintColor()
@@ -40,7 +39,7 @@ public class FlyingLeavesTome : AbstractMagicTome
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew(mold: ModContent.ItemType<BlankStaff>(), material: ModContent.ItemType<Ivythorn>());
+        this.RegisterBrew<Ivythorn, BlankStaff>();
     }
 
     public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
