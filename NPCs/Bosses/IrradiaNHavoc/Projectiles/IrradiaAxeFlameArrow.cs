@@ -1,14 +1,8 @@
-﻿
-
-using Stellamod.Assets;
-using Stellamod.Trails;
+﻿using Stellamod.Common;
 using Terraria;
-using Terraria.GameContent;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-
 
 namespace Stellamod.NPCs.Bosses.IrradiaNHavoc.Projectiles
 {
@@ -17,7 +11,6 @@ namespace Stellamod.NPCs.Bosses.IrradiaNHavoc.Projectiles
         bool Moved;
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Heat Arrow");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 12;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
@@ -36,7 +29,7 @@ namespace Stellamod.NPCs.Bosses.IrradiaNHavoc.Projectiles
             Projectile.width = 9;
             Projectile.height = 17;
             Projectile.knockBack = 12.9f;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.hostile = true;
             Projectile.tileCollide = false;
@@ -83,7 +76,7 @@ namespace Stellamod.NPCs.Bosses.IrradiaNHavoc.Projectiles
 
         public override void OnKill(int timeLeft)
         {
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 512f, 32f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 32f);
             for (int i = 0; i < 20; i++)
             {
                 Dust.NewDustPerfect(Projectile.Center, DustID.GoldCoin, (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(25.0), 0, default, 1f).noGravity = false;

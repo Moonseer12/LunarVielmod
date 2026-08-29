@@ -53,16 +53,7 @@ namespace Stellamod.Items.Weapons.Melee
 
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
-            if (player.GetModPlayer<MyPlayer>().SwordCombo >= 0)
-            {
-                type = ModContent.ProjectileType<GrailAxeProj>();
-
-            }
-            if (player.GetModPlayer<MyPlayer>().SwordCombo >= 1)
-            {
-                type = ModContent.ProjectileType<GrailAxeProj>();
-                SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/StormDragon_Bomb"), player.position);
-            }
+            type = ModContent.ProjectileType<GrailAxeProj>();
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -76,12 +67,11 @@ namespace Stellamod.Items.Weapons.Melee
 
             float numberProjectiles2 = 4;
             float rotation = MathHelper.ToRadians(20);
-            float rotation2 = MathHelper.ToRadians(20);
             position += Vector2.Normalize(new Vector2(velocity.X, velocity.Y)) * 45f;
             for (int i = 0; i < numberProjectiles2; i++)
             {
 
-                Vector2 perturbedSpeed2 = new Vector2(velocity.X, velocity.Y).RotatedBy(MathHelper.Lerp(-rotation2, rotation2, i / (numberProjectiles2 - 1))) * 1f;// This defines the projectile roatation and speed. .4f == projectile speed
+                Vector2 perturbedSpeed2 = new Vector2(velocity.X, velocity.Y).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles2 - 1))) * 1f;// This defines the projectile roatation and speed. .4f == projectile speed
 
                 Projectile.NewProjectile(source, position.X, position.Y, perturbedSpeed2.X, perturbedSpeed2.Y, ModContent.ProjectileType<GrailShot>(), damage, Item.knockBack, player.whoAmI);
             }

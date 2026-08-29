@@ -45,7 +45,7 @@ public class BloodPowder : BasePowder
             base.Start();
             if (Main.myPlayer == Projectile.owner)
             {
-                EffectsHelper.SimpleExplosionCircle(Projectile, Color.Red, endRadius: 70);
+                EffectsHelper.SimpleExplosionCircle(Projectile, Color.Red, 70);
             }
         }
 

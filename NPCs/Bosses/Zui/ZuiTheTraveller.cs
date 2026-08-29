@@ -1,4 +1,5 @@
-﻿using Stellamod.NPCs.Bosses.Zui.Projectiles;
+﻿using Stellamod.Common;
+using Stellamod.NPCs.Bosses.Zui.Projectiles;
 using System;
 using System.IO;
 using Terraria;
@@ -1435,7 +1436,7 @@ namespace Stellamod.NPCs.Bosses.Zui
 
                 }
                 SoundEngine.PlaySound(new SoundStyle($"Stellamod/Assets/Sounds/SunStalker_PreSpawn"));
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(NPC.Center, 1024f, 32f);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 1024f, 32f);
 
                 if (MultiplayerHelper.IsHost)
                 {
@@ -1649,7 +1650,7 @@ namespace Stellamod.NPCs.Bosses.Zui
             }
             if (timer == 35)
             {
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(NPC.Center, 1024f, 32f);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 1024f, 32f);
                 if (MultiplayerHelper.IsHost)
                 {
                     Projectile.NewProjectile(entitySource, NPC.Center + new Vector2(150, 150), Vector2.Zero,
@@ -1822,7 +1823,7 @@ namespace Stellamod.NPCs.Bosses.Zui
                     ModContent.ProjectileType<ZuiSpawnEffect>(), 0, 0f, Owner: Main.myPlayer);
 
 
-                    Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(NPC.Center, 1024f, 32f);
+                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 1024f, 32f);
                     int numProjectiles = Main.rand.Next(12, 24);
                     for (int p = 0; p < numProjectiles; p++)
                     {
@@ -2026,7 +2027,7 @@ namespace Stellamod.NPCs.Bosses.Zui
 
             if (timer == 35)
             {
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(NPC.Center, 1024f, 32f);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 1024f, 32f);
                 if (MultiplayerHelper.IsHost)
                 {
                     Projectile.NewProjectile(entitySource, NPC.Center + new Vector2(150, 150), Vector2.Zero,
@@ -2205,7 +2206,7 @@ namespace Stellamod.NPCs.Bosses.Zui
         public override void OnKill()
         {
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Binding_Abyss_Spawn"), NPC.position);
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.NPC.Center, 2048f, 128f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(base.NPC.Center, 2048f, 128f);
             var entitySource = NPC.GetSource_FromThis();
             if (MultiplayerHelper.IsHost)
             {

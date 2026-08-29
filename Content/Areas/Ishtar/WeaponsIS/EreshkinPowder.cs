@@ -48,7 +48,7 @@ public class EreshkinPowder : BasePowder
             base.Start();
             if (Main.myPlayer == Projectile.owner)
             {
-                EffectsHelper.SimpleExplosionCircle(Projectile, Color.White, endRadius: 128);
+                EffectsHelper.SimpleExplosionCircle(Projectile, Color.White, 128);
             }
         }
 

@@ -1,6 +1,4 @@
-﻿
-
-using Stellamod.Helpers;
+﻿using Stellamod.Common;
 using Stellamod.Trails;
 using System;
 using Terraria;
@@ -37,17 +35,17 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
                 SoundStyle explosionSound;
                 if (Main.rand.NextBool(2))
                 {
-                    explosionSound = new SoundStyle("Stellamod/Assets/Sounds/StormDragon_StormSpike");
+                    explosionSound = new("Stellamod/Assets/Sounds/StormDragon_StormSpike");
                     explosionSound.PitchVariance = 0.15f;
                 }
                 else
                 {
-                    explosionSound = new SoundStyle("Stellamod/Assets/Sounds/StormDragon_StormSpike2");
+                    explosionSound = new("Stellamod/Assets/Sounds/StormDragon_StormSpike2");
                     explosionSound.PitchVariance = 0.15f;
                 }
 
                 SoundEngine.PlaySound(explosionSound, Projectile.position);
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.position, 2048, 500);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.position, 2048, 500);
             }
 
             for (int i = 0; i < Lightning.Trails.Length; i++)

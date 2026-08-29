@@ -1,20 +1,16 @@
-﻿
-using Stellamod.Content.MoonlightMagic.Elements;
-using Stellamod.Helpers;
+﻿using Stellamod.Content.MoonlightMagic.Elements;
+using Stellamod.Core.ProjectileHelpers;
+using Stellamod.Core.Utilities;
+using Stellamod.Dusts;
+using Stellamod.Trails;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Terraria.ModLoader;
 using Terraria;
-
-using Stellamod.Projectiles.Paint;
-using Stellamod.Trails;
-using Stellamod.Core.ProjectileHelpers;
-using Stellamod.Dusts;
 using Terraria.Audio;
-using Stellamod.Core.Utilities;
+using Terraria.ModLoader;
 
 namespace Stellamod.Content.MoonlightMagic.Enchantments.Guuts
 {

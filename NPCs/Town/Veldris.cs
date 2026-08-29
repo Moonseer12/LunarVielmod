@@ -1,9 +1,5 @@
 ﻿using Stellamod.Common.ArmorReforgeSystem;
-using Stellamod.Content.GunSwapping;
 using Stellamod.Core;
-using Stellamod.Items.Weapons.Melee.Swords;
-using Stellamod.Items.Weapons.Ranged;
-using Stellamod.Items.Weapons.Thrown;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -61,7 +57,7 @@ namespace Stellamod.NPCs.Town
             NPC.friendly = true; // NPC Will not attack player
             NPC.width = 74;
             NPC.height = 56;
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.damage = 90;
             NPC.defense = 42;
             NPC.lifeMax = 200;
@@ -153,13 +149,7 @@ namespace Stellamod.NPCs.Town
 
         public override void AddShops()
         {
-            var npcShop = new NPCShop(Type, ShopName)
-            .Add(new Item(ItemID.Mace) { shopCustomPrice = Item.buyPrice(gold: 5) })
-            .Add<AssassinsDischarge>()
-            .Add<AssassinsKnife>()
-            .Add<AssassinsShuriken>()
-            .Add<AssassinsSlash>()
-            .Add<AssassinsRecharge>();
+            var npcShop = new NPCShop(Type, ShopName);
             npcShop.Register(); // Name of this shop t
         }
     }

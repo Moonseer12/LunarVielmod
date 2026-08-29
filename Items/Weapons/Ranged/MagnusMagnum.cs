@@ -1,4 +1,4 @@
-﻿
+﻿using Stellamod.Common;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -72,7 +72,7 @@ namespace Stellamod.Items.Weapons.Ranged
             }
 
 
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(player.Center, 1024f, 6f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, 6f);
 
 
             //Dust Burst Towards Mouse

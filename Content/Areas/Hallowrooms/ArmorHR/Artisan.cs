@@ -1,10 +1,8 @@
 ﻿using Stellamod.Common.ArmorRework;
 using Stellamod.Content.Areas.Hallowrooms.AccHR;
-using Stellamod.Projectiles;
-using Stellamod.Projectiles.Paint;
+using Stellamod.Dusts;
 using Terraria;
 using Terraria.Audio;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Hallowrooms.ArmorHR
@@ -192,6 +190,181 @@ namespace Stellamod.Content.Areas.Hallowrooms.ArmorHR
 
         }
     }
+
+    public class Meatball4 : ModProjectile
+    {
+        public float Timer
+        {
+            get => Projectile.ai[0];
+            set => Projectile.ai[0] = value;
+        }
+        private ref float SwordRotation => ref Projectile.ai[1];
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Balls");
+            Main.projFrames[Projectile.type] = 32;
+        }
+
+        public override void SetDefaults()
+        {
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.width = 92;
+            Projectile.height = 92;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 32;
+            Projectile.scale = 1f;
+
+        }
+
+        public override void AI()
+        {
+
+            Timer++;
+            Player player = Main.player[Projectile.owner];
+            if (player.noItems || player.CCed || player.dead || !player.active)
+                Projectile.Kill();
+
+            Projectile.Center = Main.player[Projectile.owner].Center;
+        }
+
+        public override bool PreAI()
+        {
+            Projectile.tileCollide = false;
+            if (++Projectile.frameCounter >= 1)
+            {
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 32)
+                {
+                    Projectile.frame = 0;
+                }
+            }
+
+
+
+
+
+            if (Main.rand.NextBool(8))
+            {
+                int dust = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, ModContent.DustType<PaintBlob2>(), 0f, 0f);
+                Main.dust[dust].scale = 1f;
+            }
+ 
+            return true;
+        }
+
+    }
+
+    public class Paint2 : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("FrostShotIN");
+            Main.projFrames[Projectile.type] = 16;
+        }
+
+        public override void SetDefaults()
+        {
+            Projectile.friendly = true;
+            Projectile.width = 129;
+            Projectile.height = 129;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 48;
+            Projectile.scale = 0.7f;
+
+        }
+        public float Timer
+        {
+            get => Projectile.ai[0];
+            set => Projectile.ai[0] = value;
+        }
+        public override void AI()
+        {
+
+            Vector3 RGB = new(0.89f, 2.53f, 2.55f);
+            // The multiplication here wasn't doing anything
+            Lighting.AddLight(Projectile.position, RGB.X, RGB.Y, RGB.Z);
+
+        }
+
+        public override bool PreAI()
+        {
+            Projectile.tileCollide = false;
+            if (++Projectile.frameCounter >= 3)
+            {
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 16)
+                {
+                    Projectile.frame = 0;
+                }
+            }
+            return true;
+
+
+        }
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return new Color(200, 200, 200, 0) * (1f - Projectile.alpha / 50f);
+        }
+
+
+    }
+
+    public class Paint3 : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("FrostShotIN");
+            Main.projFrames[Projectile.type] = 23;
+        }
+
+        public override void SetDefaults()
+        {
+            Projectile.friendly = true;
+            Projectile.width = 128;
+            Projectile.height = 128;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 46;
+            Projectile.scale = 0.5f;
+
+        }
+        public float Timer
+        {
+            get => Projectile.ai[0];
+            set => Projectile.ai[0] = value;
+        }
+        public override void AI()
+        {
+
+            Vector3 RGB = new(0.89f, 2.53f, 2.55f);
+            // The multiplication here wasn't doing anything
+            Lighting.AddLight(Projectile.position, RGB.X, RGB.Y, RGB.Z);
+
+        }
+
+        public override bool PreAI()
+        {
+            Projectile.tileCollide = false;
+            if (++Projectile.frameCounter >= 2)
+            {
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 23)
+                {
+                    Projectile.frame = 0;
+                }
+            }
+            return true;
+
+
+        }
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return new Color(200, 200, 200, 0) * (1f - Projectile.alpha / 50f);
+        }
+
+
+    }
+    
     // The AutoloadEquip attribute automatically attaches an equip texture to this item.
     // Providing the EquipType.Body value here will result in TML expecting X_Arms.png, X_Body.png and X_FemaleBody.png sprite-sheet files to be placed next to the item's main texture.
     [AutoloadEquip(EquipType.Head)]

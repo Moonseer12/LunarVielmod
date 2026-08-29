@@ -1,8 +1,5 @@
-﻿
-
+﻿using Stellamod.Common;
 using Stellamod.Content.Gores;
-using Stellamod.Helpers;
-using Stellamod.Projectiles.Visual;
 using Stellamod.Trails;
 using System.Collections.Generic;
 using Terraria;
@@ -48,7 +45,7 @@ namespace Stellamod.Projectiles.Magic
             if (Timer == 1)
             {
                 //Sound Effect Goooo
-                SoundStyle lightningSoundStyle = new SoundStyle("Stellamod/Assets/Sounds/StormDragon_LightingZap");
+                SoundStyle lightningSoundStyle = new("Stellamod/Assets/Sounds/StormDragon_LightingZap");
                 lightningSoundStyle.PitchVariance = 0.1f;
                 SoundEngine.PlaySound(lightningSoundStyle, Projectile.position);
 
@@ -63,7 +60,7 @@ namespace Stellamod.Projectiles.Magic
 
 
                 Vector2 lightningHitPos = Projectile.position + new Vector2(0, BeamLength);
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(lightningHitPos, 1024, 32);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(lightningHitPos, 1024, 32);
 
                 for (int i = 0; i < 2; i++)
                 {

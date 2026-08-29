@@ -1,13 +1,7 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Common;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Trails;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -97,7 +91,7 @@ namespace Stellamod.Projectiles.Magic
         public override void OnKill(int timeLeft)
         {
             var EntitySource = Projectile.GetSource_Death();
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.Projectile.Center, 524f, 2);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 524f, 2);
             for (int i = 0; i < 2; i++)
             {
                 int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustType<GlowDust>(), 0f, -2f, 0, default(Color), 1.5f);

@@ -1,5 +1,5 @@
-﻿using Stellamod.Dusts;
-using Stellamod.Helpers;
+﻿using Stellamod.Common;
+using Stellamod.Dusts;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,14 +8,6 @@ namespace Stellamod.Projectiles.Steins;
 
 public class SEXY : ModProjectile
 {
-    public enum AttackState
-    {
-        Frost_Attack = 0,
-        Lightning_Attack = 1,
-        Tornado_Attack = 2
-    }
-
-    public AttackState State { get; set; }
     public override void SetStaticDefaults()
     {
         // Sets the amount of frames this minion has on its spritesheet
@@ -59,7 +51,7 @@ public class SEXY : ModProjectile
         if (Explosion > 119)
         {
 
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.Projectile.Center, 512f, 16f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 16f);
 
             for (int i = 0; i < 5; i++)
             {

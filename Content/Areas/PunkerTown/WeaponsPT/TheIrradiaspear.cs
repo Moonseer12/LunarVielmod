@@ -1,5 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
@@ -574,13 +575,13 @@ public class TheIrradiaspearP : ModProjectile,
         if (MaxCharge)
         {
             //Big impact sound
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/Irradieagle_Wave");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/Irradieagle_Wave");
             SoundEngine.PlaySound(soundStyle, Projectile.position);
 
             HitStunTimer = 15;
             State = ActionState.HitStun;
             Projectile.netUpdate = true;
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(target.position, 1024, 24);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(target.position, 1024, 24);
             FXUtil.GlowCircleBoom(target.Center, Color.Yellow, Color.Green, Color.DarkGreen, 45, baseSize: 0.24f);
             PixelPrimitiveCircleFactory.CreateGenericBoom(target.Center, Color.Yellow, Color.Green, 45, 144);
             PixelPrimitiveCircleFactory.CreateGenericBoom(target.Center, Color.LightGreen, Color.Green, 25, 232);

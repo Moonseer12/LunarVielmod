@@ -53,7 +53,7 @@ public class FrostedPowder : BasePowder
             base.Start();
             if (Main.myPlayer == Projectile.owner)
             {
-                EffectsHelper.SimpleExplosionCircle(Projectile, Color.LightCyan, endRadius: 70);
+                EffectsHelper.SimpleExplosionCircle(Projectile, Color.LightCyan, 70);
             }
         }
 

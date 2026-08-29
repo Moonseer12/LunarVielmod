@@ -1,10 +1,8 @@
 ﻿using Stellamod.Common.QuestSystem;
-using Stellamod.Content.Areas.Junkyard.WeaponsJY;
 using Stellamod.Content.GunSwapping;
 using Stellamod.Content.Quests.DelgrimQuest;
 using Stellamod.Core;
 using Stellamod.Items.Weapons.Melee.Greatswords;
-using Stellamod.Items.Weapons.Ranged;
 using Stellamod.UI.CellConverterSystem;
 using System;
 using System.Collections.Generic;
@@ -114,13 +112,7 @@ namespace Stellamod.NPCs.Town
             //.Add(new Item(ItemID.WaterBolt) { shopCustomPrice = Item.buyPrice(gold: 40) })
             .Add<GunHolster>()
             .Add<Pulsing>()
-
-            .Add<Hitme>()
-            .Add<CogBomber>(Condition.Hardmode)
-            .Add<TheTingler>(Condition.Hardmode)
-            .Add<GearGutter>(Condition.Hardmode)
-            .Add<DelgrimsHammer>(Condition.Hardmode)
-            .Add(new Item(ItemID.Wire) { shopCustomPrice = Item.buyPrice(copper: 5) })
+            .Add<DelgrimsHammer>()
             ;
             npcShop.Register(); // Name of this shop tab		
         }

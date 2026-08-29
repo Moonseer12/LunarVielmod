@@ -14,10 +14,9 @@ namespace Stellamod.Projectiles.Steins;
 
 public class ShadingShot : ModProjectile
 {
+    public override string Texture => TextureRegistry.EmptyTexture;
     public override void SetStaticDefaults()
     {
-        // DisplayName.SetDefault("MeatBall");
-        Main.projFrames[Projectile.type] = 1;
         ProjectileID.Sets.TrailCacheLength[Projectile.type] = 32;
         ProjectileID.Sets.TrailingMode[Projectile.type] = 1;
         //The recording mode

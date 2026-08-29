@@ -52,7 +52,7 @@ public class IllusionistPowder : BasePowder
             base.Start();
             if (Main.myPlayer == Projectile.owner)
             {
-                EffectsHelper.SimpleExplosionCircle(Projectile, Color.LightBlue, endRadius: 78);
+                EffectsHelper.SimpleExplosionCircle(Projectile, Color.LightBlue, 78);
             }
         }
 

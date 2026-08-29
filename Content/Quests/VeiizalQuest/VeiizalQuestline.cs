@@ -26,7 +26,6 @@ namespace Stellamod.Content.Quests.VeiizalQuest
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            AddReward(ModContent.ItemType<Rhino>(), 1);
         }
 
         public override bool CanGiveQuest(Player player)
@@ -47,7 +46,6 @@ namespace Stellamod.Content.Quests.VeiizalQuest
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            AddReward(ModContent.ItemType<MintyBlast>(), 1);
             IsAutoQuest = true;
         }
 
@@ -69,7 +67,6 @@ namespace Stellamod.Content.Quests.VeiizalQuest
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            AddReward(ModContent.ItemType<Electrifying>(), 1);
             IsAutoQuest = true;
         }
 
@@ -133,7 +130,6 @@ namespace Stellamod.Content.Quests.VeiizalQuest
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            AddReward(ModContent.ItemType<Gordon>(), 1);
             IsAutoQuest = true;
         }
 
@@ -154,7 +150,6 @@ namespace Stellamod.Content.Quests.VeiizalQuest
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            AddReward(ModContent.ItemType<SrTetanus>(), 1);
             IsAutoQuest = true;
         }
 
@@ -177,7 +172,6 @@ namespace Stellamod.Content.Quests.VeiizalQuest
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            AddReward(ModContent.ItemType<Obel>(), 1);
             IsAutoQuest = true;
         }
 

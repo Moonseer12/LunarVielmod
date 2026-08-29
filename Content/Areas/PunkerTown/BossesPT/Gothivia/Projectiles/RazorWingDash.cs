@@ -1,14 +1,12 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-
-
 
 namespace Stellamod.Content.Areas.PunkerTown.BossesPT.Gothivia.Projectiles;
 
@@ -76,7 +74,7 @@ public class RazorWingDash : ModProjectile,
                 ModContent.ProjectileType<GothinTorch>(), Projectile.damage, Projectile.knockBack, Projectile.owner, ai1: numDirections, ai2: 2);
         }
         SoundEngine.PlaySound(SoundID.DD2_ExplosiveTrapExplode, Projectile.position);
-        Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 1024f, 16f);
+        Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 16f);
     }
 
     public override bool PreDraw(ref Color lightColor)
@@ -84,11 +82,11 @@ public class RazorWingDash : ModProjectile,
         Texture2D texture = TextureAssets.Projectile[Type].Value;
         Vector2 drawPosition = Parent.Center - Main.screenPosition;
 
-        Rectangle rectangle = new Rectangle(0, 0, 225, 225);
-        rectangle.X = ((int)_framer % 5) * rectangle.Width;
-        rectangle.Y = (((int)_framer - ((int)_framer % 5)) / 5) * rectangle.Height;
+        Rectangle rectangle = new(0, 0, 225, 225);
+        rectangle.X = (int)_framer % 5 * rectangle.Width;
+        rectangle.Y = ((int)_framer - ((int)_framer % 5)) / 5 * rectangle.Height;
 
-        Vector2 origin = new Vector2(rectangle.Width / 2, rectangle.Height / 2);
+        Vector2 origin = new(rectangle.Width / 2, rectangle.Height / 2);
         SpriteBatch spriteBatch = Main.spriteBatch;
         float drawRotation = 0;
         float drawScale = 1.4f;

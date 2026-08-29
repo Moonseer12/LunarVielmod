@@ -1,7 +1,4 @@
-
-
-
-
+using Stellamod.Common;
 using Stellamod.Content.Areas.Terror.WeaponsTR;
 using Stellamod.Dusts;
 using System;
@@ -24,7 +21,6 @@ namespace Stellamod.Projectiles.Gun
         public Vector2 FakeVel;
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Granite MagmumProj");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 12;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
@@ -97,7 +93,7 @@ namespace Stellamod.Projectiles.Gun
                     Dust.NewDustPerfect(Projectile.Center + offset * 43, ModContent.DustType<Dusts.GlowDust>(), new Vector2(0, 0), 125, new Color(150, 80, 40), 1);
                     Dust.NewDustPerfect(Projectile.Center + offset * 43, ModContent.DustType<Dusts.TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, new Color(60, 55, 50) * 0.5f, Main.rand.NextFloat(0.5f, 1));
 
-                    Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
+                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
 
                     for (int i = 0; i < 14; i++)
                     {

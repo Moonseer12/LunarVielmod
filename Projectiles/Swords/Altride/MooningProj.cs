@@ -7,6 +7,7 @@ namespace Stellamod.Projectiles.Swords.Altride
 {
     public class MooningProj : ModProjectile
     {
+        public override string Texture => TextureRegistry.EmptyTexture;
         private ref float Timer => ref Projectile.ai[0];
         bool Moved;
         Vector2 StartVelocity;

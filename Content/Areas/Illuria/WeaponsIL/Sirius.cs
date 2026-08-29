@@ -1,12 +1,9 @@
-﻿
-
+﻿using Stellamod.Common;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Projectiles.IgniterExplosions;
 using Stellamod.Trailing;
-using Stellamod.Trails;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -224,7 +221,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
                     Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<GlowDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, Color.LightSkyBlue, 1f).noGravity = true;
                 }
 
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
                     ModContent.ProjectileType<SiriusBoom>(), Projectile.damage * 2, Projectile.knockBack, Projectile.owner);
                 //KABOOM
@@ -237,7 +234,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
             if (_targetNpc == -1)
             {
                 _targetNpc = target.whoAmI;
-                _targetOffset = (target.position - Projectile.position) + new Vector2(0.001f, 0.001f);
+                _targetOffset = target.position - Projectile.position + new Vector2(0.001f, 0.001f);
                 State = ActionState.Lodged_In_NPC;
             }
         }

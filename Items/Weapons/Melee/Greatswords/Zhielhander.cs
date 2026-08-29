@@ -556,8 +556,8 @@ namespace Stellamod.Items.Weapons.Melee.Greatswords
                 for (int j = 0; j < 10; j++)
                 {
                     Vector2 vector2 = Vector2.UnitX * -Projectile.width / 2f;
-                    vector2 += -Utils.RotatedBy(Vector2.UnitY, (j * 3.141591734f / 6f), default(Vector2)) * new Vector2(8f, 16f);
-                    vector2 = Utils.RotatedBy(vector2, (Projectile.rotation - 1.57079637f), default(Vector2));
+                    vector2 += -Utils.RotatedBy(Vector2.UnitY, j * 3.141591734f / 6f, default) * new Vector2(8f, 16f);
+                    vector2 = Utils.RotatedBy(vector2, Projectile.rotation - 1.57079637f, default);
                     int num8 = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.WhiteTorch, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
                     Main.dust[num8].scale = 1.3f;
                     Main.dust[num8].noGravity = true;
@@ -583,15 +583,14 @@ namespace Stellamod.Items.Weapons.Melee.Greatswords
         {
             for (int i = 0; i < 20; i++)
             {
-                //  Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.Projectile.Center, 512f, 32f);
                 SoundEngine.PlaySound(SoundID.DD2_CrystalCartImpact, Projectile.position);
-                int num1 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.UnusedWhiteBluePurple, 0f, -2f, 0, default(Color), .8f);
+                int num1 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.UnusedWhiteBluePurple, 0f, -2f, 0, default, .8f);
                 Main.dust[num1].noGravity = true;
                 Main.dust[num1].position.X += Main.rand.Next(-50, 51) * .05f - 1.5f;
                 Main.dust[num1].position.Y += Main.rand.Next(-50, 51) * .05f - 1.5f;
                 if (Main.dust[num1].position != Projectile.Center)
                     Main.dust[num1].velocity = Projectile.DirectionTo(Main.dust[num1].position) * 6f;
-                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.UnusedWhiteBluePurple, 0f, -2f, 0, default(Color), .8f);
+                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.UnusedWhiteBluePurple, 0f, -2f, 0, default, .8f);
                 Main.dust[num].noGravity = true;
                 Main.dust[num].position.X += Main.rand.Next(-50, 51) * .05f - 1.5f;
                 Main.dust[num].position.Y += Main.rand.Next(-50, 51) * .05f - 1.5f;

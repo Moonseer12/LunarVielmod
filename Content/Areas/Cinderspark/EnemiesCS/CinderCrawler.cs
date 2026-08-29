@@ -1,6 +1,5 @@
 ﻿using Stellamod.Common;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Projectiles;
 using System;
 using Terraria;
 using Terraria.Audio;

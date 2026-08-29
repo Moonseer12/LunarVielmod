@@ -242,10 +242,6 @@ namespace Stellamod.Projectiles.Swords.Fenix
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            Player player = Main.player[Projectile.owner];
-
-            player.GetModPlayer<MyPlayer>().SwordCombo++;
-            player.GetModPlayer<MyPlayer>().SwordComboR = 480;
         }
 
 
@@ -257,7 +253,7 @@ namespace Stellamod.Projectiles.Swords.Fenix
             int frameHeight = texture.Height / Main.projFrames[Projectile.type];
             int startY = frameHeight * Projectile.frame;
 
-            Rectangle sourceRectangle = new Rectangle(0, startY, texture.Width, frameHeight);
+            Rectangle sourceRectangle = new(0, startY, texture.Width, frameHeight);
             Vector2 origin = sourceRectangle.Size() / 2f;
             Color drawColor = new Color(255, 255, 255, 0) * (1f - Projectile.alpha / 50f);
 

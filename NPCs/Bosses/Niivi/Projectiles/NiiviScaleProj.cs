@@ -1,8 +1,7 @@
-﻿
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
+using Stellamod.Common;
+using Stellamod.Content.Areas.Fable.WeaponsFB;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Helpers;
-using Stellamod.Projectiles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -40,7 +39,7 @@ namespace Stellamod.NPCs.Bosses.Niivi.Projectiles
             return MathHelper.SmoothStep(baseWidth, 3.5f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(ColorFunctions.Niivin * 0.3f, Color.Transparent, completionRatio);
         }
@@ -55,7 +54,7 @@ namespace Stellamod.NPCs.Bosses.Niivi.Projectiles
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
             //Spawn item
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.Projectile.Center, 2212f, 12f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 2212f, 12f);
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/SoftSummon2"), Projectile.position);
             if (Main.myPlayer == Projectile.owner)
             {

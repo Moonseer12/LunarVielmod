@@ -1,14 +1,8 @@
-﻿
-using Stellamod.Assets;
+﻿using Stellamod.Common;
 using Stellamod.Core.Bases;
-using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Trails;
 using Terraria;
 using Terraria.Audio;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace Stellamod.Projectiles.Thrown.Jugglers;
 
@@ -95,7 +89,7 @@ public class DaggerDaggerProj : BaseJugglerProjectile
             particle.Rotation = rot + MathHelper.ToRadians(45);
         }
 
-        Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 1024f, 12f);
+        Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 12f);
         for (int i = 0; i < 8; i++)
         {
             SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);

@@ -1,14 +1,10 @@
-﻿using Microsoft.Xna.Framework.Input;
-using ReLogic.Threading;
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas;
 using Stellamod.Core.Foggy;
 using Stellamod.Core.Rendering;
-using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Graphics.Effects;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
@@ -268,17 +264,10 @@ namespace Stellamod.Core.LunarLightingSystem
                 Color finalColor = Color.Lerp(Color.White, color2, ExtraMath.Osc(0f, 1f, offset: 2, speed: 0.4f) * 0.5f);
                 BackLightColor = finalColor * 0.8f;
             }
-
-
-            BiomePlayer biomePlayer = Main.LocalPlayer.GetModPlayer<BiomePlayer>();
-            MyPlayer myPlayer = Main.LocalPlayer.GetModPlayer<MyPlayer>();
-
-
             foreach (var backLightModifier in _backLightModifiers)
             {
                 backLightModifier.ModifyBackLight(ref BackLightColor);
             }
-   
             _backLightColor = Color.Lerp(_backLightColor, BackLightColor, 0.1f);
             SmoothedBackLightColor = _backLightColor;
             SunColor = Color.Lerp(SunColor, GetSunColor(), 0.1f);

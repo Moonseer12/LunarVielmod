@@ -39,7 +39,7 @@ public class MushyPowder : BasePowder
             base.Start();
             if (Main.myPlayer == Projectile.owner)
             {
-                EffectsHelper.SimpleExplosionCircle(Projectile, Color.Blue, endRadius: 70);
+                EffectsHelper.SimpleExplosionCircle(Projectile, Color.Blue, 70);
             }
         }
 

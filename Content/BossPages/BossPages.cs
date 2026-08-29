@@ -15,7 +15,7 @@ using Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.Gothivia;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.PunkerPrime;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.Steamroller;
-using Stellamod.Content.Areas.PunkerTown.ItemsPT;
+using Stellamod.Content.Areas.PunkerTown.WeaponsPT;
 using Stellamod.Content.Areas.RoyalCapital.BossesRC.RoyalFox;
 using Stellamod.Content.Areas.RoyalCapital.BossesRC.STARBOMBER;
 using Stellamod.Content.Areas.SpringHills.AccSH;

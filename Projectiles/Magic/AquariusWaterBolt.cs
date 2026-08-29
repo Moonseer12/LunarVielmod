@@ -9,6 +9,8 @@ namespace Stellamod.Projectiles.Magic
 {
     public class AquariusWaterBolt : ModProjectile
     {
+        public override string Texture => TextureRegistry.EmptyTexture;
+        
         private float Timer
         {
             get => Projectile.ai[0];

@@ -38,7 +38,7 @@ public class ArtoriaIllurePowder : BasePowder
             base.Start();
             if (Main.myPlayer == Projectile.owner)
             {
-                EffectsHelper.SimpleExplosionCircle(Projectile, Color.LightSkyBlue, endRadius: 80);
+                EffectsHelper.SimpleExplosionCircle(Projectile, Color.LightSkyBlue, 80);
             }
         }
 

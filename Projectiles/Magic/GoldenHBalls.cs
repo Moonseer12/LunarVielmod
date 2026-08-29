@@ -1,16 +1,10 @@
-﻿
-
-using Stellamod.Assets;
-using Stellamod.Trails;
+﻿using Stellamod.Content.Areas.Fable.WeaponsFB;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-
 
 namespace Stellamod.Projectiles.Magic
 {
@@ -18,8 +12,6 @@ namespace Stellamod.Projectiles.Magic
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("MeatBall");
-            Main.projFrames[Projectile.type] = 1;
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 30;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 1;
             //The recording mode

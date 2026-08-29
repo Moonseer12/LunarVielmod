@@ -1,11 +1,9 @@
-﻿using Stellamod.Helpers;
+﻿using Stellamod.Common;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-
-//By Al0n37
 namespace Stellamod.NPCs.Bosses.Zui.Projectiles
 {
 
@@ -19,7 +17,6 @@ namespace Stellamod.NPCs.Bosses.Zui.Projectiles
         {
             NPCID.Sets.TrailCacheLength[NPC.type] = 30;
             NPCID.Sets.TrailingMode[NPC.type] = 0;
-            // DisplayName.SetDefault("Jack");
             Main.npcFrameCount[NPC.type] = 7;
         }
         public override void SetDefaults()
@@ -130,7 +127,7 @@ namespace Stellamod.NPCs.Bosses.Zui.Projectiles
                     {
                         CombatText.NewText(NPC.getRect(), Color.Gold, LangText.Misc("ZuiDeath.2"), true, false);
                         var EntitySource = NPC.GetSource_Death();
-                        Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.NPC.Center, 2048f, 90f);
+                        Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 2048f, 90f);
                         SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Crysalizer4"), NPC.position);
                         for (int i = 0; i < 14; i++)
                         {

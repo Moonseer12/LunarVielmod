@@ -1,8 +1,8 @@
-﻿using Stellamod.Assets;
+﻿using System.Collections.Generic;
+using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.Bases;
-using Stellamod.Projectiles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -153,6 +153,73 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
 
         public override void PostDraw(Color lightColor)
         {
+
+        }
+    }
+
+    public class AlcadizBombExplosion : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("FrostShotIN");
+            Main.projFrames[Projectile.type] = 30;
+        }
+
+        public override void SetDefaults()
+        {
+            Projectile.friendly = true;
+            Projectile.width = 90;
+            Projectile.height = 90;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 30;
+            Projectile.scale = 1f;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = -1;
+
+        }
+        public float Timer
+        {
+            get => Projectile.ai[0];
+            set => Projectile.ai[0] = value;
+        }
+        public override void AI()
+        {
+
+            Vector3 RGB = new(2.89f, 2.53f, 0.55f);
+            // The multiplication here wasn't doing anything
+            Lighting.AddLight(Projectile.position, RGB.X, RGB.Y, RGB.Z);
+
+        }
+
+        public override bool PreAI()
+        {
+            Projectile.tileCollide = false;
+            if (++Projectile.frameCounter >= 1)
+            {
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 30)
+                {
+                    Projectile.frame = 0;
+                }
+            }
+            return true;
+
+
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+
+            SpritebatchDrawer drawer = SpritebatchDrawer.FromProjectile(Projectile);
+            drawer.scale *= 1;
+            drawer.color = Color.White;
+            drawer.color.A = 0;
+            Main.spriteBatch.Draw(drawer);
+            return false;
+        }
+        public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)
+        {
+            behindNPCs.Add(index);
 
         }
     }

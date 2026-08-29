@@ -1,3 +1,4 @@
+using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
@@ -45,7 +46,7 @@ public class CleanestCleaverSlash : BaseSwingProjectileV2
     public override void DefineCombo()
     {
         base.DefineCombo();
-        ComboBuilder comboBuilder = new ComboBuilder();
+        ComboBuilder comboBuilder = new();
         comboBuilder
             .AddCleaverSwordSlash(duration: 36, xSwingRadius: 64, ySwingRadius: 64, swingDegrees: 135, hitCount: 2)
             .AddCleaverSwordSlash(duration: 24, xSwingRadius: 64, ySwingRadius: 64, swingDegrees: 135, hitCount: 2)
@@ -256,7 +257,7 @@ public class CleanestCleaverProg : ModProjectile
         if (Bloody == 3)
         {
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/CleanestCleaver4"), Projectile.position);
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 1024f, 13);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 13);
             SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
             for (int i = 0; i < 5; i++)
             {
@@ -289,7 +290,7 @@ public class CleanestCleaverProg : ModProjectile
         }
         else
         {
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 1024f, 6);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 6);
             int Sound = Main.rand.Next(1, 3);
             if (Sound == 1)
             {
@@ -301,7 +302,7 @@ public class CleanestCleaverProg : ModProjectile
             }
             for (int i = 0; i < 20; i++)
             {
-                Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<TSmokeDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 180, Color.Gray, Main.rand.NextFloat(0.5f, 1f)).noGravity = true;
+                Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<TSmokeDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 180, Color.Gray, Main.rand.NextFloat(0.5f, 1f)).noGravity = true;
             }
             for (float i = 0; i < 4; i++)
             {
@@ -330,7 +331,7 @@ public class CleanestCleaverProg : ModProjectile
                 Projectile.velocity.Y = -10;
                 Projectile.velocity.X = -Projectile.velocity.X / 2;
             }
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 1024f, 4f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 4f);
             for (int i = 0; i < 7; i++)
             {
                 SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);

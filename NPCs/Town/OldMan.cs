@@ -1,9 +1,6 @@
 ﻿using Stellamod.Common.QuestSystem;
-using Stellamod.Content.GunSwapping;
 using Stellamod.Content.Quests.OldManQuest;
 using Stellamod.Core;
-using Stellamod.Items.Weapons.Melee.Swords;
-using Stellamod.Items.Weapons.Ranged;
 using Stellamod.Items.Weapons.Thrown;
 using System;
 using System.Collections.Generic;
@@ -152,13 +149,7 @@ namespace Stellamod.NPCs.Town
 
         public override void AddShops()
         {
-            var npcShop = new NPCShop(Type, ShopName)
-            .Add(new Item(ItemID.Mace) { shopCustomPrice = Item.buyPrice(gold: 5) })
-            .Add<AssassinsDischarge>()
-            .Add<AssassinsKnife>()
-            .Add<AssassinsShuriken>()
-            .Add<AssassinsSlash>()
-            .Add<AssassinsRecharge>();
+            var npcShop = new NPCShop(Type, ShopName);
             npcShop.Register(); // Name of this shop t
         }
     }

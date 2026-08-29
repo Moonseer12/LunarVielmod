@@ -1,4 +1,5 @@
-﻿using Stellamod.Common.GunSystem;
+﻿using Stellamod.Common;
+using Stellamod.Common.GunSystem;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Trails;
@@ -100,7 +101,7 @@ public class EelLightningBolt : ModProjectile
             //Sound Effect Goooo
 
             Vector2 lightningHitPos = Projectile.position + Projectile.velocity.SafeNormalize(Vector2.Zero) * BeamLength;
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(lightningHitPos, 1024, 3);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(lightningHitPos, 1024, 3);
         }
 
         for (int i = 0; i < Lightning.Trails.Length; i++)

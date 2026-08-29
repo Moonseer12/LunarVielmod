@@ -1,7 +1,6 @@
-﻿
+﻿using Stellamod.Common;
 using Stellamod.Core.Bases;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -33,8 +32,8 @@ namespace Stellamod.Projectiles.Thrown.Jugglers
             base.OnHitNPC(target, hit, damageDone);
             if (Juggler.combo >= 5)
             {
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 1024, 4);
-                SoundStyle fireBomb = new SoundStyle("Stellamod/Assets/Sounds/StormDragon_Bomb");
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024, 4);
+                SoundStyle fireBomb = new("Stellamod/Assets/Sounds/StormDragon_Bomb");
                 SoundEngine.PlaySound(fireBomb, target.Center);
 
                 for (int i = 0; i < 14; i++)

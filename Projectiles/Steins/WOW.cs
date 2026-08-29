@@ -1,5 +1,5 @@
-﻿using Stellamod.Dusts;
-using Stellamod.Helpers;
+﻿using Stellamod.Common;
+using Stellamod.Dusts;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,14 +8,6 @@ namespace Stellamod.Projectiles.Steins;
 
 public class WOW : ModProjectile
 {
-    public enum AttackState
-    {
-        Frost_Attack = 0,
-        Lightning_Attack = 1,
-        Tornado_Attack = 2
-    }
-
-    public AttackState State { get; set; }
     public override void SetStaticDefaults()
     {
         // Sets the amount of frames this minion has on its spritesheet
@@ -58,12 +50,12 @@ public class WOW : ModProjectile
         if (Explosion > 179)
         {
 
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.Projectile.Center, 512f, 16f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 16f);
             for (int i = 0; i < 5; i++)
             {
                 float speedX = Main.rand.Next(-9, 9);
                 float speedY = Main.rand.Next(-9, 9);
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, speedX, speedY, ModContent.ProjectileType<ShadingShot>(), (int)(Projectile.damage * 1), 0f, Projectile.owner, 0f, 0f);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, speedX, speedY, ModContent.ProjectileType<ShadingShot>(), Projectile.damage * 1, 0f, Projectile.owner, 0f, 0f);
                 Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<GunFlash>(), (Vector2.One * Main.rand.Next(1, 9)).RotatedByRandom(MathHelper.TwoPi), 0, Color.Purple, 1f).noGravity = true;
             }
             for (int i = 0; i < 4; i++)

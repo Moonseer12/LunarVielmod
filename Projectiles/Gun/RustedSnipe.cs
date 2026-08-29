@@ -8,6 +8,8 @@ namespace Stellamod.Projectiles.Gun
 {
     public class RustedSnipe : ModProjectile
     {
+        public override string Texture => TextureRegistry.EmptyTexture;
+        
         public override void SetStaticDefaults()
         {
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 12;

@@ -1,0 +1,26 @@
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
+using Terraria;
+using Terraria.ModLoader;
+
+namespace Stellamod.Content.Areas.WaterSide.AccWS
+{
+    public class ClamsPearl : ModItem
+    {
+        public override void SetDefaults()
+        {
+            Item.DefaultToAccessory();
+        }
+
+        public override void UpdateAccessory(Player player, bool hideVisual)
+        {
+            Lighting.AddLight(player.Center, Color.LightBlue.ToVector3() * 1.75f * Main.essScale);
+        }
+
+        public override void AddRecipes()
+        {
+            base.AddRecipes();
+            this.RegisterBrew<MusicalHarmonise, BlankAccessory>();
+        }
+    }
+}

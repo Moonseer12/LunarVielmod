@@ -3,7 +3,6 @@ using Stellamod.Common.Shaders;
 using Stellamod.Common.SummonerSystem;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Projectiles.Bow;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

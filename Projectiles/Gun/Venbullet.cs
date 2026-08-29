@@ -9,6 +9,7 @@ namespace Stellamod.Projectiles.Gun
 {
     public class Venbullet : ModProjectile
     {
+        public override string Texture => TextureRegistry.EmptyTexture;
         private ref float Timer => ref Projectile.ai[0];
         public override void SetStaticDefaults()
         {

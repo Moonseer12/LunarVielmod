@@ -1,9 +1,7 @@
-﻿
-
+﻿using Stellamod.Common;
 using Stellamod.Core.Bases;
 using Stellamod.Dusts;
 using Stellamod.Content.Gores;
-using Stellamod.Helpers;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -52,7 +50,7 @@ namespace Stellamod.Projectiles.Thrown.Jugglers
                 SoundStyle fanHit2 = SoundRegistry.FanHit2;
                 fanHit2.PitchVariance = 0.1f;
                 SoundEngine.PlaySound(fanHit2, Projectile.position);
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.position, 2048, 64);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.position, 2048, 64);
                 target.SimpleStrikeNPC(Projectile.damage * 5, hit.HitDirection, damageType: Projectile.DamageType);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, Vector2.Zero,
                     ModContent.ProjectileType<FlinchMachineExplosionProj>(), Projectile.damage, Projectile.knockBack, Projectile.owner);

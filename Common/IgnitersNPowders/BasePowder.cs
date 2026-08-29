@@ -30,8 +30,7 @@ namespace Stellamod.Common.IgnitersNPowders
 
             if (ExplosionScreenshakeAmt > 0)
             {
-                MyPlayer myPlayer = Main.LocalPlayer.GetModPlayer<MyPlayer>();
-                myPlayer.ShakeAtPosition(explosionPosition, 1024, ExplosionScreenshakeAmt);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(explosionPosition, 1024, ExplosionScreenshakeAmt);
             }
 
             return p;
@@ -40,11 +39,11 @@ namespace Stellamod.Common.IgnitersNPowders
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             base.ModifyTooltips(tooltips);
-            TooltipLine line = new TooltipLine(Mod, "PowderDamageModifier", LangText.Common("PowderDamage", DamageModifier * 100));
+            TooltipLine line = new(Mod, "PowderDamageModifier", LangText.Common("PowderDamage", DamageModifier * 100));
             line.OverrideColor = new Color(80, 187, 124);
             tooltips.Add(line);
 
-            line = new TooltipLine(Mod, "PowderEquip", LangText.Common("PowderEquip"));
+            line = new(Mod, "PowderEquip", LangText.Common("PowderEquip"));
             line.OverrideColor = Color.Lerp(new Color(80, 187, 124), Color.Black, 0.5f);
             tooltips.Add(line);
         }

@@ -1,7 +1,4 @@
-﻿
-
-using Stellamod.Helpers;
-using Stellamod.Trails;
+﻿using Stellamod.Common;
 using System;
 using System.IO;
 using Terraria;
@@ -22,7 +19,7 @@ namespace Stellamod.Projectiles.Slashers.DelgrimsHammer
 
         //Swing Stats
         public float SwingDistance;
-        private int SwingTime => (int)((50 * Swing_Speed_Multiplier) / Owner.GetAttackSpeed(DamageClass.Melee));
+        private int SwingTime => (int)(50 * Swing_Speed_Multiplier / Owner.GetAttackSpeed(DamageClass.Melee));
         public float holdOffset = 60f;
 
         //Ending Swing Time so it doesn't immediately go away after the swing ends, makes it look cleaner I think
@@ -200,7 +197,7 @@ namespace Stellamod.Projectiles.Slashers.DelgrimsHammer
                 BounceTimer = 10 * Swing_Speed_Multiplier;
                 BounceDelay = 2 * Swing_Speed_Multiplier;
                 Projectile.netUpdate = true;
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.Projectile.Center, 512f, 16f);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 16f);
             }
         }
 

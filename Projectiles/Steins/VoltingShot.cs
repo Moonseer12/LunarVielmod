@@ -14,6 +14,7 @@ namespace Stellamod.Projectiles.Steins;
 
 public class VoltingShot : ModProjectile
 {
+    public override string Texture => TextureRegistry.EmptyTexture;
     private ref float Timer => ref Projectile.ai[0];
     public override void SetStaticDefaults()
     {

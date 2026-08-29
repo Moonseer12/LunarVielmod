@@ -4,7 +4,6 @@ using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
-using Stellamod.Projectiles;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;

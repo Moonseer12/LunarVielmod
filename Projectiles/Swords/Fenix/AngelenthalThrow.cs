@@ -1,4 +1,5 @@
-﻿using Stellamod.Content.Areas.RoyalCapital.WeaponsRC;
+﻿using Stellamod.Common;
+using Stellamod.Content.Areas.RoyalCapital.WeaponsRC;
 using Stellamod.Projectiles.IgniterExplosions;
 using Terraria;
 using Terraria.Audio;
@@ -15,8 +16,6 @@ namespace Stellamod.Projectiles.Swords.Fenix
         bool Moved;
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Shadow Hand");
-            // Main.projFrames[Projectile.type] = 30;
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 35;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
@@ -216,7 +215,7 @@ namespace Stellamod.Projectiles.Swords.Fenix
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Infernis1"), Projectile.position);
 
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Binding_Abyss_Rune"), Projectile.position);
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.Projectile.Center, 512f, 120f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 120f);
             var EntitySource = Projectile.GetSource_FromThis();
             int fireball = Projectile.NewProjectile(EntitySource, Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<KaBoomFenix>(), Projectile.damage * 2, 1, Projectile.owner);
             Projectile ichor = Main.projectile[fireball];

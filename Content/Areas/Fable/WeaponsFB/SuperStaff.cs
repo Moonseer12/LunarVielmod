@@ -1,5 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
@@ -418,7 +419,7 @@ public class SuperStaffHold : ModProjectile
         FireTimer++;
         if (FireTimer == 1)
         {
-            SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/StormDragon_Wave");
+            SoundStyle soundStyle = new("Stellamod/Assets/Sounds/StormDragon_Wave");
             soundStyle.PitchVariance = 0.15f;
             SoundEngine.PlaySound(soundStyle, Projectile.position);
             float chargeProgress = ChargeTimer / Max_Charge_Time;
@@ -427,7 +428,7 @@ public class SuperStaffHold : ModProjectile
             player.velocity = VectorHelper.VelocityUpTo(player.velocity, targetVelocity);
 
             //Funny Screenshake
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(player.Center, 1024f, MathHelper.Lerp(0, 32, chargeProgress));
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, MathHelper.Lerp(0, 32, chargeProgress));
 
             //Dust Burst Towards Mouse
 

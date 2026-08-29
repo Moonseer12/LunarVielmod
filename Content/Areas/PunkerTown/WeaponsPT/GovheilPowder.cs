@@ -52,7 +52,7 @@ public class GovheilPowder : BasePowder
             base.Start();
             if (Main.myPlayer == Projectile.owner)
             {
-                EffectsHelper.SimpleExplosionCircle(Projectile, Color.LightSeaGreen, endRadius: 70);
+                EffectsHelper.SimpleExplosionCircle(Projectile, Color.LightSeaGreen, 70);
             }
         }
 

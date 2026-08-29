@@ -1,11 +1,8 @@
-﻿
-
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Helpers;
-using Stellamod.Projectiles.Bow;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -231,6 +228,81 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
             shader.InnerColor = Color.Lerp(Color.Gray, Color.Blue, 0.75f) * 0.4f;
             shader.OuterColor = Color.Cyan * 0.4f;
             TrailDrawer.Draw(Main.spriteBatch, Projectile.oldPos, ColorFunction, WidthFunction, shader, Projectile.Size / 2f);
+        }
+    }
+
+    public class WinterboundArrowFlake : ModProjectile
+    {
+        private float _drawScale;
+        private ref float Timer => ref Projectile.ai[0];
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            Projectile.width = 16;
+            Projectile.height = 16;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.penetrate = 3;
+            Projectile.usesIDStaticNPCImmunity = true;
+            Projectile.idStaticNPCHitCooldown = 11;
+            Projectile.timeLeft = 120;
+        }
+
+        public override void AI()
+        {
+            base.AI();
+            Timer++;
+            if (Timer == 1)
+            {
+                Projectile.rotation = Main.rand.NextFloat(0f, 1f);
+
+                for (float n = 0; n < 4; n++)
+                {
+                    Vector2 velocity = -Vector2.UnitY.RotatedByRandom(4f);
+                    velocity *= Main.rand.NextFloat(2, 15);
+                    FlakeParticle fp = FlakeParticle.Spawn(Projectile.Center, velocity);
+                    fp.gravity = 0f;
+                    fp.Scale *= 0.4f;
+                    fp.dampening = 0.1f;
+                }
+              
+                for(float n =0; n < 4; n++)
+                {
+                    SmokeParticle sp = Particle<SmokeParticle>.Spawn(Projectile.Center, -Vector2.UnitY.RotatedByRandom(4f) * Main.rand.NextFloat(0.5f, 3f), Color.White, Scale: Main.rand.NextFloat(0.15f, 1.5f));
+                    sp.initialColor = Color.White * 0.4f;
+
+                }
+            }
+
+            if (Timer < 60)
+            {
+                _drawScale = MathHelper.Lerp(_drawScale, 1f, 0.1f);
+            }
+            else if (Timer > 90)
+            {
+                _drawScale = MathHelper.Lerp(_drawScale, 0f, 0.1f);
+            }
+            Projectile.velocity *= 0.92f;
+            Projectile.rotation += Projectile.velocity.Length() * 0.05f;
+            Projectile.rotation += 0.01f;
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            return false;
+        }
+        public override void PostDraw(Color lightColor)
+        {
+            base.PostDraw(lightColor);
+            Texture2D dimLightTexture = ModContent.Request<Texture2D>("Stellamod/Assets/NoiseTextures/DimLight").Value;
+            SpriteBatch spriteBatch = Main.spriteBatch;
+            for (int i = 0; i < 2; i++)
+            {
+                Color glowColor = Color.LightBlue * 0.5f;
+                glowColor.A = 0;
+                spriteBatch.Draw(dimLightTexture, Projectile.Center - Main.screenPosition, null, glowColor,
+                    Projectile.rotation, dimLightTexture.Size() / 2f, _drawScale * VectorHelper.Osc(0.75f, 1f, speed: 32, offset: Projectile.whoAmI), SpriteEffects.None, 0f);
+            }
         }
     }
 }

@@ -1,8 +1,5 @@
-﻿
-
-
+﻿using Stellamod.Common;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -203,7 +200,7 @@ namespace Stellamod.Projectiles.Gun
                 player.velocity = VectorHelper.VelocityUpTo(player.velocity, targetVelocity);
 
                 //Funny Screenshake
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
 
                 //Dust Burst Towards Mouse
                 float chargeProgress = ChargeTimer / Max_Charge_Time;

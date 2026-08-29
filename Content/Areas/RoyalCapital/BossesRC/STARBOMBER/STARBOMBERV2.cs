@@ -1,8 +1,6 @@
-﻿
-
-
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.RoyalCapital.BossesRC.STARBOMBER.Projectiles;
 using Stellamod.Content.Buffs;
@@ -13,13 +11,10 @@ using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.TriggersSystem.Triggers;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
 using Stellamod.Content.Gores;
-using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
@@ -1301,8 +1296,7 @@ public class STARBOMBERV2 : ScarletBoss,
 
         if (Timer >= 462)
         {
-            MyPlayer myPlayer = Main.LocalPlayer.GetModPlayer<MyPlayer>();
-            myPlayer.ShakeAtPosition(NPC.position, 6000, 128);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.position, 6000, 128);
             if (MultiplayerHelper.IsHost)
             {
                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero,

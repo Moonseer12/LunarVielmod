@@ -1,4 +1,5 @@
-﻿using Stellamod.Content.Areas.RoyalCapital.WeaponsRC;
+﻿using Stellamod.Common;
+using Stellamod.Content.Areas.RoyalCapital.WeaponsRC;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -13,7 +14,6 @@ namespace Stellamod.Projectiles.Swords.Fenix
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Shadow Hand");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 50;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
@@ -32,11 +32,6 @@ namespace Stellamod.Projectiles.Swords.Fenix
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
             Projectile.Kill();
-
-
-
-
-
             return false;
         }
 
@@ -85,7 +80,7 @@ namespace Stellamod.Projectiles.Swords.Fenix
 
             float speedXa = -Projectile.velocity.X * Main.rand.NextFloat(.4f, .7f) + Main.rand.NextFloat(-8f, 8f);
             float speedYa = -Projectile.velocity.Y * Main.rand.Next(0, 0) * 0.01f + Main.rand.Next(-20, 21) * 0.0f;
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.Projectile.Center, 2212f, 6f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 2212f, 6f);
             Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X + speedXa, Projectile.position.Y + speedYa, speedXa * 0, speedYa * 0, ModContent.ProjectileType<KaBoomSigil>(), (int)(Projectile.damage * 1.5f), 0f, Projectile.owner, 0f, 0f);
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Starblast"), Projectile.position);
         }
@@ -101,7 +96,4 @@ namespace Stellamod.Projectiles.Swords.Fenix
 
         }
     }
-
 }
-
-

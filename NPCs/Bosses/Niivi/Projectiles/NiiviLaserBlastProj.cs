@@ -1,5 +1,5 @@
-﻿using Stellamod.Dusts;
-using Stellamod.Helpers;
+﻿using Stellamod.Common;
+using Stellamod.Dusts;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -25,7 +25,7 @@ namespace Stellamod.NPCs.Bosses.Niivi.Projectiles
             Projectile.tileCollide = false;
             Projectile.penetrate = -1;
             Projectile.timeLeft = 60;
-            BeamPoints = new List<Vector2>();
+            BeamPoints = new();
         }
 
         public override void AI()
@@ -50,7 +50,7 @@ namespace Stellamod.NPCs.Bosses.Niivi.Projectiles
 
                 Vector2 direction = Projectile.velocity.SafeNormalize(Vector2.Zero);
                 Vector2 explosionCenter = Projectile.Center + direction * BeamLength;
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(explosionCenter, 2048, 64);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(explosionCenter, 2048, 64);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), explosionCenter, Vector2.Zero,
                     ModContent.ProjectileType<NiiviLaserBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 

@@ -1,5 +1,4 @@
-﻿
-
+﻿using Stellamod.Common;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -17,12 +16,6 @@ namespace Stellamod.Projectiles.Spears
             set => Projectile.ai[0] = value;
         }
         private ref float SwordRotation => ref Projectile.ai[1];
-        public override void SetStaticDefaults()
-        {
-            Main.projFrames[Projectile.type] = 1;//number of frames the animation has
-        }
-
-
 
         public override void SetDefaults()
         {
@@ -90,7 +83,7 @@ namespace Stellamod.Projectiles.Spears
 
 
                 //Funny Screenshake
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
                 float speedX = Projectile.velocity.X * 10;
                 float speedY = Projectile.velocity.Y * 7;
             //    Projectile.NewProjectile(player.GetSource_ItemUse_WithPotentialAmmo(player.HeldItem, AmmoID.Arrow), Projectile.Center, new Vector2(0, 0), ModContent.ProjectileType<DreadSpawnEffect>(), Projectile.damage * 1, Projectile.knockBack, player.whoAmI);

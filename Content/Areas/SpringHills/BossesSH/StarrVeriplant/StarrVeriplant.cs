@@ -1,12 +1,9 @@
-﻿using Stellamod.Assets;
+﻿using Stellamod.Common;
 using Stellamod.Content.Areas.Desert.BossesCL.CommanderGintzia.Hands;
 using Stellamod.Content.Areas.Desert.BossesCL.EliteCommander.Projectiles;
-using Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant.Projectiles;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
 using Stellamod.Core.Particles;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;
@@ -375,8 +372,7 @@ namespace Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant
 
             if (NPC.collideY)
             {
-                MyPlayer myPlayer = Main.LocalPlayer.GetModPlayer<MyPlayer>();
-                myPlayer.ShakeAtPosition(NPC.Center, 1024f, 30f);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 1024f, 30f);
 
                 for (int i = 0; i < 16; i++)
                 {
@@ -502,8 +498,7 @@ namespace Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant
 
                     if (NPC.collideY || Timer > 60)
                     {
-                        MyPlayer myPlayer = Main.LocalPlayer.GetModPlayer<MyPlayer>();
-                        myPlayer.ShakeAtPosition(NPC.Center, 1024f, 30f);
+                        Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 1024f, 30f);
                         ShakeScreenPosition.Shake = 2;
                         SoundStyle boom = SoundID.DD2_ExplosiveTrapExplode;
                         boom.PitchVariance = 0.3f;
@@ -619,8 +614,7 @@ namespace Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant
 
                     if (NPC.collideY)
                     {
-                        MyPlayer myPlayer = Main.LocalPlayer.GetModPlayer<MyPlayer>();
-                        myPlayer.ShakeAtPosition(NPC.Center, 1024f, 30f);
+                        Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 1024f, 30f);
                         ShakeScreenPosition.Shake = 2;
                         SoundStyle boom = SoundID.DD2_ExplosiveTrapExplode;
                         boom.PitchVariance = 0.3f;

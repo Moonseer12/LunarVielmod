@@ -1,13 +1,9 @@
-﻿
-
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Assets;
+using Stellamod.Common;
 using Stellamod.Common.Shaders;
-using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Projectiles.IgniterExplosions;
 using Terraria;
 using Terraria.Audio;
@@ -68,7 +64,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.BossesRC.STARBOMBER.Projectiles
 
                 Vector2 direction = Projectile.velocity.SafeNormalize(Vector2.Zero);
                 Vector2 explosionCenter = Projectile.Center + Projectile.velocity;
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(explosionCenter, 1024f, 32f);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(explosionCenter, 1024f, 32f);
                 if (Main.myPlayer == Projectile.owner)
                 {
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), explosionCenter, Vector2.Zero, ModContent.ProjectileType<SiriusBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner);

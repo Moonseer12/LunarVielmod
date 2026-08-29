@@ -1,12 +1,6 @@
-﻿
-
-using Stellamod.Assets;
-using Stellamod.Helpers;
-using Stellamod.Projectiles;
-using Stellamod.Trails;
+﻿using Stellamod.Content.Areas.Fable.WeaponsFB;
 using Terraria;
 using Terraria.Audio;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 

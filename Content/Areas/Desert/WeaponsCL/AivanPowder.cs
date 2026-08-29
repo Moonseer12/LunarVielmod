@@ -38,7 +38,7 @@ public class AivanPowder : BasePowder
             base.Start();
             if (Main.myPlayer == Projectile.owner)
             {
-                EffectsHelper.SimpleExplosionCircle(Projectile, Color.White, endRadius: 64);
+                EffectsHelper.SimpleExplosionCircle(Projectile, Color.White, 64);
             }
         }
 

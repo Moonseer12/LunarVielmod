@@ -1,7 +1,4 @@
-﻿
-
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+﻿using Stellamod.Common;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -50,7 +47,7 @@ namespace Stellamod.NPCs.Bosses.Niivi.Projectiles
             Timer++;
             if (Timer == 1)
             {
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 2048, 32);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 2048, 32);
                 SoundEngine.PlaySound(SoundRegistry.Niivi_Voidfield, Projectile.position);
             }
 

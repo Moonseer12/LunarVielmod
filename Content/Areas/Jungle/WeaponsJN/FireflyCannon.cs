@@ -1,4 +1,5 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common;
 using Stellamod.Common.GunSystem;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
@@ -49,7 +50,7 @@ namespace Stellamod.Content.Areas.Jungle.WeaponsJN
             player.velocity = VectorHelper.VelocityUpTo(player.velocity, targetVelocity);
             type = ModContent.ProjectileType<FireflyBomb>();
             //Funny Screenshake
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
             int numProjectiles = Main.rand.Next(8, 12);
             for (int p = 0; p < numProjectiles; p++)
             {

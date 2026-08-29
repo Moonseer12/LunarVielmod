@@ -17,10 +17,9 @@ namespace Stellamod.Projectiles.Steins
 {
     public class SSShot : ModProjectile
     {
+        public override string Texture => TextureRegistry.EmptyTexture;
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("MeatBall");
-            Main.projFrames[Projectile.type] = 1;
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 30;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 1;
             //The recording mode

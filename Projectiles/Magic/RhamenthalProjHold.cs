@@ -11,18 +11,13 @@ namespace Stellamod.Projectiles.Magic
 {
     public class RhamenthalProjHold : ModProjectile
     {
+        public override string Texture => TextureRegistry.EmptyTexture;
         public float Timer
         {
             get => Projectile.ai[0];
             set => Projectile.ai[0] = value;
         }
         private ref float SwordRotation => ref Projectile.ai[1];
-        public override void SetStaticDefaults()
-        {
-            Main.projFrames[Projectile.type] = 1;//number of frames the animation has
-        }
-
-
         public override void SetDefaults()
         {
             Projectile.damage = 0;

@@ -1,17 +1,12 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Common;
 using Stellamod.Content.Areas.Desert.AccCL;
 using Stellamod.Core.MaskingShaderSystem;
-using Stellamod.Helpers;
-using Stellamod.Trails;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Projectiles.Magic
 {
@@ -104,9 +99,9 @@ namespace Stellamod.Projectiles.Magic
                     Vector2 vel = rot.ToRotationVector2() * 4;
                     Dust.NewDustPerfect(Projectile.Center, DustID.CorruptTorch, vel);
                 }
-                SoundStyle explodeStyle = new SoundStyle("Stellamod/Assets/Sounds/STARGROP");
+                SoundStyle explodeStyle = new("Stellamod/Assets/Sounds/STARGROP");
                 SoundEngine.PlaySound(explodeStyle, Projectile.position);
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.position, 1024, 10);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.position, 1024, 10);
             }
 
             if (Timer < 60)

@@ -1,4 +1,4 @@
-﻿
+﻿using Stellamod.Common;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -72,7 +72,7 @@ namespace Stellamod.Projectiles.Magic
                 else
                 {
                     //Make a slash
-                    Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
+                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
                     SoundEngine.PlaySound(SoundID.Item21);
                     float maxSlashDistance = 1;
                     float slashDistance = Math.Min(maxSlashDistance, Vector2.Distance(player.Center, Main.MouseWorld));
@@ -93,7 +93,7 @@ namespace Stellamod.Projectiles.Magic
                 else
                 {
                     //Make a slash
-                    Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 1024f, 2);
+                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 2);
                     SoundEngine.PlaySound(SoundID.Item21);
 
                     Vector2 slashPosition = player.Center + Main.rand.NextVector2Circular(80, 80);

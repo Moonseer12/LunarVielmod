@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using Stellamod.Common;
+using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -138,13 +139,13 @@ namespace Stellamod.Projectiles.Magic
         {
             for (int i = 0; i < 30; i++)
             {
-                Vector2 speed2 = Main.rand.NextVector2CircularEdge(1f, 1f);
+                Main.rand.NextVector2CircularEdge(1f, 1f);
             }
 
             Projectile.Kill();
             SoundEngine.PlaySound(SoundID.DD2_ExplosiveTrapExplode, Projectile.position);
             SoundEngine.PlaySound(SoundID.DD2_BetsysWrathImpact, Projectile.position);
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.Projectile.Center, 1024f, 4f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 4f);
         }
     }
 }

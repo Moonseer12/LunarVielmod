@@ -1,4 +1,5 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
@@ -350,7 +351,7 @@ public class DevilsPeakStaminaSlash : BaseSwingProjectileV2
         if (!_hit)
         {
             Player player = Owner;
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
             float recoilStrength = 8;
             Vector2 direction = target.DirectionTo(player.Center);
             Vector2 targetVelocity = direction * recoilStrength;

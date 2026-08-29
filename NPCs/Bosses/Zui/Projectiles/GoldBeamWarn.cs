@@ -1,4 +1,5 @@
 ﻿using ReLogic.Content;
+using Stellamod.Common;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -11,10 +12,6 @@ namespace Stellamod.NPCs.Bosses.Zui.Projectiles
     {
         public bool Down;
         public bool Lightning;
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Sun Stalker Lighting");
-        }
 
         public virtual string GlowTexturePath => Texture + "_Glow";
         private Asset<Texture2D> _glowTexture;
@@ -28,7 +25,7 @@ namespace Stellamod.NPCs.Bosses.Zui.Projectiles
                 {
                     spriteEffects = SpriteEffects.FlipHorizontally;
                 }
-                Vector2 halfSize = new Vector2(GlowTexture.Width / 2, GlowTexture.Height / Main.npcFrameCount[NPC.type] / 2);
+                Vector2 halfSize = new(GlowTexture.Width / 2, GlowTexture.Height / Main.npcFrameCount[NPC.type] / 2);
                 spriteBatch.Draw(
                     GlowTexture,
                     new Vector2(NPC.position.X - screenPos.X + NPC.width / 2 - GlowTexture.Width * NPC.scale / 2f + halfSize.X * NPC.scale, NPC.position.Y - screenPos.Y + NPC.height - GlowTexture.Height * NPC.scale / Main.npcFrameCount[NPC.type] + 4f + halfSize.Y * NPC.scale + Main.NPCAddHeight(NPC) + NPC.gfxOffY),
@@ -103,7 +100,7 @@ namespace Stellamod.NPCs.Bosses.Zui.Projectiles
                         SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Dreadmire__LightingRain3"), NPC.position);
 
                     }
-                    Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.NPC.Center, 2048f, 32f);
+                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 2048f, 32f);
                     LightPos.X = NPC.position.X;
                     LightPos.Y = NPC.position.Y - 500;
                     if (MultiplayerHelper.IsHost)

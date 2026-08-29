@@ -1,13 +1,9 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Gores;
 using Stellamod.Core.Camera;
 using Stellamod.Core.Particles;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
-using Stellamod.Projectiles.Paint;
 using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System;

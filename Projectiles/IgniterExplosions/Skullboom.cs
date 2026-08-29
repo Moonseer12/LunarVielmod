@@ -13,7 +13,7 @@ namespace Stellamod.Projectiles.IgniterExplosions
             base.Start();
             if (Main.myPlayer == Projectile.owner)
             {
-                EffectsHelper.SimpleExplosionCircle(Projectile, Color.Purple, endRadius: 80);
+                EffectsHelper.SimpleExplosionCircle(Projectile, Color.Purple, 80);
             }
 
             if (Main.rand.NextBool(2))

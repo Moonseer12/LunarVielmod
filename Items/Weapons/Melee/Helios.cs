@@ -1,7 +1,4 @@
-﻿
-
-using Stellamod.Helpers;
-using Stellamod.Projectiles.Magic;
+﻿using Stellamod.Projectiles.Magic;
 using Stellamod.Projectiles.Slashers.Helios;
 using System.Collections.Generic;
 using Terraria;
@@ -17,12 +14,6 @@ namespace Stellamod.Items.Weapons.Melee
         public int AttackCounter = 1;
         public int combowombo = 0;
 
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Gutinier"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-            /* Tooltip.SetDefault("Classful weapon!" +
-                "\nDivergency Inspired!"); */
-        }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             // Here we add a tooltipline that will later be removed, showcasing how to remove tooltips from an item
@@ -61,16 +52,7 @@ namespace Stellamod.Items.Weapons.Melee
 
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
-            if (player.GetModPlayer<MyPlayer>().SwordCombo >= 0)
-            {
-                type = ModContent.ProjectileType<HeliosProj>();
-
-            }
-            if (player.GetModPlayer<MyPlayer>().SwordCombo >= 1)
-            {
-                type = ModContent.ProjectileType<HeliosProj>();
-                SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/StormDragon_Bomb"), player.position);
-            }
+            type = ModContent.ProjectileType<HeliosProj>();
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

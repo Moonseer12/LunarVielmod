@@ -1,6 +1,5 @@
-﻿using Stellamod.Content.Gores;
-using Stellamod.Helpers;
-using Stellamod.Items.Accessories;
+﻿using Stellamod.Common;
+using Stellamod.Content.Gores;
 using Stellamod.NPCs.Bosses.Niivi.Projectiles;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +7,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -301,7 +299,7 @@ namespace Stellamod.NPCs.Bosses.Niivi
             }
             if (NPC.life <= 0)
             {
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(NPC.Center, 2000, 32);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 2000, 32);
                 SoundEngine.PlaySound(SoundRegistry.Niivi_Death, NPC.position);
                 var entitySource = NPC.GetSource_Death();
                 Gore.NewGore(entitySource, NPC.position, NPC.velocity, GoreHelper.Niivi1);
@@ -1367,7 +1365,7 @@ namespace Stellamod.NPCs.Bosses.Niivi
 
                 if (Timer % 16 == 0)
                 {
-                    Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(pos, 1024, 16);
+                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(pos, 1024, 16);
                     if (MultiplayerHelper.IsHost)
                     {
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), pos, Vector2.Zero,

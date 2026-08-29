@@ -38,7 +38,7 @@ public class AbyssalPowder : BasePowder
             base.Start();
             if (Main.myPlayer == Projectile.owner)
             {
-                EffectsHelper.SimpleExplosionCircle(Projectile, Color.Blue, endRadius: 48);
+                EffectsHelper.SimpleExplosionCircle(Projectile, Color.Blue, 48);
             }
         }
 

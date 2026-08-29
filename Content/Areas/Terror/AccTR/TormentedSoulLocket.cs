@@ -1,4 +1,5 @@
-﻿using Stellamod.Common.MagicCauldron;
+﻿using Stellamod.Common;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.SummonerSystem;
 using Stellamod.Content.Areas.Terror.WeaponsTR;
 using Stellamod.Content.CommonMaterials;
@@ -41,7 +42,7 @@ namespace Stellamod.Content.Areas.Terror.AccTR
 
             float Speed = Main.rand.Next(4, 7);
             float offsetRandom = Main.rand.Next(0, 50);
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(projectile.Center, 2048f, 32f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(projectile.Center, 2048f, 32f);
 
             float spread = 45f * 0.0174f;
             double startAngle = Math.Atan2(1, 0) - spread / 2;
@@ -52,7 +53,7 @@ namespace Stellamod.Content.Areas.Terror.AccTR
             for (int i = 0; i < 2; i++)
             {
 
-                offsetAngle = (startAngle + deltaAngle * (i + i * i) / 2f) + 32f * i + offsetRandom;
+                offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i + offsetRandom;
                 Projectile.NewProjectile(projectile.GetSource_FromAI(), projectile.Center.X, projectile.Center.Y, (float)(Math.Sin(offsetAngle) * Speed), (float)(Math.Cos(offsetAngle) * Speed), ProjectileID.VampireHeal, 16, 0, projectile.owner);
                 Projectile.NewProjectile(projectile.GetSource_FromAI(), projectile.Center.X, projectile.Center.Y, (float)(-Math.Sin(offsetAngle) * Speed), (float)(-Math.Cos(offsetAngle) * Speed), ProjectileID.VampireHeal, 16, 0, projectile.owner);
             }

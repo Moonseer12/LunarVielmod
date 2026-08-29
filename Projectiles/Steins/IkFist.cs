@@ -1,13 +1,10 @@
-﻿
-
+﻿using Stellamod.Common;
 using Stellamod.Dusts;
 using Stellamod.Items.Weapons.Mage.Stein;
 using Stellamod.Projectiles.IgniterExplosions.Stein;
-using Stellamod.Trails;
 using System;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -15,14 +12,13 @@ namespace Stellamod.Projectiles.Steins
 {
     public class IkFist : ModProjectile
     {
+        public override string Texture => TextureRegistry.EmptyTexture;
         public static bool swung = false;
         public int SwingTime = 60;
         public float holdOffset = 0f;
         public bool bounced = false;
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Slasher");
-            Main.projFrames[Projectile.type] = 1;
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 20; // The length of old position to be recorded
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2; // The recording mode
         }
@@ -268,7 +264,7 @@ namespace Stellamod.Projectiles.Steins
                 }
 
                 target.SimpleStrikeNPC(Projectile.damage * 5, 1, crit: false, 1);
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.Projectile.Center, 512f, 32f);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 32f);
 
 
                 if (target.lifeMax <= 2000)

@@ -1,11 +1,10 @@
-﻿
+﻿using Stellamod.Common;
 using Stellamod.Projectiles.Gun;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Items.Weapons.Ranged
 {
@@ -38,7 +37,7 @@ namespace Stellamod.Items.Weapons.Ranged
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
 
             //Dust Burst Towards Mouse
 
@@ -61,4 +60,3 @@ namespace Stellamod.Items.Weapons.Ranged
 
     // post plant weapon, cyborb or smth idk
 }
-

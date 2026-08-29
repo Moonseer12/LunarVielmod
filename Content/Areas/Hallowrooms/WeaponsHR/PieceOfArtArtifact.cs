@@ -9,7 +9,6 @@ using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Rendering;
 using Stellamod.Dusts;
-using Stellamod.Projectiles.Visual;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;

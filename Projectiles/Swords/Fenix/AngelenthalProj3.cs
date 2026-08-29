@@ -55,7 +55,7 @@ namespace Stellamod.Projectiles.Swords.Fenix
             // the actual rotation it should have
             float defRot = Projectile.velocity.ToRotation();
             // starting rotation
-            float endSet = ((MathHelper.PiOver2) / 0.2f);
+            float endSet = MathHelper.PiOver2 / 0.2f;
             float start = defRot - endSet;
 
             // ending rotation
@@ -78,7 +78,7 @@ namespace Stellamod.Projectiles.Swords.Fenix
 
         private void Visuals()
         {
-            Vector3 RGB = new Vector3(1.28f, 0f, 1.28f);
+            Vector3 RGB = new(1.28f, 0f, 1.28f);
             float multiplier = 0.2f;
             RGB *= multiplier;
             Lighting.AddLight(Projectile.position, RGB.X, RGB.Y, RGB.Z);
@@ -94,10 +94,6 @@ namespace Stellamod.Projectiles.Swords.Fenix
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            Player player = Main.player[Projectile.owner];
-
-            player.GetModPlayer<MyPlayer>().SwordCombo++;
-            player.GetModPlayer<MyPlayer>().SwordComboR = 480;
         }
 
 

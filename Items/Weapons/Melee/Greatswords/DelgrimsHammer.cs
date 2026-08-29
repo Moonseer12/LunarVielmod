@@ -1,7 +1,4 @@
-﻿
-
-using Stellamod.Helpers;
-using Stellamod.Projectiles.Slashers.DelgrimsHammer;
+﻿using Stellamod.Projectiles.Slashers.DelgrimsHammer;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -51,16 +48,7 @@ namespace Stellamod.Items.Weapons.Melee.Greatswords
 
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
-            if (player.GetModPlayer<MyPlayer>().SwordCombo >= 0)
-            {
-                type = ModContent.ProjectileType<DelgrimsHammerProj>();
-
-            }
-            if (player.GetModPlayer<MyPlayer>().SwordCombo >= 4)
-            {
-                type = ModContent.ProjectileType<DelgrimsHammerProj>();
-                SoundEngine.PlaySound(SoundID.Item34, player.position);
-            }
+            type = ModContent.ProjectileType<DelgrimsHammerProj>();
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

@@ -1,4 +1,5 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
@@ -401,7 +402,7 @@ namespace Stellamod.Content.Areas.Jungle.WeaponsJN
                 }
 
                 target.SimpleStrikeNPC(Projectile.damage * 5, 1, crit: false, 1);
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.Projectile.Center, 512f, 32f);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(base.Projectile.Center, 512f, 32f);
             }
         }
         public float WidthFunction(float completionRatio)

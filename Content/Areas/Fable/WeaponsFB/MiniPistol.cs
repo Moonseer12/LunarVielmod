@@ -1,4 +1,5 @@
-﻿using Stellamod.Common.GunSystem;
+﻿using Stellamod.Common;
+using Stellamod.Common.GunSystem;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Visual.Particles;
@@ -82,7 +83,7 @@ public class MiniPistol : BaseGun
             Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
         }
 
-        Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(player.Center, 1024f, 4);
+        Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, 4);
         int Sound = Main.rand.Next(1, 3);
         if (Sound == 1)
         {

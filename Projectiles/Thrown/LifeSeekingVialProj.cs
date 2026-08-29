@@ -1,26 +1,20 @@
-﻿
+﻿using Stellamod.Common;
 using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-
 namespace Stellamod.Projectiles.Thrown
 {
     public class LifeSeekingVialProj : ModProjectile
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Flask of KABOOM");
-        }
-
         public override void SetDefaults()
         {
             Projectile.width = 20;
             Projectile.height = 20;
 
-            Projectile.aiStyle = 2;
+            Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
 
             Projectile.friendly = true;
             Projectile.hostile = false;
@@ -46,7 +40,7 @@ namespace Stellamod.Projectiles.Thrown
             SoundEngine.PlaySound(SoundID.Item107, Projectile.position);
             float Speed = Main.rand.Next(4, 7);
             float offsetRandom = Main.rand.Next(0, 50);
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(base.Projectile.Center, 2048f, 12f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 2048f, 12f);
 
             float spread = 45f * 0.0174f;
             double startAngle = Math.Atan2(1, 0) - spread / 2;
@@ -57,7 +51,7 @@ namespace Stellamod.Projectiles.Thrown
             for (int i = 0; i < 1; i++)
             {
                 Player.Heal(2);
-                offsetAngle = (startAngle + deltaAngle * (i + i * i) / 2f) + 32f * i + offsetRandom;
+                offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i + offsetRandom;
                 Projectile.NewProjectile(Projectile.GetSource_FromAI(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(offsetAngle) * Speed), (float)(Math.Cos(offsetAngle) * Speed), ProjectileID.VampireHeal, 16, 0, Main.myPlayer);
 
                 Projectile.netUpdate = true;

@@ -1,6 +1,4 @@
-﻿
-
-using Stellamod.Core.Utilities;
+﻿using Stellamod.Content.Areas.Fable.WeaponsFB;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;

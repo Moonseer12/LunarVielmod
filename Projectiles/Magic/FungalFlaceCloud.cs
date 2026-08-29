@@ -9,10 +9,7 @@ namespace Stellamod.Projectiles.Magic
 {
     public class FungalFlaceCloud : ModProjectile
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Fungal Flace Cloud");
-        }
+        public override string Texture => TextureRegistry.EmptyTexture;
 
         public override void SetDefaults()
         {
@@ -41,7 +38,6 @@ namespace Stellamod.Projectiles.Magic
             return true;
 
         }
-        float alphaCounter;
 
         public override Color? GetAlpha(Color lightColor)
         {
@@ -49,7 +45,6 @@ namespace Stellamod.Projectiles.Magic
         }
         public override void AI()
         {
-            alphaCounter += 0.04f;
             Projectile.rotation += 0.3f;
             if (Main.rand.NextBool(40))
             {

@@ -96,10 +96,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
 
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
-            if (player.GetModPlayer<MyPlayer>().SwordCombo >= 0)
-            {
-                type = ModContent.ProjectileType<ChromaCutterProj>();
-            }
+            type = ModContent.ProjectileType<ChromaCutterProj>();
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -729,7 +726,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
                     break;
 
                 case ActionState.Orange:
-                    owner.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
+                    owner.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
                     SoundEngine.PlaySound(new SoundStyle($"Stellamod/Assets/Sounds/Kaboom"));
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
                         ModContent.ProjectileType<CombustionBoomMini>(), Projectile.damage * 2, Projectile.knockBack, Projectile.owner);

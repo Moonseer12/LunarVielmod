@@ -1,7 +1,4 @@
-﻿
-using Stellamod.Core.NPCHelpers;
-using Stellamod.Helpers;
-using Stellamod.Projectiles.Paint;
+﻿using Stellamod.Core.NPCHelpers;
 using Stellamod.Trails;
 using System;
 using Terraria;

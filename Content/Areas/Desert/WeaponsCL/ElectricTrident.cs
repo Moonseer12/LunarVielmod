@@ -1,4 +1,5 @@
 ﻿using ReLogic.Content;
+using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
@@ -410,7 +411,7 @@ public class ElectricTridentLightning : ModProjectile
 
 
             _lightningHitPos = Projectile.position + Projectile.velocity.SafeNormalize(Vector2.Zero) * BeamLength; // new Vector2(0, BeamLength);
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(_lightningHitPos, 1024, 32);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(_lightningHitPos, 1024, 32);
 
             var part = FXUtil.GlowCircleBoom(_lightningHitPos,
                 innerColor: Color.White,

@@ -264,7 +264,7 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
                 {
                     SoundEngine.PlaySound(new SoundStyle($"{nameof(Stellamod)}/Assets/Sounds/ITBomb3"), Projectile.position);
                 }
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 2048f, 16f);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 2048f, 16f);
                 Projectile.velocity = -Vector2.UnitY * 8;
                 if (Main.myPlayer == Projectile.owner)
                 {

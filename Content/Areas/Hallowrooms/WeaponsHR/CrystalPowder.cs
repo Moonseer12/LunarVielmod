@@ -46,7 +46,7 @@ public class CrystalPowder : BasePowder
             base.Start();
             if (Main.myPlayer == Projectile.owner)
             {
-                EffectsHelper.SimpleExplosionCircle(Projectile, Color.Purple, endRadius: 70);
+                EffectsHelper.SimpleExplosionCircle(Projectile, Color.Purple, 70);
             }
         }
     }

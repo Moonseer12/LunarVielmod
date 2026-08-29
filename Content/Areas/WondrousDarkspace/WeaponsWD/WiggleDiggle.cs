@@ -1,4 +1,5 @@
-﻿using Stellamod.Common.GunSystem;
+﻿using Stellamod.Common;
+using Stellamod.Common.GunSystem;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
@@ -29,7 +30,6 @@ public class WiggleDiggle : BaseGun
         Item.rare = ItemRarityID.Lime;
         Item.shoot = ModContent.ProjectileType<WiggleDiggleProj>();
         Item.shootSpeed = 19;
-     
     }
 
     public override void SetMagazine(ref GunReloadParams fireParams)
@@ -52,7 +52,7 @@ public class WiggleDiggle : BaseGun
     public override bool GunShot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
     {
         type = ModContent.ProjectileType<WiggleDiggleProj>();
-        SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/ConfettiShot1");
+        SoundStyle soundStyle = new("Stellamod/Assets/Sounds/ConfettiShot1");
         soundStyle.PitchVariance = 0.3f;
         soundStyle.Volume = 0.8f;
         SoundEngine.PlaySound(soundStyle, position);
@@ -62,7 +62,7 @@ public class WiggleDiggle : BaseGun
         Vector2 offset = new Vector2(6, -0.1f * player.direction).RotatedBy(rot);
 
         //Funny Screenshake
-        Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
+        Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
         int numProjectiles = Main.rand.Next(8, 15);
         float distance = 12;
         for (int p = 0; p < numProjectiles; p++)
@@ -83,13 +83,12 @@ public class WiggleDiggle : BaseGun
             Projectile.NewProjectileDirect(source, position, newVelocity, type, damage, knockback, player.whoAmI);
             for (int k = 0; k < Main.rand.Next(2, 7); k++)
             {
-                int[] goreTypes = new int[]
-                {
+                int[] goreTypes = [
                     ModContent.GoreType<RibbonBlue>(),
                     ModContent.GoreType<RibbonPink>(),
                     ModContent.GoreType<RibbonWhite>(),
                     ModContent.GoreType<RibbonYellow>()
-                };
+                ];
 
                 int goreType = goreTypes[Main.rand.Next(0, goreTypes.Length)];
                 Gore.NewGore(source, position + offset.RotatedByRandom(MathHelper.PiOver4) * distance * Main.rand.NextFloat(0.5f, 1f),

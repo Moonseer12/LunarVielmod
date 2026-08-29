@@ -1,16 +1,10 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Common;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.NPCs.Bosses.IrradiaNHavoc.Havoc.Projectiles;
-using Stellamod.Trails;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -585,7 +579,7 @@ namespace Stellamod.NPCs.Bosses.IrradiaNHavoc.Havoc
                 NPC.velocity *= 0.98f;
                 if (Timer == 1)
                 {
-                    SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/SingularityFragment_LAZER");
+                    SoundStyle soundStyle = new("Stellamod/Assets/Sounds/SingularityFragment_LAZER");
                     SoundEngine.PlaySound(soundStyle, NPC.position);
 
 
@@ -602,7 +596,7 @@ namespace Stellamod.NPCs.Bosses.IrradiaNHavoc.Havoc
 
                 if (Timer % 2 == 0)
                 {
-                    Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(NPC.position, 1024, 16);
+                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.position, 1024, 16);
                     Vector2 pos = NPC.Center + Main.rand.NextVector2Circular(64, 64);
                     Vector2 vel = NPC.rotation.ToRotationVector2() * 8;
                     float scale = Main.rand.NextFloat(2.5f, 3.75f);

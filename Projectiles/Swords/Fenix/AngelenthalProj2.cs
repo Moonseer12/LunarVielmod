@@ -175,10 +175,6 @@ namespace Stellamod.Projectiles.Swords.Fenix
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            Player player = Main.player[Projectile.owner];
-
-            player.GetModPlayer<MyPlayer>().SwordCombo++;
-            player.GetModPlayer<MyPlayer>().SwordComboR = 480;
         }
 
 

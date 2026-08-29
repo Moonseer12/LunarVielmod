@@ -12,15 +12,13 @@ namespace Stellamod.Projectiles.Steins;
 
 public class GreatShot : ModProjectile
 {
+    public override string Texture => TextureRegistry.EmptyTexture;
     private ref float Timer => ref Projectile.ai[0];
 
     public override void SetStaticDefaults()
     {
-        // DisplayName.SetDefault("MeatBall");
-        Main.projFrames[Projectile.type] = 1;
         ProjectileID.Sets.TrailCacheLength[Projectile.type] = 16;
         ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
-        //The recording mode
     }
 
     public override void SetDefaults()

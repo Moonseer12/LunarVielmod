@@ -1,23 +1,15 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Gores;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Content.Gores;
-using Stellamod.Helpers;
 using Stellamod.Projectiles.IgniterExplosions;
 using Stellamod.Visual.Particles;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -100,7 +92,7 @@ public class DeadRomanceLightningStrike : ModProjectile
 
 
             _lightningHitPos = Projectile.position + Projectile.velocity.SafeNormalize(Vector2.Zero) * BeamLength; // new Vector2(0, BeamLength);
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(_lightningHitPos, 1024, 32);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(_lightningHitPos, 1024, 32);
 
             var part = FXUtil.GlowCircleBoom(_lightningHitPos,
                 innerColor: Color.White,

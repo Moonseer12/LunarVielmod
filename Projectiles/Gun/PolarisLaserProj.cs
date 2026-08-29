@@ -1,24 +1,20 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
+using Stellamod.Common;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
-using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Projectiles.IgniterExplosions;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Projectiles.Gun
 {
     public class PolarisLaserProj : ModProjectile
     {
+        public override string Texture => TextureRegistry.EmptyTexture;
         //Don't change the sample points, 3 is good enough
         private const int NumSamplePoints = 3;
 
@@ -26,10 +22,6 @@ namespace Stellamod.Projectiles.Gun
 
         public float BeamLength;
         public List<Vector2> BeamPoints;
-
-        //No texture for this
-        public override string Texture => TextureRegistry.EmptyTexture;
-
         ref float Size => ref Projectile.ai[0];
         float Timer;
         public override void SetDefaults()
@@ -43,7 +35,7 @@ namespace Stellamod.Projectiles.Gun
             Projectile.timeLeft = 45;
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 25;
-            BeamPoints = new List<Vector2>();
+            BeamPoints = new();
         }
 
         public override void AI()
@@ -66,7 +58,7 @@ namespace Stellamod.Projectiles.Gun
 
                 Vector2 direction = Projectile.velocity.SafeNormalize(Vector2.Zero);
                 Vector2 explosionCenter = Projectile.Center + direction * BeamLength;
-                Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(explosionCenter, 1024f, 32f);
+                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(explosionCenter, 1024f, 32f);
                 if (Main.myPlayer == Projectile.owner)
                 {
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), explosionCenter, Vector2.Zero, ModContent.ProjectileType<SiriusBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner);

@@ -1,7 +1,4 @@
-﻿
-using Stellamod.Projectiles.Visual;
-using Terraria;
-using Terraria.ModLoader;
+﻿using Terraria;
 
 namespace Stellamod.Helpers
 {
@@ -11,9 +8,8 @@ namespace Stellamod.Helpers
         {
 
         }
-        public static Nothin SimpleExplosionCircle(Projectile baseProjectile, Color explosionColor, float startRadius = 4, float endRadius = 64, float width = 24)
+        public static Nothin SimpleExplosionCircle(Projectile baseProjectile, Color explosionColor, float endRadius = 64)
         {
-
             PixelPrimitiveCircleFactory.CreateGenericBoom(baseProjectile.Center, explosionColor * 0.5f, explosionColor * 0.5f, 30, endRadius);
             return new Nothin();
         }

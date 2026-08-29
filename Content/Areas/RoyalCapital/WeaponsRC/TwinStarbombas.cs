@@ -237,7 +237,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.WeaponsRC
             //Orbit around the player
             float orbitDistance = 256;
             OrbitRotation += 0.003f;
-            Vector2 targetOrbitPos = MovementHelper.OrbitAround(Owner.Center, Vector2.UnitY, orbitDistance, OrbitRotation);
+            Vector2 targetOrbitPos = MovementUtilities.OrbitAround(Owner.Center, Vector2.UnitY, orbitDistance, OrbitRotation);
 
             //Lerp
             Projectile.Center = Vector2.Lerp(Projectile.Center, targetOrbitPos, 0.12f / Swing_Speed_Multiplier);
@@ -282,7 +282,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.WeaponsRC
             float orbitDistance = MathHelper.Lerp(0, OrbitSwingDistance, EasedProgress);
 
             Vector2 start = SwingStart;
-            Vector2 end = MovementHelper.OrbitAround(Owner.Center, SwingVelocity.RotatedBy(MathHelper.PiOver2), orbitDistance, orbitRotation);
+            Vector2 end = MovementUtilities.OrbitAround(Owner.Center, SwingVelocity.RotatedBy(MathHelper.PiOver2), orbitDistance, orbitRotation);
             Vector2 lerpPosition = Vector2.Lerp(start, end, EasedProgress);
 
             Projectile.Center = Vector2.Lerp(Projectile.Center, end, EasedProgress);
@@ -323,7 +323,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.WeaponsRC
             EasedProgress = Easing.SpikeInOutExpo(progress);
             float orbitRotation = MathHelper.Lerp(MathHelper.TwoPi * Swing_Revolutions, 0, EasedProgress);
             float orbitDistance = MathHelper.Lerp(0, OrbitSwingDistance, EasedProgress);
-            Vector2 end = MovementHelper.OrbitAround(Owner.Center, SwingVelocity.RotatedBy(MathHelper.PiOver2), orbitDistance, -orbitRotation);
+            Vector2 end = MovementUtilities.OrbitAround(Owner.Center, SwingVelocity.RotatedBy(MathHelper.PiOver2), orbitDistance, -orbitRotation);
 
             Projectile.Center = Vector2.Lerp(Projectile.Center, end, EasedProgress);
             if (Timer > SwingTime)
@@ -560,7 +560,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.WeaponsRC
             //Orbit around the player
             float orbitDistance = 128;
             OrbitRotation -= 0.003f;
-            Vector2 targetOrbitPos = MovementHelper.OrbitAround(Owner.Center, Vector2.UnitY, orbitDistance, OrbitRotation);
+            Vector2 targetOrbitPos = MovementUtilities.OrbitAround(Owner.Center, Vector2.UnitY, orbitDistance, OrbitRotation);
 
             //Lerp
             Projectile.Center = Vector2.Lerp(Projectile.Center, targetOrbitPos, 0.12f / Swing_Speed_Multiplier);
@@ -604,7 +604,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.WeaponsRC
             float orbitRotation = MathHelper.Lerp(-MathHelper.TwoPi * Swing_Revolutions, 0, EasedProgress);
             float orbitDistance = MathHelper.Lerp(0, OrbitSwingDistance, EasedProgress);
 
-            Vector2 end = MovementHelper.OrbitAround(Owner.Center, SwingVelocity.RotatedBy(-MathHelper.PiOver2), orbitDistance, orbitRotation);
+            Vector2 end = MovementUtilities.OrbitAround(Owner.Center, SwingVelocity.RotatedBy(-MathHelper.PiOver2), orbitDistance, orbitRotation);
 
             Projectile.Center = Vector2.Lerp(Projectile.Center, end, EasedProgress);
             if (Timer > SwingTime)
@@ -646,7 +646,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.WeaponsRC
             float orbitDistance = MathHelper.Lerp(0, OrbitSwingDistance, EasedProgress);
 
             Vector2 start = SwingStart;
-            Vector2 end = MovementHelper.OrbitAround(Owner.Center, SwingVelocity.RotatedBy(-MathHelper.PiOver2), orbitDistance, -orbitRotation);
+            Vector2 end = MovementUtilities.OrbitAround(Owner.Center, SwingVelocity.RotatedBy(-MathHelper.PiOver2), orbitDistance, -orbitRotation);
             Vector2 lerpPosition = Vector2.Lerp(start, end, EasedProgress);
 
             Projectile.Center = Vector2.Lerp(Projectile.Center, end, EasedProgress);

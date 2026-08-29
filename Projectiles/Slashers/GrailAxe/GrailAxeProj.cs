@@ -93,8 +93,6 @@ namespace Stellamod.Projectiles.Slashers.GrailAxe
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Player player = Main.player[Projectile.owner];
-            player.GetModPlayer<MyPlayer>().SwordCombo++;
-            player.GetModPlayer<MyPlayer>().SwordComboR = 480;
         }
 
         public override bool PreDraw(ref Color lightColor)

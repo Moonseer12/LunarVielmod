@@ -1,4 +1,5 @@
 using Stellamod.Assets;
+using Stellamod.Common;
 using Stellamod.Common.GunSystem;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
@@ -119,7 +120,7 @@ public class VoidBlasterExplosionBomb : ModProjectile
             float speedX = Projectile.velocity.X * Main.rand.NextFloat(.2f, .3f) + Main.rand.NextFloat(-4f, 4f);
             float speedY = Projectile.velocity.Y * Main.rand.Next(20, 35) * 0.01f + Main.rand.Next(-10, 11) * 0.2f;
 
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Vinger2"), Projectile.position);
             for (int i = 0; i < 14; i++)
             {
@@ -207,7 +208,7 @@ public class VoidBlasterExsplosion : ModProjectile
             }
 
             SoundEngine.PlaySound(SoundID.DD2_ExplosiveTrapExplode, Projectile.position);
-            Main.LocalPlayer.GetModPlayer<MyPlayer>().ShakeAtPosition(Projectile.Center, 2524f, 40f);
+            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 2524f, 40f);
             Projectile.alpha = 0;
         }
         if (Projectile.ai[0] >= 50)
