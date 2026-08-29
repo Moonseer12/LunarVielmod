@@ -1,27 +1,26 @@
 ﻿using Stellamod.Common.MagicCauldron;
-using Stellamod.Common.IgnitersNPowders;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Core.Bases;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace Stellamod.Content.Areas.SpringHills.AccSH;
+namespace Stellamod.Content.Areas.PunkerTown.AccPT;
 
-public class MushyExtenderPowder : ModItem
+public class SplitQuiver : ModItem
 {
     public override void SetDefaults()
     {
+        base.SetDefaults();
         Item.DefaultToAccessory();
     }
-
     public override void UpdateAccessory(Player player, bool hideVisual)
     {
-        IgniterPlayer igniterPlayer = player.GetModPlayer<IgniterPlayer>();
-        igniterPlayer.bouncing = true;
+        base.UpdateAccessory(player, hideVisual);
+        player.GetModPlayer<CrossbowPlayer>().splittingShot = true;
     }
-    
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew<Mushroom, BlankAccessory>();
+        this.RegisterBrew<MarshScrap, BlankAccessory>();
     }
 }

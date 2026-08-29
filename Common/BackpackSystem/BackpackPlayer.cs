@@ -1,13 +1,8 @@
-﻿
-
-using ReLogic.Content;
-using Stellamod.Assets;
+﻿using ReLogic.Content;
 using Stellamod.Common.ArmorRework;
-using Stellamod.Helpers;
 using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
 using Terraria.GameInput;
@@ -27,7 +22,7 @@ namespace Stellamod.Common.BackpackSystem
         public BackpackMenu()
         {
             _panel = new UIPanel();
-            _grid = new UIGrid();
+            _grid = new();
         }
 
         public int RelativeLeft => 555;
@@ -59,7 +54,7 @@ namespace Stellamod.Common.BackpackSystem
             var player = Main.LocalPlayer.GetModPlayer<BackpackPlayer>();
             for (int i = 0; i < player.MaxCapacity; i++)
             {
-                BackpackSlot slot = new BackpackSlot(i);
+                BackpackSlot slot = new(i);
                 _grid.Add(slot);
             }
             Left.Pixels = RelativeLeft;
@@ -304,12 +299,13 @@ namespace Stellamod.Common.BackpackSystem
         }
 
         public bool hasBackpack;
+        public bool hasDamageBonus;
         public override void ResetEffects()
         {
             base.ResetEffects();
             MaxCapacity = 0;// + Player.GetModPlayer<ArmorStatsPlayer>().inventorySlots;
             hasBackpack = false;
-
+            hasDamageBonus = false;
         }
         public override void PostUpdateMiscEffects()
         {
@@ -319,6 +315,11 @@ namespace Stellamod.Common.BackpackSystem
             if (statsPlayer.inventorySlots > 0)
             {
                 hasBackpack = true;
+            }
+            if (hasDamageBonus)
+            {
+                Player.GetDamage(DamageClass.Generic) += MaxCapacity * 0.05f;
+
             }
         }
 

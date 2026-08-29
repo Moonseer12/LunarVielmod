@@ -28,7 +28,7 @@ public class Gothinstein : BaseSwingItemV2
     public override void SetDefaults2()
     {
         base.SetDefaults2();
-        Item.damage = 220;
+        Item.damage = 142;
         Item.useTime = 7;
         Item.useAnimation = 7;
         Item.shoot = ModContent.ProjectileType<GothinsteinBarrage>();
@@ -126,6 +126,11 @@ public class GothinsteinBarrage : ModProjectile
             if (this.OwnedByLocalClient())
             {
                 _start = Owner.Center + Main.rand.NextVector2Circular(45, 45);
+                ProjFirer firer = ProjFirer.From<GothinsteinFlameWave>(Projectile);
+                firer.position = _start;
+                firer.damage /= 3;
+                firer.velocity = Projectile.velocity.SafeNormalize(Vector2.Zero) * 16;
+                firer.New();
 
                 if (Style == 1)
                 {
@@ -178,6 +183,21 @@ public class GothinsteinBarrage : ModProjectile
             }
         }
 
+        int denom = 6;
+        if (Main.rand.NextBool(denom))
+        {
+            Vector2 pos = Projectile.Center;
+            pos += Main.rand.NextVector2Circular(16, 16);
+            Color color = Color.Lerp(Color.Yellow, Color.Red, Main.rand.NextFloat(0f, 1f));
+            Particles.SwirlingFlameDust.Spawn(BitDustFactory.Default with
+            {
+                position = pos,
+                velocity = -Projectile.velocity * 0.47f,
+                timeLeft = 45,
+                innerColor = color.ToVector4(),
+                outerColor = Color.Red.ToVector4()
+            });
+        }
         if (Timer % 8 == 0)
         {
             var ts = ThickSmokeParticle.Spawn(Projectile.Center, Vector2.Zero);
@@ -250,7 +270,7 @@ public class GothinsteinBarrage : ModProjectile
     {
         float GetTrailWidth(float ratio)
         {
-            return MathHelper.SmoothStep(96, 64, ratio) * 0.35f * MathHelper.SmoothStep(1f, 0f, Timer / 32f);
+            return MathHelper.SmoothStep(96, 64, ratio) * 0.25f * MathHelper.SmoothStep(1f, 0f, EasingFunction.InExpo(Timer / 32f));
         }
         float GetTrailWidth2(float ratio)
         {
@@ -281,8 +301,33 @@ public class GothinsteinBarrage : ModProjectile
         TrailDrawer.Draw(Projectile.oldPos, GetTrailColor2, GetTrailWidth2, flameTrailShader, Projectile.Size * 0.5f);
     }
 
+    private void DrawGlow()
+    {
+        Vector2 scale = new Vector2(0.6f, 0.5f);
+        var drawer = SpritebatchDrawer.FromTextureAsset(AssetManager.GlowMask.SimpleGlowCircle, Projectile.Center);
+        drawer.color = Color.OrangeRed * 0.5f;
+        drawer.color.A = 0;
+        drawer.scale *= 0.6f * scale;
+        drawer.scale.X *= 0.74f;
+        drawer.scale.Y *= 0.8f;
+        drawer.rotation = Projectile.rotation;
+        Main.spriteBatch.Draw(drawer);
+
+        drawer.color = Color.Gold * 0.5f;
+        drawer.color.A = 0;
+        drawer.scale *= 0.84f;
+        drawer.rotation = Projectile.rotation;
+        Main.spriteBatch.Draw(drawer);
+
+        drawer.color = Color.White;
+        drawer.color.A = 0;
+        drawer.scale *= 0.84f;
+        drawer.rotation = Projectile.rotation;
+        Main.spriteBatch.Draw(drawer);
+    }
     public override bool PreDraw(ref Color lightColor)
     {
+        DrawGlow();
         SpritebatchDrawer fadeDrawer = SpritebatchDrawer.FromProjectile(Projectile);
         float fadeOut = MathHelper.SmoothStep(0f, 1f, Projectile.timeLeft / 12f);
         foreach(OldPosition oldPos in Projectile.IterateOldPosBackwards())
@@ -292,8 +337,8 @@ public class GothinsteinBarrage : ModProjectile
             fadeDrawer.rotation = Projectile.oldRot[oldPos.index];
             Main.spriteBatch.Draw(fadeDrawer);
         }
-        
-
+        var spriteDrawer = SpritebatchDrawer.FromProjectile(Projectile);
+        Main.spriteBatch.Draw(spriteDrawer);
         SpritebatchDrawer outlineDrawer = SpritebatchDrawer.FromProjectile(Projectile);
         outlineDrawer.VerticalFrame(1, 2);
         if(Style == 0)
@@ -311,6 +356,135 @@ public class GothinsteinBarrage : ModProjectile
     }
 }
 
+public class GothinsteinFlameWave : ModProjectile, IDrawToRenderTarget
+{
+    private ref float Timer => ref Projectile.ai[0];
+    private ref float Hit => ref Projectile.ai[1];
+    private ref float Scale => ref Projectile.ai[2];
+    public override void SetStaticDefaults()
+    {
+        base.SetStaticDefaults();
+        ProjectileID.Sets.TrailCacheLength[Type] = 16;
+        ProjectileID.Sets.TrailingMode[Type] = 2;
+    }
+    public override void SetDefaults()
+    {
+        base.SetDefaults();
+        Projectile.usesLocalNPCImmunity = true;
+        Projectile.localNPCHitCooldown = -1;
+        Projectile.tileCollide = false;
+        Projectile.timeLeft = 80;
+        Projectile.width = 100;
+        Projectile.height = 100;
+        Projectile.hostile = false;
+        Projectile.friendly = true;
+        Projectile.ignoreWater = true;
+        Projectile.penetrate = -1;
+        Projectile.extraUpdates = 2;
+
+    }
+
+    public override void AI()
+    {
+        base.AI();
+        Timer++;
+        if(Timer == 1)
+        {
+            if (this.OwnedByLocalClient())
+            {
+                Scale = Main.rand.NextFloat(0.6f, 1f);
+                Projectile.netUpdate = true;
+            }
+        }
+
+        if(Hit > 0)
+        {
+            Projectile.extraUpdates = 4;
+        }
+
+        int denom = 16;
+        if (Main.rand.NextBool(denom))
+        {
+            Vector2 pos = Projectile.Center;
+            pos += Main.rand.NextVector2Circular(16, 16);
+            Color color = Color.Lerp(Color.Yellow, Color.Red, Main.rand.NextFloat(0f, 1f));
+            Particles.SwirlingFlameDust.Spawn(BitDustFactory.Default with
+            {
+                position = pos,
+                velocity =Main.rand.NextVector2Circular(12, 12),
+                timeLeft = 45,
+                innerColor = color.ToVector4(),
+                outerColor = Color.Red.ToVector4()
+            });
+        }
+        Projectile.velocity *= 0.97f;
+        Projectile.rotation = Projectile.velocity.ToRotation();
+        Projectile.scale = Scale;
+    }
+
+    public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+    {
+        base.OnHitNPC(target, hit, damageDone);
+        Hit = 1;
+    }
+    public override bool PreDraw(ref Color lightColor)
+    {
+        return false;
+    }
+    private void DrawFlameBow(SpriteBatch spriteBatch, Vector2 screenPos)
+    {
+        float dissipate = EasingFunction.InOutSine(Projectile.timeLeft / 60f);
+        FlameBowShader flamebowShader = ShaderContent.GetInstance<FlameBowShader>();
+        flamebowShader.Time = Main.GlobalTimeWrappedHourly * -24;
+        flamebowShader.FlameNoiseTexture = AssetManager.Noise.InvertedVoronoi;
+        flamebowShader.InsideColor = Color.Yellow;
+        flamebowShader.BloomColor = Color.Red;
+        flamebowShader.DissipateThreshold = 0f;
+        flamebowShader.DistortionStrength = 0.05f;
+        float alpha = EasingFunction.InOutSine(Projectile.timeLeft / 80f);
+        using (new SpritebatchContext(spriteBatch, SpritebatchParams.InWorldAndZoomed() with { effect = flamebowShader.Effect }))
+        {
+            SpritebatchDrawer projBowDrawer = SpritebatchDrawer.FromProjectile(Projectile);
+            projBowDrawer.scale *= 0.75f;
+            projBowDrawer.rotation = Projectile.velocity.ToRotation();
+
+            projBowDrawer.CenterOrigin();
+
+            foreach (OldPosition oldPos in Projectile.IterateOldPosBackwards())
+            {
+             
+                projBowDrawer.worldPosition = oldPos.position + Projectile.Size * 0.5f;
+                projBowDrawer.color = Color.White * ExtraMath.Osc(0.5f, 1f, speed: 18) * alpha * 0.85f * MathHelper.Lerp(1f, 0f, oldPos.progress) * alpha;
+                projBowDrawer.color.A = 0;
+            
+                spriteBatch.Draw(projBowDrawer);
+            }
+            SpritebatchDrawer bowDrawer = SpritebatchDrawer.FromProjectile(Projectile);
+            bowDrawer.color = Color.White * ExtraMath.Osc(0.5f, 1f, speed: 18) * alpha * 4;
+            bowDrawer.color.A = 0;
+            bowDrawer.rotation = Projectile.velocity.ToRotation();
+            bowDrawer.CenterOrigin();
+            bowDrawer.scale *= 0.75f;
+            spriteBatch.Draw(bowDrawer);
+  
+            bowDrawer.color = Color.DarkRed * ExtraMath.Osc(0.8f, 1f, speed: 12) * 0.35f * alpha;
+            bowDrawer.color.A = 0;
+            bowDrawer.scale *= 1.2f;
+
+            spriteBatch.Draw(bowDrawer);
+        }
+
+        var glowDrawer = SpritebatchDrawer.FromTextureAsset(AssetManager.GlowMask.SimpleGlowCircle, Projectile.Center);
+        glowDrawer.color = Color.Red * 0.45f * alpha;
+        glowDrawer.color.A = 0;
+        glowDrawer.scale *= 0.5f;
+        spriteBatch.Draw(glowDrawer);
+    }
+    public void DrawToRenderTargets()
+    {
+        PixelationManager.QueueSpritebatchDrawAction(DrawFlameBow);
+    }
+}
 
 public class GothinsteinImpact : ModProjectile,
     IDrawToRenderTarget

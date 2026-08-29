@@ -1,27 +1,26 @@
 ﻿using Stellamod.Common.MagicCauldron;
-using Stellamod.Common.IgnitersNPowders;
+using Stellamod.Common.WeaponTypes;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace Stellamod.Content.Areas.SpringHills.AccSH;
+namespace Stellamod.Content.Areas.WondrousDarkspace.AccWD;
 
-public class MushyExtenderPowder : ModItem
+public class DoubleBaller : ModItem
 {
     public override void SetDefaults()
     {
+        base.SetDefaults();
         Item.DefaultToAccessory();
     }
-
     public override void UpdateAccessory(Player player, bool hideVisual)
     {
-        IgniterPlayer igniterPlayer = player.GetModPlayer<IgniterPlayer>();
-        igniterPlayer.bouncing = true;
+        base.UpdateAccessory(player, hideVisual);
+        player.GetModPlayer<ManaSpherePlayer>().hasDoubleSpheres = true;
     }
-    
     public override void AddRecipes()
     {
         base.AddRecipes();
-        this.RegisterBrew<Mushroom, BlankAccessory>();
+        this.RegisterBrew<HypnotizedSoul, BlankAccessory>();
     }
 }

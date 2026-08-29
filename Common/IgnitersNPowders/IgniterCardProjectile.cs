@@ -13,6 +13,7 @@ namespace Stellamod.Common.IgnitersNPowders
 {
     public class IgniterBoom : ModProjectile
     {
+
         private int _powderIndex;
         private bool _netUpdated;
         public BaseIgniterCard Card;
@@ -110,6 +111,7 @@ namespace Stellamod.Common.IgnitersNPowders
             Exploding
         }
 
+        private float _bounceCounter;
         private bool _init;
         private int _powderIndex;
         private Vector2 _explosionPos;
@@ -155,12 +157,14 @@ namespace Stellamod.Common.IgnitersNPowders
         {
             base.SendExtraAI(writer);
             writer.Write(_powderIndex);
+            writer.Write(_bounceCounter);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
             base.ReceiveExtraAI(reader);
             _powderIndex = reader.ReadInt32();
+            _bounceCounter = reader.ReadSingle();
         }
 
         public override void AI()
@@ -203,6 +207,11 @@ namespace Stellamod.Common.IgnitersNPowders
                     Projectile.Kill();
                 }
             }
+            if (IgniterPlayer.bouncing)
+            {
+                Projectile.velocity.Y += 0.3f;
+            }
+
             if (IgniterPlayer.reverie)
             {
                 if (Main.rand.NextBool(16))
@@ -257,6 +266,18 @@ namespace Stellamod.Common.IgnitersNPowders
         }
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
+            if (IgniterPlayer.bouncing)
+            {
+                if(_bounceCounter < 2)
+                {
+                    if (Projectile.velocity.X != oldVelocity.X)
+                        Projectile.velocity.X *= -1;
+                    if (Projectile.velocity.Y != oldVelocity.Y)
+                        Projectile.velocity.Y *= -1;
+                    _bounceCounter++;
+                    return false;
+                }
+            }
             _explosionPos = Projectile.Center;
             State = CardState.Exploding;
             Projectile.netUpdate = true;
