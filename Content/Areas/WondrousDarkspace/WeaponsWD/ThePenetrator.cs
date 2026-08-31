@@ -15,15 +15,12 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
     {
         public override void SetDefaults()
         {
-            Item.width = 96;
-            Item.height = 96;
             Item.DamageType = DamageClass.Ranged;
             Item.damage = 42;
             Item.useTime = 100;
             Item.useAnimation = 100;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 4;
-            Item.value = 10000;
             Item.noMelee = true;
             Item.channel = true;
             Item.autoReuse = false;
@@ -32,8 +29,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
             Item.shoot = ModContent.ProjectileType<ThePenetratorProj>();
             Item.shootSpeed = 1f;
             Item.noUseGraphic = true;
-            Item.value = Item.buyPrice(0, 30, 0, 0);
-            Item.rare = ItemRarityID.LightPurple;
         }
 
         public override bool AltFunctionUse(Player player)

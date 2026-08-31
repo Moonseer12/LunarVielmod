@@ -3,7 +3,7 @@
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
+
 using Stellamod.Trails;
 using Terraria;
 using Terraria.Audio;
@@ -128,7 +128,7 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.JackTheScholar.Projectiles
             return MathHelper.SmoothStep(12, 0, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.Yellow, Color.Red, completionRatio) * MathHelper.Lerp(0.6f, 0f, completionRatio);
         }

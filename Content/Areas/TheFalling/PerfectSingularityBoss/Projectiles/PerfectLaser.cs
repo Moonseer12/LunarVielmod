@@ -1,5 +1,5 @@
 ﻿using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
+
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.TheFalling.PerfectSingularityBoss.Projectiles;

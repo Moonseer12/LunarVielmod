@@ -3,8 +3,8 @@ using Stellamod.Assets;
 using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.Visual.Particles;
 using System;
 using System.IO;

@@ -33,11 +33,7 @@ public class BlackRose : ModItem
 {
     public override void SetDefaults()
     {
-        Item.width = 20;
-        Item.height = 36;
-        Item.rare = ItemRarityID.Green;
-        Item.accessory = true;
-        Item.value = Item.sellPrice(gold: 1);
+        Item.DefaultToAccessory();
     }
 
     public override void UpdateAccessory(Player player, bool hideVisual)

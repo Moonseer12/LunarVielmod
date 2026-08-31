@@ -1,4 +1,4 @@
-﻿using Stellamod.Content.Buffs;
+﻿using Stellamod.Content.Areas.PunkerTown;
 using Terraria;
 using Terraria.ModLoader;
 

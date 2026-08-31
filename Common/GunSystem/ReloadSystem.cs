@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using ReLogic.Content;
 using Stellamod.Assets.ContentReader.Aseprite;
 using Stellamod.Common.Shaders;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using System.Reflection;

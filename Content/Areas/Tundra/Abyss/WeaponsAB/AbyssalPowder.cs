@@ -1,6 +1,5 @@
 ﻿using Stellamod.Common.IgnitersNPowders;
 using Stellamod.Common.MagicCauldron;
-using Stellamod.Content.Buffs;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Terraria;

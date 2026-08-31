@@ -1,21 +1,14 @@
-﻿
-
-using Stellamod.Common;
+﻿using Stellamod.Common;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Common.MagicSystem.UI;
 using Stellamod.Content.MoonlightMagic.Elements;
-using Stellamod.Items.Weapons.Mage;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using Terraria.Utilities;
 
 namespace Stellamod.Content.MoonlightMagic
 {
@@ -38,8 +31,6 @@ namespace Stellamod.Content.MoonlightMagic
             base.SetDefaults();
             Item.damage = 18;
             Item.DamageType = DamageClass.Magic;
-            Item.width = 40;
-            Item.height = 40;
             Item.noUseGraphic = true;
             Item.noMelee = true;
             Item.useTime = 32;
@@ -48,7 +39,6 @@ namespace Stellamod.Content.MoonlightMagic
             Item.knockBack = 12;
             Item.mana = 10;
 
-            Item.rare = ItemRarityID.Blue;
             Item.shootSpeed = 15;
             Item.shoot = ModContent.ProjectileType<AdvancedMagicProjectile>();
             Item.autoReuse = true;

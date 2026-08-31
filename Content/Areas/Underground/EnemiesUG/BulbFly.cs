@@ -2,7 +2,7 @@
 using Stellamod.Assets;
 using Stellamod.Common;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;

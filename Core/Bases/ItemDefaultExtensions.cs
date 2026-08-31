@@ -15,12 +15,9 @@ namespace Stellamod.Core.Bases
         {
             item.GetGlobalItem<PermamentFoodGlobalItem>().permanentFoodType = foodType;
             item.DefaultToFood(22, 22, BuffID.WellFed, 60 * 60);
-            item.width = 28;
-            item.height = 28;
             item.UseSound = SoundID.Item3;
             item.useAnimation = ItemUseStyleID.EatFood;
             item.consumable = true;
-            item.rare = ItemRarityID.Orange;
             item.shopSpecialCurrency = Stellamod.MedalCurrencyID;
             item.shopCustomPrice = 100;
         }
@@ -34,14 +31,11 @@ namespace Stellamod.Core.Bases
         {
             item.GetGlobalItem<PermamentFoodGlobalItem>().isDrink = true;
             item.DefaultToFood(22, 22, buffType, 2, true);
-            item.width = 28;
-            item.height = 28;
             item.consumable = true;
             item.buffTime = 2;
             item.buffType = buffType;
             item.shopSpecialCurrency = Stellamod.MedalCurrencyID;
             item.shopCustomPrice = 20;
-            item.rare = ItemRarityID.Orange;
         }
 
         public static void DefaultToSafunai(this Item item)
@@ -66,7 +60,6 @@ namespace Stellamod.Core.Bases
             globalItem.hintColor = hintColor.HasValue ? hintColor.Value : Color.White;
             item.DamageType = DamageClass.Summon;
             item.damage = 18;
-            item.rare = ItemRarityID.Green;
             item.noMelee = true;
             item.noUseGraphic = true;
             item.useTime = 16;
@@ -97,7 +90,6 @@ namespace Stellamod.Core.Bases
             item.autoReuse = false;
             item.DamageType = DamageClass.Ranged;
             item.damage = 18;
-            item.rare = ItemRarityID.Green;
         }
         public static void DefaultToMold(this Item item)
         {
@@ -119,9 +111,6 @@ namespace Stellamod.Core.Bases
             item.knockBack = 4;
             item.damage = 15;
             item.DamageType = DamageClass.Summon;
-            item.rare = ItemRarityID.Green;
-            item.width = 32;
-            item.height = 32;
             item.useTime = 36;
             item.useAnimation = 36;
             item.useStyle = ItemUseStyleID.Swing;

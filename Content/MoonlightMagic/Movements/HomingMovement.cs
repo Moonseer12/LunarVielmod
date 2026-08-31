@@ -1,4 +1,4 @@
-﻿using Stellamod.Helpers;
+﻿
 using Terraria;
 
 namespace Stellamod.Content.MoonlightMagic.Movements

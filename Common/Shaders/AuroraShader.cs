@@ -1,7 +1,7 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Content.Special.DeadRomancesExcalibur;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.ModLoader;
 

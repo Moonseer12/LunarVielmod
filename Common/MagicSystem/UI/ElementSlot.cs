@@ -3,7 +3,7 @@
 using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Content.MoonlightMagic;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameInput;
@@ -95,7 +95,7 @@ namespace Stellamod.Common.MagicSystem.UI
             //Draw the background and then draw the item icon
             Texture2D value = ElementSlotAsset.Value;
             Vector2 centerPos = pos + (rectangle.Size() / 2f) * 1.5f;
-            spriteBatch.Draw(value, rectangle.TopLeft(), null, Color.White, 0f, default(Vector2), _scale * 1.5f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(value, rectangle.TopLeft(), null, Color.White, 0f, default, _scale * 1.5f, SpriteEffects.None, 0f);
 
             Color drawColor = Color.White;
             if(_ctx.staffToEdit != null && !_ctx.staffToEdit.IsMatchingPreference())

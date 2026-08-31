@@ -308,14 +308,6 @@ public class AlsisMask : ModItem
         ArmorSetSystem.RegisterArmorSet<AlsisMask, AlsisChestplate, AlsisGreaves>(ArmorGroup.Act_III);
     }
 
-    public override void SetDefaults()
-    {
-        Item.width = 18; // Width of the item
-        Item.height = 18; // Height of the item
-        Item.value = Item.sellPrice(gold: 10); // How many coins the item is worth
-        Item.rare = ItemRarityID.Pink; // The rarity of the item
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();
@@ -338,14 +330,6 @@ public class AlsisMask : ModItem
 [AutoloadEquip(EquipType.Body)]
 public class AlsisChestplate : ModItem
 {
-    public override void SetDefaults()
-    {
-        Item.width = 18; // Width of the item
-        Item.height = 18; // Height of the item
-        Item.value = Item.sellPrice(gold: 10); // How many coins the item is worth
-        Item.rare = ItemRarityID.Pink; // The rarity of the item
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();
@@ -360,14 +344,6 @@ public class AlsisChestplate : ModItem
 [AutoloadEquip(EquipType.Legs)]
 public class AlsisGreaves : ModItem
 {
-    public override void SetDefaults()
-    {
-        Item.width = 18; // Width of the item
-        Item.height = 18; // Height of the item
-        Item.value = Item.sellPrice(gold: 10); // How many coins the item is worth
-        Item.rare = ItemRarityID.Pink; // The rarity of the item
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();

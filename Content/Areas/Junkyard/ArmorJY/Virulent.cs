@@ -1,7 +1,7 @@
 using Stellamod.Assets;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Buffs;
+using Stellamod.Content.Areas.PunkerTown;
 using Stellamod.Core;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;

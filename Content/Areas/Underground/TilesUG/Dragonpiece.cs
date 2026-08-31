@@ -11,7 +11,6 @@ public class Dragonpiece : ModItem
 {
     public override void SetDefaults()
     {
-        Item.rare = ItemRarityID.Orange;
         Item.DefaultToPlaceableTile(ModContent.TileType<DragonpieceOre>());
     }
 }

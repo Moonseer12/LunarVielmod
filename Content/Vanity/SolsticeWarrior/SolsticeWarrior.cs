@@ -124,10 +124,6 @@ public class SolsticeWarriorLegs : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 18;
-        Item.height = 18;
-        Item.value = Item.sellPrice(gold: 1);
-        Item.rare = ItemRarityID.Green;
         Item.vanity = true;
     }
 }
@@ -143,10 +139,6 @@ public class SolsticeWarriorHead : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 18;
-        Item.height = 18;
-        Item.value = Item.sellPrice(gold: 1);
-        Item.rare = ItemRarityID.Green;
         Item.vanity = true;
     }
 }
@@ -161,10 +153,6 @@ public class SolsticeWarriorBody : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 18;
-        Item.height = 18;
-        Item.value = Item.sellPrice(gold: 1);
-        Item.rare = ItemRarityID.Green;
         Item.vanity = true;
     }
 }

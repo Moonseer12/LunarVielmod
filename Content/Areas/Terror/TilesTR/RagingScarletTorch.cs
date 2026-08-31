@@ -13,8 +13,6 @@ public class RagingScarletTorch : ModItem
 {
     public override void SetStaticDefaults()
     {
-        Item.ResearchUnlockCount = 100;
-
         ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.ShimmerTorch;
         ItemID.Sets.SingleUseInGamepad[Type] = true;
         ItemID.Sets.Torches[Type] = true;
@@ -25,7 +23,6 @@ public class RagingScarletTorch : ModItem
         // DefaultToTorch sets various properties common to torch placing items. Hover over DefaultToTorch in Visual Studio to see the specific properties set.
         // Of particular note to torches are Item.holdStyle, Item.flame, and Item.noWet. 
         Item.DefaultToTorch(ModContent.TileType<RagingScarletTorchTile>(), 0, false);
-        Item.value = 50;
     }
 
     public override void HoldItem(Player player)

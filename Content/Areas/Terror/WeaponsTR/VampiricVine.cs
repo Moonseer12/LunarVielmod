@@ -30,7 +30,6 @@ public class VampiricVine : BaseCrossbowItem
         base.SetDefaults();
         Item.damage = 20;
         Item.knockBack = 6;
-        Item.rare = ItemRarityID.LightRed;
         staminaCost = 3;
     }
 
@@ -159,7 +158,7 @@ public class VampiricArrow : ModProjectile
         return (Projectile.width * Projectile.scale) * osc * 2 * w * MathHelper.SmoothStep(1f, 0f, completionRatio);
     }
 
-    public Color ColorFunction(float completionRatio)
+    public static Color ColorFunction(float completionRatio)
     {
         return Color.Lerp(Color.Red, Color.White, ExtraMath.Osc(0f, 1f, speed: 32)) * MathHelper.SmoothStep(1f, 0f, completionRatio);
     }

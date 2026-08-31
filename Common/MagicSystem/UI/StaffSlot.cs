@@ -1,6 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Content.MoonlightMagic;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.GameInput;
 using Terraria.ID;
@@ -120,7 +120,7 @@ namespace Stellamod.Common.MagicSystem.UI
 
             Texture2D cardTexture = EnchantmentCardAsset.Value;
             int offset = (int)(cardTexture.Size().Y / 2);
-            spriteBatch.Draw(cardTexture, rectangle.TopLeft(), null, Color.White, 0f, default(Vector2), _scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(cardTexture, rectangle.TopLeft(), null, Color.White, 0f, default, _scale, SpriteEffects.None, 0f);
 
             Item item = _ctx.staffToEdit.Item;
             ItemSlot.DrawItemIcon(item, _context, spriteBatch, centerPos, _scale * 2, 32, Color.White);

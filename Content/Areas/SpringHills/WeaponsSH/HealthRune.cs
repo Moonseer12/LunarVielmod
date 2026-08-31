@@ -137,7 +137,7 @@ namespace Stellamod.Content.Areas.SpringHills.WeaponsSH
             return WidthFunction(completionRatio) * 3;
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.LightGreen, Color.White, ExtraMath.Osc(0f, 1f, speed: 32));
         }

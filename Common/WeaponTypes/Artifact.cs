@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.ArmorRework;
 using Stellamod.Core.Tooltips;
-using Stellamod.Helpers;
+
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;

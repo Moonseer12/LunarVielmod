@@ -1,7 +1,7 @@
 ﻿
 
 using ReLogic.Content;
-using Stellamod.Helpers;
+
 using Stellamod.UI.CollectionSystem;
 using Terraria;
 using Terraria.GameContent.UI.Elements;

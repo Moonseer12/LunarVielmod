@@ -2,7 +2,7 @@
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -108,7 +108,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
             return MathHelper.SmoothStep(16f, 0f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.Cyan, Color.White, ExtraMath.Osc(0f, 1f, speed: 32));
         }
@@ -208,7 +208,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
             return MathHelper.SmoothStep(16f, 0f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.Cyan, Color.White, ExtraMath.Osc(0f, 1f, speed: 32)) * completionRatio;
         }

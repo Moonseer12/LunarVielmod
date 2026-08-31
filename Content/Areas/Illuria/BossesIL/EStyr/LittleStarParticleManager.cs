@@ -2,7 +2,7 @@
 
 using ReLogic.Threading;
 using Stellamod.Common.Shaders;
-using Stellamod.Helpers;
+
 using System;
 using Terraria;
 

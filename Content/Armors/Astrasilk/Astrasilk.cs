@@ -55,15 +55,6 @@ namespace Stellamod.Content.Armors.Astrasilk
             ArmorSetSystem.RegisterArmorSet<AstrasilkHead, AstrasilkBody, AstrasilkLegs>(ArmorGroup.Act_I);
         }
 
-
-        public override void SetDefaults()
-        {
-            Item.width = 40;
-            Item.height = 30;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.Blue;
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();
@@ -88,15 +79,6 @@ namespace Stellamod.Content.Armors.Astrasilk
     [AutoloadEquip(EquipType.Body)]
     public class AstrasilkBody : ModItem
     {
-
-        public override void SetDefaults()
-        {
-            Item.width = 30;
-            Item.height = 30;
-            Item.value = Item.sellPrice(0, 0, 20, 0);
-            Item.rare = ItemRarityID.Blue;
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();
@@ -110,14 +92,6 @@ namespace Stellamod.Content.Armors.Astrasilk
     [AutoloadEquip(EquipType.Legs)]
     public class AstrasilkLegs : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 28;
-            Item.height = 22;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.Blue;
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();

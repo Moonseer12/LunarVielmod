@@ -23,13 +23,9 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
             Item.damage = 36;
             Item.knockBack = 3f;
             Item.mana = 10;
-            Item.width = 32;
-            Item.height = 32;
             Item.useTime = 36;
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.value = Item.sellPrice(0, 0, 33, 0);
-            Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item44;
 
             // These below are needed for a minion weapon
@@ -79,10 +75,6 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
             // DisplayName.SetDefault("Irradiated Creeper");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 12;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
-
-            // Sets the amount of frames this minion has on its spritesheet
-            Main.projFrames[Projectile.type] = 1;
-
             // This is necessary for right-click targeting
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 

@@ -91,7 +91,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
             return EasingFunction.QuadraticBump(completionRatio) * 32;
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.White, Color.Transparent, completionRatio);
         }
@@ -208,7 +208,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
             return EasingFunction.QuadraticBump(completionRatio) * 24;
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.White, Color.Green, completionRatio) * completionRatio;
         }

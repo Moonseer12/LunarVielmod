@@ -4,8 +4,8 @@ using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.ProjectileHelpers;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;

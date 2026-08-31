@@ -5,7 +5,7 @@ using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Core;
 using Stellamod.Core.Effects;
-using Stellamod.Helpers;
+
 using System;
 using Terraria;
 using Terraria.GameContent.UI.Elements;

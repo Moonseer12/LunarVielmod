@@ -1,5 +1,5 @@
-﻿using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+﻿
+
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -44,8 +44,6 @@ public class TileEyeDropper : ModItem
     public override void SetDefaults()
     {
         base.SetDefaults();
-        Item.width = 16;
-        Item.height = 16;
         Item.useAnimation = Item.useTime = 24;
         Item.useStyle = ItemUseStyleID.Swing;
         Item.UseSound = SoundID.Item9;
@@ -134,8 +132,6 @@ public class MagicPaintBucket : ModItem
     public override void SetDefaults()
     {
         base.SetDefaults();
-        Item.width = 16;
-        Item.height = 16;
         Item.useAnimation = Item.useTime = 24;
         Item.useStyle = ItemUseStyleID.Swing;
         Item.UseSound = SoundID.Item9;
@@ -166,8 +162,6 @@ public class UndoBucket : ModItem
     public override void SetDefaults()
     {
         base.SetDefaults();
-        Item.width = 16;
-        Item.height = 16;
         Item.useAnimation = Item.useTime = 24;
         Item.useStyle = ItemUseStyleID.Swing;
         Item.UseSound = SoundID.Item9;

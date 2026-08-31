@@ -25,14 +25,10 @@ public class RingShotgun : BaseGun
         base.SetDefaults();
         Item.damage = 9;
         Item.DamageType = DamageClass.Ranged;
-        Item.width = 56;
-        Item.height = 56;
         Item.useTime = 36;
         Item.useAnimation = 36;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 6;
-        Item.value = 100000;
-        Item.rare = ItemRarityID.Orange;
         Item.UseSound = SoundID.Item11;
         Item.autoReuse = true;
         Item.shoot = ModContent.ProjectileType<RingShotgunRing>();
@@ -173,14 +169,6 @@ public class ClockworkBoomer : ModProjectile
 
             float damage = Projectile.damage;
             damage *= 0.5f;
-
-            /*
-            if (Main.myPlayer == Projectile.owner)
-            {
-                var p = Projectile.NewProjectileDirect(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
-                    ModContent.ProjectileType<KaBoomMagic2>(), (int)damage, Projectile.knockBack, Projectile.owner);
-            }*/
-
 
             int Sound = Main.rand.Next(1, 3);
             if (Sound == 1)

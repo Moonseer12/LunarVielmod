@@ -38,8 +38,6 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT
         {
             Item.damage = 34;
             Item.mana = 20;
-            Item.width = 32;
-            Item.height = 32;
             Item.useTime = 80;
             Item.useAnimation = 80;
             Item.useStyle = ItemUseStyleID.Guitar;
@@ -48,8 +46,6 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT
 
             Item.knockBack = 0f;
             Item.DamageType = DamageClass.Magic;
-            Item.value = 15000;
-            Item.rare = ItemRarityID.Orange;
             Item.UseSound = new SoundStyle("Stellamod/Assets/Sounds/bongo");
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<Supernova>();

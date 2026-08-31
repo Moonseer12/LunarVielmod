@@ -1,6 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Core.Tooltips;
-using Stellamod.Helpers;
+
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;
@@ -113,7 +113,7 @@ public class ReforgeSlot : UIElement
 
         Rectangle frame = _reforgeSlotTextureAsset.Value.GetFrame(frameNumber, 2);
         Vector2 centerPos = pos + rectangle.Size() / 2f;
-        spriteBatch.Draw(_reforgeSlotTextureAsset.Value, rectangle.TopLeft(), frame, color2, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+        spriteBatch.Draw(_reforgeSlotTextureAsset.Value, rectangle.TopLeft(), frame, color2, 0f, default, 1f, SpriteEffects.None, 0f);
 
         ItemSlot.DrawItemIcon(Item, ItemSlot.Context.InventoryItem, spriteBatch, centerPos + new Vector2(0, 3), 1f, 32, Color.White);
         if (Item.stack > 1)

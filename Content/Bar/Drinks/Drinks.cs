@@ -453,7 +453,6 @@ public class PermanentBuffTracker : ModItem
     public override void SetDefaults()
     {
         base.SetDefaults();
-        Item.rare = ItemRarityID.Orange;
     }
 
     public override void ModifyTooltips(List<TooltipLine> tooltips)

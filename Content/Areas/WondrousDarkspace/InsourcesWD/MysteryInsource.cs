@@ -1,0 +1,41 @@
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Common.XixianFlaskSystem;
+using Stellamod.Content.CommonMaterials;
+using Terraria;
+using Terraria.ID;
+
+namespace Stellamod.Content.Areas.WondrousDarkspace.InsourcesWD
+{
+    public class MysteryInsource : InsourceItem
+    {
+        public override int GetAddedTime()
+        {
+            return 60 * 15;
+        }
+        public override void UseInsource(FlaskPlayer flaskPlayer)
+        {
+            base.UseInsource(flaskPlayer);
+            Player player = flaskPlayer.Player;
+            int[] buffPool = [
+                BuffID.AmmoReservation,
+                BuffID.Archery,
+                BuffID.Endurance,
+                BuffID.Regeneration,
+                BuffID.Swiftness,
+                BuffID.Ironskin,
+                BuffID.ManaRegeneration,
+                BuffID.MagicPower,
+                BuffID.Lifeforce,
+                BuffID.Lucky,
+                BuffID.WellFed3
+            ];
+
+            player.AddBuff(buffPool[Main.rand.Next(0, buffPool.Length)], 60 * 15);
+        }
+        public override void AddRecipes()
+        {
+            base.AddRecipes();
+            this.RegisterBrew<HypnotizedSoul, BlankBrooch>();
+        }
+    }
+}

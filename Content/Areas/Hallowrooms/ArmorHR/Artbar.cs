@@ -72,7 +72,7 @@ namespace Stellamod.Content.Areas.Hallowrooms.ArmorHR
         {
             for (int i = 0; i < 50; i++)
             {
-                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<PaintBlob1>(), 0f, -2f, 0, default(Color), 1.5f);
+                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<PaintBlob1>(), 0f, -2f, 0, default, 1.5f);
                 Main.dust[num].noGravity = false;
                 Main.dust[num].position.X += Main.rand.Next(-50, 51) * .05f - 1.5f;
                 Main.dust[num].position.X += Main.rand.Next(-50, 51) * .05f - 1.5f;
@@ -82,19 +82,19 @@ namespace Stellamod.Content.Areas.Hallowrooms.ArmorHR
             }
             for (int i = 0; i < 14; i++)
             {
-                Dust.NewDustPerfect(base.Projectile.Center, DustID.SilverCoin, (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = true;
+                Dust.NewDustPerfect(Projectile.Center, DustID.SilverCoin, (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = true;
             }
             for (int i = 0; i < 40; i++)
             {
-                Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob1>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(10.0), 0, default(Color), 1f).noGravity = false;
+                Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob1>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(10.0), 0, default, 1f).noGravity = false;
             }
             for (int i = 0; i < 40; i++)
             {
-                Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(25.0), 0, default(Color), 6f).noGravity = true;
+                Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(25.0), 0, default, 6f).noGravity = true;
             }
             for (int i = 0; i < 20; i++)
             {
-                Dust.NewDustPerfect(base.Projectile.Center, DustID.BlueTorch, (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(25.0), 0, default(Color), 2f).noGravity = false;
+                Dust.NewDustPerfect(Projectile.Center, DustID.BlueTorch, (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(25.0), 0, default, 2f).noGravity = false;
             }
             Projectile.active = false;
         }

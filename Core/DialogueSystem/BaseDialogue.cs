@@ -1,4 +1,4 @@
-﻿using Stellamod.Helpers;
+﻿
 using Stellamod.UI.DialogueTowning;
 using Terraria;
 using Terraria.ID;

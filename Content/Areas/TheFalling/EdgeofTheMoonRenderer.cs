@@ -2,8 +2,8 @@
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Rendering;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Terraria;
 using Terraria.Graphics.Capture;
 using Terraria.Graphics.Effects;

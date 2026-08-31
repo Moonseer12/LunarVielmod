@@ -1,5 +1,5 @@
 ﻿using Stellamod.Common.ClassReworkSystem;
-using Stellamod.Helpers;
+
 using Stellamod.UI;
 using System.Collections.Generic;
 using Terraria;

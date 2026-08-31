@@ -90,7 +90,7 @@ namespace Stellamod.UI.PowderSystem
             Texture2D backingTexture = ModContent.Request<Texture2D>($"{PowderUISystem.RootTexturePath}PowderSlot").Value;
             int offset = (int)(backingTexture.Size().Y / 2);
             Vector2 centerPos = pos + rectangle.Size() / 2f;
-            spriteBatch.Draw(backingTexture, rectangle.TopLeft(), null, Color.White, 0f, default(Vector2), _scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(backingTexture, rectangle.TopLeft(), null, Color.White, 0f, default, _scale, SpriteEffects.None, 0f);
 
            
             ItemSlot.DrawItemIcon(Item, _context, spriteBatch, centerPos, _scale, 32, Color.White);

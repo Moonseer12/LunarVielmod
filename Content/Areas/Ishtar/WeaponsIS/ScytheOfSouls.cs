@@ -6,7 +6,7 @@ using Stellamod.Core.Bases;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;

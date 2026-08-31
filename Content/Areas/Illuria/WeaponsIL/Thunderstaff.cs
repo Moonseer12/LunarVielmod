@@ -409,7 +409,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
             return MathHelper.SmoothStep(24, 16, completionRatio) * Easing.SpikeOutCirc(Timer / 120f);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             Color startColor = Color.Goldenrod;
             Color endColor = Color.Transparent;

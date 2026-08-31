@@ -6,12 +6,6 @@ namespace Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant.Projectile
 {
     public class SpikeBullet : ModProjectile
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("SpikeBullet");
-            Main.projFrames[Projectile.type] = 1;
-            //The recording mode
-        }
         public override void SetDefaults()
         {
             Projectile.damage = 45;

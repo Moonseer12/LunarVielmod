@@ -1,10 +1,10 @@
 ﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.QuestSystem;
+using Stellamod.Content.Areas.Jungle.WeaponsJN;
 using Stellamod.Content.Areas.Tundra.Abyss.ItemsAB;
 using Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Special.EckasectSire;
-using Stellamod.Items.Weapons.Thrown;
 using Stellamod.NPCs.Town;
 using Stellamod.UI.DialogueTowning;
 using Terraria;

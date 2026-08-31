@@ -3,7 +3,7 @@ using Stellamod.Assets;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Helpers;
+
 using Stellamod.Trailing;
 using Terraria;
 using Terraria.Audio;
@@ -23,16 +23,12 @@ namespace Stellamod.Content.Areas.SpringHills.WeaponsSH
             base.SetDefaults2();
             Item.damage = 5;
             Item.DamageType = DamageClass.Melee;
-            Item.width = 40;
-            Item.height = 40;
             Item.noUseGraphic = true;
             Item.noMelee = true;
             Item.useTime = 126;
             Item.useAnimation = 126;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 6;
-            Item.value = Item.buyPrice(silver: 1);
-            Item.rare = ItemRarityID.Blue;
             Item.shootSpeed = 10;
             Item.shoot = ModContent.ProjectileType<WarriorsSwordSlash>();
             Item.autoReuse = true;

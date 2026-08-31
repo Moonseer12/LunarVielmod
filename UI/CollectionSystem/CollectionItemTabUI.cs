@@ -115,7 +115,7 @@ public class CollectionItemTabCraft : UIElement
         Vector2 pos = rectangle.TopLeft();
         Texture2D value = ModContent.Request<Texture2D>($"{CollectionBookUISystem.RootTexturePath}CollectionTabSlotArmor").Value;
         Vector2 centerPos = rectangle.TopLeft() + value.Size() * 0.5f + new Vector2(-10, -10);
-        spriteBatch.Draw(value, rectangle.TopLeft(), null, Color.White, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+        spriteBatch.Draw(value, rectangle.TopLeft(), null, Color.White, 0f, default, 1f, SpriteEffects.None, 0f);
 
 
         /*
@@ -270,7 +270,7 @@ public class CollectionItemTabSlot : UIElement
             for (float f = 0; f < MathHelper.TwoPi; f += MathHelper.PiOver2)
             {
                 Vector2 offset = f.ToRotationVector2() * outlineOffset;
-                spriteBatch.Draw(value, rectangle.TopLeft() + offset, null, Color.White, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(value, rectangle.TopLeft() + offset, null, Color.White, 0f, default, 1f, SpriteEffects.None, 0f);
             }
 
             spriteBatch.End();
@@ -278,7 +278,7 @@ public class CollectionItemTabSlot : UIElement
         }
 
 
-        spriteBatch.Draw(value, rectangle.TopLeft(), null, Color.White, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+        spriteBatch.Draw(value, rectangle.TopLeft(), null, Color.White, 0f, default, 1f, SpriteEffects.None, 0f);
 
 
         spriteBatch.End();
@@ -321,7 +321,7 @@ public class CollectionItemTabSlot : UIElement
         Vector2 pos = rectangle.TopLeft();
         Texture2D value = ModContent.Request<Texture2D>($"{CollectionBookUISystem.RootTexturePath}CollectionTabSlot").Value;
         Vector2 centerPos = rectangle.TopLeft() + new Vector2(18, rectangle.Height * 0.5f);
-        spriteBatch.Draw(value, rectangle.TopLeft(), null, Color.White, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+        spriteBatch.Draw(value, rectangle.TopLeft(), null, Color.White, 0f, default, 1f, SpriteEffects.None, 0f);
 
         if (IsMouseHovering)
         {

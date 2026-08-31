@@ -3,7 +3,7 @@
 using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Content.MoonlightMagic;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;

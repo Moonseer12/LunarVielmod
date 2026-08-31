@@ -1,5 +1,5 @@
 ﻿using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

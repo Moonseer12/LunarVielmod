@@ -4,8 +4,8 @@ using ReLogic.Content;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Desert.Event.Common;
 using Stellamod.Core.Particles;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;

@@ -4,7 +4,7 @@ using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
+
 using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;

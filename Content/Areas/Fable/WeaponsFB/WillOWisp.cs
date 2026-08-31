@@ -209,7 +209,7 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
                 _index = 0;
             for (int i = 0; i < 24; i++)
             {
-                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.FlameBurst, 0f, -2f, 0, default(Color), 1.5f);
+                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.FlameBurst, 0f, -2f, 0, default, 1.5f);
                 Dust dust = Main.dust[num];
                 dust.noGravity = true;
                 dust.position.X += Main.rand.Next(-50, 51) * .05f - 1.5f;

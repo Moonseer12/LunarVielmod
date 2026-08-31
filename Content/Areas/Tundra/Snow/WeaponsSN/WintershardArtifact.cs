@@ -158,7 +158,7 @@ public class LineStreakRenderer : ModSystem
             _spawnTimer = time;
     }
 
-    public Color GetTrailColor(float completionRatio)
+    public static Color GetTrailColor(float completionRatio)
     {
         return Color.Lerp(Color.Transparent, Color.White, EasingFunction.QuadraticBump(completionRatio));
     }
@@ -196,8 +196,6 @@ public class WintershardArtifact : ModItem
     {
         base.SetDefaults();
         Item.DefaultToArtifact();
-        Item.width = 16;
-        Item.height = 16;
         Item.channel = true;
         Item.autoReuse = false;
         Item.mana = 100;
@@ -1007,7 +1005,7 @@ public class WintershardGlass : ModProjectile
         return MathHelper.SmoothStep(16, 0f, completionRatio);
     }
 
-    public Color ColorFunction(float completionRatio)
+    public static Color ColorFunction(float completionRatio)
     {
         return Color.Lerp(Color.LightCyan, Color.DarkBlue, completionRatio);
     }

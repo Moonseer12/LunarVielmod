@@ -1,4 +1,4 @@
-﻿using Stellamod.Helpers;
+﻿
 using Terraria;
 
 namespace Stellamod.Content.Areas.RoyalCapital.BossesRC.RoyalFox;

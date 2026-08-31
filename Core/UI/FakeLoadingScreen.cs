@@ -3,8 +3,8 @@ using ReLogic.Content;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.UI;
 using Stellamod.Common.WeaponUpgrade.UI;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using System;
 using System.Collections.Generic;
 using System.Reflection;

@@ -4,7 +4,7 @@ using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Desert.BossesCL.EliteCommander.Projectiles;
 using Stellamod.Content.Areas.Desert.Event.Common;
 using Stellamod.Core;
-using Stellamod.Helpers;
+
 using System.IO;
 using Terraria;
 using Terraria.Audio;

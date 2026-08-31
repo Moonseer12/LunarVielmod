@@ -11,7 +11,6 @@ namespace Stellamod.Content.GunSwapping
         {
             base.SetDefaults();
             Item.damage = 9;
-            Item.value = Item.buyPrice(gold: 15);
             RightHand = true;
 
             //This number is in ticks

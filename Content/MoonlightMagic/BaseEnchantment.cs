@@ -1,5 +1,5 @@
 ﻿using Stellamod.Content.MoonlightMagic.Elements;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

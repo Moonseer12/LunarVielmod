@@ -2,7 +2,7 @@
 
 using Stellamod.Assets;
 using Stellamod.Core.NPCHelpers;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

@@ -2,7 +2,7 @@
 using Stellamod.Common.ArmorReforge;
 using Stellamod.Common.UI;
 using Stellamod.Core.Tooltips;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using System.Linq;

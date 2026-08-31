@@ -24,7 +24,6 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             remainingAmmo = 29;
             Item.DamageType = DamageClass.Ranged;
             Item.damage = 12;
-            Item.value = Item.sellPrice(gold: 2);
             Item.useTime = 29;
             Item.useAnimation = 29;
             Item.useStyle = ItemUseStyleID.Shoot;

@@ -3,8 +3,8 @@ using MonoMod.Cil;
 using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.NPCs.Town;
 using System;
 using System.Reflection;

@@ -1,8 +1,8 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -92,7 +92,7 @@ namespace Stellamod.Content.Areas.Desert.BossesCL.CommanderGintzia.Hands
             return MathHelper.SmoothStep(baseWidth * 2, baseWidth, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             Color startColor = Color.White;
             float easedCompletion = Easing.InCubic(completionRatio);

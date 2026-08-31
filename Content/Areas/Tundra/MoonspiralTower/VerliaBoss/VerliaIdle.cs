@@ -6,8 +6,8 @@ using Stellamod.Core;
 using Stellamod.Core.DialogueSystem;
 using Stellamod.Core.Particles;
 using Stellamod.Core.TriggersSystem.Triggers;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;

@@ -2,7 +2,7 @@
 using Stellamod.Common.SummonerSystem;
 using Stellamod.Content.Areas.Fable.WeaponsFB;
 using Stellamod.Core.Bases;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;

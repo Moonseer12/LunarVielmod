@@ -1,0 +1,141 @@
+﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
+using Stellamod.Core.Bases;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT
+{
+    public class StickyCards : BaseJugglerItem
+    {
+
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            Item.damage = 90;
+            Item.DamageType = DamageClass.Ranged;
+            Item.noUseGraphic = true;
+            Item.useTime = 80;
+            Item.useAnimation = 80;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.knockBack = 6;
+            Item.crit = 16;
+            Item.UseSound = SoundID.Item1;
+            Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType<StickyCardsProj>();
+            Item.shootSpeed = 24;
+        }
+        public override void AddRecipes()
+        {
+            base.AddRecipes();
+            this.RegisterBrew<PearlescentScrap, BlankJuggler>();
+        }
+    }
+
+    public class StickyCardsProj : BaseJugglerProjectile
+    {
+        private Vector2[] BungeeGumPos;
+        private Vector2[] BungeeGumAuraPos;
+        public override void SetStaticDefaults()
+        {
+            ProjectileID.Sets.TrailCacheLength[Type] = 16;
+            ProjectileID.Sets.TrailingMode[Type] = 2;
+        }
+
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            Projectile.width = 16;
+            Projectile.height = 22;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 600;
+            BungeeGumPos = new Vector2[4];
+            BungeeGumAuraPos = new Vector2[24];
+            HomingStrength = 5;
+        }
+
+        public override void AI_Catch()
+        {
+            base.AI_Catch();
+            if (Projectile.velocity.Y < 0)
+            {
+                Projectile.velocity.Y += 0.1f;
+            }
+            else
+            {
+                Projectile.velocity.Y += 0.02f;
+            }
+
+            Projectile.rotation += Projectile.velocity.Length() * 0.05f;
+            if (Vector2.Distance(Owner.Center, Projectile.Center) > 512)
+            {
+                Vector2 directionToOwner = Projectile.Center.DirectionTo(Owner.Center);
+                Vector2 targetVelocity = directionToOwner * 16;
+                Projectile.velocity = Vector2.Lerp(Projectile.velocity, targetVelocity, 0.3f);
+            }
+            else
+            {
+                Projectile.velocity *= 0.95f;
+            }
+
+            BungeeGumPos[0] = Projectile.position;
+            BungeeGumPos[1] = Projectile.position;
+            BungeeGumPos[2] = Owner.Center;
+            BungeeGumPos[3] = Owner.Center;
+
+            for (int i = 0; i < BungeeGumAuraPos.Length; i++)
+            {
+                float f = i;
+                float length = BungeeGumAuraPos.Length;
+                float progress = f / length;
+                float offset = progress * MathHelper.TwoPi;
+                Vector2 rotatedOffset = Vector2.UnitY.RotatedBy(offset + (Timer / 20f)).RotatedByRandom(MathHelper.PiOver4 / 24f);
+                Vector2 rotatedVector = (rotatedOffset * 48 * VectorHelper.Osc(0.9f, 1f, 9));
+                if (i % 2 == 0)
+                {
+                    BungeeGumAuraPos[i] = rotatedVector * 0.5f + Projectile.position;
+                }
+                else
+                {
+                    BungeeGumAuraPos[i] = rotatedVector + Projectile.position;
+                }
+            }
+
+            //Don't take too long or else you lose your combo
+            Lighting.AddLight(Projectile.Center, Color.White.ToVector3() * 1.0f * Main.essScale);
+        }
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            base.OnHitNPC(target, hit, damageDone);
+            if (Juggler.combo <= 5)
+                return;
+
+            for (float i = 0; i < 4; i++)
+            {
+                float progress = i / 4f;
+                float rot = progress * MathHelper.ToRadians(360);
+                Vector2 offset = rot.ToRotationVector2() * 24;
+                var particle = FXUtil.GlowCircleLongBoom(Projectile.Center,
+                    innerColor: Color.LightPink,
+                    glowColor: Color.Pink,
+                    outerGlowColor: Color.Purple);
+                particle.Rotation = rot + MathHelper.ToRadians(45);
+            }
+
+            FXUtil.GlowCircleBoom(target.Center,
+                 innerColor: Color.LightPink,
+                 glowColor: Color.Pink,
+                 outerGlowColor: Color.Purple, duration: 25, baseSize: 0.18f);
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+           
+            return true;
+        }
+    }
+}

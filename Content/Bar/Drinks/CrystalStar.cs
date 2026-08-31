@@ -11,9 +11,6 @@ namespace Stellamod.Content.Bar.Drinks
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.width = 16;
-            Item.height = 16;
-            Item.rare = ItemRarityID.Expert;
             SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/StarFlower1");
             soundStyle.PitchVariance = 0.15f;
             Item.UseSound = soundStyle;

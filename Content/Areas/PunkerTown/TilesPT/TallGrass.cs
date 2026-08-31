@@ -1,6 +1,6 @@
 ﻿
 using Stellamod.Core.Grass;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.Utilities;

@@ -6,8 +6,8 @@ using Stellamod.Common.SummonerSystem.UI;
 using Stellamod.Common.UI;
 using Stellamod.Content.Areas.SpringHills.WeaponsSH;
 using Stellamod.Core.Tooltips;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using System;
 using System.Collections.Generic;
 using Terraria;

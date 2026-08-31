@@ -3,7 +3,7 @@
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Core;
-using Stellamod.Helpers;
+
 using System;
 using Terraria;
 

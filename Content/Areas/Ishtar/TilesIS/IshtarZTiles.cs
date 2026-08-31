@@ -1,7 +1,7 @@
 ﻿using ReLogic.Content;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.ZTileSystem;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -2,7 +2,7 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
 using Stellamod.Effects.GothinFlames;
-using Stellamod.Helpers;
+
 using System.IO;
 using Terraria;
 using Terraria.Audio;

@@ -5,7 +5,7 @@ using Stellamod.Core;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.Particles;
 using Stellamod.Content.Gores;
-using Stellamod.Helpers;
+
 using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using Terraria;

@@ -1,6 +1,5 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.MagicCauldron;
-using Stellamod.Content.Buffs;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.GunSwapping;
 using Stellamod.Dusts;

@@ -76,10 +76,6 @@ namespace Stellamod.Content.Armors.Eldritchian
     {
         public override void SetDefaults()
         {
-            Item.width = 28; // Width of the item
-            Item.height = 26; // Height of the item
-            Item.value = Item.sellPrice(gold: 10); // How many coins the item is worth
-            Item.rare = ItemRarityID.Pink; // The rarity of the item
             Item.defense = 14; // The amount of defense the item will give when equipped
         }
 
@@ -123,10 +119,6 @@ namespace Stellamod.Content.Armors.Eldritchian
     {
         public override void SetDefaults()
         {
-            Item.width = 34; // Width of the item
-            Item.height = 24; // Height of the item
-            Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.Pink; // The rarity of the item
             Item.defense = 12; // The amount of defense the item will give when equipped
         }
 
@@ -144,10 +136,6 @@ namespace Stellamod.Content.Armors.Eldritchian
     {
         public override void SetDefaults()
         {
-            Item.width = 22; // Width of the item
-            Item.height = 12; // Height of the item
-            Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.Pink; // The rarity of the item
             Item.defense = 8; // The amount of defense the item will give when equipped
         }
 

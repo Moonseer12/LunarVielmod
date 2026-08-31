@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.SummonerSystem;
 using Stellamod.Core.Tooltips;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;

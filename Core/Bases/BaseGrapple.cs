@@ -5,8 +5,8 @@ using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.PunkerTown.TilesPT;
 using Stellamod.Content.Areas.Terror.TilesTR;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using System;
 using System.Collections.Generic;
 using System.IO;

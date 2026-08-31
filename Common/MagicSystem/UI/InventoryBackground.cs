@@ -1,7 +1,7 @@
 ﻿
 
 using ReLogic.Content;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.UI;
@@ -34,7 +34,7 @@ namespace Stellamod.Common.MagicSystem.UI
 
             //Draw the background and then draw the item icon
             Texture2D value = BackgroundAsset.Value;
-            spriteBatch.Draw(value, rectangle.TopLeft(), null, drawColor, 0f, default(Vector2), _scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(value, rectangle.TopLeft(), null, drawColor, 0f, default, _scale, SpriteEffects.None, 0f);
             Main.inventoryScale = oldScale;
         }
     }

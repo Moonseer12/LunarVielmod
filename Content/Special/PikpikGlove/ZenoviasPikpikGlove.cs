@@ -12,20 +12,16 @@ namespace Stellamod.Content.Special.PikpikGlove
         {
             Item.damage = 6;
             Item.DamageType = DamageClass.Ranged;
-            Item.width = 40;
             Item.noUseGraphic = true;
-            Item.height = 40;
             Item.useTime = 9;
             Item.useAnimation = 9;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 6;
-            Item.value = Item.sellPrice(silver: 25);
             Item.crit = 30;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = false;
             Item.shoot = ModContent.ProjectileType<RedPikminThrow>();
             Item.shootSpeed = 15f;
-            Item.rare = ItemRarityID.Blue;
         }
         public int AttackCounter = 1;
         float yellowpikpik = 0.7f;

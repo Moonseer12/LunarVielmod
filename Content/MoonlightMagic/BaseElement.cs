@@ -5,7 +5,7 @@ using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.Particles;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;

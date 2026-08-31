@@ -16,13 +16,8 @@ namespace Stellamod.Content.Areas.Hallowrooms.WeaponsHR
         public override void SetDefaults()
         {
             Item.damage = 58;
-            Item.width = 50;
-            Item.height = 50;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 4;
-            Item.value = Item.sellPrice(0, 1, 1, 29);
-            Item.rare = ItemRarityID.LightRed;
-
             Item.shootSpeed = 15;
             Item.autoReuse = true;
             Item.DamageType = DamageClass.Ranged;

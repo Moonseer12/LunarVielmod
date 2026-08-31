@@ -12,17 +12,13 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
         {
             Item.damage = 8;
             Item.DamageType = DamageClass.Melee;
-            Item.width = 32;
             Item.mana = 3;
-            Item.height = 32;
             Item.useTime = 23;
             Item.useAnimation = 23;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 7;
-            Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.DD2_MonkStaffSwing;
             Item.autoReuse = false;
-            Item.value = Item.sellPrice(0, 0, 0, 20);
             Item.shoot = ModContent.ProjectileType<FrostySwing>();
             Item.shootSpeed = 10f;
             Item.noUseGraphic = true;
@@ -46,7 +42,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("FrostSwProj");
-            Main.projFrames[base.Projectile.type] = 8;
+            Main.projFrames[Projectile.type] = 8;
         }
         public override void SetDefaults()
         {
@@ -108,7 +104,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("FrostSwProj");
-            Main.projFrames[base.Projectile.type] = 8;
+            Main.projFrames[Projectile.type] = 8;
         }
         public override void SetDefaults()
         {

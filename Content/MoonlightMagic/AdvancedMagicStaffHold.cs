@@ -8,9 +8,9 @@ using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Core.Utilities;
+
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;

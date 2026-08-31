@@ -2,7 +2,6 @@
 using Stellamod.Content.GunSwapping;
 using Stellamod.Content.Quests.DelgrimQuest;
 using Stellamod.Core;
-using Stellamod.Items.Weapons.Melee.Greatswords;
 using Stellamod.UI.CellConverterSystem;
 using System;
 using System.Collections.Generic;
@@ -109,10 +108,8 @@ namespace Stellamod.NPCs.Town
         public override void AddShops()
         {
             var npcShop = new NPCShop(Type, ShopName)
-            //.Add(new Item(ItemID.WaterBolt) { shopCustomPrice = Item.buyPrice(gold: 40) })
             .Add<GunHolster>()
             .Add<Pulsing>()
-            .Add<DelgrimsHammer>()
             ;
             npcShop.Register(); // Name of this shop tab		
         }

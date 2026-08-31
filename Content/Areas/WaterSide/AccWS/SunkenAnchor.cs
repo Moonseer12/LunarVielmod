@@ -1,7 +1,7 @@
 ﻿using ReLogic.Content;
 using Stellamod.Common.ArmorRework;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -138,9 +138,7 @@ public class SunkenAnchor : ModItem
 {
     public override void SetDefaults()
     {
-        base.SetDefaults();
         Item.DefaultToAccessory();
-        Item.rare = ItemRarityID.Green;
     }
     public override void UpdateAccessory(Player player, bool hideVisual)
     {

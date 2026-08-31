@@ -2,7 +2,6 @@
 using Stellamod.Content.Dialogue;
 using Stellamod.Content.Vanity.RedFeatherHat;
 using Stellamod.Core;
-using Stellamod.Content.Insources;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -11,6 +10,7 @@ using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Stellamod.Content.Areas.Shop.InsourcesShop;
 
 namespace Stellamod.NPCs.Town;
 

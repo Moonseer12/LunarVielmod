@@ -2,7 +2,7 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss.Projectiles;
 using Stellamod.Core.Palettes;
-using Stellamod.Helpers;
+
 using System.IO;
 using Terraria;
 using Terraria.Audio;

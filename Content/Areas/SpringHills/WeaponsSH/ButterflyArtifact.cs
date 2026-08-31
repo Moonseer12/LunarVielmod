@@ -26,8 +26,6 @@ public class ButterflyArtifact : ModItem
         base.SetDefaults();
         Item.DefaultToArtifact();
         Item.damage = 14;
-        Item.width = 16;
-        Item.height = 16;
         Item.mana = 20;
         Item.useAnimation = Item.useTime = 32;
         Item.useStyle = ItemUseStyleID.Shoot;

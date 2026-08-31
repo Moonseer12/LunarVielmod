@@ -27,14 +27,10 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
             base.SetDefaults();
             Item.damage = 25;
             Item.DamageType = DamageClass.Ranged;
-            Item.width = 56;
-            Item.height = 56;
             Item.useTime = 50;
             Item.useAnimation = 50;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 6;
-            Item.value = 100000;
-            Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item11;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<DeathSnipe>();
@@ -169,7 +165,7 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
             return MathHelper.SmoothStep(8, 0, completionRatio) * EasingFunction.QuadraticBump(completionRatio) * MathF.Sin(completionRatio * 8 + Main.GlobalTimeWrappedHourly * 8);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.Red, Color.White, ExtraMath.Osc(0f, 1f, speed: 32));
         }
@@ -270,7 +266,7 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
                 }
                 for (int i = 0; i < 14; i++)
                 {
-                    Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<SmokeDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, default(Color), 1f).noGravity = true;
+                    Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<SmokeDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, default, 1f).noGravity = true;
                 }
                 for (float f = 0; f < 6; f++)
                 {

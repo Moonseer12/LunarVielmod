@@ -1,4 +1,4 @@
-﻿using Stellamod.Helpers;
+﻿
 using Stellamod.NPCs.Town;
 using System.Collections.Generic;
 using Terraria;

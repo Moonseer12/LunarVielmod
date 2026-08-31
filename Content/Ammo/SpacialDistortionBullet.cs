@@ -1,4 +1,4 @@
-﻿using Stellamod.Content.Buffs;
+﻿using Stellamod.Content.Areas.Tundra.Abyss;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -52,7 +52,7 @@ public class SpacialDistortionBulletProj : ModProjectile
         return MathHelper.SmoothStep(baseWidth, 3.5f, completionRatio);
     }
 
-    public Color ColorFunction(float completionRatio)
+    public static Color ColorFunction(float completionRatio)
     {
         return Color.Lerp(new Color(93, 203, 243), Color.Transparent, completionRatio);
     }

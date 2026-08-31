@@ -176,7 +176,7 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
             return WidthFunction(completionRatio) * 3;
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.Cyan, Color.White, ExtraMath.Osc(0f, 1f, speed: 32));
         }

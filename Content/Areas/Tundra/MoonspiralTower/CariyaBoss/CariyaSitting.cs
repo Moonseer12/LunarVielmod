@@ -5,8 +5,8 @@ using Stellamod.Core;
 using Stellamod.Core.DialogueSystem;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.TriggersSystem.Triggers;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using System;
 using System.Collections.Generic;
 using Terraria;

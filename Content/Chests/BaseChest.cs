@@ -1,7 +1,7 @@
 ﻿
 
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using System;
 using Terraria;
 using Terraria.Audio;

@@ -1,5 +1,4 @@
-﻿
-using Stellamod.WorldG.StructureManager;
+﻿using Stellamod.WorldG.StructureManager;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,9 +10,6 @@ namespace Stellamod.Helpers
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.width = 16;
-            Item.height = 16;
-            Item.rare = ItemRarityID.Green;
             Item.useTime = 1;
             Item.useAnimation = 1;
             Item.useStyle = ItemUseStyleID.Shoot;

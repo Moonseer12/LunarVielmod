@@ -3,9 +3,9 @@
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Gores;
-using Stellamod.Core.Utilities;
+
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using Terraria;

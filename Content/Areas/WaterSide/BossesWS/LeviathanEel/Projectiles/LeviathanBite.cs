@@ -2,8 +2,8 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Palettes;
 using Stellamod.Core.Particles;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;

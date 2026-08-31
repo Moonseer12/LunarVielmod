@@ -1,7 +1,5 @@
 ﻿using Stellamod.Common;
-using Stellamod.Items.Weapons.Thrown.Jugglers;
 using Terraria;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -34,11 +32,6 @@ namespace Stellamod.Content.Areas.Ishtar.EnemiesIS
             NPC.frameCounter %= Main.npcFrameCount[NPC.type];
             int frame = (int)NPC.frameCounter;
             NPC.frame.Y = frame * frameHeight;
-        }
-
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
-        {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FlinchMachine>(), 12, 1, 1));
         }
 
         public override int SpawnNPC(int tileX, int tileY)

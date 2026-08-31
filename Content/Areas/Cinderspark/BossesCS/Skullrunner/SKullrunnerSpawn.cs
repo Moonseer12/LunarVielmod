@@ -9,7 +9,7 @@ using Stellamod.Content.Areas.WondrousDarkspace.NPCsWD;
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Particles;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -326,7 +326,7 @@ namespace Stellamod.Content.Areas.Cinderspark.BossesCS.Skullrunner
             return MathHelper.SmoothStep(baseWidth, 0.5f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.OrangeRed, Color.Red, completionRatio) * 0.7f;
         }

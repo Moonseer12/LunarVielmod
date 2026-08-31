@@ -12,12 +12,8 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
         public override void SetDefaults()
         {
             Item.damage = 82;
-            Item.width = 44;
-            Item.height = 80;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 7;
-            Item.value = Item.sellPrice(0, 10, 0, 0);
-            Item.rare = ItemRarityID.Lime;
 
 
             Item.autoReuse = true;

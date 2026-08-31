@@ -1,5 +1,5 @@
 ﻿
-using Stellamod.Helpers;
+
 using System.Collections.Generic;
 using Terraria.Localization;
 using Terraria.ModLoader;

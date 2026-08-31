@@ -21,11 +21,8 @@ public class StaffoftheIrradiaflare : ModItem
         Item.DefaultToArtifact();
         Item.staff[Item.type] = true;
         Item.damage = 90;
-        Item.width = 50;
-        Item.height = 50;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 4;
-        Item.value = Item.sellPrice(0, 1, 1, 29);
         Item.autoReuse = true;
         Item.DamageType = DamageClass.Magic;
         Item.shoot = ModContent.ProjectileType<ITProj>();

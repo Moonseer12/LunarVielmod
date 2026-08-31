@@ -6,7 +6,6 @@ using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Particles;
 using Stellamod.Dusts;
-using Stellamod.Projectiles.IgniterExplosions;
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;
@@ -22,13 +21,10 @@ namespace Stellamod.Content.Areas.WaterSide.WeaponsWS
         {
             Item.damage = 45;
             Item.DamageType = DamageClass.Ranged;
-            Item.width = 56;
-            Item.height = 56;
             Item.useTime = 30;
             Item.useAnimation = 30;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 6;
-            Item.rare = ItemRarityID.LightPurple;
             Item.UseSound = SoundID.Item66;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<PrismaticBubble>();
@@ -99,11 +95,11 @@ namespace Stellamod.Content.Areas.WaterSide.WeaponsWS
             Timer++;
             if (Timer == 1)
             {
-                SoundStyle explosionSound1 = new SoundStyle("Stellamod/Assets/Sounds/JellyTome");
+                SoundStyle explosionSound1 = new("Stellamod/Assets/Sounds/JellyTome");
                 explosionSound1.PitchVariance = 0.2f;
                 SoundEngine.PlaySound(explosionSound1, Projectile.position);
 
-                SoundStyle explosionSound2 = new SoundStyle("Stellamod/Assets/Sounds/Starexplosion");
+                SoundStyle explosionSound2 = new("Stellamod/Assets/Sounds/Starexplosion");
                 explosionSound2.PitchVariance = 0.2f;
                 SoundEngine.PlaySound(explosionSound2, Projectile.position);
 
@@ -427,5 +423,61 @@ namespace Stellamod.Content.Areas.WaterSide.WeaponsWS
             _stretchScale = new Vector2(1.1f, 0.9f);
             return false;
         }
+    }
+
+    public class SparklyBoom : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("FrostShotIN");
+            Main.projFrames[Projectile.type] = 30;
+        }
+
+        public override void SetDefaults()
+        {
+            Projectile.friendly = true;
+            Projectile.width = 119;
+            Projectile.height = 116;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 30;
+            Projectile.scale = 1f;
+
+        }
+        public float Timer
+        {
+            get => Projectile.ai[0];
+            set => Projectile.ai[0] = value;
+        }
+        public override void AI()
+        {
+
+            Vector3 RGB = new(0.89f, 2.53f, 2.55f);
+            // The multiplication here wasn't doing anything
+            Lighting.AddLight(Projectile.position, RGB.X, RGB.Y, RGB.Z);
+
+        }
+
+        public override bool PreAI()
+        {
+            Projectile.tileCollide = false;
+            if (++Projectile.frameCounter >= 1)
+            {
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 30)
+                {
+                    Projectile.frame = 0;
+                }
+            }
+            return true;
+
+
+        }
+
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return new Color(255, 255, 255, 0) * (1f - Projectile.alpha / 50f);
+        }
+
+
     }
 }

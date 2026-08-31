@@ -65,15 +65,12 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
 
         public override void SetDefaults()
         {
-            Item.width = 32;
-            Item.height = 48;
             Item.damage = 150;
             Item.DamageType = DamageClass.Summon;
             Item.knockBack = 8;
             Item.useTime = 4;
             Item.useAnimation = 4;
             Item.useStyle = ItemUseStyleID.RaiseLamp;
-            Item.value = Item.sellPrice(0, 1, 0, 0);
 
             // These below are needed for a minion weapon
             Item.noMelee = true;

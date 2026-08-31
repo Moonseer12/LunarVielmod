@@ -3,7 +3,7 @@ using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.DrawEffects;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
+
 using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using Terraria;

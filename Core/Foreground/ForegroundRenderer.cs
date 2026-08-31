@@ -3,7 +3,7 @@
 using Newtonsoft.Json.Linq;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Effects;
-using Stellamod.Helpers;
+
 using System;
 using System.Linq;
 using System.Threading.Tasks;

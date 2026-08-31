@@ -26,12 +26,9 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
             Item.damage = 106;
             Item.knockBack = 3f;
             Item.mana = 10;
-            Item.width = 32;
-            Item.height = 32;
             Item.useTime = 36;
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.HoldUp;
-            Item.value = Item.sellPrice(0, 0, 33, 0);
 
             // These below are needed for a minion weapon
             Item.noMelee = true;

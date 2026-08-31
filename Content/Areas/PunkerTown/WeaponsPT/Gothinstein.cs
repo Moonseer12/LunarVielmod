@@ -4,15 +4,17 @@ using Stellamod.Common.DashSystem;
 using Stellamod.Common.Particles;
 using Stellamod.Common.RarityRendering;
 using Stellamod.Common.Shaders;
+using Stellamod.Common.Steins;
 using Stellamod.Common.WeaponTypes;
+using Stellamod.Content.Areas.Desert.WeaponsCL;
+using Stellamod.Content.Areas.Jungle.WeaponsJN;
+using Stellamod.Content.Areas.TheFalling.WeaponsF;
+using Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Dusts;
 using Stellamod.Effects.GothinFlames;
-using Stellamod.Items.Weapons.Mage.Stein;
-using Stellamod.Projectiles.IgniterExplosions.Stein;
-using Stellamod.Projectiles.Steins;
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;
@@ -600,7 +602,6 @@ public class GothFist : ModProjectile
 
     public override void SetStaticDefaults()
     {
-        Main.projFrames[Projectile.type] = 1;
         ProjectileID.Sets.TrailCacheLength[Projectile.type] = 20; // The length of old position to be recorded
         ProjectileID.Sets.TrailingMode[Projectile.type] = 2; // The recording mode
     }

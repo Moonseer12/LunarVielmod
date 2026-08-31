@@ -21,14 +21,10 @@ public class Mailloader : BaseGun
         base.SetDefaults();
         Item.damage = 4;
         Item.DamageType = DamageClass.Ranged;
-        Item.width = 40;
-        Item.height = 40;
         Item.useTime = Item.useAnimation = 24;
 
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 6;
-        Item.value = Item.sellPrice(0, 0, 20, 0);
-        Item.rare = ItemRarityID.Blue;
         Item.UseSound = SoundID.Item5;
         Item.autoReuse = true;
         Item.shoot = ProjectileID.Bullet;

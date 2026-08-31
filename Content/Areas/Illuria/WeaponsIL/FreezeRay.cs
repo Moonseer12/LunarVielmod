@@ -501,11 +501,11 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
             return WidthFunction(completionRatio) * 0.5f;
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.Cyan, Color.White, ExtraMath.Osc(0f, 1f, speed: 32));
         }
-        public Color ColorFunction2(float completionRatio)
+        public static Color ColorFunction2(float completionRatio)
         {
             return Color.White;
         }
@@ -585,8 +585,6 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
             //  base.SetDefaults();
             Item.damage = 150;
             Item.DamageType = DamageClass.Ranged;
-            Item.width = 56;
-            Item.height = 56;
             Item.useTime = 32;
             Item.useAnimation = 32;
             Item.useStyle = ItemUseStyleID.Shoot;

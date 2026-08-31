@@ -2,15 +2,13 @@ using Stellamod.Assets;
 using Stellamod.Common.DashSystem;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
+using Stellamod.Common.Steins;
 using Stellamod.Common.WeaponTypes;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Dusts;
-using Stellamod.Items.Weapons.Mage.Stein;
-using Stellamod.Projectiles.IgniterExplosions.Stein;
-using Stellamod.Projectiles.Steins;
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;
@@ -164,8 +162,6 @@ public class HultFist : ModProjectile
 
     public override void SetStaticDefaults()
     {
-        // DisplayName.SetDefault("Slasher");
-        Main.projFrames[Projectile.type] = 1;
         ProjectileID.Sets.TrailCacheLength[Projectile.type] = 20; // The length of old position to be recorded
         ProjectileID.Sets.TrailingMode[Projectile.type] = 2; // The recording mode
     }
@@ -331,7 +327,7 @@ public class HultFist : ModProjectile
     {
         return 124 * MathHelper.SmoothStep(1f, 0f, Timer / (float)SwingTime);
     }
-    public Color ColorFunction(float completionRatio)
+    public static Color ColorFunction(float completionRatio)
     {
         float inRatio = completionRatio / 0.3f;
         inRatio = EasingFunction.InOutSine(inRatio);
@@ -364,3 +360,155 @@ public class HultFist : ModProjectile
 
     }
 }
+
+    public class Hulthit1 : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("FrostShotIN");
+            Main.projFrames[Projectile.type] = 60;
+        }
+
+        private int _frameCounter;
+        private int _frameTick;
+        public override void SetDefaults()
+        {
+            Projectile.localNPCHitCooldown = -1;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.friendly = true;
+            Projectile.width = 87;
+            Projectile.height = 85;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 60;
+            Projectile.scale = 1f;
+        }
+
+        public float Timer
+        {
+            get => Projectile.ai[0];
+            set => Projectile.ai[0] = value;
+        }
+        public override void AI()
+        {
+
+            Vector3 RGB = new(0.89f, 2.53f, 2.55f);
+            // The multiplication here wasn't doing anything
+            Lighting.AddLight(Projectile.position, RGB.X, RGB.Y, RGB.Z);
+
+        }
+
+
+
+        public override bool PreAI()
+        {
+            if (++_frameTick >= 1)
+            {
+                _frameTick = 0;
+                if (++_frameCounter >= 60)
+                {
+                    _frameCounter = 0;
+                }
+            }
+            return true;
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+            Vector2 drawPosition = Projectile.Center - Main.screenPosition;
+
+            float width = 87;
+            float height = 85;
+            Vector2 origin = new(width / 2, height / 2);
+            int frameSpeed = 1;
+            int frameCount = 60;
+            SpriteBatch spriteBatch = Main.spriteBatch;
+            spriteBatch.Draw(texture, drawPosition,
+                texture.AnimationFrame(ref _frameCounter, ref _frameTick, frameSpeed, frameCount, false),
+                (Color)GetAlpha(lightColor), 0f, origin, 3f, SpriteEffects.None, 0f);
+            return false;
+        }
+
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return new Color(255, 255, 255, 0) * (1f - Projectile.alpha / 50f);
+        }
+
+
+    }
+
+    public class Hulthit2 : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("FrostShotIN");
+            Main.projFrames[Projectile.type] = 60;
+        }
+
+        private int _frameCounter;
+        private int _frameTick;
+        public override void SetDefaults()
+        {
+            Projectile.localNPCHitCooldown = -1;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.friendly = true;
+            Projectile.width = 119;
+            Projectile.height = 118;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 60;
+            Projectile.scale = 1f;
+        }
+
+        public float Timer
+        {
+            get => Projectile.ai[0];
+            set => Projectile.ai[0] = value;
+        }
+        public override void AI()
+        {
+
+            Vector3 RGB = new(0.89f, 2.53f, 2.55f);
+            // The multiplication here wasn't doing anything
+            Lighting.AddLight(Projectile.position, RGB.X, RGB.Y, RGB.Z);
+
+        }
+
+
+
+        public override bool PreAI()
+        {
+            if (++_frameTick >= 1)
+            {
+                _frameTick = 0;
+                if (++_frameCounter >= 60)
+                {
+                    _frameCounter = 0;
+                }
+            }
+            return true;
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+            Vector2 drawPosition = Projectile.Center - Main.screenPosition;
+
+            float width = 119;
+            float height = 118;
+            Vector2 origin = new(width / 2, height / 2);
+            int frameSpeed = 1;
+            int frameCount = 60;
+            SpriteBatch spriteBatch = Main.spriteBatch;
+            spriteBatch.Draw(texture, drawPosition,
+                texture.AnimationFrame(ref _frameCounter, ref _frameTick, frameSpeed, frameCount, false),
+                (Color)GetAlpha(lightColor), 0f, origin, 4f, SpriteEffects.None, 0f);
+            return false;
+        }
+
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return new Color(255, 255, 255, 0) * (1f - Projectile.alpha / 50f);
+        }
+
+
+    }

@@ -1,6 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Common.UI;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;

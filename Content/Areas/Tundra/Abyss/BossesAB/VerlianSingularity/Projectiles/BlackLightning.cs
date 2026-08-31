@@ -5,7 +5,7 @@ using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.Particles;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;

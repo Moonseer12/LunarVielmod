@@ -3,7 +3,7 @@
 using ReLogic.Content;
 using Stellamod.Common.ClassReworkSystem;
 using Stellamod.Common.UI;
-using Stellamod.Helpers;
+
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.UI.Elements;

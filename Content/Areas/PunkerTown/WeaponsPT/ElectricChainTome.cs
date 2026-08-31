@@ -24,8 +24,6 @@ public class ElectricChainTome : AbstractMagicTome
     {
         base.SetDefaults2();
         Item.damage = 45;
-        Item.width = 50;
-        Item.height = 50;
         Item.shoot = ModContent.ProjectileType<ElectricChain>();
         Item.shootSpeed = 15f;
         Item.mana = 15;

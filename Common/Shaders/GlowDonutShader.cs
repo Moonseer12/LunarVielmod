@@ -1,6 +1,6 @@
 ﻿
 
-using Stellamod.Helpers;
+
 using Terraria;
 
 namespace Stellamod.Common.Shaders

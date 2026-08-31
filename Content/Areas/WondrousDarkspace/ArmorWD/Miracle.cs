@@ -274,10 +274,6 @@ public class MiracleHead : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 36;
-        Item.height = 24;
-        Item.value = 10000;
-        Item.rare = ItemRarityID.LightPurple;
         Item.defense = 8;
     }
 
@@ -322,10 +318,6 @@ public class MiracleBody : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 40;
-        Item.height = 28;
-        Item.value = Item.sellPrice(0, 0, 20, 0);
-        Item.rare = ItemRarityID.LightPurple;
         Item.defense = 10;
     }
 

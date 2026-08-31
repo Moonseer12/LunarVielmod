@@ -64,7 +64,7 @@ public class ConvertSlot : UIElement
         Texture2D backingTexture = ModContent.Request<Texture2D>($"{CellConverterUISystem.RootTexturePath}ConvertSlot").Value;
         int offset = (int)(backingTexture.Size().Y / 2);
         Vector2 centerPos = pos + rectangle.Size() / 2f;
-        spriteBatch.Draw(backingTexture, rectangle.TopLeft(), null, color2, 0f, default(Vector2), _scale, SpriteEffects.None, 0f);
+        spriteBatch.Draw(backingTexture, rectangle.TopLeft(), null, color2, 0f, default, _scale, SpriteEffects.None, 0f);
 
         ItemSlot.DrawItemIcon(Item, _context, spriteBatch, centerPos + new Vector2(0, 3), _scale, 32, Color.White);
         if (Item.stack > 1)

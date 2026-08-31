@@ -6,7 +6,7 @@ using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;

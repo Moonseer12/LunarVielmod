@@ -26,8 +26,6 @@ public class TheIrradiaspear : BaseSwingItemV2
     {
         base.SetDefaults2();
         Item.damage = 68;
-        Item.width = 50;
-        Item.height = 50;
         Item.useStyle = ItemUseStyleID.Swing;
         Item.noMelee = true;
         Item.noUseGraphic = true;
@@ -104,7 +102,7 @@ public class IrradiaspearSlash : BaseSwingProjectileV2
         return MathHelper.SmoothStep(8, 3.5f, completionRatio);
     }
 
-    public Color ColorFunction(float completionRatio)
+    public static Color ColorFunction(float completionRatio)
     {
         return Color.Lerp(Color.Transparent, ColorFunctions.AcidFlame, EasingFunction.QuadraticBump(completionRatio)) * 0.5f;
     }

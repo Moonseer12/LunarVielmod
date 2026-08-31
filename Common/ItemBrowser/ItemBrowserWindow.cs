@@ -2,7 +2,7 @@
 
 using Microsoft.Xna.Framework.Input;
 using ReLogic.Content;
-using Stellamod.Helpers;
+
 using Stellamod.UI;
 using System;
 using System.Reflection;

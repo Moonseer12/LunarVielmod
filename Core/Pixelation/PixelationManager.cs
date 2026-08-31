@@ -3,9 +3,9 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Illuria.WeaponsIL;
 using Stellamod.Core.Rendering;
-using Stellamod.Core.Utilities;
+
 using Stellamod.Core.ZTileSystem;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using Terraria;

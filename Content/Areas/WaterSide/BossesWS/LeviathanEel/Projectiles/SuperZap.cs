@@ -3,8 +3,8 @@ using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.WaterSide.BossesWS.KingJellyfishBoss;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System;

@@ -17,15 +17,12 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
         {
             base.SetDefaults();
             Item.DefaultToSafunai();
-            Item.width = 16;
-            Item.height = 16;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useTime = Item.useAnimation = 18;
             Item.shootSpeed = 1f;
             Item.knockBack = 4f;
             Item.UseSound = SoundID.Item116;
             Item.shoot = ModContent.ProjectileType<KaevineProj>();
-            Item.value = Item.sellPrice(gold: 10);
             Item.noMelee = true;
             Item.noUseGraphic = true;
             Item.channel = true;

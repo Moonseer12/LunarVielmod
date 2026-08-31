@@ -19,9 +19,7 @@ public class BlackEye : ModItem
     {
         Item.damage = 666;
         Item.DamageType = DamageClass.Magic;
-        Item.width = 32;
         Item.mana = 50;
-        Item.height = 25;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 2;
         Item.shootSpeed = 30f;

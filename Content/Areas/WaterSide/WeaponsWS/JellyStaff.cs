@@ -22,13 +22,9 @@ namespace Stellamod.Content.Areas.WaterSide.WeaponsWS
             Item.damage = 14;
             Item.knockBack = 3f;
             Item.mana = 10;
-            Item.width = 32;
-            Item.height = 32;
             Item.useTime = 36;
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.value = Item.sellPrice(0, 0, 33, 0);
-            Item.rare = ItemRarityID.Green;
 
             // These below are needed for a minion weapon
             Item.noMelee = true;
@@ -290,7 +286,7 @@ namespace Stellamod.Content.Areas.WaterSide.WeaponsWS
             return MathHelper.SmoothStep(baseWidth, 3.5f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             Color startColor = Color.Blue;
             Color endColor = Color.Transparent;

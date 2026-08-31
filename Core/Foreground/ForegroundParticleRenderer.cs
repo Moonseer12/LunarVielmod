@@ -4,7 +4,7 @@ using ReLogic.Content;
 using ReLogic.Threading;
 using Stellamod.Common.DungeonGeneration;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

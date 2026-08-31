@@ -36,7 +36,7 @@ namespace Stellamod.Common.ArmorRework
             }
         }
 
-        public void DrawPlayerHead(Camera camera, Player drawPlayer, Vector2 position, float alpha = 1f, float scale = 1f, Color borderColor = default(Color))
+        public void DrawPlayerHead(Camera camera, Player drawPlayer, Vector2 position, float alpha = 1f, float scale = 1f, Color borderColor = default)
         {
             /*
             if (!drawPlayer.ShouldNotDraw) {
@@ -184,7 +184,7 @@ namespace Stellamod.Common.ArmorRework
                     }
                 }
 
-                Vector2 position = default(Vector2);
+                Vector2 position = default;
                 if (drawPlayer.invis)
                 {
                     drawPlayer.armorEffectDrawOutlines = false;

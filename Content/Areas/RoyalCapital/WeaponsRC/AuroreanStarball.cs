@@ -65,16 +65,12 @@ namespace Stellamod.Content.Areas.RoyalCapital.WeaponsRC
 
         public override void SetDefaults()
         {
-            Item.width = 32;
-            Item.height = 48;
             Item.damage = 19;
             Item.DamageType = DamageClass.Summon;
             Item.knockBack = 8;
             Item.useTime = 4;
             Item.useAnimation = 4;
             Item.useStyle = ItemUseStyleID.RaiseLamp;
-            Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = ItemRarityID.Blue;
 
             // These below are needed for a minion weapon
             Item.noMelee = true;

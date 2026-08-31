@@ -61,7 +61,7 @@ public class FireTrailRenderer
         return MathHelper.SmoothStep(8, 64, interpolant) * MathF.Sin(interpolant * 8);
     }
 
-    public Color GetTrailColor(float interpolant)
+    public static Color GetTrailColor(float interpolant)
     {
         return Color.Lerp(Color.White, Color.Transparent, EasingFunction.InExpo(interpolant));
     }

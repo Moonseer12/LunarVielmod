@@ -3,7 +3,7 @@
 using Microsoft.Xna.Framework.Graphics.PackedVector;
 using Stellamod.Assets;
 using Stellamod.Core.Tooltips;
-using Stellamod.Helpers;
+
 using System;
 using Terraria;
 using Terraria.GameContent;
@@ -70,7 +70,7 @@ public class WeaponUpgradeSlot : UIElement
         Texture2D backingTexture = ModContent.Request<Texture2D>($"{WeaponUpgradeUISystem.RootTexturePath}UpgradeSlot").Value;
 
         Vector2 centerPos = pos + rectangle.Size() / 2f;
-        spriteBatch.Draw(backingTexture, rectangle.TopLeft(), null, color2, 0f, default(Vector2), _scale, SpriteEffects.None, 0f);
+        spriteBatch.Draw(backingTexture, rectangle.TopLeft(), null, color2, 0f, default, _scale, SpriteEffects.None, 0f);
 
 
         Texture2D glowTexture = AssetManager.GlowMask.SimpleGlowCircle.Value;
@@ -81,7 +81,7 @@ public class WeaponUpgradeSlot : UIElement
 
         Color glowColor = Color.Lerp(Color.Black, Color.Red, WeaponUpgradeUISystem.ForgeGlow);
         glowColor.A = 0;
-        spriteBatch.Draw(backingTexture, rectangle.TopLeft(), null, glowColor, 0f, default(Vector2), _scale, SpriteEffects.None, 0f);
+        spriteBatch.Draw(backingTexture, rectangle.TopLeft(), null, glowColor, 0f, default, _scale, SpriteEffects.None, 0f);
 
 
         float scale = 1.25f;

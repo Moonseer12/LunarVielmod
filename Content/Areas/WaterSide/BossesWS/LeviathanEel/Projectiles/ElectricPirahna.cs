@@ -4,7 +4,7 @@ using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.WaterSide.NPCsWS;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;

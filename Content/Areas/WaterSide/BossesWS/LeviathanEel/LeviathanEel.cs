@@ -8,9 +8,9 @@ using Stellamod.Core.LunarLightingSystem;
 using Stellamod.Core.Palettes;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
+
 using Stellamod.Content.Gores;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;

@@ -10,7 +10,6 @@ namespace Stellamod.Content.Areas.Underground
         public override void SetDefaults()
         {
             Item.maxStack = Item.CommonMaxStack;
-            Item.rare = ItemRarityID.Green;
         }
         public override void AddRecipes()
         {

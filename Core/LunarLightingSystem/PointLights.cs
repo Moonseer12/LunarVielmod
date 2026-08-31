@@ -1,5 +1,5 @@
 ﻿using Stellamod.Common.ArmorReforge;
-using Stellamod.Core.Utilities;
+
 using System.Reflection;
 using Terraria;
 using Terraria.Graphics.Light;

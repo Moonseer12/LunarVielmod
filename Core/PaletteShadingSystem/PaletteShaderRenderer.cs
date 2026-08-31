@@ -1,6 +1,6 @@
 ﻿using Stellamod.Core.LunarLightingSystem;
 using Stellamod.Core.Rendering;
-using Stellamod.Core.Utilities;
+
 using System.Linq;
 using Terraria;
 using Terraria.GameContent;

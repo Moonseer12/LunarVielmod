@@ -171,14 +171,6 @@ namespace Stellamod.Content.Areas.Underground.ArmorUG
             ArmorSetSystem.RegisterArmorSet<CelestiaMoonHelmet, CelestiaMoonBreastplate, CelestiaMoonLegs>(ArmorGroup.Act_I);
         }
 
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.Green; // The rarity of the item
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();
@@ -206,14 +198,6 @@ namespace Stellamod.Content.Areas.Underground.ArmorUG
     [AutoloadEquip(EquipType.Body)]
     public class CelestiaMoonBreastplate : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.Green; // The rarity of the item
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();
@@ -226,14 +210,6 @@ namespace Stellamod.Content.Areas.Underground.ArmorUG
     [AutoloadEquip(EquipType.Legs)]
     public class CelestiaMoonLegs : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.Green; // The rarity of the item
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();

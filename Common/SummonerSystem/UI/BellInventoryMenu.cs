@@ -4,7 +4,7 @@
 using Mono.Cecil;
 using ReLogic.Content;
 using Stellamod.Common.ItemBrowser;
-using Stellamod.Helpers;
+
 using Stellamod.UI;
 using System.Collections.Generic;
 using Terraria;

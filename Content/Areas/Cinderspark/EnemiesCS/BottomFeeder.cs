@@ -214,7 +214,7 @@ namespace Stellamod.Content.Areas.Cinderspark.EnemiesCS
             return MathHelper.SmoothStep(baseWidth, 3.5f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.DarkOrange, Color.Transparent, completionRatio);
         }

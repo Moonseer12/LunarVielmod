@@ -195,10 +195,6 @@ namespace Stellamod.Content.Armors.Jianxin
     {
         public override void SetDefaults()
         {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 10); // How many coins the item is worth
-            Item.rare = ItemRarityID.Pink; // The rarity of the item
             Item.defense = 23; // The amount of defense the item will give when equipped
         }
 
@@ -253,10 +249,6 @@ namespace Stellamod.Content.Armors.Jianxin
     {
         public override void SetDefaults()
         {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 10); // How many coins the item is worth
-            Item.rare = ItemRarityID.Pink; // The rarity of the item
             Item.defense = 26; // The amount of defense the item will give when equipped
         }
 
@@ -278,10 +270,6 @@ namespace Stellamod.Content.Armors.Jianxin
     {
         public override void SetDefaults()
         {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 10); // How many coins the item is worth
-            Item.rare = ItemRarityID.Pink; // The rarity of the item
             Item.defense = 20; // The amount of defense the item will give when equipped
         }
 

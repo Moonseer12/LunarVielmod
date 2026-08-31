@@ -1,6 +1,6 @@
 ﻿
 
-using Stellamod.Helpers;
+
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;

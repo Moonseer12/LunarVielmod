@@ -1,10 +1,8 @@
-﻿global using Microsoft.Xna.Framework;
-global using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using ReLogic.Content.Sources;
 using Stellamod.Assets.ContentReader.Aseprite;
 using Stellamod.Assets.ContentReader.Pal;
-//using Stellamod.Assets.Videos;
+using Stellamod.Assets.Videos;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas;
 using Stellamod.Content.Areas.Terror;
@@ -310,7 +308,7 @@ namespace Stellamod
         {
             if (!Main.dedServ)
             {
-                //AddContent(new VideoReader());
+                AddContent(new VideoReader());
                 AddContent(new AseFileReader());
                 AddContent(new PalFileReader());
                 Main.QueueMainThreadAction(CreateDefaultPaletteValue);

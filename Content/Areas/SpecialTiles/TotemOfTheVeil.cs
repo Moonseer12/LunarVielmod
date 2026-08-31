@@ -1,7 +1,7 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.Visual.Particles;
 using Stellamod.WorldG;
 using Terraria;
@@ -113,7 +113,7 @@ public class TotemOfTheVeilRespawnPlayer : ModPlayer
 
         if (shouldGoToTotemSpot)
         {
-            if (respawnPoint != default(Vector2))
+            if (respawnPoint != default)
             {
                 Player.Teleport(respawnPoint, TeleportationStyleID.DebugTeleport);
                 NetMessage.SendData(MessageID.TeleportEntity, -1, -1, null, 0, Player.whoAmI, respawnPoint.X, respawnPoint.Y, 1);
@@ -139,7 +139,7 @@ public class TotemOfTheVeilRespawnPlayer : ModPlayer
             }
         }
 
-        if (respawnPoint != default(Vector2))
+        if (respawnPoint != default)
         {
             totemAlpha++;
         }

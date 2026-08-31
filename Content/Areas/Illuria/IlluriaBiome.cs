@@ -1,4 +1,4 @@
-﻿using Stellamod.NPCs.Bosses.Niivi;
+﻿using Stellamod.Content.Areas.Illuria.BossesIL.Niivi;
 using Terraria;
 using Terraria.Graphics.Capture;
 using Terraria.ModLoader;

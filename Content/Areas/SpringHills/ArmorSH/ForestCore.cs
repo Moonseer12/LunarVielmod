@@ -291,14 +291,6 @@ namespace Stellamod.Content.Areas.SpringHills.ArmorSH
             ArmorSetSystem.RegisterArmorSet<ForestCoreHead, ForestCoreBody, ForestCoreLegs>(ArmorGroup.Act_I);
         }
 
-        public override void SetDefaults()
-        {
-            Item.width = 40;
-            Item.height = 30;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.Blue;
-        }
-
         public override void UpdateEquip(Player player)
         {
             ArmorStatsPlayer stats = player.GetModPlayer<ArmorStatsPlayer>();
@@ -327,14 +319,6 @@ namespace Stellamod.Content.Areas.SpringHills.ArmorSH
     [AutoloadEquip(EquipType.Body)]
     public class ForestCoreBody : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 30;
-            Item.height = 30;
-            Item.value = Item.sellPrice(0, 0, 20, 0);
-            Item.rare = ItemRarityID.Blue;
-        }
-
         public override void UpdateEquip(Player player)
         {
             ArmorStatsPlayer stats = player.GetModPlayer<ArmorStatsPlayer>();
@@ -347,14 +331,6 @@ namespace Stellamod.Content.Areas.SpringHills.ArmorSH
     [AutoloadEquip(EquipType.Legs)]
     public class ForestCoreLegs : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 28;
-            Item.height = 22;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.Blue;
-        }
-
         public override void UpdateEquip(Player player)
         {
             ArmorStatsPlayer stats = player.GetModPlayer<ArmorStatsPlayer>();

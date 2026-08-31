@@ -37,9 +37,6 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
 
         public override void SetDefaults()
         {
-            Item.width = 40;
-            Item.height = 10;
-            Item.rare = ItemRarityID.Green;
             Item.useTime = 41;
             Item.useAnimation = 41;
             Item.useStyle = ItemUseStyleID.Guitar;
@@ -58,7 +55,6 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
             // Gun Properties
             Item.shoot = ModContent.ProjectileType<PoisonedAngelProj>();
             Item.shootSpeed = 4f;
-            Item.value = 10000;
         }
         public override Vector2? HoldoutOffset()
         {

@@ -1,4 +1,4 @@
-﻿using Stellamod.Core.Utilities;
+﻿
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

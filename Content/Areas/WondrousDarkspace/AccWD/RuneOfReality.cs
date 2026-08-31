@@ -1,6 +1,6 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Core.Bases;
-using Stellamod.Helpers;
+
 using Stellamod.Trails;
 using Terraria;
 using Terraria.Graphics.Shaders;
@@ -128,7 +128,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.AccWD
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.value = Item.sellPrice(gold: 2);
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

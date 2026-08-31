@@ -1,7 +1,7 @@
 ﻿
 
 using Stellamod.Assets;
-using Stellamod.Helpers;
+
 
 namespace Stellamod.Core.Effects.Trails
 {

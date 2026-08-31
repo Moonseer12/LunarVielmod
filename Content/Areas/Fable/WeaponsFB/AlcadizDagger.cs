@@ -64,10 +64,6 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Spragald");
-            // Sets the amount of frames this minion has on its spritesheet
-            Main.projFrames[Projectile.type] = 1;
-            // This is necessary for right-click targeting
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 
             ProjectileID.Sets.MinionSacrificable[Projectile.type] = true; // This is needed so your minion can properly spawn when summoned and replaced when other minions are summoned

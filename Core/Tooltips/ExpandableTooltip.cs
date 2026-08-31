@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using ReLogic.Content;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Common.Shaders;
-using Stellamod.Helpers;
+
 using Stellamod.UI.CollectionSystem;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

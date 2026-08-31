@@ -24,8 +24,6 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
             base.SetDefaults();
             Item.damage = 12;
             Item.DamageType = DamageClass.Ranged;
-            Item.width = 56;
-            Item.height = 56;
             Item.useTime = 6;
             Item.useAnimation = 6;
             Item.useStyle = ItemUseStyleID.Shoot;

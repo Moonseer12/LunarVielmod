@@ -1,6 +1,6 @@
 ﻿
 using ReLogic.Content;
-using Stellamod.Helpers;
+
 using System;
 using System.Linq;
 using Terraria;

@@ -4,9 +4,9 @@ using Stellamod.Common.Shaders;
 using Stellamod.Core;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Rendering;
-using Stellamod.Core.Utilities;
+
 using Stellamod.Effects.RoyalMagic;
-using Stellamod.Helpers;
+
 using Stellamod.Skies;
 using Terraria;
 using Terraria.GameContent;

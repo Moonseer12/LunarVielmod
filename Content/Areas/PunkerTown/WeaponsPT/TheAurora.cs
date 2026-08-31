@@ -25,14 +25,10 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
             Item.mana = 12;
             Item.damage = 19;
             Item.DamageType = DamageClass.Magic;
-            Item.width = 40;
-            Item.height = 40;
             Item.useTime = 6;
             Item.useAnimation = 12;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 4;
-            Item.value = Item.sellPrice(0, 1, 20, 0);
-            Item.rare = ItemRarityID.LightRed;
             Item.autoReuse = true;
             Item.shoot = ProjectileType<AuroraStar>();
             Item.shootSpeed = 15f;
@@ -152,7 +148,7 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
             return MathHelper.SmoothStep(12, 0.5f, completionRatio);
         }
 
-        public Color GetTrailColor(float completionRatio)
+        public static Color GetTrailColor(float completionRatio)
         {
             return Color.Lerp(Color.Goldenrod, Color.CadetBlue, completionRatio) * 0.7f;
         }

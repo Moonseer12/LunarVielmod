@@ -1,7 +1,7 @@
 ﻿
 
 using Stellamod.Assets;
-using Stellamod.Helpers;
+
 using Terraria;
 
 namespace Stellamod.Content.Areas.Desert.BossesCL.Gustbeak.Projectiles

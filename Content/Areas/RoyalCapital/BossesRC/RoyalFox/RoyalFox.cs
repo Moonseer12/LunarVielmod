@@ -2958,7 +2958,7 @@ public partial class RoyalFox : ScarletBoss,
 
                     //  PoofParticles();
                     (Vector2 position, Vector2 velocity) = NextDashLine();
-                    if (position != default(Vector2))
+                    if (position != default)
                     {
 
                         _dashLineVelocity = velocity;

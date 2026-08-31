@@ -4,7 +4,7 @@ using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Foggy;
 using Stellamod.Core.LunarLightingSystem;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;

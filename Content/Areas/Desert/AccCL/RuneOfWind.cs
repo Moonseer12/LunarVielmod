@@ -78,7 +78,7 @@ namespace Stellamod.Content.Areas.Desert.AccCL
             return MathHelper.Lerp(0f, 80, Easing.SpikeOutCirc(completionRatio));
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.Transparent, Color.White, Easing.SpikeOutCirc(completionRatio)) * 0.5f;
         }
@@ -157,7 +157,6 @@ namespace Stellamod.Content.Areas.Desert.AccCL
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.value = Item.sellPrice(gold: 2);
             Item.defense = 4;
         }
 

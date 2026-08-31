@@ -2,8 +2,8 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.TheFalling.PerfectSingularityBoss.Projectiles;
 using Stellamod.Core;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using System;
 using System.IO;
 using Terraria;

@@ -19,15 +19,11 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
         {
             Item.damage = 33;
             Item.DamageType = DamageClass.Magic;
-            Item.width = 40;
-            Item.height = 40;
             Item.useTime = 25;
             Item.useAnimation = 25;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noUseGraphic = true;
             Item.knockBack = 2;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.LightPurple;
             Item.UseSound = SoundID.DD2_DarkMageAttack;
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<SparkBallsP>();
@@ -46,11 +42,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
     {
         private ITrailer _trailer;
         private ref float Timer => ref Projectile.ai[0];
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("MeatBall");
-            Main.projFrames[Projectile.type] = 1;
-        }
         public override void SetDefaults()
         {
             TrailCacheLength = 15;

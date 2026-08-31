@@ -380,7 +380,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             return MathHelper.SmoothStep(16, 0f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.Goldenrod, Color.DarkRed, completionRatio);
         }
@@ -454,7 +454,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             return MathHelper.SmoothStep(16, 0f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.Goldenrod, Color.DarkRed, completionRatio);
         }

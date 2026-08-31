@@ -31,8 +31,6 @@ public class ElectricTrident : ModItem
         base.SetDefaults();
         Item.DefaultToArtifact();
         Item.damage = 80;
-        Item.width = 16;
-        Item.height = 16;
         Item.mana = 50;
         Item.useAnimation = Item.useTime = 70;
         Item.useStyle = ItemUseStyleID.Shoot;

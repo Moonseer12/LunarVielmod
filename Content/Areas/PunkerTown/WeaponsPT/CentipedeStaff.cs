@@ -27,13 +27,9 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
             Item.damage = 36;
             Item.knockBack = 6f;
             Item.mana = 10;
-            Item.width = 32;
-            Item.height = 32;
             Item.useTime = 36;
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.value = Item.sellPrice(0, 0, 33, 0);
-            Item.rare = ItemRarityID.LightPurple;
             Item.UseSound = SoundID.Item44;
 
             // These below are needed for a minion weapon

@@ -48,8 +48,6 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             // DisplayName.SetDefault("Irradiated Creeper");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 30;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
-            // Sets the amount of frames this minion has on its spritesheet
-            Main.projFrames[Projectile.type] = 1;
             // This is necessary for right-click targeting
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 
@@ -195,7 +193,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             return MathHelper.SmoothStep(baseWidth, 0.5f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.Goldenrod, Color.LightGoldenrodYellow, completionRatio) * 0.7f;
         }

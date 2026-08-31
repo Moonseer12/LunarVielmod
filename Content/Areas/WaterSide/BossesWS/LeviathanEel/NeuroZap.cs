@@ -1,4 +1,4 @@
-﻿using Stellamod.Helpers;
+﻿
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.ModLoader;

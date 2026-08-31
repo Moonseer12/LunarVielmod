@@ -1,5 +1,5 @@
 ﻿using Stellamod.Content.Areas.Desert.BossesCL.Gustbeak;
-using Stellamod.Helpers;
+
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Gores

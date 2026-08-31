@@ -43,19 +43,15 @@ namespace Stellamod.Content.Special.EckasectSire
         {
             Item.damage = 21;
             Item.DamageType = DamageClass.Magic;
-            Item.width = 32;
-            Item.height = 25;
             Item.useTime = 45;
             Item.useAnimation = 45;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 2;
-            Item.rare = ItemRarityID.Orange;
             Item.autoReuse = false;
             Item.shootSpeed = 30f;
             Item.shoot = ModContent.ProjectileType<EckasectGenesisHold>();
             Item.scale = 0.8f;
-            Item.noMelee = true; // The projectile will do the damage and not the item
-            Item.value = Item.buyPrice(gold: 50);
+            Item.noMelee = true;
             Item.noUseGraphic = true;
             Item.channel = true;
 

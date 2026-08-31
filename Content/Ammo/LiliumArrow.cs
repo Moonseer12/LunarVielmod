@@ -1,6 +1,6 @@
 ﻿using Stellamod.Assets;
+using Stellamod.Common.Steins;
 using Stellamod.Dusts;
-using Stellamod.Projectiles.Steins;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

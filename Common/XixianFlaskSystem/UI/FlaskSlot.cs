@@ -4,7 +4,7 @@ using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.UI;
 using Stellamod.Common.XixianFlaskSystem;
-using Stellamod.Helpers;
+
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;

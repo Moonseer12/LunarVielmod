@@ -7,7 +7,7 @@ using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -207,13 +207,13 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.WeaponsAB
         {
             for (int i = 0; i < 20; i++)
             {
-                int num1 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.SilverCoin, 0f, -2f, 0, default(Color), .8f);
+                int num1 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.SilverCoin, 0f, -2f, 0, default, .8f);
                 Main.dust[num1].noGravity = true;
                 Main.dust[num1].position.X += Main.rand.Next(-50, 51) * .05f - 1.5f;
                 Main.dust[num1].position.Y += Main.rand.Next(-50, 51) * .05f - 1.5f;
                 if (Main.dust[num1].position != Projectile.Center)
                     Main.dust[num1].velocity = Projectile.DirectionTo(Main.dust[num1].position) * 6f;
-                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.SilverCoin, 0f, -2f, 0, default(Color), .8f);
+                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.SilverCoin, 0f, -2f, 0, default, .8f);
                 Main.dust[num].noGravity = true;
                 Main.dust[num].position.X += Main.rand.Next(-50, 51) * .05f - 1.5f;
                 Main.dust[num].position.Y += Main.rand.Next(-50, 51) * .05f - 1.5f;
@@ -326,13 +326,13 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.WeaponsAB
         {
             for (int i = 0; i < 20; i++)
             {
-                int num1 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Gold, 0f, -2f, 0, default(Color), .8f);
+                int num1 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Gold, 0f, -2f, 0, default, .8f);
                 Main.dust[num1].noGravity = true;
                 Main.dust[num1].position.X += Main.rand.Next(-50, 51) * .05f - 1.5f;
                 Main.dust[num1].position.Y += Main.rand.Next(-50, 51) * .05f - 1.5f;
                 if (Main.dust[num1].position != Projectile.Center)
                     Main.dust[num1].velocity = Projectile.DirectionTo(Main.dust[num1].position) * 6f;
-                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Gold, 0f, -2f, 0, default(Color), .8f);
+                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Gold, 0f, -2f, 0, default, .8f);
                 Main.dust[num].noGravity = true;
                 Main.dust[num].position.X += Main.rand.Next(-50, 51) * .05f - 1.5f;
                 Main.dust[num].position.Y += Main.rand.Next(-50, 51) * .05f - 1.5f;
@@ -448,13 +448,13 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.WeaponsAB
         {
             for (int i = 0; i < 20; i++)
             {
-                int num1 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Gold, 0f, -2f, 0, default(Color), .8f);
+                int num1 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Gold, 0f, -2f, 0, default, .8f);
                 Main.dust[num1].noGravity = true;
                 Main.dust[num1].position.X += Main.rand.Next(-50, 51) * .05f - 1.5f;
                 Main.dust[num1].position.Y += Main.rand.Next(-50, 51) * .05f - 1.5f;
                 if (Main.dust[num1].position != Projectile.Center)
                     Main.dust[num1].velocity = Projectile.DirectionTo(Main.dust[num1].position) * 6f;
-                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Gold, 0f, -2f, 0, default(Color), .8f);
+                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Gold, 0f, -2f, 0, default, .8f);
                 Main.dust[num].noGravity = true;
                 Main.dust[num].position.X += Main.rand.Next(-50, 51) * .05f - 1.5f;
                 Main.dust[num].position.Y += Main.rand.Next(-50, 51) * .05f - 1.5f;

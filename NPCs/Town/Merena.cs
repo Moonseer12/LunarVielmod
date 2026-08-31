@@ -1,5 +1,5 @@
-﻿using Stellamod.Core;
-using Stellamod.Items.Weapons.Mage;
+﻿using Stellamod.Content.Areas.RoyalCapital.WeaponsRC;
+using Stellamod.Core;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -119,9 +119,6 @@ namespace Stellamod.NPCs.Town
         public override void AddShops()
         {
             var npcShop = new NPCShop(Type, ShopName)
-            .Add(new Item(ItemID.Book) { shopCustomPrice = Item.buyPrice(copper: 50) })
-            .Add(new Item(ItemID.FallenStar) { shopCustomPrice = Item.buyPrice(silver: 75) })
-            .Add(new Item(ItemID.AbigailsFlower) { shopCustomPrice = Item.buyPrice(gold: 1) })
             .Add(new Item(ModContent.ItemType<BurnedCarianTome>()));
             npcShop.Register(); // Name of this shop tab		
         }

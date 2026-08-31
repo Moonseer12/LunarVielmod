@@ -2,7 +2,7 @@
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.MoonlightMagic;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameInput;
@@ -146,7 +146,7 @@ namespace Stellamod.Common.MagicSystem.UI
 
             int offset = (int)(cardTexture.Size().Y / 2);
             Vector2 centerPos = pos + rectangle.Size() / 2f;
-            spriteBatch.Draw(cardTexture, rectangle.TopLeft(), null, color2, 0f, default(Vector2), _scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(cardTexture, rectangle.TopLeft(), null, color2, 0f, default, _scale, SpriteEffects.None, 0f);
 
             if (Item.ModItem is BaseEnchantment myEnchantment && isSynergy)
             {
@@ -164,7 +164,7 @@ namespace Stellamod.Common.MagicSystem.UI
 
                 shader.Data.Apply(null);
 
-                spriteBatch.Draw(cardTexture, rectangle.TopLeft(), null, color2, 0f, default(Vector2), _scale, SpriteEffects.None, 0f);
+                spriteBatch.Draw(cardTexture, rectangle.TopLeft(), null, color2, 0f, default, _scale, SpriteEffects.None, 0f);
 
                 spriteBatch.End();
                 spriteBatch.Begin(default, default, default, default, default, default, Main.UIScaleMatrix);

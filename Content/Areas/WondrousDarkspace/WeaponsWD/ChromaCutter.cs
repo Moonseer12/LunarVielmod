@@ -21,8 +21,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
         public int combowombo = 0;
         public override void SetDefaults()
         {
-            Item.width = 72;
-            Item.height = 98;
             Item.damage = 71;
             Item.DamageType = DamageClass.Summon;
             Item.mana = 5;
@@ -30,8 +28,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
             Item.useTime = 8;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noMelee = true;
-            Item.value = Item.sellPrice(0, 10, 0, 0);
-            Item.rare = ItemRarityID.LightPurple;
             Item.noUseGraphic = true;
             Item.shootSpeed = 20f;
             Item.buffType = ModContent.BuffType<ChromaCutterMinionBuff>();

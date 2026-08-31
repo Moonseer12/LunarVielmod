@@ -26,10 +26,7 @@ namespace Stellamod.Content.GunSwapping
 
         public override void SetDefaults()
         {
-            Item.width = 24;
-            Item.height = 24;
             Item.DamageType = DamageClass.Ranged;
-            Item.rare = ItemRarityID.Blue;
             Item.shoot = ProjectileID.PurificationPowder; // For some reason, all the guns in the vanilla source have this.
             Item.shootSpeed = 10f; // The speed of the projectile (measured in pixels per frame.) This value equivalent to Handgun
             Item.useAmmo = AmmoID.Bullet; //

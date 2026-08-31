@@ -9,8 +9,6 @@ namespace Stellamod.Content.Areas.Illuria.EnemiesIL
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Frost Shot");
-            Main.projFrames[Projectile.type] = 1;
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 20;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
             //The recording mode

@@ -2,7 +2,7 @@
 
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.ID;

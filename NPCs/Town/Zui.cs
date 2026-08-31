@@ -3,7 +3,7 @@ using Stellamod.Content.Quests.ZuiQuest;
 using Stellamod.Content.Vanity.Nyxia;
 using Stellamod.Content.Vanity.Solarian;
 using Stellamod.Core;
-using Stellamod.NPCs.Bosses.Zui;
+using Stellamod.Content.Areas.Jungle.BossesJN.Zui;
 using System;
 using System.Collections.Generic;
 using Terraria;

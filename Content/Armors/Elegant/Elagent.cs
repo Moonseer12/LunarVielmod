@@ -4,8 +4,8 @@ using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Content.Areas.SpringHills.AccSH;
 using Stellamod.Content.Special.DeadRomancesExcalibur;
 using Stellamod.Core.Particles;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -119,14 +119,6 @@ namespace Stellamod.Content.Armors.Elegant
             ArmorSetSystem.RegisterArmorSet<ElagentHead, ElagentBody, ElagentLegs>(ArmorGroup.Act_I);
         }
 
-        public override void SetDefaults()
-        {
-            Item.width = 40;
-            Item.height = 30;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.Orange;
-        }
-
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
             return body.type == ModContent.ItemType<ElagentBody>()
@@ -151,15 +143,6 @@ namespace Stellamod.Content.Armors.Elegant
     [AutoloadEquip(EquipType.Body)]
     public class ElagentBody : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.Orange; // The rarity of the item
-
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();
@@ -172,14 +155,6 @@ namespace Stellamod.Content.Armors.Elegant
     [AutoloadEquip(EquipType.Legs)]
     public class ElagentLegs : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 28;
-            Item.height = 22;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.Orange;
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();

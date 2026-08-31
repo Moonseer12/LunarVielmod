@@ -1,7 +1,4 @@
-﻿
-
-using Stellamod.Common.WeaponTypes.CombatTools;
-using Stellamod.Helpers;
+﻿using Stellamod.Common.WeaponTypes.CombatTools;
 using System.IO;
 using Terraria;
 using Terraria.Audio;

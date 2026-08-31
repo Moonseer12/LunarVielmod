@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using ReLogic.Content;
 using Stellamod.Core.PlayerLevelingSystem;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;

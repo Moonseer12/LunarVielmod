@@ -1,6 +1,4 @@
-﻿
-
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,9 +12,6 @@ namespace Stellamod.Core.RibbonSystem
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.width = 16;
-            Item.height = 16;
-            Item.rare = ItemRarityID.Green;
             Item.useTime = 2;
             Item.useAnimation = 2;
             Item.useStyle = ItemUseStyleID.HiddenAnimation;

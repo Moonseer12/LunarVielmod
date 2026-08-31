@@ -3,7 +3,7 @@ using Stellamod.Common.ArmorRework;
 using Stellamod.Content.Areas.Illuria.BossesIL.EStyr;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
+
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -190,14 +190,6 @@ public class HarpyHead : ModItem
         ArmorSetSystem.RegisterArmorSet<HarpyHead, HarpyBody, HarpyLegs>(ArmorGroup.Act_II);
     }
 
-    public override void SetDefaults()
-    {
-        Item.width = 40;
-        Item.height = 30;
-        Item.value = 10000;
-        Item.rare = ItemRarityID.Green;
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();
@@ -221,14 +213,6 @@ public class HarpyHead : ModItem
 [AutoloadEquip(EquipType.Body)]
 public class HarpyBody : ModItem
 {
-    public override void SetDefaults()
-    {
-        Item.width = 18; // Width of the item
-        Item.height = 18; // Height of the item
-        Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-        Item.rare = ItemRarityID.Green; // The rarity of the item
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();
@@ -241,14 +225,6 @@ public class HarpyBody : ModItem
 [AutoloadEquip(EquipType.Legs)]
 public class HarpyLegs : ModItem
 {
-    public override void SetDefaults()
-    {
-        Item.width = 28;
-        Item.height = 22;
-        Item.value = 10000;
-        Item.rare = ItemRarityID.Green;
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();

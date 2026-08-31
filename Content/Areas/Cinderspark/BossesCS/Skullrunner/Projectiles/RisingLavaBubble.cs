@@ -254,7 +254,7 @@ namespace Stellamod.Content.Areas.Cinderspark.BossesCS.Skullrunner.Projectiles
             return MathHelper.SmoothStep(baseWidth, 0.5f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.OrangeRed, Color.Red, completionRatio) * 0.7f;
         }

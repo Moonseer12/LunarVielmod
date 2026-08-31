@@ -26,8 +26,6 @@ public class SwarmerArtifact : ModItem
         base.SetDefaults();
         Item.DefaultToArtifact();
         Item.damage = 12;
-        Item.width = 16;
-        Item.height = 16;
         Item.mana = 20;
         Item.useAnimation = Item.useTime = 24;
         Item.useStyle = ItemUseStyleID.Shoot;

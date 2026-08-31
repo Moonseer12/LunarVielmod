@@ -5,9 +5,9 @@ using Stellamod.Content.Areas.Fable.BossesFB.JackTheScholar;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
+
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System;
@@ -777,7 +777,7 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
             return MathHelper.SmoothStep(baseWidth, 3.5f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.LightGoldenrodYellow * 0.1361f, Color.Transparent, completionRatio);
         }

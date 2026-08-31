@@ -15,8 +15,6 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
 
             //Setting this to width and height of the texture cause idk
             Item.damage = 9;
-            Item.width = 56;
-            Item.height = 30;
 
             LeftHand = true;
 

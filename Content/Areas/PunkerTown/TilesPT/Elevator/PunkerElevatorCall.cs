@@ -1,6 +1,4 @@
-﻿
-
-using Stellamod.WorldG;
+﻿using Stellamod.WorldG;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
@@ -11,16 +9,12 @@ using Terraria.ObjectData;
 
 namespace Stellamod.Content.Areas.PunkerTown.TilesPT.Elevator
 {
-
     public class PunkerElevatorCall : ModItem
     {
         public override void SetDefaults()
         {
             // With all the setup above, placeStyle will be either 0 or 1 for the 2 ExampleTrap instances we've loaded.
             Item.DefaultToPlaceableTile(ModContent.TileType<PunkerElevatorCallTile>());
-            Item.width = 12;
-            Item.height = 12;
-            Item.value = 10000;
         }
     }
     public class PunkerElevatorCallTile : ModTile

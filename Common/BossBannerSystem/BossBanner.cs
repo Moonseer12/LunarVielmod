@@ -1,5 +1,5 @@
 ﻿using ReLogic.Content;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using Terraria.ModLoader;

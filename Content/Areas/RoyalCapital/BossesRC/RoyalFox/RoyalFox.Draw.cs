@@ -3,9 +3,9 @@ using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Rendering;
-using Stellamod.Core.Utilities;
+
 using Stellamod.Effects.RoyalMagic;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using Terraria;

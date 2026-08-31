@@ -15,10 +15,6 @@ public class AcademyOutfitHead : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 18;
-        Item.height = 18;
-        Item.value = Item.sellPrice(gold: 1);
-        Item.rare = ItemRarityID.Green;
         Item.vanity = true;
     }
 }
@@ -33,10 +29,6 @@ public class AcademyOutfitRobe : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 18; 
-        Item.height = 18; 
-        Item.value = Item.sellPrice(gold: 1); 
-        Item.rare = ItemRarityID.Green;
         Item.vanity = true;
     }
 }
@@ -51,10 +43,6 @@ public class AcademyOutfitLegs : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 18; 
-        Item.height = 18; 
-        Item.value = Item.sellPrice(gold: 1);
-        Item.rare = ItemRarityID.Green;
         Item.vanity = true;
     }
 }

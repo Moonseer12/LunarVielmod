@@ -46,14 +46,6 @@ namespace Stellamod.Content.Armors.Lovestruck
             ArmorSetSystem.RegisterArmorSet<LovestruckMask, LovestruckBreastplate, LovestruckLegs>(ArmorGroup.Act_I);
         }
 
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.Blue; // The rarity of the item
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();
@@ -77,14 +69,6 @@ namespace Stellamod.Content.Armors.Lovestruck
     [AutoloadEquip(EquipType.Body)]
     public class LovestruckBreastplate : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.Blue; // The rarity of the item
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();
@@ -97,14 +81,6 @@ namespace Stellamod.Content.Armors.Lovestruck
     [AutoloadEquip(EquipType.Legs)]
     public class LovestruckLegs : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.Blue; // The rarity of the item
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();

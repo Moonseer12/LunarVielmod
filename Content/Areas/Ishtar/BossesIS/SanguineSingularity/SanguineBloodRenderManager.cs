@@ -6,8 +6,8 @@ using Stellamod.Common.Shaders;
 using Stellamod.Core;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Rendering;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.Trails;
 using System;
 using System.Collections.Generic;

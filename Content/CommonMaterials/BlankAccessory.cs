@@ -18,7 +18,6 @@ namespace Stellamod.Content.CommonMaterials
             base.SetDefaults();
             Item.DefaultToMold();
             Item.maxStack = Item.CommonMaxStack;
-            Item.rare = ItemRarityID.Green;
         }
     }
     public class BlankAccessory : SirestiasMold

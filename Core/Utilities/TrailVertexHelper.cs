@@ -1,7 +1,7 @@
 ﻿
 
 using Stellamod.Common.Shaders;
-using Stellamod.Helpers;
+
 using System;
 using Terraria;
 using Terraria.Graphics.Shaders;

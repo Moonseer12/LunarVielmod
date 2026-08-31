@@ -1,4 +1,4 @@
-﻿using Stellamod.Helpers;
+﻿
 
 namespace Stellamod.Content.MoonlightMagic
 {

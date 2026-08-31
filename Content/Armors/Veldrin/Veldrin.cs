@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common.ArmorRework;
 using Stellamod.Core.Particles;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -95,14 +95,6 @@ public class VeldrinHead : ModItem
         ArmorSetSystem.RegisterArmorSet<VeldrinHead, VeldrinBody, VeldrinLegs>(ArmorGroup.Act_I);
     }
 
-    public override void SetDefaults()
-    {
-        Item.width = 40;
-        Item.height = 30;
-        Item.value = 10000;
-        Item.rare = ItemRarityID.Green;
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();
@@ -125,14 +117,6 @@ public class VeldrinHead : ModItem
 [AutoloadEquip(EquipType.Body)]
 public class VeldrinBody : ModItem
 {
-    public override void SetDefaults()
-    {
-        Item.width = 18; // Width of the item
-        Item.height = 18; // Height of the item
-        Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-        Item.rare = ItemRarityID.Green; // The rarity of the item
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();
@@ -145,14 +129,6 @@ public class VeldrinBody : ModItem
 [AutoloadEquip(EquipType.Legs)]
 public class VeldrinLegs : ModItem
 {
-    public override void SetDefaults()
-    {
-        Item.width = 28;
-        Item.height = 22;
-        Item.value = 10000;
-        Item.rare = ItemRarityID.Green;
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();

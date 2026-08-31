@@ -405,8 +405,6 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT
     {
         public override void SetDefaults()
         {
-            Item.width = 60;
-            Item.height = 60;
             Item.damage = 34;
             Item.DamageType = DamageClass.Generic;
 
@@ -414,7 +412,6 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 6;
-            Item.value = Item.sellPrice(gold: 30);
             Item.autoReuse = true;
 
             Item.noMelee = true;

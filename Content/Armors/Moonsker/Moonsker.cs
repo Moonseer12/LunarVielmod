@@ -6,7 +6,7 @@ using Stellamod.Common.Shaders;
 using Stellamod.Content.MoonlightMagic;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;

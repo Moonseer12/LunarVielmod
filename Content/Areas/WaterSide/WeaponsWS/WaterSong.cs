@@ -20,7 +20,6 @@ namespace Stellamod.Content.Areas.WaterSide.WeaponsWS
         {
             base.SetDefaults();
             Item.damage = 8;
-            Item.rare = ItemRarityID.Blue;
         }
 
         public override void ShootBow(Player player, EntitySource_ItemUse_WithAmmo source, ShootParams shootParams)

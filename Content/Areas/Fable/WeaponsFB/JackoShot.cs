@@ -100,7 +100,7 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
             return MathHelper.SmoothStep(baseWidth, 3.5f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.LightGoldenrodYellow * 0.1361f, Color.Transparent, completionRatio);
         }
@@ -274,7 +274,7 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
         {
             for (int i = 0; i < 24; i++)
             {
-                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.FlameBurst, 0f, -2f, 0, default(Color), 1.5f);
+                int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.FlameBurst, 0f, -2f, 0, default, 1.5f);
                 Dust dust = Main.dust[num];
                 dust.noGravity = true;
                 dust.position.X += Main.rand.Next(-50, 51) * .05f - 1.5f;

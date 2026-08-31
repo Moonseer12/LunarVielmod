@@ -1,6 +1,6 @@
 ﻿
 
-using Stellamod.Helpers;
+
 using System.Collections.Generic;
 using Terraria;
 namespace Stellamod.Core.Effects

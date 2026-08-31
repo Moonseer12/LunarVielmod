@@ -5,8 +5,8 @@ using Stellamod.Common.ArmorShop.UI;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Tooltips;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using System;
 using System.Collections.Generic;
 using Terraria;

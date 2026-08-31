@@ -47,7 +47,7 @@ namespace Stellamod.Content.Special.PikpikGlove
             return MathHelper.SmoothStep(baseWidth, 3.5f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.Red * 0.1f, Color.Transparent, completionRatio);
         }

@@ -3,7 +3,7 @@
 using ReLogic.Content;
 using Stellamod.Core;
 using Stellamod.Core.Effects;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.ModLoader;
 

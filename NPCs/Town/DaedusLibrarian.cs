@@ -1,5 +1,5 @@
 ﻿using Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted;
-using Stellamod.Content.Areas.Shop.ItemsShop;
+using Stellamod.Content.Areas.Shop.WeaponsShop;
 using Stellamod.Content.Areas.Tundra.Snow.WeaponsSN;
 using Stellamod.Core;
 using System;

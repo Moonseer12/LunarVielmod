@@ -4,7 +4,7 @@ using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -3,7 +3,7 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles;
 using Stellamod.Core;
-using Stellamod.Helpers;
+
 using Stellamod.Trails;
 using System;
 using System.IO;

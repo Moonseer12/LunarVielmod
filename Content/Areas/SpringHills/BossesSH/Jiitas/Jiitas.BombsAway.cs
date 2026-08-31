@@ -1,7 +1,7 @@
 ﻿
 using Stellamod.Assets;
 using Stellamod.Content.Areas.SpringHills.BossesSH.Jiitas.Projectiles;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;

@@ -3,7 +3,7 @@
 using Stellamod.Assets;
 using Stellamod.Core;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;

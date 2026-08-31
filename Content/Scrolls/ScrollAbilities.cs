@@ -1,8 +1,8 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Content.Areas.Desert.WeaponsCL;
 using Stellamod.Content.Scrolls.Projectiles;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;

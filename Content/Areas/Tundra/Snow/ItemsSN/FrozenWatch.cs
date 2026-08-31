@@ -107,7 +107,6 @@ public class FrozenWatch : ModItem
 {
     public override void SetDefaults()
     {
-        Item.rare = ItemRarityID.Green;
         Item.useTime = 60;
         Item.useAnimation = 60;
         Item.useStyle = ItemUseStyleID.HoldUp;

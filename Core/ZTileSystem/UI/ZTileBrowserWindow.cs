@@ -4,8 +4,8 @@ using Microsoft.Xna.Framework.Input;
 using ReLogic.Content;
 using Stellamod.Common.ItemBrowser;
 using Stellamod.Core.Tooltips;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.UI;
 using System;
 using System.Reflection;

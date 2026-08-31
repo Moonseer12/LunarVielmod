@@ -5,8 +5,8 @@ using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss;
 using Stellamod.Core.Palettes;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Rendering;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;

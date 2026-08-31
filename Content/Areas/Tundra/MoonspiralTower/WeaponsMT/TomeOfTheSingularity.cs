@@ -93,7 +93,7 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT
             return w;
         }
 
-        public Color GetTrailColor(float completionRatio)
+        public static Color GetTrailColor(float completionRatio)
         {
             return Color.Lerp(Color.LightBlue, Color.DarkBlue, completionRatio);
         }
@@ -154,8 +154,6 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT
         {
             base.SetDefaults2();
             Item.damage = 24;
-            Item.width = 50;
-            Item.height = 50;
             Item.shoot = ModContent.ProjectileType<SingularitySparkProjG>();
             Item.shootSpeed = 15f;
             Item.mana = 12;

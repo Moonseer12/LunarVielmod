@@ -33,7 +33,6 @@ namespace Stellamod.Content.Insources
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.rare = ItemRarityID.Green;
         }
 
         public override int GetAddedTime()

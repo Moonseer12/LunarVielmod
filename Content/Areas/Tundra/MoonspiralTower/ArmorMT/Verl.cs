@@ -152,14 +152,6 @@ public class VerlMask : ModItem
         ArmorSetSystem.RegisterArmorSet<VerlMask, VerlBreastplate, VerlLeggings>(ArmorGroup.Act_I);
     }
 
-    public override void SetDefaults()
-    {
-        Item.width = 18; // Width of the item
-        Item.height = 18; // Height of the item
-        Item.value = Item.sellPrice(gold: 10); // How many coins the item is worth
-        Item.rare = ItemRarityID.Orange; // The rarity of the item
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();
@@ -182,14 +174,6 @@ public class VerlMask : ModItem
 [AutoloadEquip(EquipType.Body)]
 public class VerlBreastplate : ModItem
 {
-    public override void SetDefaults()
-    {
-        Item.width = 18; // Width of the item
-        Item.height = 18; // Height of the item
-        Item.value = Item.sellPrice(gold: 10); // How many coins the item is worth
-        Item.rare = ItemRarityID.Orange; // The rarity of the item
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();
@@ -202,14 +186,6 @@ public class VerlBreastplate : ModItem
 [AutoloadEquip(EquipType.Legs)]
 public class VerlLeggings : ModItem
 {
-    public override void SetDefaults()
-    {
-        Item.width = 18; // Width of the item
-        Item.height = 18; // Height of the item
-        Item.value = Item.sellPrice(gold: 10); // How many coins the item is worth
-        Item.rare = ItemRarityID.Orange; // The rarity of the item
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();

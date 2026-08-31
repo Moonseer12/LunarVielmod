@@ -3,7 +3,7 @@
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
+
 using System;
 using Terraria;
 using Terraria.ModLoader;
@@ -130,7 +130,7 @@ namespace Stellamod.Core.WindLineSystem
             PrepareWindLinesForDrawing();
         }
 
-        public Color GetTrailColor(float completionRatio)
+        public static Color GetTrailColor(float completionRatio)
         {
             return Color.Lerp(Color.Transparent, Color.White, EasingFunction.QuadraticBump(completionRatio)) * 0.3f;
         }

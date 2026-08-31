@@ -1,7 +1,7 @@
 ﻿using ReLogic.Content;
 using Stellamod.Common.Shaders;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using System;
 using System.Text;
 using Terraria;

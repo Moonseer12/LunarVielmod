@@ -2,7 +2,7 @@
 
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
-using Stellamod.Helpers;
+
 using Stellamod.Trails;
 using System;
 using System.Collections.Generic;

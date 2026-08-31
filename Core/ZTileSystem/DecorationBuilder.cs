@@ -17,8 +17,6 @@ public class DecorationBuilder : ModItem
     public override void SetDefaults()
     {
         base.SetDefaults();
-        Item.width = 24;
-        Item.height = 24;
         Item.useAnimation = 2;
         Item.useTime = 2;
         Item.useStyle = ItemUseStyleID.Swing;

@@ -5,7 +5,6 @@ using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Tundra.MoonspiralTower.AccMT;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
-using Stellamod.Projectiles.IgniterExplosions;
 using Terraria;
 using Terraria.ModLoader;
 

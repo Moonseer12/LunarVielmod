@@ -4,7 +4,7 @@ using ReLogic.Content;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.ZTileSystem;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.ModLoader;
 

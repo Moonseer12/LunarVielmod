@@ -147,7 +147,6 @@ namespace Stellamod.Content.Areas.Terror.AccTR
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.value = Item.sellPrice(gold: 2);
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

@@ -3,7 +3,7 @@ using Stellamod.Common.Shaders;
 using Stellamod.Core;
 using Stellamod.Core.Pixelation;
 using Stellamod.Effects.GothinFlames;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

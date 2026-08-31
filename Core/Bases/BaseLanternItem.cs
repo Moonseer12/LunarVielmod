@@ -1,6 +1,4 @@
-﻿
-using Stellamod.Helpers;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,14 +12,10 @@ namespace Stellamod.Core.Bases
             base.SetDefaults();
             Item.damage = 0;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.width = 16;
-            Item.height = 30;
             Item.UseSound = SoundID.Item2;
             Item.useAnimation = 20;
             Item.useTime = 20;
-            Item.rare = ItemRarityID.Yellow;
             Item.noMelee = true;
-            Item.value = Item.sellPrice(0, 5, 50);
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

@@ -2,9 +2,9 @@
 using Stellamod.Assets;
 using Stellamod.Common;
 using Stellamod.Common.Shaders;
+using Stellamod.Content.Areas.Illuria.WeaponsIL;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Projectiles.IgniterExplosions;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -79,7 +79,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.BossesRC.STARBOMBER.Projectiles
                         (Vector2.One * Main.rand.NextFloat(0.2f, 5f)).RotatedByRandom(19.0), 0, Color.Pink, Main.rand.NextFloat(1f, 3f)).noGravity = true;
                 }
 
-                SoundStyle morrowExp = new SoundStyle($"Stellamod/Assets/Sounds/MorrowExp");
+                SoundStyle morrowExp = new($"Stellamod/Assets/Sounds/MorrowExp");
                 morrowExp.PitchVariance = 0.3f;
                 SoundEngine.PlaySound(morrowExp, explosionCenter);
 

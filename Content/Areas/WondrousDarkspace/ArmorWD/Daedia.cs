@@ -264,14 +264,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.ArmorWD
             ArmorSetSystem.RegisterArmorSet<DaediaMask, DaediaBreastplate, DaediaThighs>(ArmorGroup.Act_I);
         }
 
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.LightRed; // The rarity of the item
-        }
-
         public override void UpdateEquip(Player player)
         {
             ArmorStatsPlayer armorStatsPlayer = player.GetModPlayer<ArmorStatsPlayer>();
@@ -294,14 +286,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.ArmorWD
     [AutoloadEquip(EquipType.Body)]
     public class DaediaBreastplate : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.LightRed; // The rarity of the item
-        }
-
         public override void UpdateEquip(Player player)
         {
             ArmorStatsPlayer armorStatsPlayer = player.GetModPlayer<ArmorStatsPlayer>();
@@ -313,13 +297,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.ArmorWD
     [AutoloadEquip(EquipType.Legs)]
     public class DaediaThighs : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.LightRed; // The rarity of the item
-        }
         public override void UpdateEquip(Player player)
         {
             ArmorStatsPlayer armorStatsPlayer = player.GetModPlayer<ArmorStatsPlayer>();

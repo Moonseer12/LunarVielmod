@@ -61,14 +61,11 @@ namespace Stellamod.Content.Areas.Hallowrooms.WeaponsHR
 
     public class InkingSProj : ModProjectile
     {
-        public static bool swung = false;
         public int SwingTime = 60;
         public float holdOffset = 25f;
         public bool bounced = false;
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Slasher");
-            Main.projFrames[Projectile.type] = 1;
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5; // The length of old position to be recorded
             ProjectileID.Sets.TrailingMode[Projectile.type] = 0; // The recording mode
         }
@@ -148,7 +145,7 @@ namespace Stellamod.Content.Areas.Hallowrooms.WeaponsHR
                     float speedXa = Main.rand.NextFloat(-60f, 60f);
                     float speedYa = Main.rand.Next(-60, 60);
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + speedXa, Projectile.Center.Y + speedYa, 0, 0, ModContent.ProjectileType<PaintBomb1>(), (Projectile.damage * 2) + player.GetModPlayer<ArtisanPlayer>().PPPaintDMG2, 1, Projectile.owner, 0, 0);
-                    Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob3>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+                    Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob3>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
                 }
 
                 if (Main.rand.NextBool(1))
@@ -163,7 +160,7 @@ namespace Stellamod.Content.Areas.Hallowrooms.WeaponsHR
                     float speedXa = Main.rand.NextFloat(-60f, 60f);
                     float speedYa = Main.rand.Next(-60, 60);
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + speedXa, Projectile.Center.Y + speedYa, 0, 0, ModContent.ProjectileType<PaintBomb3>(), (Projectile.damage * 3) + player.GetModPlayer<ArtisanPlayer>().PPPaintDMG2, 1, Projectile.owner, 0, 0);
-                    Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+                    Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
                 }
 
 
@@ -172,7 +169,7 @@ namespace Stellamod.Content.Areas.Hallowrooms.WeaponsHR
                     float speedXa = Main.rand.NextFloat(-60f, 60f);
                     float speedYa = Main.rand.Next(-60, 60);
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + speedXa, Projectile.Center.Y + speedYa, 0, 0, ModContent.ProjectileType<PaintBomb5>(), (Projectile.damage * 3) + player.GetModPlayer<ArtisanPlayer>().PPPaintDMG2, 1, Projectile.owner, 0, 0);
-                    Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+                    Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
                 }
 
                 if (Main.rand.NextBool(4))
@@ -180,7 +177,7 @@ namespace Stellamod.Content.Areas.Hallowrooms.WeaponsHR
                     float speedXa = Main.rand.NextFloat(-60f, 60f);
                     float speedYa = Main.rand.Next(-60, 60);
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + speedXa, Projectile.Center.Y + speedYa, 0, 0, ModContent.ProjectileType<PaintBomb4>(), (Projectile.damage * 3) + player.GetModPlayer<ArtisanPlayer>().PPPaintDMG2, 1, Projectile.owner, 0, 0);
-                    Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+                    Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
                 }
 
                 if (Main.rand.NextBool(4))
@@ -188,7 +185,7 @@ namespace Stellamod.Content.Areas.Hallowrooms.WeaponsHR
                     float speedXa = Main.rand.NextFloat(-60f, 60f);
                     float speedYa = Main.rand.Next(-60, 60);
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + speedXa, Projectile.Center.Y + speedYa, 0, 0, ModContent.ProjectileType<PaintBomb6>(), (Projectile.damage * 3) + player.GetModPlayer<ArtisanPlayer>().PPPaintDMG2, 1, Projectile.owner, 0, 0);
-                    Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+                    Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
                 }
 
                 if (player.GetModPlayer<ArtisanPlayer>().PPPaintI)
@@ -198,7 +195,7 @@ namespace Stellamod.Content.Areas.Hallowrooms.WeaponsHR
                         float speedXa = Main.rand.NextFloat(-60f, 60f);
                         float speedYa = Main.rand.Next(-60, 60);
                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + speedXa, Projectile.Center.Y + speedYa, 0, 0, ModContent.ProjectileType<PaintBomb7>(), (Projectile.damage * 4) + player.GetModPlayer<ArtisanPlayer>().PPPaintDMG2, 1, Projectile.owner, 0, 0);
-                        Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob5>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+                        Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob5>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
                     }
                 }
 
@@ -209,7 +206,7 @@ namespace Stellamod.Content.Areas.Hallowrooms.WeaponsHR
                         float speedXa = Main.rand.NextFloat(-35f, 35f);
                         float speedYa = Main.rand.Next(-35, 35);
                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + speedXa, Projectile.Center.Y + speedYa, 0, 0, ModContent.ProjectileType<PaintBomb8>(), (Projectile.damage * 3) + player.GetModPlayer<ArtisanPlayer>().PPPaintDMG2, 1, Projectile.owner, 0, 0);
-                        Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob1>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+                        Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob1>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
                     }
                 }
             }
@@ -248,21 +245,21 @@ namespace Stellamod.Content.Areas.Hallowrooms.WeaponsHR
             if (Main.rand.NextBool(3))
             {
                 Vector2 speed = Main.rand.NextVector2Circular(1f, 1f);
-                Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob3>(), speed * 2, 0, default(Color), 4f).noGravity = false;
+                Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob3>(), speed * 2, 0, default, 4f).noGravity = false;
             }
 
             if (Main.rand.NextBool(3))
             {
 
                 Vector2 speed = Main.rand.NextVector2Circular(1f, 1f);
-                Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob5>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+                Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob5>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
 
             }
 
             if (Main.rand.NextBool(3))
             {
                 Vector2 speed = Main.rand.NextVector2Circular(1f, 1f);
-                Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob4>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+                Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob4>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
 
             }
             return true;
@@ -289,15 +286,15 @@ namespace Stellamod.Content.Areas.Hallowrooms.WeaponsHR
 
             for (int i = 0; i < 25; i++)
             {
-                Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 8)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+                Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 8)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
                 Vector2 speed = Main.rand.NextVector2Circular(1f, 1f);
-                Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob3>(), speed * 2, 0, default(Color), 4f).noGravity = false;
+                Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob3>(), speed * 2, 0, default, 4f).noGravity = false;
             }
 
             for (int i = 0; i < 7; i++)
             {
                 Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<PaintBlob1>());
-                Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob5>(), (Vector2.One * Main.rand.Next(1, 8)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+                Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob5>(), (Vector2.One * Main.rand.Next(1, 8)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
             }
 
             if (target.lifeMax <= 500)

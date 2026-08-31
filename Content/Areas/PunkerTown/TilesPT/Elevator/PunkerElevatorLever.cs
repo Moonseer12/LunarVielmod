@@ -1,8 +1,5 @@
-﻿
-
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
-using Stellamod.Helpers;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -21,9 +18,6 @@ namespace Stellamod.Content.Areas.PunkerTown.TilesPT.Elevator
         {
             // With all the setup above, placeStyle will be either 0 or 1 for the 2 ExampleTrap instances we've loaded.
             Item.DefaultToPlaceableTile(ModContent.TileType<PunkerElevatorLeverTile>());
-            Item.width = 12;
-            Item.height = 12;
-            Item.value = 10000;
         }
     }
     public class PunkerElevatorLever : ModNPC,

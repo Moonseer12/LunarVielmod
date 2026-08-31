@@ -1,6 +1,6 @@
 ﻿
 using Microsoft.Xna.Framework.Input;
-using Stellamod.Helpers;
+
 using Stellamod.UI;
 using System.Collections.Generic;
 using Terraria;

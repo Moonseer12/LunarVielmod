@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.Shaders;
 using Stellamod.Core.Tooltips;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;

@@ -2,7 +2,7 @@
 using Stellamod.Common.ArmorRework;
 using Stellamod.Content.Armors.Jackler;
 using Stellamod.Core.Particles;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;

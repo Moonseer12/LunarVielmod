@@ -327,8 +327,6 @@ namespace Stellamod.Content.Areas.Underground.WeaponsUG
             // base.SetDefaults();
             Item.damage = 18;
             Item.DamageType = DamageClass.Ranged;
-            Item.width = 56;
-            Item.height = 56;
             Item.useTime = 32;
             Item.useAnimation = 32;
             Item.useStyle = ItemUseStyleID.Shoot;

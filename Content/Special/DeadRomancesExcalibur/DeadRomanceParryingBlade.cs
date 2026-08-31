@@ -2,9 +2,6 @@
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
-using Stellamod.Projectiles.IgniterExplosions;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using System.IO;
@@ -15,7 +12,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Special.DeadRomancesExcalibur;
-
 
 public class DeadRomanceParryBuster : ModProjectile
 {

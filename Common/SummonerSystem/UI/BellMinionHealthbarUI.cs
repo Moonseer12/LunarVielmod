@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics.PackedVector;
 using ReLogic.Content;
-using Stellamod.Helpers;
+
 using Stellamod.Trails;
 using System;
 using System.Collections.Generic;

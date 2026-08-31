@@ -2,7 +2,7 @@
 
 using ReLogic.Content;
 using Stellamod.Core.DialogueSystem;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.UI.Elements;

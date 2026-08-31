@@ -1,6 +1,6 @@
 ﻿using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Core.ProjectileHelpers;
-using Stellamod.Core.Utilities;
+
 using Stellamod.Dusts;
 using Stellamod.Trails;
 using System;

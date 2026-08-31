@@ -2,7 +2,7 @@
 
 using ReLogic.Content;
 using ReLogic.Graphics;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;

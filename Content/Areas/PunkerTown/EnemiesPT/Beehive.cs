@@ -3,7 +3,7 @@
 using Stellamod.Content.Areas.PunkerTown.TilesPT;
 using Stellamod.Content.Areas.Terror.TilesTR;
 using Stellamod.Core.Particles;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;

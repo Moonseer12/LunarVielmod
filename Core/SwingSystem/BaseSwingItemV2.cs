@@ -127,7 +127,6 @@ namespace Stellamod.Core.SwingSystem
             Item.useAnimation = 32;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 6;
-            Item.rare = ItemRarityID.Blue;
             Item.shootSpeed = 10;
             staminaDamageMultiplier = 1;
             SetDefaults2();

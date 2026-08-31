@@ -1,6 +1,6 @@
 ﻿
 
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.UI.Elements;

@@ -1,0 +1,47 @@
+using Stellamod.Common.MagicCauldron;
+using Stellamod.Content.CommonMaterials;
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace Stellamod.Content.Areas.Tundra.Abyss.WeaponsAB
+{
+    public class LarveinGreatbow : ModItem
+    {
+        public override void SetDefaults()
+        {
+            Item.damage = 58;
+            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.knockBack = 4;
+
+            Item.shootSpeed = 15;
+            Item.autoReuse = true;
+            Item.DamageType = DamageClass.Ranged;
+            Item.shoot = ProjectileID.PurificationPowder;
+            Item.shootSpeed = 16f;
+            Item.useAmmo = AmmoID.Arrow;
+            Item.UseSound = SoundID.Item5;
+            Item.useAnimation = 28;
+            Item.useTime = 28;
+            Item.consumeAmmoOnLastShotOnly = true;
+            Item.noMelee = true;
+        }
+        public override void AddRecipes()
+        {
+            base.AddRecipes();
+            this.RegisterBrew<ConvulgingMater, BlankBow>();
+        }
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-2f, 0f);
+        }
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            Projectile.NewProjectile(source, position.X, position.Y, velocity.X, velocity.Y, type, damage, Item.knockBack, player.whoAmI, 0f, 0f);
+            return false;
+        }
+
+
+    }
+}

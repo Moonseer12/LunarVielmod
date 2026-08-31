@@ -21,8 +21,6 @@ public class TecnoBlaster : BaseGun
         remainingAmmo = 16;
         Item.damage = 100;
         Item.DamageType = DamageClass.Ranged;
-        Item.width = 56;
-        Item.height = 56;
         Item.useTime = 12;
         Item.useAnimation = 12;
         Item.useStyle = ItemUseStyleID.Shoot;
@@ -201,7 +199,7 @@ public class TechnoBeam : ModProjectile
         return MathHelper.Lerp(64, 0f, completionRatio) * Projectile.timeLeft / 30f * inScale * EasingFunction.QuadraticBump(completionRatio);
     }
 
-    public Color ColorFunction(float completionRatio)
+    public static Color ColorFunction(float completionRatio)
     {
         return Color.Lerp(Color.Violet, Color.Cyan, ExtraMath.Osc(0f, 1f, speed: 32));
     }

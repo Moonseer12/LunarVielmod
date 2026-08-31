@@ -1,6 +1,6 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Helpers;
+
 using Terraria;
 
 namespace Stellamod.Content.Areas.RoyalCapital.BossesRC.RoyalFox;

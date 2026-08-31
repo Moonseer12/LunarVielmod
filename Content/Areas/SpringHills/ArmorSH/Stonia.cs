@@ -15,14 +15,6 @@ namespace Stellamod.Content.Areas.SpringHills.ArmorSH
             ArmorSetSystem.RegisterArmorSet<StoniaHat, StoniaChestplate, StoniaBoots>(ArmorGroup.Act_I);
         }
 
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(silver: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.Blue; // The rarity of the item
-        }
-
         public override void UpdateEquip(Player player)
         {
             ArmorStatsPlayer armorStatsPlayer = player.GetModPlayer<ArmorStatsPlayer>();
@@ -47,14 +39,6 @@ namespace Stellamod.Content.Areas.SpringHills.ArmorSH
     [AutoloadEquip(EquipType.Body)]
     public class StoniaChestplate : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(silver: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.Blue; // The rarity of the item
-        }
-
         public override void UpdateEquip(Player player)
         {
             ArmorStatsPlayer armorStatsPlayer = player.GetModPlayer<ArmorStatsPlayer>();
@@ -67,14 +51,6 @@ namespace Stellamod.Content.Areas.SpringHills.ArmorSH
     [AutoloadEquip(EquipType.Legs)]
     public class StoniaBoots : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(silver: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.Blue; // The rarity of the item
-        }
-
         public override void UpdateEquip(Player player)
         {
             ArmorStatsPlayer armorStatsPlayer = player.GetModPlayer<ArmorStatsPlayer>();

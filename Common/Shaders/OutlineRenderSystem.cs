@@ -1,5 +1,5 @@
 ﻿using Stellamod.Core.Rendering;
-using Stellamod.Core.Utilities;
+
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Graphics.Renderers;

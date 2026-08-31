@@ -10,8 +10,6 @@ namespace Stellamod.Content.Areas.Shop.AccShop
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.width = 8;
-            Item.height = 8;
             Item.consumable = true;
             Item.useAnimation = 16;
             Item.useTime = 16;

@@ -5,7 +5,7 @@ using ReLogic.Threading;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.LunarLightingSystem;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

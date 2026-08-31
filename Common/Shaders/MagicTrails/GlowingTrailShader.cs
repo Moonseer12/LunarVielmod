@@ -2,7 +2,7 @@
 
 using ReLogic.Content;
 using Stellamod.Common.Shaders;
-using Stellamod.Helpers;
+
 using Stellamod.Trails;
 using System;
 using System.Collections.Generic;

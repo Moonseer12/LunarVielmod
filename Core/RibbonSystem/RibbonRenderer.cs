@@ -5,7 +5,7 @@ using ReLogic.Threading;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

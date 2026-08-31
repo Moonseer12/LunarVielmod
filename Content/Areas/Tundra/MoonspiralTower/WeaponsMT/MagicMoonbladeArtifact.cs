@@ -26,8 +26,6 @@ public class MagicMoonbladeArtifact : ModItem
     {
         base.SetDefaults();
         Item.DefaultToArtifact();
-        Item.width = 16;
-        Item.height = 16;
         Item.mana = 25;
         Item.damage = 38;
         Item.useAnimation = Item.useTime = 15;

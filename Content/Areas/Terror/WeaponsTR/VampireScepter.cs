@@ -215,13 +215,9 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
             Item.damage = 34;
             Item.knockBack = 3f;
             Item.mana = 10;
-            Item.width = 40;
-            Item.height = 48;
             Item.useTime = 36;
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.value = Item.sellPrice(0, 1, 33, 0);
-            Item.rare = ItemRarityID.LightRed;
 
             // These below are needed for a minion weapon
             Item.noMelee = true;

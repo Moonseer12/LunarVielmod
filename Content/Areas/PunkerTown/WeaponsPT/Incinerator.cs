@@ -16,9 +16,6 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.width = 62;
-            Item.height = 32;
-            Item.rare = ItemRarityID.Purple;
             Item.useTime = 4;
             Item.useAnimation = 4;
             Item.useStyle = ItemUseStyleID.Shoot;
@@ -35,8 +32,6 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
             Item.shoot = ModContent.ProjectileType<IncineratorProj>();
             Item.useTime = Item.useAnimation = 4;
             Item.shootSpeed = 1;
-            // Restrict the type of ammo the weapon can use, so that the weapon cannot use other ammos
-            Item.value = Item.sellPrice(gold: 25);
             muzzleOrigin = new Vector2(45, 10);
         }
 

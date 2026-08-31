@@ -1,8 +1,8 @@
 ﻿using ReLogic.Content;
 using Stellamod.Common.ArmorRework;
-using Stellamod.Core.Utilities;
+
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -173,7 +173,7 @@ public class BallNChainPlayer : ModPlayer
             }
             for (int i = 0; i < 7; i++)
             {
-                Dust.NewDustPerfect(Player.Center, ModContent.DustType<SmokeDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, default(Color), 1f).noGravity = true;
+                Dust.NewDustPerfect(Player.Center, ModContent.DustType<SmokeDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, default, 1f).noGravity = true;
             }
         }
     }

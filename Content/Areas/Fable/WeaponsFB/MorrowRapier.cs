@@ -16,9 +16,6 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
         }
         public override void SetDefaults()
         {
-            // Core Properties
-            Item.value = Item.sellPrice(silver: 10); // The number and type of coins item can be sold for to an NPC
-
             // Use Properties
             Item.useStyle = ItemUseStyleID.Shoot; // How you use the item (swinging, holding out, etc.)
             Item.useAnimation = 34; // The length of the item's use animation in ticks (60 ticks == 1 second.)

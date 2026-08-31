@@ -67,7 +67,7 @@ namespace Stellamod.UI.CollectionSystem.Quests
             Texture2D value = ModContent.Request<Texture2D>($"{CollectionBookUISystem.RootTexturePath}CollectionTabSlot").Value;
             Vector2 centerPos = pos + rectangle.Size() / 2f;
 
-            spriteBatch.Draw(value, rectangle.TopLeft(), null, color2, 0f, default(Vector2), _scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(value, rectangle.TopLeft(), null, color2, 0f, default, _scale, SpriteEffects.None, 0f);
             ItemSlot.DrawItemIcon(Item, _context, spriteBatch, centerPos, _scale, 32, Color.White);
 
 

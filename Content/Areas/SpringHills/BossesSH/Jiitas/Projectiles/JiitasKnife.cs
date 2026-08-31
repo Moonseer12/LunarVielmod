@@ -2,7 +2,7 @@
 using Stellamod.Assets;
 using Stellamod.Core;
 using Stellamod.Core.Effects.Trails;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

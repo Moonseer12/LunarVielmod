@@ -15,12 +15,9 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
         {
             Item.staff[Item.type] = true;
             Item.damage = 50;
-            Item.width = 50;
-            Item.height = 50;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 4;
-            Item.value = Item.sellPrice(0, 1, 1, 29);
             Item.shootSpeed = 35;
             Item.autoReuse = true;
 

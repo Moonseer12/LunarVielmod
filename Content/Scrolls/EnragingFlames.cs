@@ -3,7 +3,7 @@ using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -61,7 +61,7 @@ public class EnragingFlames : ModProjectile
         // Projectile.rotation = _initialVelocity.ToRotation() + MathHelper.PiOver2;
         if (Main.rand.NextBool(8))
         {
-            Dust.NewDustPerfect(Owner.Center + Main.rand.NextVector2Circular(32, 32), ModContent.DustType<SmokeDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, default(Color), 1f).noGravity = true;
+            Dust.NewDustPerfect(Owner.Center + Main.rand.NextVector2Circular(32, 32), ModContent.DustType<SmokeDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, default, 1f).noGravity = true;
         }
 
         //   Projectile.rotation = Projectile.velocity.X * 0.025f;

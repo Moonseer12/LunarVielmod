@@ -12,7 +12,6 @@ namespace Stellamod.Content.GunSwapping
         {
             base.SetDefaults();
             Item.damage = 50;
-            Item.value = Item.buyPrice(gold: 15);
             LeftHand = true;
             RightHand = true;
             TwoHands = true;

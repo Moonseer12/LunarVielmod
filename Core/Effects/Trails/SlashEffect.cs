@@ -1,7 +1,7 @@
 ﻿
 
 using Stellamod.Assets;
-using Stellamod.Helpers;
+
 using Terraria;
 namespace Stellamod.Core.Effects.Trails
 {

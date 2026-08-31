@@ -2,7 +2,7 @@
 
 using Stellamod.Content.Areas.Desert.BossesCL.Gustbeak.Projectiles;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

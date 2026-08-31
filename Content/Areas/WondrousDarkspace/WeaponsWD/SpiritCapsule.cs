@@ -8,7 +8,6 @@ using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Projectiles.IgniterExplosions;
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;
@@ -19,7 +18,6 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
 namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
-
 
 public class Charm : ModBuff
 {
@@ -209,6 +207,71 @@ public class CharmGlobalNPC : GlobalNPC
 
 }
 
+    public class SpiritualBoom : ModProjectile
+    {
+        public override void SetStaticDefaults()
+        {
+            Main.projFrames[Projectile.type] = 10;
+        }
+
+        public override void SetDefaults()
+        {
+            Projectile.friendly = false;
+            Projectile.width = 301;
+            Projectile.height = 276;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 20;
+            Projectile.scale = 1f;
+
+        }
+        public float Timer
+        {
+            get => Projectile.ai[0];
+            set => Projectile.ai[0] = value;
+        }
+        public override void AI()
+        {
+
+            Vector3 RGB = new(0.89f, 2.53f, 2.55f);
+            // The multiplication here wasn't doing anything
+            Lighting.AddLight(Projectile.position, RGB.X, RGB.Y, RGB.Z);
+
+        }
+
+        public override bool PreAI()
+        {
+            Projectile.tileCollide = false;
+            if (++Projectile.frameCounter >= 2)
+            {
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 10)
+                {
+                    Projectile.frame = 0;
+                }
+            }
+            return true;
+
+
+        }
+
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return new Color(255, 255, 255, 0) * (1f - Projectile.alpha / 50f);
+        }
+
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            base.OnHitNPC(target, hit, damageDone);
+            target.AddBuff(ModContent.BuffType<Charm>(), 120);
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            return base.PreDraw(ref lightColor);
+        }
+    }
+
 public class SpiritCapsule : ModItem
 {
     public override void SetDefaults()
@@ -301,12 +364,3 @@ public class SpiritCapsuleP : ModProjectile
         target.AddBuff(ModContent.BuffType<Charm>(), 18000);
     }
 }
-
-
-
-
-
-
-
-
-

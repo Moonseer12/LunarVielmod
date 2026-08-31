@@ -18,7 +18,6 @@ public class CloudBow : BaseCrossbowItem
         base.SetDefaults();
         Item.damage = 18;
         Item.knockBack = 6;
-        Item.rare = ItemRarityID.LightRed;
     }
 
     public override void ShootBow(Player player, EntitySource_ItemUse_WithAmmo source, ShootParams shootParams)

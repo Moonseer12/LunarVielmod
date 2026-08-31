@@ -11,7 +11,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.ArmorWD
         float TimerR = 0;
         public override void SetStaticDefaults()
         {
-            Main.projFrames[Projectile.type] = 1;
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 3;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }

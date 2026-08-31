@@ -2,7 +2,7 @@
 using Stellamod.Core;
 using Stellamod.Core.DialogueSystem;
 using Stellamod.Core.TriggersSystem.Triggers;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using Terraria;

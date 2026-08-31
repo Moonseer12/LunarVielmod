@@ -6,9 +6,9 @@ using Stellamod.Core;
 using Stellamod.Core.Camera;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
+
 using Stellamod.Effects.GothinFlames;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using System.IO;

@@ -19,15 +19,12 @@ public class WiggleDiggle : BaseGun
     {
         base.SetDefaults();
         Item.damage = 124;
-        Item.width = 96;
-        Item.height = 42;
         Item.DamageType = DamageClass.Ranged;
         Item.useAnimation = 50;
         Item.useTime = 50;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.UseSound = SoundID.DD2_KoboldExplosion;
         Item.knockBack = 2;
-        Item.rare = ItemRarityID.Lime;
         Item.shoot = ModContent.ProjectileType<WiggleDiggleProj>();
         Item.shootSpeed = 19;
     }
@@ -70,12 +67,6 @@ public class WiggleDiggle : BaseGun
             //Particles and stuff
             Dust.NewDustPerfect(position + offset * distance, ModContent.DustType<Dusts.GlowDust>(), new Vector2(0, 0), 125, new Color(150, 80, 40), 1);
             Dust.NewDustPerfect(player.Center + offset * distance, ModContent.DustType<Dusts.TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, new Color(60, 55, 50) * 0.5f, Main.rand.NextFloat(0.5f, 1));
-
-            //Get a random velocity
-            Vector2 startVelocity = velocity.RotatedByRandom(MathHelper.PiOver4 / 2);
-
-            //Get a random
-            float randScale = Main.rand.NextFloat(0.5f, 1.5f);
 
             // Rotate the velocity randomly by 30 degrees at max.
             Vector2 newVelocity = velocity.RotatedByRandom(MathHelper.ToRadians(15));

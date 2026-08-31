@@ -21,15 +21,12 @@ public class Jiisword : BaseSwingItemV2
         base.SetDefaults2();
         Item.damage = 14;
         Item.DamageType = DamageClass.Melee;
-        Item.width = 40;
-        Item.height = 40;
         Item.noUseGraphic = true;
         Item.noMelee = true;
         Item.useTime = 64;
         Item.useAnimation = 64;
         Item.useStyle = ItemUseStyleID.Swing;
         Item.knockBack = 6;
-        Item.value = Item.buyPrice(silver: 1);
         Item.rare = ModContent.RarityType<BossRewardRarity>();
         Item.shootSpeed = 10;
         Item.shoot = ModContent.ProjectileType<JiiswordSlash>();

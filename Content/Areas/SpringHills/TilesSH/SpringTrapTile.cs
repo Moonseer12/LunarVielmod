@@ -2,7 +2,7 @@
 
 using Stellamod.Assets;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using Stellamod.Trails;
 using Terraria;
 using Terraria.DataStructures;
@@ -47,7 +47,7 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
             return MathHelper.SmoothStep(baseWidth, 3.5f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.LightPink, Color.Transparent, completionRatio) * 0.7f;
         }
@@ -86,10 +86,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
         {
             // With all the setup above, placeStyle will be either 0 or 1 for the 2 ExampleTrap instances we've loaded.
             Item.DefaultToPlaceableTile(ModContent.TileType<SpringTrapTile>());
-
-            Item.width = 12;
-            Item.height = 12;
-            Item.value = 10000;
             Item.mech = true; // lets you see wires while holding.
         }
     }
@@ -229,10 +225,6 @@ namespace Stellamod.Content.Areas.SpringHills.TilesSH
         {
             // With all the setup above, placeStyle will be either 0 or 1 for the 2 ExampleTrap instances we've loaded.
             Item.DefaultToPlaceableTile(ModContent.TileType<SpringTrapTileRight>());
-
-            Item.width = 12;
-            Item.height = 12;
-            Item.value = 10000;
             Item.mech = true; // lets you see wires while holding.
         }
     }

@@ -62,7 +62,6 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
         private ref float Timer => ref Projectile.ai[0];
         public override void SetStaticDefaults()
         {
-            Main.projFrames[Projectile.type] = 1;
             ProjectileID.Sets.TrailCacheLength[Type] = 8;
             ProjectileID.Sets.TrailingMode[Type] = 2;
         }

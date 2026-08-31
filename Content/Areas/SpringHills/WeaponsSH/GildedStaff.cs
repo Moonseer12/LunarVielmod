@@ -3,7 +3,7 @@ using Stellamod.Common.Shaders;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -20,8 +20,6 @@ namespace Stellamod.Content.Areas.SpringHills.WeaponsSH
             Item.DefaultToArtifact();
             Item.damage = 13;
             Item.mana = 50;
-            Item.width = 40;
-            Item.height = 40;
             Item.useTime = 32;
             Item.useAnimation = 32;
             Item.useStyle = ItemUseStyleID.Shoot;
@@ -30,9 +28,6 @@ namespace Stellamod.Content.Areas.SpringHills.WeaponsSH
             Item.noUseGraphic = true;
             Item.knockBack = 2f;
             Item.DamageType = DamageClass.Magic;
-            Item.value = Item.sellPrice(silver: 10);
-            Item.rare = ItemRarityID.Blue;
-
             Item.shoot = ModContent.ProjectileType<GildedStaffHold>();
             Item.shootSpeed = 8f;
             Item.channel = true;

@@ -70,7 +70,7 @@ namespace Stellamod.Content.Insources
             StrengthInsourcePlayer strengthPlayer = flaskPlayer.Player.GetModPlayer<StrengthInsourcePlayer>();
             strengthPlayer.stacks++;
 
-            SoundStyle useSound = new SoundStyle("Stellamod/Assets/Sounds/Dreadmire_Pentagram");
+            SoundStyle useSound = new("Stellamod/Assets/Sounds/Dreadmire_Pentagram");
             useSound.PitchVariance = 0.1f;
             SoundEngine.PlaySound(useSound, flaskPlayer.Player.position);
 

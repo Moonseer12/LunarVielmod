@@ -94,8 +94,6 @@ namespace Stellamod.Content.Areas.Jungle.WeaponsJN
     {
         public override void SetStaticDefaults()
         {
-            // Total count animation frames
-            Main.projFrames[Projectile.type] = 1;
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 18;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }

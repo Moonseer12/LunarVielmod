@@ -103,7 +103,6 @@ namespace Stellamod.Content.Areas.Cinderspark.AccCS
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.value = Item.sellPrice(gold: 2);
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

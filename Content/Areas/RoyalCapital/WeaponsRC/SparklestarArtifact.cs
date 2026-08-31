@@ -22,8 +22,6 @@ public class SparklestarArtifact : ModItem
         base.SetDefaults();
         Item.DefaultToArtifact();
         Item.damage = 332;
-        Item.width = 16;
-        Item.height = 16;
         Item.channel = false;
         Item.autoReuse = true;
         Item.mana = 25;

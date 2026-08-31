@@ -35,11 +35,11 @@ using Stellamod.Content.Areas.WaterSide.BossesWS.KingJellyfishBoss;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Currencies;
 using Stellamod.Content.Relics;
-using Stellamod.Content.Vanity.IllurianGeneralHat;
-using Stellamod.Content.Insources;
 using Terraria.ModLoader;
 using Stellamod.Content.Areas.Tundra.Abyss.ItemsAB;
 using Stellamod.Content.Areas.PunkerTown.ArmorPT;
+using Stellamod.Content.Areas.PunkerTown.InsourcesPT;
+using Stellamod.Content.Areas.Dungeon.VanitiesDG;
 
 namespace Stellamod.Content.BossPages
 {

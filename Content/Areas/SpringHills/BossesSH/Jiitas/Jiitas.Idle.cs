@@ -1,5 +1,5 @@
 ﻿
-using Stellamod.Helpers;
+
 using System.Collections.Generic;
 using Terraria;
 namespace Stellamod.Content.Areas.SpringHills.BossesSH.Jiitas

@@ -1,6 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
-using Stellamod.Helpers;
+
 using System;
 using Terraria;
 using Terraria.Graphics.Effects;

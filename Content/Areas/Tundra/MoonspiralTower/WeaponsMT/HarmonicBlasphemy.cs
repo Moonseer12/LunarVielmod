@@ -25,14 +25,10 @@ public class HarmonicBlasphemy : BaseGun
         base.SetDefaults();
         Item.damage = 16;
         Item.DamageType = DamageClass.Ranged;
-        Item.width = 56;
-        Item.height = 56;
         Item.useTime = 12;
         Item.useAnimation = 12;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 6;
-        Item.value = 100000;
-        Item.rare = ItemRarityID.Orange;
         Item.UseSound = SoundID.Item11;
         Item.autoReuse = true;
         Item.shoot = ModContent.ProjectileType<HarmonicBlasphemyBomb>();

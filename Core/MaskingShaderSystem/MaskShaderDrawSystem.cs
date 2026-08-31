@@ -2,7 +2,7 @@
 
 using ReLogic.Content;
 using Stellamod.Core.WallBackgroundSystem;
-using Stellamod.Helpers;
+
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Graphics.Shaders;

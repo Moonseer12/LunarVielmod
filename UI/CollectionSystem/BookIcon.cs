@@ -1,7 +1,7 @@
 ﻿
 
 using Stellamod.Common.BossBannerSystem;
-using Stellamod.Helpers;
+
 using System;
 using Terraria;
 using Terraria.GameInput;

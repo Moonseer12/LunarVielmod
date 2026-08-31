@@ -24,13 +24,9 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
             Item.damage = 61;
             Item.knockBack = 3f;
             Item.mana = 40;
-            Item.width = 54;
-            Item.height = 34;
             Item.useTime = 36;
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.HoldUp;
-            Item.value = Item.sellPrice(0, 5, 0, 0);
-            Item.rare = ItemRarityID.LightPurple;
 
             // These below are needed for a minion weapon
             Item.noMelee = true;

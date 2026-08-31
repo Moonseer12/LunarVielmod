@@ -20,8 +20,6 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.width = 62;
-            Item.height = 32;
             Item.useTime = 4;
             Item.useAnimation = 4;
             Item.useStyle = ItemUseStyleID.Shoot;

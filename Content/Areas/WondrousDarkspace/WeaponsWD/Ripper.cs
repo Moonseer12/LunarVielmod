@@ -23,7 +23,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
             Item.useTime = 32;
             Item.useAnimation = 32;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.rare = ItemRarityID.Green;
             Item.knockBack = 6;
             Item.shoot = ModContent.ProjectileType<RipperSlash>();
             Item.shootSpeed = 20;

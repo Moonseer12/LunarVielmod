@@ -41,14 +41,6 @@ namespace Stellamod.Content.Areas.Tundra.Snow.ArmorSN
             ArmorSetSystem.RegisterArmorSet<WinterbornHead, WinterbornBody, WinterbornLegs>(ArmorGroup.Act_I);
         }
 
-        public override void SetDefaults()
-        {
-            Item.width = 40;
-            Item.height = 30;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.Blue;
-        }
-
         public override void UpdateEquip(Player player)
         {
             ArmorStatsPlayer stats = player.GetModPlayer<ArmorStatsPlayer>();
@@ -72,14 +64,6 @@ namespace Stellamod.Content.Areas.Tundra.Snow.ArmorSN
     [AutoloadEquip(EquipType.Body)]
     public class WinterbornBody : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 18; // Width of the item
-            Item.height = 18; // Height of the item
-            Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
-            Item.rare = ItemRarityID.Blue; // The rarity of the item
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();
@@ -92,14 +76,6 @@ namespace Stellamod.Content.Areas.Tundra.Snow.ArmorSN
     [AutoloadEquip(EquipType.Legs)]
     public class WinterbornLegs : ModItem
     {
-        public override void SetDefaults()
-        {
-            Item.width = 28;
-            Item.height = 22;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.Blue;
-        }
-
         public override void UpdateEquip(Player player)
         {
             var stats = player.GetStats();

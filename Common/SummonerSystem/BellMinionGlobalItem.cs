@@ -1,6 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Core.Tooltips;
-using Stellamod.Helpers;
+
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;

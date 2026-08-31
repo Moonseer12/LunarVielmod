@@ -1,5 +1,5 @@
 ﻿using Stellamod.Core.Particles;
-using Stellamod.Helpers;
+
 using System;
 using Terraria;
 

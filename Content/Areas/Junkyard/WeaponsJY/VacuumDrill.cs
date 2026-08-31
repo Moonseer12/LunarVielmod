@@ -253,7 +253,7 @@ public class VacuumLightningBolt : ModProjectile,
         return WidthFunction(completionRatio) * 4f;
     }
 
-    public Color ColorFunction(float completionRatio)
+    public static Color ColorFunction(float completionRatio)
     {
         Color startColor = Color.Cyan;
         Color endColor = Color.White;

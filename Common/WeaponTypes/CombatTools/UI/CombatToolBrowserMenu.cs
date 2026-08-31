@@ -3,7 +3,7 @@ using Stellamod.Common.ArmorShop.UI;
 using Stellamod.Common.MagicSystem.UI;
 using Stellamod.Common.UI;
 using Stellamod.Core;
-using Stellamod.Helpers;
+
 using Stellamod.UI;
 using System.Collections.Generic;
 using Terraria;

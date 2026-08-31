@@ -1,6 +1,5 @@
 using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
-using Stellamod.Content.Buffs;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.Audio;
@@ -25,13 +24,9 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.WeaponsAB
             Item.damage = 11;
             Item.knockBack = 3f;
             Item.mana = 10;
-            Item.width = 32;
-            Item.height = 32;
             Item.useTime = 36;
             Item.useAnimation = 36;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.value = Item.sellPrice(0, 1, 33, 0);
-            Item.rare = ItemRarityID.Orange;
 
             // These below are needed for a minion weapon
             Item.noMelee = true;

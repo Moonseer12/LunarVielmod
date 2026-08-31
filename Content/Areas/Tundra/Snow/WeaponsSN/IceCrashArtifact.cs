@@ -24,8 +24,6 @@ public class IceCrashArtifact : ModItem
         base.SetDefaults();
         Item.DefaultToArtifact();
         Item.damage = 18;
-        Item.width = 16;
-        Item.height = 16;
         Item.mana = 7;
         Item.useAnimation = Item.useTime = 24;
         Item.useStyle = ItemUseStyleID.Shoot;

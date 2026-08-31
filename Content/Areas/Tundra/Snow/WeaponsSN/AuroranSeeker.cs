@@ -26,14 +26,10 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
         {
             Item.damage = 10;
             Item.knockBack = 3f;
-            Item.mana = 10; // mana cost
-            Item.width = 32;
-            Item.height = 32;
+            Item.mana = 10;
             Item.useTime = 36;
             Item.useAnimation = 36;
-            Item.useStyle = ItemUseStyleID.HoldUp; // how the player's arm moves when using the item
-            Item.value = Item.sellPrice(gold: 30);
-            Item.rare = ItemRarityID.Green;
+            Item.useStyle = ItemUseStyleID.HoldUp;
             Item.UseSound = SoundID.Item44; // What sound should play when using the item
 
             // These below are needed for a minion weapon

@@ -114,7 +114,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
             return WidthFunction(completionRatio) * 3;
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.LightGoldenrodYellow, Color.White, ExtraMath.Osc(0f, 1f, speed: 32));
         }

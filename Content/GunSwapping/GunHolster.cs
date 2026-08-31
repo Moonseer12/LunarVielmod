@@ -131,14 +131,10 @@ namespace Stellamod.Content.GunSwapping
 
         public override void SetDefaults()
         {
-            Item.width = 62;
-            Item.height = 36;
             Item.useTime = 32;
             Item.useAnimation = 32;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 6;
-            Item.value = Item.buyPrice(gold: 5);
-            Item.rare = ItemRarityID.Blue;
             Item.autoReuse = true;
 
             Item.shootSpeed = 4f;

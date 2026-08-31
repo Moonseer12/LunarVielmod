@@ -3,13 +3,13 @@ using Stellamod.Assets;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Desert.WeaponsCL;
+using Stellamod.Content.Areas.Shop.WeaponsShop;
 using Stellamod.Content.Areas.WaterSide.BossesWS.KingJellyfishBoss;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Dusts;
-using Stellamod.Projectiles.IgniterExplosions;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -29,13 +29,9 @@ public class ShadegraveStaff : ModItem
         Item.DefaultToArtifact();
         Item.staff[Item.type] = true;
         Item.damage = 40;
-        Item.width = 50;
-        Item.height = 50;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.noMelee = true;
         Item.knockBack = 4;
-        Item.value = Item.sellPrice(0, 1, 1, 29);
-        Item.rare = ItemRarityID.Blue;
         Item.shootSpeed = 35;
         Item.autoReuse = true;
         Item.UseSound = SoundID.DD2_BookStaffCast;
@@ -123,8 +119,8 @@ public class SGBolt : ModProjectile
             for (int j = 0; j < 10; j++)
             {
                 Vector2 vector2 = Vector2.UnitX * -Projectile.width / 2f;
-                vector2 += -Utils.RotatedBy(Vector2.UnitY, (j * 3.141591734f / 6f), default(Vector2)) * new Vector2(8f, 16f);
-                vector2 = Utils.RotatedBy(vector2, (Projectile.rotation - 1.57079637f), default(Vector2));
+                vector2 += -Utils.RotatedBy(Vector2.UnitY, (j * 3.141591734f / 6f), default) * new Vector2(8f, 16f);
+                vector2 = Utils.RotatedBy(vector2, (Projectile.rotation - 1.57079637f), default);
                 int num8 = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.Shadowflame, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
                 Main.dust[num8].scale = 1.3f;
                 Main.dust[num8].noGravity = true;
@@ -168,13 +164,13 @@ public class SGBolt : ModProjectile
     {
         for (int i = 0; i < 20; i++)
         {
-            int num1 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Shadowflame, 0f, -2f, 0, default(Color), .8f);
+            int num1 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Shadowflame, 0f, -2f, 0, default, .8f);
             Main.dust[num1].noGravity = true;
             Main.dust[num1].position.X += Main.rand.Next(-50, 51) * .05f - 1.5f;
             Main.dust[num1].position.Y += Main.rand.Next(-50, 51) * .05f - 1.5f;
             if (Main.dust[num1].position != Projectile.Center)
                 Main.dust[num1].velocity = Projectile.DirectionTo(Main.dust[num1].position) * 6f;
-            int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Shadowflame, 0f, -2f, 0, default(Color), .8f);
+            int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Shadowflame, 0f, -2f, 0, default, .8f);
             Main.dust[num].noGravity = true;
             Main.dust[num].position.X += Main.rand.Next(-50, 51) * .05f - 1.5f;
             Main.dust[num].position.Y += Main.rand.Next(-50, 51) * .05f - 1.5f;

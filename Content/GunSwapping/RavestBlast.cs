@@ -13,8 +13,6 @@ namespace Stellamod.Content.GunSwapping
 
             //Setting this to width and height of the texture cause idk
             Item.damage = 202;
-            Item.width = 56;
-            Item.height = 30;
             LeftHand = true;
             RightHand = true;
 

@@ -23,14 +23,10 @@ public class TerrorMinigun : BaseGun
         Item.damage = 12;
         Item.ArmorPenetration = 15;
         Item.DamageType = DamageClass.Ranged;
-        Item.width = 40;
-        Item.height = 40;
         Item.useTime = 3;
         Item.useAnimation = 3;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 6;
-        Item.value = 100000;
-        Item.rare = ItemRarityID.LightPurple;
         Item.autoReuse = true;
         Item.shoot = ProjectileID.Bullet;
         Item.shootSpeed = 35f;

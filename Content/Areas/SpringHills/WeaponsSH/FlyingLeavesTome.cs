@@ -18,8 +18,6 @@ public class FlyingLeavesTome : AbstractMagicTome
     {
         base.SetDefaults2();
         Item.damage = 6;
-        Item.width = 50;
-        Item.height = 50;
         Item.shoot = ModContent.ProjectileType<FlyingLeaf>();
         Item.shootSpeed = 15f;
         Item.mana = 4;

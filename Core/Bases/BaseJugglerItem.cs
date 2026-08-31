@@ -1,6 +1,4 @@
-﻿
-using Stellamod.Helpers;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,8 +10,6 @@ namespace Stellamod.Core.Bases
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.width = 16;
-            Item.height = 16;
             Item.damage = 19;
             Item.DamageType = DamageClass.Ranged;
             Item.useTime = 24;
@@ -21,7 +17,6 @@ namespace Stellamod.Core.Bases
             Item.useStyle = ItemUseStyleID.Swing;
             Item.noUseGraphic = true;
             Item.noMelee = true;
-            Item.rare = ItemRarityID.Green;
         }
 
         public override bool CanUseItem(Player player)

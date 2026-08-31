@@ -342,7 +342,7 @@ public class PieceOfArtRainbow : ModProjectile
         if (Main.rand.NextBool(3))
         {
             Vector2 speed = Main.rand.NextVector2Circular(1f, 1f);
-            Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob3>(), speed * 2, 0, default(Color), 4f).noGravity = false;
+            Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob3>(), speed * 2, 0, default, 4f).noGravity = false;
 
         }
 
@@ -350,7 +350,7 @@ public class PieceOfArtRainbow : ModProjectile
         {
 
             Vector2 speed = Main.rand.NextVector2Circular(1f, 1f);
-            Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob5>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+            Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob5>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
 
         }
 
@@ -358,7 +358,7 @@ public class PieceOfArtRainbow : ModProjectile
         if (Main.rand.NextBool(3))
         {
             Vector2 speed = Main.rand.NextVector2Circular(1f, 1f);
-            Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob4>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+            Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob4>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
 
         }
 
@@ -386,7 +386,7 @@ public class PieceOfArtRainbow : ModProjectile
             float speedXa = Main.rand.NextFloat(-35f, 35f);
             float speedYa = Main.rand.Next(-35, 35);
             Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + speedXa, Projectile.Center.Y + speedYa, 0, 0, ModContent.ProjectileType<PaintBomb1>(), (Projectile.damage / 2) + Owner.GetModPlayer<ArtisanPlayer>().PPPaintDMG2, 1, Projectile.owner, 0, 0);
-            Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob3>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+            Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob3>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
         }
 
         if (Main.rand.NextBool(1))
@@ -401,7 +401,7 @@ public class PieceOfArtRainbow : ModProjectile
             float speedXa = Main.rand.NextFloat(-35f, 35f);
             float speedYa = Main.rand.Next(-35, 35);
             Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + speedXa, Projectile.Center.Y + speedYa, 0, 0, ModContent.ProjectileType<PaintBomb3>(), (Projectile.damage * 5) + Owner.GetModPlayer<ArtisanPlayer>().PPPaintDMG2, 1, Projectile.owner, 0, 0);
-            Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+            Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
         }
 
 
@@ -410,7 +410,7 @@ public class PieceOfArtRainbow : ModProjectile
             float speedXa = Main.rand.NextFloat(-35f, 35f);
             float speedYa = Main.rand.Next(-35, 35);
             Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + speedXa, Projectile.Center.Y + speedYa, 0, 0, ModContent.ProjectileType<PaintBomb5>(), (Projectile.damage + Owner.GetModPlayer<ArtisanPlayer>().PPPaintDMG2) / 2, 1, Projectile.owner, 0, 0);
-            Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+            Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
         }
 
         if (Main.rand.NextBool(4))
@@ -418,7 +418,7 @@ public class PieceOfArtRainbow : ModProjectile
             float speedXa = Main.rand.NextFloat(-35f, 35f);
             float speedYa = Main.rand.Next(-35, 35);
             Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + speedXa, Projectile.Center.Y + speedYa, 0, 0, ModContent.ProjectileType<PaintBomb4>(), Projectile.damage + Owner.GetModPlayer<ArtisanPlayer>().PPPaintDMG2, 1, Projectile.owner, 0, 0);
-            Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+            Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
         }
 
         if (Main.rand.NextBool(4))
@@ -426,7 +426,7 @@ public class PieceOfArtRainbow : ModProjectile
             float speedXa = Main.rand.NextFloat(-35f, 35f);
             float speedYa = Main.rand.Next(-35, 35);
             Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + speedXa, Projectile.Center.Y + speedYa, 0, 0, ModContent.ProjectileType<PaintBomb6>(), (Projectile.damage + Owner.GetModPlayer<ArtisanPlayer>().PPPaintDMG2) / 3, 1, Projectile.owner, 0, 0);
-            Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+            Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob2>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
         }
         if (Owner.GetModPlayer<ArtisanPlayer>().PPPaintI)
         {
@@ -435,7 +435,7 @@ public class PieceOfArtRainbow : ModProjectile
                 float speedXa = Main.rand.NextFloat(-35f, 35f);
                 float speedYa = Main.rand.Next(-35, 35);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + speedXa, Projectile.Center.Y + speedYa, 0, 0, ModContent.ProjectileType<PaintBomb7>(), (Projectile.damage + Owner.GetModPlayer<ArtisanPlayer>().PPPaintDMG2) * 4, 1, Projectile.owner, 0, 0);
-                Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob5>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+                Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob5>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
             }
         }
         if (Owner.GetModPlayer<ArtisanPlayer>().PPPaintII)
@@ -445,7 +445,7 @@ public class PieceOfArtRainbow : ModProjectile
                 float speedXa = Main.rand.NextFloat(-35f, 35f);
                 float speedYa = Main.rand.Next(-35, 35);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + speedXa, Projectile.Center.Y + speedYa, 0, 0, ModContent.ProjectileType<PaintBomb8>(), (Projectile.damage + Owner.GetModPlayer<ArtisanPlayer>().PPPaintDMG2) * 3, 1, Projectile.owner, 0, 0);
-                Dust.NewDustPerfect(base.Projectile.Center, ModContent.DustType<PaintBlob1>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default(Color), 4f).noGravity = false;
+                Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<PaintBlob1>(), (Vector2.One * Main.rand.Next(1, 12)).RotatedByRandom(19.0), 0, default, 4f).noGravity = false;
             }
         }
     }

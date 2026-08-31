@@ -12,12 +12,8 @@ namespace Stellamod.Content.Areas.Ishtar.WeaponsIS
         public override void SetDefaults()
         {
             Item.damage = 62;
-            Item.width = 44;
-            Item.height = 80;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.knockBack = 4;
-            Item.value = Item.sellPrice(0, 5, 0, 0);
-            Item.rare = ItemRarityID.Lime;
 
             Item.shootSpeed = 15;
             Item.autoReuse = true;

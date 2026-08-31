@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.ClassReworkSystem;
 using Stellamod.Core.Tooltips;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using Terraria;

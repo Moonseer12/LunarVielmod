@@ -6,7 +6,7 @@ using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.Bases;
 using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Core.ProjectileHelpers;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.ModLoader;
 

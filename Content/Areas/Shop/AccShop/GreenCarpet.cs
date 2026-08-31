@@ -1,7 +1,7 @@
 ﻿
 
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,12 +30,9 @@ namespace Stellamod.Content.Areas.Shop.AccShop
     {
         public override void SetDefaults()
         {
-            Item.width = 20;
-            Item.height = 30;
             Item.useTime = 20;
             Item.useAnimation = 20;
-            Item.useStyle = ItemUseStyleID.Swing; // how the player's arm moves when using the item
-            Item.value = Item.sellPrice(gold: 3);
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.rare = ModContent.RarityType<ShopRarity>();
             Item.UseSound = SoundID.Item79; // What sound should play when using the item
             Item.noMelee = true; // this item doesn't do any melee damage

@@ -1,6 +1,4 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.Areas.Cinderspark.BossesCS.Skullrunner.Projectiles;
@@ -9,9 +7,7 @@ using Stellamod.Core;
 using Stellamod.Core.Camera;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
 using Stellamod.Dusts;
-using Stellamod.Helpers;
 using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System;
@@ -97,7 +93,7 @@ public class Skullrunner : ScarletBoss
     private Vector2 _endDunkPosition;
 
     private bool _longDash;
-    private float Alpha = 1f;
+    private static float Alpha = 1f;
     private Color OutlineColor;
     private Color HandOutlineColor;
     private float _dashCounter;
@@ -1671,11 +1667,11 @@ public class Skullrunner : ScarletBoss
     {
         return WidthFunction(completionRatio) * 1.2f;
     }
-    public Color ColorFunction(float completionRatio)
+    public static Color ColorFunction(float completionRatio)
     {
         return Color.Lerp(Color.Yellow, Color.Red, completionRatio) * Alpha;
     }
-    public Color ColorFunction2(float completionRatio)
+    public static Color ColorFunction2(float completionRatio)
     {
         return Color.Lerp(Color.Yellow, Color.Red, completionRatio) * Alpha * 0.8f;
     }

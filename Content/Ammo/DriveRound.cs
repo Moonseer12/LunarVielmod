@@ -1,4 +1,4 @@
-﻿using Stellamod.Projectiles.IgniterExplosions;
+﻿using Stellamod.Content.Areas.Fable.AccFB;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -52,7 +52,7 @@ public class DriveRoundProj : ModProjectile
         return MathHelper.SmoothStep(baseWidth, 3.5f, completionRatio);
     }
 
-    public Color ColorFunction(float completionRatio)
+    public static Color ColorFunction(float completionRatio)
     {
         if (completionRatio < 0.33f)
         {

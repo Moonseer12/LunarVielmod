@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common.HealthbarSystem;
 using Stellamod.Content.Areas.SpecialTiles.EffectTiles;
 using Stellamod.Core.TitleSystem;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using System.IO;

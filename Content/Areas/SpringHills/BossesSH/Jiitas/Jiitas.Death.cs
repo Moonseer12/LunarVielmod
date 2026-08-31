@@ -1,5 +1,5 @@
 ﻿using Stellamod.Assets;
-using Stellamod.Helpers;
+
 using Terraria.Audio;
 
 namespace Stellamod.Content.Areas.SpringHills.BossesSH.Jiitas

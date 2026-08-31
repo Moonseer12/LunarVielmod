@@ -1,7 +1,7 @@
 ﻿
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Effects.Trails;
-using Stellamod.Helpers;
+
 
 namespace Stellamod.Content.Trailers
 {

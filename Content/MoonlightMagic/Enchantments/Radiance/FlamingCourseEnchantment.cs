@@ -2,7 +2,7 @@
 
 using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Core.Particles;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;

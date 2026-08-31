@@ -15,15 +15,11 @@ namespace Stellamod.Content.Areas.Junkyard.WeaponsJY
         {
             Item.damage = 8;
             Item.DamageType = DamageClass.Ranged;
-            Item.width = 40;
             Item.noUseGraphic = true;
-            Item.height = 40;
             Item.useTime = 40;
             Item.useAnimation = 40;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 6;
-            Item.value = 10000;
-            Item.rare = ItemRarityID.Blue;
             Item.crit = 30;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;

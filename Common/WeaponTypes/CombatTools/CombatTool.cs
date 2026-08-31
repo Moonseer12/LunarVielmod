@@ -1,4 +1,4 @@
-﻿using Stellamod.Helpers;
+﻿
 using System.Collections.Generic;
 using System.IO;
 using Terraria;

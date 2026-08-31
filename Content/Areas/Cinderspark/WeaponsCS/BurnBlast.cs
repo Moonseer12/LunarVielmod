@@ -16,10 +16,6 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             base.SetDefaults();
             Item.damage = 50;
 
-            //Setting this to width and height of the texture cause idk
-            Item.width = 62;
-            Item.height = 38;
-
             RightHand = true;
 
             //This number is in ticks

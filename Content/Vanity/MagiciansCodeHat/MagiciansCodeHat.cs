@@ -9,10 +9,6 @@ namespace Stellamod.Content.Vanity.MagiciansCodeHat
     {
         public override void SetDefaults()
         {
-            Item.width = 18;
-            Item.height = 18;
-            Item.value = Item.sellPrice(gold: 30);
-            Item.rare = ItemRarityID.Orange;
             Item.vanity = true;
         }
     }

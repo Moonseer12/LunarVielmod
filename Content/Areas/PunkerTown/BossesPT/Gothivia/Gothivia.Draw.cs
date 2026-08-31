@@ -3,9 +3,9 @@ using Stellamod.Assets;
 using Stellamod.Common.Animations;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
+
 using Stellamod.Effects.GothinFlames;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;

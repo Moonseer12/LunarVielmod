@@ -2,7 +2,7 @@
 
 using Stellamod.Common.WeaponUpgrade.UI;
 using Stellamod.Core;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using Terraria;

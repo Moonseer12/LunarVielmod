@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.ClassReworkSystem.AmmoRework.UI;
 using Stellamod.Common.UI;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.UI;

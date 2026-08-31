@@ -2,7 +2,7 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -83,7 +83,7 @@ namespace Stellamod.Content.Armors.Astrasilk
             return MathHelper.SmoothStep(32, 0, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.LightPink, Color.Transparent, completionRatio);
         }

@@ -3,7 +3,7 @@ using Stellamod.Common.WeaponUpgrade;
 using Stellamod.Core.LunarLightingSystem;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Rendering;
-using Stellamod.Core.Utilities;
+
 using System;
 using System.Reflection;
 using Terraria;

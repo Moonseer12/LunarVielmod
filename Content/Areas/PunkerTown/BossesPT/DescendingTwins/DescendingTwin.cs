@@ -4,9 +4,9 @@ using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectiles;
 using Stellamod.Content.Gores;
 using Stellamod.Core.Particles;
-using Stellamod.Core.Utilities;
+
 using Stellamod.Dusts;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System;
 using System.IO;

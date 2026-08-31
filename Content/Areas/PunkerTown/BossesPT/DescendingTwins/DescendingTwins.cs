@@ -1,6 +1,6 @@
 ﻿
 using Stellamod.Core;
-using Stellamod.Helpers;
+
 using System;
 using System.IO;
 using Terraria;

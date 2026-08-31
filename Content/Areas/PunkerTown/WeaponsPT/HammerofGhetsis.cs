@@ -349,7 +349,7 @@ public class HammerofGhetsisThrow : ModProjectile,
         float w = MathHelper.SmoothStep(0f, 1f, (float)Projectile.timeLeft / 30f);
         return (Projectile.width * Projectile.scale) * osc * 2 * w;
     }
-    public Color ColorFunction(float completionRatio)
+    public static Color ColorFunction(float completionRatio)
     {
         return Color.Lerp(Color.Red, Color.White, ExtraMath.Osc(0f, 1f, speed: 32));
     }

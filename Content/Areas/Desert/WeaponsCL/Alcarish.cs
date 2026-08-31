@@ -15,8 +15,6 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
         public override void SetDefaults()
         {
             Item.DefaultToSafunai();
-            Item.width = 16;
-            Item.height = 16;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.useTime = Item.useAnimation = 18;
             Item.shootSpeed = 1f;
@@ -29,7 +27,6 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
             Item.channel = true;
             Item.autoReuse = true;
             Item.damage = 17;
-            Item.value = 10000;
         }
 
         public override void AddRecipes()

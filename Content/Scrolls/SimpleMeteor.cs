@@ -3,8 +3,8 @@ using Stellamod.Common.Shaders;
 using Stellamod.Content.Gores;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;

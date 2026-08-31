@@ -2,7 +2,7 @@
 
 using ReLogic.Content;
 using Stellamod.Common.Shaders;
-using Stellamod.Helpers;
+
 using System;
 
 namespace Stellamod.Core.Foggy

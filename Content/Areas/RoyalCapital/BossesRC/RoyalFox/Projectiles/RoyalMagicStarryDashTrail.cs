@@ -3,7 +3,7 @@ using Stellamod.Common.Shaders;
 using Stellamod.Core.Palettes;
 using Stellamod.Core.Pixelation;
 using Stellamod.Effects.RoyalMagic;
-using Stellamod.Helpers;
+
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;

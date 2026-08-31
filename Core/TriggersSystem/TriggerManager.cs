@@ -1,7 +1,4 @@
-﻿
-
-using Stellamod.Helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
@@ -61,9 +58,6 @@ namespace Stellamod.Core.TriggersSystem
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.width = 16;
-            Item.height = 16;
-            Item.rare = ItemRarityID.Green;
             Item.useTime = 2;
             Item.useAnimation = 2;
             Item.useStyle = ItemUseStyleID.Shoot;
@@ -119,9 +113,6 @@ namespace Stellamod.Core.TriggersSystem
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.width = 16;
-            Item.height = 16;
-            Item.rare = ItemRarityID.Green;
             Item.useTime = 2;
             Item.useAnimation = 2;
             Item.useStyle = ItemUseStyleID.Shoot;

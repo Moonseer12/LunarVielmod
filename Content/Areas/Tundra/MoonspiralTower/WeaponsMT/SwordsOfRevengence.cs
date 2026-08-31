@@ -25,14 +25,10 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT
             Item.damage = 8;
             Item.knockBack = 3f;
             Item.mana = 10;
-            Item.width = 32;
-            Item.height = 32;
             Item.useTime = 12;
             Item.useAnimation = 12;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.UseSound = SoundID.Item11;
-            Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = ItemRarityID.Blue;
 
             // These below are needed for a minion weapon
             Item.noMelee = true;
@@ -71,8 +67,6 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT
             // DisplayName.SetDefault("Irradiated Creeper");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 30;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
-            // Sets the amount of frames this minion has on its spritesheet
-            Main.projFrames[Projectile.type] = 1;
             // This is necessary for right-click targeting
             ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 

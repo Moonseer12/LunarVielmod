@@ -9,10 +9,6 @@ namespace Stellamod.Content.Vanity.Nyxia
     {
         public override void SetDefaults()
         {
-            Item.width = 18;
-            Item.height = 18;
-            Item.value = Item.buyPrice(gold: 1);
-            Item.rare = ItemRarityID.Green;
             Item.vanity = true;
         }
     }
@@ -22,10 +18,6 @@ namespace Stellamod.Content.Vanity.Nyxia
     {
         public override void SetDefaults()
         {
-            Item.width = 18;
-            Item.height = 18;
-            Item.value = Item.buyPrice(gold: 1);
-            Item.rare = ItemRarityID.Green;
             Item.vanity = true;
         }
     }
@@ -35,10 +27,6 @@ namespace Stellamod.Content.Vanity.Nyxia
     {
         public override void SetDefaults()
         {
-            Item.width = 18;
-            Item.height = 18;
-            Item.value = Item.sellPrice(gold: 1);
-            Item.rare = ItemRarityID.Green;
             Item.vanity = true;
         }
     }

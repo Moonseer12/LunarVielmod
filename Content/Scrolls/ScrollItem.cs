@@ -1,4 +1,4 @@
-﻿using Stellamod.Core.Utilities;
+﻿
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -54,9 +54,6 @@ public sealed class ScrollItem : ModItem
     public override void SetDefaults()
     {
         base.SetDefaults();
-        Item.width = 62;
-        Item.height = 32;
-        Item.rare = ItemRarityID.Green;
         Item.useTime = 16;
         Item.useAnimation = 16;
         Item.useStyle = ItemUseStyleID.HoldUp;

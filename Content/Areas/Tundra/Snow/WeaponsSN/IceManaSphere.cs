@@ -342,7 +342,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
             return MathHelper.SmoothStep(16, 0f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.LightCyan, Color.DarkBlue, completionRatio);
         }
@@ -574,7 +574,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
             return MathHelper.SmoothStep(16, 0f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.LightCyan, Color.DarkBlue, completionRatio);
         }
@@ -775,7 +775,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
             return MathHelper.SmoothStep(16, 0f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.LightCyan, Color.DarkBlue, completionRatio);
         }
@@ -849,7 +849,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
             return MathHelper.SmoothStep(16, 0f, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.Goldenrod, Color.DarkRed, completionRatio);
         }

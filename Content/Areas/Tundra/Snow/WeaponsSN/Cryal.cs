@@ -20,7 +20,6 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
         {
             base.SetDefaults();
             Item.damage = 6;
-            Item.rare = ItemRarityID.Green;
             staminaCost = 1;
         }
 

@@ -7,8 +7,8 @@ using Stellamod.Core.DialogueSystem;
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.TriggersSystem.Triggers;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;

@@ -21,14 +21,10 @@ public class Shredder : BaseGun
         Item.damage = 18;
         Item.crit = 4;
         Item.knockBack = 3f;
-        Item.width = 62;
-        Item.height = 54;
         Item.useTime = 21;
         Item.useAnimation = 21;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.UseSound = SoundID.Item1;
-        Item.value = Item.buyPrice(0, 30, 0, 0);
-        Item.rare = ItemRarityID.LightPurple;
         Item.DamageType = DamageClass.Ranged;
         Item.shoot = ModContent.ProjectileType<ShreddingLine>();
         Item.shootSpeed = 25;
@@ -139,7 +135,7 @@ public class ShreddingLine : ModProjectile
         return w;
     }
 
-    public Color ColorFunction(float completionRatio)
+    public static Color ColorFunction(float completionRatio)
     {
         Color startColor = Color.Lerp(Color.Black, Color.Black, ExtraMath.Osc(0f, 1f, speed: 12));
         Color endColor = Color.Lerp(Color.Cyan, Color.Purple, ExtraMath.Osc(0f, 1f, speed: 12, offset: 4));

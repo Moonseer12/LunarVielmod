@@ -74,10 +74,6 @@ public class HornedLadyOutfitHead : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 18;
-        Item.height = 18;
-        Item.value = Item.sellPrice(gold: 1);
-        Item.rare = ItemRarityID.Green;
         Item.vanity = true;
     }
 }
@@ -92,10 +88,6 @@ public class HornedLadyOutfitBody : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 18;
-        Item.height = 18;
-        Item.value = Item.sellPrice(gold: 1);
-        Item.rare = ItemRarityID.Green;
         Item.vanity = true;
     }
 }
@@ -112,10 +104,6 @@ public class HornedLadyOutfitLegs : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 18;
-        Item.height = 18;
-        Item.value = Item.sellPrice(gold: 1);
-        Item.rare = ItemRarityID.Green;
         Item.vanity = true;
     }
 }
@@ -131,10 +119,6 @@ public class HornedLadyDemonOutfitHead : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 18;
-        Item.height = 18;
-        Item.value = Item.sellPrice(gold: 1);
-        Item.rare = ItemRarityID.Green;
         Item.vanity = true;
     }
 }
@@ -149,10 +133,6 @@ public class HornedLadyDemonOutfitBody : ModItem
 
     public override void SetDefaults()
     {
-        Item.width = 18;
-        Item.height = 18;
-        Item.value = Item.sellPrice(gold: 1);
-        Item.rare = ItemRarityID.Green;
         Item.vanity = true;
     }
 }

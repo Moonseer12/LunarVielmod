@@ -1,5 +1,5 @@
 ﻿using Stellamod.Common;
-using Stellamod.Projectiles.Steins;
+using Stellamod.Common.Steins;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;

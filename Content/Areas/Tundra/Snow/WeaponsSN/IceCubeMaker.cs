@@ -15,9 +15,6 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.width = 72;
-            Item.height = 40;
-            Item.rare = ItemRarityID.Green;
 
             //Damage
             Item.damage = 6;

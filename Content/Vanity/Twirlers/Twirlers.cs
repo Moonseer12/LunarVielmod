@@ -9,10 +9,6 @@ namespace Stellamod.Content.Vanity.Twirlers
     {
         public override void SetDefaults()
         {
-            Item.width = 18;
-            Item.height = 18;
-            Item.value = Item.sellPrice(gold: 10);
-            Item.rare = ItemRarityID.Green;
             Item.vanity = true;
         }
     }

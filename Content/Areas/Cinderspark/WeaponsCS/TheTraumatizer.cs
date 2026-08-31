@@ -33,8 +33,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             Item.shootSpeed = 30f;
             Item.shoot = ModContent.ProjectileType<TraumatizingRay>();
             Item.scale = 1f;
-            Item.noMelee = true; // The projectile will do the damage and not the item
-            Item.value = Item.sellPrice(0, 5, 0, 0);
+            Item.noMelee = true;
             Item.noUseGraphic = true;
             Item.damage = 16;
         }

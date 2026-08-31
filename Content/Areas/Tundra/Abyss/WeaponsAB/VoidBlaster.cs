@@ -24,13 +24,8 @@ public class VoidBlaster : BaseGun
         Item.noMelee = true;
         Item.damage = 10;
         Item.DamageType = DamageClass.Ranged;
-        Item.width = 40;
-        Item.height = 40;
-
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.knockBack = 6;
-        Item.value = 10000;
-        Item.rare = ItemRarityID.Orange;
         Item.UseSound = SoundID.Item11;
         Item.autoReuse = true;
         Item.shoot = ModContent.ProjectileType<VoidBlasterProj>();

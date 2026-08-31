@@ -5,7 +5,7 @@ using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Particles;
-using Stellamod.Helpers;
+
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;

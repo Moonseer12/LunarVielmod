@@ -1,7 +1,7 @@
 ﻿
 
 using Stellamod.Content.Areas;
-using Stellamod.Helpers;
+
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;

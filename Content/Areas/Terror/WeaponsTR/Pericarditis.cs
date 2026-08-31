@@ -18,13 +18,9 @@ public class Pericarditis : ModItem
         Item.DefaultToArtifact();
         Item.staff[Item.type] = true;
         Item.damage = 25;
-        Item.width = 50;
-        Item.height = 50;
         Item.useStyle = ItemUseStyleID.Shoot;
         Item.noMelee = true;
         Item.knockBack = 4;
-        Item.value = Item.sellPrice(0, 1, 1, 29);
-        Item.rare = ItemRarityID.Green;
         Item.shootSpeed = 35;
         Item.autoReuse = true;
 

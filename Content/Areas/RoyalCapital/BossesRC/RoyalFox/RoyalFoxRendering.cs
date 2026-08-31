@@ -1,6 +1,6 @@
 ﻿using Stellamod.Content.Areas.RoyalCapital.BossesRC.RoyalFox;
 using Stellamod.Core.ZTileSystem;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using Terraria;

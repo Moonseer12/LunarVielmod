@@ -108,7 +108,6 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
         {
             base.SetDefaults();
             Item.damage = 23;
-            Item.rare = ItemRarityID.Green;
         }
 
         public override void StaminaShootBow(Player player, EntitySource_ItemUse_WithAmmo source, ShootParams shootParams)

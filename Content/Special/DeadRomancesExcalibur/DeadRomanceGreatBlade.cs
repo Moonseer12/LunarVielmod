@@ -1,15 +1,10 @@
-﻿using Mono.Cecil;
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
-using Stellamod.Projectiles.IgniterExplosions;
-using Stellamod.Visual.Explosions;
 using Stellamod.Visual.Particles;
 using System;
 using System.Buffers;
@@ -17,8 +12,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Stellamod.Content.Special.DeadRomancesExcalibur;
 

@@ -2,7 +2,7 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Rendering;
-using Stellamod.Core.Utilities;
+
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;

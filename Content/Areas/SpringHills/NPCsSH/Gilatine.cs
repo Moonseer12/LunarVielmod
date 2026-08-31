@@ -3,7 +3,7 @@ using ReLogic.Content;
 using Stellamod.Common.WeaponUpgrade.UI;
 using Stellamod.Core;
 using Stellamod.Core.DialogueSystem;
-using Stellamod.Helpers;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,8 +1,8 @@
 ﻿
 
 using ReLogic.Content;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using System;
 using System.Text;
 using Terraria;

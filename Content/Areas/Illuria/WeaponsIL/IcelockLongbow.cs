@@ -70,7 +70,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
             return MathHelper.SmoothStep(baseWidth, 3.5f, completionRatio);
         }
 
-        public Color GetTrailColor(float completionRatio)
+        public static Color GetTrailColor(float completionRatio)
         {
             Color lerp1 = Color.Lerp(Color.DarkViolet, Color.SkyBlue, completionRatio);
             return Color.Lerp(lerp1, Color.Transparent, EasingFunction.InExpo(completionRatio));

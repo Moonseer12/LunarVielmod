@@ -1,7 +1,6 @@
 ﻿using Stellamod.Common.QuestSystem;
 using Stellamod.Content.Quests.OldManQuest;
 using Stellamod.Core;
-using Stellamod.Items.Weapons.Thrown;
 using System;
 using System.Collections.Generic;
 using Terraria;

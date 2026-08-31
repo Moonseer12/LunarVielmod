@@ -1,7 +1,7 @@
 ﻿
 
 using Stellamod.Core.Particles;
-using Stellamod.Helpers;
+
 using Terraria;
 
 namespace Stellamod.Visual.Particles

@@ -107,7 +107,7 @@ public class GothinBlast : ModProjectile
         return width * outScale * inScale;
     }
 
-    public Color ColorFunction(float completionRatio)
+    public static Color ColorFunction(float completionRatio)
     {
         return Color.Lerp(Color.White, Color.Red, completionRatio);
     }

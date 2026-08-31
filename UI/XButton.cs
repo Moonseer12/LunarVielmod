@@ -45,7 +45,7 @@ namespace Stellamod.UI
             Vector2 pos = rectangle.TopLeft();
 
             //Enchantment Card
-            spriteBatch.Draw(XButtonTextureAsset.Value, rectangle.TopLeft(), null, color2, 0f, default(Vector2), 1, SpriteEffects.None, 0f);
+            spriteBatch.Draw(XButtonTextureAsset.Value, rectangle.TopLeft(), null, color2, 0f, default, 1, SpriteEffects.None, 0f);
             Main.inventoryScale = oldScale;
         }
     }

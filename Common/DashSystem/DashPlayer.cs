@@ -60,7 +60,7 @@ namespace Stellamod.Common.DashSystem
             return MathHelper.SmoothStep(baseWidth, baseWidth, completionRatio);
         }
 
-        public Color ColorFunction(float completionRatio)
+        public static Color ColorFunction(float completionRatio)
         {
             return Color.Lerp(Color.White, Color.Transparent, MathHelper.SmoothStep(0f, 1f, completionRatio)) * EasingFunction.QuadraticBump(completionRatio);
         }

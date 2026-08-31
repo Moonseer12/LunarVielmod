@@ -2,8 +2,8 @@
 using Stellamod.Assets;
 using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss;
 using Stellamod.Core.Palettes;
-using Stellamod.Core.Utilities;
-using Stellamod.Helpers;
+
+
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;

@@ -1,6 +1,5 @@
 ﻿using Stellamod.Content.Areas.Illuria.ArmorIL;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Items.Weapons.Mage;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -73,7 +72,6 @@ namespace Stellamod.Content.Areas.Illuria.EnemiesIL
                 ModContent.ItemType<IllurianCrestmask>()
             ));
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IllurineScale>(), minimumDropped: 3, maximumDropped: 5));
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FrameStaff>(), chanceDenominator: 2, minimumDropped: 1, maximumDropped: 1));
         }
 
         public override void AI()
