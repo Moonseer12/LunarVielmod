@@ -1,9 +1,5 @@
-﻿using Stellamod.Assets;
-using Stellamod.Content.Areas.PunkerTown.BossesPT.Gothivia.Projectiles;
-using Stellamod.Core;
+﻿using Stellamod.Content.Areas.PunkerTown.BossesPT.Gothivia.Projectiles;
 using Stellamod.Core.Particles;
-
-
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -35,7 +31,7 @@ public partial class Gothivia
         }
 
         ShakeScreenPosition.Shake = 4;
-        SoundStyle fireShoot = new SoundStyle("Stellamod/Assets/Sounds/Fire/FireballShoot1");  //AssetReferences.Assets.Sounds.Fire.FireballShoot1.Asset;
+        SoundStyle fireShoot = new("Stellamod/Assets/Sounds/Fire/FireballShoot1");
         fireShoot.PitchVariance = 0.5f;
         fireShoot.MaxInstances = 0;
         SoundEngine.PlaySound(fireShoot, position);

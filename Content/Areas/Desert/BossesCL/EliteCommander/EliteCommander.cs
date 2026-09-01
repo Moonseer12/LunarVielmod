@@ -84,15 +84,6 @@ namespace Stellamod.Content.Areas.Desert.BossesCL.EliteCommander
             NPCID.Sets.TrailingMode[NPC.type] = 0;
             NPCID.Sets.MPAllowedEnemies[NPC.type] = true;
             NPCID.Sets.BossBestiaryPriority.Add(Type);
-            // Influences how the NPC looks in the Bestiary
-            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            {
-                CustomTexturePath = "Stellamod/NPCs/Event/Gintzearmy/BossGintze/GintziaPreview",
-                PortraitScale = 0.8f, // Portrait refers to the full picture when clicking on the icon in the bestiary
-                PortraitPositionYOverride = 0f,
-            };
-
-            NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

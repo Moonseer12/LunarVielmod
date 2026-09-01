@@ -154,7 +154,7 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
             }
 
             //Draw Eye
-            texture = ModContent.Request<Texture2D>("Stellamod/NPCs/Underground/SteeruEye").Value;
+            texture = ModContent.Request<Texture2D>("Stellamod/Content/Areas/Underground/EnemiesUG/SteeruEye").Value;
             drawOrigin = texture.Size() / 2;
             float yHoveringEye = VectorHelper.Osc(0, hoverRange, speed: 3);
             float xHoveringEye = VectorHelper.Osc(-hoverRange / 2, hoverRange / 2, speed: 3);

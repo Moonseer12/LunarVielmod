@@ -179,11 +179,6 @@ public class GothiviaIdle : VeilTownNPC
     // Returning false will allow you to manually draw your NPC
     public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
     {
-
-        Vector2 size = new Vector2(166, 96);
-
-
-        Player player = Main.player[NPC.target];
         Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
         SpriteEffects effects = NPC.direction == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
@@ -192,7 +187,7 @@ public class GothiviaIdle : VeilTownNPC
 
         Vector2 drawPosition = NPC.Center - screenPos;
         Vector2 origin = new Vector2(83, 48);
-        Texture2D syliaWingsTexture = ModContent.Request<Texture2D>("Stellamod/NPCs/Bosses/GothiviaTheSun/GOS/Gwings4Q").Value;
+        Texture2D syliaWingsTexture = ModContent.Request<Texture2D>("Stellamod/Content/Areas/PunkerTown/BossesPT/Gothivia/Gwings4Q").Value;
         int wingFrameSpeed = 1;
         int wingFrameCount = 60;
         spriteBatch.Draw(syliaWingsTexture, drawPosition,

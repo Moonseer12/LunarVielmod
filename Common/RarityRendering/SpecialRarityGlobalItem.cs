@@ -2,6 +2,7 @@
 using Stellamod.Effects.Generic;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI.Chat;
 using static System.Net.Mime.MediaTypeNames;

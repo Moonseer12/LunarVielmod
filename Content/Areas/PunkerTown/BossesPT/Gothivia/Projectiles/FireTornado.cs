@@ -76,7 +76,6 @@ public class FireTornado : ModProjectile,
     private void DrawPixelatedTornado(SpriteBatch sb, Vector2 sp)
     {
         var fireTornad = ShaderContent.GetInstance<FireTornadoShader>();
-        //var pass = AssetReferences.Effects.GothinFlames.FireTornado.CreatePixelPass();
         fireTornad.Time = Main.GlobalTimeWrappedHourly * 0.1f;
         fireTornad.Resolution = new Vector2(Main.screenWidth, Main.screenHeight);
         fireTornad.GradientTopColor = new Color(224, 187, 122);

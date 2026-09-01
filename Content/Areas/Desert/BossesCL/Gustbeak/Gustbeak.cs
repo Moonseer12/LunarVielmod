@@ -275,16 +275,6 @@ namespace Stellamod.Content.Areas.Desert.BossesCL.Gustbeak
             Main.npcFrameCount[NPC.type] = 1;
             NPCID.Sets.MPAllowedEnemies[NPC.type] = true;
             NPCID.Sets.BossBestiaryPriority.Add(Type);
-
-            // Influences how the NPC looks in the Bestiary
-            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers()
-            {
-                CustomTexturePath = "Stellamod/NPCs/Bosses/Gustbeak/Gustbeak",
-                PortraitScale = 0.8f, // Portrait refers to the full picture when clicking on the icon in the bestiary
-                PortraitPositionYOverride = 0f,
-            };
-
-            NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
         }
 
         public override void SetDefaults()

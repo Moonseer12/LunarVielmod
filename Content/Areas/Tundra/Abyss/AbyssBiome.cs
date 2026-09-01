@@ -1,5 +1,6 @@
 using Stellamod.Core.LunarLightingSystem;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Tundra.Abyss
@@ -16,11 +17,24 @@ namespace Stellamod.Content.Areas.Tundra.Abyss
         {
             base.OnEnter(player);
             player.GetModPlayer<BiomePlayer>().ZoneAbyss = true;
+            if (Main.netMode == NetmodeID.Server)
+                return;
+
+            ModContent.GetInstance<LunarLightingRenderer>().AddBackLight(this);
         }
-        public override void OnLeave(Player player) => player.GetModPlayer<BiomePlayer>().ZoneAbyss = false;
+        public override void OnLeave(Player player)
+        {
+            base.OnLeave(player);
+            player.GetModPlayer<BiomePlayer>().ZoneAbyss = false;
+            if (Main.netMode == NetmodeID.Server)
+                return;
+
+            ModContent.GetInstance<LunarLightingRenderer>().RemoveBackLight(this);
+        }
+
         public void ModifyBackLight(ref Color backLightColor)
         {
-            backLightColor = Color.Lerp(backLightColor, Color.White, 0.45f);
+            backLightColor = Color.Lerp(backLightColor, Color.White, 0.8f);
         }
     }
 }

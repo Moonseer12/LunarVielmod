@@ -1,9 +1,11 @@
 ﻿using ReLogic.Content;
+using Stellamod.Core.ZTileSystem;
 using System;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent;
 
 namespace Stellamod.Helpers;
@@ -36,7 +38,13 @@ public static class DrawUtilities
     public delegate Color GetTrailColor(float completionRatio);
     public delegate float GetTrailWidth(float completionRatio);
 
-
+    public static Vector2 CalculateScreenOffset(Rectangle drawLocation, float scale = 1f)
+    {
+        Vector2 texelSize = Vector2.One / new Vector2(drawLocation.Width, drawLocation.Height);
+        Vector2 screenoffset = Main.screenPosition * texelSize;
+        screenoffset *= (1f / scale);
+        return screenoffset;
+    }
     public static Vector2[] PruneFarPoints(Vector2[] oldPos)
     {
 
@@ -805,6 +813,19 @@ public struct SpritebatchDrawer
             drawOrigin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
         }
     }
+
+    public static SpritebatchDrawer FromZTileDraw(Asset<Texture2D> textureAsset, ZTileDrawData drawData)
+    {
+        SpritebatchDrawer drawer = SpritebatchDrawer.FromTextureAsset(textureAsset, drawData.drawPosition + Main.screenPosition);
+        drawer.sourceRect = drawData.frame;
+        drawer.color = drawData.drawColor;
+        drawer.rotation = drawData.drawRotation;
+        drawer.drawOrigin = drawData.drawOrigin;
+        drawer.scale = drawData.drawScale;
+        drawer.spriteEffects = drawData.spriteEffects;
+        return drawer;
+    }
+
     public static SpritebatchDrawer FromTextureAsset(Asset<Texture2D> textureAsset, Vector2 worldPosition)
     {
         SpritebatchDrawer spritebatchDrawer = new SpritebatchDrawer();

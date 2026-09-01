@@ -99,12 +99,6 @@ namespace Stellamod.Content.Areas.Jungle.BossesJN.Zui
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn] = true;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn2] = true;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Ichor] = true;
-            // Influences how the NPC looks in the Bestiary
-            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers();
-            drawModifiers.CustomTexturePath = "Stellamod/NPCs/Bosses/Zui/ZuiBestiary";
-            drawModifiers.PortraitScale = 1f; // Portrait refers to the full picture when clicking on the icon in the bestiary
-            drawModifiers.PortraitPositionYOverride = 0f;
-            NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
         }
 
         public override void SetDefaults()
@@ -237,7 +231,7 @@ namespace Stellamod.Content.Areas.Jungle.BossesJN.Zui
 
             Vector2 drawPosition = NPC.Center - screenPos;
             Vector2 origin = new Vector2(45, 40);
-            Texture2D syliaWingsTexture = ModContent.Request<Texture2D>("Stellamod/NPCs/Bosses/Zui/ZuiElement").Value;
+            Texture2D syliaWingsTexture = ModContent.Request<Texture2D>("Stellamod/Content/Areas/Jungle/BossesJN/Zui/ZuiElement").Value;
             int wingFrameSpeed = 1;
             int wingFrameCount = 60;
             spriteBatch.Draw(syliaWingsTexture, drawPosition,

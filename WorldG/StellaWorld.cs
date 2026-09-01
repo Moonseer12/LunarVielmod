@@ -54,7 +54,6 @@ public class PassWriter
     }
 }
 
-
 public partial class StellaWorld : ModSystem
 {
     public override void Load()
@@ -170,35 +169,5 @@ public partial class StellaWorld : ModSystem
         passWriter.NextPass(new StoneGolemCavePass());
         passWriter.NextPass(new HardWallsPass());
         passWriter.NextPass(new GrassPass());
-    }
-
-    public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
-    {
-        DisableGenTask(tasks, "Terrain");
-        DisableGenTask(tasks, "Tunnels");
-        DisableGenTask(tasks, "Mount Caves");
-        DisableGenTask(tasks, "Surface Caves");
-        DisableGenTask(tasks, "Mountain Caves");
-        DisableGenTask(tasks, "Generate Ice Biome");
-        DisableGenTask(tasks, "Dungeon");
-        DisableGenTask(tasks, "Wavy Caves");
-        DisableGenTask(tasks, "Living Trees");
-        DisableGenTask(tasks, "Dirt Layer Caves");
-        DisableGenTask(tasks, "Rock Layer Caves");
-        DisableGenTask(tasks, "Small Holes");
-        DisableGenTask(tasks, "Corruption");
-        DisableGenTask(tasks, "Floating Islands");
-        DisableGenTask(tasks, "Shimmer");
-        DisableGenTask(tasks, "Jungle Temple");
-        DisableGenTask(tasks, "Temple");
-        DisableGenTask(tasks, "Lihzahrd Altars");
-        DisableGenTask(tasks, "Sand Patches");
-        DisableGenTask(tasks, "Dunes");
-        DisableGenTask(tasks, "Marble");
-        DisableGenTask(tasks, "Granite");
-        DisableGenTask(tasks, "Jungle");
-        DisableGenTask(tasks, "Wall Variety");
-        DisableGenTask(tasks, "Mushroom Patches");
-        AddNewGenerationPasses(tasks);
     }
 }

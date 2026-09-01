@@ -4,6 +4,9 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Assets
 {
+    /// <summary>
+    /// Deprecated use TML build asset refs instead
+    /// </summary>
     public class AssetManager : ModSystem
     {
         public class Dithering
@@ -74,7 +77,7 @@ namespace Stellamod.Assets
             public static Asset<Texture2D> ShootingStarTrail;
             public static Asset<Texture2D> ShootingStarGlint;
         }
- 
+
         public class LaserTextures
         {
             public static Asset<Texture2D> FlameTrail;
@@ -181,7 +184,7 @@ namespace Stellamod.Assets
             Dithering.Dither8x8?.Unload();
             Dithering.Dither8x8Double?.Unload();
             Noise.SharpPerlinNoise?.Unload();
-            
+
             GlowMask.JumbledGlowCircle?.Unload();
             Noise.InvertedVoronoi?.Unload();
             Noise.FlameVortexNoise?.Unload();
@@ -197,7 +200,7 @@ namespace Stellamod.Assets
             LaserTextures.CometTrail = null;
             GlowMask.Impact = null;
             GlowMask.WhiteCircle = null;
-           Noise.PerlinBlurred = null;
+            Noise.PerlinBlurred = null;
             Noise.Swirl = null;
             GlowMask.Wave = null;
             GlowMask.BlastPillar = null;
@@ -243,7 +246,7 @@ namespace Stellamod.Assets
             LaserTextures.SplittingTrail = null;
             LaserTextures.SilkStrand = null;
 
-    Noise.Whirly = null;
+            Noise.Whirly = null;
             Noise.AuroraRays = null;
             Noise.FlamethrowerNoise = null;
         }

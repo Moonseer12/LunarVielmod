@@ -1,5 +1,4 @@
 ﻿using ReLogic.Content;
-using Stellamod.Assets;
 using Stellamod.Core.Backgrounds;
 using Terraria;
 using Terraria.ModLoader;
@@ -15,22 +14,35 @@ public class AbyssBackground : CustomBG
         _backgroundTextureAsset = ModContent.Request<Texture2D>(AssetRegistry.Textures.BackgroundPath2 + "Abyss");
     }
 
+
     public override bool UseCustomDrawing()
     {
         return true;
     }
+
     public override void Draw(SpriteBatch spriteBatch)
     {
         base.Draw(spriteBatch);
+        float xMovement = CameraMovement.X;
 
-        BackgroundHelper.DrawWrappedAtlassedBackground(spriteBatch, BackgroundHelper.AtlassedBackgroundDraw.Default with
+
+        //Calculate center of the abyss
+        Point AbyssCenter = new Point();
+        AbyssCenter.Y = (int)(SavedGenerationParameters.RockLayerHigh + Main.maxTilesY * 0.15);
+        AbyssCenter.Y -= 20;
+        int abyssHigh = AbyssCenter.Y - 500;
+
+        float abyssHighWorld = abyssHigh * 16;
+        float yMovement = Main.Camera.Center.Y - abyssHighWorld;
+        BackgroundHelper.DrawSimpleAtlassedBackground(spriteBatch, BackgroundHelper.AtlassedBackgroundDraw.Default with
         {
             fadeToColor = Color.Transparent,
             numBackgrounds = 3,
-            parallax = new Vector2(0.003f, 0),
+            parallax = new Vector2(0.003f, 0.003f),
             bg = _backgroundTextureAsset,
-            cameraMovement = CameraMovement,
-            alpha = Alpha
+            cameraMovement = new Vector2(xMovement, yMovement),
+            alpha = Alpha,
+            parallaxOffset = new Vector2(0, -0.15f)
         });
     }
 

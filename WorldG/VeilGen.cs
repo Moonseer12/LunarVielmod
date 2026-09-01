@@ -1,5 +1,7 @@
-﻿using ReLogic.Content;
+using ReLogic.Content;
 using Stellamod.Common.DungeonGeneration;
+using Stellamod.Content.Areas.Tundra.Abyss;
+using Stellamod.Core.ZTileSystem;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -345,7 +347,7 @@ public class VeilGen : ModSystem
     }
     public static void Walker(int x, int y, int steps, int tileType, int maxDist)
     {
-        Point walkerPoint = new(x,y);
+        Point walkerPoint = new(x, y);
         Point originalPoint = walkerPoint;
         var genRand = WorldGen.genRand;
         for (int s = 0; s < steps; s++)
@@ -387,9 +389,9 @@ public class VeilGen : ModSystem
 
     public static void PruneLonelyTiles(Rectangle areaRectangle)
     {
-        for(int x = areaRectangle.Left; x < areaRectangle.Right; x++)
+        for (int x = areaRectangle.Left; x < areaRectangle.Right; x++)
         {
-            for(int y = areaRectangle.Top; y < areaRectangle.Bottom; y++)
+            for (int y = areaRectangle.Top; y < areaRectangle.Bottom; y++)
             {
                 Tile tile = Main.tile[x, y];
                 Tile tileAbove = Main.tile[x, y - 1];
@@ -424,7 +426,7 @@ public class VeilGen : ModSystem
     /// <returns></returns>
     public static bool IsTileExposedToAirCardinal(int x, int y)
     {
-        return  !Main.tile[x - 1, y].HasTile ||
+        return !Main.tile[x - 1, y].HasTile ||
                 !Main.tile[x + 1, y].HasTile ||
                 !Main.tile[x, y - 1].HasTile ||
                 !Main.tile[x, y + 1].HasTile;
@@ -478,9 +480,9 @@ public class VeilGen : ModSystem
         int top = y - distance;
         Rectangle rect = new Rectangle(left, top, distance * 2, distance * 2);
         rect = TileUtilities.Clamp(rect);
-        for(int i = rect.Left; i < rect.Right; i++)
+        for (int i = rect.Left; i < rect.Right; i++)
         {
-            for(int j = rect.Top; j < rect.Bottom; j++)
+            for (int j = rect.Top; j < rect.Bottom; j++)
             {
                 Tile tile = Main.tile[i, j];
                 if (!tile.HasTile)
@@ -508,10 +510,11 @@ public class VeilGen : ModSystem
 
                 int dx = x + i;
                 int dy = y + j;
-                if(dx < 0 || dy < 0 || dx >= width || dy >= height)
+                if (dx < 0 || dy < 0 || dx >= width || dy >= height)
                 {
                     count++;
-                } else if (map[dx, dy])
+                }
+                else if (map[dx, dy])
                 {
                     count++;
                 }
@@ -524,19 +527,21 @@ public class VeilGen : ModSystem
         int width = oldMap.GetLength(0);
         int height = oldMap.GetLength(1);
         bool[,] newMap = new bool[width, height];
-        for(int x = 0; x < width; x++)
+        for (int x = 0; x < width; x++)
         {
-            for(int y =0;y < height; y++)
+            for (int y = 0; y < height; y++)
             {
                 int neighbours = CountAliveNeighbours(x, y, oldMap);
-                if(neighbours > @params.BirthLimit)
+                if (neighbours > @params.BirthLimit)
                 {
                     newMap[x, y] = true;
-                } else if (neighbours <= @params.DeathLimit)
+                }
+                else if (neighbours <= @params.DeathLimit)
                 {
                     newMap[x, y] = false;
 
-                } else
+                }
+                else
                 {
                     newMap[x, y] = oldMap[x, y];
                 }
@@ -562,7 +567,7 @@ public class VeilGen : ModSystem
         Rectangle rect = new Rectangle(left, top, prefab.Width, prefab.Height);
         rect = TileUtilities.Clamp(rect);
         int numBlotches = prefab.Width / 3;
-        for(int n = 0; n < numBlotches; n++)
+        for (int n = 0; n < numBlotches; n++)
         {
             int randX = genRand.Next(rect.Left, rect.Right);
             int randY = genRand.Next(rect.Top, rect.Bottom);
@@ -615,7 +620,7 @@ public class VeilGen : ModSystem
         //After each step, the tunnel turns its direction by a  small amount based on noise
         //At each step, do a walker algorithm to cut away at the terrain
         bool placedCave = false;
-        for(int s = 0; s < caveSteps; s++)
+        for (int s = 0; s < caveSteps; s++)
         {
             Point tile = position.ToTileCoordinates();
             Carve(tile.X, tile.Y);
@@ -632,9 +637,9 @@ public class VeilGen : ModSystem
     public static void AutomataSmoothErase(Rectangle rectangle, in CellularAutomataParams @params)
     {
         bool[,] map = new bool[rectangle.Width, rectangle.Height];
-        for(int x = rectangle.Left; x < rectangle.Right; x++)
+        for (int x = rectangle.Left; x < rectangle.Right; x++)
         {
-            for(int y = rectangle.Top; y < rectangle.Bottom; y++)
+            for (int y = rectangle.Top; y < rectangle.Bottom; y++)
             {
                 int lx = x - rectangle.Left;
                 int ly = y - rectangle.Top;
@@ -697,15 +702,15 @@ public class VeilGen : ModSystem
         bool[,] map = new bool[width, height];
 
         //First initialize the map with random values
-        for(int x = 0; x < width; x++)
+        for (int x = 0; x < width; x++)
         {
-            for(int y = 0; y < height; y++)
+            for (int y = 0; y < height; y++)
             {
                 map[x, y] = genRand.Next(0, 100) < @params.RandomFill;
             }
         }
 
-        for(int s = 0; s < @params.Steps; s++)
+        for (int s = 0; s < @params.Steps; s++)
         {
             map = Step(map, in @params);
         }
@@ -756,16 +761,16 @@ public class VeilGen : ModSystem
         int height = map.GetLength(1);
         Rectangle rect = new Rectangle(topLeft.X, topLeft.Y, width, height);
         rect = TileUtilities.Clamp(rect);
-        for(int x = rect.Left; x < rect.Right; x++)
+        for (int x = rect.Left; x < rect.Right; x++)
         {
-            for(int y = rect.Top; y < rect.Bottom; y++)
+            for (int y = rect.Top; y < rect.Bottom; y++)
             {
                 Tile tile = Main.tile[x, y];
                 if (!map[x - rect.Left, y - rect.Top])
                 {
                     tile.ClearTile();
                 }
-        
+
             }
         }
     }
@@ -791,7 +796,7 @@ public class VeilGen : ModSystem
                     break;
                 }
 
-                double num6 = (double)(num3 - (Liquid.numLiquid + LiquidBuffer.numLiquidBuffer)) / (double)num3;
+                double num6 = (num3 - (Liquid.numLiquid + LiquidBuffer.numLiquidBuffer)) / (double)num3;
                 if (Liquid.numLiquid + LiquidBuffer.numLiquidBuffer > num3)
                 {
                     num3 = Liquid.numLiquid + LiquidBuffer.numLiquidBuffer;
@@ -820,6 +825,7 @@ public class VeilGen : ModSystem
 
         Liquid.quickSettle = false;
     }
+
     public static float GetMarshHeight(float x)
     {
         float bump = x * (4 - x * 4);
@@ -830,6 +836,142 @@ public class VeilGen : ModSystem
         float roughness2 = MathF.Sin(x * 200) * 0.005f;
         float y = bump * mountains * mountains2 - dips - roughness - roughness2;
         return y + 0.1f;
+    }
+    public static void GenerateWaterBlobs(Rectangle area, float numWaterBlocks, Point squareRange)
+    {
+        var genRand = WorldGen.genRand;
+        List<Point> validPoints = new();
+        for (int x = area.Left; x < area.Right; x++)
+        {
+            for (int y = area.Top; y < area.Bottom; y++)
+            {
+                Tile tile = Main.tile[x, y];
+                if (tile.HasTile)
+                    continue;
+                int sy = y;
+                int sx = x;
+                while (!tile.HasTile && sy < Main.UnderworldLayer)
+                {
+                    sy++;
+                    tile = Main.tile[sx, sy];
+                }
+                validPoints.Add(new Point(sx, sy));
+            }
+        }
+        if (validPoints.Count <= 0)
+            return;
+
+        for (float f = 0; f < numWaterBlocks; f++)
+        {
+            //Reset the seed for each cave
+            Point p = validPoints.NextElement(genRand);
+            //Dimensions of the lava bowl
+            int width = genRand.Next(squareRange.X, squareRange.Y);
+            int left = p.X - width / 2;
+            int right = p.X + width / 2;
+            int top = p.Y - width / 2;
+            int bottom = p.Y + width / 2;
+            for (int x = left; x < right; x++)
+            {
+                for(int y = top; y < bottom; y++)
+                {
+                    Tile tile = Main.tile[x, y];
+                    if (tile.HasTile)
+                        continue;
+                    tile.LiquidAmount = 255;
+                    tile.LiquidType = LiquidID.Water;
+                }
+            }
+        }
+    }
+    public static void GenerateWaterBowls(Rectangle area, float numLavaBowls, Point widthRange, Point depthRange)
+    {
+        var genRand = WorldGen.genRand;
+        List<Point> validPoints = new();
+        for(int x = area.Left; x< area.Right; x++)
+        {
+            for(int y = area.Top; y < area.Bottom; y++)
+            {
+                Tile tile = Main.tile[x, y];
+                if (tile.HasTile)
+                    continue;
+                int sy = y;
+                int sx = x;
+                while (!tile.HasTile && sy < Main.UnderworldLayer)
+                {
+                    sy++;
+                    tile = Main.tile[sx, sy];
+                }
+                validPoints.Add(new Point(sx, sy));
+            }
+        }
+        if (validPoints.Count <= 0)
+            return;
+
+        for (float f = 0; f < numLavaBowls; f++)
+        {
+            //Reset the seed for each cave
+            Point p = validPoints.NextElement(genRand);
+            Tile startTile = Main.tile[p.X, p.Y];
+
+            //Dimensions of the lava bowl
+            int width = genRand.Next(widthRange.X, widthRange.Y);
+            int depth = genRand.Next(depthRange.X, depthRange.Y);
+            int left = p.X - width / 2;
+            int right = p.X + width / 2;
+            for (int x = left; x < right; x++)
+            {
+                float numSteps = right - left;
+                int d = (int)MathHelper.Lerp(0, depth, EasingFunction.QuadraticBump((x - left) / numSteps));
+                for (int y = p.Y; y < p.Y + d; y++)
+                {
+                    Tile tile = Main.tile[x, y];
+                    tile.ClearTile();
+                    tile.LiquidAmount = 255;
+                    tile.LiquidType = LiquidID.Water;
+                }
+            }
+        }
+    }
+    public static void GenerateLavaBowls(Rectangle area, float numLavaBowls, Point widthRange, Point depthRange)
+    {
+        var genRand = WorldGen.genRand;
+        for (float f = 0; f < numLavaBowls; f++)
+        {
+            //Reset the seed for each cave
+            int sx = genRand.Next(area.Left, area.Right);
+            int sy = genRand.Next(area.Top, area.Bottom);
+            Tile startTile = Main.tile[sx, sy];
+
+            //Only place on air, guaranteeing that the lava is inside of a cave/exposed to air
+            if (startTile.HasTile)
+                continue;
+
+            //Gotta land on a solid tile
+            while (!startTile.HasTile && sy < Main.UnderworldLayer)
+            {
+                sy++;
+                startTile = Main.tile[sx, sy];
+            }
+
+            //Dimensions of the lava bowl
+            int width = genRand.Next(widthRange.X, widthRange.Y);
+            int depth = genRand.Next(depthRange.X, depthRange.Y);
+            int left = sx - width / 2;
+            int right = sx + width / 2;
+            for (int x = left; x < right; x++)
+            {
+                float numSteps = right - left;
+                int d = (int)MathHelper.Lerp(0, depth, EasingFunction.QuadraticBump((x - left) / numSteps));
+                for (int y = sy; y < sy + d; y++)
+                {
+                    Tile tile = Main.tile[x, y];
+                    tile.ClearTile();
+                    tile.LiquidAmount = 255;
+                    tile.LiquidType = LiquidID.Lava;
+                }
+            }
+        }
     }
 
     public static bool IsAir(int x, int y, int w)
@@ -1171,6 +1313,197 @@ public class VeilGen : ModSystem
             cavePosition += caveVelocity * caveWidth * 0.5f;
             //  caveStrength *= 0.99f;
         }
+    }
+    public record struct EdgeDecorationParameters
+    {
+        public required Rectangle tileBounds;
+        public required int targetTileType;
+        public required int denom;
+        public required ushort[] zTileTypes;
+        public required int zLayer;
+        public required ZRenderLayer renderLayer;
+    }
+
+    public static void KillZTilesInArea(Rectangle tileBounds)
+    {
+        ZTileMap zTileMap = ModContent.GetInstance<ZTileMap>();
+        zTileMap.KillAnyArea(tileBounds);
+    }
+
+    public static void DecorateSurfaceEdgesWithMultiTile(Rectangle tileBounds, int denom, int targetGroundTileType, params int[] tileTypes)
+    {
+        int left = tileBounds.Left;
+        int right = tileBounds.Right;
+        int top = tileBounds.Top;
+        int bottom = tileBounds.Bottom;
+        var genRand = WorldGen.genRand;
+
+        for(int x = left; x < right; x++)
+        {
+            for(int y = top; y < bottom; y++)
+            {
+                Tile tileBelow = Main.tile[x, y + 1];
+                if(tileBelow.HasTile && tileBelow.TileType == targetGroundTileType)
+                {
+                    if(genRand.NextBool(denom))
+                        WorldGen.PlaceObject(x, y, tileTypes.NextElement(genRand));
+                }
+            }
+        }
+    }
+
+    public static void QuickPlaceTile(int x, int y, ushort tileType)
+    {
+        Tile tile = Main.tile[x, y];
+        tile.HasTile = true;
+        tile.TileFrameX = -1;
+        tile.TileFrameY = -1;
+        tile.TileType = tileType;
+    }
+
+    public static void DecorateSurfaceEdgesWithZTile(in EdgeDecorationParameters parameters)
+    {
+        int left = parameters.tileBounds.Left;
+        int right = parameters.tileBounds.Right;
+        int top = parameters.tileBounds.Top;
+        int bottom = parameters.tileBounds.Bottom;
+        var genRand = WorldGen.genRand;
+        ZTileMap zTileMap = ModContent.GetInstance<ZTileMap>();
+        ZTileLoader zTileLoader = ModContent.GetInstance<ZTileLoader>();
+        for (int x = left; x < right; x++)
+        {
+            for (int y = top; y < bottom; y++)
+            {
+                Tile tile = Main.tile[x, y];
+                if (!tile.HasTile)
+                    continue;
+                if (tile.TileType != parameters.targetTileType)
+                    continue;
+
+
+                bool hasTop = (y + 1 < Main.maxTilesY) && !WorldGen.SolidOrSlopedTile(x, y + 1);
+                bool hasBottom = (y - 1 > 0) && !WorldGen.SolidOrSlopedTile(x, y - 1);
+                if (!hasTop && hasBottom)
+                {
+                    if (genRand.NextBool(parameters.denom))
+                    {
+                        var zTileType = parameters.zTileTypes.NextElement(genRand);
+
+                        ZTileInstanceData instanceData = zTileLoader.InstanceTileData(zTileLoader.GetTile(zTileType));
+                        instanceData.frameNumber = (ushort)genRand.Next(0, zTileLoader.GetTile(zTileType).frameCount);
+                        Vector2 worldPos = new Point(x, y).ToWorldCoordinates();
+                        zTileMap.CreateTile(
+                            parameters.renderLayer,
+                            worldPos,
+                            parameters.zLayer,
+                            instanceData);
+                    }
+                }
+            }
+        }
+    }
+    public static void DecorateEdgesWithZTile(in EdgeDecorationParameters parameters)
+    {
+        int left = parameters.tileBounds.Left;
+        int right = parameters.tileBounds.Right;
+        int top = parameters.tileBounds.Top;
+        int bottom = parameters.tileBounds.Bottom;
+        var genRand = WorldGen.genRand;
+        ZTileMap zTileMap = ModContent.GetInstance<ZTileMap>();
+        ZTileLoader zTileLoader = ModContent.GetInstance<ZTileLoader>();
+        for (int x = left; x < right; x++)
+        {
+            for (int y = top; y < bottom; y++)
+            {
+                Tile tile = Main.tile[x, y];
+                if (!tile.HasTile)
+                    continue;
+
+                bool hasRight = (x + 1 < Main.maxTilesX) && !WorldGen.SolidOrSlopedTile(x + 1, y);
+                bool hasLeft = (x - 1 > 0) && !WorldGen.SolidOrSlopedTile(x - 1, y);
+                bool hasTop = (y + 1 < Main.maxTilesY) && !WorldGen.SolidOrSlopedTile(x, y + 1);
+                bool hasBottom = (y - 1 > 0) && !WorldGen.SolidOrSlopedTile(x, y - 1);
+                bool hasAny = hasRight || hasLeft || hasTop || hasBottom;
+                if (hasAny && (tile.TileType == parameters.targetTileType))
+                {
+                    if (genRand.NextBool(parameters.denom))
+                    {
+                        var zTileType = parameters.zTileTypes.NextElement(genRand);
+               
+                        ZTileInstanceData instanceData = zTileLoader.InstanceTileData(zTileLoader.GetTile(zTileType));
+                        Vector2 worldPos = new Point(x, y).ToWorldCoordinates();
+                        zTileMap.CreateTile(
+                            parameters.renderLayer, 
+                            worldPos, 
+                            parameters.zLayer,
+                            instanceData);
+                    }
+                }
+            }
+        }
+    }
+
+    public static void ClearWallsArea(Rectangle tileBounds)
+    {
+        int left = tileBounds.Left;
+        int right = tileBounds.Right;
+        int top = tileBounds.Top;
+        int bottom = tileBounds.Bottom;
+        for (int x = left; x < right; x++)
+        {
+            for (int y = top; y < bottom; y++)
+            {
+                Tile tile = Main.tile[x, y];
+                tile.WallType = 0;
+            }
+        }
+    }
+    public static void DecorateEdgeTilesWithWalls(Rectangle tileBounds, int targetTileType, ushort wallType, int maxWallCaveWidth = 2)
+    {
+        int left = tileBounds.Left;
+        int right = tileBounds.Right;
+        int top = tileBounds.Top;
+        int bottom = tileBounds.Bottom;
+        var genRand = WorldGen.genRand;
+        int wallCaveWidth = maxWallCaveWidth;
+        Vector2 baseDirection = -Vector2.UnitY;
+
+        //Here we're placing walls and silk tiles, this is a bit slow, so maybe optimize it a bit later.
+        for (int x = left; x < right; x++)
+        {
+            for (int y = top; y < bottom; y++)
+            {
+                Tile tile = Main.tile[x, y];
+                if (!tile.HasTile)
+                    continue;
+
+                bool hasRight = (x + 1 < Main.maxTilesX) && !WorldGen.SolidOrSlopedTile(x + 1, y);
+                bool hasLeft = (x - 1 > 0) && !WorldGen.SolidOrSlopedTile(x - 1, y);
+                bool hasTop = (y + 1 < Main.maxTilesY) && !WorldGen.SolidOrSlopedTile(x, y + 1);
+                bool hasBottom = (y - 1 > 0) && !WorldGen.SolidOrSlopedTile(x, y - 1);
+                bool hasAny = hasRight || hasLeft || hasTop || hasBottom;
+                if (hasAny && (tile.TileType == targetTileType))
+                {
+                    //WorldGen.PlaceTile(x, y, TileID.Grass, forced: true);
+                    Point point = new Point(x, y);
+                    int steps = genRand.Next(1, 4);
+       
+
+                    for (int s = 0; s < steps; s++)
+                    {
+                        if (point.X - wallCaveWidth > 0 && point.X + wallCaveWidth < Main.maxTilesX
+                            && point.Y + wallCaveWidth < Main.maxTilesY && point.Y - wallCaveWidth > 0)
+                        {
+                            WorldUtils.Gen(point, new Shapes.Circle(wallCaveWidth, wallCaveWidth),
+                                new Actions.PlaceWall(wallType));
+                        }
+
+                        point += (baseDirection * wallCaveWidth).RotatedByRandom(MathHelper.ToRadians(30)).ToPoint();
+                    }
+                }
+            }
+        }
+
     }
 
     public static void GenerateSimpleCave(Vector2 cavePosition, Vector2 baseCaveDirection, Vector2 caveStrength, Vector2 pullDirection, int caveWidth, int caveSteps, int tileToPlace = -1, bool addTile = false)
@@ -2047,6 +2380,11 @@ public class VeilGen : ModSystem
         tag["DarkspaceEnd"] = DarkspaceEnd;
         tag["HeatedDepthsStart"] = HeatedDepthsStart;
         tag["HeatedDepthsEnd"] = HeatedDepthsEnd;
+        tag["SnowLeft"] = SavedGenerationParameters.SnowLeft;
+        tag["SnowRight"] = SavedGenerationParameters.SnowRight;
+        tag["SnowTop"] = SavedGenerationParameters.SnowTop;
+        tag["SnowBottom"] = SavedGenerationParameters.SnowBottom;
+        tag["RockLayerHigh"] = SavedGenerationParameters.RockLayerHigh;
     }
 
     public override void LoadWorldData(TagCompound tag)
@@ -2060,5 +2398,10 @@ public class VeilGen : ModSystem
         DarkspaceEnd = tag.Get<int>("DarkspaceEnd");
         HeatedDepthsStart = tag.Get<int>("HeatedDepthsStart");
         HeatedDepthsEnd = tag.Get<int>("HeatedDepthsEnd");
+        SavedGenerationParameters.SnowLeft = tag.Get<int>("SnowLeft");
+        SavedGenerationParameters.SnowRight = tag.Get<int>("SnowRight");
+        SavedGenerationParameters.SnowTop = tag.Get<int>("SnowTop");
+        SavedGenerationParameters.SnowBottom = tag.Get<int>("SnowBottom");
+        SavedGenerationParameters.RockLayerHigh = tag.Get<double>("RockLayerHigh");
     }
 }
