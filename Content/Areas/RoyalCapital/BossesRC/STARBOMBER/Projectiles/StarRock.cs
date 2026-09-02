@@ -1,11 +1,7 @@
-﻿
-
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
+using Stellamod.Content.Dusts;
 using Stellamod.Core;
 using Stellamod.Core.Particles;
-using Stellamod.Dusts;
-
-using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;

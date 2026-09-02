@@ -2,10 +2,10 @@
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Trailers;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Trailing;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -332,7 +332,7 @@ public class StarvastStarProj : ModProjectile,
     public override void AI()
     {
         Timer++;
-        if(Timer == 1)
+        if (Timer == 1)
         {
         }
 

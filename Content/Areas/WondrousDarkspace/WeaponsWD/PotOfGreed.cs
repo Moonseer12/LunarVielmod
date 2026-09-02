@@ -1,11 +1,11 @@
 ﻿using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
+using Stellamod.Content.Trailers;
 using Stellamod.Core;
 using Stellamod.Core.Effects;
 using Stellamod.Core.Particles;
-using Stellamod.Dusts;
-using Stellamod.Trailing;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;

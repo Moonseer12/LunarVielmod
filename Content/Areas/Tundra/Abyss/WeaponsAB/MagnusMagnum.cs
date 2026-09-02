@@ -1,4 +1,4 @@
-﻿using Stellamod.Common;
+﻿using Stellamod.Content.Dusts;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -46,10 +46,10 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.WeaponsAB
                 for (int k = 0; k < 7; k++)
                 {
                     Vector2 direction = offset.RotatedByRandom(spread);
-                    Dust.NewDustPerfect(position + offset * 43, ModContent.DustType<Dusts.GlowDust>(), new Vector2(0, 0), 125, new Color(50, 80, 240), 1);
-                    Dust.NewDustPerfect(player.Center + offset * 43, ModContent.DustType<Dusts.TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, Color.DarkBlue * 0.5f, Main.rand.NextFloat(0.5f, 1));
-                    Dust.NewDustPerfect(player.Center + offset * 43, ModContent.DustType<Dusts.TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, new Color(60, 55, 50) * 0.5f, Main.rand.NextFloat(0.5f, 1));
-                    Dust.NewDustPerfect(position + offset * 43, ModContent.DustType<Dusts.GlowDust>(), direction * Main.rand.NextFloat(8), 125, Color.DarkBlue, Main.rand.NextFloat(0.5f, 0.8f));
+                    Dust.NewDustPerfect(position + offset * 43, ModContent.DustType<GlowDust>(), new Vector2(0, 0), 125, new Color(50, 80, 240), 1);
+                    Dust.NewDustPerfect(player.Center + offset * 43, ModContent.DustType<TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, Color.DarkBlue * 0.5f, Main.rand.NextFloat(0.5f, 1));
+                    Dust.NewDustPerfect(player.Center + offset * 43, ModContent.DustType<TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, new Color(60, 55, 50) * 0.5f, Main.rand.NextFloat(0.5f, 1));
+                    Dust.NewDustPerfect(position + offset * 43, ModContent.DustType<GlowDust>(), direction * Main.rand.NextFloat(8), 125, Color.DarkBlue, Main.rand.NextFloat(0.5f, 0.8f));
                 }
                 SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/MiniPistol2"));
                 Item.useTime = 102;
@@ -58,7 +58,7 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.WeaponsAB
             }
             if (_comboCounter > 15)
             {
-                Dust.NewDustPerfect(player.Center + offset * 43, ModContent.DustType<Dusts.TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, Color.IndianRed * 0.5f, Main.rand.NextFloat(0.5f, 1));
+                Dust.NewDustPerfect(player.Center + offset * 43, ModContent.DustType<TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, Color.IndianRed * 0.5f, Main.rand.NextFloat(0.5f, 1));
             }
 
             if (_comboCounter == 5)
@@ -68,7 +68,7 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.WeaponsAB
             }
 
 
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, 6f);
+            FXUtil.ShakeCamera(player.Center, 1024f, 6f);
 
 
             //Dust Burst Towards Mouse
@@ -79,11 +79,11 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.WeaponsAB
                 Vector2 direction = offset.RotatedByRandom(spread);
 
 
-                Dust.NewDustPerfect(position + offset * 43, ModContent.DustType<Dusts.GlowDust>(), direction * Main.rand.NextFloat(8), 125, new Color(150, 50, 240), Main.rand.NextFloat(0.2f, 0.5f));
+                Dust.NewDustPerfect(position + offset * 43, ModContent.DustType<GlowDust>(), direction * Main.rand.NextFloat(8), 125, new Color(150, 50, 240), Main.rand.NextFloat(0.2f, 0.5f));
             }
 
-            Dust.NewDustPerfect(position + offset * 43, ModContent.DustType<Dusts.GlowDust>(), new Vector2(0, 0), 125, new Color(100, 80, 240), 1);
-            Dust.NewDustPerfect(player.Center + offset * 43, ModContent.DustType<Dusts.TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, new Color(60, 55, 50) * 0.5f, Main.rand.NextFloat(0.5f, 1));
+            Dust.NewDustPerfect(position + offset * 43, ModContent.DustType<GlowDust>(), new Vector2(0, 0), 125, new Color(100, 80, 240), 1);
+            Dust.NewDustPerfect(player.Center + offset * 43, ModContent.DustType<TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, new Color(60, 55, 50) * 0.5f, Main.rand.NextFloat(0.5f, 1));
             return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }
 

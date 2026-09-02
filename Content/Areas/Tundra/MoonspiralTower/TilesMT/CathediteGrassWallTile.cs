@@ -1,6 +1,5 @@
-﻿using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.TilesMT

@@ -1,4 +1,4 @@
-﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
@@ -116,7 +116,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             SwingV2Helper.AddSwordSwingStyle(this);
             BlackFireShader blackFireShader = new BlackFireShader();
             blackFireShader.SetDefaults();
-            blackFireShader.InnerEmitColor = Color.Yellow * 0.2f; 
+            blackFireShader.InnerEmitColor = Color.Yellow * 0.2f;
             blackFireShader.OuterEmiteColor = Color.Red;
             SlashTrailer devilsPeak = new SlashTrailer
             {
@@ -184,7 +184,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
                 int index = (int)(Interpolant * swingTrailCache.Length) % swingTrailCache.Length;
                 Vector2 spawnPos = swingTrailCache[index];
                 var p = LegacyParticle.NewParticle<EmberParticle>(spawnPos, Main.rand.NextVector2Circular(1, 1));
-               
+
             }
 
             if (_traveledRotation > 0.1f)
@@ -205,7 +205,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
 
 
 
-   
+
                 if (Main.rand.NextBool(12))
                 {
 
@@ -241,7 +241,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
                         fadeToColor: Color.Red,
                         distortOut: true);
 
-    
+
                 }
 
                 _hit = true;
@@ -256,7 +256,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
                     Vector2 vel = Main.rand.NextVector2Circular(4, 4);
                     LegacyParticle.NewParticle<EmberParticle>(Owner.Center, vel);
                 }
-            
+
             }
 
             target.AddBuff(BuffID.OnFire, 120);

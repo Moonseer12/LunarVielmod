@@ -3,11 +3,11 @@ using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -351,7 +351,7 @@ public class DevilsPeakStaminaSlash : BaseSwingProjectileV2
         if (!_hit)
         {
             Player player = Owner;
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
+            FXUtil.ShakeCamera(player.Center, 1024f, 32f);
             float recoilStrength = 8;
             Vector2 direction = target.DirectionTo(player.Center);
             Vector2 targetVelocity = direction * recoilStrength;

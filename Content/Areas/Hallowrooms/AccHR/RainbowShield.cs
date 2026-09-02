@@ -2,8 +2,8 @@
 using Stellamod.Common.WeaponTypes;
 using Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Bases;
-using Stellamod.Dusts;
 using Terraria;
 using Terraria.ModLoader;
 

@@ -1,5 +1,4 @@
 ﻿using ReLogic.Content;
-using Stellamod.Assets;
 using Stellamod.Core.Backgrounds;
 using Stellamod.Core.Effects;
 using Terraria;
@@ -39,8 +38,7 @@ public class WonderousDarkspaceBackground : CustomBG
 
     public override bool IsActive()
     {
-        BiomePlayer biomePlayer = Main.LocalPlayer.GetModPlayer<BiomePlayer>();
-        return biomePlayer.ZoneWonder && !biomePlayer.ZoneCinder;
+        return false;
     }
 }
 

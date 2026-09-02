@@ -1,9 +1,8 @@
-﻿using Stellamod.Common;
+using Stellamod.Content.Dusts;
+using Stellamod.Content.Trailers;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Palettes;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Dusts;
-using Stellamod.Trailing;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -218,7 +217,7 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
                     SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/AssassinsSlashProj4"), Projectile.position);
                 }
 
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 8);
+                FXUtil.ShakeCamera(Projectile.Center, 512f, 8);
 
                 Projectile.rotation = Main.rand.Next(0, 360);
             }

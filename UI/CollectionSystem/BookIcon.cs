@@ -1,8 +1,4 @@
-﻿
-
 using Stellamod.Common.BossBannerSystem;
-
-using System;
 using Terraria;
 using Terraria.GameInput;
 using Terraria.ModLoader;
@@ -12,8 +8,6 @@ namespace Stellamod.UI.CollectionSystem
 {
     public class BookIcon : UIElement
     {
-        
-        private readonly float _scale = 1f;
         public BookIcon()
         {
             float scale = 1f;

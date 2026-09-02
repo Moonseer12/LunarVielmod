@@ -1,9 +1,9 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Common.Shaders;
+using Stellamod.Content.Dusts;
 using Stellamod.Core;
 using Stellamod.Core.Pixelation;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;

@@ -1,7 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Content.Areas.PunkerTown.TilesPT;
-using Stellamod.Dusts;
-using Stellamod.WorldG;
+using Stellamod.Content.Dusts;
 using System;
 using Terraria;
 using Terraria.DataStructures;

@@ -1,4 +1,4 @@
-﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.Areas.Desert.WeaponsCL;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
@@ -79,7 +79,7 @@ public class ITExplosionProj : ModProjectile, IDrawToRenderTarget
     {
         base.AI();
         Timer++;
-        if(Timer == 1)
+        if (Timer == 1)
         {
             FXUtil.GlowCircleBoom(Projectile.Center, Color.White, Color.LightGreen, Color.DarkGreen, 6, baseSize: 0.24f);
             PixelPrimitiveCircleFactory.CreateGenericBoom(Projectile.Center, Color.White, Color.LightGreen, 24, 128);
@@ -186,7 +186,7 @@ public class ITProj : ModProjectile
                 sp.fadeToColor = Color.Black;
                 sp.initialColor = Color.DarkGray;
             }
-            
+
         }
         WhiteTimer = MathHelper.Lerp(WhiteTimer, 0, 0.1f);
         Rectangle myRect = Projectile.getRect();

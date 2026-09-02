@@ -1,5 +1,5 @@
-﻿using Stellamod.Core.Bases;
-using Stellamod.Dusts;
+﻿using Stellamod.Content.Dusts;
+using Stellamod.Core.Bases;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;

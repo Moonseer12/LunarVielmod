@@ -1,6 +1,6 @@
-﻿using Stellamod.Common;
-using Stellamod.Dusts;
+using Stellamod.Common;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.IrradiaNHavoc.Havoc.Projectiles;
+using Stellamod.Content.Dusts;
 using System;
 using System.IO;
 using Terraria;
@@ -596,7 +596,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.IrradiaNHavoc.Havoc
 
                 if (Timer % 2 == 0)
                 {
-                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.position, 1024, 16);
+                    FXUtil.ShakeCamera(NPC.position, 1024, 16);
                     Vector2 pos = NPC.Center + Main.rand.NextVector2Circular(64, 64);
                     Vector2 vel = NPC.rotation.ToRotationVector2() * 8;
                     float scale = Main.rand.NextFloat(2.5f, 3.75f);

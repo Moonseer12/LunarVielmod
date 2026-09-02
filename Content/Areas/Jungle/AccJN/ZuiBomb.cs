@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -187,7 +186,7 @@ namespace Stellamod.Content.Areas.Jungle.AccJN
                 {
                     SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/AssassinsSlashProj4"), Projectile.position);
                 }
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 32f);
+                FXUtil.ShakeCamera(Projectile.Center, 512f, 32f);
                 Projectile.rotation = Main.rand.Next(0, 360);
             }
             Projectile.spriteDirection = Projectile.direction;

@@ -1,13 +1,6 @@
-﻿
-
-using Stellamod.Assets;
-using Stellamod.Dusts;
-
-using Stellamod.Trails;
+﻿using Stellamod.Content.Dusts;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.GameContent;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;

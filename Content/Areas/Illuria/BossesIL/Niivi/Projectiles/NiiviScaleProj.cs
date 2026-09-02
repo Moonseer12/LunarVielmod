@@ -1,5 +1,4 @@
 ﻿using Stellamod.Assets;
-using Stellamod.Common;
 using Stellamod.Content.Areas.Fable.WeaponsFB;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
@@ -54,7 +53,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.Niivi.Projectiles
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
             //Spawn item
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 2212f, 12f);
+            FXUtil.ShakeCamera(Projectile.Center, 2212f, 12f);
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/SoftSummon2"), Projectile.position);
             if (Main.myPlayer == Projectile.owner)
             {

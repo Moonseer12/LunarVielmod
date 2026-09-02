@@ -1,4 +1,4 @@
-﻿using Stellamod.Common;
+using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using System;

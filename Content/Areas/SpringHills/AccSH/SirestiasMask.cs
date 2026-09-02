@@ -1,6 +1,5 @@
-﻿using Stellamod.Common;
-using Stellamod.Dusts;
-
+using Stellamod.Common;
+using Stellamod.Content.Dusts;
 using Terraria;
 using Terraria.ModLoader;
 

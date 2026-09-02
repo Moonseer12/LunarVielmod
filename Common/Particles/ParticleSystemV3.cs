@@ -18,6 +18,7 @@ public sealed class Particles : ModSystem
     public static SwirlingFlameDust SwirlingFlameDust;
     public static RoarDust RoarDust;
 
+    public static AbyssFloatingFlowerDust AbyssFloatingFlowerDust;
     /// <summary>
     /// A circle particle that draws on the water target, creating the illusion of splashing water
     /// </summary>
@@ -34,6 +35,7 @@ public sealed class Particles : ModSystem
         SwirlingFlameDust = new();
         RoarDust = new();
         WaterDust = new();
+        AbyssFloatingFlowerDust = new();
         _particleUpdaters = new List<IParticleUpdater>
         {
             BitDust,
@@ -43,7 +45,8 @@ public sealed class Particles : ModSystem
             CinderEmberDustBackground,
             SwirlingFlameDust,
             RoarDust,
-            WaterDust
+            WaterDust,
+            AbyssFloatingFlowerDust
         };
 
         for (int i = 0; i < _particleUpdaters.Count; i++)
@@ -73,28 +76,6 @@ public sealed class Particles : ModSystem
     }
 
 
-    private void UpdateParticles(object? state)
-    {
-
-        void UpdateParticles_Inner()
-        {
-            double oldUpdate = Main.GameUpdateCount;
-
-            while (true)
-            {
-                double newUpdate = Main.GameUpdateCount;
-                if (newUpdate != oldUpdate)
-                {
-                    oldUpdate = newUpdate;
-                    for (int i = 0; i < _particleUpdaters.Count; i++)
-                    {
-                        _particleUpdaters[i].Update();
-                    }
-                }
-            }
-        }
-        UpdateParticles_Inner();
-    }
     public override void PostUpdateDusts()
     {
         base.PostUpdateDusts();
@@ -104,32 +85,6 @@ public sealed class Particles : ModSystem
         }
     }
 
-    private void RagingFlameDustTest()
-    {
-        if (Main.mouseLeft && Main.GameUpdateCount % 2 == 0)
-        {
-            RagingFlameDust.Spawn(RagingFlameDustData.Default with { position = Main.MouseWorld, timeleft = 70 });
-        }
-    }
-
-    private void BitDustPerfTest()
-    {
-        if (Main.mouseLeft)
-        {
-            BitDustFactory factory = BitDustFactory.Default;
-            factory.position = Main.MouseWorld;
-            factory.outerColor = Main.DiscoColor.ToVector4();
-            factory.innerColor = factory.outerColor;
-            for (int i = 0; i < 100; i++)
-            {
-
-
-                factory.velocity = Main.rand.NextVector2Circular(16, 16);
-                BitDust.Spawn(factory);
-            }
-        }
-
-    }
     public override void PostDrawTiles()
     {
         base.PostDrawTiles();

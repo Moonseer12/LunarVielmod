@@ -30,7 +30,7 @@ namespace Stellamod.Common.IgnitersNPowders
 
             if (ExplosionScreenshakeAmt > 0)
             {
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(explosionPosition, 1024, ExplosionScreenshakeAmt);
+                FXUtil.ShakeCamera(explosionPosition, 1024, ExplosionScreenshakeAmt);
             }
 
             return p;

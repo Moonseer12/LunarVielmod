@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -76,7 +75,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.IrradiaNHavoc.Projectiles
 
         public override void OnKill(int timeLeft)
         {
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 32f);
+            FXUtil.ShakeCamera(Projectile.Center, 512f, 32f);
             for (int i = 0; i < 20; i++)
             {
                 Dust.NewDustPerfect(Projectile.Center, DustID.GoldCoin, (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(25.0), 0, default, 1f).noGravity = false;

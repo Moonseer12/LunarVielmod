@@ -1,4 +1,5 @@
 using ReLogic.Content;
+using Stellamod.Common;
 using Stellamod.Content.Areas.Tundra.Abyss.AccAB;
 using Stellamod.Content.CommonMaterials;
 using System;
@@ -17,7 +18,7 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Shadow Wraith");
+            this.AddToAbyss();
             NPCID.Sets.TrailingMode[NPC.type] = 0;
             NPCID.Sets.TrailCacheLength[NPC.type] = 15;
             Main.npcFrameCount[NPC.type] = 10;
@@ -65,16 +66,6 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB
             }
 
             NPC.frame.Y = frameHeight * frame;
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            Player player = spawnInfo.Player;
-            if (!(player.ZoneTowerSolar || player.ZoneTowerVortex || player.ZoneTowerNebula || player.ZoneTowerStardust && !Main.pumpkinMoon && !Main.snowMoon) && Main.hardMode)
-            {
-                return spawnInfo.Player.ZoneAbyss() ? 1.5f : 0f;
-            }
-            return 0f;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

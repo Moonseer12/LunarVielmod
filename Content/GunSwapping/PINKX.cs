@@ -1,7 +1,4 @@
-﻿using Stellamod.Assets;
-using Stellamod.Dusts;
-
-using Stellamod.Trails;
+using Stellamod.Content.Dusts;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;

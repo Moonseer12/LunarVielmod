@@ -1,7 +1,6 @@
 ﻿using Stellamod.Content.Areas.RoyalCapital;
 using Terraria;
 using Terraria.Graphics.Capture;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Terror
@@ -33,16 +32,11 @@ namespace Stellamod.Content.Areas.Terror
         {
             base.OnEnter(player);
             player.GetModPlayer<BiomePlayer>().ZoneCrimsonBridewell = true;
-            if (Main.netMode == NetmodeID.Server)
-                return;
-            return;
         }
         public override void OnLeave(Player player)
         {
+            base.OnLeave(player);
             player.GetModPlayer<BiomePlayer>().ZoneCrimsonBridewell = false;
-            if (Main.netMode == NetmodeID.Server)
-                return;
-            return;
         }
     }
 }

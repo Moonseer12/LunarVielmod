@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.Areas.Hallowrooms.ArmorHR;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using System;
 using Terraria;
 using Terraria.Audio;

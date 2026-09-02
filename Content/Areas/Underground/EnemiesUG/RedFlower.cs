@@ -25,7 +25,7 @@ namespace Stellamod.Content.Areas.Underground.EnemiesUG
             Hit = true;
             if (NPC.life <= 0)
             {
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 2048f, 16f);
+                FXUtil.ShakeCamera(NPC.Center, 2048f, 16f);
                 SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Harv1"));
                 CombatText.NewText(NPC.getRect(), Color.YellowGreen, LangText.Misc("Flower"), true, false);
             }

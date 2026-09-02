@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Stellamod.NPCs;
+using Stellamod.Common;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -38,7 +37,7 @@ namespace Stellamod.Content.Areas.Ishtar.EnemiesIS
             NPC.npcSlots = 1;
             NPC.noGravity = false;
             NPC.aiStyle = -1;
-            AIType = 0;
+            AIType = NPCID.None;
             NPC.lavaImmune = true;
             NPC.HitSound = SoundID.NPCHit29;
             NPC.DeathSound = SoundID.NPCDeath32;
@@ -174,7 +173,7 @@ namespace Stellamod.Content.Areas.Ishtar.EnemiesIS
             NPC.height = 24;
             NPC.defense = 150;
             NPC.aiStyle = -1;
-            AIType = 0;
+            AIType = NPCID.None;
         }
 
 
@@ -234,7 +233,7 @@ namespace Stellamod.Content.Areas.Ishtar.EnemiesIS
             NPC.width = 24;
             NPC.height = 58;
             NPC.aiStyle = -1;
-            AIType = 0;
+            AIType = NPCID.None;
         }
 
         public override void Init()

@@ -1,7 +1,4 @@
-﻿
-
-
-using Stellamod.Trails;
+﻿using Stellamod.Content.Trailers;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

@@ -1,5 +1,4 @@
 ﻿using Stellamod.Assets;
-using Stellamod.Common;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
 using Terraria;
@@ -74,7 +73,7 @@ public class RazorWingDash : ModProjectile,
                 ModContent.ProjectileType<GothinTorch>(), Projectile.damage, Projectile.knockBack, Projectile.owner, ai1: numDirections, ai2: 2);
         }
         SoundEngine.PlaySound(SoundID.DD2_ExplosiveTrapExplode, Projectile.position);
-        Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 16f);
+        FXUtil.ShakeCamera(Projectile.Center, 1024f, 16f);
     }
 
     public override bool PreDraw(ref Color lightColor)

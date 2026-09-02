@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Stellamod.Common.MagicCauldron;
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.GunSwapping;
 using Terraria;
@@ -41,7 +40,7 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
                 {
                     Projectile.NewProjectile(player.GetSource_FromThis(), position, velocity * 8, projToShoot, damage, knockback, player.whoAmI);
                 }
-                player.GetModPlayer<ShakePlayer>().ShakeAtPosition(position, 1024f, 16f);
+                FXUtil.ShakeCamera(position, 1024f, 16f);
                 SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/gun1"), position);
 
 

@@ -1,9 +1,9 @@
 ﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -193,7 +193,6 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         {
             return Color.Lerp(Color.Red * 0.9f, Color.Transparent, EasingFunction.InExpo(ratio));
         }
-        private bool _thrust;
         public float thrustSpeed = 5;
         public float stabRange;
         public override void AI()

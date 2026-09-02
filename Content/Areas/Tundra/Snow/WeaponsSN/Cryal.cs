@@ -2,9 +2,9 @@
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
 using Stellamod.Core;
 using Stellamod.Core.Bases;
-using Stellamod.Dusts;
 using System;
 using Terraria;
 using Terraria.Audio;

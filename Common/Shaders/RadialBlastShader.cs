@@ -1,17 +1,4 @@
-﻿
-
-
-using ReLogic.Content;
-using Stellamod.Assets;
-using Stellamod.Trails;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
-
-namespace Stellamod.Common.Shaders
+﻿namespace Stellamod.Common.Shaders
 {
     public class RadialBlastShader : BaseShader
     {

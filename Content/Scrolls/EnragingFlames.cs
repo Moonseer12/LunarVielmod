@@ -1,9 +1,8 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Pixelation;
-using Stellamod.Dusts;
-
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;

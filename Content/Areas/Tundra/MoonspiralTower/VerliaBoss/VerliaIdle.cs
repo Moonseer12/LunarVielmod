@@ -1,13 +1,10 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Content.Areas.Tundra.Abyss.AccAB;
-using Stellamod.Content.Dialogue;
 using Stellamod.Core;
 using Stellamod.Core.DialogueSystem;
 using Stellamod.Core.Particles;
 using Stellamod.Core.TriggersSystem.Triggers;
-
-
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;
@@ -29,14 +26,10 @@ public class VerliaIdle : VeilTownNPC,
     private ref float Timer => ref NPC.ai[0];
     public override void SetStaticDefaults()
     {
+        base.SetStaticDefaults();
         NPCID.Sets.TrailCacheLength[NPC.type] = 5;
         NPCID.Sets.TrailingMode[Type] = 3;
         Main.npcFrameCount[NPC.type] = 2;
-        NPCID.Sets.MPAllowedEnemies[NPC.type] = true;
-        NPCID.Sets.BossBestiaryPriority.Add(Type);
-        NPCID.Sets.ActsLikeTownNPC[Type] = true;
-        NPCID.Sets.SpawnsWithCustomName[Type] = true;
-        NPCID.Sets.NoTownNPCHappiness[Type] = true;
     }
 
     public override void SetDefaults()
@@ -53,7 +46,7 @@ public class VerliaIdle : VeilTownNPC,
         NPC.knockBackResist = 0f;
         NPC.noGravity = true;
         NPC.npcSlots = 10f;
-        NPC.aiStyle = 0;
+        NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
         NPC.HitSound = SoundID.NPCHit1;
         NPC.DeathSound = SoundID.NPCDeath1;
         NPC.knockBackResist = 0.5f;

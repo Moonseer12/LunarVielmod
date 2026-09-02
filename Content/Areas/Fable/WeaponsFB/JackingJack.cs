@@ -2,13 +2,10 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Common.SummonerSystem;
 using Stellamod.Content.Areas.Fable.BossesFB.JackTheScholar;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-
-using Stellamod.Dusts;
-
-using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -64,7 +61,6 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
             Summon_Hand_Down
         }
 
-        private int _frame;
         private float _frameTimer;
         private AnimationState _animation;
 

@@ -1,11 +1,10 @@
-﻿using Stellamod.Common;
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Desert.BossesCL.EliteCommander.Projectiles;
 using Stellamod.Content.Areas.SpringHills.BossesSH.Ravager.Projectiles;
+using Stellamod.Content.Dusts;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
 using Stellamod.Core.Particles;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -325,7 +324,7 @@ namespace Stellamod.Content.Areas.SpringHills.BossesSH.Ravager
             NPC.velocity.X *= 0.9f;
             if (Timer >= 120)
             {
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.position, 6000, 128);
+                FXUtil.ShakeCamera(NPC.position, 6000, 128);
                 for (int i = 0; i < 16; i++)
                 {
                     Dust.NewDustPerfect(NPC.Center, ModContent.DustType<TSmokeDust>(),

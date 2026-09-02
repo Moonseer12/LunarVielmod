@@ -1,5 +1,5 @@
 ﻿using Stellamod.Common;
-using Stellamod.Trails;
+using Stellamod.Content.Trailers;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -45,7 +45,7 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
                 }
 
                 SoundEngine.PlaySound(explosionSound, Projectile.position);
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.position, 2048, 500);
+                FXUtil.ShakeCamera(Projectile.position, 2048, 500);
             }
 
             for (int i = 0; i < Lightning.Trails.Length; i++)

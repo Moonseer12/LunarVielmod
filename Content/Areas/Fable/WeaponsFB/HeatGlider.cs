@@ -52,7 +52,7 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
             Projectile.light = 0.5f; // How much light emit around the projectile
             Projectile.penetrate = -1;
             Projectile.extraUpdates = 1;
-            AIType =1;
+            AIType = ProjectileID.WoodenArrowFriendly;
             Projectile.timeLeft = 300;
         }
 
@@ -128,7 +128,7 @@ namespace Stellamod.Content.Areas.Fable.WeaponsFB
 
             for (int i = 0; i < 8; i++)
             {
-                float progress = (float)i / 8f;
+                float progress = i / 8f;
                 float rot = progress * MathHelper.TwoPi;
                 Vector2 vel = rot.ToRotationVector2() * 2;
                 Dust.NewDustPerfect(Projectile.Center, DustID.GoldCoin, vel, Scale: 1f);

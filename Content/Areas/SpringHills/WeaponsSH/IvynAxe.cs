@@ -1,10 +1,10 @@
 ﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Gores;
+using Stellamod.Content.Trailers;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Trailing;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

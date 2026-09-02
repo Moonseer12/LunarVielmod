@@ -1,8 +1,8 @@
 ﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Trailers;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Trailing;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;

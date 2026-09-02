@@ -1,6 +1,4 @@
 ﻿using Stellamod.Core.NPCHelpers;
-using Stellamod.Trails;
-using System;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;

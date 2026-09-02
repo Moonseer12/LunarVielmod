@@ -1,6 +1,5 @@
-﻿using Stellamod.Common;
-using Stellamod.Content.Gores;
-using Stellamod.Trails;
+﻿using Stellamod.Content.Gores;
+using Stellamod.Content.Trailers;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -90,7 +89,7 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
 
 
                 Vector2 lightningHitPos = Projectile.position + new Vector2(0, BeamLength);
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(lightningHitPos, 1024, 32);
+                FXUtil.ShakeCamera(lightningHitPos, 1024, 32);
 
                 for (int i = 0; i < 2; i++)
                 {

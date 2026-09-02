@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -60,7 +59,7 @@ namespace Stellamod.Content.Areas.SpringHills.WeaponsSH
             SoundEngine.PlaySound(SoundID.Item107, Projectile.position);
             float Speed = Main.rand.Next(4, 7);
             float offsetRandom = Main.rand.Next(0, 50);
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 2048f, 12f);
+            FXUtil.ShakeCamera(Projectile.Center, 2048f, 12f);
 
             float spread = 45f * 0.0174f;
             double startAngle = Math.Atan2(1, 0) - spread / 2;

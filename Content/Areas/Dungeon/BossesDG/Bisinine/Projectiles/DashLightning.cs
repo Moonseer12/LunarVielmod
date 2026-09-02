@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common;
 using Stellamod.Common.Shaders;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Particles;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;
@@ -82,7 +82,7 @@ namespace Stellamod.Content.Areas.Dungeon.BossesDG.Bisinine.Projectiles
                 }
 
                 _lightningHitPos = Projectile.position + new Vector2(0, BeamLength);
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(_lightningHitPos, 1024, 32);
+                FXUtil.ShakeCamera(_lightningHitPos, 1024, 32);
                 var part = FXUtil.GlowCircleBoom(_lightningHitPos,
                     innerColor: Color.Gray,
                     glowColor: Color.Blue,

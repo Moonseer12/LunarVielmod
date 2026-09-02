@@ -1,9 +1,6 @@
-﻿
-
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Particles;
-using Stellamod.Dusts;
-
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;
@@ -11,7 +8,6 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.GameContent.Animations.IL_Actions.Sprites;
 
 namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
 {

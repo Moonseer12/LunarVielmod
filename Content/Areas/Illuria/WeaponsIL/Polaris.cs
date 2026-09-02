@@ -1,9 +1,8 @@
 ﻿using Stellamod.Assets;
-using Stellamod.Common;
 using Stellamod.Common.Shaders;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;
@@ -259,7 +258,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
                 player.velocity = VectorHelper.VelocityUpTo(player.velocity, targetVelocity);
 
                 //Funny Screenshake
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
+                FXUtil.ShakeCamera(player.Center, 1024f, 32f);
 
                 //Dust Burst Towards Mouse
                 float chargeProgress = ChargeTimer / Max_Charge_Time;
@@ -370,7 +369,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
 
                 Vector2 direction = Projectile.velocity.SafeNormalize(Vector2.Zero);
                 Vector2 explosionCenter = Projectile.Center + direction * BeamLength;
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(explosionCenter, 1024f, 32f);
+                FXUtil.ShakeCamera(explosionCenter, 1024f, 32f);
                 if (Main.myPlayer == Projectile.owner)
                 {
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), explosionCenter, Vector2.Zero, ModContent.ProjectileType<SiriusBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner);

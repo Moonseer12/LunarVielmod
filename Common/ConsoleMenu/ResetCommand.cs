@@ -1,4 +1,5 @@
-﻿using Stellamod.Content.Areas.Desert.Event.Common;
+using Stellamod.Common.QuestSystem;
+using Stellamod.Content.Areas.Desert.Event.Common;
 using Stellamod.Core.PlayerLevelingSystem;
 using Terraria;
 using Terraria.ModLoader;
@@ -19,7 +20,8 @@ public class ResetCommand : ConsoleCommand
         {
             "level",
             "boss",
-            "gintze"
+            "gintze",
+            "quests"
         };
 
         return arguments0;
@@ -50,6 +52,15 @@ public class ResetCommand : ConsoleCommand
                 else
                 {
                     Stellamod.WriteToPacket(Stellamod.Instance.GetPacket(), (byte)MessageType.ResetColosseum).Send(-1);
+                }
+                return true;
+            case "quests":
+                {
+                    QuestPlayer questPlayer = player.GetModPlayer<QuestPlayer>();
+                    questPlayer.ActiveQuests.Clear();
+                    questPlayer.CompletedQuests.Clear();
+                    questPlayer.RewardQuests.Clear();
+                    questPlayer.RecalculateUI = true;
                 }
                 return true;
         }

@@ -2,7 +2,7 @@
 using ReLogic.Content.Sources;
 using Stellamod.Assets.ContentReader.Aseprite;
 using Stellamod.Assets.ContentReader.Pal;
-using Stellamod.Assets.Videos;
+//using Stellamod.Assets.Videos;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas;
 using Stellamod.Content.Areas.Terror;
@@ -301,14 +301,14 @@ namespace Stellamod
 
         private void CreateDefaultPaletteValue()
         {
-            Texture3D tex3d = new Texture3D(Main.graphics.GraphicsDevice, 1, 1, 1, false, SurfaceFormat.Color);
+            Texture3D tex3d = new(Main.graphics.GraphicsDevice, 1, 1, 1, false, SurfaceFormat.Color);
             Asset<Palette>.DefaultValue = new Palette(new Vector3[1], tex3d);
         }
         public override IContentSource CreateDefaultContentSource()
         {
             if (!Main.dedServ)
             {
-                AddContent(new VideoReader());
+                //AddContent(new VideoReader());
                 AddContent(new AseFileReader());
                 AddContent(new PalFileReader());
                 Main.QueueMainThreadAction(CreateDefaultPaletteValue);

@@ -1,6 +1,5 @@
 ﻿using ReLogic.Content;
-using Stellamod.Dusts;
-
+using Stellamod.Content.Dusts;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.ID;

@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Stellamod.Common.GunSystem;
+﻿using Stellamod.Common.GunSystem;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
@@ -59,7 +58,7 @@ public class WiggleDiggle : BaseGun
         Vector2 offset = new Vector2(6, -0.1f * player.direction).RotatedBy(rot);
 
         //Funny Screenshake
-        Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
+        FXUtil.ShakeCamera(player.Center, 1024f, 32f);
         int numProjectiles = Main.rand.Next(8, 15);
         float distance = 12;
         for (int p = 0; p < numProjectiles; p++)

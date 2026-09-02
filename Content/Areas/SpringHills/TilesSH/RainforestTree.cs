@@ -1,4 +1,4 @@
-﻿using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using Stellamod.WorldG;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,6 @@ using Terraria.GameContent.Metadata;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
 using Terraria.ObjectData;
 using Terraria.Utilities;
 

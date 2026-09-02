@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.ArmorRework;
 using Stellamod.Content.Areas.Hallowrooms.AccHR;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;

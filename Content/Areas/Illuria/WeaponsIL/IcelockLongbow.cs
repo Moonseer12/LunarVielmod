@@ -1,4 +1,4 @@
-﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core;
@@ -48,9 +48,9 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
             }
 
             NPC nearest = NPCHelper.FindClosestNPC(Projectile.position, 1024);
-            if(nearest != null)
+            if (nearest != null)
                 Projectile.velocity = ProjectileHelper.SimpleHomingVelocity(Projectile, nearest.Center);
-            if(Projectile.velocity.Length() < 15f)
+            if (Projectile.velocity.Length() < 15f)
                 Projectile.velocity *= 1.01f;
         }
 
@@ -130,7 +130,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), icicleCenter,
                     velocity, ModContent.ProjectileType<IcicleFormation>(), 1, 1, Projectile.owner, ai1: steps, ai2: -1);
             }
-  
+
             return base.OnTileCollide(oldVelocity);
         }
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)

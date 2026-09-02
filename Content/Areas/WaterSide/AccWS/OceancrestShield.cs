@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Stellamod.Common.MagicCauldron;
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.ID;
@@ -95,7 +94,7 @@ namespace Stellamod.Content.Areas.WaterSide.AccWS
             {
                 float A = Main.rand.Next(0, 2);
 
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 10f);
+                FXUtil.ShakeCamera(Projectile.Center, 512f, 10f);
                 int num1 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Water, 0f, -2f, 0, default, .8f);
                 Main.dust[num1].noGravity = true;
                 Main.dust[num1].position.X += Main.rand.Next(-50, 51) * .05f - 1.5f;

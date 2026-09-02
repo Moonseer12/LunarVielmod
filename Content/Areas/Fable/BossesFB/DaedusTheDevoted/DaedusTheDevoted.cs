@@ -1,10 +1,7 @@
-﻿
-
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles;
+using Stellamod.Content.Trailers;
 using Stellamod.Core;
-
-using Stellamod.Trails;
 using System;
 using System.IO;
 using Terraria;

@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Stellamod.Common.MagicCauldron;
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.SummonerSystem;
 using Stellamod.Content.Areas.Terror.WeaponsTR;
 using Stellamod.Content.CommonMaterials;
@@ -42,7 +41,7 @@ namespace Stellamod.Content.Areas.Terror.AccTR
 
             float Speed = Main.rand.Next(4, 7);
             float offsetRandom = Main.rand.Next(0, 50);
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(projectile.Center, 2048f, 32f);
+            FXUtil.ShakeCamera(projectile.Center, 2048f, 32f);
 
             float spread = 45f * 0.0174f;
             double startAngle = Math.Atan2(1, 0) - spread / 2;

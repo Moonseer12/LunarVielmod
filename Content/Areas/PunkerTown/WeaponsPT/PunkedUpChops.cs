@@ -58,8 +58,7 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            if (Main.rand.NextBool(2))
-                target.AddBuff(ModContent.BuffType<AcidFlame>(), 180);
+
         }
 
         public override bool PreAI()

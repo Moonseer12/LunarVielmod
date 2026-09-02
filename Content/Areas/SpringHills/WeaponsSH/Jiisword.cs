@@ -1,11 +1,10 @@
 ﻿using Stellamod.Common.Particles;
 using Stellamod.Common.RarityRendering;
+using Stellamod.Content.Trailers;
 using Stellamod.Core;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Effects;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Trailing;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

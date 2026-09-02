@@ -1,7 +1,6 @@
-﻿using Stellamod.Common;
-using Stellamod.Common.ScorpionMountSystem;
+﻿using Stellamod.Common.ScorpionMountSystem;
+using Stellamod.Content.Dusts;
 using Stellamod.Content.Scorpions.RoyalPalace;
-using Stellamod.Dusts;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -63,9 +62,9 @@ namespace Stellamod.Content.Scorpions.OreKingdom
             for (int k = 0; k < 7; k++)
             {
                 Vector2 direction = velocity.RotatedByRandom(spread);
-                Dust.NewDustPerfect(Projectile.position + velocity * 43, ModContent.DustType<Dusts.GlowDust>(), direction * Main.rand.NextFloat(8), 125, Color.Red, Main.rand.NextFloat(0.2f, 0.5f));
+                Dust.NewDustPerfect(Projectile.position + velocity * 43, ModContent.DustType<GlowDust>(), direction * Main.rand.NextFloat(8), 125, Color.Red, Main.rand.NextFloat(0.2f, 0.5f));
             }
-            Dust.NewDustPerfect(Projectile.position + velocity * 43, ModContent.DustType<Dusts.GlowDust>(), new Vector2(0, 0), 125, Color.DarkRed, 1);
+            Dust.NewDustPerfect(Projectile.position + velocity * 43, ModContent.DustType<GlowDust>(), new Vector2(0, 0), 125, Color.DarkRed, 1);
         }
 
     }
@@ -169,7 +168,7 @@ namespace Stellamod.Content.Scorpions.OreKingdom
             float speedX = Projectile.velocity.X * Main.rand.NextFloat(.2f, .3f) + Main.rand.NextFloat(-4f, 4f);
             float speedY = Projectile.velocity.Y * Main.rand.Next(20, 35) * 0.01f + Main.rand.Next(-10, 11) * 0.2f;
 
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
+            FXUtil.ShakeCamera(Projectile.Center, 1024f, 32f);
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Vinger2"), target.position);
             for (int i = 0; i < 14; i++)
             {

@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Stellamod.Common.MagicCauldron;
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.Areas.Desert.AccCL;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.MaskingShaderSystem;
@@ -272,7 +271,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.WeaponsRC
                 }
                 SoundStyle explodeStyle = new("Stellamod/Assets/Sounds/STARGROP");
                 SoundEngine.PlaySound(explodeStyle, Projectile.position);
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.position, 1024, 10);
+                FXUtil.ShakeCamera(Projectile.position, 1024, 10);
             }
 
             if (Timer < 60)

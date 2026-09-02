@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using System;
+﻿using System;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
@@ -840,7 +839,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.WeaponsRC
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Infernis1"), Projectile.position);
 
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Binding_Abyss_Rune"), Projectile.position);
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 120f);
+            FXUtil.ShakeCamera(Projectile.Center, 512f, 120f);
             var EntitySource = Projectile.GetSource_FromThis();
             int fireball = Projectile.NewProjectile(EntitySource, Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<KaBoomFenix>(), Projectile.damage * 2, 1, Projectile.owner);
             Projectile ichor = Main.projectile[fireball];

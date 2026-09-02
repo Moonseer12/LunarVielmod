@@ -1,13 +1,12 @@
 ﻿using Stellamod.Assets;
-using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Steins;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;
@@ -398,7 +397,7 @@ namespace Stellamod.Content.Areas.Jungle.WeaponsJN
                 }
 
                 target.SimpleStrikeNPC(Projectile.damage * 5, 1, crit: false, 1);
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 32f);
+                FXUtil.ShakeCamera(Projectile.Center, 512f, 32f);
             }
         }
         public float WidthFunction(float completionRatio)

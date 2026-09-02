@@ -1,8 +1,8 @@
 ﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity.Projectiles;
+using Stellamod.Content.Dusts;
 using Stellamod.Core;
 using Stellamod.Core.Particles;
-using Stellamod.Dusts;
 using Stellamod.Skies;
 using Stellamod.Visual.Particles;
 using System.IO;

@@ -1,7 +1,6 @@
-﻿using Stellamod.Common;
-using Stellamod.Common.MagicCauldron;
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -231,7 +230,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.WeaponsRC
         public override void OnKill(int timeLeft)
         {
             var EntitySource = Projectile.GetSource_Death();
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 524f, 2);
+            FXUtil.ShakeCamera(Projectile.Center, 524f, 2);
             for (int i = 0; i < 2; i++)
             {
                 int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<GlowDust>(), 0f, -2f, 0, default, 1.5f);

@@ -1,18 +1,12 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
+using Stellamod.Content.Dusts;
 using Stellamod.Core;
 using Stellamod.Core.Particles;
-
-using Stellamod.Dusts;
-
 using Stellamod.Visual.Particles;
-using System;
 using Terraria;
 using Terraria.Audio;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr

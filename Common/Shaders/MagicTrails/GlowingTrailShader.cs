@@ -1,14 +1,4 @@
-﻿
-
-using ReLogic.Content;
-using Stellamod.Common.Shaders;
-
-using Stellamod.Trails;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ReLogic.Content;
 using Terraria;
 
 namespace Stellamod.Common.Shaders.MagicTrails

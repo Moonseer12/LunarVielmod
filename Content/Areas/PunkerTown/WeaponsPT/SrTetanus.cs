@@ -1,8 +1,8 @@
-﻿using Stellamod.Assets;
+using Stellamod.Assets;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
 using Stellamod.Content.GunSwapping;
-using Stellamod.Dusts;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -97,7 +97,6 @@ namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<AcidFlame>(), 180);
             target.AddBuff(BuffID.Venom, 180);
             target.AddBuff(BuffID.Slow, 180);
         }

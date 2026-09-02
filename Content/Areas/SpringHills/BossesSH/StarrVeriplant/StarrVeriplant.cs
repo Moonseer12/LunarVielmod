@@ -362,7 +362,7 @@ namespace Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant
 
             if (NPC.collideY)
             {
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 1024f, 30f);
+                FXUtil.ShakeCamera(NPC.Center, 1024f, 30f);
 
                 for (int i = 0; i < 16; i++)
                 {
@@ -488,7 +488,7 @@ namespace Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant
 
                     if (NPC.collideY || Timer > 60)
                     {
-                        Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 1024f, 30f);
+                        FXUtil.ShakeCamera(NPC.Center, 1024f, 30f);
                         ShakeScreenPosition.Shake = 2;
                         SoundStyle boom = SoundID.DD2_ExplosiveTrapExplode;
                         boom.PitchVariance = 0.3f;
@@ -604,7 +604,7 @@ namespace Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant
 
                     if (NPC.collideY)
                     {
-                        Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 1024f, 30f);
+                        FXUtil.ShakeCamera(NPC.Center, 1024f, 30f);
                         ShakeScreenPosition.Shake = 2;
                         SoundStyle boom = SoundID.DD2_ExplosiveTrapExplode;
                         boom.PitchVariance = 0.3f;

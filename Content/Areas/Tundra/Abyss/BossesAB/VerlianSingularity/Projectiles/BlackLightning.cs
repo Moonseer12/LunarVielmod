@@ -1,11 +1,8 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Particles;
-using Stellamod.Dusts;
-
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;
@@ -74,7 +71,6 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity.Proje
 
     public class BlackLightning : VSProjectile
     {
-        private ZappingTrail _lightningTrail;
         public override string Texture => TextureRegistry.EmptyTexture;
         private ref float BurstCounter => ref Projectile.ai[2];
         private Vector2 _targetCenter;

@@ -1,7 +1,6 @@
 ﻿using Stellamod.Content.Areas.Tundra.Abyss.ArmorAB;
 using Stellamod.Content.Areas.Desert.ArmorCL;
 using Stellamod.Content.Areas.Hallowrooms.ArmorHR;
-using Stellamod.Content.Areas.Illuria.ArmorIL;
 using Stellamod.Content.Areas.Ishtar.ArmorIS;
 using Stellamod.Content.Areas.Jungle.ArmorJN;
 using Stellamod.Content.Areas.Junkyard.ArmorJY;
@@ -15,15 +14,8 @@ using Stellamod.Content.Areas.Underground.ArmorUG;
 using Stellamod.Content.Areas.Underground.TilesUG;
 using Stellamod.Content.Areas.WaterSide.ArmorWS;
 using Stellamod.Content.Areas.WondrousDarkspace.ArmorWD;
-using Stellamod.Content.Armors.Appretience;
-using Stellamod.Content.Armors.Astrasilk;
-using Stellamod.Content.Armors.Daeden;
-using Stellamod.Content.Armors.Ducanblitz;
-using Stellamod.Content.Armors.Eldritchian;
 using Stellamod.Content.Armors.Elegant;
 using Stellamod.Content.Armors.Jianxin;
-using Stellamod.Content.Armors.Lovestruck;
-using Stellamod.Content.Armors.Ulven;
 using Stellamod.Content.CommonMaterials;
 using System.Collections.Generic;
 using Terraria;
@@ -39,7 +31,7 @@ namespace Stellamod.Common.ArmorShop
         public override void PostSetupContent()
         {
             base.PostSetupContent();
-            Armors = new List<ArmorShopSet>();
+            Armors = new();
 
             ArmorShopSet ivythornSet = new();
             ivythornSet.AddHead(ModContent.ItemType<ForestCoreHead>());
@@ -194,68 +186,13 @@ namespace Stellamod.Common.ArmorShop
             silk.SetMaterial(ModContent.ItemType<EreshkinCandle>());
             silk.Register();
             
-            ArmorShopSet dae = new();
-            dae.AddHead(ModContent.ItemType<DaedenMask>());
-            dae.AddBody(ModContent.ItemType<DaedenChestplate>());
-            dae.AddLegs(ModContent.ItemType<DaedenLegs>());
-            dae.SetMaterial(ItemID.ChlorophyteBar);
-            dae.Register();
 
-            ArmorShopSet Ulv = new();
-            Ulv.AddHead(ModContent.ItemType<UlvenHelmet>());
-            Ulv.AddBody(ModContent.ItemType<UlvenChestplate>());
-            Ulv.AddLegs(ModContent.ItemType<UlvenGreaves>());
-            Ulv.SetMaterial(ItemID.ChlorophyteBar);
-            Ulv.Register();
-
-            ArmorShopSet Appre = new();
-            Appre.AddHead(ModContent.ItemType<AppretienceHat>());
-            Appre.AddBody(ModContent.ItemType<AppretienceBreastplate>());
-            Appre.AddLegs(ModContent.ItemType<AppretiencePants>());
-            Appre.SetMaterial(ItemID.ChlorophyteBar);
-            Appre.Register();
-
-            ArmorShopSet Ill = new();
-            Ill.AddHead(ModContent.ItemType<IllurianCrestmask>());
-            Ill.AddBody(ModContent.ItemType<IllurianCrestplate>());
-            Ill.AddLegs(ModContent.ItemType<IllurianCrestpants>());
-            Ill.SetMaterial(ModContent.ItemType<IllurineScale>());
-            Ill.Register();
-
-            ArmorShopSet Ill2 = new();
-            Ill2.AddHead(ModContent.ItemType<IllurianWarriorHelm>());
-            Ill2.AddBody(ModContent.ItemType<IllurianWarriorChestplate>());
-            Ill2.AddLegs(ModContent.ItemType<IllurianWarriorGreaves>());
-            Ill2.SetMaterial(ModContent.ItemType<IllurineScale>());
-            Ill2.Register();
-
-            ArmorShopSet rad1 = new();
-            rad1.AddHead(ModContent.ItemType<FlowerHat>());
-            rad1.AddBody(ModContent.ItemType<FlowerRobe>());
-            rad1.AddLegs(ModContent.ItemType<FlowerPants>());
-            rad1.SetMaterial(ModContent.ItemType<RadiantNectar>());
-            rad1.Register();
-            
             ArmorShopSet sanc = new();
             sanc.AddHead(ModContent.ItemType<SanctorousHead>());
             sanc.AddBody(ModContent.ItemType<SanctorousBody>());
             sanc.AddLegs(ModContent.ItemType<SanctorousLegs>());
             sanc.SetMaterial(ModContent.ItemType<FallenEyes>());
             sanc.Register();
-
-            ArmorShopSet eldritch = new();
-            eldritch.AddHead(ModContent.ItemType<EldritchianHood>());
-            eldritch.AddBody(ModContent.ItemType<EldritchianCloak>());
-            eldritch.AddLegs(ModContent.ItemType<EldritchianLegs>());
-            eldritch.SetMaterial(ItemID.LunarBar);
-            eldritch.Register();
-            
-            ArmorShopSet ducan = new();
-            ducan.AddHead(ModContent.ItemType<DucanblitzCap>());
-            ducan.AddBody(ModContent.ItemType<DucanblitzBreastplate>());
-            ducan.AddLegs(ModContent.ItemType<DucanblitzThighs>());
-            ducan.SetMaterial(ItemID.LunarBar);
-            ducan.Register();
 
             ArmorShopSet JianxinSet = new();
             JianxinSet.AddHead(ModContent.ItemType<JianxinMask>());

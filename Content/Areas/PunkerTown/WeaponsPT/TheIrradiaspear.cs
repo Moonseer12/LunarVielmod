@@ -4,13 +4,13 @@ using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
+using Stellamod.Content.Trailers;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Effects.Trails;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Dusts;
-using Stellamod.Trailing;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -54,7 +54,6 @@ public class IrradiaspearSlash : BaseSwingProjectileV2
     
     private bool _init;
     private bool _hit;
-    private bool _didHitStop;
     private float _traveledRotation;
     private float _oldRot;
     public override void DefineCombo()
@@ -579,7 +578,7 @@ public class TheIrradiaspearP : ModProjectile,
             HitStunTimer = 15;
             State = ActionState.HitStun;
             Projectile.netUpdate = true;
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(target.position, 1024, 24);
+            FXUtil.ShakeCamera(target.position, 1024, 24);
             FXUtil.GlowCircleBoom(target.Center, Color.Yellow, Color.Green, Color.DarkGreen, 45, baseSize: 0.24f);
             PixelPrimitiveCircleFactory.CreateGenericBoom(target.Center, Color.Yellow, Color.Green, 45, 144);
             PixelPrimitiveCircleFactory.CreateGenericBoom(target.Center, Color.LightGreen, Color.Green, 25, 232);

@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Stellamod.Common.MagicCauldron;
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.Areas.Tundra.Snow.WeaponsSN;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.GunSwapping;
@@ -50,7 +49,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
                 }
             }
 
-            player.GetModPlayer<ShakePlayer>().ShakeAtPosition(position, 1024f, 2f);
+            FXUtil.ShakeCamera(position, 1024f, 2f);
 
             SoundStyle soundStyle = new("Stellamod/Assets/Sounds/GunLaser");
             soundStyle.PitchVariance = 0.5f;

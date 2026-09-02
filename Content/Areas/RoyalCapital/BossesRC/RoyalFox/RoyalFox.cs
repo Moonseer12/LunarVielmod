@@ -436,7 +436,6 @@ public partial class RoyalFox : ScarletBoss,
 
     private bool InPhase2 => NPC.life < NPC.lifeMax * 0.5f;
     private bool _phase2;
-    private bool _pressed;
     public bool CanMakeClones()
     {
         return _phase2 && !IsAClone && MultiplayerHelper.IsHost;
@@ -705,7 +704,6 @@ public partial class RoyalFox : ScarletBoss,
 
     private void FakeButtTail2()
     {
-        float m = 0.03f;
         float newAngle = Rig.rootSegment.eulerAngles.W;
         float oldAngle = _oldButtRotation;
         float angleDiff = newAngle - oldAngle;
@@ -729,7 +727,6 @@ public partial class RoyalFox : ScarletBoss,
     }
     private void FakeButtTail()
     {
-        float m = 0.03f;
         float newAngle = Rig.rootSegment.eulerAngles.W;
        
         float oldAngle = _oldButtRotation;

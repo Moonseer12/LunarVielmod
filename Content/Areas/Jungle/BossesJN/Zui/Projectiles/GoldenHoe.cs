@@ -1,4 +1,3 @@
-﻿using Stellamod.Common;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -37,9 +36,7 @@ namespace Stellamod.Content.Areas.Jungle.BossesJN.Zui.Projectiles
             set => Projectile.ai[0] = value;
         }
         public float Timer2;
-        private bool Moved;
         private float alphaCounter = 0;
-        int Spin = 0;
         public override void AI()
         {
             Timer2++;
@@ -95,7 +92,7 @@ namespace Stellamod.Content.Areas.Jungle.BossesJN.Zui.Projectiles
                     SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/CinderBraker"), Projectile.position);
 
                 }
-                Spin = Main.rand.Next(0, 2);
+
                 Projectile.rotation = Projectile.velocity.ToRotation() + 1.57f + 3.14f;
                 Projectile.netUpdate = true;
             }
@@ -200,7 +197,7 @@ namespace Stellamod.Content.Areas.Jungle.BossesJN.Zui.Projectiles
             }
 
 
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 524f, 14f);
+            FXUtil.ShakeCamera(Projectile.Center, 524f, 14f);
             for (int i = 0; i < 20; i++)
             {
                 int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.GoldCoin, 0f, -2f, 0, default, 1.5f);

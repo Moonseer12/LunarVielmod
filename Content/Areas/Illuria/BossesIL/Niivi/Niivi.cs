@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Stellamod.Content.Gores;
+﻿using Stellamod.Content.Gores;
 using Stellamod.Content.Areas.Illuria.BossesIL.Niivi.Projectiles;
 using System.Collections.Generic;
 using System.IO;
@@ -299,7 +298,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.Niivi
             }
             if (NPC.life <= 0)
             {
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 2000, 32);
+                FXUtil.ShakeCamera(NPC.Center, 2000, 32);
                 SoundEngine.PlaySound(SoundRegistry.Niivi_Death, NPC.position);
                 var entitySource = NPC.GetSource_Death();
                 Gore.NewGore(entitySource, NPC.position, NPC.velocity, GoreHelper.Niivi1);
@@ -1365,7 +1364,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.Niivi
 
                 if (Timer % 16 == 0)
                 {
-                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(pos, 1024, 16);
+                    FXUtil.ShakeCamera(pos, 1024, 16);
                     if (MultiplayerHelper.IsHost)
                     {
                         Projectile.NewProjectile(NPC.GetSource_FromThis(), pos, Vector2.Zero,

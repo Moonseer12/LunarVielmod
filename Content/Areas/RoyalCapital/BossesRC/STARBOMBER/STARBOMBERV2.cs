@@ -1,8 +1,8 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
-using Stellamod.Common;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.RoyalCapital.BossesRC.STARBOMBER.Projectiles;
+using Stellamod.Content.Dusts;
 using Stellamod.Content.Gores;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
@@ -11,7 +11,6 @@ using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.TriggersSystem.Triggers;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using System;
 using System.IO;
@@ -381,16 +380,13 @@ public class STARBOMBERV2 : ScarletBoss,
     }
     private float SpinSpeed;
 
-    private int PeenarBlastDamage => 150;
-
-    private int WalkUpStompDamage => 100;
-    private int SteamLaserDamage => 150;
+    private int PeenarBlastDamage => 90;
+    private int SteamLaserDamage => 60;
     private int CrashDamage => 70;
     private int StarMissileDamage => 30;
     private int MachineGunDamage => 30;
     private int WingSnipeDamage => 150;
-
-    private int StarRockDamage => 50;
+    private int StarRockDamage => 35;
 
     private bool InPhase2 => NPC.life < NPC.lifeMax / 2f;
     private ref float Timer => ref NPC.ai[0];
@@ -443,7 +439,7 @@ public class STARBOMBERV2 : ScarletBoss,
     {
         get
         {
-            return NPC.Center + Vector2.UnitY * 170 * GunVDirection;
+            return NPC.Center + Vector2.UnitY * 135 * GunVDirection;
         }
     }
     public Vector2 GunMuzzlePosition
@@ -852,9 +848,6 @@ public class STARBOMBERV2 : ScarletBoss,
         }
 
         SwitchState(_patternManager.NextPattern());
-        //SwitchState(AIState.LegUpSpin_Start);
-        //    SwitchState(AIState.SteamWhistle_Start);
-        //    SwitchState(AIState.CrashJump_Start);
     }
 
     private void SpawnSteamParticleBottom()
@@ -1295,7 +1288,7 @@ public class STARBOMBERV2 : ScarletBoss,
 
         if (Timer >= 462)
         {
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.position, 6000, 128);
+            FXUtil.ShakeCamera(NPC.position, 6000, 128);
             if (MultiplayerHelper.IsHost)
             {
                 Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero,
@@ -1506,7 +1499,7 @@ public class STARBOMBERV2 : ScarletBoss,
         }
         else
         {
-            _legsState = LegsState.Limp;
+            _legsState = LegsState.Walk;
             SpinSpeed = 0.25f;
             NPC.velocity.X *= 0.99f;
             GunDirection = Vector2.Lerp(GunDirection, AimGun(), 0.05f);
@@ -2314,7 +2307,7 @@ public class STARBOMBERV2 : ScarletBoss,
             HeldGun.aimingReticleColor = Color.Red;
             HeldGun.aimingReticle = MathHelper.Lerp(0f, 1f, (Timer - prepTime) / prepTime);
             HeldGun.drawColor = Color.Lerp(HeldGun.drawColor, Color.White, 0.1f);
-            GunDirection = Vector2.Lerp(GunDirection, AimGun(), 0.3f);
+            GunDirection = Vector2.Lerp(GunDirection, AimGun(), 0.09f);
             GunVDirection = 1;
         }
         else
@@ -2354,13 +2347,14 @@ public class STARBOMBERV2 : ScarletBoss,
     }
     private void AI_SteamWhistleLoop()
     {
+        WhistleGun.muzzleOffset = 144;
         Timer++;
         HeldGun = WhistleGun;
         GunPosition = GunHoistPosition;
         if (Timer == 1)
         {
             PrimeReticle();
-            HeldGun.Prime();
+            HeldGun.Prime2(GunMuzzlePosition);
         }
         HeldGun.aimingReticle = MathHelper.Lerp(1f, 0f, Timer / 60f);
         if (Timer < 60)
@@ -2370,6 +2364,7 @@ public class STARBOMBERV2 : ScarletBoss,
                 SpawnSteamParticle();
             }
         }
+
 
         if (Timer == 60)
         {
@@ -2394,7 +2389,7 @@ public class STARBOMBERV2 : ScarletBoss,
         {
             SpinSpeed = 1;
             NPC.velocity.X = MathHelper.Lerp(NPC.velocity.X, NPC.direction * 4, 0.1f);
-            GunDirection = Vector2.Lerp(GunDirection, AimGun(), 0.005f);
+            GunDirection = Vector2.Lerp(GunDirection, AimGun(), 0.05f);
             GunVDirection = 1;
 
             HeldGun.drawColor = Color.Lerp(HeldGun.drawColor, _gunSilhouetteColor, 0.1f);
@@ -2447,7 +2442,7 @@ public class STARBOMBERV2 : ScarletBoss,
         _gunHoldInterpolant = MathHelper.Lerp(1f, 0f, EasingFunction.InOutSine(interpolant));
         Vector2 gunHoistPosition = Vector2.Lerp(NPC.Center, GunHoistPosition, _gunHoldInterpolant);
         GunPosition = gunHoistPosition;
-        GunDirection = Vector2.Lerp(GunDirection, Vector2.UnitY, 0.1f);
+        GunDirection = Vector2.Lerp(GunDirection, Vector2.UnitY, 0.03f);
         HeldGun.drawColor = Color.Lerp(Color.Transparent, Color.White, _gunHoldInterpolant);
         if (Timer == prepTime)
         {
@@ -2600,7 +2595,7 @@ public class STARBOMBERV2 : ScarletBoss,
         }
         else
         {
-            _legsState = LegsState.Limp;
+            _legsState = LegsState.Walk;
             NPC.velocity.X *= 0.9f;
             GunDirection = Vector2.Lerp(GunDirection, AimGun(), 0.1f);
             GunVDirection = 1;
@@ -2857,16 +2852,21 @@ public class STARBOMBERV2 : ScarletBoss,
         DrawBody(spriteBatch, screenPos, drawColor);
 
         DrawHeldGun(spriteBatch, screenPos, drawColor);
+        OutlineRenderer.Queue(DrawToOutlineTarget);
         return false;
     }
 
-    public void DrawOutlines(SpriteBatch spriteBatch, Vector2 screenPos, Color lightColor)
+    private void DrawToOutlineTarget(SpriteBatch spriteBatch)
     {
         Vector2 position = GunPosition;
         position.Y += ExtraMath.Osc(-8f, 8f, speed: 2);
 
         Vector2 direction = GunDirection;
         HeldGun?.DrawOutlines(spriteBatch, position, direction, _gunOutlineColor);
+    }
+
+    public void DrawOutlines(SpriteBatch spriteBatch, Vector2 screenPos, Color lightColor)
+    {
         float outlineOffset = 2;
         DrawBody(spriteBatch, screenPos - Vector2.UnitX * outlineOffset, _outlineColor);
         DrawBody(spriteBatch, screenPos + Vector2.UnitX * outlineOffset, _outlineColor);

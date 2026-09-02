@@ -1,8 +1,7 @@
-﻿using Stellamod.Common;
-using Stellamod.Common.GunSystem;
+﻿using Stellamod.Common.GunSystem;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Trails;
+using Stellamod.Content.Trailers;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -101,7 +100,7 @@ public class EelLightningBolt : ModProjectile
             //Sound Effect Goooo
 
             Vector2 lightningHitPos = Projectile.position + Projectile.velocity.SafeNormalize(Vector2.Zero) * BeamLength;
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(lightningHitPos, 1024, 3);
+            FXUtil.ShakeCamera(lightningHitPos, 1024, 3);
         }
 
         for (int i = 0; i < Lightning.Trails.Length; i++)

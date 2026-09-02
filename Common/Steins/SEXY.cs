@@ -1,4 +1,4 @@
-﻿using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -50,7 +50,7 @@ public class SEXY : ModProjectile
         if (Explosion > 119)
         {
 
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 16f);
+            FXUtil.ShakeCamera(Projectile.Center, 512f, 16f);
 
             for (int i = 0; i < 5; i++)
             {

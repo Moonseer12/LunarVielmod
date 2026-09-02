@@ -125,7 +125,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.Niivi.Projectiles
             if (Timer == 120)
             {
                 SoundEngine.PlaySound(SoundRegistry.Niivi_PrimGrow1, Projectile.position);
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024, 16);
+                FXUtil.ShakeCamera(Projectile.Center, 1024, 16);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
                     ModContent.ProjectileType<NiiviCosmicBombAbsorbProj>(), 0, 0, Projectile.owner);
                 screenShaderSystem.TintScreen(Color.White, 0.3f, timer: 15);
@@ -137,7 +137,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.Niivi.Projectiles
             if (Timer == 240)
             {
                 SoundEngine.PlaySound(SoundRegistry.Niivi_PrimGrow1, Projectile.position);
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024, 16);
+                FXUtil.ShakeCamera(Projectile.Center, 1024, 16);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
                     ModContent.ProjectileType<NiiviCosmicBombAbsorbProj>(), 0, 0, Projectile.owner);
                 screenShaderSystem.TintScreen(Color.White, 0.3f, timer: 15);
@@ -150,7 +150,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.Niivi.Projectiles
             {
                 SwapColor = true;
                 SoundEngine.PlaySound(SoundRegistry.Niivi_PrimGrow2, Projectile.position);
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024, 16);
+                FXUtil.ShakeCamera(Projectile.Center, 1024, 16);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
                     ModContent.ProjectileType<NiiviCosmicBombAbsorbProj>(), 0, 0, Projectile.owner);
                 screenShaderSystem.TintScreen(Color.White, 0.3f, timer: 15);
@@ -322,7 +322,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.Niivi.Projectiles
         {
             base.OnKill(timeLeft);
 
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 4000, 80);
+            FXUtil.ShakeCamera(Projectile.Center, 4000, 80);
             float num = 32;
             for (float i = 0; i < num; i++)
             {

@@ -2,7 +2,7 @@
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;

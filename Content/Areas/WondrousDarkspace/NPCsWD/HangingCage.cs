@@ -1,6 +1,6 @@
-﻿using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Particles;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;

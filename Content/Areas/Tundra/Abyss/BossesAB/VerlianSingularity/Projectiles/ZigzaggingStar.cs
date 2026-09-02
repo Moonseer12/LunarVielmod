@@ -1,10 +1,7 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
-using Stellamod.Dusts;
-
+using Stellamod.Content.Dusts;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
@@ -35,7 +32,7 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity.Proje
                 SoundStyle starSingle = AssetRegistry.Sounds.Stars.Starsingle3;
                 starSingle.PitchVariance = 0.2f;
                 SoundEngine.PlaySound(starSingle, GetParentNPC().position);
-                Vector2 velocityToParent = (parent.Center - Projectile.Center);
+                Vector2 velocityToParent = parent.Center - Projectile.Center;
                 velocityToParent = velocityToParent.SafeNormalize(Vector2.Zero);
                 Projectile.velocity = velocityToParent;
             }

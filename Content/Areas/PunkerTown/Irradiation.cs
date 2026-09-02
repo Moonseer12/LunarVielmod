@@ -1,3 +1,4 @@
+using Stellamod.Content.Dusts;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -20,7 +21,7 @@ namespace Stellamod.Content.Areas.PunkerTown
             {
                 for (int i = 0; i < 1; i++)
                 {
-                    int d = Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.GlowDust>(), newColor: ColorFunctions.AcidFlame, Scale: 0.33f);
+                    int d = Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<GlowDust>(), newColor: ColorFunctions.AcidFlame, Scale: 0.33f);
                     Main.dust[d].rotation = (Main.dust[d].position - npc.position).ToRotation() - MathHelper.PiOver4;
                     Main.dust[d].velocity *= 0.5f;
                 }

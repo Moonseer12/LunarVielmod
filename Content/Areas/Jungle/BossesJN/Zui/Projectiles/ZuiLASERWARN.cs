@@ -1,5 +1,4 @@
 ﻿using ReLogic.Content;
-using Stellamod.Common;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -126,7 +125,7 @@ namespace Stellamod.Content.Areas.Jungle.BossesJN.Zui.Projectiles
                         SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Dreadmire__LightingRain3"));
 
                     }
-                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 2048f, 32f);
+                    FXUtil.ShakeCamera(NPC.Center, 2048f, 32f);
                     LightPos.X = NPC.Center.X;
                     LightPos.Y = NPC.Center.Y;
                     var EntitySource = NPC.GetSource_FromThis();

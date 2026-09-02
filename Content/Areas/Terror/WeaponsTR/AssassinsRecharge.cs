@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Stellamod.Common.MagicCauldron;
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.GunSwapping;
 using System;
@@ -42,7 +41,7 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
                 Projectile.NewProjectile(player.GetSource_FromThis(), position, velocity * 16,
                 ModContent.ProjectileType<AssassinsRechargeShot>(), damage, knockback, player.whoAmI);
             }
-            player.GetModPlayer<ShakePlayer>().ShakeAtPosition(position, 1024f, 16f);
+            FXUtil.ShakeCamera(position, 1024f, 16f);
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/gun1"), position);
         }
 
@@ -112,7 +111,7 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
         }
         public override void OnKill(int timeLeft)
         {
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 32f);
+            FXUtil.ShakeCamera(Projectile.Center, 512f, 32f);
             for (int i = 0; i < 20; i++)
             {
                 Dust.NewDustPerfect(Projectile.Center, DustID.IceTorch, (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(25.0), 0, default, 1f).noGravity = false;
@@ -146,7 +145,7 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
 
             float Speed = Main.rand.Next(4, 7);
             float offsetRandom = Main.rand.Next(0, 50);
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 2048f, 32f);
+            FXUtil.ShakeCamera(Projectile.Center, 2048f, 32f);
 
             float spread = 45f * 0.0174f;
             double startAngle = Math.Atan2(1, 0) - spread / 2;
@@ -186,7 +185,7 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
 
             float Speed = Main.rand.Next(4, 7);
             float offsetRandom = Main.rand.Next(0, 50);
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 2048f, 32f);
+            FXUtil.ShakeCamera(Projectile.Center, 2048f, 32f);
 
             float spread = 45f * 0.0174f;
             double startAngle = Math.Atan2(1, 0) - spread / 2;

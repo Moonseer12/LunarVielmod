@@ -1,9 +1,5 @@
-﻿
-
-using Stellamod.Assets;
-using Stellamod.Dusts;
-
-using Stellamod.Trails;
+﻿using Stellamod.Assets;
+using Stellamod.Content.Dusts;
 using System;
 using Terraria;
 using Terraria.Audio;

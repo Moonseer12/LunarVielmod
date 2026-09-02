@@ -1,12 +1,9 @@
-﻿using Stellamod.Assets;
-using Stellamod.Content.Areas.PunkerTown.BossesPT.Gothivia.Projectiles;
+﻿using Stellamod.Content.Areas.PunkerTown.BossesPT.Gothivia.Projectiles;
+using Stellamod.Content.Dusts;
 using Stellamod.Content.Gores;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
 using Stellamod.Core.Particles;
-
-using Stellamod.Dusts;
-
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;

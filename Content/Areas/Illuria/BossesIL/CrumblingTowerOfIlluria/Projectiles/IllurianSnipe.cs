@@ -1,15 +1,10 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.Areas.Tundra.Snow.WeaponsSN;
-using Stellamod.Core;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Rendering.Materials;
-using Stellamod.Dusts;
-
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;

@@ -2,9 +2,9 @@ using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Dusts;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
@@ -257,7 +257,7 @@ public class CleanestCleaverProg : ModProjectile
         if (Bloody == 3)
         {
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/CleanestCleaver4"), Projectile.position);
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 13);
+            FXUtil.ShakeCamera(Projectile.Center, 1024f, 13);
             SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
             for (int i = 0; i < 5; i++)
             {
@@ -290,7 +290,7 @@ public class CleanestCleaverProg : ModProjectile
         }
         else
         {
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 6);
+            FXUtil.ShakeCamera(Projectile.Center, 1024f, 6);
             int Sound = Main.rand.Next(1, 3);
             if (Sound == 1)
             {
@@ -331,7 +331,7 @@ public class CleanestCleaverProg : ModProjectile
                 Projectile.velocity.Y = -10;
                 Projectile.velocity.X = -Projectile.velocity.X / 2;
             }
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 4f);
+            FXUtil.ShakeCamera(Projectile.Center, 1024f, 4f);
             for (int i = 0; i < 7; i++)
             {
                 SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);

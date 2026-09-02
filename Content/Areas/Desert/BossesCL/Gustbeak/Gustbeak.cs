@@ -1221,7 +1221,7 @@ namespace Stellamod.Content.Areas.Desert.BossesCL.Gustbeak
                 soundStyle.PitchVariance = 0.1f;
                 SoundEngine.PlaySound(soundStyle, NPC.position);
 
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.position, 2048, 12);
+                FXUtil.ShakeCamera(NPC.position, 2048, 12);
                 DrawHelmet = false;
             }
 
@@ -1506,7 +1506,7 @@ namespace Stellamod.Content.Areas.Desert.BossesCL.Gustbeak
                 SoundStyle soundStyle = SoundID.DD2_WyvernScream;
                 soundStyle.PitchVariance = 0.15f;
                 SoundEngine.PlaySound(soundStyle, NPC.position);
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.position, 2048, 8);
+                FXUtil.ShakeCamera(NPC.position, 2048, 8);
             }
             if (Timer > 120 && Timer < 180)
             {

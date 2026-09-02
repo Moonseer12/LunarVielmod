@@ -1,11 +1,7 @@
-﻿
-
-using Stellamod.Common.Shaders;
-using Stellamod.Trails;
+﻿using Stellamod.Common.Shaders;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Helpers
 {

@@ -3,10 +3,10 @@ using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Palettes;
 using Stellamod.Core.Particles;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;
@@ -409,7 +409,7 @@ public class ElectricTridentLightning : ModProjectile
 
 
             _lightningHitPos = Projectile.position + Projectile.velocity.SafeNormalize(Vector2.Zero) * BeamLength; // new Vector2(0, BeamLength);
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(_lightningHitPos, 1024, 32);
+            FXUtil.ShakeCamera(_lightningHitPos, 1024, 32);
 
             var part = FXUtil.GlowCircleBoom(_lightningHitPos,
                 innerColor: Color.White,

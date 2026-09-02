@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
@@ -45,7 +44,7 @@ namespace Stellamod.Content.GunSwapping
                     }
                 }
 
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(position, 1024f, 16f);
+                FXUtil.ShakeCamera(position, 1024f, 16f);
                 SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/gun1"), position);
             }
         }

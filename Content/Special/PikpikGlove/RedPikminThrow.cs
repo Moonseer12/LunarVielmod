@@ -1,4 +1,4 @@
-﻿using Stellamod.Assets;
+using Stellamod.Assets;
 using Stellamod.Content.Areas.Junkyard.WeaponsJY;
 using Terraria;
 using Terraria.ID;

@@ -1,9 +1,4 @@
-﻿
-
-using Stellamod.Assets;
-
-using Stellamod.Trails;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;

@@ -1,7 +1,7 @@
-﻿using Stellamod.Common;
+using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -107,7 +107,6 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT
         {
             return true;
         }
-        private float alphaCounter = 0;
         public override void AI()
         {
             Timer++;

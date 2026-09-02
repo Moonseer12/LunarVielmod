@@ -1,9 +1,5 @@
-﻿using Stellamod.Assets;
-using Stellamod.Core.Bases;
-
-using Stellamod.Trails;
+﻿using Stellamod.Core.Bases;
 using Terraria;
-using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.WondrousDarkspace.AccWD

@@ -1,14 +1,8 @@
-﻿
-
-using ReLogic.Content;
-using Stellamod.Assets;
+﻿using ReLogic.Content;
 using Stellamod.Common.Shaders;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
 using Stellamod.Core.Rendering;
-
-
-using Stellamod.Trails;
 using System;
 using System.Collections.Generic;
 using Terraria;

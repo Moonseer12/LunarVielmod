@@ -1,8 +1,7 @@
-﻿using Stellamod.Common;
+using Stellamod.Content.Dusts;
+using Stellamod.Content.Trailers;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Dusts;
-using Stellamod.Trailing;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -213,7 +212,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
                     Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<GlowDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, Color.LightSkyBlue, 1f).noGravity = true;
                 }
 
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
+                FXUtil.ShakeCamera(Projectile.Center, 1024f, 32f);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
                     ModContent.ProjectileType<SiriusBoom>(), Projectile.damage * 2, Projectile.knockBack, Projectile.owner);
                 //KABOOM

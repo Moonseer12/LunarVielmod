@@ -1,16 +1,12 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.Areas.SpringHills.BossesSH.Minerva.Projectiles;
+using Stellamod.Content.Dusts;
 using Stellamod.Content.Gores;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
 using Stellamod.Core.Particles;
-using Stellamod.Dusts;
-using Stellamod.Content.Gores;
-
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;

@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common;
 using Stellamod.Common.Shaders;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Particles;
-using Stellamod.Dusts;
 using Stellamod.Content.Gores;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
@@ -86,7 +86,7 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
 
 
                 _lightningHitPos = Projectile.position + new Vector2(0, BeamLength);
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(_lightningHitPos, 1024, 40);
+                FXUtil.ShakeCamera(_lightningHitPos, 1024, 40);
 
                 for (int i = 0; i < 1; i++)
                 {

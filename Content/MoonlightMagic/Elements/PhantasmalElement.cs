@@ -1,20 +1,13 @@
-﻿
-
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.Effects;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-
-
-using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.MoonlightMagic.Elements

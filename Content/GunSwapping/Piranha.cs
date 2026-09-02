@@ -1,6 +1,5 @@
 ﻿using Stellamod.Assets;
-using Stellamod.Common;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -133,7 +132,7 @@ namespace Stellamod.Content.GunSwapping
                 Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<TSmokeDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, Color.DarkGray, Main.rand.NextFloat(0.3f, 1f)).noGravity = true;
             }
             SoundEngine.PlaySound(SoundID.DD2_ExplosiveTrapExplode, Projectile.position);
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 16f);
+            FXUtil.ShakeCamera(Projectile.Center, 1024f, 16f);
 
 
 

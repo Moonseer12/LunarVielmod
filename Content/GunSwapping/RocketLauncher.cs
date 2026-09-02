@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -40,7 +39,7 @@ namespace Stellamod.Content.GunSwapping
                 Projectile.NewProjectile(player.GetSource_FromThis(), position, velocity * 16,
                 ProjectileID.RocketI, damage, knockback, player.whoAmI);
             }
-            player.GetModPlayer<ShakePlayer>().ShakeAtPosition(position, 1024f, 16f);
+            FXUtil.ShakeCamera(position, 1024f, 16f);
             SoundEngine.PlaySound(SoundID.Item11, position);
         }
     }

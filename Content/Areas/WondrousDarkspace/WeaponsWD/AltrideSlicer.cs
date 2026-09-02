@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -153,7 +153,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
             Projectile.penetrate = 10;
             Projectile.scale = 0.5f;
             Projectile.knockBack = 12.9f;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             AIType = ProjectileID.Bullet;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.friendly = true;
@@ -288,7 +288,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
             Projectile.height = 40;
             Projectile.penetrate = 10;
             Projectile.knockBack = 12.9f;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             Projectile.scale = 0.5f;
             AIType = ProjectileID.Bullet;
             Projectile.DamageType = DamageClass.Melee;
@@ -417,7 +417,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
             Projectile.height = 40;
             Projectile.penetrate = 10;
             Projectile.knockBack = 12.9f;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             AIType = ProjectileID.Bullet;
             Projectile.scale = 0.5f;
             Projectile.DamageType = DamageClass.Melee;

@@ -1,4 +1,4 @@
-﻿using Stellamod.Assets;
+using Stellamod.Assets;
 using Stellamod.Common;
 using Stellamod.Content.Areas.Cinderspark.WeaponsCS;
 using System;
@@ -313,7 +313,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
     {
         private Vector2 _prepareCenter;
         private Vector2 _targetCenter;
-        private float _slowdown;
         public enum ActionState
         {
             Red,
@@ -722,7 +721,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
                     break;
 
                 case ActionState.Orange:
-                    owner.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
+                    FXUtil.ShakeCamera(Projectile.Center, 1024f, 32f);
                     SoundEngine.PlaySound(new SoundStyle($"Stellamod/Assets/Sounds/Kaboom"));
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
                         ModContent.ProjectileType<CombustionBoomMini>(), Projectile.damage * 2, Projectile.knockBack, Projectile.owner);

@@ -23,41 +23,6 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.TilesAB
         {
             Tile tile = Framing.GetTileSafely(i, j);
             Tile tileBelow = Framing.GetTileSafely(i, j + 1);
-            if (!Main.tile[i, j - 1].HasTile && Main.tile[i, j].Slope == 0)
-            {
-                if (Main.rand.NextBool(3))
-                {
-                    WorldGen.PlaceTile(i, j - 1, ModContent.TileType<BlueFlower>(), true);
-                }
-            }
-            if (!Main.tile[i, j - 1].HasTile && Main.tile[i, j].Slope == 0)
-            {
-                if (Main.rand.NextBool(3))
-                {
-                    WorldGen.PlaceTile(i, j - 1, ModContent.TileType<BlueFlower2>(), true);
-                }
-            }
-            if (!Main.tile[i, j - 1].HasTile && Main.tile[i, j].Slope == 0)
-            {
-                if (Main.rand.NextBool(2))
-                {
-                    WorldGen.PlaceTile(i, j - 2, ModContent.TileType<TealBulb>(), true);
-                }
-            }
-            if (!Main.tile[i, j - 1].HasTile && Main.tile[i, j].Slope == 0)
-            {
-                if (Main.rand.NextBool(2))
-                {
-                    WorldGen.PlaceTile(i, j, ModContent.TileType<TealBulb2>(), true);
-                }
-            }
-            if (!Main.tile[i, j - 1].HasTile && Main.tile[i, j].Slope == 0)
-            {
-                if (Main.rand.NextBool(2))
-                {
-                    WorldGen.PlaceTile(i, j - 1, ModContent.TileType<TealBulb3>(), true);
-                }
-            }
             if (WorldGen.genRand.NextBool(3) && !tileBelow.HasTile && !(tileBelow.LiquidType == LiquidID.Lava))
             {
                 if (!tile.BottomSlope)

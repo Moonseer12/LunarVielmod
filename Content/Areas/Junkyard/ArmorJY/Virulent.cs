@@ -2,9 +2,9 @@ using Stellamod.Assets;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.PunkerTown;
+using Stellamod.Content.Dusts;
 using Stellamod.Core;
 using Stellamod.Core.Pixelation;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -275,10 +275,6 @@ standing still gives you an acid aura that stays where you were when you leave T
     {
         if (!hasSetBonus)
             return;
-
-        //Immunity to contamination
-        Player.ClearBuff(ModContent.BuffType<AcidFlame>());
-        Player.ClearBuff(ModContent.BuffType<Irradiation>());
 
         //Standing still for the acid aura
         if (Player.velocity == Vector2.Zero

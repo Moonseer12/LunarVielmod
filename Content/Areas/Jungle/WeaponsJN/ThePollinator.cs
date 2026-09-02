@@ -1,11 +1,10 @@
-﻿using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.OrbSystem;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
+using Stellamod.Content.Gores;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
-using Stellamod.Dusts;
-using Stellamod.Content.Gores;
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;
@@ -402,7 +401,7 @@ public class ThePollinatorProj : BaseChainedBallProjectile
                     Dust.NewDustPerfect(target.Center, ModContent.DustType<GlowDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, Color.DarkGoldenrod, 1f).noGravity = true;
                 }
 
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
+                FXUtil.ShakeCamera(Projectile.Center, 1024f, 32f);
                 target.SimpleStrikeNPC(Projectile.damage, hit.HitDirection);
                 soundStyle = SoundID.Grass;
                 soundStyle.PitchVariance = 0.15f;

@@ -1,7 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
-using Stellamod.Dusts;
-using Stellamod.Trails;
+using Stellamod.Content.Dusts;
 using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;

@@ -1,6 +1,5 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
-using Stellamod.Common;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Bases;
@@ -67,7 +66,7 @@ public class GothinBlast : ModProjectile
             SoundEngine.PlaySound(impact, Projectile.position);
             SoundEngine.PlaySound(SoundID.DD2_BetsyFireballShot, Projectile.position);
             SoundEngine.PlaySound(SoundID.DD2_EtherianPortalSpawnEnemy, Projectile.position);
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024, 16f);
+            FXUtil.ShakeCamera(Projectile.Center, 1024, 16f);
         }
 
 

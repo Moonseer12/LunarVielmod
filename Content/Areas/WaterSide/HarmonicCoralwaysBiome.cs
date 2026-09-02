@@ -102,7 +102,7 @@ public class HarmonicCoralwaysBiome : BaseUrdveilBiome,
     {
         VeilGen stellaWorld = ModContent.GetInstance<VeilGen>();
         int heightOffset = 100;
-        Rectangle biomeRect = new(stellaWorld.CoralwaysLocation.X- 300, stellaWorld.CoralwaysLocation.Y + heightOffset, 1000, 1800 - heightOffset);
+        Rectangle biomeRect = new Rectangle(stellaWorld.CoralwaysLocation.X, stellaWorld.CoralwaysLocation.Y + heightOffset, 1000, 1800 - heightOffset);
         return biomeRect.Contains(player.Center.ToTileCoordinates());
     }
 

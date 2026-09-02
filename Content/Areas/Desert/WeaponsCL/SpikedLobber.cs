@@ -1,9 +1,8 @@
-﻿using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.Areas.Junkyard.WeaponsJY;
+using Stellamod.Content.Dusts;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Dusts;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -60,7 +59,7 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
             base.OnHitNPC(target, hit, damageDone);
             if (Juggler.combo >= 5)
             {
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024, 4);
+                FXUtil.ShakeCamera(Projectile.Center, 1024, 4);
                 SoundStyle fireBomb = new("Stellamod/Assets/Sounds/StormDragon_Bomb");
                 SoundEngine.PlaySound(fireBomb, target.Center);
 

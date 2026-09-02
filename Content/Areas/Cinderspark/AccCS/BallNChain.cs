@@ -1,15 +1,12 @@
 ﻿using ReLogic.Content;
 using Stellamod.Common.ArmorRework;
-
-using Stellamod.Dusts;
-
+using Stellamod.Content.Dusts;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Cinderspark.AccCS;
-
 
 public class HangingBallNChain : ModProjectile
 {

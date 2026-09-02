@@ -351,6 +351,7 @@ public class TrueHammerSlash : BaseSwingProjectileV2
         {
             modifiers.Knockback *= 2;
         }
+        _hit = true;
 
         modifiers.FinalDamage += MathHelper.Lerp(0, 1f, ComboProgress);
     }

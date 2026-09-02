@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common.ArmorRework;
 using Stellamod.Common.Shaders;
-using Stellamod.Effects.Generic;
 using Stellamod.Content.Gores;
+using Stellamod.Effects.Generic;
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;
@@ -51,7 +51,7 @@ namespace Stellamod.Common.GunSystem
             }
 
             Vector2 offset = Vector2.Zero;
-            if(FailTimer > 0)
+            if (FailTimer > 0)
             {
                 offset = Main.rand.NextVector2Circular(16, 16);
                 FailTimer--;
@@ -94,7 +94,7 @@ namespace Stellamod.Common.GunSystem
             drawScale.X = GunHoldPlayer.marginOfError / GunHoldPlayer.reloadTime;
             spriteBatch.Draw(reloadBar, drawPos, null, Color.Green, Projectile.rotation, drawOrigin, drawScale, SpriteEffects.None, 0);
 
-    
+
             spriteBatch.Draw(reloadHandle, drawPos + new Vector2(offset, 0), null, Color.White, Projectile.rotation, reloadHandle.Size() / 2f, Projectile.scale, SpriteEffects.None, 0);
             return false;
         }
@@ -244,18 +244,18 @@ namespace Stellamod.Common.GunSystem
         public virtual bool GunShot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             GunCasingEffects(player, source, position, velocity, type, damage, knockback);
-        
+
             Vector2 muzzlePosition = GetMuzzlePosition(player, velocity);
 
             //ctor2 muzzlePosition = player.MountedCenter + velocity.SafeNormalize(Vector2.Zero) * texture.Width / 2;
             ShootEffects(muzzlePosition, velocity);
             if (player.ownedProjectileCounts[ModContent.ProjectileType<GunHold>()] > 0)
             {
-                foreach(var proj in Main.ActiveProjectiles)
+                foreach (var proj in Main.ActiveProjectiles)
                 {
                     if (proj.owner != player.whoAmI)
                         continue;
-                    if(proj.type != ModContent.ProjectileType<GunHold>())
+                    if (proj.type != ModContent.ProjectileType<GunHold>())
                     {
                         continue;
                     }
@@ -282,10 +282,10 @@ namespace Stellamod.Common.GunSystem
             flashParticle.innerColor = innerColor;
             flashParticle.bloomColor = outerColor;
             flashParticle.Scale *= Main.rand.NextFloat(0.3f, 0.6f);
-           // flashParticle.Scale *= Main.rand.NextFloat(0.15f, 0.3f);
+            // flashParticle.Scale *= Main.rand.NextFloat(0.15f, 0.3f);
 
 
-  
+
             for (float f = 0; f < 3; f++)
             {
                 DustParticleSpawnParams spawnParams = new DustParticleSpawnParams
@@ -339,7 +339,7 @@ namespace Stellamod.Common.GunSystem
                     return mouseGun;
                 BaseGun myGun = Player.HeldItem.ModItem as BaseGun;
                 return myGun;
-                
+
             }
         }
         public static event Action<Player, BaseGun> OnReload;
@@ -349,7 +349,7 @@ namespace Stellamod.Common.GunSystem
             forgivingReload = false;
             isReloading = false;
             numberOfReloadsNeeded = 1;
-              marginOfError = 10;
+            marginOfError = 10;
             var heldGun = HeldGun;
             if (heldGun == null)
                 reloadTime = 60;
@@ -372,7 +372,7 @@ namespace Stellamod.Common.GunSystem
                 SoundStyle jamSound = AssetRegistry.Sounds.Gun.GunJam;
                 jamSound.PitchVariance = 0.1f;
                 SoundEngine.PlaySound(jamSound, Player.position);
-                if(!forgivingReload)
+                if (!forgivingReload)
                     reloadTimer = 0;
                 doFailAnimation = true;
                 successfulReloads--;
@@ -381,7 +381,7 @@ namespace Stellamod.Common.GunSystem
                 return false;
             }
             return true;
-  
+
         }
 
         public override void PostUpdateMiscEffects()
@@ -389,7 +389,7 @@ namespace Stellamod.Common.GunSystem
             base.PostUpdateMiscEffects();
             HandleReloading();
         }
-        
+
 
         private void HandleReloading()
         {
@@ -403,7 +403,7 @@ namespace Stellamod.Common.GunSystem
                 return;
             }
 
-            if(heldGun.remainingAmmo > heldGun.GetMaxAmmo(Player))
+            if (heldGun.remainingAmmo > heldGun.GetMaxAmmo(Player))
             {
                 heldGun.remainingAmmo = heldGun.GetMaxAmmo(Player);
             }
@@ -472,7 +472,6 @@ namespace Stellamod.Common.GunSystem
     public class GunHold : ModProjectile
     {
         private float _heatTimer;
-        private float _oldItemTime;
         private float _startRotation;
         private Vector2 _recoilOffset;
         public override string Texture => TextureRegistry.EmptyTexture;
@@ -493,12 +492,12 @@ namespace Stellamod.Common.GunSystem
         }
         private Vector2 HoldDirection => HoldRotation.ToRotationVector2();
         private Player Owner => Main.player[Projectile.owner];
-        private GunHoldPlayer GunHoldPlayer => Owner.GetModPlayer<GunHoldPlayer>(); 
+        private GunHoldPlayer GunHoldPlayer => Owner.GetModPlayer<GunHoldPlayer>();
 
         public override void SetDefaults()
         {
             base.SetDefaults();
-         //   Projectile.hide = false;
+            //   Projectile.hide = false;
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.timeLeft = 120;
@@ -518,7 +517,7 @@ namespace Stellamod.Common.GunSystem
                 Projectile.timeLeft = 120;
             }
 
-            if(Owner.HeldItem.ModItem is BaseGun gun && !gun.UseDefaultHoldAnimation())
+            if (Owner.HeldItem.ModItem is BaseGun gun && !gun.UseDefaultHoldAnimation())
             {
                 Projectile.Kill();
             }
@@ -530,8 +529,8 @@ namespace Stellamod.Common.GunSystem
                 HoldRotation = rotationVector.ToRotation();
                 Projectile.netUpdate = true;
             }
-       
-            if(Owner.HeldItem.ModItem != null)
+
+            if (Owner.HeldItem.ModItem != null)
             {
                 Vector2? holdOutOffset = Owner.HeldItem.ModItem.HoldoutOffset();
                 Vector2 offset = holdOutOffset.HasValue ? holdOutOffset.Value : Vector2.Zero;
@@ -539,7 +538,7 @@ namespace Stellamod.Common.GunSystem
                 Projectile.Center = Owner.MountedCenter - new Vector2(0, 7) + offset + _recoilOffset;
                 Projectile.rotation = HoldRotation;
             }
-  
+
 
             if (State != AIState.Reload && GunHoldPlayer.doCoolReloadAnimation)
             {
@@ -594,14 +593,14 @@ namespace Stellamod.Common.GunSystem
         private void AI_Reload()
         {
             Timer++;
-            if(Timer == 1)
+            if (Timer == 1)
             {
                 _startRotation = Projectile.rotation;
             }
             float interp = Timer / 60f;
             float ease = EasingFunction.InOutExpo7(interp);
             Projectile.rotation = MathHelper.Lerp(_startRotation, _startRotation + MathHelper.TwoPi * 2, ease);
-            if(Timer >= 60f)
+            if (Timer >= 60f)
             {
                 SwitchState(AIState.Hold);
             }
@@ -613,21 +612,21 @@ namespace Stellamod.Common.GunSystem
         private void AI_Shoot()
         {
             Timer++;
-            if(Timer == 1)
+            if (Timer == 1)
             {
                 _startRotation = Projectile.rotation;
             }
             float recoilTime = 10f;
             float ratio = Timer / recoilTime;
             float ease = EasingFunction.QuadraticBump(ratio);
-            
+
             float shootRadians = MathHelper.ToRadians(-5 * Owner.direction);
             float offset = MathHelper.Lerp(0f, shootRadians, ease);
             Projectile.rotation = _startRotation + offset;
             _heatTimer = 1f;
 
             _recoilOffset = Vector2.Lerp(-HoldDirection * 8, Vector2.Zero, EasingFunction.InOutSine(ratio));
-            if(Timer >= recoilTime)
+            if (Timer >= recoilTime)
             {
                 SwitchState(AIState.Hold);
             }

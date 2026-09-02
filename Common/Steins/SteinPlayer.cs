@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using Stellamod.Content.Dusts;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace Stellamod.Common.Steins;
@@ -25,7 +26,8 @@ public class SteinPlayer : ModPlayer
 
                 for (int k = 0; k < 3; k++)
                 {
-                    Dust.NewDustPerfect(Player.Center + offset * 43, ModContent.DustType<Dusts.TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, Color.IndianRed * 0.5f, Main.rand.NextFloat(0.5f, 1));
+                    Vector2 direction = offset.RotatedByRandom(spread);
+                    Dust.NewDustPerfect(Player.Center + offset * 43, ModContent.DustType<TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, Color.IndianRed * 0.5f, Main.rand.NextFloat(0.5f, 1));
                 }
 
 

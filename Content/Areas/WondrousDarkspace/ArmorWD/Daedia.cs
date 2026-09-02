@@ -1,8 +1,8 @@
 ﻿using Stellamod.Common;
 using Stellamod.Common.ArmorRework;
+using Stellamod.Content.Dusts;
+using Stellamod.Content.Trailers;
 using Stellamod.Core.Effects;
-using Stellamod.Dusts;
-using Stellamod.Trailing;
 using System;
 using System.IO;
 using Terraria;

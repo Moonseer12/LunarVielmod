@@ -1,9 +1,6 @@
-﻿
-
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
+using Stellamod.Content.Trailers;
 using Stellamod.Core.Particles;
-
-using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;

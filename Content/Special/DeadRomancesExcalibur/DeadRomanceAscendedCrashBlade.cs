@@ -1,9 +1,8 @@
 ﻿using Stellamod.Assets;
-using Stellamod.Common;
 using Stellamod.Common.Shaders;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using System.IO;
@@ -91,7 +90,7 @@ public class DeadRomanceLightningStrike : ModProjectile
 
 
             _lightningHitPos = Projectile.position + Projectile.velocity.SafeNormalize(Vector2.Zero) * BeamLength; // new Vector2(0, BeamLength);
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(_lightningHitPos, 1024, 32);
+            FXUtil.ShakeCamera(_lightningHitPos, 1024, 32);
 
             var part = FXUtil.GlowCircleBoom(_lightningHitPos,
                 innerColor: Color.White,

@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Stellamod.Common.MagicCauldron;
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using System;
 using System.Collections.Generic;
@@ -165,7 +164,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
                             State = ActionState.Throw;
 
 
-                            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, 24f);
+                            FXUtil.ShakeCamera(player.Center, 1024f, 24f);
                             switch (Main.rand.Next(3))
                             {
                                 case 0:
@@ -200,13 +199,13 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
                         ModContent.ProjectileType<RipperSlashProjSmall>(), 0, 0f, Projectile.owner,
                         ai1: Projectile.velocity.ToRotation() + MathHelper.ToRadians(45));
-                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(target.Center, 1024f, 4);
+                    FXUtil.ShakeCamera(target.Center, 1024f, 4);
                     break;
                 case ActionState.Throw:
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
                         ModContent.ProjectileType<RipperSlashProjBig>(), 0, 0f, Projectile.owner,
                         ai1: Projectile.velocity.ToRotation() + MathHelper.ToRadians(45));
-                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(target.Center, 1024f, 32f);
+                    FXUtil.ShakeCamera(target.Center, 1024f, 32f);
                     for (int i = 0; i < 16; i++)
                     {
                         Vector2 speed = Main.rand.NextVector2CircularEdge(1f, 1f);

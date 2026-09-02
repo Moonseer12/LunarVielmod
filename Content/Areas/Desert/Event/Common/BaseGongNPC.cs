@@ -1,9 +1,6 @@
-﻿
-
+using Stellamod.Content.Dusts;
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Palettes;
-using Stellamod.Dusts;
-
 using System;
 using Terraria;
 using Terraria.Audio;

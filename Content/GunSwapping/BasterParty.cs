@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Stellamod.Content.Gores;
+﻿using Stellamod.Content.Gores;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -42,7 +41,7 @@ namespace Stellamod.Content.GunSwapping
             Vector2 newDirection = velocity.RotatedByRandom(spread);
 
             //Funny Screenshake
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, 5f);
+            FXUtil.ShakeCamera(player.Center, 1024f, 5f);
             int numProjectiles = Main.rand.Next(1, 3);
             float distance = 12;
             for (int p = 0; p < numProjectiles; p++)

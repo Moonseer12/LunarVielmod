@@ -1,7 +1,4 @@
-﻿
-
 using Stellamod.Content.MoonlightMagic.Elements;
-
 using Terraria;
 using Terraria.ModLoader;
 
@@ -11,7 +8,6 @@ namespace Stellamod.Content.MoonlightMagic.Enchantments.Nature
     {
         bool HitOnce = false;
         int Attagain = 14;
-        int Hits;
         public override float GetStaffManaModifier()
         {
             return 0.5f;

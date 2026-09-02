@@ -1,7 +1,4 @@
-﻿
-
-
-using Stellamod.Trails;
+﻿using Stellamod.Content.Trailers;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;

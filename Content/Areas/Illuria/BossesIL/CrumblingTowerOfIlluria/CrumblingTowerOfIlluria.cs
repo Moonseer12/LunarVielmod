@@ -1,17 +1,12 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Desert.BossesCL.CommanderGintzia.Hands;
 using Stellamod.Content.Areas.Desert.BossesCL.EliteCommander.Projectiles;
 using Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria.Projectiles;
-using Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant.Projectiles;
+using Stellamod.Content.Dusts;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
 using Stellamod.Core.Particles;
-
-using Stellamod.Dusts;
-
 using Stellamod.Visual.Particles;
 using System;
 using System.IO;

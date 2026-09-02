@@ -1,13 +1,9 @@
-
-
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
-
-using Stellamod.Trails;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;

@@ -1,6 +1,5 @@
-﻿using Stellamod.Common;
-using Stellamod.Content.Areas.Terror.WeaponsTR;
-using Stellamod.Dusts;
+﻿using Stellamod.Content.Areas.Terror.WeaponsTR;
+using Stellamod.Content.Dusts;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -36,7 +35,7 @@ namespace Stellamod.Content.Areas.Junkyard.WeaponsJY
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, 32f);
+            FXUtil.ShakeCamera(player.Center, 1024f, 32f);
 
             //Dust Burst Towards Mouse
 
@@ -130,12 +129,12 @@ namespace Stellamod.Content.Areas.Junkyard.WeaponsJY
                     {
                         Vector2 direction2 = offset.RotatedByRandom(spread);
 
-                        Dust.NewDustPerfect(Projectile.Center + offset * 43, ModContent.DustType<Dusts.GlowDust>(), direction2 * Main.rand.NextFloat(8), 125, new Color(150, 80, 40), Main.rand.NextFloat(0.2f, 0.5f));
+                        Dust.NewDustPerfect(Projectile.Center + offset * 43, ModContent.DustType<GlowDust>(), direction2 * Main.rand.NextFloat(8), 125, new Color(150, 80, 40), Main.rand.NextFloat(0.2f, 0.5f));
                     }
-                    Dust.NewDustPerfect(Projectile.Center + offset * 43, ModContent.DustType<Dusts.GlowDust>(), new Vector2(0, 0), 125, new Color(150, 80, 40), 1);
-                    Dust.NewDustPerfect(Projectile.Center + offset * 43, ModContent.DustType<Dusts.TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, new Color(60, 55, 50) * 0.5f, Main.rand.NextFloat(0.5f, 1));
+                    Dust.NewDustPerfect(Projectile.Center + offset * 43, ModContent.DustType<GlowDust>(), new Vector2(0, 0), 125, new Color(150, 80, 40), 1);
+                    Dust.NewDustPerfect(Projectile.Center + offset * 43, ModContent.DustType<TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, new Color(60, 55, 50) * 0.5f, Main.rand.NextFloat(0.5f, 1));
 
-                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
+                    FXUtil.ShakeCamera(Projectile.Center, 1024f, 32f);
 
                     for (int i = 0; i < 14; i++)
                     {

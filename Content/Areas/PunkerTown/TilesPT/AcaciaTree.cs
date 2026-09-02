@@ -1,9 +1,8 @@
 ﻿using ReLogic.Content;
 using Stellamod.Content.Areas.Terror.TilesTR;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Godrays;
 using Stellamod.Core.Pixelation;
-using Stellamod.Dusts;
-using Stellamod.WorldG;
 using System;
 using System.Collections.Generic;
 using Terraria;

@@ -41,7 +41,7 @@ namespace Stellamod.Content.Areas.Desert.EnemiesCL
             NPC.DeathSound = SoundID.NPCDeath6;
             NPC.value = 563f;
             NPC.knockBackResist = .45f;
-            NPC.aiStyle = 3;
+            NPC.aiStyle = NPCAIStyleID.Fighter;
             AIType = NPCID.SnowFlinx;
         }
 

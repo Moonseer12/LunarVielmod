@@ -1,8 +1,8 @@
-﻿using Stellamod.Content.Trailers;
+using Stellamod.Content.Dusts;
+using Stellamod.Content.Trailers;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;

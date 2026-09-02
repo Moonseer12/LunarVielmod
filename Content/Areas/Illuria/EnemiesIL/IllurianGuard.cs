@@ -1,6 +1,6 @@
-﻿using Stellamod.Content.Areas.Illuria.ArmorIL;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
+using Stellamod.Content.Vanity.Illurian;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -42,7 +42,7 @@ namespace Stellamod.Content.Areas.Illuria.EnemiesIL
             NPC.DeathSound = SoundID.NPCDeath6;
             NPC.value = 563f;
             NPC.knockBackResist = .45f;
-            NPC.aiStyle = 3;
+            NPC.aiStyle = NPCAIStyleID.Fighter;
             AIType = NPCID.SnowFlinx;
         }
 

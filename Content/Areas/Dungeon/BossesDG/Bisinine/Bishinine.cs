@@ -1,10 +1,10 @@
 ﻿using Stellamod.Common;
 using Stellamod.Common.Animations;
 using Stellamod.Content.Areas.Dungeon.BossesDG.Bisinine.Projectiles;
+using Stellamod.Content.Dusts;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
 using Stellamod.Core.Particles;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using System;
 using System.IO;
@@ -1415,7 +1415,7 @@ public class Bishinine : ScarletBoss
             SoundStyle bellHitSound = AssetRegistry.Sounds.Bishinine.BellHit1;
             bellHitSound.PitchVariance = 0.3f;
             SoundEngine.PlaySound(bellHitSound, NPC.position);
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 1024f, 30f);
+            FXUtil.ShakeCamera(NPC.Center, 1024f, 30f);
             ShakeScreenPosition.Shake = 2;
             SoundStyle boom = SoundID.DD2_ExplosiveTrapExplode;
             boom.PitchVariance = 0.3f;

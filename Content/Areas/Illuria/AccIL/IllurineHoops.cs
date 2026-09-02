@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Stellamod.Common.MagicCauldron;
+﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.Audio;
@@ -77,7 +76,7 @@ namespace Stellamod.Content.Areas.Illuria.AccIL
                 SoundStyle soundStyle = new("Stellamod/Assets/Sounds/RipperSlash1");
                 soundStyle.PitchVariance = 0.5f;
                 SoundEngine.PlaySound(soundStyle, Projectile.position);
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 2f);
+                FXUtil.ShakeCamera(Projectile.Center, 512f, 2f);
             }
 
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(45);

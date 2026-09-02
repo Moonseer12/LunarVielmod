@@ -1,4 +1,4 @@
-﻿using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.DecorativeTileSystem;
 using Terraria;
 using Terraria.ModLoader;

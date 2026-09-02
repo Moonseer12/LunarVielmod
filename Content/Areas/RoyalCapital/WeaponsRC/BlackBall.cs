@@ -1,6 +1,6 @@
-﻿using Stellamod.Common;
+using Stellamod.Common;
 using Stellamod.Common.OrbSystem;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -430,7 +430,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.WeaponsRC
 
                         Dust.NewDustPerfect(target.Center, ModContent.DustType<GlowDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, ColorFunctions.MiracleVoid, 1f).noGravity = true;
                     }
-                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
+                    FXUtil.ShakeCamera(Projectile.Center, 1024f, 32f);
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center + new Vector2(0, -80), Vector2.Zero, ModContent.ProjectileType<KaBoomSigil2>(),
                         Projectile.damage, Projectile.knockBack, Projectile.owner);
 

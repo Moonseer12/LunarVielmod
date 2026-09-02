@@ -1,6 +1,6 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Content.Areas.Fable.WeaponsFB;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;

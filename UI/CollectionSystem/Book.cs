@@ -1,4 +1,3 @@
-﻿
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameInput;
@@ -9,8 +8,6 @@ namespace Stellamod.UI.CollectionSystem
 {
     public class Book : UIElement
     {
-        private readonly int _context;
-        private int timer = 0;
         private int _frame;
         private float _closeTimer;
         private float _frameCounter;
@@ -135,7 +132,7 @@ namespace Stellamod.UI.CollectionSystem
             if (contains && !PlayerInput.IgnoreMouseInterface)
             {
                 Main.LocalPlayer.mouseInterface = true;
-     
+
             }
 
             //Draw Backing

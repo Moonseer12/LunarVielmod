@@ -1,11 +1,5 @@
-﻿
-
-using Stellamod.Assets;
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
-
-
-using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -23,7 +17,6 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.PunkerPrime
             get => Main.npc[(int)Projectile.ai[1]];
         }
         private bool ShouldDrop => Projectile.ai[2] == 1;
-        private bool _roll;
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
@@ -194,7 +187,6 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.PunkerPrime
         {
             if (ShouldDrop)
             {
-                _roll = true;
                 return false;
             }
             return base.OnTileCollide(oldVelocity);

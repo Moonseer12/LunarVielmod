@@ -1,8 +1,4 @@
-﻿
-
-using Stellamod.Assets;
-using Stellamod.Trails;
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;

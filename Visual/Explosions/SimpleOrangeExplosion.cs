@@ -1,11 +1,8 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
+using Stellamod.Content.Dusts;
 using Stellamod.Core.Bases;
-using Stellamod.Dusts;
-
 using Terraria;
 using Terraria.ModLoader;
 

@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.OrbSystem;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -1,6 +1,5 @@
-﻿using Stellamod.Common;
+using Stellamod.Content.Dusts;
 using Stellamod.Content.Gores;
-using Stellamod.Dusts;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -109,7 +108,7 @@ namespace Stellamod.Content.Areas.Jungle.WeaponsJN
 
         public override void OnKill(int timeLeft)
         {
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 4);
+            FXUtil.ShakeCamera(Projectile.Center, 512f, 4);
             for (int i = 0; i < 16; i++)
             {
                 float progress = i / 16f;

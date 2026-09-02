@@ -1,4 +1,3 @@
-﻿using Stellamod.Common;
 using Stellamod.Content.Areas.Jungle.BossesJN.Zui.Projectiles;
 using System;
 using System.IO;
@@ -118,7 +117,7 @@ namespace Stellamod.Content.Areas.Jungle.BossesJN.Zui
             NPC.npcSlots = 10f;
             NPC.scale = 2f;
 
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
 
 
 
@@ -1430,7 +1429,7 @@ namespace Stellamod.Content.Areas.Jungle.BossesJN.Zui
 
                 }
                 SoundEngine.PlaySound(new SoundStyle($"Stellamod/Assets/Sounds/SunStalker_PreSpawn"));
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 1024f, 32f);
+                FXUtil.ShakeCamera(NPC.Center, 1024f, 32f);
 
                 if (MultiplayerHelper.IsHost)
                 {
@@ -1644,7 +1643,7 @@ namespace Stellamod.Content.Areas.Jungle.BossesJN.Zui
             }
             if (timer == 35)
             {
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 1024f, 32f);
+                FXUtil.ShakeCamera(NPC.Center, 1024f, 32f);
                 if (MultiplayerHelper.IsHost)
                 {
                     Projectile.NewProjectile(entitySource, NPC.Center + new Vector2(150, 150), Vector2.Zero,
@@ -1817,7 +1816,7 @@ namespace Stellamod.Content.Areas.Jungle.BossesJN.Zui
                     ModContent.ProjectileType<ZuiSpawnEffect>(), 0, 0f, Owner: Main.myPlayer);
 
 
-                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 1024f, 32f);
+                    FXUtil.ShakeCamera(NPC.Center, 1024f, 32f);
                     int numProjectiles = Main.rand.Next(12, 24);
                     for (int p = 0; p < numProjectiles; p++)
                     {
@@ -2021,7 +2020,7 @@ namespace Stellamod.Content.Areas.Jungle.BossesJN.Zui
 
             if (timer == 35)
             {
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(NPC.Center, 1024f, 32f);
+                FXUtil.ShakeCamera(NPC.Center, 1024f, 32f);
                 if (MultiplayerHelper.IsHost)
                 {
                     Projectile.NewProjectile(entitySource, NPC.Center + new Vector2(150, 150), Vector2.Zero,
@@ -2200,7 +2199,7 @@ namespace Stellamod.Content.Areas.Jungle.BossesJN.Zui
         public override void OnKill()
         {
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/Binding_Abyss_Spawn"), NPC.position);
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(base.NPC.Center, 2048f, 128f);
+            FXUtil.ShakeCamera(base.NPC.Center, 2048f, 128f);
             var entitySource = NPC.GetSource_FromThis();
             if (MultiplayerHelper.IsHost)
             {

@@ -1,7 +1,7 @@
-﻿using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
+using Stellamod.Content.Trailers;
 using Stellamod.Core.Effects;
-using Stellamod.Dusts;
-using Stellamod.Trailing;
 using System;
 using System.Collections.Generic;
 using System.IO;

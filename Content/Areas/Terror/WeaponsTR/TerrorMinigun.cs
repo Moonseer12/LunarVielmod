@@ -127,9 +127,9 @@ public class TerrorMinigunShot : ModProjectile,
     {
 
         Timer++;
-        if(Timer == 1)
+        if (Timer == 1)
         {
-            if(Recoil == 0)
+            if (Recoil == 0)
             {
                 Owner.AddRecoil(-Projectile.velocity.SafeNormalize(Vector2.Zero) * 0.35f);
                 FXUtil.ShakeCamera(Projectile.Center, 1024, 2);
@@ -164,7 +164,7 @@ public class TerrorMinigunShot : ModProjectile,
     public override void OnKill(int timeLeft)
     {
         FXUtil.GlowCircleBoom(Projectile.Center, Color.White, Color.Red, Color.DarkRed, duration: 12, baseSize: 0.07f);
-        for(float f =0; f < 3; f++)
+        for (float f = 0; f < 3; f++)
         {
             var dp = DustParticle.Spawn(Projectile.Center, Projectile.velocity.SafeNormalize(Vector2.Zero).RotatedByRandom(0.5f));
             dp.dampening = 0.12f;
@@ -221,7 +221,7 @@ public class TerrorMinigunShot : ModProjectile,
     }
     public void DrawToRenderTargets()
     {
-      //  PixelationManager.QueuePrimitivesDrawAction(DrawTrail, DrawLayer.OverNPCs);
+        //  PixelationManager.QueuePrimitivesDrawAction(DrawTrail, DrawLayer.OverNPCs);
         PixelationManager.QueuePrimitivesDrawAction(DrawTrail, DrawLayer.OverNPCs);
         PixelationManager.QueueSpritebatchDrawAction(DrawRed, DrawLayer.OverPlayers);
     }

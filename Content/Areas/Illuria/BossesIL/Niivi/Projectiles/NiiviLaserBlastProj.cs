@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -50,7 +49,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.Niivi.Projectiles
 
                 Vector2 direction = Projectile.velocity.SafeNormalize(Vector2.Zero);
                 Vector2 explosionCenter = Projectile.Center + direction * BeamLength;
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(explosionCenter, 2048, 64);
+                FXUtil.ShakeCamera(explosionCenter, 2048, 64);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), explosionCenter, Vector2.Zero,
                     ModContent.ProjectileType<NiiviLaserBoom>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 

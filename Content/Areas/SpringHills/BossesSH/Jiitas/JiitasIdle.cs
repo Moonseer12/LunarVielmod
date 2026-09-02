@@ -1,4 +1,4 @@
-﻿using Stellamod.Core;
+using Stellamod.Core;
 using Stellamod.Core.TriggersSystem.Triggers;
 using System;
 using System.Collections.Generic;
@@ -16,14 +16,8 @@ namespace Stellamod.Content.Areas.SpringHills.BossesSH.Jiitas
     {
         public override void SetStaticDefaults()
         {
-            NPCID.Sets.TrailCacheLength[NPC.type] = 5;
-            NPCID.Sets.TrailingMode[Type] = 3;
+            base.SetStaticDefaults();
             Main.npcFrameCount[NPC.type] = 5;
-            NPCID.Sets.MPAllowedEnemies[NPC.type] = true;
-            NPCID.Sets.BossBestiaryPriority.Add(Type);
-            NPCID.Sets.ActsLikeTownNPC[Type] = true;
-            NPCID.Sets.SpawnsWithCustomName[Type] = true;
-            NPCID.Sets.NoTownNPCHappiness[Type] = true;
         }
 
         public override void SetDefaults()
@@ -40,7 +34,7 @@ namespace Stellamod.Content.Areas.SpringHills.BossesSH.Jiitas
             NPC.knockBackResist = 0f;
             NPC.noGravity = false;
             NPC.npcSlots = 10f;
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;

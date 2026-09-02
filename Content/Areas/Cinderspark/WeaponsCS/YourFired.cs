@@ -1,7 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
-using Stellamod.Common;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -160,7 +159,7 @@ public class YourFiredProj : ModProjectile
             Timer++;
             if (Timer == 1)
             {
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024, 16f);
+                FXUtil.ShakeCamera(Projectile.Center, 1024, 16f);
                 SoundEngine.PlaySound(new SoundStyle($"Stellamod/Assets/Sounds/Kaboom"), Projectile.position);
                 for (int i = 0; i < 4; i++)
                 {

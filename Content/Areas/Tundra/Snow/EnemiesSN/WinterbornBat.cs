@@ -50,7 +50,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.EnemiesSN
             NPC.DeathSound = SoundID.NPCDeath15;
             NPC.value = 60f;
             NPC.knockBackResist = 0.65f;
-            NPC.aiStyle = 14;
+            NPC.aiStyle = NPCAIStyleID.Bat;
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

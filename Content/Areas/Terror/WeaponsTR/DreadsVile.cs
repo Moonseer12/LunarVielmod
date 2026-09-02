@@ -1,6 +1,5 @@
-﻿using Stellamod.Common;
 using Stellamod.Common.Steins;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -260,8 +259,8 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
                 for (int k = 0; k < 7; k++)
                 {
                     Vector2 direction = offset.RotatedByRandom(spread);
-                    Dust.NewDustPerfect(Projectile.position + offset * 43, ModContent.DustType<Dusts.GlowDust>(), new Vector2(0, 0), 125, new Color(250, 10, 40), 1);
-                    Dust.NewDustPerfect(player.Center + offset * 43, ModContent.DustType<Dusts.TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, Color.Red * 0.5f, Main.rand.NextFloat(0.5f, 1));
+                    Dust.NewDustPerfect(Projectile.position + offset * 43, ModContent.DustType<GlowDust>(), new Vector2(0, 0), 125, new Color(250, 10, 40), 1);
+                    Dust.NewDustPerfect(player.Center + offset * 43, ModContent.DustType<TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 150, Color.Red * 0.5f, Main.rand.NextFloat(0.5f, 1));
 
                 }
 
@@ -402,7 +401,7 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
                 }
 
                 target.SimpleStrikeNPC(Projectile.damage * 5, 1, crit: false, 1);
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 32f);
+                FXUtil.ShakeCamera(Projectile.Center, 512f, 32f);
 
 
                 if (target.lifeMax <= 2000)

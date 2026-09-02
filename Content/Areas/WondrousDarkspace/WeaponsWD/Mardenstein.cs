@@ -1,8 +1,7 @@
-﻿using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Steins;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -98,14 +97,12 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
     public class MardFist : ModProjectile
     {
         public override string Texture => TextureRegistry.EmptyTexture;
-        public static bool swung = false;
         public int SwingTime = 60;
-        public float holdOffset = 0f;
         public bool bounced = false;
         public override void SetStaticDefaults()
         {
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 20; // The length of old position to be recorded
-            ProjectileID.Sets.TrailingMode[Projectile.type] = 2; // The recording mode
+            ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
         public override void SetDefaults()
         {
@@ -257,10 +254,10 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), player.position.X, player.position.Y, 0, 0, ModContent.ProjectileType<AMAZING>(), (int)(Projectile.damage * 1.5), 0f, Projectile.owner, 0f, 0f);
                         break;
                     case 1:
-                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), player.position.X, player.position.Y, 0, 0, ModContent.ProjectileType<GREAT>(), (int)(Projectile.damage * 1), 0f, Projectile.owner, 0f, 0f);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), player.position.X, player.position.Y, 0, 0, ModContent.ProjectileType<GREAT>(), Projectile.damage * 1, 0f, Projectile.owner, 0f, 0f);
                         break;
                     case 2:
-                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), player.position.X, player.position.Y, 0, 0, ModContent.ProjectileType<WOW>(), (int)(Projectile.damage * 2), 0f, Projectile.owner, 0f, 0f);
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), player.position.X, player.position.Y, 0, 0, ModContent.ProjectileType<WOW>(), Projectile.damage * 2, 0f, Projectile.owner, 0f, 0f);
                         break;
                 }
                 float rot = player.velocity.ToRotation();
@@ -270,8 +267,8 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
                 for (int k = 0; k < 7; k++)
                 {
                     Vector2 direction = offset.RotatedByRandom(spread);
-                    Dust.NewDustPerfect(Projectile.position + offset * 43, ModContent.DustType<Dusts.GlowDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, Color.Purple, 1f).noGravity = true;
-                    Dust.NewDustPerfect(player.Center + offset * 43, ModContent.DustType<Dusts.TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 0, Color.Purple, 1f).noGravity = true;
+                    Dust.NewDustPerfect(Projectile.position + offset * 43, ModContent.DustType<GlowDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, Color.Purple, 1f).noGravity = true;
+                    Dust.NewDustPerfect(player.Center + offset * 43, ModContent.DustType<TSmokeDust>(), Vector2.UnitY * -2 + offset.RotatedByRandom(spread), 0, Color.Purple, 1f).noGravity = true;
 
                 }
 
@@ -341,7 +338,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
                 }
 
                 target.SimpleStrikeNPC(Projectile.damage * 5, 1, crit: false, 1);
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 32f);
+                FXUtil.ShakeCamera(Projectile.Center, 512f, 32f);
 
 
                 if (target.lifeMax <= 1000)

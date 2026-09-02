@@ -289,6 +289,7 @@ namespace Stellamod
                     break;
             }
         }
+
         public static void SpawnNPCFromClient(byte whoAmI, int type, int x, int y, float ai0 = 0, float ai1 = 0, float ai2 = 0, float ai3 = 0) =>
             Stellamod.WriteToPacket(Stellamod.Instance.GetPacket(), (byte)MessageType.SpawnNPC, whoAmI, type, x, y, ai0, ai1, ai2, ai3).Send(-1);
         public static void SpawnBossFromClient(byte whoAmI, int type, int x, int y, float ai0 = 0, float ai1 = 0, float ai2 = 0, float ai3 = 0) =>

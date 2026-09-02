@@ -1,13 +1,12 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
-using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
+using Stellamod.Content.Trailers;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Dusts;
-using Stellamod.Trails;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -428,7 +427,7 @@ public class SuperStaffHold : ModProjectile
             player.velocity = VectorHelper.VelocityUpTo(player.velocity, targetVelocity);
 
             //Funny Screenshake
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(player.Center, 1024f, MathHelper.Lerp(0, 32, chargeProgress));
+            FXUtil.ShakeCamera(player.Center, 1024f, MathHelper.Lerp(0, 32, chargeProgress));
 
             //Dust Burst Towards Mouse
 

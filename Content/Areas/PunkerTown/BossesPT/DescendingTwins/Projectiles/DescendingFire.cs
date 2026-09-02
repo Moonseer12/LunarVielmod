@@ -1,8 +1,7 @@
-﻿using Stellamod.Assets;
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
+using Stellamod.Content.Dusts;
 using Stellamod.Core;
 using Stellamod.Core.Particles;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using System;
 using System.IO;
@@ -37,8 +36,6 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectile
         private Vector2 StartWhipPosition;
         private Vector2 TargetWhipPosition;
         private Vector2 InitialVelocity;
-        private Vector2 TargetVelocity;
-
 
         public override string Texture => TextureRegistry.CandleFlame;
 

@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
@@ -172,7 +171,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.EnemiesRC
 
         public override void OnKill(int timeLeft)
         {
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 50f);
+            FXUtil.ShakeCamera(Projectile.Center, 512f, 50f);
             for (int i = 0; i < 32; i++)
             {
                 Vector2 speed = Main.rand.NextVector2CircularEdge(4f, 4f);

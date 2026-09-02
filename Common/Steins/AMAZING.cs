@@ -1,4 +1,4 @@
-﻿using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,7 +9,6 @@ namespace Stellamod.Common.Steins
 
     public class AMAZING : ModProjectile
     {
-        private static float _orbitCounter;
         public enum AttackState
         {
             Frost_Attack = 0,
@@ -60,7 +59,7 @@ namespace Stellamod.Common.Steins
             if (Explosion > 119)
             {
 
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 512f, 16f);
+                FXUtil.ShakeCamera(Projectile.Center, 512f, 16f);
                 for (int i = 0; i < 5; i++)
                 {
                     float speedX = Main.rand.Next(-9, 9);

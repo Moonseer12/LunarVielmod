@@ -1,9 +1,4 @@
-﻿
-
-using Stellamod.Common.Shaders;
-using Stellamod.Common.Shaders.MagicTrails;
-
-using Stellamod.Trails;
+﻿using Stellamod.Common.Shaders;
 using System;
 using System.Collections.Generic;
 using Terraria;

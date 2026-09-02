@@ -1,7 +1,6 @@
-﻿using Stellamod.Assets;
-using Stellamod.Common;
+using Stellamod.Assets;
+using Stellamod.Content.Dusts;
 using Stellamod.Content.GunSwapping;
-using Stellamod.Dusts;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -43,7 +42,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
                 ModContent.ProjectileType<BurnBlastProj>(), damage, knockback, player.whoAmI);
             }
 
-            player.GetModPlayer<ShakePlayer>().ShakeAtPosition(position, 1024f, 16f);
+            FXUtil.ShakeCamera(position, 1024f, 16f);
             SoundEngine.PlaySound(new SoundStyle("Stellamod/Assets/Sounds/gun1"), position);
         }
     }
@@ -124,7 +123,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
                 Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<TSmokeDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, Color.DarkGray, 1f).noGravity = true;
             }
             SoundEngine.PlaySound(SoundID.DD2_ExplosiveTrapExplode, Projectile.position);
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
+            FXUtil.ShakeCamera(Projectile.Center, 1024f, 32f);
             for (int i = 0; i < Main.rand.Next(2, 4); i++)
             {
                 Vector2 velocity = Main.rand.NextVector2Circular(16f, 16f);

@@ -1,12 +1,7 @@
-﻿
-
-
-using Stellamod.Trails;
-using System;
+﻿using System;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 
 namespace Stellamod.Content.Areas.Desert.BossesCL.CommanderGintzia.Hands

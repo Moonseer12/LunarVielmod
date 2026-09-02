@@ -1,9 +1,5 @@
-﻿
-
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Assets;
-
-using Stellamod.Trails;
 using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;

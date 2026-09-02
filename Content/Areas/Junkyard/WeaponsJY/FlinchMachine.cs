@@ -1,7 +1,6 @@
-﻿using Stellamod.Common;
+using Stellamod.Content.Dusts;
 using Stellamod.Content.Gores;
 using Stellamod.Core.Bases;
-using Stellamod.Dusts;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -70,7 +69,7 @@ namespace Stellamod.Content.Areas.Junkyard.WeaponsJY
                 SoundStyle fanHit2 = SoundRegistry.FanHit2;
                 fanHit2.PitchVariance = 0.1f;
                 SoundEngine.PlaySound(fanHit2, Projectile.position);
-                Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.position, 2048, 64);
+                FXUtil.ShakeCamera(Projectile.position, 2048, 64);
                 target.SimpleStrikeNPC(Projectile.damage * 5, hit.HitDirection, damageType: Projectile.DamageType);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, Vector2.Zero,
                     ModContent.ProjectileType<FlinchMachineExplosionProj>(), Projectile.damage, Projectile.knockBack, Projectile.owner);

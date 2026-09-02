@@ -1,16 +1,11 @@
-﻿
-
-using ReLogic.Content;
-using Stellamod.Assets;
+﻿using ReLogic.Content;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Common.Shaders;
+using Stellamod.Content.Dusts;
 using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-
-using Stellamod.Dusts;
-
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;

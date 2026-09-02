@@ -1,17 +1,13 @@
-﻿
-
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Ishtar.BossesIS.SanguineSingularity.Projectiles;
+using Stellamod.Content.Dusts;
 using Stellamod.Content.Gores;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
 using Stellamod.Core.Particles;
-
-using Stellamod.Dusts;
-
 using Stellamod.Skies;
 using Stellamod.Visual.Particles;
 using System;

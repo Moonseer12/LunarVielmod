@@ -25,7 +25,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             Item.useTime = 40;
             Item.useAnimation = 40;
             Item.useStyle = ItemUseStyleID.HoldUp;
-      
+
             Item.knockBack = 4f;
             Item.DamageType = DamageClass.Magic;
             Item.UseSound = SoundID.DD2_BookStaffCast;
@@ -70,7 +70,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
 
         public override void Update(Player player, ref int buffIndex)
         {
-  
+
         }
     }
 
@@ -111,7 +111,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         {
             base.AI();
             Timer++;
-            if(Timer == 1)
+            if (Timer == 1)
             {
                 for (int i = 0; i < 32; i++)
                 {
@@ -151,7 +151,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
                 sp.Scale *= 0.6f;
             }
 
-            foreach(var npc in Main.ActiveNPCs)
+            foreach (var npc in Main.ActiveNPCs)
             {
                 if (npc.friendly)
                     continue;
@@ -168,7 +168,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
         private void DrawPixelatedFlames(SpriteBatch sb, Vector2 screenPos)
         {
             // var sb = Main.spriteBatch;
-            float fade = MathHelper.Lerp(0f, 1f, EasingFunction.InOutSine((float)Projectile.timeLeft / 30f));
+            float fade = MathHelper.Lerp(0f, 1f, EasingFunction.InOutSine(Projectile.timeLeft / 30f));
             float inScale = EasingFunction.OutExpo(Timer / 30f);
             Asset<Texture2D> waveTexture = AssetManager.GlowMask.Wave;
             WaveShader waveShader = ShaderContent.GetInstance<WaveShader>();

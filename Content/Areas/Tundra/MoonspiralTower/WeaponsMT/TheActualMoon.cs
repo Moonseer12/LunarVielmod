@@ -1,9 +1,9 @@
-﻿using Stellamod.Common;
+using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.OrbSystem;
 using Stellamod.Content.Areas.RoyalCapital.WeaponsRC;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
@@ -341,7 +341,7 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT
             base.OnHitNPC(target, hit, damageDone);
             target.AddBuff(ModContent.BuffType<AuroreanStarballDebuff>(), 240);
 
-            Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
+            FXUtil.ShakeCamera(Projectile.Center, 1024f, 32f);
             for (int i = 0; i < 14; i++)
             {
                 Dust.NewDustPerfect(target.Center, ModContent.DustType<GlowDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, Color.LightSkyBlue, 1f).noGravity = true;

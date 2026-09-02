@@ -1,7 +1,7 @@
-﻿using Stellamod.Common.MagicCauldron;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
 using Stellamod.Content.Gores;
-using Stellamod.Dusts;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;

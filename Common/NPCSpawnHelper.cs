@@ -29,6 +29,7 @@ public class SpawnSets : ModSystem
         HeatedDepthsEnemy = new();
         FableEnemy = new();
         AbyssEnemy = new();
+        AbyssTempleEnemy = new List<int>();
         IshtarEnemy = new();
         UndergroundEnemy = new();
         MineshaftEnemy = new();
@@ -42,6 +43,7 @@ public class SpawnSets : ModSystem
     public static List<int> HeatedDepthsEnemy;
     public static List<int> FableEnemy;
     public static List<int> AbyssEnemy;
+    public static List<int> AbyssTempleEnemy;
     public static List<int> IshtarEnemy;
     public static List<int> UndergroundEnemy;
     public static List<int> MineshaftEnemy;
@@ -79,6 +81,10 @@ public static class NPCSpawnExtensions
     public static void AddToAbyss(this ModNPC npc)
     {
         SpawnSets.AbyssEnemy.Add(npc.Type);
+    }
+    public static void AddToAbyssTemple(this ModNPC npc)
+    {
+        SpawnSets.AbyssTempleEnemy.Add(npc.Type);
     }
 
     public static void AddToIshtar(this ModNPC npc)
@@ -190,6 +196,10 @@ public class NPCSpawnHelper : GlobalNPC
         if (spawnInfo.Player.InModBiome<AbyssBiome>())
         {
             AddEnemiesFromSpawnSet(SpawnSets.AbyssEnemy, pool, spawnInfo);
+        }
+        if (spawnInfo.Player.InModBiome<AurelusBiome>())
+        {
+            AddEnemiesFromSpawnSet(SpawnSets.AbyssTempleEnemy, pool, spawnInfo);
         }
         if (spawnInfo.Player.InModBiome<IshtarBiome>())
         {

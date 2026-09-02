@@ -2,10 +2,10 @@
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Dusts;
 using Stellamod.Core;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
-using Stellamod.Dusts;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -229,8 +229,8 @@ public class HypnotizerStaminaShotExplosionProjectile : ModProjectile
             {
                 float rot = Main.rand.NextFloat(0f, 1f) * MathHelper.TwoPi;
                 Vector2 velocity = rot.ToRotationVector2() * Main.rand.NextFloat(8, 16);
-                DustParticle.Spawn(Projectile.Center , velocity);
-               // Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<GlowDust>(), velocity, newColor: Color.Pink, Scale: Main.rand.NextFloat(0.5f, 1f));
+                DustParticle.Spawn(Projectile.Center, velocity);
+                // Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<GlowDust>(), velocity, newColor: Color.Pink, Scale: Main.rand.NextFloat(0.5f, 1f));
             }
 
             for (float f = 0f; f < 16; f++)

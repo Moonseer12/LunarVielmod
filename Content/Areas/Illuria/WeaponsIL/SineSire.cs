@@ -1,6 +1,5 @@
-﻿using Stellamod.Common;
 using Stellamod.Common.OrbSystem;
-using Stellamod.Dusts;
+using Stellamod.Content.Dusts;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -424,7 +423,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
 
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, Vector2.Zero, ModContent.ProjectileType<WataBoom2>(),
                        Projectile.damage, Projectile.knockBack, Projectile.owner);
-                    Main.LocalPlayer.GetModPlayer<ShakePlayer>().ShakeAtPosition(Projectile.Center, 1024f, 32f);
+                    FXUtil.ShakeCamera(Projectile.Center, 1024f, 32f);
                     target.SimpleStrikeNPC(Projectile.damage, hit.HitDirection);
                     soundStyle = SoundID.SplashWeak;
                     soundStyle.PitchVariance = 0.15f;

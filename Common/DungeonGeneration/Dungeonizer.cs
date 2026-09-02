@@ -1,7 +1,4 @@
-﻿
-
-using Stellamod.Content.Bar.Drinks;
-
+﻿using Stellamod.Content.Bar.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -119,23 +116,6 @@ namespace Stellamod.Common.DungeonGeneration
                 ArcMaker();
             }
 
-        }
-    }
-    public class DungeonGenerationTester : ModItem
-    {
-        public override void SetDefaults()
-        {
-            Item.useTime = 2;
-            Item.useAnimation = 2;
-            Item.useStyle = ItemUseStyleID.Shoot;
-            Item.autoReuse = false;
-            Item.UseSound = new SoundStyle("Stellamod/Assets/Sounds/Balls");
-        }
-
-        public override bool? UseItem(Player player)
-        {
-            DungeonGenerationPreviewer.rooms = Dungeonizer.TestGeneration();
-            return true;
         }
     }
 

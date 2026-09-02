@@ -1,15 +1,12 @@
-﻿
-
+using Stellamod.Content.Dusts;
 using Stellamod.Content.MoonlightMagic.Elements;
-using Stellamod.Content.MoonlightMagic.Movements;
 using Stellamod.Core.Particles;
-using Stellamod.Dusts;
-
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
+
 namespace Stellamod.Content.MoonlightMagic.Enchantments.Uvilis
 {
     public class BubbletagEnchantment : BaseEnchantment
