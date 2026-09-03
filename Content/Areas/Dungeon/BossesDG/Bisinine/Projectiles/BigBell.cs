@@ -1,16 +1,9 @@
-﻿using Microsoft.Xna.Framework.Graphics.PackedVector;
-using Stellamod.Assets;
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Dusts;
 using Stellamod.Content.Gores;
 using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -181,8 +174,8 @@ namespace Stellamod.Content.Areas.Dungeon.BossesDG.Bisinine.Projectiles
 
                  
                 }
-                var p = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity);
-                var p2 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity * 2);
+                GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity);
+                var p2 = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity * 2);
                 p2.Scale *= 0.5f;
             }
 
@@ -237,7 +230,7 @@ namespace Stellamod.Content.Areas.Dungeon.BossesDG.Bisinine.Projectiles
                     }
                 }
 
-                var p3 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.UnitY);
+                var p3 = GlowDonutParticle.Spawn(Projectile.Center, Vector2.UnitY);
 
                 FXUtil.ShakeCamera(Projectile.position, 1024, 24);
                 Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.SilverCoin);

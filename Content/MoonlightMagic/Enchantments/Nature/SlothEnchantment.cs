@@ -1,8 +1,4 @@
-﻿
-
-using Stellamod.Content.MoonlightMagic.Elements;
-using Stellamod.Core.Particles;
-
+﻿using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.ModLoader;
@@ -47,8 +43,8 @@ namespace Stellamod.Content.MoonlightMagic.Enchantments.Nature
                 {
                     Vector2 spawnPoint = Projectile.Center + Main.rand.NextVector2Circular(8, 8);
                     Vector2 velocity = Main.rand.NextVector2Circular(8, 8);
-                    LegacyParticle.NewParticle<WhiteFlowerParticle>(spawnPoint, velocity, Color.White);
-                    LegacyParticle.NewParticle<MusicParticle>(spawnPoint, velocity, Color.White);
+                    WhiteFlowerParticle.Spawn(spawnPoint, velocity, Color.White);
+                    MusicParticle.Spawn(spawnPoint, velocity, Color.White);
                 }
             }
 

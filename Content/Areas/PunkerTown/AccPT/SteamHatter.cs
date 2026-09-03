@@ -32,7 +32,7 @@ public class Steaming : ModBuff
 
         if (Main.rand.NextBool(denom2))
         {
-            var zap = LegacyParticle.NewParticle<ZapParticle>(player.Center + Main.rand.NextVector2Circular(32, 32) + new Vector2(0, -32), Main.rand.NextVector2Circular(1, 1), Color.White, 1f);
+            var zap = ZapParticle.Spawn(player.Center + Main.rand.NextVector2Circular(32, 32) + new Vector2(0, -32), Main.rand.NextVector2Circular(1, 1), Color.White, 1f);
             zap.innerColor = Color.Red;
             zap.outerColor = Color.Lerp(zap.innerColor, Color.Black, 0.5f);
             zap.fadeToColor = Color.Lerp(zap.outerColor, Color.Black, 0.5f);

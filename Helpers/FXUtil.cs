@@ -38,13 +38,10 @@ public static class FXUtil
     public static void SimpleImpactEffect(Vector2 startPosition, Vector2 velocity, int numParticles, Color innerColor, Color glowColor, Color outerGlowColor)
     {
         Vector2 inverseVelocity = velocity.SafeNormalize(Vector2.Zero) * 2;
-        float spreadRange = MathHelper.ToRadians(80);
         for (int n = 0; n < numParticles; n++)
         {
-            Vector2 particleVelocity = inverseVelocity.RotateRandom(spreadRange);
             Vector2 particlePosition = startPosition;
             particlePosition += inverseVelocity * 8;
-            Vector2 centerPosition = particlePosition;
 
             particlePosition += Main.rand.NextVector2Circular(32, 32);
 
@@ -59,13 +56,13 @@ public static class FXUtil
     }
     public static FogParticle Fog(Vector2 position, Vector2 velocity)
     {
-        FogParticle particle = LegacyParticle.NewParticle<FogParticle>(position, Vector2.Zero);
+        FogParticle particle = FogParticle.Spawn(position, Vector2.Zero);
         particle.Velocity = velocity;
         return particle;
     }
     public static GlowDonutParticle GlowDonutParticle(Vector2 position, Vector2 velocity, Color innerColor, Color outerColor, Color fadeToColor, bool distortOut = false)
     {
-        GlowDonutParticle particle = LegacyParticle.NewParticle<GlowDonutParticle>(position, Vector2.Zero);
+        GlowDonutParticle particle = Particle<GlowDonutParticle>.Spawn(position, Vector2.Zero);
         particle.Velocity = velocity;
         particle.innerColor = innerColor;
         particle.outerColor = outerColor;
@@ -75,7 +72,7 @@ public static class FXUtil
     }
     public static GlowFragmentParticle GlowFragmentParticle(Vector2 position, Vector2 velocity, Color innerColor, Color outerColor, Color fadeToColor, bool distortOut = false)
     {
-        GlowFragmentParticle particle = LegacyParticle.NewParticle<GlowFragmentParticle>(position, Vector2.Zero);
+        GlowFragmentParticle particle = Particle<GlowFragmentParticle>.Spawn(position, Vector2.Zero);
         particle.Velocity = velocity;
         particle.innerColor = innerColor;
         particle.outerColor = outerColor;
@@ -86,7 +83,7 @@ public static class FXUtil
 
     public static GlowStretchParticle GlowStretch(Vector2 position, Vector2 velocity)
     {
-        GlowStretchParticle particle = LegacyParticle.NewParticle<GlowStretchParticle>(position, Vector2.Zero);
+        GlowStretchParticle particle = GlowStretchParticle.Spawn(position, Vector2.Zero);
         particle.Velocity = velocity;
         //The inside color of the circle
         particle.InnerColor = Color.White;
@@ -108,7 +105,7 @@ public static class FXUtil
 
     public static GlowSpikeParticle GlowSpikeBoom(Vector2 position, Color innerColor, Color glowColor, Color outerGlowColor, float duration = 15f, float baseSize = 0.12f)
     {
-        GlowSpikeParticle boomParticle = LegacyParticle.NewParticle<GlowSpikeParticle>(position, Vector2.Zero);
+        GlowSpikeParticle boomParticle = GlowSpikeParticle.Spawn(position, Vector2.Zero);
         //The inside color of the circle
         boomParticle.InnerColor = innerColor;
 
@@ -129,7 +126,7 @@ public static class FXUtil
 
     public static GlowCircleLongBoomParticle GlowCircleLongBoom(Vector2 position, Color innerColor, Color glowColor, Color outerGlowColor, float duration = 15f, float baseSize = 0.12f)
     {
-        GlowCircleLongBoomParticle boomParticle = LegacyParticle.NewParticle<GlowCircleLongBoomParticle>(position, Vector2.Zero);
+        GlowCircleLongBoomParticle boomParticle = GlowCircleLongBoomParticle.Spawn(position, Vector2.Zero);
         //The inside color of the circle
         boomParticle.InnerColor = innerColor;
 
@@ -149,7 +146,7 @@ public static class FXUtil
     }
     public static GlowCircleDetailedBoomParticle1 GlowCircleDetailedBoom1(Vector2 position, Color innerColor, Color glowColor, Color outerGlowColor, float duration = 15f, float baseSize = 0.12f)
     {
-        GlowCircleDetailedBoomParticle1 boomParticle = LegacyParticle.NewParticle<GlowCircleDetailedBoomParticle1>(position, Vector2.Zero);
+        GlowCircleDetailedBoomParticle1 boomParticle = GlowCircleDetailedBoomParticle1.Spawn(position, Vector2.Zero);
         //The inside color of the circle
         boomParticle.InnerColor = innerColor;
 
@@ -169,7 +166,7 @@ public static class FXUtil
     }
     public static GlowCircleBoomParticle GlowCircleBoom(Vector2 position, Color innerColor, Color glowColor, Color outerGlowColor, float duration = 15f, float baseSize = 0.12f)
     {
-        GlowCircleBoomParticle boomParticle = LegacyParticle.NewParticle<GlowCircleBoomParticle>(position, Vector2.Zero);
+        GlowCircleBoomParticle boomParticle = GlowCircleBoomParticle.Spawn(position, Vector2.Zero);
         //The inside color of the circle
         boomParticle.InnerColor = innerColor;
 
@@ -189,18 +186,18 @@ public static class FXUtil
     }
     public static void FocusCamera(Vector2 position, float duration, string uniqueIdentity = null)
     {
-        FocusCameraModifier focusCameraModifier = new FocusCameraModifier(position, duration, uniqueIdentity);
+        FocusCameraModifier focusCameraModifier = new(position, duration, uniqueIdentity);
         Main.instance.CameraModifiers.Add(focusCameraModifier);
     }
 
     public static void FocusCamera(Entity entity, float duration, string uniqueIdentity = null)
     {
-        FocusCameraModifier focusCameraModifier = new FocusCameraModifier(entity, duration, uniqueIdentity);
+        FocusCameraModifier focusCameraModifier = new(entity, duration, uniqueIdentity);
         Main.instance.CameraModifiers.Add(focusCameraModifier);
     }
     public static void ShakeCamera(Vector2 position, float distance, float strength, string uniqueIdentity = null)
     {
-        ScreenshakeCameraModifier screenshakeCameraModifier = new ScreenshakeCameraModifier(
+        ScreenshakeCameraModifier screenshakeCameraModifier = new(
             position,
             distance,
             strength,
@@ -210,7 +207,7 @@ public static class FXUtil
 
     public static void PunchCamera(Vector2 startPosition, Vector2 direction, float strength, float vibrationCyclesPerSecond, int frames, float distanceFallOff = -1, string uniqueIdentity = null)
     {
-        PunchCameraModifier punchCameraModifier = new PunchCameraModifier(
+        PunchCameraModifier punchCameraModifier = new(
             startPosition,
             direction,
             strength,

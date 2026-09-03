@@ -183,7 +183,7 @@ public class VerliaBouncingMoon : ModProjectile
         _squishScale = new Vector2(0.8f, 1.4f);
         for(int i = 0; i < 3; i++)
         {
-            var donut = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.UnitX * -Direction, Color.LightSkyBlue);
+            var donut = GlowDonutParticle.Spawn(Projectile.Center, Vector2.UnitX * -Direction, Color.LightSkyBlue);
             donut.Scale *= 2;
 
         }
@@ -274,7 +274,7 @@ public class VerliaBouncingMoon : ModProjectile
         {
             if (Timer % 8 == 0)
             {
-                var p2 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Bottom, -Projectile.velocity);
+                var p2 = GlowDonutParticle.Spawn(Projectile.Bottom, -Projectile.velocity);
                 p2.Scale *= 1.5f;
             }
             ShakeScreenPosition.Shake = 2;

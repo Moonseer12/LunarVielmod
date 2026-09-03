@@ -1,10 +1,7 @@
-﻿
-using Stellamod.NPCs;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.UI;
-
 
 namespace Stellamod.Core.TitleSystem
 {

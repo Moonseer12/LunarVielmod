@@ -185,7 +185,7 @@ public class DeadRomanceHeavenlySmiteBlade : ModProjectile
             var boom = FXUtil.GlowCircleBoom(Projectile.Center, Color.White, Color.Goldenrod, Color.DarkGoldenrod);
             boom.Scale *= 0.3f;
 
-            var sear = LegacyParticle.NewParticle<SearParticle>(Projectile.Center + Projectile.velocity.SafeNormalize(Vector2.Zero) * 38, Vector2.Zero);
+            var sear = SearParticle.Spawn(Projectile.Center + Projectile.velocity.SafeNormalize(Vector2.Zero) * 38, Vector2.Zero);
             sear.innerColor = Color.Gray;
             sear.outerColor = Color.Goldenrod;
             sear.fadeToColor = Color.Black;
@@ -197,7 +197,7 @@ public class DeadRomanceHeavenlySmiteBlade : ModProjectile
             {
                 Vector2 pos = Projectile.Center;
                 pos += Main.rand.NextVector2Circular(80, 80);
-                var zap = LegacyParticle.NewParticle<ZapParticle>(pos, Vector2.UnitY.RotatedByRandom(10) * Main.rand.NextFloat(2, 15));
+                var zap = ZapParticle.Spawn(pos, Vector2.UnitY.RotatedByRandom(10) * Main.rand.NextFloat(2, 15));
                 zap.innerColor = Color.Gray;
                 zap.outerColor = Color.Goldenrod;
                 zap.fadeToColor = Color.Black;

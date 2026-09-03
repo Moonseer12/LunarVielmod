@@ -1,6 +1,5 @@
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Dusts;
-using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -187,7 +186,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.NPCsWD
             {
                 float xRand = Main.rand.NextFloat(-32, 32);
                 float yRand = Main.rand.NextFloat(-32, 32);
-                LegacyParticle.NewParticle<StarParticle>(NPC.Center + new Vector2(xRand, yRand), Vector2.Zero);
+                StarParticle.Spawn(NPC.Center + new Vector2(xRand, yRand), Vector2.Zero);
             }
 
             if (Timer % 10 == 0)

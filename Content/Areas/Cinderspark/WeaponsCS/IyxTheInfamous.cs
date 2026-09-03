@@ -183,7 +183,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             {
                 int index = (int)(Interpolant * swingTrailCache.Length) % swingTrailCache.Length;
                 Vector2 spawnPos = swingTrailCache[index];
-                var p = LegacyParticle.NewParticle<EmberParticle>(spawnPos, Main.rand.NextVector2Circular(1, 1));
+                EmberParticle.Spawn(spawnPos, Main.rand.NextVector2Circular(1, 1));
 
             }
 
@@ -234,7 +234,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
                 {
                     Vector2 pVelocity = lvelocity.RotatedByRandom(MathHelper.PiOver4 / 3f);
                     pVelocity *= Main.rand.NextFloat(0.5f, 2f);
-                    var frag = LegacyParticle.NewParticle<GlowFragmentParticle>(position, pVelocity);
+                    var frag = GlowFragmentParticle.Spawn(position, pVelocity);
                     FXUtil.GlowFragmentParticle(position, pVelocity,
                         innerColor: Color.Yellow,
                         outerColor: Color.Orange,
@@ -254,7 +254,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
                 for (float f = 0; f < 8; f++)
                 {
                     Vector2 vel = Main.rand.NextVector2Circular(4, 4);
-                    LegacyParticle.NewParticle<EmberParticle>(Owner.Center, vel);
+                    EmberParticle.Spawn(Owner.Center, vel);
                 }
 
             }
@@ -308,7 +308,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
 
                 });
             }
-            BlackFireShader blackFireShader = new BlackFireShader();
+            BlackFireShader blackFireShader = new();
             blackFireShader.SetDefaults();
             SlashTrailer devilsPeak = new SlashTrailer
             {
@@ -358,7 +358,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
             for (float f = 0; f < 4; f++)
             {
                 Vector2 vel = Main.rand.NextVector2Circular(4, 4);
-                LegacyParticle.NewParticle<EmberParticle>(Owner.Center, vel);
+                EmberParticle.Spawn(Owner.Center, vel);
             }
             target.AddBuff(BuffID.OnFire, 180);
         }

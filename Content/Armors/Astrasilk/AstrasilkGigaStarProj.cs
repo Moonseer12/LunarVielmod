@@ -1,8 +1,6 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -52,7 +50,7 @@ namespace Stellamod.Content.Armors.Astrasilk
                 SoundEngine.PlaySound(starSound, Projectile.position);
 
 
-                var p = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity * 2, newColor: Color.Lavender);
+                var p = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity * 2, color: Color.Lavender);
                 p.Scale *= 0.33f;
             }
 

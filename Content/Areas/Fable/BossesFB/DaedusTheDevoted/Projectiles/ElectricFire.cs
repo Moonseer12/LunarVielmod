@@ -129,12 +129,12 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
             }
             if(Timer == 30)
             {
-                LegacyParticle.NewParticle<SkullParticle>(Projectile.Center, Vector2.Zero, Color.Red);
+                SkullParticle.Spawn(Projectile.Center, Vector2.Zero, Color.Red);
             }
             if (Timer == 70)
             {
                 //Ping Sound
-                SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/Jack_FirePing");
+                SoundStyle soundStyle = new("Stellamod/Assets/Sounds/Jack_FirePing");
                 soundStyle.PitchVariance = 0.1f;
                 SoundEngine.PlaySound(soundStyle, Projectile.position);
 
@@ -185,14 +185,14 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
                 shot.PitchVariance = 0.3f;
                 SoundEngine.PlaySound(shot, Projectile.position);
 
-                var part = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity * 0.15f);
+                var part = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity * 0.15f);
                 part.innerColor = Color.Yellow;
                 part.outerColor = Color.Orange;
                 part.fadeToColor = Color.Red;
                 part.Scale *= 0.125f;
                 part.Rotation = Projectile.velocity.ToRotation();
 
-                var part2 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity * 0.3f);
+                var part2 = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity * 0.3f);
                 part2.innerColor = Color.Yellow;
                 part2.outerColor = Color.Orange;
                 part2.fadeToColor = Color.Red;
@@ -211,7 +211,7 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
 
             if(Timer > 90 && Timer % 4 == 0)
             {
-                LegacyParticle.NewParticle<FlareParticle>(Projectile.Center + Main.rand.NextVector2Circular(16, 16), Vector2.Zero);
+                FlareParticle.Spawn(Projectile.Center + Main.rand.NextVector2Circular(16, 16), Vector2.Zero);
             }
             if(Timer > 90 && Timer < 100)
             {
@@ -246,7 +246,7 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
                 {
                     Vector2 pVelocity = -Projectile.velocity.RotatedByRandom(MathHelper.PiOver4);
                     pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                    var spark = LegacyParticle.NewParticle<SparkParticle>(Projectile.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                    var spark = SparkParticle.Spawn(Projectile.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
                     spark.innerColor = Color.Yellow;
                     spark.outerColor = Color.Red;
                 }
@@ -366,7 +366,7 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
             {
                 Vector2 pVelocity = lvelocity.RotatedByRandom(MathHelper.PiOver4 / 3f);
                 pVelocity *= Main.rand.NextFloat(0.5f, 2f);
-                var frag = LegacyParticle.NewParticle<GlowFragmentParticle>(position, pVelocity);
+                var frag = GlowFragmentParticle.Spawn(position, pVelocity);
                 FXUtil.GlowFragmentParticle(position, pVelocity,
                     innerColor: Color.Yellow,
                     outerColor: Color.Orange,
@@ -388,10 +388,10 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
             {
                 Vector2 pVelocity = lvelocity.RotatedByRandom(MathHelper.PiOver4 / 3f);
                 pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                var spark = LegacyParticle.NewParticle<SparkParticle>(position + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                var spark = SparkParticle.Spawn(position + Main.rand.NextVector2Circular(64, 64), pVelocity);
             }
 
-            var sear = LegacyParticle.NewParticle<SearParticle>(Projectile.Center, Vector2.Zero);
+            var sear = SearParticle.Spawn(Projectile.Center, Vector2.Zero);
 
             for (float f = 0; f < 4; f++)
             {

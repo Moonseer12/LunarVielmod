@@ -372,7 +372,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
                     initialVelocity = initialVelocity.RotatedByRandom(MathHelper.ToRadians(360));
                     initialVelocity *= Main.rand.NextFloat(0.5f, 1f);
 
-                    SparkParticle dustParticle = LegacyParticle.NewParticle<SparkParticle>(explosionCenter, initialVelocity, Color.White, Scale: Main.rand.NextFloat(0.6f, 2f));
+                    SparkParticle dustParticle = SparkParticle.Spawn(explosionCenter, initialVelocity, Color.White, Scale: Main.rand.NextFloat(0.6f, 2f));
                     dustParticle.innerColor = Color.SkyBlue;
                     dustParticle.outerColor = Color.Violet;
                 }
@@ -411,7 +411,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
                     particle.VectorScale *= 0.5f;
 
                 }
-                var sear = LegacyParticle.NewParticle<SearParticle>(explosionCenter, Vector2.Zero);
+                var sear = SearParticle.Spawn(explosionCenter, Vector2.Zero);
                 sear.innerColor = Color.Cyan;
                 sear.outerColor = Color.Blue;
                 sear.Rotation = Projectile.velocity.ToRotation() - MathHelper.PiOver2;
@@ -640,7 +640,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
             {
                 float rot = f / 8f;
                 rot += Main.rand.NextFloat(-0.5f, 0.5f);
-                var p = LegacyParticle.NewParticle<ImpactParticle>(position, velocity.RotatedByRandom(0.7f));
+                var p = ImpactParticle.Spawn(position, velocity.RotatedByRandom(0.7f));
                 p.fast = true;
                 p.color = Color.SkyBlue;
             }

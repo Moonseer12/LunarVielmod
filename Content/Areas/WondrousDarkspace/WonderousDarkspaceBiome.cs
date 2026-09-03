@@ -1,6 +1,5 @@
 ﻿using Stellamod.Content.Areas.RoyalCapital;
 using Stellamod.Core.LunarLightingSystem;
-using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using Stellamod.WorldG;
 using Terraria;
@@ -34,7 +33,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace
             {
                 float xRand = Main.rand.NextFloat(-1000, 1000);
                 float yRand = Main.rand.NextFloat(-1000, 1000);
-                LegacyParticle.NewParticle<StarParticle>(Main.LocalPlayer.Center + new Vector2(xRand, yRand), Vector2.Zero);
+                StarParticle.Spawn(Main.LocalPlayer.Center + new Vector2(xRand, yRand), Vector2.Zero);
             }
         }
         private bool RemoveShimmer(On_Player.orig_CanSeeShimmerEffects orig, Player self)

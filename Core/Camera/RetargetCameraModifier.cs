@@ -1,6 +1,4 @@
-﻿
-using Stellamod.NPCs.Town;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
 using Terraria.Graphics.CameraModifiers;
 using Terraria.ModLoader;

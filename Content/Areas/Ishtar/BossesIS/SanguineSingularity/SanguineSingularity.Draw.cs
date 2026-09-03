@@ -1,8 +1,4 @@
-﻿
-
-using Stellamod.Common.Shaders;
-using Stellamod.Core.Particles;
-
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.ID;
@@ -23,7 +19,7 @@ namespace Stellamod.Content.Areas.Ishtar.BossesIS.SanguineSingularity
             {
                 Vector2 pos = NPC.Bottom + new Vector2(Main.rand.NextFloat(-32f, 32f), 0);
                 pos.Y += 40;
-                var circleStep = LegacyParticle.NewParticle<CircleStepParticle>(pos, Vector2.UnitY);
+                var circleStep = CircleStepParticle.Spawn(pos, Vector2.UnitY);
                 circleStep.color = Color.Red;
                 circleStep.Rotation = NPC.rotation;
                 _stepDistance = 0;

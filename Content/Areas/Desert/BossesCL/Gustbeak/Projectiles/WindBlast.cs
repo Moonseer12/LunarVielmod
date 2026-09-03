@@ -1,8 +1,4 @@
-﻿
-
-using Stellamod.Core.Particles;
-
-using Stellamod.Visual.Particles;
+﻿using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,7 +32,7 @@ namespace Stellamod.Content.Areas.Desert.BossesCL.Gustbeak.Projectiles
             {
                 for (float i = 0; i < 3; i++)
                 {
-                    var donutParticle = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero) * 4 * MathHelper.Lerp(15, 1f, i / 3f));
+                    var donutParticle = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero) * 4 * MathHelper.Lerp(15, 1f, i / 3f));
                     donutParticle.Scale *= MathHelper.Lerp(0.3f, 1f, i / 3f);
                     donutParticle.Velocity *= 0.1f;
                 }

@@ -174,7 +174,7 @@ public class BouncingBallCore : ModProjectile
         {
             SoundStyle explosionSound = new SoundStyle("Stellamod/Assets/Sounds/FungalFlaceBall3");
             SoundEngine.PlaySound(explosionSound, Projectile.position);
-            LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity * 0.2f);
+            GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity * 0.2f);
 
 
 
@@ -272,7 +272,7 @@ public class BouncingBallCore : ModProjectile
                     ModContent.ProjectileType<ZapShockwave>(), Projectile.damage, Projectile.knockBack, Projectile.owner, ai1: 1);
             }
 
-            var gd = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero);
+            var gd = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero);
             gd.noStretch = true;
             FXUtil.ShakeCamera(Projectile.Center, 1024, 8);
             for (float f = 0; f < 16; f++)

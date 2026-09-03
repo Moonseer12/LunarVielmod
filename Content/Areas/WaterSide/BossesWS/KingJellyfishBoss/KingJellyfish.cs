@@ -508,7 +508,7 @@ public class BabyRichochetZap : ModProjectile
                     dp.noTileCollide = true;
                 }
 
-                GlowDonutParticle d = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity * 2);
+                GlowDonutParticle d = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity * 2);
                 d.outerColor = Color.SkyBlue;
                 d.fadeToColor = Color.DeepSkyBlue;
                 d.Scale *= 0.3f;

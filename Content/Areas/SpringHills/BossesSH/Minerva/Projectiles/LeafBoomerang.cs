@@ -54,7 +54,7 @@ public class LeafBoomerang : ScarletProjectile
         }
         if (Timer % 5 == 0 && Timer < 60)
         {
-            var p = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity);
+            var p = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity);
             p.fadeToColor = Color.DarkGreen;
             p.shrink = true;
             p.color *= 0.8f;

@@ -59,7 +59,7 @@ public class MoonSnipe : ModProjectile
             Projectile.velocity *= 1.2f;
             if (Projectile.velocity.Length() > 25)
             {
-                LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity * 0.5f);
+                GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity * 0.5f);
             }
         }
         else

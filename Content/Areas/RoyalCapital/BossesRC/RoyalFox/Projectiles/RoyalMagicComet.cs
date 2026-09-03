@@ -391,7 +391,7 @@ public class RoyalMagicComet : ModProjectile,
         }
 
 
-        var sear = LegacyParticle.NewParticle<SearParticle>(Projectile.Center, Vector2.Zero);
+        var sear = SearParticle.Spawn(Projectile.Center, Vector2.Zero);
         sear.innerColor = Color.Gray;
         sear.outerColor = GetCometColor();
         sear.fadeToColor = Color.Black;
@@ -403,7 +403,7 @@ public class RoyalMagicComet : ModProjectile,
         {
             Vector2 pos = Projectile.Center;
             pos += Main.rand.NextVector2Circular(80, 80);
-            var zap = LegacyParticle.NewParticle<ZapParticle>(pos, Vector2.UnitY.RotatedByRandom(10) * Main.rand.NextFloat(2, 15));
+            var zap = ZapParticle.Spawn(pos, Vector2.UnitY.RotatedByRandom(10) * Main.rand.NextFloat(2, 15));
             zap.innerColor = Color.Gray;
             zap.outerColor = GetCometColor();
             zap.fadeToColor = Color.Black;
@@ -444,13 +444,13 @@ public class RoyalMagicComet : ModProjectile,
         SoundEngine.PlaySound(smashSound, Projectile.position);
 
 
-        var part = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero, Color.White);
+        var part = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero, Color.White);
         part.fadeToColor = Color.Black;
         part.outerColor = Color.Gray;
         part.noStretch = true;
         part.shrink = true;
 
-        var part2 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero, Color.White);
+        var part2 = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero, Color.White);
         part2.fadeToColor = Color.Black;
         part2.outerColor = Color.Gray;
         part2.noStretch = true;

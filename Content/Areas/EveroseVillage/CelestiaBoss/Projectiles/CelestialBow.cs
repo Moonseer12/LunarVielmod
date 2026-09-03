@@ -1,6 +1,5 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Visual.Particles;
 using System;
@@ -12,7 +11,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.EveroseVillage.CelestiaBoss.Projectiles;
-
 
 public class CelestialBow : ModProjectile
 {
@@ -278,12 +276,12 @@ public class CelestialArrow : ModProjectile
             }
 
 
-            GlowDonutParticle d = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity * 2);
+            GlowDonutParticle d = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity * 2);
             d.outerColor = Color.Turquoise;
             d.fadeToColor = Color.DarkTurquoise;
             d.Scale *= 0.3f;
 
-            GlowDonutParticle d2 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity * 4);
+            GlowDonutParticle d2 = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity * 4);
             d2.outerColor = Color.Turquoise;
             d2.fadeToColor = Color.DarkTurquoise;
             d2.Scale *= 0.15f;

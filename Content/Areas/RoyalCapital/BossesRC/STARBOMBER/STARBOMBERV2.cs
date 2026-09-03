@@ -788,7 +788,7 @@ public class STARBOMBERV2 : ScarletBoss,
             for (float f = 0; f < 16; f++)
             {
                 Vector2 vel = Main.rand.NextVector2CircularEdge(16, 16);
-                LegacyParticle.NewParticle<SparkParticle>(spawnPoint, vel, Scale: Main.rand.NextFloat(0.5f, 1f));
+                SparkParticle.Spawn(spawnPoint, vel, Scale: Main.rand.NextFloat(0.5f, 1f));
             }
         }
 
@@ -797,7 +797,7 @@ public class STARBOMBERV2 : ScarletBoss,
             Vector2 spawnPointOffset = Main.rand.NextVector2Circular(64, 64);
             Vector2 spawnPoint = GetPeenarBlastPoint();
             spawnPoint += spawnPointOffset;
-            var zapParticle = LegacyParticle.NewParticle<ZapParticle>(spawnPoint, Main.rand.NextVector2Circular(32, 32), Scale: Main.rand.NextFloat(0.25f, 0.5f));
+            var zapParticle = ZapParticle.Spawn(spawnPoint, Main.rand.NextVector2Circular(32, 32), Scale: Main.rand.NextFloat(0.25f, 0.5f));
             FXUtil.GlowCircleBoom(GetPeenarBlastPoint(), Color.White, Color.Pink, Color.Purple, baseSize: MathHelper.Lerp(0.04f, 0.12f, Timer / chargeTime));
 
             FXUtil.GlowCircleBoom(spawnPoint, Color.White, Color.Pink, Color.Purple, baseSize: 0.03f);
@@ -1490,10 +1490,10 @@ public class STARBOMBERV2 : ScarletBoss,
 
             if (Timer % 16 == 0)
             {
-                LegacyParticle.NewParticle<EmberParticle>(GunPosition, Main.rand.NextVector2Circular(1, 4), newColor: Color.Red);
+                EmberParticle.Spawn(GunPosition, Main.rand.NextVector2Circular(1, 4), color: Color.Red);
                 if (Main.rand.NextBool(2))
                 {
-                    LegacyParticle.NewParticle<ZapParticle>(GunPosition + Main.rand.NextVector2Circular(8, 8), Main.rand.NextVector2Circular(1, 1), newColor: Color.Pink, Scale: Main.rand.NextFloat(0.5f, 0.66f));
+                    ZapParticle.Spawn(GunPosition + Main.rand.NextVector2Circular(8, 8), Main.rand.NextVector2Circular(1, 1), color: Color.Pink, Scale: Main.rand.NextFloat(0.5f, 0.66f));
                 }
             }
         }
@@ -1620,7 +1620,7 @@ public class STARBOMBERV2 : ScarletBoss,
             SoundStyle impact = AssetRegistry.Sounds.STARBOMBER.HeavyCrush;
             SoundEngine.PlaySound(impact, NPC.position);
             FXUtil.PunchCamera(NPC.position, Vector2.UnitY, 8, 8, 8);
-            var donut = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, Vector2.UnitY);
+            var donut = GlowDonutParticle.Spawn(NPC.Bottom, Vector2.UnitY);
 
             SwitchState(AIState.LegUpSpin_Loop);
         }
@@ -1654,7 +1654,7 @@ public class STARBOMBERV2 : ScarletBoss,
                 for (int i = 0; i < 4; i++)
                 {
                     Vector2 velocity = NPC.velocity.SafeNormalize(Vector2.Zero) * (i + 1);
-                    var donutParticle = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center + velocity.SafeNormalize(Vector2.Zero) * 128, velocity);
+                    var donutParticle = GlowDonutParticle.Spawn(NPC.Center + velocity.SafeNormalize(Vector2.Zero) * 128, velocity);
                     donutParticle.Scale = MathHelper.Lerp(1f, 2f, (float)i / 4f);
                 }
                 _slowedDownCauseWall = true;
@@ -1719,7 +1719,7 @@ public class STARBOMBERV2 : ScarletBoss,
             SoundStyle impact = AssetRegistry.Sounds.STARBOMBER.HeavyCrush;
             SoundEngine.PlaySound(impact, NPC.position);
             FXUtil.PunchCamera(NPC.position, Vector2.UnitY, 8, 8, 8);
-            var donut = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, Vector2.UnitY);
+            var donut = GlowDonutParticle.Spawn(NPC.Bottom, Vector2.UnitY);
             Timer = 0;
             AttackCycle++;
             if (AttackCycle >= 5)
@@ -1838,8 +1838,8 @@ public class STARBOMBERV2 : ScarletBoss,
 
             if (Timer % 5 == 0)
             {
-                var p = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, Vector2.UnitY);
-                var p2 = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, Vector2.UnitY * 4);
+                var p = GlowDonutParticle.Spawn(NPC.Bottom, Vector2.UnitY);
+                var p2 = GlowDonutParticle.Spawn(NPC.Bottom, Vector2.UnitY * 4);
                 p2.Scale *= 0.5f;
             }
             if (Timer % 2 == 0)
@@ -1874,9 +1874,9 @@ public class STARBOMBERV2 : ScarletBoss,
             SoundEngine.PlaySound(crashSoun, NPC.position);
 
 
-            var d1 = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, Vector2.UnitY);
+            var d1 = GlowDonutParticle.Spawn(NPC.Bottom, Vector2.UnitY);
             d1.Scale *= 4;
-            var d2 = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, Vector2.UnitY);
+            var d2 = GlowDonutParticle.Spawn(NPC.Bottom, Vector2.UnitY);
             d2.Scale *= 8;
 
 
@@ -1989,7 +1989,7 @@ public class STARBOMBERV2 : ScarletBoss,
             for (float f = 0; f < 3; f++)
             {
                 float completionRatio = f / 4f;
-                var sear = LegacyParticle.NewParticle<SearParticle>(NPC.Bottom, Vector2.Zero);
+                var sear = SearParticle.Spawn(NPC.Bottom, Vector2.Zero);
                 sear.Scale *= MathHelper.Lerp(2f, 4f, completionRatio);
             }
 
@@ -1999,7 +1999,7 @@ public class STARBOMBERV2 : ScarletBoss,
         {
             Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<Sparkle>(), Scale: Main.rand.NextFloat(0.5f, 1f));
             Dust.NewDust(NPC.position, NPC.width, NPC.height, ModContent.DustType<TSmokeDust>(), Scale: Main.rand.NextFloat(0.5f, 1f));
-            LegacyParticle.NewParticle<ZapParticle>(NPC.Center + Main.rand.NextVector2Circular(64, 64), Main.rand.NextVector2Circular(4, 4), newColor: Color.White, Scale: Main.rand.NextFloat(0.5f, 1f));
+            ZapParticle.Spawn(NPC.Center + Main.rand.NextVector2Circular(64, 64), Main.rand.NextVector2Circular(4, 4), color: Color.White, Scale: Main.rand.NextFloat(0.5f, 1f));
         }
 
         TargetOutlineColor = Color.Red;
@@ -2015,7 +2015,7 @@ public class STARBOMBERV2 : ScarletBoss,
                 for(int i = 0; i < 4; i++)
                 {
                     Vector2 velocity = NPC.velocity.SafeNormalize(Vector2.Zero) * (i + 1);
-                    var donutParticle = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center + velocity.SafeNormalize(Vector2.Zero) * 128, velocity);
+                    var donutParticle = GlowDonutParticle.Spawn(NPC.Center + velocity.SafeNormalize(Vector2.Zero) * 128, velocity);
                     donutParticle.Scale = MathHelper.Lerp(1f, 2f, (float)i / 4f);
                 }
                 _slowedDownCauseWall = true;
@@ -2110,7 +2110,7 @@ public class STARBOMBERV2 : ScarletBoss,
 
         if (Timer % 5 == 0)
         {
-            var p = LegacyParticle.NewParticle<ZapParticle>(Legs.rightLegData.footPosition, Main.rand.NextVector2Circular(1, 1));
+            var p = ZapParticle.Spawn(Legs.rightLegData.footPosition, Main.rand.NextVector2Circular(1, 1));
             p.Scale *= Main.rand.NextFloat(0.5f, 1f);
         }
         if (Timer >= 90f)
@@ -2146,8 +2146,8 @@ public class STARBOMBERV2 : ScarletBoss,
         }
         if (Timer % 6 == 0)
         {
-            var p = LegacyParticle.NewParticle<GlowDonutParticle>(Legs.rightLegData.footPosition, Vector2.UnitY);
-            var p2 = LegacyParticle.NewParticle<GlowDonutParticle>(Legs.rightLegData.footPosition, Vector2.UnitY * 4);
+            var p = GlowDonutParticle.Spawn(Legs.rightLegData.footPosition, Vector2.UnitY);
+            var p2 = GlowDonutParticle.Spawn(Legs.rightLegData.footPosition, Vector2.UnitY * 4);
             p2.Scale *= 0.5f;
         }
         SpinSpeed = MathHelper.Lerp(1f, 3f, progress);
@@ -2206,7 +2206,7 @@ public class STARBOMBERV2 : ScarletBoss,
                 Gore.NewGore(SourceFromThis, _impactFootPosition, rvelocity,
                     ModContent.GoreType<FableRock4>());
             }
-            var sear = LegacyParticle.NewParticle<SearParticle>(_impactFootPosition, Vector2.Zero);
+            var sear = SearParticle.Spawn(_impactFootPosition, Vector2.Zero);
 
             for (int i = 0; i < 16; i++)
             {
@@ -2229,7 +2229,7 @@ public class STARBOMBERV2 : ScarletBoss,
             {
                 Dust.NewDustPerfect(_impactFootPosition, ModContent.DustType<TSmokeDust>(), (Vector2.One * Main.rand.Next(1, 5)).RotatedByRandom(19.0), 0, Color.Orange, 1f).noGravity = true;
             }
-            var circleFlare = LegacyParticle.NewParticle<GlowDonutParticle>(Legs.rightLegData.footPosition, Vector2.UnitY);
+            var circleFlare = GlowDonutParticle.Spawn(Legs.rightLegData.footPosition, Vector2.UnitY);
             circleFlare.noStretch = true;
             circleFlare.Scale *= 4;
             circleFlare.shrink = true;
@@ -2244,7 +2244,7 @@ public class STARBOMBERV2 : ScarletBoss,
             SoundEngine.PlaySound(crush, NPC.position);
 
 
-            var p = LegacyParticle.NewParticle<GlowDonutParticle>(Legs.rightLegData.footPosition, Vector2.UnitY);
+            var p = GlowDonutParticle.Spawn(Legs.rightLegData.footPosition, Vector2.UnitY);
             p.Scale *= 5;
         }
 
@@ -2328,7 +2328,7 @@ public class STARBOMBERV2 : ScarletBoss,
             Vector2 randOffset = Main.rand.NextVector2CircularEdge(64, 64);
             Vector2 spawnPos = GunPosition + randOffset;
             Vector2 velocity = (GunPosition - spawnPos).SafeNormalize(Vector2.Zero);
-            LegacyParticle.NewParticle<EmberParticle>(spawnPos, velocity, Scale: 0.5f);
+            EmberParticle.Spawn(spawnPos, velocity, Scale: 0.5f);
         }
 
         if (Timer % 16 == 0)
@@ -2336,7 +2336,7 @@ public class STARBOMBERV2 : ScarletBoss,
             Vector2 randOffset = Main.rand.NextVector2CircularEdge(64, 64);
             Vector2 spawnPos = GunPosition + randOffset;
             Vector2 velocity = (GunPosition - spawnPos).SafeNormalize(Vector2.Zero);
-            LegacyParticle.NewParticle<ZapParticle>(spawnPos, velocity, Scale: 0.5f);
+            ZapParticle.Spawn(spawnPos, velocity, Scale: 0.5f);
             SoundStyle zapSound = SoundID.DD2_LightningBugZap;
             SoundEngine.PlaySound(zapSound, GunPosition);
         }
@@ -2401,10 +2401,10 @@ public class STARBOMBERV2 : ScarletBoss,
 
             if (Timer % 16 == 0)
             {
-                LegacyParticle.NewParticle<EmberParticle>(GunPosition, Main.rand.NextVector2Circular(1, 4), newColor: Color.Red);
+                EmberParticle.Spawn(GunPosition, Main.rand.NextVector2Circular(1, 4), color: Color.Red);
                 if (Main.rand.NextBool(2))
                 {
-                    LegacyParticle.NewParticle<ZapParticle>(GunPosition + Main.rand.NextVector2Circular(8, 8), Main.rand.NextVector2Circular(1, 1), newColor: Color.Pink, Scale: Main.rand.NextFloat(0.5f, 0.66f));
+                    ZapParticle.Spawn(GunPosition + Main.rand.NextVector2Circular(8, 8), Main.rand.NextVector2Circular(1, 1), color: Color.Pink, Scale: Main.rand.NextFloat(0.5f, 0.66f));
                 }
             }
 
@@ -2556,7 +2556,7 @@ public class STARBOMBERV2 : ScarletBoss,
         if (Timer == 120)
         {
             StretchLegs();
-            SoundStyle tireSound = new SoundStyle("Stellamod/Assets/Sounds/STARWAVE");
+            SoundStyle tireSound = new("Stellamod/Assets/Sounds/STARWAVE");
             tireSound.PitchVariance = 0.15f;
             SoundEngine.PlaySound(tireSound, NPC.position);
         }
@@ -2586,10 +2586,10 @@ public class STARBOMBERV2 : ScarletBoss,
 
             if (Timer % 16 == 0)
             {
-                LegacyParticle.NewParticle<EmberParticle>(GunPosition, Main.rand.NextVector2Circular(1, 4), newColor: Color.Red);
+                EmberParticle.Spawn(GunPosition, Main.rand.NextVector2Circular(1, 4), color: Color.Red);
                 if (Main.rand.NextBool(2))
                 {
-                    LegacyParticle.NewParticle<ZapParticle>(GunPosition + Main.rand.NextVector2Circular(8, 8), Main.rand.NextVector2Circular(1, 1), newColor: Color.Pink, Scale: Main.rand.NextFloat(0.5f, 0.66f));
+                    ZapParticle.Spawn(GunPosition + Main.rand.NextVector2Circular(8, 8), Main.rand.NextVector2Circular(1, 1), color: Color.Pink, Scale: Main.rand.NextFloat(0.5f, 0.66f));
                 }
             }
         }

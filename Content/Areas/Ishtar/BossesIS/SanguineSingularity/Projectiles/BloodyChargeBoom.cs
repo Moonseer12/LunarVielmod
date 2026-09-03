@@ -1,5 +1,4 @@
 using Stellamod.Content.Dusts;
-using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.ModLoader;
@@ -74,7 +73,7 @@ namespace Stellamod.Content.Areas.Ishtar.BossesIS.SanguineSingularity.Projectile
                 {
                     Color color = Color.White;
                     Vector2 velocity = Main.rand.NextVector2Circular(24, 24);
-                    LegacyParticle.NewBlackParticle<BloodSparkleParticle>(Projectile.Center, velocity, color, Scale: Main.rand.NextFloat(0.5f, 3f));
+                    BloodSparkleParticle.Spawn(Projectile.Center, velocity, color, Scale: Main.rand.NextFloat(0.5f, 3f));
                 }
             }
         }

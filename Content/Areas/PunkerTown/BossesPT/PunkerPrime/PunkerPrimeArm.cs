@@ -341,7 +341,7 @@ public abstract class PunkerPrimeArm : ModNPC,
                 Vector2 gunHoldCenter = GetGunHoldCenter();
                 Vector2 spawnPos = gunHoldCenter;
                 spawnPos += Main.rand.NextVector2Circular(8, 8);
-                var zapParticle = LegacyParticle.NewParticle<SparkParticle>(spawnPos, Main.rand.NextVector2Circular(4, 4), Color.White, Scale: Main.rand.NextFloat(0.5f, 1f));
+                var zapParticle = SparkParticle.Spawn(spawnPos, Main.rand.NextVector2Circular(4, 4), Color.White, Scale: Main.rand.NextFloat(0.5f, 1f));
                 zapParticle.innerColor = Color.White;
                 zapParticle.outerColor = Color.Red;
                 zapParticle.fadeToColor = Color.Yellow;

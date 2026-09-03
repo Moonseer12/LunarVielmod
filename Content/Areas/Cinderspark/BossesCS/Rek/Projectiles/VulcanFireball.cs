@@ -8,11 +8,8 @@ using Stellamod.Core.ProjectileHelpers;
 using Stellamod.Effects.GothinFlames;
 using Stellamod.Effects.RekFlames;
 using Stellamod.Visual.Particles;
-using System;
-
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -98,7 +95,7 @@ public class BigVulcanFireball : ModProjectile
         }
         if (Timer % 16 == 0 && Scale > 0.5f)
         {
-            var p2 =LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero), newColor: Color.White);
+            var p2 = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero), color: Color.White);
             p2.fadeToColor = Color.DarkRed;
             p2.Scale *= 0.45f;
         }

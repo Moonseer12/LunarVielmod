@@ -1052,7 +1052,7 @@ public partial class RoyalFox : ScarletBoss,
                     _renderDashTrail = true;
                     if (Timer % 8 == 0)
                     {
-                        var donut = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -NPC.velocity.SafeNormalize(Vector2.Zero));
+                        var donut = GlowDonutParticle.Spawn(NPC.Center, -NPC.velocity.SafeNormalize(Vector2.Zero));
                     }
 
     
@@ -1115,7 +1115,7 @@ public partial class RoyalFox : ScarletBoss,
                             {
                                 Vector2 vel = NPC.velocity.SafeNormalize(Vector2.Zero);
                                 vel *= MathHelper.Lerp(3f, 9f, f / 3f);
-                                var donut = LegacyParticle.NewParticle<GlowDonutParticle>(HeadPosition + vel * 38, vel.SafeNormalize(Vector2.Zero));
+                                var donut = GlowDonutParticle.Spawn(HeadPosition + vel * 38, vel.SafeNormalize(Vector2.Zero));
                                 donut.Scale *= 3 * MathHelper.Lerp(1f, 1.5f, f / 3f);
 
                             }
@@ -1582,7 +1582,7 @@ public partial class RoyalFox : ScarletBoss,
                     _renderDashTrail = true;
                     if(Timer % 8 == 0)
                     {
-                        var donut = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -NPC.velocity.SafeNormalize(Vector2.Zero));
+                        var donut = GlowDonutParticle.Spawn(NPC.Center, -NPC.velocity.SafeNormalize(Vector2.Zero));
                     }
 
                     float dp = Vector2.Dot(directionToTarget, NPC.velocity.SafeNormalize(Vector2.Zero));
@@ -1634,7 +1634,7 @@ public partial class RoyalFox : ScarletBoss,
                             {
                                 Vector2 vel = NPC.velocity.SafeNormalize(Vector2.Zero);
                                 vel *= MathHelper.Lerp(3f, 9f, f / 3f);
-                                var donut = LegacyParticle.NewParticle<GlowDonutParticle>(HeadPosition + vel * 38, vel.SafeNormalize(Vector2.Zero));
+                                var donut = GlowDonutParticle.Spawn(HeadPosition + vel * 38, vel.SafeNormalize(Vector2.Zero));
                                 donut.Scale *= 3 * MathHelper.Lerp(1f, 1.5f, f / 3f);
 
                             }
@@ -2490,7 +2490,7 @@ public partial class RoyalFox : ScarletBoss,
 
                     if (Timer % 4 == 0)
                     {
-                        var donute = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -_dashLineVelocity * 3);
+                        var donute = GlowDonutParticle.Spawn(NPC.Center, -_dashLineVelocity * 3);
                     }
 
 
@@ -2682,7 +2682,7 @@ public partial class RoyalFox : ScarletBoss,
                     sp.color = Color.Lerp(new Color(117, 100, 210), Color.White, Main.rand.NextFloat(0f, 1f));
                     if (Timer % 2 == 0)
                     {
-                        var donute = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -_dashLineVelocity * 3);
+                        var donute = GlowDonutParticle.Spawn(NPC.Center, -_dashLineVelocity * 3);
                     }
 
 
@@ -2901,7 +2901,7 @@ public partial class RoyalFox : ScarletBoss,
                 {
                     if (Timer % 2 == 0)
                     {
-                        var donute = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -NPC.velocity.SafeNormalize(Vector2.Zero) * 3);
+                        var donute = GlowDonutParticle.Spawn(NPC.Center, -NPC.velocity.SafeNormalize(Vector2.Zero) * 3);
                         donute.Scale *= 2f;
                     }
 
@@ -3040,7 +3040,7 @@ public partial class RoyalFox : ScarletBoss,
 
                 if (Timer % 4 == 0)
                 {
-                    var donute = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -_dashLineVelocity * 3);
+                    var donute = GlowDonutParticle.Spawn(NPC.Center, -_dashLineVelocity * 3);
                 }
 
                 Rig.rootSegment.eulerAngles.W = _dashLineVelocity.ToRotation();
@@ -3092,7 +3092,7 @@ public partial class RoyalFox : ScarletBoss,
                 {
                     if (Timer % 2 == 0)
                     {
-                        var donute = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -NPC.velocity.SafeNormalize(Vector2.Zero) * 3);
+                        var donute = GlowDonutParticle.Spawn(NPC.Center, -NPC.velocity.SafeNormalize(Vector2.Zero) * 3);
                         donute.Scale *= 2f;
                     }
 

@@ -106,7 +106,7 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
                 {
                     Vector2 pVelocity = -Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4);
                     pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                    var spark = LegacyParticle.NewParticle<SparkParticle>(Projectile.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                    var spark = SparkParticle.Spawn(Projectile.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
                 }
             }
             if (Timer % 12 == 0)

@@ -1,12 +1,8 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Particles;
-
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -48,7 +44,7 @@ namespace Stellamod.Content.MoonlightMagic.Enchantments.Deeya
                 {
                     Vector2 spawnPoint = Projectile.Center + Main.rand.NextVector2Circular(8, 8);
                     Vector2 velocity = Main.rand.NextVector2Circular(8, 8);
-                    LegacyParticle.NewParticle<SparkleWindParticle>(spawnPoint, velocity, Color.White);
+                    SparkleWindParticle.Spawn(spawnPoint, velocity, Color.White);
 
                 }
 
@@ -145,7 +141,7 @@ namespace Stellamod.Content.MoonlightMagic.Enchantments.Deeya
             {
                 Vector2 spawnPoint = Projectile.Center + Main.rand.NextVector2Circular(8, 8);
                 Vector2 speed = Main.rand.NextVector2CircularEdge(4f, 4f);
-                LegacyParticle.NewParticle<SparkleWindParticle>(spawnPoint, speed, Color.White);
+                SparkleWindParticle.Spawn(spawnPoint, speed, Color.White);
             }
         }
 

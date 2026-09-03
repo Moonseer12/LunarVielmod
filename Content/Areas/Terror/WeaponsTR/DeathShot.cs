@@ -67,7 +67,7 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
             {
                 float rot = f / 8f;
                 rot += Main.rand.NextFloat(-0.5f, 0.5f);
-                var p = LegacyParticle.NewParticle<ImpactParticle>(position, velocity.RotatedByRandom(0.7f));
+                var p = ImpactParticle.Spawn(position, velocity.RotatedByRandom(0.7f));
                 p.fast = true;
                 p.color = Color.DarkRed;
             }

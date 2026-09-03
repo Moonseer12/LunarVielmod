@@ -149,7 +149,7 @@ public class HypnotizingChakramsSlash : BaseSwingProjectileV2
             {
                 Vector2 pVelocity = lvelocity.RotatedByRandom(MathHelper.PiOver4 / 3f);
                 pVelocity *= Main.rand.NextFloat(0.5f, 2f);
-                var frag = LegacyParticle.NewParticle<GlowFragmentParticle>(position, pVelocity);
+                var frag = GlowFragmentParticle.Spawn(position, pVelocity);
                 FXUtil.GlowFragmentParticle(position, pVelocity,
                     innerColor: Color.White,
                     outerColor: Color.Cyan,
@@ -169,7 +169,7 @@ public class HypnotizingChakramsSlash : BaseSwingProjectileV2
             for (float f = 0; f < 8; f++)
             {
                 Vector2 vel = Main.rand.NextVector2Circular(4, 4);
-                EmberParticle ep = LegacyParticle.NewParticle<EmberParticle>(Owner.Center, vel);
+                EmberParticle ep = EmberParticle.Spawn(Owner.Center, vel);
                 ep.innerColor = Color.White;
                 ep.outerColor = Color.Cyan;
                 ep.fadeToColor = Color.DarkBlue;

@@ -3,7 +3,6 @@ using Stellamod.Assets;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Visual.Particles;
 using System;
@@ -218,7 +217,7 @@ public class GothinGlobalProjectile : GlobalProjectile
                 }
 
                 crossbowPalyer.gothinEnchant--;
-                var p = LegacyParticle.NewParticle<GlowDonutParticle>(projectile.Center, -projectile.velocity * 2, newColor: Color.Red);
+                var p = GlowDonutParticle.Spawn(projectile.Center, -projectile.velocity * 2, color: Color.Red);
                 p.Scale *= 0.33f;
                 gothinEnchanted = true;
             }

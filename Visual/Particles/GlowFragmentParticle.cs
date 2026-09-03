@@ -1,12 +1,11 @@
-﻿
-
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
 using Terraria;
+
 namespace Stellamod.Visual.Particles
 {
-    public class GlowFragmentParticle : LegacyParticle
+    public class GlowFragmentParticle : Particle<GlowFragmentParticle>
     {
         private float _direction;
         private Vector2 _stretchScale;

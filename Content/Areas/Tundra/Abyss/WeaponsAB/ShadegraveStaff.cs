@@ -110,7 +110,7 @@ public class SGBolt : ModProjectile
         {
 
 
-            var dp = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity * 0.5f);
+            var dp = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity * 0.5f);
             dp.Scale *= 0.2f;
             dp.outerColor = Color.Purple;
             Projectile.spriteDirection = Projectile.direction;

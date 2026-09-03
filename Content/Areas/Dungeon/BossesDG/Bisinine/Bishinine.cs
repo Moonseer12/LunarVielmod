@@ -1,5 +1,4 @@
-﻿using Stellamod.Common;
-using Stellamod.Common.Animations;
+﻿using Stellamod.Common.Animations;
 using Stellamod.Content.Areas.Dungeon.BossesDG.Bisinine.Projectiles;
 using Stellamod.Content.Dusts;
 using Stellamod.Core;
@@ -661,7 +660,7 @@ public class Bishinine : ScarletBoss
         {
             NPC.TargetClosest();
             NPC.velocity.Y = -2;
-            var p = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, Vector2.UnitY);
+            var p = GlowDonutParticle.Spawn(NPC.Bottom, Vector2.UnitY);
             SoundStyle laugh = AssetRegistry.Sounds.Bishinine.Bishininelaugh;
             SoundEngine.PlaySound(laugh, NPC.position);
         }
@@ -884,8 +883,8 @@ public class Bishinine : ScarletBoss
         }
         if (Timer % 5 == 0)
         {
-            var p = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, Vector2.UnitY, newColor: Color.White);
-            var p2 = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, Vector2.UnitY * 5, newColor: Color.White);
+            var p = GlowDonutParticle.Spawn(NPC.Center, Vector2.UnitY, color: Color.White);
+            var p2 = GlowDonutParticle.Spawn(NPC.Center, Vector2.UnitY * 5, color: Color.White);
             p2.Scale *= 0.5f;
             if (MultiplayerHelper.IsHost)
             {
@@ -986,7 +985,7 @@ public class Bishinine : ScarletBoss
             SoundEngine.PlaySound(bellHit, NPC.position);
             NPC.velocity.Y = -14;
             float maxRads = MathHelper.ToRadians(45);
-            var part = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, Vector2.UnitY);
+            var part = GlowDonutParticle.Spawn(NPC.Center, Vector2.UnitY);
             for (float f = 0; f < 8; f++)
             {
                 Vector2 vel = -Vector2.UnitY * 4;
@@ -1154,8 +1153,8 @@ public class Bishinine : ScarletBoss
         for (int i = 0; i < 4; i++)
         {
             Vector2 velocity = NPC.velocity.SafeNormalize(Vector2.Zero) * (i + 1);
-            var donutParticle = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center + velocity.SafeNormalize(Vector2.Zero) * 32, velocity);
-            donutParticle.Scale = MathHelper.Lerp(1f, 2f, (float)i / 4f);
+            var donutParticle = GlowDonutParticle.Spawn(NPC.Center + velocity.SafeNormalize(Vector2.Zero) * 32, velocity);
+            donutParticle.Scale = MathHelper.Lerp(1f, 2f, i / 4f);
         }
     }
     private void AI_ScytheDashDash()
@@ -1194,7 +1193,7 @@ public class Bishinine : ScarletBoss
         }
         if (Timer % 1 == 0)
         {
-            var spark = LegacyParticle.NewParticle<SparkParticle>(NPC.Center + Main.rand.NextVector2Circular(64, 64), Vector2.Zero);
+            var spark = SparkParticle.Spawn(NPC.Center + Main.rand.NextVector2Circular(64, 64), Vector2.Zero);
             spark.outerColor = Color.Blue;
             spark.fadeToColor = Color.Black;
         }
@@ -1352,8 +1351,8 @@ public class Bishinine : ScarletBoss
             bellHit.PitchVariance = 0.2f;
             SoundEngine.PlaySound(bellHit, NPC.position);
             NPC.velocity.Y = -17;
-            var p = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, Vector2.UnitY);
-            var p2 = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, Vector2.UnitY * 4);
+            GlowDonutParticle.Spawn(NPC.Bottom, Vector2.UnitY);
+            var p2 = GlowDonutParticle.Spawn(NPC.Bottom, Vector2.UnitY * 4);
             p2.Scale *= 0.5f;
         }
 
@@ -1379,7 +1378,7 @@ public class Bishinine : ScarletBoss
                 NPC.noGravity = true;
                 if (Timer % 5 == 0)
                 {
-                    var p2 = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, -NPC.velocity);
+                    var p2 = GlowDonutParticle.Spawn(NPC.Bottom, -NPC.velocity);
                     p2.Scale *= 0.5f;
                 }
             }
@@ -1495,7 +1494,7 @@ public class Bishinine : ScarletBoss
         {
             NPC.TargetClosest();
             NPC.velocity.Y = -2;
-            var p = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, Vector2.UnitY);
+            var p = GlowDonutParticle.Spawn(NPC.Bottom, Vector2.UnitY);
             SoundStyle laugh = AssetRegistry.Sounds.Bishinine.Bishininelaugh;
             SoundEngine.PlaySound(laugh, NPC.position);
         }
@@ -1938,7 +1937,7 @@ public class Bishinine : ScarletBoss
         if (Timer >= 150 && Timer % 5 == 0)
         {
             Vector2 vel = Main.rand.NextVector2Circular(4, 4);
-            LegacyParticle.NewParticle<EmberParticle>(NPC.Center, vel);
+            EmberParticle.Spawn(NPC.Center, vel);
         }
         if (Timer >= 150 && Main.rand.NextBool(10))
         {

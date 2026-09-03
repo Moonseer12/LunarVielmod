@@ -117,7 +117,7 @@ public class FlamelashChakramsSlash : BaseSwingProjectileV2
             {
                 Vector2 pVelocity = lvelocity.RotatedByRandom(MathHelper.PiOver4 / 3f);
                 pVelocity *= Main.rand.NextFloat(0.5f, 2f);
-                var frag = LegacyParticle.NewParticle<GlowFragmentParticle>(position, pVelocity);
+                var frag = GlowFragmentParticle.Spawn(position, pVelocity);
                 FXUtil.GlowFragmentParticle(position, pVelocity,
                     innerColor: Color.Yellow,
                     outerColor: Color.Orange,
@@ -137,7 +137,7 @@ public class FlamelashChakramsSlash : BaseSwingProjectileV2
             for (float f = 0; f < 8; f++)
             {
                 Vector2 vel = Main.rand.NextVector2Circular(4, 4);
-                LegacyParticle.NewParticle<EmberParticle>(Owner.Center, vel);
+                EmberParticle.Spawn(Owner.Center, vel);
             }
 
         }

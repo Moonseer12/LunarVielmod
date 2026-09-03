@@ -3,7 +3,6 @@ using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.Dusts;
 using Stellamod.Core;
-using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Visual.Particles;
 using Terraria;
@@ -104,14 +103,14 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria.Proje
                     Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<GlowDust>(), dustVelocity, newColor: Color.White, Scale: Main.rand.NextFloat(0.3f, 0.5f));
                 }
 
-                var donut = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity, newColor: Color.Cyan);
+                var donut = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity, color: Color.Cyan);
                 SoundStyle fireSound = AssetRegistry.Sounds.Magic.AutomationCast1;
                 fireSound.PitchVariance = 0.2f;
                 SoundEngine.PlaySound(fireSound, Projectile.position);
             }
             if (Timer % 7 == 0)
             {
-                var zap = LegacyParticle.NewParticle<ZapParticle>(Projectile.Center, Main.rand.NextVector2Circular(2, 2), newColor: Color.White, Scale: 0.75f);
+                var zap = ZapParticle.Spawn(Projectile.Center, Main.rand.NextVector2Circular(2, 2), color: Color.White, Scale: 0.75f);
                 zap.Scale *= 0.2f;
                 zap.innerColor = Color.White;
                 zap.outerColor = Color.Cyan;
@@ -120,7 +119,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria.Proje
 
             if(Timer % 15 == 0)
             {
-                var spark = LegacyParticle.NewParticle<SparkParticle>(Projectile.Center, Main.rand.NextVector2Circular(2, 2), newColor: Color.White, Scale: 0.75f);
+                var spark = SparkParticle.Spawn(Projectile.Center, Main.rand.NextVector2Circular(2, 2), color: Color.White, Scale: 0.75f);
                 spark.innerColor = Color.White;
                 spark.outerColor = Color.Cyan;
                 spark.fadeToColor = Color.Purple;

@@ -1,10 +1,9 @@
-﻿
-using Stellamod.Core.Particles;
+﻿using Stellamod.Core.Particles;
 using Terraria;
 
 namespace Stellamod.Visual.Particles
 {
-    public class Strike2Particle : LegacyParticle
+    public class Strike2Particle : Particle<Strike2Particle>
     {
         public int FrameWidth = 451;
         public int FrameHeight = 451;
@@ -50,6 +49,12 @@ namespace Stellamod.Visual.Particles
             fadeIn++;
             if (fadeIn > 60 || color.A < 10)
                 active = false;
+        }
+        
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            var textureAsset = GetTexture();
+            spriteBatch.Draw(textureAsset.Value, DrawPosition, Frame, color, Rotation, Frame.Size() / 2f, Scale, SpriteEffects.None, 0);
         }
     }
 }

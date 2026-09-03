@@ -1,14 +1,11 @@
-﻿
-
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
-
 using Terraria;
 
 namespace Stellamod.Visual.Particles
 {
-    public class SearParticle : LegacyParticle
+    public class SearParticle : Particle<SearParticle>
     {
         private float _interpolant;
         public int FrameWidth = 128;

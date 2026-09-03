@@ -448,7 +448,7 @@ public class ElectricTridentLightning : ModProjectile
             {
                 Vector2 pVelocity = (lvelocity.SafeNormalize(Vector2.Zero)).RotatedByRandom(MathHelper.PiOver4 / 3f);
                 pVelocity *= Main.rand.NextFloat(0.5f, 2f);
-                var frag = LegacyParticle.NewParticle<GlowFragmentParticle>(position, pVelocity);
+                var frag = GlowFragmentParticle.Spawn(position, pVelocity);
                 FXUtil.GlowFragmentParticle(position, pVelocity,
                     innerColor: Color.White,
                     outerColor: Color.Yellow,
@@ -470,10 +470,10 @@ public class ElectricTridentLightning : ModProjectile
             {
                 Vector2 pVelocity = (lvelocity.SafeNormalize(Vector2.Zero)).RotatedByRandom(MathHelper.PiOver4 / 3f);
                 pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                var spark = LegacyParticle.NewParticle<SparkParticle>(position + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                var spark = SparkParticle.Spawn(position + Main.rand.NextVector2Circular(64, 64), pVelocity);
             }
 
-            var sear = LegacyParticle.NewParticle<SearParticle>(_lightningHitPos, Vector2.Zero);
+            var sear = SearParticle.Spawn(_lightningHitPos, Vector2.Zero);
 
             for (int i = 0; i < BeamPoints.Length; i++)
             {
@@ -481,7 +481,7 @@ public class ElectricTridentLightning : ModProjectile
                 {
                     Vector2 pos = BeamPoints[i];
                     pos += Main.rand.NextVector2Circular(32, 32);
-                    var zap = LegacyParticle.NewParticle<ZapParticle>(pos, Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4) * Main.rand.NextFloat(2, 4));
+                    var zap = ZapParticle.Spawn(pos, Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4) * Main.rand.NextFloat(2, 4));
 
                 }
             }
@@ -543,7 +543,7 @@ public class ElectricTridentLightning : ModProjectile
             {
                 Vector2 pVelocity = -Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4);
                 pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                var spark = LegacyParticle.NewParticle<ZapParticle>(_lightningHitPos + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                var spark = ZapParticle.Spawn(_lightningHitPos + Main.rand.NextVector2Circular(64, 64), pVelocity);
                 spark.Scale *= 0.5f;
                 spark.Rotation = Main.rand.NextFloat(0f, 3.14f);
             }

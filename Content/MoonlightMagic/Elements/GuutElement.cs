@@ -1,16 +1,11 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
-using Stellamod.Core.Particles;
-
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Content.MoonlightMagic.Elements
 {
@@ -82,7 +77,7 @@ namespace Stellamod.Content.MoonlightMagic.Elements
 
                     Color color = Color.White;
                     color.A = 0;
-                    LegacyParticle.NewBlackParticle<GlowParticle>(spawnPoint, velocity, color);
+                    GlowParticle.Spawn(spawnPoint, velocity, color);
                 }
 
             }
@@ -95,7 +90,7 @@ namespace Stellamod.Content.MoonlightMagic.Elements
 
                 Color color = Color.White;
                 color.A = 0;
-                LegacyParticle.NewBlackParticle<GlowParticle>(spawnPoint, velocity, color);
+                GlowParticle.Spawn(spawnPoint, velocity, color);
             }
         }
 

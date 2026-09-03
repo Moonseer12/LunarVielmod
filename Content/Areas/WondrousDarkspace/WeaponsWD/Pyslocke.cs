@@ -248,9 +248,8 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
             if (!Hit)
             {
                 FXUtil.ShakeCamera(target.Center, 1024, 8f);
-                LegacyParticle.NewParticle<GlowParticle>(target.Center, Vector2.Zero, Color.LightPink);
+                GlowParticle.Spawn(target.Center, Vector2.Zero, Color.LightPink);
 
-                Vector2 direction = Projectile.velocity.SafeNormalize(Vector2.Zero);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, Vector2.Zero,
                     ModContent.ProjectileType<PyslockeExplosion>(), Projectile.damage * 1, 0f, Projectile.owner, 0f, 0f);
 
@@ -412,7 +411,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD
             if (!Hit)
             {
                 FXUtil.ShakeCamera(target.Center, 1024, 8f);
-                LegacyParticle.NewParticle<IceStrikeParticle>(target.Center, Vector2.Zero, Color.White);
+                IceStrikeParticle.Spawn(target.Center, Vector2.Zero, Color.White);
 
                 Hit = true;
                 hitstopTimer = 4 * ExtraUpdateMult;

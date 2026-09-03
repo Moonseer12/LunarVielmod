@@ -760,7 +760,7 @@ namespace Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant
                         NPC.velocity.Y *= MathHelper.Lerp(1.01f, 1.12f, EasingFunction.InExpo(Timer / 30f));
                         if(Timer % 5 == 0)
                         {
-                            LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -NPC.velocity.SafeNormalize(Vector2.Zero));
+                            GlowDonutParticle.Spawn(NPC.Center, -NPC.velocity.SafeNormalize(Vector2.Zero));
                         }
                     }                  
                     else

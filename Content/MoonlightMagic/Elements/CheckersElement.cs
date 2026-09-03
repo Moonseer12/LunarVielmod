@@ -1,8 +1,5 @@
-﻿using Stellamod.Assets;
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
-using Stellamod.Core.Particles;
-
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;
@@ -93,7 +90,7 @@ public class CheckersElement : BaseElement
 
             Color color = Color.White;
             //  color.A = 0;
-            LegacyParticle.NewParticle<GlowParticle>(spawnPoint, velocity, color, Scale: MagicProj.ScaleMultiplier * scaleFactor);
+            GlowParticle.Spawn(spawnPoint, velocity, color, Scale: MagicProj.ScaleMultiplier * scaleFactor);
         }
     }
 
@@ -116,7 +113,7 @@ public class CheckersElement : BaseElement
             velocity = velocity.SafeNormalize(Vector2.Zero) * -2;
 
             Color color = Color.White;
-            LegacyParticle.NewParticle<GlowParticle>(spawnPoint, velocity, color);
+            GlowParticle.Spawn(spawnPoint, velocity, color);
         }
 
         for (float f = 0f; f < 1f; f += 0.2f)
@@ -126,7 +123,7 @@ public class CheckersElement : BaseElement
             Vector2 velocity = rot.ToRotationVector2() * Main.rand.NextFloat(0f, 4f);
 
             Color color = Color.White;
-            LegacyParticle.NewParticle<GlowParticle>(spawnPoint, velocity * 0.2f, color);
+            GlowParticle.Spawn(spawnPoint, velocity * 0.2f, color);
         }
         float boomSize = Main.rand.NextFloat(0.06f, 0.08f);
         FXUtil.GlowCircleBoom(Projectile.Center,

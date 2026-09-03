@@ -1,6 +1,5 @@
 ﻿using Stellamod.Common.DashSystem;
 using Stellamod.Common.Particles;
-using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -110,18 +109,18 @@ public class DeadEye : AbstractDashItem
 
         for (int i = 0; i < 3; i++)
         {
-            Color color = (Main.rand.NextBool(2) ? Color.Red : Color.Green);
+            Color color = Main.rand.NextBool(2) ? Color.Red : Color.Green;
             Particles.SwirlingFlameDust.Spawn(BitDustFactory.Default with
             {
                 position = player.Center + Main.rand.NextVector2Circular(32, 32),
                 velocity = Main.rand.NextVector2Circular(8, 8),
-                innerColor = (Color.Lerp(Color.White, color, 0.5f)).ToVector4(),
+                innerColor = Color.Lerp(Color.White, color, 0.5f).ToVector4(),
                 outerColor = color.ToVector4()
             });
 
         }
 
-        var p2 = LegacyParticle.NewParticle<GlowDonutParticle>(player.Center, -player.velocity.SafeNormalize(Vector2.Zero), newColor: Color.White);
+        var p2 = GlowDonutParticle.Spawn(player.Center, -player.velocity.SafeNormalize(Vector2.Zero), color: Color.White);
         p2.fadeToColor = Color.DarkRed;
         p2.Scale *= 0.45f;
 

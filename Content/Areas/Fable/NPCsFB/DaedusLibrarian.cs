@@ -1,0 +1,230 @@
+﻿using Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted;
+using Stellamod.Content.Areas.Shop.WeaponsShop;
+using Stellamod.Core;
+using System;
+using System.Collections.Generic;
+using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent.Bestiary;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace Stellamod.Content.Areas.Fable.NPCsFB;
+
+public class DaedusLibrarian : VeilTownNPC
+{
+    public const string ShopName = "Shop";
+    public override string Texture => "Stellamod/Content/Areas/Fable/BossesFB/DaedusTheDevoted/DaedusTheDevoted";
+    public override void SetStaticDefaults()
+    {
+        base.SetStaticDefaults();
+        Main.npcFrameCount[Type] = 28;
+
+    }
+
+
+    //For Draw Code
+    private DaedusTopSegment _topSegment;
+    private DaedusFaceSegment _faceSegment;
+    private DaedusBackSegment _backSegment;
+    private DaedusArmSegment _armSegment;
+    private DaedusRobeSegment _robeSegment;
+    public DaedusTopSegment TopSegment
+    {
+        get
+        {
+            _topSegment ??= new DaedusTopSegment(NPC);
+            return _topSegment;
+        }
+    }
+
+    public DaedusFaceSegment FaceSegment
+    {
+        get
+        {
+            _faceSegment ??= new DaedusFaceSegment(NPC);
+            return _faceSegment;
+        }
+    }
+
+    public DaedusBackSegment BackSegment
+    {
+        get
+        {
+            _backSegment ??= new DaedusBackSegment(NPC);
+            return _backSegment;
+        }
+    }
+
+    public DaedusArmSegment ArmSegment
+    {
+        get
+        {
+            _armSegment ??= new DaedusArmSegment(NPC);
+            return _armSegment;
+        }
+    }
+
+    public DaedusRobeSegment RobeSegment
+    {
+        get
+        {
+            _robeSegment ??= new DaedusRobeSegment(NPC);
+            return _robeSegment;
+        }
+    }
+    public override void SetPointSpawnerDefaults(ref NPCPointSpawner spawner)
+    {
+        spawner.structureToSpawnIn = "Structures/Fable";
+        spawner.spawnTileOffset = new Point(169, -23);
+    }
+
+    public override void SetDefaults()
+    {
+        NPC.friendly = true; // NPC Will not attack player
+        NPC.width = 128;
+        NPC.height = 128;
+        NPC.aiStyle = -1;
+        NPC.damage = 90;
+        NPC.defense = 42;
+        NPC.lifeMax = 2000;
+        NPC.npcSlots = 0;
+        NPC.HitSound = SoundID.NPCHit1;
+        NPC.DeathSound = SoundID.NPCDeath1;
+        NPC.knockBackResist = 0.5f;
+        NPC.dontTakeDamageFromHostiles = true;
+        NPC.BossBar = Main.BigBossProgressBar.NeverValid;
+        NPC.noGravity = true;
+        NPC.noTileCollide = true;
+        SpawnAtPoint = true;
+        HasTownDialogue = true;
+    }
+
+
+    //This prevents the NPC from despawning
+    public override bool CheckActive()
+    {
+        return true;
+    }
+
+    public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+    {
+        // We can use AddRange instead of calling Add multiple times in order to add multiple items at once
+        bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
+				// Sets the preferred biomes of this town NPC listed in the bestiary.
+				// With Town NPCs, you usually set this to what biome it likes the most in regards to NPC happiness.
+				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.VortexPillar,
+
+				// Sets your NPC's flavor text in the bestiary.
+				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "A traveller of the lands who may hold great power")),
+
+				// You can add multiple elements if you really wanted to
+				// You can also use localization keys (see Localization/en-US.lang)
+				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "Zui the Traveller", "2"))
+        });
+    }
+
+    public override void DrawOutlines(SpriteBatch spriteBatch, Vector2 screenPos, Color lightColor)
+    {
+        if (!_drawOutlines)
+            return;
+        _drawOutlines = false;
+        BackSegment.outlineColor = Color.White;
+        BackSegment.Outline(spriteBatch, screenPos, Color.White);
+
+        ArmSegment.outlineColor = Color.White;
+        ArmSegment.Outline(spriteBatch, screenPos, Color.White);
+
+        TopSegment.outlineColor = Color.White;
+        TopSegment.Outline(spriteBatch, screenPos, Color.White);
+
+        FaceSegment.outlineColor = Color.White;
+        FaceSegment.Outline(spriteBatch, screenPos, Color.White);
+    }
+    public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+    {
+        BackSegment.Draw(spriteBatch, screenPos, drawColor);
+        ArmSegment.Draw(spriteBatch, screenPos, drawColor);
+        TopSegment.Draw(spriteBatch, screenPos, drawColor);
+        RobeSegment.Draw(spriteBatch, screenPos, drawColor);
+        FaceSegment.Draw(spriteBatch, screenPos, drawColor);
+        return false;
+    }
+
+
+    public override List<string> SetNPCNameList()
+    {
+        return new List<string>() {
+            "Daedus the Librarian",
+        };
+    }
+
+
+    public override void AI()
+    {
+        base.AI();
+
+        //Animations
+        TopSegment.AI();
+        FaceSegment.AI();
+        BackSegment.AI();
+        ArmSegment.AI();
+        RobeSegment.AI();
+    }
+
+    public override void OpenTownDialogue(ref string text, ref string portrait, ref float timeBetweenTexts, ref SoundStyle? talkingSound, List<Tuple<string, Action>> buttons)
+    {
+        base.OpenTownDialogue(ref text, ref portrait, ref timeBetweenTexts, ref talkingSound, buttons);
+        //Set buttons
+        buttons.Add(new Tuple<string, Action>("Talk", Talk));
+        if (DownedBossTracker.IsDowned(DownedBossFlag.Daedus))
+        {
+            buttons.Add(new Tuple<string, Action>("Shop", OpenShop));
+        }
+
+        buttons.Add(new Tuple<string, Action>("Challenge", Challenge));
+
+
+        portrait = "DaedusPortrait";
+        timeBetweenTexts = 0.015f;
+        talkingSound = SoundID.Item1;
+
+        //This pulls from the new Dialogue localization
+        text = "DaedusOpenChat1";
+    }
+
+    public override void IdleChat(ref string text, ref string portrait, ref float timeBetweenTexts, ref SoundStyle? talkingSound)
+    {
+        base.IdleChat(ref text, ref portrait, ref timeBetweenTexts, ref talkingSound);
+        portrait = "DaedusPortrait";
+        timeBetweenTexts = 0.015f;
+        talkingSound = SoundID.Item1;
+
+        //This pulls from the new Dialogue localization
+        text = "DaedusIdleChat1";
+    }
+
+    private void Challenge()
+    {
+        CloseTownDialogue();
+        NPCUtilities.SpawnNPCFromClient<DaedusTheDevoted>(NPC.Center);
+        //Spawn Boss
+        NPC.Kill();
+    }
+
+    public override void AddShops()
+    {
+        var npcShop = new NPCShop(Type, ShopName)
+        .Add(new Item(ItemID.Book) { shopCustomPrice = Item.buyPrice(silver: 10) })
+        .Add<WintersStom>()
+        .Add<SandStorm>()
+        .Add<BloodySpew>()
+        .Add<CocoSpark>()
+        .Add<ShinobiTome>()
+        .Add<ShadeHandTome>()
+        .Add<VoidsGrasp>()
+        .Add<StarShower>()
+        .Add<TheDeafen>();
+        npcShop.Register();
+    }
+}

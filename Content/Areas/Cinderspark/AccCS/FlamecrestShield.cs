@@ -2,7 +2,6 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.NPCHelpers;
-using Stellamod.Core.Particles;
 using Stellamod.Core.ProjectileHelpers;
 using Stellamod.Visual.Particles;
 using Terraria;
@@ -17,8 +16,7 @@ namespace Stellamod.Content.Areas.Cinderspark.AccCS
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            int[] resistedProjectiles = new int[]
-            {
+            int[] resistedProjectiles = [
                     ProjectileID.Flames,
                     ProjectileID.FlamethrowerTrap,
                     ProjectileID.Fireball,
@@ -33,7 +31,7 @@ namespace Stellamod.Content.Areas.Cinderspark.AccCS
                     ProjectileID.GreekFire3,
                     ProjectileID.InfernoHostileBlast,
                     ProjectileID.InfernoHostileBolt
-            }; 
+            ]; 
             for (int n = 0; n < resistedProjectiles.Length; n++)
             {
                 ProjectileSets.ResistedByFlamecrestShield[resistedProjectiles[n]] = true;
@@ -161,7 +159,7 @@ namespace Stellamod.Content.Areas.Cinderspark.AccCS
 
                 Vector2 pos = Player.Center;
                 Vector2 velocity = Vector2.UnitY.RotatedBy(lerp * MathHelper.TwoPi) * 16;
-                var part = LegacyParticle.NewParticle<FlareParticle>(pos, velocity);
+                FlareParticle.Spawn(pos, velocity);
             }
 
             int combatText = CombatText.NewText(Player.getRect(), Color.OrangeRed, LangText.Misc("FlamecrestPlayer"), true);

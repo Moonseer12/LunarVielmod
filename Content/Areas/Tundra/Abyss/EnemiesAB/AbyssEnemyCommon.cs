@@ -1,10 +1,4 @@
-﻿using Stellamod.Core.Particles;
-using Stellamod.Visual.Particles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Stellamod.Visual.Particles;
 using Terraria;
 
 namespace Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB;
@@ -29,7 +23,7 @@ public static class AbyssEnemyCommon
 
             for (int i = 0; i < 16; i++)
             {
-                EmberParticle ep = LegacyParticle.NewParticle<EmberParticle>(NPC.position +
+                EmberParticle ep = EmberParticle.Spawn(NPC.position +
                     new Vector2(Main.rand.Next(0, NPC.width), Main.rand.Next(0, NPC.height)),
                     -Vector2.UnitY.RotatedByRandom(MathHelper.TwoPi), Color.White, Main.rand.NextFloat(0.9f, 1.5f));
                 ep.innerColor = Color.White;
@@ -37,7 +31,7 @@ public static class AbyssEnemyCommon
             }
             for (int i = 0; i < 12; i++)
             {
-                Vector2 spawnPosition = new Vector2();
+                Vector2 spawnPosition = new();
                 spawnPosition.X = NPC.position.X + Main.rand.Next(0, NPC.width);
                 spawnPosition.Y = NPC.position.Y + Main.rand.Next(0, NPC.height);
                 SparkleParticle.Spawn(spawnPosition, Vector2.Zero, Scale: 0.3f);

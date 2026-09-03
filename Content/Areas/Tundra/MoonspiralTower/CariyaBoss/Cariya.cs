@@ -4,11 +4,8 @@ using Stellamod.Common.Animations;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Tundra.MoonspiralTower.CariyaBoss.Projectiles;
 using Stellamod.Core;
-using Stellamod.Core.Camera;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-
-
 using Stellamod.Visual.Particles;
 using System;
 using System.IO;
@@ -250,7 +247,7 @@ public class Cariya : ScarletBoss
             _showWings = true;
             if(Timer % 12 == 0)
             {
-                var p = LegacyParticle.NewParticle<EmberParticle>(NPC.Center + Main.rand.NextVector2Circular(64, 64), -Vector2.UnitY);
+                var p = EmberParticle.Spawn(NPC.Center + Main.rand.NextVector2Circular(64, 64), -Vector2.UnitY);
                 p.outerColor = Color.White;
                 p.innerColor = Color.White;
                 p.fadeToColor = Color.DarkBlue;
@@ -532,7 +529,7 @@ public class Cariya : ScarletBoss
                     NPC.velocity = velocity;
                     if (Timer % 5 == 0)
                     {
-                        var p2 = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, -NPC.velocity);
+                        var p2 = GlowDonutParticle.Spawn(NPC.Bottom, -NPC.velocity);
                         p2.Scale *= 0.5f;
                     }
                     _showSlideTrail = true;
@@ -645,7 +642,7 @@ public class Cariya : ScarletBoss
 
                     if (Timer % 5 == 0)
                     {
-                        var p2 = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, -NPC.velocity);
+                        var p2 = GlowDonutParticle.Spawn(NPC.Bottom, -NPC.velocity);
                         p2.Scale *= 0.5f;
                     }
                     Animator.PlayAnimation(ANIM_SWORDDROP);

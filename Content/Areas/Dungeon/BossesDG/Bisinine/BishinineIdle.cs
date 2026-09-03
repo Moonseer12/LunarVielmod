@@ -1,5 +1,4 @@
-﻿using Stellamod.Content.Dialogue;
-using Stellamod.Core;
+﻿using Stellamod.Core;
 using Stellamod.Core.DialogueSystem;
 using Stellamod.Core.TriggersSystem.Triggers;
 using System;

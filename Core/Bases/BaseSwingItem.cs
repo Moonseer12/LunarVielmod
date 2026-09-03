@@ -1,6 +1,5 @@
 ﻿using Stellamod.Common.DashSystem;
 using Stellamod.Common.Players;
-using Stellamod.Visual.Explosions;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;

@@ -156,7 +156,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria.Proje
 
             if(Timer % 5 == 0 && Timer < 19)
             {
-                var donut = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity, newColor: Color.Cyan);
+                GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity, color: Color.Cyan);
             }
             if(Timer % 4 == 0)
             {

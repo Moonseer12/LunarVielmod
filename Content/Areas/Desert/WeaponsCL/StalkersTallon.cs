@@ -5,7 +5,6 @@ using Stellamod.Content.Dusts;
 using Stellamod.Content.Trailers;
 using Stellamod.Core;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Visual.Particles;
 using Terraria;
@@ -229,7 +228,7 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
                     }
                     if (Timer % 6 == 0)
                     {
-                        LegacyParticle.NewParticle<EmberParticle>(Projectile.Center, Vector2.UnitY, newColor: Color.White);
+                        EmberParticle.Spawn(Projectile.Center, Vector2.UnitY, color: Color.White);
                     }
                     break;
             }

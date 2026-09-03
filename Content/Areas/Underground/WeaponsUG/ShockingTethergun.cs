@@ -189,7 +189,7 @@ namespace Stellamod.Content.Areas.Underground.WeaponsUG
                 {
                     Vector2 pVelocity = -Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4);
                     pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                    var spark = LegacyParticle.NewParticle<ZapParticle>(TetheredNPC.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                    var spark = ZapParticle.Spawn(TetheredNPC.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
                     spark.Scale *= 0.25f;
                     spark.Rotation = Main.rand.NextFloat(0f, 3.14f);
                 }
@@ -197,7 +197,7 @@ namespace Stellamod.Content.Areas.Underground.WeaponsUG
                 {
                     Vector2 pVelocity = Main.rand.NextVector2Circular(2, 2);
                     pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                    var spark = LegacyParticle.NewParticle<SparkParticle>(TetheredNPC.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                    var spark = SparkParticle.Spawn(TetheredNPC.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
                 }
 
                 SoundStyle shockLineSound = AssetRegistry.Sounds.Gun.ShockLineShock;

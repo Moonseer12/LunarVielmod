@@ -3,7 +3,6 @@ using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.Bases;
 using Stellamod.Core.MaskingShaderSystem;
-using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -55,7 +54,7 @@ namespace Stellamod.Content.Areas.MothlightManor.WeaponsMM
                 color.A = 0;
                 Vector2 velocity = Main.rand.NextVector2Circular(2, 2);
                 Vector2 spawnPoint = Projectile.Center + Main.rand.NextVector2Circular(4, 4);
-                LegacyParticle.NewBlackParticle<GlowParticle>(spawnPoint, velocity, color, Scale: 0.33f);
+                GlowParticle.Spawn(spawnPoint, velocity, color, Scale: 0.33f);
             }
         }
         protected override void Shoot(Player player, IEntitySource source, Vector2 position, Vector2 velocity, int damage, float knockback)

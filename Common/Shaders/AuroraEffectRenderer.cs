@@ -1,6 +1,5 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Content.Areas;
-using Stellamod.Core.Particles;
 using Stellamod.Core.Rendering;
 using Stellamod.Visual.Particles;
 using System;
@@ -109,7 +108,7 @@ public class AuroraEffectRenderer : ModSystem
                 {
                     float xRand = Main.rand.NextFloat(-1000, 1000);
                     float yRand = Main.rand.NextFloat(-1000, 1000);
-                    LegacyParticle.NewParticle<StarParticle>(Main.LocalPlayer.Center + new Vector2(xRand, yRand), Vector2.Zero);
+                    StarParticle.Spawn(Main.LocalPlayer.Center + new Vector2(xRand, yRand), Vector2.Zero);
                 }
                 if (Main.rand.NextBool(9))
                 {

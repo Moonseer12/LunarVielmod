@@ -1,5 +1,4 @@
 ﻿using Stellamod.Content.Dusts;
-using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -78,7 +77,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins
             if (Timer % 8 == 0)
             {
                 Vector2 pos = NPC.Center + Main.rand.NextVector2Circular(64, 64);
-                var zapParticle = LegacyParticle.NewParticle<ZapParticle>(pos, Main.rand.NextVector2Circular(4, 4), newColor: Color.White);
+                var zapParticle = ZapParticle.Spawn(pos, Main.rand.NextVector2Circular(4, 4), color: Color.White);
                 zapParticle.innerColor = GetTwinColor();
                 zapParticle.outerColor = Color.Lerp(zapParticle.innerColor, Color.Black, 0.5f);
                 zapParticle.fadeToColor = Color.Lerp(zapParticle.outerColor, Color.Black, 0.5f);

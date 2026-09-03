@@ -1,6 +1,4 @@
-﻿
-using Stellamod.Content.MoonlightMagic.Elements;
-using Stellamod.Core.Particles;
+﻿using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.ModLoader;
@@ -31,7 +29,7 @@ namespace Stellamod.Content.MoonlightMagic.Enchantments.Deeya
                     Vector2 dustPos = hold.Projectile.Center + Main.rand.NextVector2CircularEdge(32, 32);
                     Vector2 vel = (hold.Projectile.Center - dustPos) * 0.05f;
                     dustPos += hold.Projectile.velocity * 64;
-                    LegacyParticle.NewParticle<BloodSparkleParticle>(dustPos, vel, Color.White, Scale: Main.rand.NextFloat(1f, 2f));
+                    BloodSparkleParticle.Spawn(dustPos, vel, Color.White, Scale: Main.rand.NextFloat(1f, 2f));
                 }
             }
         }

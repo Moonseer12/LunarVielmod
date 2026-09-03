@@ -1,6 +1,5 @@
 ﻿using Stellamod.Content.Areas.Shop.AccShop;
 using Stellamod.Content.Areas.Shop.InsourcesShop;
-using Stellamod.Content.Dialogue;
 using Stellamod.Content.Vanity.RedFeatherHat;
 using Stellamod.Core;
 using System;

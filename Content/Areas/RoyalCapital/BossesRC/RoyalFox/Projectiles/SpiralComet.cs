@@ -47,7 +47,7 @@ public class SpiralComet : ModProjectile,
         {
             if (Timer % 4 == 0)
             {
-                var donut = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero));
+                var donut = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero));
                 donut.Scale *= 0.6f;
             }
         }

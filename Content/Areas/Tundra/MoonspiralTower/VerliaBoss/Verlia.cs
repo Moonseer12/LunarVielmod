@@ -6,7 +6,6 @@ using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss.Projectiles;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
 using Stellamod.Core.Palettes;
-using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Visual.Particles;
 using System;
@@ -644,7 +643,7 @@ public class Verlia : ScarletBoss,
         {
             Vector2 pos = NPC.Bottom + new Vector2(Main.rand.NextFloat(-16, 16), 0);
             pos.Y += 0;
-            var circleStep = LegacyParticle.NewParticle<CircleStepParticle>(pos, Vector2.UnitY);
+            var circleStep = CircleStepParticle.Spawn(pos, Vector2.UnitY);
             circleStep.color = Color.White;
             circleStep.Rotation = NPC.rotation;
             circleStep.Scale *= 0.5f;

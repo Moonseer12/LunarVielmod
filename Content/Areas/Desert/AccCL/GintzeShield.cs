@@ -2,7 +2,6 @@
 using Stellamod.Common.WeaponTypes;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -40,7 +39,7 @@ namespace Stellamod.Content.Areas.Desert.AccCL
                     DustParticle.Spawn(npc.Center, vel);
                 }
 
-                var strike = LegacyParticle.NewParticle<GlowDonutParticle>(npc.Center, Vector2.UnitY.RotatedByRandom(0.5f));
+                var strike = GlowDonutParticle.Spawn(npc.Center, Vector2.UnitY.RotatedByRandom(0.5f));
                 strike.xMult = 6;
                 strike.Scale *= 0.2f;
                 strike.rotOffset += MathHelper.PiOver2;

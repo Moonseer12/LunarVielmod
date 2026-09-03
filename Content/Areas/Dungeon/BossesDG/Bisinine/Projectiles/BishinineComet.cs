@@ -86,7 +86,7 @@ namespace Stellamod.Content.Areas.Dungeon.BossesDG.Bisinine.Projectiles
 
                 var p = Particle<ThickSmokeParticle>.Spawn(Projectile.Bottom, Vector2.Zero, Color.DarkGray);
 
-                var sear = LegacyParticle.NewParticle<SearParticle>(Projectile.Center, Vector2.Zero);
+                var sear = SearParticle.Spawn(Projectile.Center, Vector2.Zero);
                 sear.innerColor = Color.Gray;
                 sear.outerColor = Color.Blue;
                 sear.fadeToColor = Color.Black;
@@ -98,7 +98,7 @@ namespace Stellamod.Content.Areas.Dungeon.BossesDG.Bisinine.Projectiles
                 {
                     Vector2 pos = Projectile.Center;
                     pos += Main.rand.NextVector2Circular(80, 80);
-                    var zap = LegacyParticle.NewParticle<ZapParticle>(pos, Vector2.UnitY.RotatedByRandom(10) * Main.rand.NextFloat(2, 15));
+                    var zap = ZapParticle.Spawn(pos, Vector2.UnitY.RotatedByRandom(10) * Main.rand.NextFloat(2, 15));
                     zap.innerColor = Color.Gray;
                     zap.outerColor = Color.Blue;
                     zap.fadeToColor = Color.Black;
@@ -144,13 +144,13 @@ namespace Stellamod.Content.Areas.Dungeon.BossesDG.Bisinine.Projectiles
                 SoundEngine.PlaySound(smashSound, Projectile.position);
 
 
-                var part = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero, Color.White);
+                var part = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero, Color.White);
                 part.fadeToColor = Color.Black;
                 part.outerColor = Color.Gray;
                 part.noStretch = true;
                 part.shrink = true;
 
-                var part2 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero, Color.White);
+                var part2 = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero, Color.White);
                 part2.fadeToColor = Color.Black;
                 part2.outerColor = Color.Gray;
                 part2.noStretch = true;
@@ -228,7 +228,7 @@ namespace Stellamod.Content.Areas.Dungeon.BossesDG.Bisinine.Projectiles
                     {
                         Vector2 pVelocity = -Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4);
                         pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                        var spark = LegacyParticle.NewParticle<ZapParticle>(Projectile.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                        var spark = ZapParticle.Spawn(Projectile.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
                         spark.Scale *= 0.5f;
                         spark.Rotation = Main.rand.NextFloat(0f, 3.14f);
                         spark.outerColor = Color.Blue;

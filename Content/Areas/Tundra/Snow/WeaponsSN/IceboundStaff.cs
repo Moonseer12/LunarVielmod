@@ -1,6 +1,7 @@
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.SummonerSystem;
+using Stellamod.Content.Areas.Shop.WeaponsShop;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Terraria;

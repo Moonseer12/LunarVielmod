@@ -178,15 +178,15 @@ public class BlackSword : ScarletProjectile,
 
             for (float i = 0; i < 3; i++)
             {
-                var donutParticle = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -direction * MathHelper.Lerp(15, 1f, i / 3f));
+                var donutParticle = GlowDonutParticle.Spawn(Projectile.Center, -direction * MathHelper.Lerp(15, 1f, i / 3f));
                 donutParticle.Scale *= MathHelper.Lerp(1f, 3f, i / 3f);
             }
 
-            var strike = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, direction);
+            var strike = GlowDonutParticle.Spawn(Projectile.Center, direction);
             strike.xMult = 6;
             strike.rotOffset += MathHelper.PiOver2;
 
-            var strike2 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, direction);
+            var strike2 = GlowDonutParticle.Spawn(Projectile.Center, direction);
             strike2.xMult = 32;
             strike2.rotOffset += MathHelper.PiOver2;
 
@@ -216,7 +216,7 @@ public class BlackSword : ScarletProjectile,
 
         if(Timer % 5 == 0)
         {
-            LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity, Color.White);
+            GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity, Color.White);
         }
 
         if(Timer > 5)

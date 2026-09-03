@@ -1,13 +1,11 @@
-﻿
-
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
 using Terraria;
 
 namespace Stellamod.Visual.Particles
 {
-    public class SparkParticle : LegacyParticle
+    public class SparkParticle : Particle<SparkParticle>
     {
         private float _interpolant;
         public int FrameWidth = 128;

@@ -1683,7 +1683,7 @@ public class Steamroller : ScarletBoss,
             Vector2 point = Chain.points[i];
             if (Main.rand.NextBool(150))
             {
-                var zap = LegacyParticle.NewParticle<ZapParticle>(point + Main.rand.NextVector2Circular(32, 32), Main.rand.NextVector2Circular(1, 1), Color.White, 1f);
+                var zap = ZapParticle.Spawn(point + Main.rand.NextVector2Circular(32, 32), Main.rand.NextVector2Circular(1, 1), Color.White, 1f);
                 zap.innerColor = Color.Goldenrod;
                 zap.outerColor = Color.Lerp(zap.innerColor, Color.Black, 0.5f);
                 zap.fadeToColor = Color.Lerp(zap.outerColor, Color.Black, 0.5f);
@@ -2004,7 +2004,7 @@ public class Steamroller : ScarletBoss,
 
         var p = Particle<ThickSmokeParticle>.Spawn(NPC.Bottom, Vector2.Zero, Color.DarkGray);
 
-        var sear = LegacyParticle.NewParticle<SearParticle>(NPC.Center, Vector2.Zero);
+        var sear = SearParticle.Spawn(NPC.Center, Vector2.Zero);
         sear.innerColor = Color.Gray;
         sear.outerColor = Color.Blue;
         sear.fadeToColor = Color.Black;
@@ -2016,7 +2016,7 @@ public class Steamroller : ScarletBoss,
         {
             Vector2 pos = NPC.Center;
             pos += Main.rand.NextVector2Circular(80, 80);
-            var zap = LegacyParticle.NewParticle<ZapParticle>(pos, Vector2.UnitY.RotatedByRandom(10) * Main.rand.NextFloat(2, 15));
+            var zap = ZapParticle.Spawn(pos, Vector2.UnitY.RotatedByRandom(10) * Main.rand.NextFloat(2, 15));
             zap.innerColor = Color.Gray;
             zap.outerColor = Color.Red;
             zap.fadeToColor = Color.Black;
@@ -2044,13 +2044,13 @@ public class Steamroller : ScarletBoss,
         SoundEngine.PlaySound(smashSound, NPC.position);
 
 
-        var part = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, Vector2.Zero, Color.White);
+        var part = GlowDonutParticle.Spawn(NPC.Center, Vector2.Zero, Color.White);
         part.fadeToColor = Color.Black;
         part.outerColor = Color.Gray;
         part.noStretch = true;
         part.shrink = true;
 
-        var part2 = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, Vector2.Zero, Color.White);
+        var part2 = GlowDonutParticle.Spawn(NPC.Center, Vector2.Zero, Color.White);
         part2.fadeToColor = Color.Black;
         part2.outerColor = Color.Gray;
         part2.noStretch = true;

@@ -1,13 +1,10 @@
-﻿
-
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
-
 using Terraria;
 
 namespace Stellamod.Visual.Particles
 {
-    public class GlowStretchParticle : LegacyParticle
+    public class GlowStretchParticle : Particle<GlowStretchParticle>
     {
         public float Timer;
         public float Duration;
@@ -65,9 +62,6 @@ namespace Stellamod.Visual.Particles
             Color startInner = InnerColor;
             Color startGlow = GlowColor;
             Color startOuterGlow = OuterGlowColor;
-
-            Color endColor = startOuterGlow;
-
 
             shader.InnerColor = Color.Lerp(startInner, startGlow, Progress);
             shader.GlowColor = Color.Lerp(startGlow, startOuterGlow, Progress);

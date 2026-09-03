@@ -89,7 +89,7 @@ namespace Stellamod.Content.Areas.Cinderspark.AccCS
             }
             if (Main.rand.NextBool(3))
             {
-                LegacyParticle.NewParticle<EmberParticle>(npc.position + new Vector2(Main.rand.Next(0, npc.width), Main.rand.Next(0, npc.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.Red, Main.rand.NextFloat(0.9f, 1.5f));
+                EmberParticle.Spawn(npc.position + new Vector2(Main.rand.Next(0, npc.width), Main.rand.Next(0, npc.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.Red, Main.rand.NextFloat(0.9f, 1.5f));
             }
             if (Main.rand.NextBool(8))
             {

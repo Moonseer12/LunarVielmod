@@ -63,7 +63,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.PunkerPrime
             if (Timer % 10 == 0)
             {
                 Vector2 spawnPoint = Projectile.Center + Main.rand.NextVector2Circular(64, 64);
-                LegacyParticle.NewParticle<ZapParticle>(spawnPoint, Main.rand.NextVector2CircularEdge(2, 2), Scale: Main.rand.NextFloat(0.5f, 1f));
+                ZapParticle.Spawn(spawnPoint, Main.rand.NextVector2CircularEdge(2, 2), Scale: Main.rand.NextFloat(0.5f, 1f));
             }
 
             if (Timer % 20 == 0)

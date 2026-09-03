@@ -111,7 +111,7 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity.Proje
                 zapSound.PitchVariance = 0.2f;
                 SoundEngine.PlaySound(zapSound, Projectile.position);
 
-                var part = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero, Color.White);
+                var part = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero, Color.White);
                 part.Scale *= 4;
                 part.shrink = true;
                 part.noStretch = true;

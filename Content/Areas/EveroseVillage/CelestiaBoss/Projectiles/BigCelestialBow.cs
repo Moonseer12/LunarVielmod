@@ -5,7 +5,6 @@ using Stellamod.Content.Areas.PunkerTown.BossesPT.Steamroller;
 using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss;
 using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss.Projectiles;
 using Stellamod.Content.Areas.Tundra.Snow.WeaponsSN;
-using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Visual.Particles;
 using System;
@@ -489,18 +488,18 @@ public class BigCelestialArrow : ModProjectile
                 dp.noTileCollide = true;
             }
 
-            GlowDonutParticle d = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity * 2);
+            GlowDonutParticle d = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity * 2);
             d.outerColor = Color.Turquoise;
             d.fadeToColor = Color.DarkTurquoise;
             d.Scale *= 0.3f;
 
-            GlowDonutParticle d2 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity * 4);
+            GlowDonutParticle d2 = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity * 4);
             d2.outerColor = Color.Turquoise;
             d2.fadeToColor = Color.DarkTurquoise;
             d2.Scale *= 0.15f;
 
 
-            GlowDonutParticle d3 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity * 1);
+            GlowDonutParticle d3 = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity * 1);
             d3.outerColor = Color.Turquoise;
             d3.fadeToColor = Color.DarkTurquoise;
             d3.Scale *= 1f;

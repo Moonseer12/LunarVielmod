@@ -1,11 +1,7 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.Dyes;
 using Stellamod.Common.Shaders.MagicTrails;
-using Stellamod.Core.Particles;
-
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;
@@ -77,7 +73,7 @@ namespace Stellamod.Content.MoonlightMagic.Elements
                     Vector2 spawnPoint = MagicProj.OldPos[i] + offset + Projectile.Size / 2;
                     Vector2 velocity = MagicProj.OldPos[i + 1] - MagicProj.OldPos[i];
                     velocity = velocity.SafeNormalize(Vector2.Zero) * -8;
-                    LegacyParticle.NewParticle<SparkleWindParticle>(spawnPoint, velocity, Color.White);
+                    SparkleWindParticle.Spawn(spawnPoint, velocity, Color.White);
                 }
             }
         }
@@ -100,7 +96,7 @@ namespace Stellamod.Content.MoonlightMagic.Elements
 
                 Color color = Color.White;
                 color.A = 0;
-                LegacyParticle.NewParticle<SparkleWindParticle>(spawnPoint, velocity, color);
+                SparkleWindParticle.Spawn(spawnPoint, velocity, color);
             }
 
             for (float f = 0f; f < 1f; f += 0.2f)
@@ -112,8 +108,8 @@ namespace Stellamod.Content.MoonlightMagic.Elements
                 Color color = Color.White;
                 color.A = 0;
                 if (Main.rand.NextBool(2))
-                    LegacyParticle.NewParticle<SparkleWindParticle>(spawnPoint, velocity.RotatedByRandom(MathHelper.TwoPi), color);
-                LegacyParticle.NewBlackParticle<GlowParticle>(spawnPoint, velocity, color);
+                    SparkleWindParticle.Spawn(spawnPoint, velocity.RotatedByRandom(MathHelper.TwoPi), color);
+                GlowParticle.Spawn(spawnPoint, velocity, color);
             }
         }
 

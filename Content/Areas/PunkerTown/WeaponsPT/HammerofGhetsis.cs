@@ -260,7 +260,7 @@ public class HammerofGhetsisThrow : ModProjectile,
             }
             if (Main.rand.NextBool(3))
             {
-                LegacyParticle.NewParticle<EmberParticle>(Projectile.Center + Main.rand.NextVector2Circular(32, 32), -Vector2.UnitY.RotatedByRandom(1.5f), Color.OrangeRed, Main.rand.NextFloat(0.9f, 1.5f));
+                EmberParticle.Spawn(Projectile.Center + Main.rand.NextVector2Circular(32, 32), -Vector2.UnitY.RotatedByRandom(1.5f), Color.OrangeRed, Main.rand.NextFloat(0.9f, 1.5f));
             }
         }
 

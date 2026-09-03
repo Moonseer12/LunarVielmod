@@ -1,11 +1,8 @@
-﻿
-
-using Stellamod.Content.MoonlightMagic.Elements;
-using Stellamod.Core.Particles;
-
+﻿using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.ModLoader;
+
 namespace Stellamod.Content.MoonlightMagic.Enchantments.Uvilis
 {
     public class UvilisSwitcherEnchantment : BaseEnchantment
@@ -31,7 +28,7 @@ namespace Stellamod.Content.MoonlightMagic.Enchantments.Uvilis
                 {
                     Vector2 spawnPoint = Projectile.Center + Main.rand.NextVector2Circular(8, 8);
                     Vector2 velocity = Main.rand.NextVector2Circular(8, 8);
-                    LegacyParticle.NewParticle<GlowParticle>(spawnPoint, velocity, Color.LightCyan);
+                    GlowParticle.Spawn(spawnPoint, velocity, Color.LightCyan);
                 }
 
                 MagicProj.PrimaryElement = new UvilisElement();

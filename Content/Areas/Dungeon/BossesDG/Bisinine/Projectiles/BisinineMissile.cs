@@ -1,7 +1,5 @@
-﻿using Stellamod.Assets;
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Dusts;
-using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;
@@ -175,7 +173,7 @@ namespace Stellamod.Content.Areas.Dungeon.BossesDG.Bisinine.Projectiles
         public override void OnKill(int timeLeft)
         {
             base.OnKill(timeLeft);
-            var part = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero, Color.White);
+            var part = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero, Color.White);
             part.Scale *= 0.5f;
             part.fadeToColor = Color.Black;
             part.outerColor = Color.Gray;

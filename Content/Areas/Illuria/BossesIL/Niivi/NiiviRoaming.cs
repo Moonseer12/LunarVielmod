@@ -1,7 +1,4 @@
-﻿
-
-using Stellamod.Content.Areas.Illuria.BossesIL.Niivi.Projectiles;
-using Stellamod.NPCs.Town;
+﻿using Stellamod.Content.Areas.Illuria.BossesIL.Niivi.Projectiles;
 using System.IO;
 using Terraria;
 using Terraria.DataStructures;

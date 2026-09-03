@@ -231,7 +231,7 @@ namespace Stellamod.Content.Areas.WaterSide.WeaponsWS
             WobbleTimer++;
             if (Timer == 1)
             {
-                var donut = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity, Color.Cyan);
+                var donut = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity, Color.Cyan);
                 donut.Scale *= 0.3f;
                 _stretchScale = new Vector2(1.5f, 0.3f);
             }

@@ -17,7 +17,7 @@ public partial class Gothivia
     {
         if(timer % 6 == 0)
         {
-            var gd = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -NPC.velocity.SafeNormalize(Vector2.Zero));
+            var gd = GlowDonutParticle.Spawn(NPC.Center, -NPC.velocity.SafeNormalize(Vector2.Zero));
             gd.innerColor = Color.Yellow;
             gd.outerColor = Color.Red;
             gd.fadeToColor = Color.DarkRed;

@@ -201,7 +201,7 @@ namespace Stellamod.Content.Areas.Cinderspark.BossesCS.Skullrunner
                     Vector2 velocity = -Vector2.UnitY;
                     Vector2 pVelocity = velocity.RotatedByRandom(MathHelper.PiOver4 / 3f);
                     pVelocity *= Main.rand.NextFloat(0.5f, 2f);
-                    var frag = LegacyParticle.NewParticle<GlowFragmentParticle>(position, pVelocity);
+                    var frag = GlowFragmentParticle.Spawn(position, pVelocity);
                     FXUtil.GlowFragmentParticle(position, pVelocity,
                         innerColor: Color.Red,
                         outerColor: Color.Orange,

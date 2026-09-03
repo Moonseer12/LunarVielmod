@@ -3,8 +3,6 @@ using Stellamod.Common.Players;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.Bases;
-using Stellamod.Visual.Explosions;
-using Stellamod.Visual.GIFEffects;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -600,3 +598,180 @@ public class VaelProj : ModProjectile
         return false;
     }
 }
+
+    public class VaelExplosion : BaseExplosionProjectile
+    {
+        private ZappingTrail _lightningTrail;
+        private float _timer;
+        int rStart = 4;
+        int rEnd = 128;
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            _lightningTrail = new ZappingTrail();
+            Projectile.width = 48;
+            Projectile.height = 48;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = -1;
+            Projectile.timeLeft = 32;
+            rStart = Main.rand.Next(4, 8) * 12;
+            rEnd = Main.rand.Next(132, 180);
+            Projectile.hide = true;
+        }
+
+        public override void AI()
+        {
+            base.AI();
+            _timer++;
+            if (_timer % 6 == 0)
+            {
+                _lightningTrail.RandomPositions(_circlePos);
+            }
+        }
+
+        protected override float BeamWidthFunction(float p)
+        {
+            //How wide the trail is going to be
+            float trailWidth = MathHelper.Lerp(96, 0, Easing.OutCubic(p));
+            float fadeWidth = MathHelper.Lerp(0, trailWidth, Easing.SpikeOutExpo(p));// * Main.rand.NextFloat(0.75f, 1.0f);
+            return fadeWidth;
+        }
+
+        protected override Color ColorFunction(float p)
+        {
+            Color trailColor = Color.Lerp(Color.Orange, Color.Purple, p);
+            Color fadeColor = Color.Lerp(trailColor, Color.DarkViolet, UneasedProgress);
+            return trailColor;
+        }
+
+        protected override float RadiusFunction(float p)
+        {
+            //How large the circle is going to be
+            return MathHelper.Lerp(rStart, rEnd, Easing.OutExpo(p));
+        }
+
+        private void DrawTrail()
+        {
+            //Trail
+            SpriteBatch spriteBatch = Main.spriteBatch;
+            var shader = MagicVaellusShader.Instance;
+
+            //Resets to the default settings for this shader
+            shader.SetDefaults();
+
+            _lightningTrail ??= new();
+            //Making this number big made like the field wide
+            _lightningTrail.LightningRandomOffsetRange = 8;
+
+            //This number makes it more lightning like, lower this is the straighter it is
+            _lightningTrail.LightningRandomExpand = 4;
+            _lightningTrail.Draw(spriteBatch, _circlePos, Projectile.oldRot, ColorFunctionReal, WidthFunction, shader, offset: Projectile.Size / 2f);
+
+            shader.BlendState = BlendState.Additive;
+            _lightningTrail.Draw(spriteBatch, _circlePos, Projectile.oldRot, ColorFunctionReal, WidthFunction, shader, offset: Projectile.Size / 2f);
+        }
+
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            DrawTrail();
+            return false;
+        }
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            base.OnHitNPC(target, hit, damageDone);
+        }
+
+        public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)
+        {
+            base.DrawBehind(index, behindNPCsAndTiles, behindNPCs, behindProjectiles, overPlayers, overWiresUI);
+            overPlayers.Add(index);
+        }
+    }
+    
+    public class VaelSpecial : ModProjectile
+    {
+        private ref float Parent => ref Projectile.ai[1];
+        public override void SetStaticDefaults()
+        {
+            Main.projFrames[Projectile.type] = 8;
+        }
+
+        public override void SetDefaults()
+        {
+            Projectile.width = 107;
+            Projectile.height = 92;
+            Projectile.tileCollide = false;
+            Projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 40;
+            Projectile.localNPCHitCooldown = 6;
+            Projectile.usesLocalNPCImmunity = true;
+        }
+
+        public float Timer
+        {
+            get => Projectile.ai[0];
+            set => Projectile.ai[0] = value;
+        }
+
+        float trueFrame = 0;
+        public void UpdateFrame(float speed, int minFrame, int maxFrame)
+        {
+            trueFrame += speed;
+            if (trueFrame < minFrame)
+            {
+                trueFrame = minFrame;
+            }
+            if (trueFrame > maxFrame)
+            {
+                trueFrame = minFrame;
+            }
+        }
+
+        public override void AI()
+        {
+            Projectile.Center = Main.projectile[(int)Parent].Center;
+            Projectile.Center += (Projectile.rotation + MathHelper.ToRadians(90)).ToRotationVector2() * 18;
+            //  Player owner = Main.player[Projectile.owner];
+            //    Projectile.Center = owner.Center;
+            //  owner.immune = true;
+            // owner.SetImmuneTimeForAllTypes(3);
+
+            //Lighting
+            Vector3 RGB = new(0.89f, 2.53f, 2.55f);
+
+            // The multiplication here wasn't doing anything
+            Lighting.AddLight(Projectile.position, RGB.X, RGB.Y, RGB.Z);
+            UpdateFrame(0.4f, 1, 40);
+        }
+
+
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return new Color(200, 200, 200, 0) * (1f - Projectile.alpha / 50f);
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+            Vector2 drawPosition = Projectile.Center - Main.screenPosition;
+
+            Rectangle rectangle = new(0, 0, 107, 92);
+            rectangle.X = ((int)trueFrame % 5) * rectangle.Width;
+            rectangle.Y = (((int)trueFrame - ((int)trueFrame % 5)) / 5) * rectangle.Height;
+
+            Vector2 origin = new(rectangle.Width / 2, rectangle.Height / 2);
+            SpriteBatch spriteBatch = Main.spriteBatch;
+            float drawRotation = Projectile.rotation;
+            float drawScale = 3f;
+
+            spriteBatch.Draw(texture, drawPosition,
+               rectangle,
+                (Color)GetAlpha(lightColor), drawRotation, origin, drawScale, SpriteEffects.None, 0f);
+            return false;
+        }
+    }

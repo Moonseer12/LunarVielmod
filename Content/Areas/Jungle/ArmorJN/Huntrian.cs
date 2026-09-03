@@ -42,7 +42,7 @@ namespace Stellamod.Content.Areas.Jungle.ArmorJN
             }
             if (Main.rand.NextBool(6))
             {
-                LegacyParticle.NewParticle<EmberParticle>(npc.position + new Vector2(Main.rand.Next(0, npc.width), Main.rand.Next(0, npc.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.DarkGreen, Main.rand.NextFloat(0.9f, 1.5f));
+                EmberParticle.Spawn(npc.position + new Vector2(Main.rand.Next(0, npc.width), Main.rand.Next(0, npc.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.DarkGreen, Main.rand.NextFloat(0.9f, 1.5f));
             }
         }
     }

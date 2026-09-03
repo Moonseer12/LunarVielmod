@@ -137,7 +137,7 @@ public class MoonBlast : ModProjectile
                 }
             }
 
-            LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero) * 2);
+            GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero) * 2);
             var fx = FXUtil.GlowCircleBoom(Projectile.Center, Color.White, Color.SkyBlue, Color.DarkBlue);
             fx.Scale *= 1f;
             float numDust = 8;

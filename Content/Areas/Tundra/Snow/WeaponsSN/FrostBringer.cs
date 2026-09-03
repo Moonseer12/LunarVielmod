@@ -83,7 +83,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
                 {
                     Vector2 pVelocity = lvelocity.RotatedByRandom(MathHelper.PiOver4 / 3f);
                     pVelocity *= Main.rand.NextFloat(0.5f, 2f);
-                    var frag = LegacyParticle.NewParticle<GlowFragmentParticle>(position, pVelocity);
+                    var frag = GlowFragmentParticle.Spawn(position, pVelocity);
                     FXUtil.GlowFragmentParticle(position, pVelocity,
                         innerColor: Color.White,
                         outerColor: Color.LightBlue,
@@ -193,7 +193,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
 
             for (float i = 0; i < 2; i++)
             {
-                var donutParticle = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero) * 4 * MathHelper.Lerp(15, 1f, i / 3f));
+                var donutParticle = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero) * 4 * MathHelper.Lerp(15, 1f, i / 3f));
                 donutParticle.Scale *= MathHelper.Lerp(0.3f, 1f, i / 3f);
                 donutParticle.Velocity *= 0.1f;
                 donutParticle.color = Color.LightSkyBlue;

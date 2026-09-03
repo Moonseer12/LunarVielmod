@@ -131,7 +131,7 @@ public class StarBeam : ScarletProjectile
         for (float f = 0; f < 6; f++)
         {
             Vector2 velocity = Main.rand.NextVector2Circular(8, 8);
-            LegacyParticle.NewParticle<ZapParticle>(Projectile.Center, velocity, Color.Pink);
+            ZapParticle.Spawn(Projectile.Center, velocity, Color.Pink);
         }
         for (float f = 0; f < 8; f++)
         {
@@ -168,7 +168,7 @@ public class StarBeam : ScarletProjectile
             Gore.NewGore(source, Projectile.Center, rvelocity,
                 ModContent.GoreType<FableRock4>());
         }
-        var sear = LegacyParticle.NewParticle<SearParticle>(Projectile.Center, Vector2.Zero);
+        var sear = SearParticle.Spawn(Projectile.Center, Vector2.Zero);
 
 
         SoundStyle crush = AssetRegistry.Sounds.STARBOMBER.HeavyCrush;
@@ -176,7 +176,7 @@ public class StarBeam : ScarletProjectile
         SoundEngine.PlaySound(crush, Projectile.position);
 
 
-        var p = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.UnitY);
+        var p = GlowDonutParticle.Spawn(Projectile.Center, Vector2.UnitY);
         p.Scale *= 5;
     }
 

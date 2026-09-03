@@ -1,10 +1,10 @@
-﻿
-using Stellamod.Core.Particles;
+﻿using Stellamod.Core.Particles;
 using System;
+using Terraria;
 
 namespace Stellamod.Visual.Particles
 {
-    public class SleepParticle : LegacyParticle
+    public class SleepParticle : Particle<SleepParticle>
     {
         public int FrameWidth = 14;
         public int FrameHeight = 18;
@@ -23,6 +23,12 @@ namespace Stellamod.Visual.Particles
             fadeIn++;
             if (fadeIn > 60)
                 active = false;
+        }
+        
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            var textureAsset = GetTexture();
+            spriteBatch.Draw(textureAsset.Value, DrawPosition, Frame, color, Rotation, Frame.Size() / 2f, Scale, SpriteEffects.None, 0);
         }
     }
 }

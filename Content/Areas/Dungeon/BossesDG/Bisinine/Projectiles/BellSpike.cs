@@ -1,6 +1,5 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Core.Particles;
 using Stellamod.Effects.Generic;
 using Stellamod.Visual.Particles;
 using System;
@@ -10,7 +9,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Dungeon.BossesDG.Bisinine.Projectiles;
-
 
 public record struct BellSpikeDraw(Action<SpriteBatch> DrawBloomLine, Action<SpriteBatch> DrawTentacleBack, Action<SpriteBatch> DrawTentacleFront, Action<SpriteBatch> DrawGlow);
 
@@ -182,7 +180,7 @@ public class BellSpike : ModProjectile
         if (Timer == 1)
         {
             _randOffset = Main.rand.NextFloat(-15, 0);
-            var p = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.UnitY, Color.Gray, Scale: 0.5f);
+            GlowDonutParticle.Spawn(Projectile.Center, Vector2.UnitY, Color.Gray, Scale: 0.5f);
 
             for (float f = 0; f < 16; f++)
             {

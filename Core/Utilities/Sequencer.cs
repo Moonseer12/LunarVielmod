@@ -1,17 +1,13 @@
-﻿
-using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework.Input;
 using Stellamod.Common.BlackSystem;
 using Stellamod.Content.Areas.Illuria.BossesIL.EStyr;
-using Stellamod.Content.Dialogue;
+using Stellamod.Content.Areas.SpringHills.NPCsSH;
 using Stellamod.Core.Camera;
 using Stellamod.Core.DialogueSystem;
 using Stellamod.Core.Particles;
-
-using Stellamod.NPCs.Town;
 using Stellamod.Visual.Particles;
 using System;
 using System.Collections.Generic;
-
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;

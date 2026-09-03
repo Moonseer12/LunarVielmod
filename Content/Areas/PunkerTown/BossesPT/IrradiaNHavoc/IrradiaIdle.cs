@@ -12,9 +12,6 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.IrradiaNHavoc
 
     public class IrradiaIdle : ModNPC
     {
-        public int NumberOfTimesTalkedTo = 0;
-        public const string ShopName = "Shop";
-        public const string ShopName2 = "New Shop";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
@@ -108,34 +105,6 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.IrradiaNHavoc
             return true;
 
         }
-        public override string GetChat()
-        {
-            WeightedRandom<string> chat = new WeightedRandom<string>();
-
-            int partyGirl = NPC.FindFirstNPC(NPCID.Steampunker);
-
-            // These are things that the NPC has a chance of telling you when you talk to it.
-            chat.Add("...");
-            chat.Add(LangText.Chat(this, "Basic1"));
-            chat.Add(LangText.Chat(this, "Basic2"));
-            chat.Add(LangText.Chat(this, "Basic3"), 1.0);
-            chat.Add(LangText.Chat(this, "Basic4"), 1.0);
-
-
-            NumberOfTimesTalkedTo++;
-            if (NumberOfTimesTalkedTo >= 10)
-            {
-                //This counter is linked to a single instance of the NPC, so if ExamplePerson is killed, the counter will reset.
-                chat.Add("...");
-            }
-
-            return chat; // chat is implicitly cast to a string.
-        }
-
-
-
-
-
 
         public override List<string> SetNPCNameList()
         {
@@ -154,35 +123,6 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.IrradiaNHavoc
             button = LangText.Chat(this, "Button");
 
         }
-
-        public override void OnChatButtonClicked(bool firstButton, ref string shop)
-        {
-
-
-            //-----------------------------------------------------------------------------------------------
-
-            if (firstButton)
-            {
-
-                Player player = Main.LocalPlayer;
-                WeightedRandom<string> chat = new WeightedRandom<string>();
-
-
-
-
-                // Reforge/Anvil sound
-
-
-
-
-
-
-
-            }
-
-
-        }
-
 
         public void ResetTimers()
         {
@@ -218,51 +158,6 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.IrradiaNHavoc
 
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-        //	else if (Main.moonPhase < 4) {
-        // shop.item[nextSlot++].SetDefaults(ItemType<ExampleGun>());
-        //		shop.item[nextSlot].SetDefaults(ItemType<ExampleBullet>());
-        //	}
-        //	else if (Main.moonPhase < 6) {
-        // shop.item[nextSlot++].SetDefaults(ItemType<ExampleStaff>());
-        // 	}
-        //
-        // 	// todo: Here is an example of how your npc can sell items from other mods.
-        // 	// var modSummonersAssociation = ModLoader.TryGetMod("SummonersAssociation");
-        // 	// if (ModLoader.TryGetMod("SummonersAssociation", out Mod modSummonersAssociation)) {
-        // 	// 	shop.item[nextSlot].SetDefaults(modSummonersAssociation.ItemType("BloodTalisman"));
-        // 	// 	nextSlot++;
-        // 	// }
-        //
-        // 	// if (!Main.LocalPlayer.GetModPlayer<ExamplePlayer>().examplePersonGiftReceived && GetInstance<ExampleConfigServer>().ExamplePersonFreeGiftList != null) {
-        // 	// 	foreach (var item in GetInstance<ExampleConfigServer>().ExamplePersonFreeGiftList) {
-        // 	// 		if (Item.IsUnloaded) continue;
-        // 	// 		shop.item[nextSlot].SetDefaults(Item.Type);
-        // 	// 		shop.item[nextSlot].shopCustomPrice = 0;
-        // 	// 		shop.item[nextSlot].GetGlobalItem<ExampleInstancedGlobalItem>().examplePersonFreeGift = true;
-        // 	// 		nextSlot++;
-        // 	// 		//TODO: Have tModLoader handle index issues.
-        // 	// 	}
-        // 	// }
-        // }
-
-
-
-
-
-
-
     }
 
 

@@ -136,7 +136,7 @@ public partial class RoyalFox
         {
             Vector2 pos = NPC.Bottom + new Vector2(Main.rand.NextFloat(-32f, 32f), 0);
             pos.Y += 24;
-            var circleStep = LegacyParticle.NewParticle<CircleStepParticle>(pos, Vector2.UnitY);
+            var circleStep = CircleStepParticle.Spawn(pos, Vector2.UnitY);
             circleStep.color = Color.Blue;
             circleStep.Rotation = NPC.rotation;
             _stepDistance = 0;

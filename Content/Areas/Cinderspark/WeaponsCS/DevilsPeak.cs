@@ -1,5 +1,4 @@
 ﻿using Stellamod.Assets;
-using Stellamod.Common;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
@@ -140,7 +139,7 @@ public class DevilsPeakSlash : BaseSwingProjectileV2
                 Vector2 offset = Vector2.UnitY.RotatedBy(lerp * MathHelper.TwoPi) * 196;
                 Vector2 pos = Owner.Center + offset;
                 Vector2 velocity = (Owner.Center - pos).SafeNormalize(Vector2.Zero) * 16;
-                var part = LegacyParticle.NewParticle<FlareParticle>(Owner.Center + offset, velocity);
+                var part = FlareParticle.Spawn(Owner.Center + offset, velocity);
                 part.Scale *= 0.5f;
             }
             SoundStyle fireSound = AssetRegistry.Sounds.MagicWand.FireCharge;
@@ -225,7 +224,7 @@ public class DevilsPeakSlash : BaseSwingProjectileV2
         {
             Vector2 pVelocity = lvelocity.RotatedByRandom(MathHelper.PiOver4 / 3f);
             pVelocity *= Main.rand.NextFloat(0.5f, 2f);
-            var frag = LegacyParticle.NewParticle<GlowFragmentParticle>(position, pVelocity);
+            var frag = GlowFragmentParticle.Spawn(position, pVelocity);
             FXUtil.GlowFragmentParticle(position, pVelocity,
                 innerColor: Color.Yellow,
                 outerColor: Color.Orange,

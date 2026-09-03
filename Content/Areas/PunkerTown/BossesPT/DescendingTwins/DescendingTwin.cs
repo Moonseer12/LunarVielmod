@@ -318,7 +318,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins
                 //Idk cool ig
                 if (Main.rand.NextBool(12))
                 {
-                    var zap = LegacyParticle.NewParticle<ZapParticle>(NPC.Center + Main.rand.NextVector2Circular(32, 32), Main.rand.NextVector2Circular(1, 1), Color.White, 1f);
+                    var zap = ZapParticle.Spawn(NPC.Center + Main.rand.NextVector2Circular(32, 32), Main.rand.NextVector2Circular(1, 1), Color.White, 1f);
                     zap.innerColor = GetTwinColor();
                     zap.outerColor = Color.Lerp(zap.innerColor, Color.Black, 0.5f);
                     zap.fadeToColor = Color.Lerp(zap.outerColor, Color.Black, 0.5f);

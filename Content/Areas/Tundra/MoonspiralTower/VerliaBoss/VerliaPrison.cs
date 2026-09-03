@@ -1,14 +1,11 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss.Projectiles;
-using Stellamod.Content.Dialogue;
 using Stellamod.Core.Camera;
 using Stellamod.Core.DialogueSystem;
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.TriggersSystem.Triggers;
-
-
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;

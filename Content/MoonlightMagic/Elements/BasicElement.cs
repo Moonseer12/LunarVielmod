@@ -1,11 +1,7 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.Effects;
-using Stellamod.Core.Particles;
-
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;
@@ -61,7 +57,7 @@ namespace Stellamod.Content.MoonlightMagic.Elements
 
                 Color color = Color.Lerp(Color.Black, Color.White, 0.5f);
 
-                LegacyParticle.NewParticle<GlowParticle>(spawnPoint, velocity, color, Scale: MagicProj.ScaleMultiplier);
+                GlowParticle.Spawn(spawnPoint, velocity, color, Scale: MagicProj.ScaleMultiplier);
             }
 
             for (float f = 0f; f < 1f; f += 0.2f)
@@ -74,7 +70,7 @@ namespace Stellamod.Content.MoonlightMagic.Elements
 
                 Color color = Color.Lerp(Color.Black, Color.White, 0.5f);
 
-                LegacyParticle.NewParticle<GlowParticle>(spawnPoint, velocity, color, Scale: MagicProj.ScaleMultiplier);
+                GlowParticle.Spawn(spawnPoint, velocity, color, Scale: MagicProj.ScaleMultiplier);
             }
             float boomSize = Main.rand.NextFloat(0.05f, 0.07f);
             FXUtil.GlowCircleBoom(Projectile.Center,

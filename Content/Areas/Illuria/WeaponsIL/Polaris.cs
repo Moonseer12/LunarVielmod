@@ -410,7 +410,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
                     initialVelocity *= 4;
                     initialVelocity = initialVelocity.RotatedByRandom(MathHelper.ToRadians(60));
                     initialVelocity *= Main.rand.NextFloat(0.15f, 1f);
-                    ZapParticle zapParticle = LegacyParticle.NewParticle<ZapParticle>(explosionCenter + initialVelocity, Main.rand.NextVector2Circular(1, 1), Color.White);
+                    ZapParticle zapParticle = ZapParticle.Spawn(explosionCenter + initialVelocity, Main.rand.NextVector2Circular(1, 1), Color.White);
                 }
 
 
@@ -449,7 +449,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
                     particle.VectorScale *= 0.5f;
 
                 }
-                var sear = LegacyParticle.NewParticle<SearParticle>(explosionCenter, Vector2.Zero);
+                var sear = SearParticle.Spawn(explosionCenter, Vector2.Zero);
                 sear.innerColor = Color.Cyan;
                 sear.outerColor = Color.Blue;
             }

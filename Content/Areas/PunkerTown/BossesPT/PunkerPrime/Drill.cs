@@ -1,7 +1,4 @@
-﻿
-using Stellamod.Assets;
-using Stellamod.Core.Particles;
-
+﻿using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using System;
 using System.IO;
@@ -236,7 +233,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.PunkerPrime
             if(Timer % 5 == 0)
             {
                 Vector2 spawnPos = NPC.Center + Main.rand.NextVector2Circular(32, 32);
-                var p = LegacyParticle.NewParticle<ZapParticle>(spawnPos, Main.rand.NextVector2Circular(4, 4), newColor: Color.Red, Main.rand.NextFloat(0.5f, 1f));
+                var p = ZapParticle.Spawn(spawnPos, Main.rand.NextVector2Circular(4, 4), color: Color.Red, Main.rand.NextFloat(0.5f, 1f));
                 p.innerColor = Color.White;
                 p.outerColor = Color.Red;
                 if (Main.rand.NextBool(2))
@@ -245,7 +242,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.PunkerPrime
                     zapSound.PitchVariance = 0.5f;
                     zapSound.Pitch = 0.66f;
                     SoundEngine.PlaySound(zapSound, NPC.position);
-                    var spark = LegacyParticle.NewParticle<SparkParticle>(spawnPos, Main.rand.NextVector2Circular(4, 4), Scale: Main.rand.NextFloat(0.5f, 1f));
+                    var spark = SparkParticle.Spawn(spawnPos, Main.rand.NextVector2Circular(4, 4), Scale: Main.rand.NextFloat(0.5f, 1f));
                     spark.innerColor = Color.White;
                     spark.outerColor = Color.Red;
                     spark.fadeToColor = Color.DarkBlue;
@@ -265,7 +262,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.PunkerPrime
 
             if(Timer % 6 == 0)
             {
-                var donut = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -NPC.velocity, Color.Red);
+                var donut = GlowDonutParticle.Spawn(NPC.Center, -NPC.velocity, Color.Red);
                 donut.shrink = true;
                 donut.innerColor = Color.Yellow;
                 donut.outerColor = Color.Red;

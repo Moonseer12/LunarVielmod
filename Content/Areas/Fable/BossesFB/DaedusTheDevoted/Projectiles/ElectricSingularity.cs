@@ -1,8 +1,5 @@
-﻿
-
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
-
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -74,7 +71,7 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
 
             if (AttackTimer >= 60)
             {
-                var part = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -NPC.velocity * 0.15f);
+                var part = GlowDonutParticle.Spawn(NPC.Center, -NPC.velocity * 0.15f);
                 part.innerColor = Color.White;
                 part.outerColor = Color.Yellow;
                 part.fadeToColor = Color.Goldenrod;
@@ -144,7 +141,7 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
                 {
                     Vector2 pVelocity = -Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4);
                     pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                    var spark = LegacyParticle.NewParticle<SparkParticle>(NPC.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                    var spark = SparkParticle.Spawn(NPC.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
                 }
             }
             if (Timer % 60 == 0)
@@ -170,7 +167,7 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
             {
                 Vector2 pVelocity = -Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4);
                 pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                var spark = LegacyParticle.NewParticle<ZapParticle>(NPC.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                var spark = ZapParticle.Spawn(NPC.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
                 spark.Scale *= 0.5f;
                 spark.Rotation = Main.rand.NextFloat(0f, 3.14f);
             }

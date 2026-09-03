@@ -151,7 +151,7 @@ public class BunnyStormBunny : ModProjectile
 
             FXUtil.ShakeCamera(Projectile.Center, 1024, 8);
             ShakeScreenPosition.Shake = 4;
-            var donut = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity * 0.3f);
+            var donut = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity * 0.3f);
             donut.Scale *= 0.5f;
             float numDust = 8;
             for (float n = 0; n < numDust; n++)
@@ -945,7 +945,7 @@ public class BunnyStorm : ScarletBoss
                     {
                         if (Timer % 4 == 0)
                         {
-                            LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -Vector2.UnitY);
+                            GlowDonutParticle.Spawn(NPC.Center, -Vector2.UnitY);
                         }
 
                         NPC.velocity.Y *= 1.05f;

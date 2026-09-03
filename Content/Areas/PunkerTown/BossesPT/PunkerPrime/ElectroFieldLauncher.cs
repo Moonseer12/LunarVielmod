@@ -309,7 +309,7 @@ public class ElectroFieldLauncher : PunkerPrimeArm
         {
             var spawnPos = NPC.Center;
             spawnPos += Main.rand.NextVector2Circular(8, 8);
-            var p = LegacyParticle.NewParticle<ZapParticle>(spawnPos, Main.rand.NextVector2Circular(4, 4), Color.Red, Main.rand.NextFloat(0.2f, 0.5f));
+            var p = ZapParticle.Spawn(spawnPos, Main.rand.NextVector2Circular(4, 4), Color.Red, Main.rand.NextFloat(0.2f, 0.5f));
         }
 
         NPC.velocity *= 0.1f;

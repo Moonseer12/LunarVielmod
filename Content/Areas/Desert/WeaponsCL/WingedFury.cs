@@ -2,7 +2,6 @@
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -64,7 +63,7 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
                         {
                             Vector2 vel = -Vector2.UnitY * 5;
                             vel = vel.RotatedByRandom(0.5f);
-                            LegacyParticle.NewParticle<EmberParticle>(Projectile.Center, vel);
+                            EmberParticle.Spawn(Projectile.Center, vel);
                         }
                     }
 
@@ -85,11 +84,11 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
                 case AIState.Chasing:
                     if (Timer == 2)
                     {
-                        var d = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity);
+                        var d = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity);
                         d.shrink = true;
                         d.Scale *= 0.5f;
 
-                        SoundStyle pingSound = new SoundStyle("Stellamod/Assets/Sounds/SunStalker_Attack");
+                        SoundStyle pingSound = new("Stellamod/Assets/Sounds/SunStalker_Attack");
                         pingSound.PitchVariance = 0.3f;
                         pingSound.Pitch = -0.5f;
                         SoundEngine.PlaySound(pingSound, Projectile.position);
@@ -108,7 +107,7 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
                         Projectile.velocity *= 1.05f;
                     if (Timer % 10 == 0)
                     {
-                        var p = LegacyParticle.NewParticle<EmberParticle>(Projectile.Center, -Projectile.velocity + Main.rand.NextVector2Circular(1, 1));
+                        EmberParticle.Spawn(Projectile.Center, -Projectile.velocity + Main.rand.NextVector2Circular(1, 1));
                     }
                     Projectile.frame = 0;
                     break;

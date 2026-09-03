@@ -1,29 +1,20 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
-using Stellamod.Assets.ContentReader.Aseprite;
 using Stellamod.Common.Particles;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Cinderspark.BossesCS.Rek.EyeProjectiles;
 using Stellamod.Content.Areas.Cinderspark.BossesCS.Rek.Projectiles;
 using Stellamod.Core.Camera;
-using Stellamod.Core.InverseKinematics;
 using Stellamod.Core.NPCHelpers;
-using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Effects.GothinFlames;
 using Stellamod.Visual.Particles;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Animations;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.GameContent.Animations.IL_Actions.Sprites;
 
 namespace Stellamod.Content.Areas.Cinderspark.BossesCS.Rek;
 
@@ -670,7 +661,7 @@ public class RekEye : ModNPC
                         NPC.velocity.Y *= MathHelper.Lerp(1.01f, 1.12f, EasingFunction.InExpo(Timer / 30f));
                         if (Timer % 5 == 0)
                         {
-                            var p = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -NPC.velocity.SafeNormalize(Vector2.Zero));
+                            var p = GlowDonutParticle.Spawn(NPC.Center, -NPC.velocity.SafeNormalize(Vector2.Zero));
                             p.fadeToColor = Color.DarkRed;
                         }
                     }

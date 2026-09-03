@@ -1,9 +1,6 @@
-﻿
-
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
-
 using Terraria;
 
 namespace Stellamod.Visual.Particles
@@ -28,7 +25,7 @@ namespace Stellamod.Visual.Particles
                 active = false;
         }
     }
-    public class EmberParticle : LegacyParticle
+    public class EmberParticle : Particle<EmberParticle>
     {
         private float _randOffset;
         private Vector2 _stretchScale;

@@ -72,15 +72,15 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
 
                 for (float i = 0; i < 3; i++)
                 {
-                    var donutParticle = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, rotatedVelocity * MathHelper.Lerp(15, 1f, i / 3f));
+                    var donutParticle = GlowDonutParticle.Spawn(Projectile.Center, rotatedVelocity * MathHelper.Lerp(15, 1f, i / 3f));
                     donutParticle.Scale *= MathHelper.Lerp(1f, 3f, i / 3f);
 
                 }
-                var strike = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, rotatedVelocity);
+                var strike = GlowDonutParticle.Spawn(Projectile.Center, rotatedVelocity);
                 strike.xMult = 6;
                 strike.rotOffset += MathHelper.PiOver2;
 
-                var strike2 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, rotatedVelocity);
+                var strike2 = GlowDonutParticle.Spawn(Projectile.Center, rotatedVelocity);
                 strike2.xMult = 32;
                 strike2.rotOffset += MathHelper.PiOver2;
                 SoundStyle hurriSlash = AssetRegistry.Sounds.E.Hurrislash;

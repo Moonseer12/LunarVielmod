@@ -172,9 +172,9 @@ public class EreshkigalCrack : ModProjectile
 
     private void DrawVortexParticles(SpriteBatch sb, Vector2 screenPos)
     {
-        DrawParticles(sb, screenPos, VortexParticleSystem);
+        DrawParticles(sb, VortexParticleSystem);
     }
-    private void DrawParticles(SpriteBatch sb, Vector2 screenPos, VortexParticleSystem particleSystem)
+    private void DrawParticles(SpriteBatch sb, VortexParticleSystem particleSystem)
     {
         float maxSize = 768;
         Rectangle worldRectangle = DrawUtilities.CenterRectangle(Projectile.Center, (int)maxSize, (int)maxSize);
@@ -455,7 +455,7 @@ public class EreshkigalsFinisherLaser : ModProjectile,
                 float ratio = i / 3f;
                 Vector2 v = -Projectile.velocity;
                 v *= ratio * 6;
-                var s = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center,
+                var s = GlowDonutParticle.Spawn(Projectile.Center,
                     Projectile.velocity.SafeNormalize(Vector2.Zero) * v,
                     Scale: MathHelper.Lerp(4f, 3f, ratio));
                 s.Scale *= 2;

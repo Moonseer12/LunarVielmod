@@ -1,7 +1,6 @@
 ﻿using Stellamod.Common.Particles;
 using Stellamod.Common.RarityRendering;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -9,9 +8,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-
 namespace Stellamod.Content.Areas.SpringHills.WeaponsSH;
-
 
 public class JewelsBow : BaseCrossbowItem
 {
@@ -81,7 +78,7 @@ public class JewelShot : ModProjectile
 
     private void BounceFX()
     {
-        var p2 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero), newColor: Color.White);
+        var p2 = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero), color: Color.White);
         p2.fadeToColor = Color.DarkBlue;
         p2.Scale *= 0.185f;
         var sound = SoundID.DD2_CrystalCartImpact with { PitchVariance = 0.4f, Volume = 0.4f };

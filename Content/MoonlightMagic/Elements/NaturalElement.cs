@@ -1,10 +1,6 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
-using Stellamod.Core.Particles;
-
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;
@@ -85,13 +81,13 @@ namespace Stellamod.Content.MoonlightMagic.Elements
                         switch (Main.rand.Next(3))
                         {
                             case 0:
-                                LegacyParticle.NewBlackParticle<WhiteFlowerParticle>(spawnPoint, velocity, Color.White);
+                                WhiteFlowerParticle.Spawn(spawnPoint, velocity, Color.White);
                                 break;
                             case 1:
-                                LegacyParticle.NewBlackParticle<PurpleFlowerParticle>(spawnPoint, velocity, Color.White);
+                                PurpleFlowerParticle.Spawn(spawnPoint, velocity, Color.White);
                                 break;
                             case 2:
-                                LegacyParticle.NewBlackParticle<BlueFlowerParticle>(spawnPoint, velocity, Color.White);
+                                BlueFlowerParticle.Spawn(spawnPoint, velocity, Color.White);
                                 break;
                         }
 
@@ -99,7 +95,7 @@ namespace Stellamod.Content.MoonlightMagic.Elements
 
                     if (Main.rand.NextBool(32))
                     {
-                        LegacyParticle.NewBlackParticle<MusicParticle>(spawnPoint, velocity, color);
+                        MusicParticle.Spawn(spawnPoint, velocity, color);
                     }
                 }
             }
@@ -127,13 +123,13 @@ namespace Stellamod.Content.MoonlightMagic.Elements
                     switch (Main.rand.Next(3))
                     {
                         case 0:
-                            LegacyParticle.NewBlackParticle<WhiteFlowerParticle>(spawnPoint, velocity, Color.White);
+                            WhiteFlowerParticle.Spawn(spawnPoint, velocity, Color.White);
                             break;
                         case 1:
-                            LegacyParticle.NewBlackParticle<PurpleFlowerParticle>(spawnPoint, velocity, Color.White);
+                            PurpleFlowerParticle.Spawn(spawnPoint, velocity, Color.White);
                             break;
                         case 2:
-                            LegacyParticle.NewBlackParticle<BlueFlowerParticle>(spawnPoint, velocity, Color.White);
+                            BlueFlowerParticle.Spawn(spawnPoint, velocity, Color.White);
                             break;
                     }
 
@@ -153,18 +149,18 @@ namespace Stellamod.Content.MoonlightMagic.Elements
                     switch (Main.rand.Next(3))
                     {
                         case 0:
-                            LegacyParticle.NewBlackParticle<WhiteFlowerParticle>(spawnPoint, velocity, Color.White);
+                            WhiteFlowerParticle.Spawn(spawnPoint, velocity, Color.White);
                             break;
                         case 1:
-                            LegacyParticle.NewBlackParticle<PurpleFlowerParticle>(spawnPoint, velocity, Color.White);
+                            PurpleFlowerParticle.Spawn(spawnPoint, velocity, Color.White);
                             break;
                         case 2:
-                            LegacyParticle.NewBlackParticle<BlueFlowerParticle>(spawnPoint, velocity, Color.White);
+                            BlueFlowerParticle.Spawn(spawnPoint, velocity, Color.White);
                             break;
                     }
 
                 }
-                LegacyParticle.NewBlackParticle<MusicParticle>(spawnPoint, velocity, color);
+                MusicParticle.Spawn(spawnPoint, velocity, color);
             }
         }
 

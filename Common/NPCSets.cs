@@ -1,5 +1,4 @@
-﻿using Stellamod.NPCs.Town;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Core.NPCHelpers

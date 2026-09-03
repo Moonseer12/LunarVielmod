@@ -243,7 +243,7 @@ public class VerliaDesperationMoon : ModProjectile
                         }
                         if (Timer % 8 == 0)
                         {
-                            var p2 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Bottom, -Projectile.velocity);
+                            var p2 = GlowDonutParticle.Spawn(Projectile.Bottom, -Projectile.velocity);
                             p2.Scale *= 3f;
                         }
                         if (Projectile.velocity.Y < 1)

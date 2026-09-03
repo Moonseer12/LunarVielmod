@@ -106,7 +106,7 @@ public class CariyaMagicBlade : ModProjectile
                 Projectile.velocity *= 1.1f;
                 if (Projectile.velocity.Length() >= _initialVelocity.Length())
                 {
-                    LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity);
+                    GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity);
                 }
             }
             else

@@ -82,7 +82,7 @@ namespace Stellamod.Content.MoonlightMagic.Elements
 
                 Color color = Color.Lerp(Color.White, Color.Turquoise, 0.5f);
                 //  color.A = 0;
-                LegacyParticle.NewParticle<GlowParticle>(spawnPoint, velocity, color, Scale: MagicProj.ScaleMultiplier * scaleFactor);
+                GlowParticle.Spawn(spawnPoint, velocity, color, Scale: MagicProj.ScaleMultiplier * scaleFactor);
             }
             if (MagicProj.orb)
             {

@@ -434,7 +434,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria
             {
                 CreateShockwaveParticles();
                 NPC.velocity.Y = -2;
-                LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, -Vector2.UnitY, Color.White, Scale: 0.2f);
+                GlowDonutParticle.Spawn(NPC.Bottom, -Vector2.UnitY, Color.White, Scale: 0.2f);
             }
             if(Timer >= 100)
             {
@@ -525,7 +525,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria
             FloatAround();
             if (Timer % 20 == 0)
             {
-                var part = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, Vector2.Zero, Color.White);
+                var part = GlowDonutParticle.Spawn(NPC.Center, Vector2.Zero, Color.White);
                 part.Scale *= 4;
                 part.shrink = true;
                 part.noStretch = true;
@@ -599,7 +599,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria
 
             if (Timer % 30 == 0)
             {
-                var part = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, Vector2.Zero, Color.White);
+                var part = GlowDonutParticle.Spawn(NPC.Center, Vector2.Zero, Color.White);
                 part.Scale *= 3;
                 part.shrink = true;
                 part.noStretch = true;
@@ -670,7 +670,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria
             {
                 _rollVelocity.X *= -1;
                 _rollVelocity.X *= 1.005f;
-                var donut = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -_rollVelocity);
+                var donut = GlowDonutParticle.Spawn(NPC.Center, -_rollVelocity);
                 donut.Scale *= 0.5f;
 
                 SoundStyle boom = SoundID.DD2_ExplosiveTrapExplode;
@@ -751,7 +751,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria
                     NPC.velocity.Y = -15;
                 }
                 
-                LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, -Vector2.UnitY, Color.White, Scale: 0.2f);
+                GlowDonutParticle.Spawn(NPC.Bottom, -Vector2.UnitY, Color.White, Scale: 0.2f);
                 CreateShockwaveParticles();
 
             }
@@ -864,7 +864,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria
             {
                 NPC.TargetClosest();
                 NPC.velocity.Y = -18;
-                var donuit = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, Vector2.UnitY);
+                var donuit = GlowDonutParticle.Spawn(NPC.Bottom, Vector2.UnitY);
 
             }
 
@@ -877,7 +877,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria
             NPC.noTileCollide = NPC.velocity.Y < 0 || isAbovePlayer;
             if (Timer % 5 == 0)
             {
-                var p2 = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, -NPC.velocity);
+                var p2 = GlowDonutParticle.Spawn(NPC.Bottom, -NPC.velocity);
                 p2.Scale *= 0.5f;
             }
             TargetOutlineColor = Color.Yellow;
@@ -989,7 +989,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria
             _draw.scale = Vector2.Lerp(Vector2.One * 1, Vector2.One * 1.2f, completionRatio);
             if (Timer % 150 == 0)
             {
-                var part = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, Vector2.Zero, Color.White);
+                var part = GlowDonutParticle.Spawn(NPC.Center, Vector2.Zero, Color.White);
                 part.Scale *= 3;
                 part.shrink = true;
                 part.noStretch = true;
@@ -1109,7 +1109,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria
             Timer++;
             if (Timer == 1)
             {
-                var part = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, Vector2.Zero, Color.White);
+                var part = GlowDonutParticle.Spawn(NPC.Center, Vector2.Zero, Color.White);
                 part.Scale *= 4;
                 part.shrink = true;
                 part.noStretch = true;
@@ -1154,7 +1154,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria
             ShakeScreenPosition.Shake = 4;
             if (Timer % 7 == 0)
             {
-                LegacyParticle.NewParticle<ShockParticle>(NPC.Center, Vector2.Zero, Color.White);
+                ShockParticle.Spawn(NPC.Center, Vector2.Zero, Color.White);
             }
 
             Hover();
@@ -1343,10 +1343,10 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.CrumblingTowerOfIlluria
                 {
                     Vector2 pVelocity = Vector2.UnitY.RotatedByRandom(MathHelper.TwoPi);
                     pVelocity *= Main.rand.NextFloat(0.5f, 8f);
-                    var spark = LegacyParticle.NewParticle<EmberParticle>(NPC.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                    EmberParticle.Spawn(NPC.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
                 }
         
-                var donut = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, Vector2.Zero, newColor: Color.Cyan);
+                var donut = GlowDonutParticle.Spawn(NPC.Center, Vector2.Zero, color: Color.Cyan);
                 donut.shrink = true;
                 NPC.Kill();
             }

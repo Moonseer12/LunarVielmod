@@ -2,7 +2,6 @@
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Dusts;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Visual.Particles;
 using System;
@@ -98,7 +97,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
                 {
                     Vector2 pVelocity = lvelocity.RotatedByRandom(MathHelper.PiOver4 / 3f);
                     pVelocity *= Main.rand.NextFloat(0.5f, 2f);
-                    var frag = LegacyParticle.NewParticle<GlowFragmentParticle>(position, pVelocity);
+                    var frag = GlowFragmentParticle.Spawn(position, pVelocity);
                     FXUtil.GlowFragmentParticle(position, pVelocity,
                         innerColor: Color.Yellow,
                         outerColor: Color.Orange,
@@ -393,7 +392,7 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
                 {
                     Vector2 pVelocity = lvelocity.RotatedByRandom(MathHelper.PiOver4 / 3f);
                     pVelocity *= Main.rand.NextFloat(0.5f, 2f);
-                    var frag = LegacyParticle.NewParticle<GlowFragmentParticle>(position, pVelocity);
+                    var frag = GlowFragmentParticle.Spawn(position, pVelocity);
                     FXUtil.GlowFragmentParticle(position, pVelocity,
                         innerColor: Color.Yellow,
                         outerColor: Color.Orange,
@@ -415,10 +414,10 @@ namespace Stellamod.Content.Areas.Cinderspark.WeaponsCS
                 {
                     Vector2 pVelocity = lvelocity.RotatedByRandom(MathHelper.PiOver4 / 3f);
                     pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                    var spark = LegacyParticle.NewParticle<SparkParticle>(position + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                    var spark = SparkParticle.Spawn(position + Main.rand.NextVector2Circular(64, 64), pVelocity);
                 }
 
-                var sear = LegacyParticle.NewParticle<SearParticle>(Projectile.Bottom, Vector2.Zero);
+                var sear = SearParticle.Spawn(Projectile.Bottom, Vector2.Zero);
 
                 for (float f = 0; f < 4; f++)
                 {

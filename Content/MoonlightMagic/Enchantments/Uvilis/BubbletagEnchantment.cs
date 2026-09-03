@@ -1,6 +1,5 @@
 using Stellamod.Content.Dusts;
 using Stellamod.Content.MoonlightMagic.Elements;
-using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -31,7 +30,7 @@ namespace Stellamod.Content.MoonlightMagic.Enchantments.Uvilis
                 {
                     Vector2 spawnPoint = Projectile.Center + Main.rand.NextVector2Circular(8, 8);
                     Vector2 velocity = Main.rand.NextVector2Circular(8, 8);
-                    LegacyParticle.NewParticle<WaterSparkleParticle>(spawnPoint, velocity, Color.White);
+                    WaterSparkleParticle.Spawn(spawnPoint, velocity, Color.White);
                 }
 
                 if(Main.myPlayer == Projectile.owner)

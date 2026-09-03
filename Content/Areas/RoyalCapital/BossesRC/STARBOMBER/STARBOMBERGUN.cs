@@ -51,7 +51,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.BossesRC.STARBOMBER
             SoundStyle primeSound = new SoundStyle("Stellamod/Assets/Sounds/MiniPistol2");
             primeSound.PitchVariance = 0.2f;
             SoundEngine.PlaySound(primeSound, _lastPosition); 
-            var part = LegacyParticle.NewParticle<GlowDonutParticle>(_lastPosition, Vector2.Zero, Color.White);
+            var part = GlowDonutParticle.Spawn(_lastPosition, Vector2.Zero, Color.White);
             part.Scale *= 4;
             part.shrink = true;
             part.noStretch = true;
@@ -62,7 +62,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.BossesRC.STARBOMBER
             SoundStyle primeSound = new SoundStyle("Stellamod/Assets/Sounds/MiniPistol2");
             primeSound.PitchVariance = 0.2f;
             SoundEngine.PlaySound(primeSound, muzzlePoint);
-            var part = LegacyParticle.NewParticle<GlowDonutParticle>(muzzlePoint, Vector2.Zero, Color.White);
+            var part = GlowDonutParticle.Spawn(muzzlePoint, Vector2.Zero, Color.White);
             part.Scale *= 4;
             part.shrink = true;
             part.noStretch = true;

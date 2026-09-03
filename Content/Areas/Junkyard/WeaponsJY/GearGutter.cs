@@ -112,7 +112,7 @@ public class GearSniper : ModProjectile,
         Projectile.rotation = Projectile.velocity.ToRotation();
         if(Timer % 14 == 0)
         {
-            var p =LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero));
+            var p =GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero));
             p.Scale *= 0.45f;
         }
     }

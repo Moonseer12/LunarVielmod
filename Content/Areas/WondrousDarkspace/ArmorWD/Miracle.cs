@@ -1,7 +1,5 @@
 using ReLogic.Content;
-using Stellamod.Assets;
 using Stellamod.Common.ArmorRework;
-using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using System;
 using Terraria;
@@ -170,7 +168,7 @@ public class MiraclePlayer : ModPlayer
       
             if (Main.rand.NextBool(2))
             {
-                var p = LegacyParticle.NewParticle<EmberParticle>(Player.position + new Vector2(Main.rand.Next(0, Player.width),
+                var p = EmberParticle.Spawn(Player.position + new Vector2(Main.rand.Next(0, Player.width),
                     Main.rand.Next(0, Player.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.Purple, Main.rand.NextFloat(0.9f, 1.5f));
                 p.innerColor = Color.LightPink;
                 p.outerColor = Color.Purple;

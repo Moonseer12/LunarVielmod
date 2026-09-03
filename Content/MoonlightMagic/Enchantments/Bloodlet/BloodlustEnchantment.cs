@@ -1,6 +1,4 @@
-﻿
-using Stellamod.Content.MoonlightMagic.Elements;
-using Stellamod.Core.Particles;
+﻿using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.ModLoader;
@@ -29,7 +27,7 @@ namespace Stellamod.Content.MoonlightMagic.Enchantments.Bloodlet
 
                     Color color = Color.White;
                     color.A = 0;
-                    LegacyParticle.NewBlackParticle<BloodSparkleParticle>(spawnPoint, velocity, color);
+                    BloodSparkleParticle.Spawn(spawnPoint, velocity, color);
                 }
 
                 float damage = Projectile.damage;
@@ -49,7 +47,7 @@ namespace Stellamod.Content.MoonlightMagic.Enchantments.Bloodlet
 
                 Color color = Color.White;
                 color.A = 0;
-                LegacyParticle.NewBlackParticle<BloodSparkleParticle>(spawnPoint, velocity, color);
+                BloodSparkleParticle.Spawn(spawnPoint, velocity, color);
             }
             CombatText.NewText(player.getRect(), Color.Red, "-25", true);
             return true;

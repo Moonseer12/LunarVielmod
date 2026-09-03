@@ -1,14 +1,12 @@
-﻿
-
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
-
 using System;
 using Terraria;
+
 namespace Stellamod.Visual.Particles
 {
-    public class GlowDonutParticle : LegacyParticle
+    public class GlowDonutParticle : Particle<GlowDonutParticle>
     {
         private float _direction;
         private Vector2 _stretchScale;
@@ -47,7 +45,7 @@ namespace Stellamod.Visual.Particles
 
         public override void Update()
         {
-            color *= Main.rand.NextFloat(0.98f, 1f); ;
+            color *= Main.rand.NextFloat(0.98f, 1f);
             if (noStretch)
             {
                 _stretchScale = Vector2.One;

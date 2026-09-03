@@ -1,10 +1,9 @@
-﻿
-using Stellamod.Core.Particles;
+﻿using Stellamod.Core.Particles;
 using Terraria;
 
 namespace Stellamod.Visual.Particles
 {
-    public class BloodSparkleParticle : LegacyParticle
+    public class BloodSparkleParticle : Particle<BloodSparkleParticle>
     {
         public int FrameWidth = 55;
         public int FrameHeight = 54;
@@ -49,6 +48,12 @@ namespace Stellamod.Visual.Particles
             fadeIn++;
             if (fadeIn > 60)
                 active = false;
+        }
+        
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            var textureAsset = GetTexture();
+            spriteBatch.Draw(textureAsset.Value, DrawPosition, Frame, color, Rotation, Frame.Size() / 2f, Scale, SpriteEffects.None, 0);
         }
     }
 }

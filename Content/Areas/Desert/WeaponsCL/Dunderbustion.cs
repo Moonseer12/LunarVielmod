@@ -6,7 +6,6 @@ using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Dusts;
 using Stellamod.Core;
-using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Visual.Particles;
 using Terraria;
@@ -122,7 +121,7 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
                     Projectile.velocity.X = oldVelocity.X;
                 }
 
-                var part = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero, Color.White);
+                var part = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero, Color.White);
                 part.innerColor = Color.Yellow;
                 part.outerColor = Color.DarkGoldenrod;
                 part.fadeToColor = Color.DarkBlue;

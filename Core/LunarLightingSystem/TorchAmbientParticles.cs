@@ -1,6 +1,4 @@
-﻿
-using Stellamod.Core.Particles;
-using Stellamod.Visual.Particles;
+﻿using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,10 +15,10 @@ namespace Stellamod.Core.LunarLightingSystem
 
             if (Main.rand.NextBool(100))
             {
-                Vector2 worldPosition = new Vector2(i * 16, j * 16);
+                Vector2 worldPosition = new(i * 16, j * 16);
                 Vector2 spawnPosition = worldPosition + Main.rand.NextVector2Circular(16, 16);
                 Vector2 velocity = Main.rand.NextVector2Circular(0.3f, 0.3f);
-                LegacyParticle.NewParticle<AmbientEmberParticle>(spawnPosition, velocity);
+                AmbientEmberParticle.Spawn(spawnPosition, velocity);
             }
         }
     }

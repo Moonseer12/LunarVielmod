@@ -90,7 +90,7 @@ public class PunkerBoom : ModProjectile
 
             var p = Particle<ThickSmokeParticle>.Spawn(Projectile.Bottom, Vector2.Zero, Color.DarkGray);
 
-            var sear = LegacyParticle.NewParticle<SearParticle>(Projectile.Center, Vector2.Zero);
+            var sear = SearParticle.Spawn(Projectile.Center, Vector2.Zero);
             sear.innerColor = Color.Gray;
             sear.outerColor = Color.Blue;
             sear.fadeToColor = Color.Black;
@@ -100,7 +100,7 @@ public class PunkerBoom : ModProjectile
             {
                 Vector2 pos = Projectile.Center;
                 pos += Main.rand.NextVector2Circular(80, 80);
-                var zap = LegacyParticle.NewParticle<ZapParticle>(pos, Vector2.UnitY.RotatedByRandom(10) * Main.rand.NextFloat(2, 15));
+                var zap = ZapParticle.Spawn(pos, Vector2.UnitY.RotatedByRandom(10) * Main.rand.NextFloat(2, 15));
                 zap.innerColor = Color.Gray;
                 zap.outerColor = Color.Red;
                 zap.fadeToColor = Color.Black;
@@ -128,13 +128,13 @@ public class PunkerBoom : ModProjectile
             SoundEngine.PlaySound(smashSound, Projectile.position);
 
 
-            var part = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero, Color.White);
+            var part = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero, Color.White);
             part.fadeToColor = Color.Black;
             part.outerColor = Color.Gray;
             part.noStretch = true;
             part.shrink = true;
 
-            var part2 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero, Color.White);
+            var part2 = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero, Color.White);
             part2.fadeToColor = Color.Black;
             part2.outerColor = Color.Gray;
             part2.noStretch = true;
@@ -613,7 +613,7 @@ public class PunkerPrime : ScarletBoss,
 
         if (Timer % 5 == 0)
         {
-            var p2 = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Bottom, -NPC.velocity);
+            var p2 = GlowDonutParticle.Spawn(NPC.Bottom, -NPC.velocity);
             p2.Scale *= 0.5f;
         }
 
@@ -828,7 +828,7 @@ public class PunkerPrime : ScarletBoss,
 
         if (Timer % 6 == 0)
         {
-            LegacyParticle.NewParticle<SparkParticle>(NPC.Bottom + Main.rand.NextVector2Circular(16, 16),
+            SparkParticle.Spawn(NPC.Bottom + Main.rand.NextVector2Circular(16, 16),
                 Main.rand.NextVector2Circular(4, 4), Color.Red);
         }
         if (Timer % 3 == 0)

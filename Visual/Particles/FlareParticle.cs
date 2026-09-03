@@ -1,13 +1,11 @@
-﻿
-
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
 using Terraria;
 
 namespace Stellamod.Visual.Particles
 {
-    public class FlareParticle : LegacyParticle
+    public class FlareParticle : Particle<FlareParticle>
     {
         private float _offset;
         private float _interpolant;

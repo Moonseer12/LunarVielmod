@@ -1,10 +1,9 @@
-﻿
-
-using Stellamod.Core.Particles;
+﻿using Stellamod.Core.Particles;
+using Terraria;
 
 namespace Stellamod.Visual.Particles
 {
-    public class CircleStepParticle : LegacyParticle
+    public class CircleStepParticle : Particle<CircleStepParticle>
     {
         public int FrameWidth = 128;
         public int FrameHeight = 128;
@@ -34,6 +33,12 @@ namespace Stellamod.Visual.Particles
                 }
                 FrameCounter = 0;
             }
+        }
+        
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            var textureAsset = GetTexture();
+            spriteBatch.Draw(textureAsset.Value, DrawPosition, Frame, color, Rotation, Frame.Size() / 2f, Scale, SpriteEffects.None, 0);
         }
     }
 }

@@ -33,7 +33,7 @@ public class DeadRomanceDelayedBoom : ModProjectile
         Timer++;
         if (Timer == 1)
         {
-            var donut = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero, Color.Red);
+            var donut = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero, Color.Red);
             donut.Scale *= 1f;
             donut.fadeToColor = Color.Goldenrod;
             donut.noStretch = true;

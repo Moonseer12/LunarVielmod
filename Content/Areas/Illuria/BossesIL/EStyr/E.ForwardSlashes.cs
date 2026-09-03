@@ -1,10 +1,4 @@
-﻿
-using Stellamod.Assets;
-using Stellamod.Core.Particles;
-
-
-using Stellamod.Visual.Particles;
-using System;
+﻿using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
@@ -100,11 +94,11 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
 
             for (float i = 0; i < 3; i++)
             {
-                var donutParticle = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -direction * MathHelper.Lerp(15, 1f, i / 3f));
+                var donutParticle = GlowDonutParticle.Spawn(NPC.Center, -direction * MathHelper.Lerp(15, 1f, i / 3f));
                 donutParticle.Scale *= MathHelper.Lerp(1f, 3f, i / 3f);
 
             }
-            var strike = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, direction);
+            var strike = GlowDonutParticle.Spawn(NPC.Center, direction);
             strike.xMult = 6;
             strike.rotOffset += MathHelper.PiOver2;
             if (MultiplayerHelper.IsHost)
@@ -114,7 +108,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
                 int projType = ModContent.ProjectileType<EBuster>();
                 Projectile.NewProjectile(SourceFromThis, NPC.Center, shootVelocity, projType, ForwardSlashDamage, 1, Main.myPlayer);
             }
-            var strike2 = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, direction);
+            var strike2 = GlowDonutParticle.Spawn(NPC.Center, direction);
             strike2.xMult = 32;
             strike2.rotOffset += MathHelper.PiOver2;
             SoundStyle hurriSlash = AssetRegistry.Sounds.E.Hurrislash;

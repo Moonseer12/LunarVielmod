@@ -49,7 +49,7 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
             }
             if (Main.rand.NextBool(3))
             {
-                LegacyParticle.NewParticle<EmberParticle>(npc.position + new Vector2(Main.rand.Next(0, npc.width), Main.rand.Next(0, npc.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.OrangeRed, Main.rand.NextFloat(0.9f, 1.5f));
+                EmberParticle.Spawn(npc.position + new Vector2(Main.rand.Next(0, npc.width), Main.rand.Next(0, npc.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.OrangeRed, Main.rand.NextFloat(0.9f, 1.5f));
             }
         }
     }
@@ -100,7 +100,7 @@ namespace Stellamod.Content.Areas.Terror.WeaponsTR
 
             if (Timer % 8 == 0)
             {
-                LegacyParticle.NewParticle<EmberParticle>(Projectile.Center, Main.rand.NextVector2Circular(1, 1), Scale: Main.rand.NextFloat(0.4f, 0.78f));
+                EmberParticle.Spawn(Projectile.Center, Main.rand.NextVector2Circular(1, 1), Scale: Main.rand.NextFloat(0.4f, 0.78f));
             }
 
             if (Timer % 15 == 0)

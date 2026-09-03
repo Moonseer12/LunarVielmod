@@ -294,10 +294,10 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
                 pos += Vector2.UnitX * NPC.direction * 100;
                 ScreenSmearEffectManager.NewParticle(pos, direction, 2400, 15);
 
-                var strike = LegacyParticle.NewParticle<GlowDonutParticle>(pos, direction);
+                var strike = GlowDonutParticle.Spawn(pos, direction);
                 strike.xMult = 6;
                 strike.rotOffset += MathHelper.PiOver2;
-                var strike2 = LegacyParticle.NewParticle<GlowDonutParticle>(pos, direction);
+                var strike2 = GlowDonutParticle.Spawn(pos, direction);
                 strike2.xMult = 32;
                 strike2.rotOffset += MathHelper.PiOver2;
                 SoundStyle hurriSlash = AssetRegistry.Sounds.E.Hurrislash;

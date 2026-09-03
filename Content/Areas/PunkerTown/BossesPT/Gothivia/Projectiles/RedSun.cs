@@ -403,7 +403,7 @@ public class RedSun : ModProjectile,
 
         if(Timer < 6)
         {
-            var gd = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero));
+            var gd = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero));
             gd.outerColor = Color.Red;
             gd.fadeToColor = Color.Black;
             gd.Scale *= 2.4f;

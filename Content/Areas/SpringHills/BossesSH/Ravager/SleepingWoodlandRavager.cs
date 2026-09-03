@@ -69,7 +69,7 @@ namespace Stellamod.Content.Areas.SpringHills.BossesSH.Ravager
             Timer++;
             if (Timer % 30 == 0)
             {
-                LegacyParticle.NewParticle<SleepParticle>(NPC.TopRight - new Vector2(30, 60), -Vector2.UnitY, Color.White);
+                SleepParticle.Spawn(NPC.TopRight - new Vector2(30, 60), -Vector2.UnitY, Color.White);
             }
             _squishScale = Vector2.Lerp(new Vector2(1.05f, 0.95f), new Vector2(0.95f, 1.05f), MathUtil.Osc(0f, 1f));
             NPC.spriteDirection = -NPC.direction;

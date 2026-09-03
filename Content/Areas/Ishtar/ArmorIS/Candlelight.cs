@@ -6,7 +6,6 @@ using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Ishtar.ArmorIS;
@@ -68,7 +67,7 @@ public class CandlelightPlayer : ModPlayer
         }
         if (Main.rand.NextBool(3))
         {
-            var sp = LegacyParticle.NewParticle<EmberParticle>(drawCenter, -Vector2.UnitY.RotatedByRandom(1.5f), Color.OrangeRed, Main.rand.NextFloat(0.9f, 1.5f));
+            var sp = EmberParticle.Spawn(drawCenter, -Vector2.UnitY.RotatedByRandom(1.5f), Color.OrangeRed, Main.rand.NextFloat(0.9f, 1.5f));
             sp.Scale *= MathHelper.Lerp(1f, 0f, strength);
         }
     }

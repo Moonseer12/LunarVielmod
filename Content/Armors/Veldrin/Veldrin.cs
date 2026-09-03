@@ -38,7 +38,7 @@ public class MildCurse : ModBuff
         }
         if (Main.rand.NextBool(3))
         {
-            var ember = LegacyParticle.NewParticle<EmberParticle>(npc.position + new Vector2(Main.rand.Next(0, npc.width),
+            var ember = EmberParticle.Spawn(npc.position + new Vector2(Main.rand.Next(0, npc.width),
                 Main.rand.Next(0, npc.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.Gold, Main.rand.NextFloat(0.9f, 1.5f));
             ember.innerColor = Color.LightPink;
             ember.outerColor = Color.Purple;

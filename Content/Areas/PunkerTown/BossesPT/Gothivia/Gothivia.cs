@@ -519,7 +519,7 @@ public partial class Gothivia : ScarletBoss
                     if (Timer % 10 == 0)
                     {
                     //    FXUtil.ShakeCamera(NPC.position, 1024, 24);
-                        LegacyParticle.NewParticle<ShockParticle>(NPC.Center, Vector2.Zero, Color.White);
+                        ShockParticle.Spawn(NPC.Center, Vector2.Zero, Color.White);
                     }
 
                     CameraTargetSystem.AddTarget(NPC.Center);

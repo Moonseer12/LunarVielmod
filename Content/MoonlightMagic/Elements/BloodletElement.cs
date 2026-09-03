@@ -49,7 +49,7 @@ namespace Stellamod.Content.MoonlightMagic.Elements
             {
                 Vector2 pVelocity = vek.RotatedByRandom(MathHelper.PiOver4 / 3f);
                 pVelocity *= Main.rand.NextFloat(0.5f, 2f);
-                var frag = LegacyParticle.NewParticle<GlowFragmentParticle>(pos, pVelocity);
+                var frag = GlowFragmentParticle.Spawn(pos, pVelocity);
                 FXUtil.GlowFragmentParticle(pos, pVelocity,
                     innerColor: Color.Black,
                     outerColor: Color.Red,

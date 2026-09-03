@@ -1,7 +1,6 @@
 ﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -43,7 +42,7 @@ namespace Stellamod.Content.Areas.Cinderspark.AccCS
                     rot += Main.rand.NextFloat(-0.5f, 0.5f);
                     Vector2 velocity = (rot * MathHelper.TwoPi).ToRotationVector2();
                     velocity *= Main.rand.NextFloat(4, 8);
-                    LegacyParticle.NewParticle<ImpactParticle>(Projectile.Center, velocity);
+                    ImpactParticle.Spawn(Projectile.Center, velocity);
                 }
 
                 for (float f = 0; f < 8; f++)
@@ -52,12 +51,12 @@ namespace Stellamod.Content.Areas.Cinderspark.AccCS
                     rot += Main.rand.NextFloat(-0.5f, 0.5f);
                     Vector2 velocity = (rot * MathHelper.TwoPi).ToRotationVector2();
                     velocity *= Main.rand.NextFloat(4, 8);
-                    LegacyParticle.NewParticle<EmberParticle>(Projectile.Center, velocity);
+                    EmberParticle.Spawn(Projectile.Center, velocity);
                 }
                 FXUtil.GlowCircleBoom(Projectile.Center, Color.Yellow, Color.Orange, Color.Red);
 
                 //Effects
-                SoundStyle explosionSoundStyle = new SoundStyle($"Stellamod/Assets/Sounds/HeatExplosion");
+                SoundStyle explosionSoundStyle = new($"Stellamod/Assets/Sounds/HeatExplosion");
                 explosionSoundStyle.PitchVariance = 0.15f;
                 SoundEngine.PlaySound(explosionSoundStyle, Projectile.position);
 

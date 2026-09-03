@@ -3,19 +3,14 @@ using MonoMod.Cil;
 using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-
-
-using Stellamod.NPCs.Town;
 using System;
 using System.Reflection;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
-using Terraria.GameContent.UI.States;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 using Terraria.ModLoader.UI;
-using Terraria.UI;
 namespace Stellamod.Core.UI;
 
 public class MainMenuFallingLeavesParticleSystem

@@ -1,10 +1,9 @@
-﻿
-using Stellamod.Core.Particles;
+﻿using Stellamod.Core.Particles;
 using Terraria;
 
 namespace Stellamod.Visual.Particles
 {
-    public class FireHeatParticle : LegacyParticle
+    public class FireHeatParticle : Particle<FireHeatParticle>
     {
         public int FrameWidth = 80;
         public int FrameHeight = 82;
@@ -44,6 +43,12 @@ namespace Stellamod.Visual.Particles
                 }
                 FrameCounter = 0;
             }
+        }
+        
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            var textureAsset = GetTexture();
+            spriteBatch.Draw(textureAsset.Value, DrawPosition, Frame, color, Rotation, Frame.Size() / 2f, Scale, SpriteEffects.None, 0);
         }
     }
 }

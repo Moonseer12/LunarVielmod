@@ -5,7 +5,6 @@ using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Trailers;
 using Stellamod.Core.Bases;
-using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Visual.Particles;
@@ -73,13 +72,13 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
                     _dustPointsBackingField = new DustStormPoint[dustPoints];
                     for (int i = 0; i < dustPoints; i++)
                     {
-                        DustStormPoint stormPoint = new DustStormPoint();
+                        DustStormPoint stormPoint = new();
                         stormPoint.color = Color.SandyBrown;
 
-                        Vector3 offset = new Vector3();
+                        Vector3 offset = new();
                         offset.Y = Main.rand.NextFloat(-1f, 0);
 
-                        float completionRatio = (float)i / (float)dustPoints;
+                        float completionRatio = i / (float)dustPoints;
                         offset.X = MathHelper.Lerp(-1f, 1f, completionRatio);
 
                         offset.Z = Main.rand.NextFloat(-2f, 2f);
@@ -161,7 +160,7 @@ namespace Stellamod.Content.Areas.Desert.WeaponsCL
 
             if (Timer % 16 == 0)
             {
-                var ember = LegacyParticle.NewParticle<EmberParticle>(Projectile.Center + Main.rand.NextVector2Circular(32, 32), Main.rand.NextVector2Circular(2, 2) - Vector2.UnitY * 4);
+                var ember = EmberParticle.Spawn(Projectile.Center + Main.rand.NextVector2Circular(32, 32), Main.rand.NextVector2Circular(2, 2) - Vector2.UnitY * 4);
                 ember.innerColor = Color.White;
                 ember.outerColor = Color.Tan;
                 ember.fadeToColor = Color.DarkBlue;

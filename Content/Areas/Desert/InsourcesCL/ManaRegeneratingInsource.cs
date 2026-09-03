@@ -1,7 +1,6 @@
 ﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.ModLoader;
@@ -23,7 +22,7 @@ namespace Stellamod.Content.Areas.Desert.InsourcesCL
                 Vector2 position = player.Center + Main.rand.NextVector2CircularEdge(64, 64);
                 Vector2 velocity = player.Center - position;
                 velocity *= 0.05f;
-                LegacyParticle.NewParticle<StarParticle>(position, velocity, Color.LightBlue, 0.3f);
+                StarParticle.Spawn(position, velocity, Color.LightBlue, 0.3f);
             }
         }
     }

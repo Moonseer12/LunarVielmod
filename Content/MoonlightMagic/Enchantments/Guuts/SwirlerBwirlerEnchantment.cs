@@ -28,7 +28,7 @@ namespace Stellamod.Content.MoonlightMagic.Enchantments.Guuts
                 {
                     Vector2 spawnPoint = Projectile.Center + Main.rand.NextVector2Circular(8, 8);
                     Vector2 velocity = Main.rand.NextVector2Circular(8, 8);
-                    LegacyParticle.NewParticle<GlowParticle>(spawnPoint, velocity, Color.White);
+                    GlowParticle.Spawn(spawnPoint, velocity, Color.White);
                 }
 
                 Projectile.velocity = Projectile.velocity.RotatedByRandom(MathHelper.TwoPi);

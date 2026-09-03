@@ -129,7 +129,7 @@ public class DeadRomanceLightningStrike : ModProjectile
             {
                 Vector2 pVelocity = lvelocity.RotatedByRandom(MathHelper.PiOver4 / 3f);
                 pVelocity *= Main.rand.NextFloat(0.5f, 2f);
-                var frag = LegacyParticle.NewParticle<GlowFragmentParticle>(position, pVelocity);
+                var frag = GlowFragmentParticle.Spawn(position, pVelocity);
                 FXUtil.GlowFragmentParticle(position, pVelocity,
                     innerColor: Color.White,
                     outerColor: Color.Yellow,
@@ -151,10 +151,10 @@ public class DeadRomanceLightningStrike : ModProjectile
             {
                 Vector2 pVelocity = lvelocity.RotatedByRandom(MathHelper.PiOver4 / 3f);
                 pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                var spark = LegacyParticle.NewParticle<SparkParticle>(position + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                var spark = SparkParticle.Spawn(position + Main.rand.NextVector2Circular(64, 64), pVelocity);
             }
 
-            var sear = LegacyParticle.NewParticle<SearParticle>(_lightningHitPos, Vector2.Zero);
+            var sear = SearParticle.Spawn(_lightningHitPos, Vector2.Zero);
 
             for (int i = 0; i < BeamPoints.Length; i++)
             {
@@ -162,7 +162,7 @@ public class DeadRomanceLightningStrike : ModProjectile
                 {
                     Vector2 pos = BeamPoints[i];
                     pos += Main.rand.NextVector2Circular(32, 32);
-                    var zap = LegacyParticle.NewParticle<ZapParticle>(pos, Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4) * Main.rand.NextFloat(2, 4));
+                    var zap = ZapParticle.Spawn(pos, Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4) * Main.rand.NextFloat(2, 4));
 
                 }
             }
@@ -224,7 +224,7 @@ public class DeadRomanceLightningStrike : ModProjectile
             {
                 Vector2 pVelocity = -Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4);
                 pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                var spark = LegacyParticle.NewParticle<ZapParticle>(_lightningHitPos + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                var spark = ZapParticle.Spawn(_lightningHitPos + Main.rand.NextVector2Circular(64, 64), pVelocity);
                 spark.Scale *= 0.5f;
                 spark.Rotation = Main.rand.NextFloat(0f, 3.14f);
             }
@@ -467,7 +467,7 @@ public class DeadRomanceAscendedCrashBlade : ModProjectile
         int denom = 16 * (Projectile.extraUpdates + 1);
         if (Timer % denom == 0)
         {
-            var donut = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center,
+            var donut = GlowDonutParticle.Spawn(Projectile.Center,
                 (-Projectile.velocity.SafeNormalize(Vector2.Zero) + -Projectile.velocity.SafeNormalize(Vector2.Zero)) * 4, Color.Red);
             donut.Scale *= Projectile.scale;
             donut.fadeToColor = Color.Goldenrod;
@@ -703,7 +703,7 @@ public class HeavenlyCrashBoom : ModProjectile
             _lightningPower = 0.9f;
             _lightningTime = 0;
             var p = Particle<ThickSmokeParticle>.Spawn(Projectile.Bottom, Vector2.Zero, Color.DarkGray);
-            var sear = LegacyParticle.NewParticle<SearParticle>(Projectile.Center, Vector2.Zero);
+            var sear = SearParticle.Spawn(Projectile.Center, Vector2.Zero);
             sear.innerColor = Color.White;
             sear.outerColor = Color.Goldenrod;
             sear.fadeToColor = Color.Black;
@@ -714,7 +714,7 @@ public class HeavenlyCrashBoom : ModProjectile
             {
                 Vector2 pos = Projectile.Center;
                 pos += Main.rand.NextVector2Circular(80, 80);
-                var zap = LegacyParticle.NewParticle<ZapParticle>(pos, Vector2.UnitY.RotatedByRandom(10) * Main.rand.NextFloat(2, 15));
+                var zap = ZapParticle.Spawn(pos, Vector2.UnitY.RotatedByRandom(10) * Main.rand.NextFloat(2, 15));
                 zap.innerColor = Color.Gray;
                 zap.outerColor = Color.Goldenrod;
                 zap.fadeToColor = Color.Black;
@@ -739,13 +739,13 @@ public class HeavenlyCrashBoom : ModProjectile
             SoundEngine.PlaySound(smashSound, Projectile.position);
 
 
-            var part = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero, Color.White);
+            var part = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero, Color.White);
             part.fadeToColor = Color.Black;
             part.outerColor = Color.Gray;
             part.noStretch = true;
             part.shrink = true;
 
-            var part2 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero, Color.White);
+            var part2 = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero, Color.White);
             part2.fadeToColor = Color.Black;
             part2.outerColor = Color.Gray;
             part2.noStretch = true;
@@ -823,7 +823,7 @@ public class HeavenlyCrashBoom : ModProjectile
                 {
                     Vector2 pVelocity = -Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4);
                     pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                    var spark = LegacyParticle.NewParticle<ZapParticle>(Projectile.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                    var spark = ZapParticle.Spawn(Projectile.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
                     spark.Scale *= 0.5f;
                     spark.Rotation = Main.rand.NextFloat(0f, 3.14f);
                     spark.outerColor = Color.Goldenrod;

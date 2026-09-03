@@ -1,13 +1,10 @@
-﻿
-
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
-
 using Terraria;
 
 namespace Stellamod.Visual.Particles
 {
-    public class GlowSpikeParticle : LegacyParticle
+    public class GlowSpikeParticle : Particle<GlowSpikeParticle>
     {
         public float Timer;
         public float Duration;

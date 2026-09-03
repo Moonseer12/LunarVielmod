@@ -44,13 +44,13 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectile
                 {
                     Vector2 pVelocity = Vector2.UnitY.RotatedByRandom(MathHelper.PiOver4 / 3f);
                     pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                    var spark = LegacyParticle.NewParticle<ZapParticle>(Projectile.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                    var spark = ZapParticle.Spawn(Projectile.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
                     spark.innerColor = Color.White;
                     spark.outerColor = Color.Yellow;
                     spark.fadeToColor = Color.Blue;
                 }
 
-                var part = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero, Color.White);
+                var part = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero, Color.White);
                 part.Scale *= 2;
                 part.noStretch = true;
                 part.innerColor = Color.Yellow;
@@ -75,7 +75,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectile
                 {
                     Vector2 pVelocity = Vector2.UnitY.RotatedByRandom(MathHelper.TwoPi);
                     pVelocity *= Main.rand.NextFloat(0.5f, 8f);
-                    var spark = LegacyParticle.NewParticle<EmberParticle>(Projectile.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                    EmberParticle.Spawn(Projectile.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
                 }
 
                 float numDust = 16;
@@ -104,7 +104,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectile
 
         private void SpawnFlameDust(Vector2 position, Vector2 velocity)
         {
-            var p = LegacyParticle.NewParticle<GlowFragmentParticle>(position, velocity, Color.White, Scale: 4f);
+            var p = GlowFragmentParticle.Spawn(position, velocity, Color.White, Scale: 4f);
             Color twinColor = Color.Yellow;
             p.innerColor = twinColor;
             p.outerColor = Color.Lerp(twinColor, Color.Black, 0.5f);
@@ -160,7 +160,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectile
             {
                 Vector2 pos = Projectile.Center;
                 pos += Main.rand.NextVector2Circular(32, 32);
-                var zap = LegacyParticle.NewParticle<ZapParticle>(pos, Vector2.UnitY.RotatedByRandom(MathHelper.TwoPi) * Main.rand.NextFloat(1, 4));
+                var zap = ZapParticle.Spawn(pos, Vector2.UnitY.RotatedByRandom(MathHelper.TwoPi) * Main.rand.NextFloat(1, 4));
             }
 
             if(Timer % 8 == 0)
@@ -168,7 +168,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectile
                 Vector2 pos = Projectile.Center;
                 Vector2 pVelocity = Main.rand.NextVector2Circular(2, 2);
                 pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                var spark = LegacyParticle.NewParticle<SparkParticle>(pos + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                var spark = SparkParticle.Spawn(pos + Main.rand.NextVector2Circular(64, 64), pVelocity);
             }
             switch (State)
             {

@@ -41,7 +41,7 @@ public class CariyaThrust : ModProjectile
             SoundStyle thrustSound = AssetRegistry.Sounds.Cariya.Carianpokie with { PitchVariance = 0.3f };
             SoundEngine.PlaySound(thrustSound, Projectile.position);
             ThrustParticle.Spawn(Projectile.Center, Projectile.velocity);
-            LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity * 0.1f);
+            GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity * 0.1f);
         }
         if (Timer % 4 == 0)
         {

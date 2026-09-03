@@ -1,5 +1,4 @@
-﻿using Stellamod.Assets;
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Dusts;
 using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
@@ -63,8 +62,8 @@ namespace Stellamod.Content.Areas.Dungeon.BossesDG.Bisinine.Projectiles
             SoundStyle sound = AssetRegistry.Sounds.Bishinine.BishinineBellSmash;
             SoundEngine.PlaySound(sound, Projectile.position);
 
-            LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero));
-            var p = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero) * 5);
+            GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero));
+            var p = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero) * 5);
             p.Scale *= 0.5f;
             for (float f = 0; f < 8; f++)
             {

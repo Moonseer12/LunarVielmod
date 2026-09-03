@@ -469,7 +469,7 @@ public class WintershardClump : ModProjectile
                 break;
         }
         SoundEngine.PlaySound(growSound, Projectile.position);
-        var part = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero, Color.White);
+        var part = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero, Color.White);
         part.Scale *= 1;
         part.shrink = true;
         part.noStretch = true;

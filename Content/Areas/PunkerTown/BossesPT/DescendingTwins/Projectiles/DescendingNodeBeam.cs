@@ -1,10 +1,5 @@
-﻿
-
-using Stellamod.Assets;
-using Stellamod.Core;
-using Stellamod.Core.Particles;
+﻿using Stellamod.Core;
 using Stellamod.Core.Pixelation;
-
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -47,7 +42,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectile
 
             if (Timer % 2 == 0)
             {
-                var p = LegacyParticle.NewParticle<GlowFragmentParticle>(Projectile.Center, Vector2.Zero, Color.White, Scale: 4f);
+                var p = GlowFragmentParticle.Spawn(Projectile.Center, Vector2.Zero, Color.White, Scale: 4f);
                 Color twinColor = Color.Yellow;
                 p.innerColor = twinColor;
                 p.outerColor = Color.Red;
@@ -63,7 +58,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectile
         private void SpawnFlameDonut()
         {
             //movement donut particles
-            var donut = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero) * 2, newColor: Color.White);
+            var donut = GlowDonutParticle.Spawn(Projectile.Center, -Projectile.velocity.SafeNormalize(Vector2.Zero) * 2, color: Color.White);
             Color twinColor = Color.Red;
             donut.innerColor = twinColor;
             donut.outerColor = Color.Lerp(twinColor, Color.Black, 0.5f);

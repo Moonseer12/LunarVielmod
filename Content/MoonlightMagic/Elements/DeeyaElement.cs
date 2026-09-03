@@ -1,16 +1,11 @@
-﻿
-
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
-using Stellamod.Core.Particles;
-
 using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Content.MoonlightMagic.Elements
 {
@@ -83,7 +78,7 @@ namespace Stellamod.Content.MoonlightMagic.Elements
 
                     Color color = Color.White;
                     color.A = 0;
-                    LegacyParticle.NewBlackParticle<BloodSparkleParticle>(spawnPoint, velocity, color);
+                    BloodSparkleParticle.Spawn(spawnPoint, velocity, color);
                 }
             }
         }
@@ -110,7 +105,7 @@ namespace Stellamod.Content.MoonlightMagic.Elements
 
                 Color color = Color.White;
                 color.A = 0;
-                LegacyParticle.NewBlackParticle<BloodSparkleParticle>(spawnPoint, velocity, color);
+                BloodSparkleParticle.Spawn(spawnPoint, velocity, color);
             }
 
             for (float f = 0f; f < 1f; f += 0.2f)
@@ -121,7 +116,7 @@ namespace Stellamod.Content.MoonlightMagic.Elements
 
                 Color color = ColorFunctions.DeeyaPink;
                 color.A = 0;
-                LegacyParticle.NewBlackParticle<GlowParticle>(spawnPoint, velocity * 0.5f, color);
+                GlowParticle.Spawn(spawnPoint, velocity * 0.5f, color);
             }
         }
 

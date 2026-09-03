@@ -26,7 +26,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.ArmorWD
             }
             if (Main.rand.NextBool(3))
             {
-                var ember = LegacyParticle.NewParticle<EmberParticle>(player.position + new Vector2(Main.rand.Next(0, player.width), Main.rand.Next(0, player.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.Purple, Main.rand.NextFloat(0.9f, 1.5f));
+                var ember = EmberParticle.Spawn(player.position + new Vector2(Main.rand.Next(0, player.width), Main.rand.Next(0, player.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.Purple, Main.rand.NextFloat(0.9f, 1.5f));
                 ember.innerColor = Color.LightPink;
                 ember.outerColor = Color.Purple;
             }

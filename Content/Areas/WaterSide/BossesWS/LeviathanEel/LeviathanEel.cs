@@ -1095,12 +1095,12 @@ public class LeviathanEel : ScarletBoss
 
                     if (Timer % 5 == 0)
                     {
-                        var dp = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -NPC.velocity * 0.5f);
+                        var dp = GlowDonutParticle.Spawn(NPC.Center, -NPC.velocity * 0.5f);
                         dp.Scale *= 2f;
                     }
                     if (Timer % 5 == 0)
                     {
-                        var dp = LegacyParticle.NewParticle<ZapParticle>(NPC.Center, -NPC.velocity * 0.5f);
+                        var dp = ZapParticle.Spawn(NPC.Center, -NPC.velocity * 0.5f);
                         dp.Scale *= 2f;
                         dp.innerColor = Color.LightBlue;
                         dp.outerColor = Color.Blue;
@@ -1135,7 +1135,7 @@ public class LeviathanEel : ScarletBoss
                     _outliner.attacking = true;
                     if (Timer % 5 == 0)
                     {
-                        var dp = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -NPC.velocity * 0.5f);
+                        var dp = GlowDonutParticle.Spawn(NPC.Center, -NPC.velocity * 0.5f);
                         dp.Scale *= 2f;
                     }
                     if (Timer >= 80)
@@ -1642,12 +1642,12 @@ public class LeviathanEel : ScarletBoss
 
                     if (Timer % 5 == 0)
                     {
-                        var dp = LegacyParticle.NewParticle<GlowDonutParticle>(NPC.Center, -NPC.velocity * 0.5f);
+                        var dp = GlowDonutParticle.Spawn(NPC.Center, -NPC.velocity * 0.5f);
                         dp.Scale *= 2f;
                     }
                     if (Timer % 5 == 0)
                     {
-                        var dp = LegacyParticle.NewParticle<ZapParticle>(NPC.Center, -NPC.velocity * 0.5f);
+                        var dp = ZapParticle.Spawn(NPC.Center, -NPC.velocity * 0.5f);
                         dp.Scale *= 2f;
                         dp.innerColor = Color.LightBlue;
                         dp.outerColor = Color.Blue;
@@ -2256,7 +2256,7 @@ public class LeviathanEel : ScarletBoss
                     }
                     if(Timer % 6 == 0 && Timer < 60)
                     {
-                        LegacyParticle.NewParticle<ShockParticle>(NPC.Center, Vector2.Zero, Color.White);
+                        ShockParticle.Spawn(NPC.Center, Vector2.Zero, Color.White);
                     }
                     ShakeScreenPosition.Shake = MathHelper.Lerp(12, 0f, EasingFunction.InOutSine(Timer / 120f));
                     if (MultiplayerHelper.IsHost && Main.rand.NextBool(150))

@@ -1,7 +1,6 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Effects.Darkspace;
 using Stellamod.Visual.Particles;
@@ -157,17 +156,6 @@ public class MiracleSilkTile : ModTile
         }
     }
 
-    private Vector2[] GetTrail(Point tile1, Point tile2)
-    {
-        Vector2 drawPos1 = tile1.ToWorldCoordinates();
-        Vector2 drawPos2 = tile2.ToWorldCoordinates();
-        Vector2[] trailPoints = new Vector2[2];
-        trailPoints[0] = drawPos1;
-        trailPoints[1] = drawPos2;
-        MathUtil.LerpTrailPoints(trailPoints, out Vector2[] trailingPoints, smoothFactor: 128);
-        return trailingPoints;
-    }
-
     public float GetWidth(float completionRatio)
     {
         float width = 2f;
@@ -267,7 +255,7 @@ public class MiracleSilkTile : ModTile
             int numThreads = Main.rand.Next(3, 8);
             for (int n = 0; n < numThreads; n++)
             {
-                Point start = new Point(i, j);
+                Point start = new(i, j);
                 Point end = GetConnectedTile(i, j);
 
                 Vector2 tile1 = start.ToWorldCoordinates();
@@ -281,7 +269,7 @@ public class MiracleSilkTile : ModTile
                 for (int s = 0; s < 15; s++)
                 {
                     Vector2 spawnPoint = point + Main.rand.NextVector2Circular(32, 32);
-                    LegacyParticle.NewParticle<SilkParticle>(spawnPoint, Vector2.Zero, Color.Transparent);
+                    SilkParticle.Spawn(spawnPoint, Vector2.Zero, Color.Transparent);
                 }
             }
         }

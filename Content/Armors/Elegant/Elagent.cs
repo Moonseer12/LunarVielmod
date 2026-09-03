@@ -1,17 +1,11 @@
 using ReLogic.Content;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Common.XixianFlaskSystem;
-using Stellamod.Content.Areas.SpringHills.AccSH;
-using Stellamod.Content.Special.DeadRomancesExcalibur;
 using Stellamod.Core.Particles;
-
-
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.GameContent;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Armors.Elegant
@@ -29,7 +23,7 @@ namespace Stellamod.Content.Armors.Elegant
             }
             if (Main.rand.NextBool(3))
             {
-                LegacyParticle.NewParticle<EmberParticle>(player.position + new Vector2(Main.rand.Next(0, player.width), Main.rand.Next(0, player.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.OrangeRed, Main.rand.NextFloat(0.9f, 1.5f));
+                EmberParticle.Spawn(player.position + new Vector2(Main.rand.Next(0, player.width), Main.rand.Next(0, player.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.OrangeRed, Main.rand.NextFloat(0.9f, 1.5f));
             }
         }
     }

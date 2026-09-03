@@ -1,8 +1,4 @@
-﻿
-
-using Stellamod.Core.Particles;
-
-using Stellamod.Visual.Particles;
+﻿using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -47,8 +43,8 @@ namespace Stellamod.Core.Bases
                 {
                     Vector2 spawnPoint = Projectile.Center + Main.rand.NextVector2Circular(8, 8);
                     Vector2 velocity = Main.rand.NextVector2Circular(0, 1);
-                    LegacyParticle.NewParticle<StrikeParticle>(spawnPoint, velocity, Color.White);
-                    LegacyParticle.NewParticle<Strike2Particle>(spawnPoint, velocity, Color.White);
+                    StrikeParticle.Spawn(spawnPoint, velocity, Color.White);
+                    Strike2Particle.Spawn(spawnPoint, velocity, Color.White);
                 }
 
                 Projectile.rotation = Main.rand.Next(0, 360);
@@ -97,7 +93,7 @@ namespace Stellamod.Core.Bases
             {
                 Vector2 spawnPoint = Projectile.Center + Main.rand.NextVector2Circular(8, 8);
                 Vector2 velocity = Main.rand.NextVector2Circular(8, 8);
-                LegacyParticle.NewParticle<GlowParticle>(spawnPoint, velocity, Color.White);
+                GlowParticle.Spawn(spawnPoint, velocity, Color.White);
             }
         }
 

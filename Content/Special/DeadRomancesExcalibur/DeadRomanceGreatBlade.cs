@@ -553,7 +553,7 @@ public class DeadRomanceGreatBlade : ModProjectile
         SoundStyle sound = AssetRegistry.Sounds.Melee.WeaponSwordbigger;
         SoundEngine.PlaySound(sound, Projectile.position);
 
-        var donut = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Center, Vector2.Zero, Color.White);
+        var donut = GlowDonutParticle.Spawn(Projectile.Center, Vector2.Zero, Color.White);
         //   donut.Scale *= Projectile.scale;
         donut.Scale *= 3;
         donut.fadeToColor = Color.Goldenrod;
@@ -831,12 +831,12 @@ public class DeadRomanceGreatBlade : ModProjectile
             Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, Vector2.Zero, ModContent.ProjectileType<Smite>(), 
                 Projectile.damage / 5, Projectile.knockBack, Projectile.owner, ai1: target.whoAmI);
 
-            var donut = LegacyParticle.NewParticle<GlowDonutParticle>(target.Center, Vector2.Zero, Color.Red);
+            var donut = GlowDonutParticle.Spawn(target.Center, Vector2.Zero, Color.Red);
             donut.Scale *= 2f;
             donut.fadeToColor = Color.Goldenrod;
             donut.noStretch = true;
 
-            donut = LegacyParticle.NewParticle<GlowDonutParticle>(target.Center, Vector2.Zero, Color.Red);
+            donut = GlowDonutParticle.Spawn(target.Center, Vector2.Zero, Color.Red);
             donut.Scale *= 0.5f;
             donut.fadeToColor = Color.Goldenrod;
             donut.noStretch = true;

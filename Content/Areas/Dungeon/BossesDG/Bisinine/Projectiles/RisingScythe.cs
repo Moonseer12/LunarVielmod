@@ -429,7 +429,7 @@ namespace Stellamod.Content.Areas.Dungeon.BossesDG.Bisinine.Projectiles
 
 
 
-                var p2 = LegacyParticle.NewParticle<GlowDonutParticle>(Projectile.Top, -Vector2.UnitY);
+                var p2 = GlowDonutParticle.Spawn(Projectile.Top, -Vector2.UnitY);
 
                 for(float f = 0; f < 8f; f++)
                 {

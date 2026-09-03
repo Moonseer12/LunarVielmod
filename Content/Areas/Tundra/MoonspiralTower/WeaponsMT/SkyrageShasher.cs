@@ -142,7 +142,7 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT
                     Vector2 beamPoint = BeamPoints[i];
                     if (Main.rand.NextBool(6))
                     {
-                        GlowDonutParticle glowDonutParticle = LegacyParticle.NewParticle<GlowDonutParticle>(beamPoint, Projectile.velocity.SafeNormalize(Vector2.Zero).RotatedBy(1.5f) * Main.rand.NextFloat(0.2f, 0.6f), Scale: 0.4f);
+                        GlowDonutParticle glowDonutParticle = GlowDonutParticle.Spawn(beamPoint, Projectile.velocity.SafeNormalize(Vector2.Zero).RotatedBy(1.5f) * Main.rand.NextFloat(0.2f, 0.6f), Scale: 0.4f);
                         glowDonutParticle.rotOffset = MathHelper.PiOver2;
 
                         float ratio = (float)i / (float)BeamPoints.Length;
@@ -175,7 +175,7 @@ namespace Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT
                     initialVelocity = initialVelocity.RotatedByRandom(MathHelper.ToRadians(360));
                     initialVelocity *= Main.rand.NextFloat(0.5f, 1f);
 
-                    SparkParticle dustParticle = LegacyParticle.NewParticle<SparkParticle>(explosionCenter, initialVelocity, Color.White, Scale: Main.rand.NextFloat(0.6f, 2f));
+                    SparkParticle dustParticle = SparkParticle.Spawn(explosionCenter, initialVelocity, Color.White, Scale: Main.rand.NextFloat(0.6f, 2f));
                     dustParticle.innerColor = Color.SkyBlue;
                     dustParticle.outerColor = Color.Violet;
                 }

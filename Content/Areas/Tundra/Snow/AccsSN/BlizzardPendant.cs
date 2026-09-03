@@ -234,7 +234,7 @@ public class BlizzardChill : ModBuff
 
         if (Main.rand.NextBool(5))
         {
-            EmberParticle e = LegacyParticle.NewParticle<EmberParticle>(npc.position + new Vector2(Main.rand.Next(0, npc.width), Main.rand.Next(0, npc.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.DarkSlateBlue, Main.rand.NextFloat(0.9f, 1.5f));
+            EmberParticle e = EmberParticle.Spawn(npc.position + new Vector2(Main.rand.Next(0, npc.width), Main.rand.Next(0, npc.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.DarkSlateBlue, Main.rand.NextFloat(0.9f, 1.5f));
             e.innerColor = Color.White;
             e.outerColor = Color.SkyBlue;
             e.fadeToColor = Color.DarkBlue;

@@ -210,7 +210,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
                 initialVelocity = initialVelocity.RotatedByRandom(MathHelper.ToRadians(360));
                 initialVelocity *= Main.rand.NextFloat(0.5f, 1f);
 
-                SparkParticle dustParticle = LegacyParticle.NewParticle<SparkParticle>(Projectile.Center, initialVelocity, Color.White, Scale: Main.rand.NextFloat(0.6f, 2f));
+                SparkParticle dustParticle = SparkParticle.Spawn(Projectile.Center, initialVelocity, Color.White, Scale: Main.rand.NextFloat(0.6f, 2f));
                 dustParticle.innerColor = Color.SkyBlue;
                 dustParticle.outerColor = Color.Violet;
             }

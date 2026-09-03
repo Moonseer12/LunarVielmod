@@ -117,12 +117,12 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectile
             }
             if (Timer == 30)
             {
-                LegacyParticle.NewParticle<SkullParticle>(Projectile.Center, Vector2.Zero, Color.Red);
+                SkullParticle.Spawn(Projectile.Center, Vector2.Zero, Color.Red);
             }
             if (Timer == 70)
             {
                 //Ping Sound
-                SoundStyle soundStyle = new SoundStyle("Stellamod/Assets/Sounds/Jack_FirePing");
+                SoundStyle soundStyle = new("Stellamod/Assets/Sounds/Jack_FirePing");
                 soundStyle.PitchVariance = 0.1f;
                 SoundEngine.PlaySound(soundStyle, Projectile.position);
 
@@ -171,7 +171,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectile
 
             if (Timer > 90 && Timer % 4 == 0)
             {
-                LegacyParticle.NewParticle<FlareParticle>(Projectile.Center + Main.rand.NextVector2Circular(16, 16), Vector2.Zero);
+                FlareParticle.Spawn(Projectile.Center + Main.rand.NextVector2Circular(16, 16), Vector2.Zero);
             }
             if (Timer > 90 && Timer < 100)
             {
@@ -207,7 +207,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectile
                 {
                     Vector2 pVelocity = -Projectile.velocity.RotatedByRandom(MathHelper.PiOver4);
                     pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                    var spark = LegacyParticle.NewParticle<SparkParticle>(Projectile.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                    var spark = SparkParticle.Spawn(Projectile.Center + Main.rand.NextVector2Circular(64, 64), pVelocity);
                     spark.innerColor = Color.Yellow;
                     spark.outerColor = Color.Red;
                 }
@@ -332,7 +332,7 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectile
             {
                 Vector2 pVelocity = lvelocity.RotatedByRandom(MathHelper.PiOver4 / 3f);
                 pVelocity *= Main.rand.NextFloat(0.5f, 2f);
-                var frag = LegacyParticle.NewParticle<GlowFragmentParticle>(position, pVelocity);
+                var frag = GlowFragmentParticle.Spawn(position, pVelocity);
                 FXUtil.GlowFragmentParticle(position, pVelocity,
                     innerColor: twinColor,
                     outerColor: darkerColor,
@@ -354,10 +354,10 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectile
             {
                 Vector2 pVelocity = lvelocity.RotatedByRandom(MathHelper.PiOver4 / 3f);
                 pVelocity *= Main.rand.NextFloat(0.5f, 1f);
-                var spark = LegacyParticle.NewParticle<SparkParticle>(position + Main.rand.NextVector2Circular(64, 64), pVelocity);
+                var spark = SparkParticle.Spawn(position + Main.rand.NextVector2Circular(64, 64), pVelocity);
             }
 
-            var sear = LegacyParticle.NewParticle<SearParticle>(Projectile.Center, Vector2.Zero);
+            var sear = SearParticle.Spawn(Projectile.Center, Vector2.Zero);
             sear.innerColor = twinColor;
             sear.outerColor = Color.Lerp(sear.innerColor, Color.Black, 0.5f);
             sear.fadeToColor = Color.Black;

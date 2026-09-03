@@ -1,7 +1,6 @@
 ﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Dusts;
 using Stellamod.Core;
-using Stellamod.Core.Particles;
 using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
@@ -69,7 +68,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.BossesRC.STARBOMBER.Projectiles
                 {
                     float rot = f / 8f;
                     rot += Main.rand.NextFloat(-0.5f, 0.5f);
-                    var p = LegacyParticle.NewParticle<ImpactParticle>(Projectile.position, Projectile.velocity.RotatedByRandom(0.7f));
+                    var p = ImpactParticle.Spawn(Projectile.position, Projectile.velocity.RotatedByRandom(0.7f));
                     p.fast = true;
                 }
                 for (float f = 0; f < 4; f++)
