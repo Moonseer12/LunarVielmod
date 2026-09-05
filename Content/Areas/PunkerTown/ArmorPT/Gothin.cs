@@ -4,7 +4,7 @@ using Stellamod.Common.ArmorRework;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using System.Collections.Generic;
 using Terraria;

@@ -1,8 +1,6 @@
-﻿
-
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Common.Shaders;
-using Stellamod.UI;
+using Stellamod.Common.UI;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.GameInput;

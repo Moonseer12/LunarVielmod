@@ -1,12 +1,6 @@
-﻿
-
-using Microsoft.Xna.Framework.Input;
-using ReLogic.Content;
+﻿using Microsoft.Xna.Framework.Input;
 using Stellamod.Common.ItemBrowser;
-using Stellamod.Core.Tooltips;
-
-
-using Stellamod.UI;
+using Stellamod.Common.UI;
 using System;
 using System.Reflection;
 using Terraria;

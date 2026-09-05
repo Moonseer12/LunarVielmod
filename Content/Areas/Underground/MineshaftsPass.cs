@@ -1,6 +1,5 @@
 ﻿using Stellamod.Common.DungeonGeneration;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.WorldG;
 using System;
 using System.Collections.Generic;
 using Terraria;

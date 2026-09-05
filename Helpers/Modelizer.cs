@@ -1,5 +1,4 @@
-﻿using Stellamod.WorldG.StructureManager;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

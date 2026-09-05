@@ -1,11 +1,11 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss.Projectiles;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.BossesMT.VerliaBoss.Projectiles;
 using Stellamod.Core.Palettes;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Rendering;
 using Stellamod.Effects.RoyalMagic;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;

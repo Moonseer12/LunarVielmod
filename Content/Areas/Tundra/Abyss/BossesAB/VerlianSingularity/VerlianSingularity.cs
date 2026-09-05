@@ -1,16 +1,15 @@
 ﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity.Projectiles;
 using Stellamod.Content.Dusts;
+using Stellamod.Content.Particles;
 using Stellamod.Core;
-using Stellamod.Core.Particles;
-using Stellamod.Skies;
-using Stellamod.Visual.Particles;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Stellamod.Content.Areas.RoyalCapital;
 
 namespace Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity
 {

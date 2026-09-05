@@ -1,6 +1,5 @@
 ﻿using Stellamod.Common.UI;
 using Stellamod.Core.Tooltips;
-using Stellamod.UI;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -11,9 +10,6 @@ using Terraria.UI;
 using Terraria.UI.Chat;
 
 namespace Stellamod.Common.ArmorShop.UI;
-
-
-
 
 [Autoload(Side = ModSide.Client)]
 public class ArmorShopSystem : BaseUISystem

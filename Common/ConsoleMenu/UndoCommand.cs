@@ -1,5 +1,4 @@
-﻿using Stellamod.WorldG.StructureManager;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace Stellamod.Common.ConsoleMenu;
 

@@ -4,7 +4,7 @@ using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Content.Areas.SpringHills.ArmorSH;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System.IO;
 using Terraria;
 using Terraria.ID;

@@ -1,17 +1,13 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.BossesMT.VerliaBoss;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Rendering;
-
 using Stellamod.Effects.RoyalMagic;
-
 using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.GameContent;
 using Terraria.ModLoader;
-using static Terraria.GameContent.Animations.Actions.Sprites;
 
 namespace Stellamod.Content.Areas.RoyalCapital.BossesRC.RoyalFox;
 

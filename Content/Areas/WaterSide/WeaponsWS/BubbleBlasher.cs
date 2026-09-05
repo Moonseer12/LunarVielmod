@@ -6,7 +6,7 @@ using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Dusts;
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Particles;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System.IO;
 using Terraria;
 using Terraria.Audio;

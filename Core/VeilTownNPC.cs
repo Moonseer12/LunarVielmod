@@ -2,7 +2,6 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Core.DialogueSystem;
 using Stellamod.Core.NPCHelpers;
-using Stellamod.UI.DialogueTowning;
 using System;
 using System.Collections.Generic;
 using Terraria;

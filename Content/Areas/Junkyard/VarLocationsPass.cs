@@ -1,5 +1,4 @@
 ﻿using Stellamod.Content.Areas.Junkyard.TilesJY;
-using Stellamod.WorldG;
 using Terraria;
 using Terraria.IO;
 using Terraria.ModLoader;

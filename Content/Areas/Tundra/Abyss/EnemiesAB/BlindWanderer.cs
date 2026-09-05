@@ -3,7 +3,7 @@ using Stellamod.Assets.ContentReader.Aseprite;
 using Stellamod.Common;
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Particles;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using System.Collections.Generic;
 using System.Linq;

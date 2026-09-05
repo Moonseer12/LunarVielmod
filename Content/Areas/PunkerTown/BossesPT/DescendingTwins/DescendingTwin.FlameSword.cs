@@ -4,7 +4,7 @@ using Stellamod.Content.Areas.PunkerTown.BossesPT.DescendingTwins.Projectiles;
 using Stellamod.Core.Particles;
 
 
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;

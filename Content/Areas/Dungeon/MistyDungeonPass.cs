@@ -1,6 +1,5 @@
 ﻿using Stellamod.Common.DungeonGeneration;
 using Stellamod.Content.Areas.MothlightManor.TilesMM;
-using Stellamod.WorldG;
 using Terraria;
 using Terraria.ID;
 using Terraria.IO;

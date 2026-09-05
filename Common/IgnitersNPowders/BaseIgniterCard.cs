@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework.Input;
-using Stellamod.UI.PowderSystem;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;

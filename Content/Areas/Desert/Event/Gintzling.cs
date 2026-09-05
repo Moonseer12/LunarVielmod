@@ -6,7 +6,7 @@ using Stellamod.Content.Areas.Desert.Event.Common;
 using Stellamod.Core.Particles;
 
 
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using Terraria;
 using Terraria.Audio;

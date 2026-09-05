@@ -2,7 +2,7 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
 using Stellamod.Core.Effects;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;

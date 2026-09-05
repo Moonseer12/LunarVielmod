@@ -1,13 +1,12 @@
 ﻿using ReLogic.Content;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Common.MagicSystem.UI;
+using Stellamod.Common.UI;
 using Stellamod.Content.MoonlightMagic;
-using Stellamod.UI;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.GameInput;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
 

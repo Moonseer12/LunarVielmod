@@ -1,6 +1,6 @@
 ﻿using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Content.MoonlightMagic.Movements;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.ModLoader;
 

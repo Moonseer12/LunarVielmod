@@ -1,4 +1,4 @@
-﻿using Stellamod.Content.Vanity.AcademyOutfit;
+﻿using Stellamod.Content.Areas.SpringHills.VanitiesSH;
 using Stellamod.Core;
 using System;
 using System.Collections.Generic;
@@ -15,9 +15,7 @@ namespace Stellamod.Content.Areas.SpringHills.NPCsSH
 
     public class Rysa : VeilTownNPC
     {
-        public int NumberOfTimesTalkedTo = 0;
         public const string ShopName = "Shop";
-        public const string ShopName2 = "New Shop";
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();

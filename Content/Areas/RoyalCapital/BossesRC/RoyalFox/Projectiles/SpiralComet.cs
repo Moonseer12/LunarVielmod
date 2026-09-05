@@ -3,7 +3,7 @@ using Stellamod.Common.Shaders;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Effects.RoyalMagic;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

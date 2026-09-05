@@ -11,7 +11,7 @@ using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.TriggersSystem.Triggers;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using System.IO;
 using Terraria;

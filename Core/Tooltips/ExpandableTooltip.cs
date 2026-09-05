@@ -1,11 +1,7 @@
-﻿
-
-using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework.Input;
 using ReLogic.Content;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Common.Shaders;
-
-using Stellamod.UI.CollectionSystem;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -16,7 +12,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.UI.Chat;
-using TerrariaHooks;
 
 namespace Stellamod.Core.Tooltips
 {

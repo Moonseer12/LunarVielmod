@@ -1,6 +1,4 @@
-﻿
-using Stellamod.Core;
-using Stellamod.UI;
+﻿using Stellamod.Core;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;

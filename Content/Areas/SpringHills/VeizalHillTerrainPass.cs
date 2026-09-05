@@ -1,5 +1,4 @@
 ﻿using System;
-using Stellamod.WorldG;
 using Terraria;
 using Terraria.ID;
 using Terraria.IO;

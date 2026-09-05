@@ -1,6 +1,4 @@
-﻿
-
-using Stellamod.UI;
+﻿using Stellamod.Common.UI;
 using System;
 using System.IO;
 using Terraria;

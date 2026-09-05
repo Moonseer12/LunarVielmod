@@ -1687,11 +1687,6 @@ AlcadizPowder: {
 		'''
 }
 
-VerliaBossBag: {
-	DisplayName: Treasure Bag (Verlia)
-	Tooltip: "{$CoreItemTooltip.RightClickToOpen}"
-}
-
 VerliaHat: {
 	Tooltip:
 		'''

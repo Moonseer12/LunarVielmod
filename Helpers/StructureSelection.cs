@@ -2,7 +2,6 @@
 using Stellamod.Common.DungeonGeneration;
 using Stellamod.Core.StructureSelector;
 using Stellamod.Core.ZTileSystem;
-using Stellamod.WorldG.StructureManager;
 using System.IO;
 using Terraria;
 using Terraria.Audio;

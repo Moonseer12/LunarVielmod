@@ -1,18 +1,11 @@
-﻿
-
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Common.UI;
-using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Core.Tooltips;
-
-
-using Stellamod.UI;
 using System.Collections.Generic;
 using System.Text;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;
-using Terraria.ModLoader.UI.Elements;
 
 namespace Stellamod.Common.XixianFlaskSystem.UI
 {

@@ -1,5 +1,4 @@
 ﻿using Stellamod.Content.Areas.WorldsEnd.TilesWE;
-using Stellamod.WorldG;
 using Terraria;
 using Terraria.ID;
 using Terraria.IO;

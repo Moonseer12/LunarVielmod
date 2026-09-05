@@ -1,9 +1,7 @@
-﻿
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Stellamod.WorldG.StructureManager.Snapshot;
 
 namespace Stellamod.Core.Utilities;
 

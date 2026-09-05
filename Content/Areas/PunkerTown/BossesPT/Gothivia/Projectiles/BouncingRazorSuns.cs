@@ -5,7 +5,7 @@ using Stellamod.Common.WeaponUpgrade.UI;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Effects.GothinFlames;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System.IO;
 using Terraria;
 using Terraria.Audio;

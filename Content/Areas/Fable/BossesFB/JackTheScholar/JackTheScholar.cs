@@ -2,7 +2,7 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Fable.BossesFB.JackTheScholar.Projectiles;
 using Stellamod.Core;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;

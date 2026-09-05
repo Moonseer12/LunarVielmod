@@ -2,9 +2,8 @@
 using Stellamod.Content.Areas.Fable;
 using Stellamod.Content.Areas.SpringHills;
 using Stellamod.Content.Gores.Foreground;
+using Stellamod.Content.Particles;
 using Stellamod.Core.Foreground;
-using Stellamod.Visual.Particles;
-using Stellamod.WorldG;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -193,7 +192,7 @@ namespace Stellamod.Content.Areas
                 pos.X = Main.rand.Next(0, Main.screenWidth * 2);
                 pos.Y = Main.rand.Next(0, Main.screenHeight);
                 pos += Main.screenPosition - Main.screenWidth * Vector2.UnitX;
-                Particles.FaintSmokeDust.Spawn(FaintSmokeDustData.Default with { position = pos, velocity = -Vector2.UnitY * 0.1f, color = Color.White * 0.15F, timeleft = 180 });
+                ModContent.GetInstance<FaintSmokeDust>().Spawn(FaintSmokeDustData.Default with { position = pos, velocity = -Vector2.UnitY * 0.1f, color = Color.White * 0.15F, timeleft = 180 });
             }
             if (Main.rand.NextBool(6))
             {
@@ -201,7 +200,7 @@ namespace Stellamod.Content.Areas
                 pos.X = Main.rand.Next(0, Main.screenWidth * 2);
                 pos.Y = Main.rand.Next(0, Main.screenHeight);
                 pos += Main.screenPosition - Main.screenWidth * Vector2.UnitX;
-                Particles.FaintSmokeDust.Spawn(FaintSmokeDustData.Default with { position = pos, velocity = -Vector2.UnitY * 0.1f, color = Color.White * 0.15F, timeleft = 180 });
+                ModContent.GetInstance<FaintSmokeDust>().Spawn(FaintSmokeDustData.Default with { position = pos, velocity = -Vector2.UnitY * 0.1f, color = Color.White * 0.15F, timeleft = 180 });
             }
             if (Main.rand.NextBool(2))
             {
@@ -209,7 +208,7 @@ namespace Stellamod.Content.Areas
                 pos.X = Main.rand.Next(0, Main.screenWidth * 2);
                 pos.Y = Main.rand.Next(0, Main.screenHeight);
                 pos += Main.screenPosition - Main.screenWidth * Vector2.UnitX;
-                Particles.CinderEmberDust.Spawn(CinderEmberDustData.Default with { position = pos, velocity = -Vector2.UnitY * 0.1f, parallaxStrength = Main.rand.NextFloat(0.3f, 0.75f) });
+                ModContent.GetInstance<CinderEmberDust>().Spawn(CinderEmberDustData.Default with { position = pos, velocity = -Vector2.UnitY * 0.1f, parallaxStrength = Main.rand.NextFloat(0.3f, 0.75f) });
             }
             if (Main.rand.NextBool(5))
             {
@@ -217,7 +216,7 @@ namespace Stellamod.Content.Areas
                 pos.X = Main.rand.Next(0, Main.screenWidth * 2);
                 pos.Y = Main.rand.Next(0, Main.screenHeight);
                 pos += Main.screenPosition - Main.screenWidth * Vector2.UnitX;
-                Particles.CinderEmberDust.Spawn(CinderEmberDustData.Default with { position = pos, velocity = -Vector2.UnitY * 0.1f, parallaxStrength = Main.rand.NextFloat(0.3f, 0.75f) });
+                ModContent.GetInstance<CinderEmberDust>().Spawn(CinderEmberDustData.Default with { position = pos, velocity = -Vector2.UnitY * 0.1f, parallaxStrength = Main.rand.NextFloat(0.3f, 0.75f) });
             }
             if (Main.rand.NextBool(2))
             {
@@ -225,7 +224,7 @@ namespace Stellamod.Content.Areas
                 pos.X = Main.rand.Next(0, Main.screenWidth * 2);
                 pos.Y = Main.rand.Next(0, Main.screenHeight);
                 pos += Main.screenPosition - Main.screenWidth * Vector2.UnitX;
-                Particles.CinderEmberDustBackground.Spawn(CinderEmberDustData.Default with { position = pos, velocity = -Vector2.UnitY * 0.1f });
+                ModContent.GetInstance<CinderEmberDustBackground>().Spawn(CinderEmberDustData.Default with { position = pos, velocity = -Vector2.UnitY * 0.1f });
             }
         }
         public static void FlameParticles()
@@ -263,7 +262,7 @@ namespace Stellamod.Content.Areas
             }
             if (ZoneAbyss && Main.rand.NextBool(8))
             {
-                Particles.AbyssFloatingFlowerDust.Spawn(AbyssFloatingFlowerDustData.Default with
+                ModContent.GetInstance<AbyssFloatingFlowerDust>().Spawn(AbyssFloatingFlowerDustData.Default with
                 {
                     position = DrawUtilities.RandomScreenPositionForForegroundParticles(),
                     parallax = Main.rand.NextFloat(0.2f, 1f),

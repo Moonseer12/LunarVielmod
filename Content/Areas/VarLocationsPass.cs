@@ -1,5 +1,4 @@
-﻿using Stellamod.WorldG;
-using Terraria;
+﻿using Terraria;
 using Terraria.IO;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;

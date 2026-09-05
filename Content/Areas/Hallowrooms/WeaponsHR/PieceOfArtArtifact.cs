@@ -9,7 +9,7 @@ using Stellamod.Content.Dusts;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Rendering;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;

@@ -1,5 +1,4 @@
 using Stellamod.Content.Dusts;
-using Stellamod.WorldG;
 using System;
 using System.Collections.Generic;
 using Terraria;

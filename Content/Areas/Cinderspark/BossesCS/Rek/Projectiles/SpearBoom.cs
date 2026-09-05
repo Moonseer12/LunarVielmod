@@ -2,7 +2,7 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Core.ProjectileHelpers;
 using Stellamod.Effects.RekFlames;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;

@@ -1,6 +1,6 @@
+using Stellamod.Content.Areas.Illuria.VanitiesIL;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Dusts;
-using Stellamod.Content.Vanity.Illurian;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;

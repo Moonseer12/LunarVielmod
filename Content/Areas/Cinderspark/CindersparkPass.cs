@@ -1,6 +1,5 @@
 ﻿using Stellamod.Content.Areas.Cinderspark.TilesCS;
 using Stellamod.Content.Areas.Underground.TilesUG;
-using Stellamod.WorldG;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -307,7 +306,7 @@ public class ManorPass : GenPass
 
     protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
     {
-        /*progress.Message = "Ereshkigal secretly hiding Sigfried";
+        progress.Message = "Ereshkigal secretly hiding Sigfried";
         bool placed = false;
         int attempts = 0;
         while (!placed && attempts++ < 10000000)
@@ -328,12 +327,12 @@ public class ManorPass : GenPass
             {
                 Point Loc = new(smx, smy + 350);
                 string path = "Structures/Underground/Manor";
-                ManorLocation = Loc;
+                ModContent.GetInstance<VeilGen>().ManorLocation = Loc;
                 StructureLoader.ProtectStructure(Loc, path);
                 GenVars.structures.AddProtectedStructure(new Rectangle(smx, smy, 433, 100));
                 placed = true;
             }
-        }*/
+        }
     }
 }
 

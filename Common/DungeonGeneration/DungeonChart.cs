@@ -1,7 +1,6 @@
-﻿using Stellamod.WorldG;
+﻿using Stellamod.Content.Areas;
 using System;
 using System.Collections.Generic;
-using Terraria;
 
 namespace Stellamod.Common.DungeonGeneration;
 

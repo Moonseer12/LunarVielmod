@@ -2,7 +2,7 @@
 using Stellamod.Common.DashSystem;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;

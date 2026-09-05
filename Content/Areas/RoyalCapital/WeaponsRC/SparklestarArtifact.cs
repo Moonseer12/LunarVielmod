@@ -4,7 +4,7 @@ using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System.IO;
 using Terraria;
 using Terraria.Audio;

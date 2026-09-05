@@ -9,7 +9,7 @@ using Stellamod.Core.Pixelation;
 
 using Stellamod.Effects.GothinFlames;
 
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;

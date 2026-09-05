@@ -13,10 +13,10 @@ public class IshtarTempleBrick : ModItem
 {
     public override void SetDefaults()
     {
-        base.SetDefaults();
         Item.DefaultToPlaceableTile(ModContent.TileType<IshtarTempleBlock>());
     }
 }
+
 public class IshtarTempleBlock : ModTile
 {
     public override void SetStaticDefaults()
@@ -27,16 +27,6 @@ public class IshtarTempleBlock : ModTile
         Main.tileBlendAll[Type] = true;
         Main.tileLighted[Type] = true;
         Main.tileBlockLight[Type] = true;
-        RegisterItemDrop(ModContent.ItemType<IshtarTempleBrick>());
         AddMapEntry(new Color(6, 5, 7));
-        MineResist = 8f;
-        MinPick = 200;
-        
-
-    }
-
-    public override bool CanExplode(int i, int j) => false;
-    public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
-    {
     }
 }

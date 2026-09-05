@@ -15,5 +15,10 @@ namespace Stellamod.Content.Areas.Cinderspark.TilesCS
             Main.tileBlockLight[Type] = true;
             AddMapEntry(new Color(100, 25, 40));
         }
+
+        public override void RandomUpdate(int i, int j)
+        {
+            TileHelper.GrowVine(i, j, ModContent.TileType<CindersparkVines>());
+        }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Ishtar.TilesIS
@@ -13,6 +12,11 @@ namespace Stellamod.Content.Areas.Ishtar.TilesIS
             Main.tileBlendAll[Type] = true;
             Main.tileBlockLight[Type] = true;
             AddMapEntry(new Color(40, 40, 54));
+        }
+
+        public override void RandomUpdate(int i, int j)
+        {
+            TileHelper.GrowVine(i, j, ModContent.TileType<IshtarVines>());
         }
     }
     

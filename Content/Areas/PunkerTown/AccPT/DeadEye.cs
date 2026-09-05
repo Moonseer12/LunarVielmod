@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.DashSystem;
 using Stellamod.Common.Particles;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
@@ -39,12 +39,12 @@ public class DeadEyeProj : ModProjectile
 
         for (int i = 0; i < 16; i++)
         {
-            Color color = (Main.rand.NextBool(2) ? Color.Red : Color.Green);
-            Particles.SwirlingFlameDust.Spawn(BitDustFactory.Default with
+            Color color = Main.rand.NextBool(2) ? Color.Red : Color.Green;
+            ModContent.GetInstance<SwirlingFlameDust>().Spawn(BitDustFactory.Default with
             {
                 position = target.Center + Main.rand.NextVector2Circular(32, 32),
                 velocity = Main.rand.NextVector2Circular(8, 8),
-                innerColor = (Color.Lerp(Color.White, color, 0.5f)).ToVector4(),
+                innerColor = Color.Lerp(Color.White, color, 0.5f).ToVector4(),
                 outerColor = color.ToVector4()
             });
         }
@@ -110,7 +110,7 @@ public class DeadEye : AbstractDashItem
         for (int i = 0; i < 3; i++)
         {
             Color color = Main.rand.NextBool(2) ? Color.Red : Color.Green;
-            Particles.SwirlingFlameDust.Spawn(BitDustFactory.Default with
+            ModContent.GetInstance<SwirlingFlameDust>().Spawn(BitDustFactory.Default with
             {
                 position = player.Center + Main.rand.NextVector2Circular(32, 32),
                 velocity = Main.rand.NextVector2Circular(8, 8),

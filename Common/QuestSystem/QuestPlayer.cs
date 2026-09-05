@@ -1,5 +1,5 @@
-﻿using Stellamod.Content.Quests.ZuiQuest;
-using Stellamod.UI.PopupSystem;
+﻿using Stellamod.Common.PopupSystem;
+using Stellamod.Content.Quests.ZuiQuest;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;

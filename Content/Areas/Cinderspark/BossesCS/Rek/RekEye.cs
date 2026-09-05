@@ -8,7 +8,7 @@ using Stellamod.Core.Camera;
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Pixelation;
 using Stellamod.Effects.GothinFlames;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using System.IO;
 using Terraria;
@@ -197,7 +197,7 @@ public class RekEye : ModNPC
         }
         if (Main.rand.NextBool(8))
         {
-            Particles.SwirlingFlameDust.Spawn(BitDustFactory.Default with
+            ModContent.GetInstance<SwirlingFlameDust>().Spawn(BitDustFactory.Default with
             {
                 position = NPC.Center + Main.rand.NextVector2Circular(32, 32),
                 velocity = NPC.velocity.SafeNormalize(Vector2.Zero) * Main.rand.NextFloat(5f, 25f),

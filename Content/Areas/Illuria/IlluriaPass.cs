@@ -1,4 +1,5 @@
-﻿using Terraria.IO;
+﻿using Terraria;
+using Terraria.IO;
 using Terraria.WorldBuilding;
 
 namespace Stellamod.Content.Areas.Illuria;
@@ -11,10 +12,10 @@ public class IlluriaPass : GenPass
 
     protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
     {
-        /*Rectangle rectangle = StructureLoader.ReadRectangle("Structures/Illuria");
+        Rectangle rectangle = StructureLoader.ReadRectangle("Structures/Illuria");
         progress.Message = "Niivi protecting the cities above.";
         Point Loc = new(GenVars.snowOriginRight - 150, (int)Main.worldSurface - 350);
         rectangle.Location = Loc;
-        Structurizer.ProtectStructure(Loc, "Structures/Illuria");*/
+        Structurizer.ProtectStructure(Loc, "Structures/Illuria");
     }
 }

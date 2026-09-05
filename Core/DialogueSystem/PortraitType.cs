@@ -1,9 +1,5 @@
-﻿
-using ReLogic.Content;
-
+﻿using ReLogic.Content;
 using System;
-using System.Linq;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace Stellamod.Core.DialogueSystem

@@ -1,7 +1,6 @@
 ﻿using Stellamod.Content.Areas.SpringHills.ArmorSH;
 using Stellamod.Content.Areas.SpringHills.WeaponsSH;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.WorldG;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;

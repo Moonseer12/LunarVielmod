@@ -1,6 +1,6 @@
 using Stellamod.Content.Dusts;
 using Stellamod.Content.MoonlightMagic.Elements;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

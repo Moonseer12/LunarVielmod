@@ -6,7 +6,7 @@ using Stellamod.Content.Areas.PunkerTown.WeaponsPT;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using System.Collections.Generic;
 using Terraria;

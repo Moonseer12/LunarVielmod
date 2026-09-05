@@ -1,5 +1,4 @@
 ﻿using ReLogic.Content;
-using Stellamod.UI;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;
 using Terraria.UI;

@@ -14,8 +14,8 @@ namespace Stellamod.Helpers
         public static string CandleFlame => "Stellamod/Assets/NoiseTextures/CandleFlame";
         public static string EmptyTexture => "Stellamod/Assets/Textures/Empty";
         public static string EmptyBigTexture => "Stellamod/Assets/Textures/EmptyBig";
-        public static string EmptyGlowParticle => "Stellamod/Visual/Particles/GlowCircleBoomParticle";
-        public static string EmptyLongGlowParticle => "Stellamod/Visual/Particles/GlowCircleLongBoomParticle";
+        public static string EmptyGlowParticle => "Stellamod/Content/Particles/GlowCircleBoomParticle";
+        public static string EmptyLongGlowParticle => "Stellamod/Content/Particles/GlowCircleLongBoomParticle";
         public static string FlowerTexture => "Stellamod/Assets/NoiseTextures/Flower";
         public static string FlyingSlashTexture => "Stellamod/Assets/NoiseTextures/FlyingSlash";
         public static string CircleOutline => "Stellamod/Assets/NoiseTextures/Extra_67";

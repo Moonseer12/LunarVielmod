@@ -1,5 +1,4 @@
-﻿using Stellamod.UI.CollectionSystem;
-using Terraria.UI;
+﻿using Terraria.UI;
 
 namespace Stellamod.Common.BossBannerSystem
 {

@@ -1,9 +1,5 @@
-﻿
-
-
-using Stellamod.UI;
+﻿using Stellamod.Common.UI;
 using System;
-using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader.UI.Elements;
 

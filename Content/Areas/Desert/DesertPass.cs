@@ -1,6 +1,7 @@
 ﻿using Stellamod.Content.Areas.Desert.TilesCL;
+using Stellamod.Content.Areas.Desert.WeaponsCL;
+using Stellamod.Content.Areas.SpringHills.TilesSH;
 using Stellamod.Core.RibbonSystem;
-using Stellamod.WorldG;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -92,7 +93,7 @@ public class AshotiTemplePass : GenPass
 
     protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
     {
-        /*progress.Message = "Burying Ashoti";
+        progress.Message = "Burying Ashoti";
 
         var genRand = WorldGen.genRand;
         int radius = 80;
@@ -243,7 +244,7 @@ public class AshotiTemplePass : GenPass
                 }
                 Structurizer.ProtectStructure(tileToPlaceOn, structure);
             }
-        }*/
+        }
     }
 }
 
@@ -274,7 +275,7 @@ public class ColosseumPass : GenPass
 
         //Place the colosseum
         StructureMap desertStructures = new();
-        //GenerateColosseum(colosseumPoint, desertStructures);
+        GenerateColosseum(colosseumPoint, desertStructures);
 
         //Basically we're just gonna get random points on the colosseum and palce ribbons
         //This should look aight?

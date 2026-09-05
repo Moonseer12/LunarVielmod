@@ -3,7 +3,7 @@ using Stellamod.Common.GunSystem;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Dusts;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using Terraria;
 using Terraria.Audio;

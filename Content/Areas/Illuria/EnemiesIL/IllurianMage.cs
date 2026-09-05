@@ -1,5 +1,5 @@
-﻿using Stellamod.Content.CommonMaterials;
-using Stellamod.Content.Vanity.Illurian;
+﻿using Stellamod.Content.Areas.Illuria.VanitiesIL;
+using Stellamod.Content.CommonMaterials;
 using System;
 using Terraria;
 using Terraria.Audio;

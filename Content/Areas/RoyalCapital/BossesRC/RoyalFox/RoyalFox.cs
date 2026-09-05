@@ -1,15 +1,13 @@
 ﻿using ReLogic.Content;
-using Stellamod.Assets;
 using Stellamod.Content.Areas.RoyalCapital.BossesRC.RoyalFox.Projectiles;
-using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss.Projectiles;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.BossesMT.VerliaBoss.Projectiles;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
 using Stellamod.Core.InverseKinematics;
-using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Effects.RoyalMagic;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using System.IO;
 using Terraria;

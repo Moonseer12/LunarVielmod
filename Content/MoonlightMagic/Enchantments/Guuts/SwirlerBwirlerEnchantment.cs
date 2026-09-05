@@ -1,7 +1,7 @@
 ﻿
 using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Core.Particles;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.ModLoader;
 namespace Stellamod.Content.MoonlightMagic.Enchantments.Guuts

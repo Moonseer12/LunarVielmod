@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Content.Areas.SpringHills.InsourcesSH;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;

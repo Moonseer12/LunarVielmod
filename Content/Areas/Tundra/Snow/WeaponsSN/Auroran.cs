@@ -4,7 +4,7 @@ using Stellamod.Content.Dusts;
 using Stellamod.Content.Trailers;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using System.Collections.Generic;
 using Terraria;

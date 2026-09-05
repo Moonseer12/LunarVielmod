@@ -1,9 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
-
-
-using Stellamod.Visual.Particles;
-using Stellamod.WorldG;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;

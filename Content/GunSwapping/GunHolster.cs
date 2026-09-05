@@ -1,4 +1,4 @@
-﻿using Stellamod.UI.GunHolsterSystem;
+﻿using Stellamod.Common.ScorpionMountSystem;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;

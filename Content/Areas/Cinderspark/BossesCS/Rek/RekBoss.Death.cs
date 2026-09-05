@@ -2,12 +2,8 @@
 using Stellamod.Common.Particles;
 using Stellamod.Core.Camera;
 using Stellamod.Core.Particles;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
@@ -90,7 +86,7 @@ public partial class RekBoss
                     {
                         if (Timer % 10 == 0)
                         {
-                            Particles.RoarDust.Spawn(RoarDustData.Default with { position = NPC.Center });
+                            ModContent.GetInstance<RoarDust>().Spawn(RoarDustData.Default with { position = NPC.Center });
                         }
                         ShakeScreenPosition.Shake = 8;
 

@@ -1,13 +1,10 @@
-﻿using Stellamod.Assets;
-using Stellamod.Assets.ContentReader.Aseprite;
+﻿using Stellamod.Assets.ContentReader.Aseprite;
 using Stellamod.Common.Particles;
 using Stellamod.Content.Areas.Cinderspark.BossesCS.Rek.Projectiles;
-using Stellamod.Core.Camera;
-using Stellamod.Core.InverseKinematics;
 using System;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Animations;
+using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Cinderspark.BossesCS.Rek;
 
@@ -141,7 +138,7 @@ public partial class RekBoss
                             Vector2 vel = NPC.Center - pos;
                             vel *= 0.1f;
                             Color color = Color.Lerp(Color.Yellow, Color.Red, Main.rand.NextFloat(0f, 1f));
-                            Particles.SwirlingFlameDust.Spawn(BitDustFactory.Default with
+                            ModContent.GetInstance<SwirlingFlameDust>().Spawn(BitDustFactory.Default with
                             {
                                 position = pos,
                                 velocity = vel,

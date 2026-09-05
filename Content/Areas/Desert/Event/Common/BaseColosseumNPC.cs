@@ -1,6 +1,6 @@
 ﻿
 using Stellamod.Core.Particles;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

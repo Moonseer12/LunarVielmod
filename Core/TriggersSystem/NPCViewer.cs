@@ -1,7 +1,5 @@
-﻿
-
+﻿using Stellamod.Common.UI;
 using Stellamod.Core.StructureSelector;
-using Stellamod.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;

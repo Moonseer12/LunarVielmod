@@ -1,6 +1,10 @@
 ﻿using ReLogic.Content;
+using Stellamod.Content.Areas.Illuria.BossesIL.Niivi;
+using Stellamod.Content.Areas.RoyalCapital;
+using Stellamod.Content.Areas.Terror;
+using Stellamod.Content.Areas.TheFalling;
+using Stellamod.Content.Areas.WorldsEnd;
 using Stellamod.Core.Skies;
-using Stellamod.Skies;
 using System.Collections.Generic;
 using System.IO;
 using Terraria.Graphics.Effects;
@@ -54,7 +58,7 @@ namespace Stellamod.Helpers
 
         public static void LoadShaders()
         {
-            ScreenShaders = new List<string>();
+            ScreenShaders = new();
 
             Asset<Effect> DaedusRobeRef = Assets.Request<Effect>("Effects/DaedusRobe");
             GameShaders.Misc["LunarVeil:DaedusRobe"] = new MiscShaderData(DaedusRobeRef, "PixelPass");
@@ -63,16 +67,16 @@ namespace Stellamod.Helpers
             GameShaders.Misc["LunarVeil:LightningBolt"] = new MiscShaderData(lightningBoltRef, "PrimitivesPass");
 
             Asset<Effect> blackShader = Assets.Request<Effect>("Effects/Black");
-            Filters.Scene[ShaderRegistry.Screen_Black] = new Filter(new ScreenShaderData(blackShader, "BlackPass"), EffectPriority.Medium);
+            Filters.Scene[Screen_Black] = new Filter(new ScreenShaderData(blackShader, "BlackPass"), EffectPriority.Medium);
 
             Asset<Effect> tintShader = Assets.Request<Effect>("Effects/Tint");
-            Filters.Scene[ShaderRegistry.Screen_Tint] = new Filter(new ScreenShaderData(tintShader, "ScreenPass"), EffectPriority.Medium);
+            Filters.Scene[Screen_Tint] = new Filter(new ScreenShaderData(tintShader, "ScreenPass"), EffectPriority.Medium);
 
             Asset<Effect> distortionShader = Assets.Request<Effect>("Effects/NormalDistortion");
-            Filters.Scene[ShaderRegistry.Screen_NormalDistortion] = new Filter(new ScreenShaderData(distortionShader, "ScreenPass"), EffectPriority.Medium);
+            Filters.Scene[Screen_NormalDistortion] = new Filter(new ScreenShaderData(distortionShader, "ScreenPass"), EffectPriority.Medium);
 
             Asset<Effect> vignetteShader = Assets.Request<Effect>("Effects/Vignette");
-            Filters.Scene[ShaderRegistry.Screen_Vignette] = new Filter(new ScreenShaderData(vignetteShader, "ScreenPass"), EffectPriority.Medium);
+            Filters.Scene[Screen_Vignette] = new Filter(new ScreenShaderData(vignetteShader, "ScreenPass"), EffectPriority.Medium);
 
             //Palette Shaders
 
@@ -121,18 +125,35 @@ namespace Stellamod.Helpers
             RegisterMiscShader("LunarVeil:SimpleDistortion", "Effects/SimpleDistortion", "PixelPass");
             RegisterMiscShader("LunarVeil:SimpleMasking", "Effects/SimpleMasking", "PixelPass");
 
+            Filters.Scene["Stellamod:Illuria"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0.4f, -0.3f, 1.3f).UseOpacity(0.275f), EffectPriority.Medium);
+            Filters.Scene["Stellamod:Marsh"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0.4f, 0f, 0f).UseOpacity(0.275f), EffectPriority.Medium);
+            Filters.Scene["Stellamod:Aegislav"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0.6f, 0f, 0f).UseOpacity(0.35f), EffectPriority.Medium);
+            Filters.Scene["Stellamod:HeatedDepths"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0.3f, 0f, 0f).UseOpacity(0.35f), EffectPriority.Medium);
+
+            Asset<Effect> screenRef = ModContent.Request<Effect>("Stellamod/Effects/Shockwave"); // The path to the compiled shader file.
+            Filters.Scene["Shockwave"] = new Filter(new ScreenShaderData(screenRef, "Shockwave"), EffectPriority.VeryHigh);
+            Filters.Scene["Shockwave"].Load();
+
             //Skies
+            SkyManager.Instance["Stellamod:NiiviSky"] = new NiiviSky();
+
+            SkyManager.Instance["Stellamod:WorldsEndSky"] = new WorldsEndSky();
+            SkyManager.Instance["Stellamod:WorldsEndSky"].Load();
+
+            SkyManager.Instance["Stellamod:AegislavSky"] = new AegislavSky();
+            SkyManager.Instance["Stellamod:AegislavSky"].Load();
+
+            SkyManager.Instance["Stellamod:EdgeofTheMoonSky"] = new EdgeofTheMoonSky();
+            SkyManager.Instance["Stellamod:EdgeofTheMoonSky"].Load();
+
+            Asset<Effect> GenericLaserShader = Assets.Request<Effect>("Effects/LaserShader");
+            GameShaders.Misc["Stellamod:LaserShader"] = new MiscShaderData(GenericLaserShader, "TrailPass");
+
             SkyManager.Instance["LunarVeil:RoyalCapitalSky"] = new RoyalCapitalSky();
             SkyManager.Instance["LunarVeil:RoyalCapitalSky"].Load();
 
             SkyManager.Instance["LunarVeil:DarkspaceSky"] = new RoyalCapitalSky();
             SkyManager.Instance["LunarVeil:DarkspaceSky"].Load();
-
-            SkyManager.Instance["Stellamod:NaxtrinSky"] = new NaxtrinSky();
-            SkyManager.Instance["Stellamod:NaxtrinSky"].Load();
-
-            SkyManager.Instance["Stellamod:AlcadSky"] = new NaxtrinSky3();
-            SkyManager.Instance["Stellamod:AlcadSky"].Load();
 
             RegisterMiscCrystalShader("Clouds", "ScreenPass");
             RegisterMiscCrystalShader("CloudsFront", "ScreenPass");

@@ -12,7 +12,7 @@ using Stellamod.Core.Pixelation;
 using Stellamod.Effects.Ereshkigal;
 using Stellamod.Effects.Generic;
 using Stellamod.Effects.RoyalMagic;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -291,7 +291,7 @@ public class EreshkigalCrack : ModProjectile
         shearShader.Time = MathHelper.Lerp(0f, 1f, EasingFunction.InExpo(Timer / 120f));
         Main.spriteBatch.Restart(effect: shearShader.Effect);
 
-        SpritebatchDrawer crackDrawer = SpritebatchDrawer.FromTextureAsset(ModContent.Request<Texture2D>("Stellamod/Visual/Particles/BigCrackParticle"), Projectile.Center);
+        SpritebatchDrawer crackDrawer = SpritebatchDrawer.FromTextureAsset(ModContent.Request<Texture2D>("Stellamod/Content/Particles/BigCrackParticle"), Projectile.Center);
         crackDrawer.color = Color.Lerp(Color.White, Color.Gold, EasingFunction.InExpo(Timer / 60f));
         crackDrawer.color.A = 0;
         crackDrawer.scale = Vector2.One * 2f;

@@ -2,7 +2,7 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Gores;
 using Stellamod.Effects.Generic;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using System.Collections.Generic;
 using Terraria;

@@ -1,5 +1,4 @@
 ﻿using Stellamod.Content.Areas.Underground.TilesUG;
-using Stellamod.WorldG;
 using System;
 using Terraria;
 using Terraria.ID;

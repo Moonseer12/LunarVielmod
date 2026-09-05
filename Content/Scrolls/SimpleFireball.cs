@@ -3,7 +3,7 @@ using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Cinderspark.WeaponsCS;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

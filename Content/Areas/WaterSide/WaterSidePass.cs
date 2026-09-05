@@ -1,6 +1,5 @@
 ﻿using Stellamod.Content.Areas.WaterSide.TilesWS;
 using Stellamod.Core.ZTileSystem;
-using Stellamod.WorldG;
 using System;
 using Terraria;
 using Terraria.ID;

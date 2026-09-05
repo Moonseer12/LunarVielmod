@@ -7,7 +7,7 @@ using Stellamod.Content.Areas.WondrousDarkspace.NPCsWD;
 using Stellamod.Content.Dusts;
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Particles;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using Terraria;
 using Terraria.Audio;

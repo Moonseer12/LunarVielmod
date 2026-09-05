@@ -1,9 +1,5 @@
-﻿
-
-using ReLogic.Content;
-using Stellamod.Core.Bases;
+﻿using ReLogic.Content;
 using Stellamod.Core.Godrays;
-using Stellamod.WorldG;
 using System;
 using Terraria;
 using Terraria.DataStructures;

@@ -3,6 +3,7 @@ using Stellamod.Common.Particles;
 using Stellamod.Content.Areas.Cinderspark.BossesCS.Rek.Projectiles;
 using System;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Cinderspark.BossesCS.Rek;
 
@@ -70,7 +71,7 @@ public partial class RekBoss
                         vel *= 1024;
                         for(int i = 0; i < 32; i++)
                         {
-                            Particles.WaterDust.Spawn(WaterDustData.Default with
+                            ModContent.GetInstance<WaterDust>().Spawn(WaterDustData.Default with
                             { 
                                 position = point, 
                                 velocity = vel * Main.rand.NextFloat(0.02f, 0.05f), 

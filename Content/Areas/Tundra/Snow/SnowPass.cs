@@ -1,6 +1,5 @@
 ﻿using ReLogic.Utilities;
 using Stellamod.Content.Areas.Tundra.Abyss.TilesAB;
-using Stellamod.WorldG;
 using System;
 using Terraria;
 using Terraria.ID;

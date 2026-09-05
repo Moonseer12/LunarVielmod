@@ -2,7 +2,7 @@
 using Stellamod.Content.Areas.Cinderspark.WeaponsCS;
 using Stellamod.Content.Dusts;
 using Stellamod.Core.Particles;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;

@@ -1,4 +1,4 @@
-﻿using Stellamod.Visual.Particles;
+﻿using Stellamod.Content.Particles;
 using Terraria;
 
 namespace Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB;

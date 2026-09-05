@@ -2,7 +2,7 @@
 using Stellamod.Common.XixianFlaskSystem;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.Particles;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;

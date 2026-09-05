@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Dusts;
 using Stellamod.Core.Particles;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using System.Collections.Generic;
 using Terraria;

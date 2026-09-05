@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common.Particles;
 using Stellamod.Core.ZTileSystem;
 using Terraria;
-using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.SpringHills.TilesSH;
 
@@ -100,7 +100,7 @@ public class StoneFurnace : ZTile
         Lighting.AddLight(worldPosition + new Vector2(0, -16), Color.OrangeRed.ToVector3() * 4);
         if (Main.GameUpdateCount % 2 == 0)
         {
-            Particles.RagingFlameDust.Spawn(RagingFlameDustData.Default with { position = worldPosition, timeleft = 70 });
+            ModContent.GetInstance<RagingFlameDust>().Spawn(RagingFlameDustData.Default with { position = worldPosition, timeleft = 70 });
 
         }
     }

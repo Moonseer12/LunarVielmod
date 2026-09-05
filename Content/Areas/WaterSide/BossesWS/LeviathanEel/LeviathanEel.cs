@@ -11,7 +11,7 @@ using Stellamod.Core.Pixelation;
 
 using Stellamod.Content.Gores;
 
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -5,7 +5,7 @@ using Stellamod.Common.DashSystem;
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Tooltips;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;

@@ -1,4 +1,4 @@
-﻿using Stellamod.WorldG;
+﻿using Stellamod.Content.Areas;
 using Terraria;
 
 namespace Stellamod.Core.Utilities;

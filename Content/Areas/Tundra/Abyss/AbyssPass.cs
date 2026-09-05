@@ -1,7 +1,5 @@
 ﻿using Stellamod.Content.Areas.Tundra.Abyss.TilesAB;
-using Stellamod.Content.Areas.Tundra.Snow.TilesSN;
 using Stellamod.Core.ZTileSystem;
-using Stellamod.WorldG;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,16 +34,15 @@ public class AbyssPass : GenPass
         int bottom = ModContent.GetInstance<VeilGen>().DarkspaceStart;
 
         //Calculate center of the abyss
-        Point AbyssCenter = new();
-        AbyssCenter.X = left + right;
-        AbyssCenter.X /= 2;
-        AbyssCenter.Y = (int)(SavedGenerationParameters.RockLayerHigh + Main.maxTilesY * 0.15);
-        AbyssCenter.Y -= 20;
+        ModContent.GetInstance<VeilGen>().AbyssCenter.X = left + right;
+        ModContent.GetInstance<VeilGen>().AbyssCenter.X /= 2;
+        ModContent.GetInstance<VeilGen>().AbyssCenter.Y = (int)(SavedGenerationParameters.RockLayerHigh + Main.maxTilesY * 0.15);
+        ModContent.GetInstance<VeilGen>().AbyssCenter.Y -= 20;
         //Place the center like a circle
 
         ushort abyssTile = (ushort)ModContent.TileType<AbyssalDirt>();
 
-        int abyssHigh = AbyssCenter.Y - 500;
+        int abyssHigh = ModContent.GetInstance<VeilGen>().AbyssCenter.Y - 500;
 
         int abyssLow = bottom;
 
@@ -319,18 +316,18 @@ public class AurelusTemplePass : GenPass
 
     protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
     {
-        /*Rectangle rectangle = StructureLoader.ReadRectangle("Structures/Aurelus/AurelusTemple");
+        Rectangle rectangle = StructureLoader.ReadRectangle("Structures/Aurelus/AurelusTemple");
         progress.Message = "Singularities Singing!";
         bool placed = false;
         int attempts = 0;
         while (!placed && attempts++ < 1000000)
         {
-            Point Loc = AbyssCenter;
+            Point Loc = ModContent.GetInstance<VeilGen>().AbyssCenter;
             Loc.X -= rectangle.Width / 2;
             Loc.Y += rectangle.Height / 2;
             rectangle.Location = Loc;
             StructureLoader.ProtectStructure(Loc, "Structures/Aurelus/AurelusTemple");
             placed = true;
-        }*/
+        }
     }
 }

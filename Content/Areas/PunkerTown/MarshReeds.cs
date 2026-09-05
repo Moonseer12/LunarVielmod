@@ -1,5 +1,4 @@
 ﻿using Stellamod.Core.Foreground;
-using Stellamod.WorldG;
 using Terraria;
 using Terraria.ModLoader;
 

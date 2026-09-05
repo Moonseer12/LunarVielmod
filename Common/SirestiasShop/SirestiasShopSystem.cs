@@ -1,25 +1,10 @@
-﻿using log4net.Filter;
-
-
-using Microsoft.Xna.Framework.Graphics.PackedVector;
-using Microsoft.Xna.Framework.Input;
-using MonoMod.Core.Platforms;
+﻿using Microsoft.Xna.Framework.Input;
 using ReLogic.Content;
-using Stellamod.Common.ItemBrowser;
-using Stellamod.Common.MagicSystem.UI;
+using Stellamod.Common.UI;
 using Stellamod.Common.Shaders;
-using Stellamod.Core.Effects;
 using Stellamod.Core.Tooltips;
-
-
-using Stellamod.UI;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -31,7 +16,6 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.UI.Elements;
 using Terraria.UI;
 using Terraria.UI.Chat;
-using static Terraria.GameContent.Animations.IL_Actions.Sprites;
 
 namespace Stellamod.Common.SirestiasShop
 {

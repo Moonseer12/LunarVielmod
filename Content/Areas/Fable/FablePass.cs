@@ -1,5 +1,4 @@
-﻿using Stellamod.WorldG;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.IO;
 using Terraria.ModLoader;
@@ -58,7 +57,7 @@ public class FableTerrainPass : GenPass
 
 
         //Placing a falling off slope at the end of the structure
-        Rectangle fableRect = Structurizer.ReadRectangle(StructureAssets.Fable);
+        Rectangle fableRect = Structurizer.ReadRectangle("Structures/Fable");
         Point fableFalloffStart = ModContent.GetInstance<VeilGen>().FableLocation + new Point(fableRect.Width, 0);
         fableFalloffStart.Y -= 54;
         fableFalloffStart.X -= 20;
@@ -96,12 +95,12 @@ public class FablePass : GenPass
         Structurizer.PlaceAndProtect(new StructurePlacementParams
         {
             tile = ModContent.GetInstance<VeilGen>().FableLocation,
-            structurePath = StructureAssets.Fable,
+            structurePath = "Structures/Fable",
             tileBlend = Structurizer.DefaultTileBlend
         });
 
         //Placing a falling off slope at the end of the structure
-        Rectangle fableRect = Structurizer.ReadRectangle(StructureAssets.Fable);
+        Rectangle fableRect = Structurizer.ReadRectangle("Structures/Fable");
         Point fableFalloffStart = ModContent.GetInstance<VeilGen>().FableLocation + new Point(fableRect.Width, 0);
         fableFalloffStart.Y -= 54;
         fableFalloffStart.X -= 20;

@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using ReLogic.Content;
-
-
-using Stellamod.UI;
+using Stellamod.Common.UI;
 using System;
 using System.Reflection;
 using Terraria;

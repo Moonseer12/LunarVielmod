@@ -1,7 +1,6 @@
 ﻿using Stellamod.Content.Areas.RoyalCapital;
 using Stellamod.Core.LunarLightingSystem;
-using Stellamod.Visual.Particles;
-using Stellamod.WorldG;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.Graphics.Capture;
 using Terraria.Graphics.Effects;

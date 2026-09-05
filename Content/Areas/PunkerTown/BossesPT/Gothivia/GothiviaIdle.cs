@@ -1,5 +1,4 @@
 ﻿using Stellamod.Core;
-using Stellamod.WorldG;
 using System;
 using System.Collections.Generic;
 using Terraria;

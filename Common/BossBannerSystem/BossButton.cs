@@ -1,8 +1,5 @@
-﻿
-
-using ReLogic.Content;
-
-using Stellamod.UI.CollectionSystem;
+﻿using ReLogic.Content;
+using Stellamod.Common.CollectionSystem;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;

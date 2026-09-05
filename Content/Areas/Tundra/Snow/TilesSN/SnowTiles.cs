@@ -1,5 +1,4 @@
 ﻿using ReLogic.Content;
-using Stellamod.WorldG;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;

@@ -1,5 +1,4 @@
 ﻿using Stellamod.Content.Areas.WondrousDarkspace.TilesWD;
-using Stellamod.WorldG;
 using System;
 using Terraria;
 using Terraria.ID;

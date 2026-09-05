@@ -1,11 +1,7 @@
-﻿using Stellamod.Common.ClassReworkSystem.AmmoRework.UI;
-
-using Stellamod.UI;
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace Stellamod.Common.WeaponTypes.CombatTools.UI;
 

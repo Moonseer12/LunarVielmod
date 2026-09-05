@@ -1,0 +1,19 @@
+﻿using Terraria.UI;
+
+namespace Stellamod.Common.PopupSystem
+{
+    public class PopupUIState : UIState
+    {
+        public PopupUI popupUI;
+        public PopupUIState() : base()
+        {
+
+        }
+
+        public override void OnInitialize()
+        {
+            popupUI = new PopupUI();
+            Append(popupUI);
+        }
+    }
+}

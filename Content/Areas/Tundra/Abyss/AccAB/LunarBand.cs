@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;

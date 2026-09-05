@@ -5,7 +5,7 @@ using Stellamod.Common.Shaders;
 using Stellamod.Content.Achievements;
 using Stellamod.Core;
 using Stellamod.Core.LunarLightingSystem;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;

@@ -68,6 +68,13 @@ namespace Stellamod.Common.ArmorShop
             SW.SetMaterial(ItemID.GraniteBlock);
             SW.Register();
 
+            ArmorShopSet astr = new ArmorShopSet();
+            astr.AddHead(ModContent.ItemType<AstrasilkHead>());
+            astr.AddBody(ModContent.ItemType<AstrasilkBody>());
+            astr.AddLegs(ModContent.ItemType<AstrasilkLegs>());
+            astr.SetMaterial(ItemID.FallenStar);
+            astr.Register();
+
             ArmorShopSet GintzeSet = new();
             GintzeSet.AddHead(ModContent.ItemType<HeavyMetalHead>());
             GintzeSet.AddBody(ModContent.ItemType<HeavyMetalBody>());

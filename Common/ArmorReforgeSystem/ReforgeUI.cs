@@ -3,7 +3,7 @@ using Stellamod.Common.ArmorReforge;
 using Stellamod.Common.UI;
 using Stellamod.Core.Tooltips;
 
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;

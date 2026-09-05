@@ -1,17 +1,10 @@
-﻿using ReLogic.Content;
-using Stellamod.Common.ArmorShop.UI;
-using Stellamod.Common.MagicSystem.UI;
+﻿using Stellamod.Common.ArmorShop.UI;
 using Stellamod.Common.UI;
-using Stellamod.Core;
-
-using Stellamod.UI;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
-using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.UI.Elements;
 using Terraria.UI.Chat;
 
 namespace Stellamod.Common.WeaponTypes.CombatTools.UI;

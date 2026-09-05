@@ -1,12 +1,10 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.BossesMT.VerliaBoss;
 using Stellamod.Core.Palettes;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.Rendering;
-
-
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;

@@ -2,7 +2,7 @@
 
 using Stellamod.Common.ArmorRework;
 
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using System.Collections.Generic;
 using System.Linq;

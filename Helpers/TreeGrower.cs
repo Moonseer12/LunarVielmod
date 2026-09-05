@@ -1,5 +1,5 @@
-﻿using Stellamod.Content.Areas.Terror.TilesTR;
-using Stellamod.WorldG;
+﻿using Stellamod.Content.Areas;
+using Stellamod.Content.Areas.Terror.TilesTR;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

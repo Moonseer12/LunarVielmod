@@ -1,5 +1,4 @@
 ﻿using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Vanity.Appretience;
@@ -7,11 +6,6 @@ namespace Stellamod.Content.Vanity.Appretience;
 [AutoloadEquip(EquipType.Head)]
 public class AppretienceHat : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        base.SetStaticDefaults();
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
     public override void SetDefaults()
     {
         Item.vanity = true;
@@ -21,12 +15,6 @@ public class AppretienceHat : ModItem
 [AutoloadEquip(EquipType.Body)]
 public class AppretienceBreastplate : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        base.SetStaticDefaults();
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
-
     public override void SetDefaults()
     {
         Item.vanity = true;
@@ -36,15 +24,8 @@ public class AppretienceBreastplate : ModItem
 [AutoloadEquip(EquipType.Legs)]
 public class AppretiencePants : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        base.SetStaticDefaults();
-        CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-    }
-
     public override void SetDefaults()
     {
         Item.vanity = true;
     }
-
 }

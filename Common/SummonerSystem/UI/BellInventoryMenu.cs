@@ -1,16 +1,6 @@
-﻿using log4net.Filter;
-
-
-using Mono.Cecil;
-using ReLogic.Content;
-using Stellamod.Common.ItemBrowser;
-
-using Stellamod.UI;
-using System.Collections.Generic;
-using Terraria;
+﻿using ReLogic.Content;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;
-using Terraria.ModLoader.UI.Elements;
 using Terraria.UI;
 
 namespace Stellamod.Common.SummonerSystem.UI

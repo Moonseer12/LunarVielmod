@@ -28,7 +28,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.BossesRC.STARBOMBER.Projectiles
             {
                 for (float f = 0; f < 8; f++)
                 {
-                    Particles.BitDust.Spawn(BitDustFactory.SlowingOverTime with
+                    ModContent.GetInstance<BitDust>().Spawn(BitDustFactory.SlowingOverTime with
                     {
                         position = Projectile.Center,
                         innerColor = Color.White.ToVector4(),
@@ -39,7 +39,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.BossesRC.STARBOMBER.Projectiles
 
                 for (float f = 0; f < 8; f++)
                 {
-                    Particles.BitDust.Spawn(BitDustFactory.SlowingOverTime with {
+                    ModContent.GetInstance<BitDust>().Spawn(BitDustFactory.SlowingOverTime with {
                         position = Projectile.Center, 
                         innerColor = Color.Pink.ToVector4(), 
                         outerColor = Color.Purple.ToVector4(),
@@ -48,7 +48,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.BossesRC.STARBOMBER.Projectiles
 
                 for (float f = 0; f < 8; f++)
                 {
-                    Particles.SwirlingFlameDust.Spawn(BitDustFactory.Default with
+                    ModContent.GetInstance<SwirlingFlameDust>().Spawn(BitDustFactory.Default with
                     {
                         position = Projectile.Center,
                         innerColor = Color.LightBlue.ToVector4(),

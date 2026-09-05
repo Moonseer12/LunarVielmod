@@ -1,0 +1,44 @@
+﻿using Stellamod.Core.Particles;
+using Terraria;
+
+namespace Stellamod.Content.Particles
+{
+    public class CircleStepParticle : Particle<CircleStepParticle>
+    {
+        public int FrameWidth = 128;
+        public int FrameHeight = 128;
+        public int MaxFrameCount = 5;
+        public int FrameCounter = 0;
+        public int TicksPerFrame = 3;
+        public override void OnSpawn()
+        {
+            Frame = new Rectangle(0, 0, FrameWidth, FrameHeight);
+        }
+
+        public override void Update()
+        {
+            Velocity *= 0.98f;
+            Rotation += 0.01f;
+            Scale *= 0.997f;
+            color *= 0.99f;
+
+            FrameCounter++;
+            if (FrameCounter >= TicksPerFrame)
+            {
+                Frame.Y += FrameHeight;
+                if (Frame.Y >= FrameHeight * MaxFrameCount)
+                {
+                    Frame.Y = 0;
+                    active = false;
+                }
+                FrameCounter = 0;
+            }
+        }
+        
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            var textureAsset = GetTexture();
+            spriteBatch.Draw(textureAsset.Value, DrawPosition, Frame, color, Rotation, Frame.Size() / 2f, Scale, SpriteEffects.None, 0);
+        }
+    }
+}

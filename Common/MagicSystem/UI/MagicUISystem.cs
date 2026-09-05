@@ -1,7 +1,5 @@
-﻿
+﻿using Stellamod.Common.UI;
 using Stellamod.Content.MoonlightMagic;
-using Stellamod.UI;
-using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;

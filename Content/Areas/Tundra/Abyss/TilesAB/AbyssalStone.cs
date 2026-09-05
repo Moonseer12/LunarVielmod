@@ -12,13 +12,10 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.TilesAB
             Main.tileSolid[Type] = true;
             Main.tileMerge[Type][Type] = true;
             Main.tileBlockLight[Type] = true;
-            Main.tileMerge[TileID.Mud][Type] = true;
-            Main.tileMerge[TileID.ClayBlock][Type] = true;
             Main.tileBlendAll[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileBlockLight[Type] = true;
-            LocalizedText name = CreateMapEntryName();
-            AddMapEntry(new Color(000, 000, 000), name);
+            AddMapEntry(new Color(000, 000, 000));
         }
     }
 }

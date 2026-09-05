@@ -1,7 +1,6 @@
 ﻿using Stellamod.Common.ArmorReforge;
 using Stellamod.Common.UI;
 using Stellamod.Content.Areas.Underground;
-using Stellamod.UI;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;

@@ -3,7 +3,7 @@ using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Particles;
 using Stellamod.Common.WeaponTypes;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -115,7 +115,7 @@ public class HolyManaKnife : ModProjectile
         base.OnKill(timeLeft);
         for(int i = 0; i < 3; i++)
         {
-            Particles.SwirlingFlameDust.Spawn(BitDustFactory.Default with { position = Projectile.Center, velocity = Main.rand.NextVector2Circular(6, 6),
+            ModContent.GetInstance<SwirlingFlameDust>().Spawn(BitDustFactory.Default with { position = Projectile.Center, velocity = Main.rand.NextVector2Circular(6, 6),
                 outerColor = Color.Gold.ToVector4(), innerColor = Color.Yellow.ToVector4(), timeLeft = Main.rand.Next(20, 50), scale = new Vector2(Main.rand.NextFloat(0.5f, 1.2f)) });
         }
     }

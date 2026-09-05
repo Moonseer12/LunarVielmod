@@ -1,14 +1,10 @@
 ﻿using ReLogic.Content;
 using Stellamod.Common.UI;
 using Stellamod.Core.Tooltips;
-
-
-using Stellamod.UI;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;
-
 
 namespace Stellamod.Common.SummonerSystem.UI
 {

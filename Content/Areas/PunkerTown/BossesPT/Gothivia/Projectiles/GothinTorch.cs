@@ -5,7 +5,7 @@ using Stellamod.Core.Pixelation;
 
 using Stellamod.Effects.GothinFlames;
 
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

@@ -1,11 +1,11 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss.Projectiles;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.BossesMT.VerliaBoss.Projectiles;
 using Stellamod.Content.Areas.WaterSide.BossesWS.KingJellyfishBoss;
 using Stellamod.Core.Palettes;
 using Stellamod.Core.Pixelation;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using System.Collections.Generic;
 using Terraria;

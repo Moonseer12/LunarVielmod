@@ -2,11 +2,11 @@
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.Steamroller;
-using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss;
-using Stellamod.Content.Areas.Tundra.MoonspiralTower.VerliaBoss.Projectiles;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.BossesMT.VerliaBoss;
+using Stellamod.Content.Areas.Tundra.MoonspiralTower.BossesMT.VerliaBoss.Projectiles;
 using Stellamod.Content.Areas.Tundra.Snow.WeaponsSN;
 using Stellamod.Core.Pixelation;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -805,7 +805,7 @@ public class BigCelestialBoom : ModProjectile
         shearShader.Time = MathHelper.Lerp(0f, 1f, EasingFunction.InExpo(Timer / 120f));
         Main.spriteBatch.Restart(effect: shearShader.Effect);
 
-        SpritebatchDrawer crackDrawer = SpritebatchDrawer.FromTextureAsset(ModContent.Request<Texture2D>("Stellamod/Visual/Particles/BigCrackParticle"), Projectile.Center);
+        SpritebatchDrawer crackDrawer = SpritebatchDrawer.FromTextureAsset(ModContent.Request<Texture2D>("Stellamod/Content/Particles/BigCrackParticle"), Projectile.Center);
         crackDrawer.color = Color.Lerp(Color.White, Color.Turquoise, EasingFunction.InExpo(Timer / 60f));
         crackDrawer.color.A = 0;
         crackDrawer.scale = Vector2.One * 2f;

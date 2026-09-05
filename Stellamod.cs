@@ -5,12 +5,8 @@ using Stellamod.Assets.ContentReader.Pal;
 //using Stellamod.Assets.Videos;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas;
-using Stellamod.Content.Areas.Terror;
-using Stellamod.Content.Areas.TheFalling;
-using Stellamod.Content.Areas.WorldsEnd;
 using Stellamod.Content.Currencies;
 using Stellamod.Core.UI;
-using Stellamod.Skies;
 using System;
 using System.IO;
 using System.Reflection;
@@ -20,8 +16,6 @@ using Terraria.GameContent;
 using Terraria.GameContent.UI;
 using Terraria.GameContent.UI.Elements;
 using Terraria.GameContent.UI.States;
-using Terraria.Graphics.Effects;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
@@ -81,37 +75,12 @@ namespace Stellamod
                 ShaderLoader.LoadShaders(this);
                 ShaderRegistry.LoadShaders();
                 CrystalShaderRegistry.LoadShaders();
-                MedalCurrencyID = CustomCurrencyManager.RegisterCurrency(new Helpers.Medals(ModContent.ItemType<RuinMedal>(), 999L, "Ruin Medals"));
-                EreshstylCurrencyID = CustomCurrencyManager.RegisterCurrency(new Helpers.Medals(ModContent.ItemType<Ereshstyl>(), 999L, "Ereshstyl"));
-                NoHitCrystalCurrencyID = CustomCurrencyManager.RegisterCurrency(new Helpers.Medals(ModContent.ItemType<NoHitCrystal>(), 999L, "No Hit Crystal"));
-                DragonShardCurrencyID = CustomCurrencyManager.RegisterCurrency(new Helpers.Medals(ModContent.ItemType<DragonShard>(), 999L, "Dragon Shard"));
+                MedalCurrencyID = CustomCurrencyManager.RegisterCurrency(new Medals(ModContent.ItemType<RuinMedal>(), 999L, "Ruin Medals"));
+                EreshstylCurrencyID = CustomCurrencyManager.RegisterCurrency(new Medals(ModContent.ItemType<Ereshstyl>(), 999L, "Ereshstyl"));
+                NoHitCrystalCurrencyID = CustomCurrencyManager.RegisterCurrency(new Medals(ModContent.ItemType<NoHitCrystal>(), 999L, "No Hit Crystal"));
+                DragonShardCurrencyID = CustomCurrencyManager.RegisterCurrency(new Medals(ModContent.ItemType<DragonShard>(), 999L, "Dragon Shard"));
 
                 //----------------------------------------------- Shaders
-                Filters.Scene["Stellamod:Illuria"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0.4f, -0.3f, 1.3f).UseOpacity(0.275f), EffectPriority.Medium);
-                Filters.Scene["Stellamod:Marsh"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0.4f, 0f, 0f).UseOpacity(0.275f), EffectPriority.Medium);
-                Filters.Scene["Stellamod:Aegislav"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0.6f, 0f, 0f).UseOpacity(0.35f), EffectPriority.Medium);
-                Filters.Scene["Stellamod:HeatedDepths"] = new Filter(new ScreenShaderData("FilterMiniTower").UseColor(0.3f, 0f, 0f).UseOpacity(0.35f), EffectPriority.Medium);
-
-                Asset<Effect> screenRef = ModContent.Request<Effect>("Stellamod/Effects/Shockwave"); // The path to the compiled shader file.
-                Filters.Scene["Shockwave"] = new Filter(new ScreenShaderData(screenRef, "Shockwave"), EffectPriority.VeryHigh);
-                Filters.Scene["Shockwave"].Load();
-
-                SkyManager.Instance["Stellamod:Starbloom"] = new StarbloomSky();
-                SkyManager.Instance["Stellamod:NiiviSky"] = new NiiviSky();
-
-                SkyManager.Instance["Stellamod:WorldsEndSky"] = new WorldsEndSky();
-                SkyManager.Instance["Stellamod:WorldsEndSky"].Load();
-
-
-                SkyManager.Instance["Stellamod:AegislavSky"] = new AegislavSky();
-                SkyManager.Instance["Stellamod:AegislavSky"].Load();
-
-
-                SkyManager.Instance["Stellamod:EdgeofTheMoonSky"] = new EdgeofTheMoonSky();
-                SkyManager.Instance["Stellamod:EdgeofTheMoonSky"].Load();
-
-                Asset<Effect> GenericLaserShader = Assets.Request<Effect>("Effects/LaserShader");
-                GameShaders.Misc["Stellamod:LaserShader"] = new MiscShaderData(GenericLaserShader, "TrailPass");
             }
 
 

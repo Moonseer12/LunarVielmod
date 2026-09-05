@@ -3,7 +3,7 @@ using Stellamod.Common.ArmorRework;
 using Stellamod.Common.DashSystem;
 using Stellamod.Content.Areas.Illuria.WeaponsIL;
 using Stellamod.Core.Particles;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

@@ -1,6 +1,6 @@
 ﻿using ReLogic.Content;
 using Stellamod.Common.Particles;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;

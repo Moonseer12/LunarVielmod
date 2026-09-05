@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common.DashSystem;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using Terraria;
 using Terraria.ModLoader;

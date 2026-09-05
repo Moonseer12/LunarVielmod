@@ -1,14 +1,10 @@
-﻿
-using Stellamod.WorldG;
-using System;
-using System.IO;
+﻿using System.IO;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.GameContent;
-using Terraria.GameContent.Drawing;
 using Terraria.Graphics;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
+
 namespace Stellamod.Content.Areas.Desert.Event.Common
 {
     public class ColosseumWallColorEdit : ModSystem

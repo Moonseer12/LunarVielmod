@@ -1,9 +1,8 @@
 using Stellamod.Common.QuestSystem;
-using Stellamod.Content.Quests.ZuiQuest;
-using Stellamod.Content.Vanity.Nyxia;
-using Stellamod.Content.Vanity.Solarian;
-using Stellamod.Core;
 using Stellamod.Content.Areas.Jungle.BossesJN.Zui;
+using Stellamod.Content.Areas.SpringHills.VanitiesSH;
+using Stellamod.Content.Quests.ZuiQuest;
+using Stellamod.Core;
 using System;
 using System.Collections.Generic;
 using Terraria;

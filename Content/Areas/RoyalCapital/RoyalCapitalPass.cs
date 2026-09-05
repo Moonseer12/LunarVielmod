@@ -1,5 +1,4 @@
 ﻿using Stellamod.Content.Areas.RoyalCapital.TilesRC;
-using Stellamod.WorldG;
 using Terraria;
 using Terraria.IO;
 using Terraria.ModLoader;
@@ -36,7 +35,7 @@ public class RoyalCapitalPass : GenPass
 
     protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
     {
-        /*Rectangle rectangle = Structurizer.ReadRectangle("Struct/Alcad/RoyalCapital3");
+        Rectangle rectangle = Structurizer.ReadRectangle("Struct/Alcad/RoyalCapital3");
         progress.Message = "Fighting the Virulent with magic";
         bool placed = false;
         int attempts = 0;
@@ -47,7 +46,7 @@ public class RoyalCapitalPass : GenPass
             ModContent.GetInstance<VeilGen>().AlcadLocation = Loc;
             Structurizer.ProtectStructure(Loc, "Structures/RoyalCapital");
             placed = true;
-        }*/
+        }
     }
 }
 

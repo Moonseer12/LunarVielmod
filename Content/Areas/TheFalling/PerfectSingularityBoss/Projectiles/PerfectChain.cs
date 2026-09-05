@@ -4,7 +4,7 @@ using Stellamod.Core.Pixelation;
 
 using Stellamod.Effects.RoyalMagic;
 
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using System.IO;
 using System.Net;

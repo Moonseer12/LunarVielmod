@@ -1,5 +1,4 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.RoyalCapital.TilesRC
@@ -15,6 +14,11 @@ namespace Stellamod.Content.Areas.RoyalCapital.TilesRC
             Main.tileLighted[Type] = true;
             Main.tileBlockLight[Type] = true;
             AddMapEntry(new Color(100, 120, 150));
+        }
+
+        public override void RandomUpdate(int i, int j)
+        {
+            TileHelper.GrowVine(i, j, ModContent.TileType<CarianVines>());
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

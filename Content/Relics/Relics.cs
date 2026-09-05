@@ -4,7 +4,7 @@ using Stellamod.Common.BossBannerSystem;
 using Stellamod.Content.BossPages;
 using Stellamod.Core.Camera;
 using Stellamod.Core.Pixelation;
-using Stellamod.Visual.Particles;
+using Stellamod.Content.Particles;
 using System;
 using Terraria;
 using Terraria.Audio;
