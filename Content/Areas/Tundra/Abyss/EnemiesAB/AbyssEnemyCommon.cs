@@ -1,5 +1,11 @@
-﻿using Stellamod.Content.Particles;
+using Stellamod.Common.Particles;
+using Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB.Gores;
+using Stellamod.Content.Particles;
+using Stellamod.Core;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB;
 
@@ -20,21 +26,26 @@ public static class AbyssEnemyCommon
         }
         if (NPC.life <= 0)
         {
+            if (Main.netMode != NetmodeID.Server)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    Vector2 velocity = Main.rand.NextVector2Circular(8, 8);
+                    Gore.NewGore(NPC.GetSource_FromThis(), NPC.Center + velocity, velocity * 2, ModContent.GoreType<AbyssFeatherGore>());
+                }
 
-            for (int i = 0; i < 16; i++)
-            {
-                EmberParticle ep = EmberParticle.Spawn(NPC.position +
-                    new Vector2(Main.rand.Next(0, NPC.width), Main.rand.Next(0, NPC.height)),
-                    -Vector2.UnitY.RotatedByRandom(MathHelper.TwoPi), Color.White, Main.rand.NextFloat(0.9f, 1.5f));
-                ep.innerColor = Color.White;
-                ep.outerColor = Color.SkyBlue;
-            }
-            for (int i = 0; i < 12; i++)
-            {
-                Vector2 spawnPosition = new();
-                spawnPosition.X = NPC.position.X + Main.rand.Next(0, NPC.width);
-                spawnPosition.Y = NPC.position.Y + Main.rand.Next(0, NPC.height);
-                SparkleParticle.Spawn(spawnPosition, Vector2.Zero, Scale: 0.3f);
+                var sound = AssetReferences.Assets.Sounds.NiiviWingFlap.Asset with { Pitch = 0.5f, PitchVariance = 0.3f };
+                SoundEngine.PlaySound(sound, NPC.Center);
+                for(int i = 0; i < Main.rand.Next(5, 8); i++)
+                {
+                    Vector2 velocity = Main.rand.NextVector2Circular(12, 12);
+                    velocity.Y -= Main.rand.Next(4, 8);
+                    ModContent.GetInstance<FeatherDust>().Spawn(FeatherDustData.Default with { 
+                        position = NPC.Center + Main.rand.NextVector2Circular(16, 16), 
+                        velocity = velocity,
+                        scale = Main.rand.NextFloat(0.5f, 0.9f) * 0.8f,
+                        timeLeft = Main.rand.Next(120, 240)});
+                }
             }
         }
     }

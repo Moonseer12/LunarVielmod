@@ -46,6 +46,9 @@ namespace Stellamod.Content.Areas
         public int ManorCount;
         public static bool InManor => ModContent.GetInstance<BiomeTileCounts>().ManorCount > 10;
 
+        public int MechCount;
+        public static bool InMech => ModContent.GetInstance<BiomeTileCounts>().MechCount > 5;
+
         public int IlluriaCount;
         public static bool InIlluria => ModContent.GetInstance<BiomeTileCounts>().IlluriaCount > 5;
 
@@ -131,6 +134,7 @@ namespace Stellamod.Content.Areas
             EveroseCount = tileCounts[ModContent.TileType<VeriplantGrass>()];
             CinderCount = tileCounts[ModContent.TileType<CindersparkDirt>()];
             ManorCount = tileCounts[ModContent.TileType<ManorBlock>()];
+            MechCount = tileCounts[ModContent.TileType<StarbloomTempleBlock>()];
             IlluriaCount = tileCounts[ModContent.TileType<IlluriaGrass>()];
             IshtarCount = tileCounts[ModContent.TileType<IshtarMoss>()] + tileCounts[ModContent.TileType<IshtarTempleBlock>()];
             BloodCathedralCount = tileCounts[ModContent.TileType<RobedSandstoneBlock>()];

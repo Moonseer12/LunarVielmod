@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Stellamod.Content.Areas.MothlightManor.ArmorMM;
 
 namespace Stellamod.Common.ArmorShop
 {
@@ -193,7 +194,6 @@ namespace Stellamod.Common.ArmorShop
             silk.SetMaterial(ModContent.ItemType<EreshkinCandle>());
             silk.Register();
             
-
             ArmorShopSet sanc = new();
             sanc.AddHead(ModContent.ItemType<SanctorousHead>());
             sanc.AddBody(ModContent.ItemType<SanctorousBody>());
@@ -201,6 +201,14 @@ namespace Stellamod.Common.ArmorShop
             sanc.SetMaterial(ModContent.ItemType<FallenEyes>());
             sanc.Register();
 
+            ArmorShopSet moonskerSet = new();
+            moonskerSet.AddHead(ModContent.ItemType<MoonskerHood>());
+            moonskerSet.AddBody(ModContent.ItemType<MoonskerRobe>());
+            moonskerSet.AddLegs(ModContent.ItemType<MoonskerPants>());
+            moonskerSet.SetMaterial(ModContent.ItemType<MothlightWing>());
+            moonskerSet.Register();
+
+            //Jianxin
             ArmorShopSet JianxinSet = new();
             JianxinSet.AddHead(ModContent.ItemType<JianxinMask>());
             JianxinSet.AddBody(ModContent.ItemType<JianxinCoat>());

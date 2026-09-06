@@ -1,3 +1,5 @@
+using Stellamod.Common.ArmorShop;
+using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.QuestSystem;
 using Stellamod.Content.Areas.Desert.Event.Common;
 using Stellamod.Core.PlayerLevelingSystem;
@@ -21,7 +23,9 @@ public class ResetCommand : ConsoleCommand
             "level",
             "boss",
             "gintze",
-            "quests"
+            "quests",
+            "cauldron",
+            "armor"
         };
 
         return arguments0;
@@ -61,6 +65,17 @@ public class ResetCommand : ConsoleCommand
                     questPlayer.CompletedQuests.Clear();
                     questPlayer.RewardQuests.Clear();
                     questPlayer.RecalculateUI = true;
+                }
+                return true;
+            case "cauldron":
+                {
+                    CauldronPlayer cauldronPlayer = player.GetModPlayer<CauldronPlayer>();
+                    cauldronPlayer.Crafts.Clear();
+                }
+                return true;
+            case "armor":
+                {
+                    player.GetModPlayer<ArmorShopPlayer>().PurchasedArmors.Clear();
                 }
                 return true;
         }

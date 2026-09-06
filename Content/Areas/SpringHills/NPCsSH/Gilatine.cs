@@ -9,7 +9,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.SpringHills.NPCsSH;
-
 public class DragonSegment
 {
     private DragonSegment _parent;

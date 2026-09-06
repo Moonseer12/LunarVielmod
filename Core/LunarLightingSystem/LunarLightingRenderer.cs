@@ -1,6 +1,5 @@
 ﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas;
-using Stellamod.Core.Foggy;
 using Stellamod.Core.Rendering;
 using System.Collections.Generic;
 using Terraria;
@@ -22,7 +21,7 @@ namespace Stellamod.Core.LunarLightingSystem
         {
             get
             {
-                if(_offsets == null)
+                if (_offsets == null)
                 {
                     List<Vector2> offsets = new List<Vector2>(16);
                     UnifiedRandom random = new UnifiedRandom(1337);
@@ -44,10 +43,6 @@ namespace Stellamod.Core.LunarLightingSystem
 
         private PointLights _pointLights;
         private ShadowMap _shadowMap;
-
-        private Dictionary<Point, Fog> _fogIndex = new();
-        private List<Fog> _fogsToRemove = new();
-        public bool renderFog;
         private Color _backLightColor;
         private Vector2 _previousScreenSize;
 
@@ -91,6 +86,9 @@ namespace Stellamod.Core.LunarLightingSystem
         {
             if (!LightingHelper.CanRenderPostProcessingEffects)
                 return;
+            if (ModContent.GetInstance<DomainExpansionManager>().noRender)
+                return;
+
             SSAOShader ssaoShader = ShaderContent.GetInstance<SSAOShader>();
             ssaoShader.StepSize = Vector2.One / new Vector2(Main.instance.tileTarget.Width, Main.instance.tileTarget.Height) * 16;
 
@@ -98,10 +96,10 @@ namespace Stellamod.Core.LunarLightingSystem
             ssaoShader.Offsets = Offsets;
             SpriteBatch spriteBatch = Main.spriteBatch;
             spriteBatch.Begin(
-                SpriteSortMode.Deferred, 
+                SpriteSortMode.Deferred,
                 BlendState.AlphaBlend,
                 SamplerState.AnisotropicClamp,
-                DepthStencilState.None, 
+                DepthStencilState.None,
                 RasterizerState.CullNone,
                 ssaoShader.Effect,
                 Main.GameViewMatrix.TransformationMatrix);
@@ -225,13 +223,11 @@ namespace Stellamod.Core.LunarLightingSystem
                 return;
             if (!_isLoaded)
                 return;
-            RenderFog();
         }
 
         public override void PostUpdateWorld()
         {
             base.PostUpdateWorld();
-            UpdateFog();
         }
 
         private static bool DrawSunShadows2()

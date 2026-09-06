@@ -26,6 +26,7 @@ namespace Stellamod.Content.Areas
         public bool ZoneVillage;
         public bool ZoneCinder;
         public bool ZoneDrakonic;
+        public bool ZoneMechanics;
         public bool ZoneIlluria;
         public bool ZoneBloodCathedral;
         public bool ZoneAshotiTemple;
@@ -54,11 +55,11 @@ namespace Stellamod.Content.Areas
         {
             get
             {
-                Player localPlayer = Player;
                 VeilGen stellaWorld = ModContent.GetInstance<VeilGen>();
                 int heightOffset = 100;
                 Rectangle biomeRect = new(stellaWorld.CoralwaysLocation.X, stellaWorld.CoralwaysLocation.Y + heightOffset, 1000, 1800 - heightOffset);
-                return localPlayer.Center.ToTileCoordinates().Y > biomeRect.Bottom - 400 && localPlayer.Center.ToTileCoordinates().Y < biomeRect.Bottom;
+                Rectangle deepRect = new(stellaWorld.CoralwaysLocation.X, biomeRect.Bottom - 400, 1000, 400);
+                return deepRect.Contains(Player.Center.ToTileCoordinates());
             }
         }
         public bool ZoneCrimsonBridewell;

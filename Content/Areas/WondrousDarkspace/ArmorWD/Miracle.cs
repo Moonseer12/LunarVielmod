@@ -270,17 +270,11 @@ public class MiracleHead : ModItem
         ArmorSetSystem.RegisterArmorSet<MiracleHead, MiracleBody>(ArmorGroup.Act_II);
     }
 
-    public override void SetDefaults()
-    {
-        Item.defense = 8;
-    }
-
     public override void UpdateEquip(Player player)
     {
         var stats = player.GetStats();
         stats.defenseBonus += 7;
         stats.artifactManaReduction += 0.5f;
-     //   stats.accessorySlots += 2;
     }
 
     public override void UpdateArmorSet(Player player)
@@ -310,13 +304,7 @@ public class MiracleBody : ModItem
 {
     public override void SetStaticDefaults()
     {
-        // DisplayName.SetDefault("Astrasilk Jacket");
         ItemID.Sets.ItemNoGravity[Item.type] = true;
-    }
-
-    public override void SetDefaults()
-    {
-        Item.defense = 10;
     }
 
     public override void UpdateEquip(Player player)

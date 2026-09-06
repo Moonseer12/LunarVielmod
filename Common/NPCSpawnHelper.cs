@@ -25,13 +25,14 @@ public class SpawnSets : ModSystem
 {
     public override void SetupContent()
     {
-        SpringEnemy = new();
-        HarmonicEnemy = new();
-        MarshEnemy = new();
-        AegislavSurfaceEnemy = new();
-        HeatedDepthsEnemy = new();
-        FableEnemy = new();
-        AbyssEnemy = new();
+        SpringEnemy = new List<int>();
+        HarmonicEnemy = new List<int>();
+        MarshEnemy = new List<int>();
+        AegislavSurfaceEnemy = new List<int>();
+        HeatedDepthsEnemy = new List<int>();
+        FableEnemy = new List<int>();
+        AbyssEnemy = new List<int>();
+        AbyssWaterEnemy = new List<int>();
         AbyssTempleEnemy = new List<int>();
         IshtarEnemy = new();
         UndergroundEnemy = new();
@@ -51,6 +52,7 @@ public class SpawnSets : ModSystem
     public static List<int> HeatedDepthsEnemy;
     public static List<int> FableEnemy;
     public static List<int> AbyssEnemy;
+    public static List<int> AbyssWaterEnemy;
     public static List<int> AbyssTempleEnemy;
     public static List<int> IshtarEnemy;
     public static List<int> UndergroundEnemy;
