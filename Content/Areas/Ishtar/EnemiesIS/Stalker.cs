@@ -23,7 +23,6 @@ namespace Stellamod.Content.Areas.Ishtar.EnemiesIS
             NPC.aiStyle = NPCAIStyleID.Fighter;
             NPC.HitSound = SoundID.NPCHit29;
             NPC.DeathSound = SoundID.NPCDeath32;
-            SpawnModBiomes = [ModContent.GetInstance<IshtarBiome>().Type];
         }
 
         public override void FindFrame(int frameHeight)

@@ -1,20 +1,11 @@
-﻿using ReLogic.Content;
+﻿using Stellamod.Core;
 using Stellamod.Core.Backgrounds;
 using Terraria;
-using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Tundra.Abyss;
 
 public class AbyssBackground : CustomBG
 {
-    private Asset<Texture2D> _backgroundTextureAsset;
-    public override void SetStaticDefaults()
-    {
-        base.SetStaticDefaults();
-        _backgroundTextureAsset = ModContent.Request<Texture2D>(AssetRegistry.Textures.BackgroundPath2 + "Abyss");
-    }
-
-
     public override bool UseCustomDrawing()
     {
         return true;
@@ -39,7 +30,7 @@ public class AbyssBackground : CustomBG
             fadeToColor = Color.Transparent,
             numBackgrounds = 3,
             parallax = new Vector2(0.003f, 0.003f),
-            bg = _backgroundTextureAsset,
+            bg = AssetReferences.Assets.Textures.Backgrounds.Abyss.Asset,
             cameraMovement = new Vector2(xMovement, yMovement),
             alpha = Alpha,
             parallaxOffset = new Vector2(0, -0.15f)

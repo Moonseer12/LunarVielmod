@@ -9,11 +9,9 @@ using Stellamod.Core.Camera;
 using Stellamod.Core.Palettes;
 using Stellamod.Core.Pixelation;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -622,15 +620,6 @@ public class Verlia : ScarletBoss,
         {
             Music = MusicLoader.GetMusicSlot(Mod, "Assets/Music/VerliaOfTheMoon");
         }
-    }
-
-    public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-    {
-        // Sets the description of this NPC that is listed in the bestiary
-        bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
-                new MoonLordPortraitBackgroundProviderBestiaryInfoElement(), // Plain black background
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "Verlia, The Empress of the Stars and moon, Vixyl's sister and a master magic swordswoman."))
-            });
     }
 
     #endregion

@@ -1,9 +1,9 @@
+using Stellamod.Common;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace Stellamod.Content.Areas.PunkerTown.EnemiesPT
 {
@@ -12,7 +12,7 @@ namespace Stellamod.Content.Areas.PunkerTown.EnemiesPT
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Ivythorn Slime");
+            this.AddToMarsh();
             Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.BlueSlime];
         }
 
@@ -33,13 +33,6 @@ namespace Stellamod.Content.Areas.PunkerTown.EnemiesPT
             NPC.aiStyle = NPCAIStyleID.Slime;
             AIType = NPCID.BlueSlime;
             AnimationType = NPCID.BlueSlime;
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (!spawnInfo.Player.ZonePurity)
-                return 0;
-            return SpawnCondition.OverworldDaySlime.Chance;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

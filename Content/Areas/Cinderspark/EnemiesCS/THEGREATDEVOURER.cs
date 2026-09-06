@@ -1,4 +1,5 @@
-﻿using Stellamod.Content.Areas.Cinderspark.WeaponsCS;
+﻿using Stellamod.Common;
+using Stellamod.Content.Areas.Cinderspark.WeaponsCS;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.Audio;
@@ -14,6 +15,7 @@ namespace Stellamod.Content.Areas.Cinderspark.EnemiesCS
         private ref float ai_Counter => ref NPC.ai[0];
         public override void SetStaticDefaults()
         {
+            this.AddToCinderspark();
             Main.npcFrameCount[Type] = 30; // The amount of frames the NPC has
             NPCID.Sets.TrailCacheLength[NPC.type] = 10;
             NPCID.Sets.TrailingMode[NPC.type] = 0;
@@ -167,17 +169,6 @@ namespace Stellamod.Content.Areas.Cinderspark.EnemiesCS
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             target.AddBuff(BuffID.OnFire, 300);
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (spawnInfo.Player.InModBiome<CindersparkBiome>() && !spawnInfo.Player.ZoneUnderworldHeight)
-            {
-                return 0.1f;
-            }
-
-            //Else, the example bone merchant will not spawn if the above conditions are not met.
-            return 0f;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

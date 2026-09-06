@@ -1,3 +1,4 @@
+using Stellamod.Common;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Dusts;
 using Stellamod.Content.Particles;
@@ -102,6 +103,11 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.NPCsWD
                 State = state;
                 NPC.netUpdate = true;
             }
+        }
+
+        public override void SetStaticDefaults()
+        {
+            this.AddToDarkspace();
         }
 
         public override void SetDefaults()
@@ -255,13 +261,6 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.NPCsWD
         {
             base.ModifyNPCLoot(npcLoot);
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HypnotizedSoul>(), minimumDropped: 2, maximumDropped: 4));
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (!spawnInfo.Player.GetModPlayer<BiomePlayer>().ZoneWonder)
-                return 0;
-            return ScarletSpawnChance.Wondrous_Spawn_Rate;
         }
     }
 }

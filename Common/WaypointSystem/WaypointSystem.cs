@@ -840,13 +840,13 @@ public class WaypointButtonsUI : UIPanel
         {
             default:
             case OrganWaypoint.WitchTown:
-                return ModContent.GetInstance<WitchTownOrgan>().type;
+                return ModContent.ZTileType<WitchTownOrgan>();
             case OrganWaypoint.Marsh:
-                return ModContent.GetInstance<MarshOrgan>().type;
+                return ModContent.ZTileType<MarshOrgan>();
             case OrganWaypoint.Moonspiral:
-                return ModContent.GetInstance<MoonSpiralTowerOrgan>().type;
+                return ModContent.ZTileType<MoonSpiralTowerOrgan>();
             case OrganWaypoint.Desert:
-                return ModContent.GetInstance<DesertOrgan>().type;
+                return ModContent.ZTileType<DesertOrgan>();
         }
     }
 

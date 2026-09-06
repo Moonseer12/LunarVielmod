@@ -1,4 +1,5 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common;
+using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
@@ -12,6 +13,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.EnemiesRC
         private float ai_Counter;
         public override void SetStaticDefaults()
         {
+            this.AddToRoyalCapital();
             Main.npcFrameCount[NPC.type] = 15;
         }
 
@@ -28,17 +30,6 @@ namespace Stellamod.Content.Areas.RoyalCapital.EnemiesRC
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.aiStyle = NPCAIStyleID.CursedSkull;
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (spawnInfo.Player.InModBiome<AlcadziaBiome>())
-            {
-                return 0.6f;
-            }
-
-            //Else, the example bone merchant will not spawn if the above conditions are not met.
-            return 0f;
         }
 
         public override void AI()

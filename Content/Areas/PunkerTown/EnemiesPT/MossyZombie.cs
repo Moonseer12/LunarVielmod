@@ -1,16 +1,16 @@
-﻿using Terraria;
+﻿using Stellamod.Common;
+using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
-namespace Stellamod.Content.Areas.Fable.EnemiesFB
+namespace Stellamod.Content.Areas.PunkerTown.EnemiesPT
 {
     public class MossyZombie : ModNPC
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Morrowed Swampster");
+            this.AddToMarsh();
             Main.npcFrameCount[NPC.type] = 8;
         }
 
@@ -42,21 +42,6 @@ namespace Stellamod.Content.Areas.Fable.EnemiesFB
             NPC.knockBackResist = .45f;
             NPC.aiStyle = NPCAIStyleID.Fighter;
             AIType = NPCID.SnowFlinx;
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (spawnInfo.Player.ZoneJungle)
-            {
-                return SpawnCondition.OverworldNight.Chance * 0.2f;
-            }
-
-            if (spawnInfo.Player.InModBiome<FableBiome>())
-            {
-                return SpawnCondition.Overworld.Chance * 0.5f;
-            }
-
-            return SpawnCondition.OverworldNight.Chance * 0f;
         }
 
         int invisibilityTimer;

@@ -3,7 +3,6 @@ using Stellamod.Content.Areas.PunkerTown.BossesPT.IrradiaNHavoc.Projectiles;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -142,23 +141,6 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.IrradiaNHavoc.Irradia
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
         {
             NPC.lifeMax = (int)(NPC.lifeMax * balance);
-        }
-
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            // We can use AddRange instead of calling Add multiple times in order to add multiple items at once
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
-				// Sets the preferred biomes of this town NPC listed in the bestiary.
-				// With Town NPCs, you usually set this to what biome it likes the most in regards to NPC happiness.
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundJungle,
-
-				// Sets your NPC's flavor text in the bestiary.
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "The most committed protector of the Govhiel. She just wishes to see her friend's and village again.")),
-
-				// You can add multiple elements if you really wanted to
-				// You can also use localization keys (see Localization/en-US.lang)
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "Irradia N Havoc", "2"))
-            });
         }
 
         public override void SendExtraAI(BinaryWriter writer)

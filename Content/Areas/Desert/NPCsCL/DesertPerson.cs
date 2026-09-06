@@ -1,11 +1,6 @@
-﻿
-
-
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Bestiary;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace Stellamod.Content.Areas.Desert.NPCsCL
 {
@@ -52,14 +47,6 @@ namespace Stellamod.Content.Areas.Desert.NPCsCL
             NPC.noTileCollide = false;
             NPC.dontTakeDamage = true;
             NPC.friendly = true;
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (!Main.dayTime)
-                return 0f;
-            float spawnChance = SpawnCondition.Overworld.Chance * (spawnInfo.Player.ZoneDesert ? 3 : 0f);
-            return spawnChance;
         }
 
         public override void FindFrame(int frameHeight)
@@ -159,16 +146,6 @@ namespace Stellamod.Content.Areas.Desert.NPCsCL
             SpriteEffects spriteEffects = NPC.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
             spriteBatch.Draw(texture, drawCenter, frame, drawColor, NPC.rotation, drawOrigin, NPC.scale, spriteEffects, 0);
             return false;
-        }
-
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            // We can use AddRange instead of calling Add multiple times in order to add multiple items at once
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-            {
-				// Sets the description of this NPC that is listed in the bestiary.
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "A Captain of Gofria's ranks, be careful"))
-            });
         }
     }
 }

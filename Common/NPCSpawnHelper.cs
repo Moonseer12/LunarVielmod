@@ -1,13 +1,16 @@
-﻿using Stellamod.Content.Areas.Desert;
+﻿using Stellamod.Content.Areas.Cinderspark;
+using Stellamod.Content.Areas.Desert;
 using Stellamod.Content.Areas.Desert.NPCsCL;
 using Stellamod.Content.Areas.Fable;
 using Stellamod.Content.Areas.Ishtar;
 using Stellamod.Content.Areas.PunkerTown;
+using Stellamod.Content.Areas.RoyalCapital;
 using Stellamod.Content.Areas.SpringHills;
 using Stellamod.Content.Areas.Terror;
 using Stellamod.Content.Areas.Tundra.Abyss;
 using Stellamod.Content.Areas.Underground;
 using Stellamod.Content.Areas.WaterSide;
+using Stellamod.Content.Areas.WondrousDarkspace;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -33,6 +36,11 @@ public class SpawnSets : ModSystem
         IshtarEnemy = new();
         UndergroundEnemy = new();
         MineshaftEnemy = new();
+        DarkspaceEnemy = new();
+        CindersparkEnemy = new();
+        DesertEnemy = new();
+        RoyalCapitalEnemy = new();
+        SnowEnemy = new();
         ModifiedWeights = NPCID.Sets.Factory.CreateFloatSet(1f);
         base.SetupContent();
     }
@@ -47,6 +55,11 @@ public class SpawnSets : ModSystem
     public static List<int> IshtarEnemy;
     public static List<int> UndergroundEnemy;
     public static List<int> MineshaftEnemy;
+    public static List<int> DarkspaceEnemy;
+    public static List<int> CindersparkEnemy;
+    public static List<int> DesertEnemy;
+    public static List<int> RoyalCapitalEnemy;
+    public static List<int> SnowEnemy;
     public static float[] ModifiedWeights;
 }
 
@@ -82,6 +95,7 @@ public static class NPCSpawnExtensions
     {
         SpawnSets.AbyssEnemy.Add(npc.Type);
     }
+
     public static void AddToAbyssTemple(this ModNPC npc)
     {
         SpawnSets.AbyssTempleEnemy.Add(npc.Type);
@@ -100,6 +114,31 @@ public static class NPCSpawnExtensions
     public static void AddToMineshaft(this ModNPC npc)
     {
         SpawnSets.MineshaftEnemy.Add(npc.Type);
+    }
+
+    public static void AddToDarkspace(this ModNPC npc)
+    {
+        SpawnSets.DarkspaceEnemy.Add(npc.Type);
+    }
+
+    public static void AddToCinderspark(this ModNPC npc)
+    {
+        SpawnSets.CindersparkEnemy.Add(npc.Type);
+    }
+
+    public static void AddToDesert(this ModNPC npc)
+    {
+        SpawnSets.DesertEnemy.Add(npc.Type);
+    }
+
+    public static void AddToRoyalCapital(this ModNPC npc)
+    {
+        SpawnSets.RoyalCapitalEnemy.Add(npc.Type);
+    }
+
+    public static void AddToSnow(this ModNPC npc)
+    {
+        SpawnSets.SnowEnemy.Add(npc.Type);
     }
 
     public static void ModifySpawnWeight(this ModNPC npc, float multiplier)
@@ -140,23 +179,15 @@ public class NPCSpawnHelper : GlobalNPC
     public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
     {
         base.EditSpawnPool(pool, spawnInfo);
-        if (Main.dayTime)
+        if (spawnInfo.Player.ZoneDesert)
         {
-            if (pool.ContainsKey(NPCID.Vulture))
+            if (Main.dayTime)
             {
-                pool[NPCID.Vulture] = 0f;
+                pool.Clear();
+                pool.TryAdd(ModContent.NPCType<DesertPerson>(), 0.3f);
             }
-
-            if (pool.ContainsKey(NPCID.Antlion))
-            {
-                pool[NPCID.Antlion] = 0f;
-            }
-
-            int desertPerson = ModContent.NPCType<DesertPerson>();
-            if (pool.ContainsKey(desertPerson))
-            {
-                pool[desertPerson] *= 2;
-            }
+            else
+                AddEnemiesFromSpawnSet(SpawnSets.DesertEnemy, pool, spawnInfo);
         }
         if (spawnInfo.Player.ZoneForest || spawnInfo.Player.ZonePurity || spawnInfo.Player.InModBiome<SpringHillsBiome>())
         {
@@ -212,6 +243,22 @@ public class NPCSpawnHelper : GlobalNPC
         if (spawnInfo.Player.InModBiome<MineshaftBiome>())
         {
             AddEnemiesFromSpawnSet(SpawnSets.MineshaftEnemy, pool, spawnInfo);
+        }
+        if (spawnInfo.Player.InModBiome<WonderousDarkspaceBiome>())
+        {
+            AddEnemiesFromSpawnSet(SpawnSets.DarkspaceEnemy, pool, spawnInfo);
+        }
+        if (spawnInfo.Player.InModBiome<CindersparkBiome>())
+        {
+            AddEnemiesFromSpawnSet(SpawnSets.CindersparkEnemy, pool, spawnInfo);
+        }
+        if (spawnInfo.Player.InModBiome<AlcadziaBiome>())
+        {
+            AddEnemiesFromSpawnSet(SpawnSets.RoyalCapitalEnemy, pool, spawnInfo);
+        }
+        if (spawnInfo.Player.ZoneSnow)
+        {
+            AddEnemiesFromSpawnSet(SpawnSets.SnowEnemy, pool, spawnInfo);
         }
     }
 }

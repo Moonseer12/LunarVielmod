@@ -1,9 +1,8 @@
-﻿using Terraria;
+﻿using Stellamod.Common;
+using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace Stellamod.Content.Areas.Desert.EnemiesCL
 {
@@ -19,6 +18,7 @@ namespace Stellamod.Content.Areas.Desert.EnemiesCL
             private const int ClonedNPCID = NPCID.Frog; // Easy to change type for your modder convenience
             public override void SetStaticDefaults()
             {
+                this.AddToDesert();
                 Main.npcFrameCount[Type] = 8;
                 Main.npcCatchable[Type] = true; // This is for certain release situations
 
@@ -66,17 +66,6 @@ namespace Stellamod.Content.Areas.Desert.EnemiesCL
                     int frame = (int)NPC.frameCounter;
                     NPC.frame.Y = frame * frameHeight;
                 }
-            }
-
-            public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-            {
-                bestiaryEntry.AddTags(BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheUnderworld,
-                    new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "The most adorable goodest spicy child. Do not dare be mean to him!")));
-            }
-
-            public override float SpawnChance(NPCSpawnInfo spawnInfo)
-            {
-                return SpawnCondition.OverworldDayDesert.Chance * 0.1f;
             }
 
             public override void HitEffect(NPC.HitInfo hit)

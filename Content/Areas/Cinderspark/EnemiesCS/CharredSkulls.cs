@@ -1,4 +1,5 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common;
+using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
@@ -11,6 +12,7 @@ namespace Stellamod.Content.Areas.Cinderspark.EnemiesCS
     {
         public override void SetStaticDefaults()
         {
+            this.AddToCinderspark();
             Main.npcFrameCount[Type] = 11; // The amount of frames the NPC has
         }
 
@@ -35,17 +37,6 @@ namespace Stellamod.Content.Areas.Cinderspark.EnemiesCS
             NPC.frameCounter %= Main.npcFrameCount[NPC.type];
             int frame = (int)NPC.frameCounter;
             NPC.frame.Y = frame * frameHeight;
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (spawnInfo.Player.InModBiome<CindersparkBiome>() && !spawnInfo.Player.ZoneUnderworldHeight)
-            {
-                return 0.6f;
-            }
-
-            //Else, the example bone merchant will not spawn if the above conditions are not met.
-            return 0f;
         }
 
         public override void OnKill()

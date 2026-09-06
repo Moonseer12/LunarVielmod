@@ -1,16 +1,8 @@
-﻿
-
+﻿using Stellamod.Common;
 using Stellamod.Content.Areas.PunkerTown.TilesPT;
-using Stellamod.Content.Areas.Terror.TilesTR;
-using Stellamod.Core.Particles;
-
 using Stellamod.Content.Particles;
-using System;
-using System.Collections.Generic;
+using Stellamod.Core.Particles;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.ItemDropRules;
@@ -78,6 +70,12 @@ namespace Stellamod.Content.Areas.PunkerTown.EnemiesPT
             KindaHomeless = reader.ReadBoolean();
             Fall = reader.ReadBoolean();
         }
+
+        public override void SetStaticDefaults()
+        {
+            this.AddToMarsh();
+        }
+
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -254,18 +252,10 @@ namespace Stellamod.Content.Areas.PunkerTown.EnemiesPT
             npcLoot.Add(ItemDropRule.Common(ItemID.Hive, minimumDropped: 5, maximumDropped: 10));
         }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (spawnInfo.Player.GetModPlayer<BiomePlayer>().ZoneMarsh)
-            {
-                return 0.1f;
-            }
-            return base.SpawnChance(spawnInfo);
-        }
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D texture = TextureAssets.Npc[Type].Value;
-            Vector2 drawOrigin = new Vector2(texture.Width / 2f, 0f);
+            Vector2 drawOrigin = new(texture.Width / 2f, 0f);
          
             spriteBatch.Draw(texture, NPC.Center - screenPos, null, drawColor, NPC.rotation, drawOrigin, NPC.scale, SpriteEffects.None, 0);
             return false;

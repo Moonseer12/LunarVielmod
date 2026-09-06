@@ -240,18 +240,18 @@ public class AbyssPass : GenPass
         VeilGen.GenerateWaterBlobs(rect, 4, new Point(64, 100));
         var types = new ushort[]
         {
-            ModContent.GetInstance<AbyssalFlower>().type,
-            ModContent.GetInstance<AbyssalFlower>().type,
-            ModContent.GetInstance<AbyssalFlower>().type,
-            ModContent.GetInstance<AbyssalWhiteFlower>().type
+            ModContent.ZTileType<AbyssalFlower>(),
+            ModContent.ZTileType<AbyssalFlower>(),
+            ModContent.ZTileType<AbyssalFlower>(),
+            ModContent.ZTileType<AbyssalWhiteFlower>()
         };
         var types2 = new ushort[]
         {
-            ModContent.GetInstance<AbyssalOrbFlower>().type
+            ModContent.ZTileType<AbyssalOrbFlower>()
         };
         var wetTypes = new ushort[]
         {
-            ModContent.GetInstance<AbyssalReed>().type
+            ModContent.ZTileType<AbyssalReed>()
         };
         VeilGen.ClearWallsArea(rect);
         VeilGen.KillZTilesInArea(rect);

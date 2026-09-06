@@ -22,6 +22,7 @@ namespace Stellamod.Content.Areas.Cinderspark.EnemiesCS
 
         public override void SetStaticDefaults()
         {
+            this.AddToCinderspark();
             Main.npcFrameCount[NPC.type] = 1;
         }
 
@@ -155,17 +156,6 @@ namespace Stellamod.Content.Areas.Cinderspark.EnemiesCS
                     _attackCounter = 0;
                 }
             }
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (spawnInfo.Player.InModBiome<CindersparkBiome>() && !spawnInfo.Player.ZoneUnderworldHeight)
-            {
-                return 0.15f;
-            }
-
-            //Else, the example bone merchant will not spawn if the above conditions are not met.
-            return 0f;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

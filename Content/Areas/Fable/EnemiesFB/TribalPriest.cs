@@ -1,7 +1,7 @@
+using Stellamod.Common;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,6 +32,7 @@ namespace Stellamod.Content.Areas.Fable.EnemiesFB
 
         public override void SetStaticDefaults()
         {
+            this.AddToFable();
             Main.npcFrameCount[NPC.type] = 26;
 
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
@@ -52,17 +53,7 @@ namespace Stellamod.Content.Areas.Fable.EnemiesFB
             NPC.noGravity = true;
             NPC.noTileCollide = true;
         }
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            Player player = spawnInfo.Player;
-            if (!(player.ZoneTowerSolar || player.ZoneTowerVortex || player.ZoneTowerNebula || player.ZoneTowerStardust && !Main.pumpkinMoon && !Main.snowMoon))
-            {
-                return spawnInfo.Player.ZoneFable() ? 0.5f : 0f;
-            }
-
-            return 0f;
-        }
-
+        
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)
         {
             return State == ActionState.Attack;
@@ -223,16 +214,6 @@ namespace Stellamod.Content.Areas.Fable.EnemiesFB
                 float scale = Main.rand.NextFloat(0.5f, 1f);
                 Dust.NewDustPerfect(NPC.Center, DustID.Torch, Velocity: vel, Scale: scale);
             }
-        }
-
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            // We can use AddRange instead of calling Add multiple times in order to add multiple items at once
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-            {
-				// Sets the description of this NPC that is listed in the bestiary.
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "A much richer form of the trible worshippers"))
-            });
         }
     }
 }

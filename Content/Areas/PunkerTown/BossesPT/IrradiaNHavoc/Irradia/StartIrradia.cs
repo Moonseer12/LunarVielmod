@@ -1,8 +1,4 @@
-﻿
-
-
-using Terraria;
-using Terraria.GameContent.Bestiary;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -208,16 +204,6 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.IrradiaNHavoc.Irradia
             {
                 NPC.SimpleStrikeNPC(99999, 1, crit: false, NPC.knockBackResist);
             }
-        }
-
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            // We can use AddRange instead of calling Add multiple times in order to add multiple items at once
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-            {
-				// Sets the description of this NPC that is listed in the bestiary.
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "Start to something bad"))
-            });
         }
     }
 }

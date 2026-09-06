@@ -1,4 +1,5 @@
-﻿using Stellamod.Content.Areas.Desert.EnemiesCL.Projectiles;
+﻿using Stellamod.Common;
+using Stellamod.Content.Areas.Desert.EnemiesCL.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,6 +10,11 @@ namespace Stellamod.Content.Areas.Desert.EnemiesCL
     {
         private ref float Timer => ref NPC.ai[0];
         public override string Texture => TextureRegistry.EmptyTexture;
+        public override void SetStaticDefaults()
+        {
+            this.AddToDesert();
+        }
+
         public override void SetDefaults()
         {
             NPC.width = 1;
@@ -45,10 +51,6 @@ namespace Stellamod.Content.Areas.Desert.EnemiesCL
                 }
                 NPC.Kill();
             }
-        }
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return 0f;
         }
     }
 }

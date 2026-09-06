@@ -1,4 +1,4 @@
-﻿/*using Stellamod.Core.ZTileSystem;
+﻿using Stellamod.Core.ZTileSystem;
 using Terraria.ModLoader;
 
 namespace Stellamod.Core.Utilities;
@@ -13,4 +13,3 @@ public static class ModContentExtensions
         }
     }
 }
-*/

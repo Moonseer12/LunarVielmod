@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using Stellamod.Common;
+using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,7 +11,7 @@ namespace Stellamod.Content.Areas.Fable.EnemiesFB
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Ruby Beetle");
+            this.AddToFable();
             Main.npcFrameCount[NPC.type] = 6;
         }
 
@@ -27,11 +28,6 @@ namespace Stellamod.Content.Areas.Fable.EnemiesFB
             NPC.noTileCollide = false;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return SpawnCondition.OverworldDayDesert.Chance * 0.3f;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

@@ -1,3 +1,4 @@
+using Stellamod.Common;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Dusts;
 using Stellamod.Content.Trailers;
@@ -80,6 +81,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.NPCsWD
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
+            this.AddToDarkspace();
             Main.npcFrameCount[Type] = 12;
             NPCID.Sets.TrailCacheLength[Type] = 64;
             NPCID.Sets.TrailingMode[Type] = 1;
@@ -345,13 +347,7 @@ namespace Stellamod.Content.Areas.WondrousDarkspace.NPCsWD
             base.ModifyNPCLoot(npcLoot);
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HypnotizedSoul>(), minimumDropped: 2, maximumDropped: 4));
         }
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (!spawnInfo.Player.GetModPlayer<BiomePlayer>().ZoneWonder)
-                return 0;
-            return ScarletSpawnChance.Wondrous_Spawn_Rate;
-        }
-
+        
         public override void OnKill()
         {
             base.OnKill();

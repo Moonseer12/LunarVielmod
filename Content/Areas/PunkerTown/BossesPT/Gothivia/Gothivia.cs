@@ -1,18 +1,14 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using Stellamod.Common.WeaponUpgrade.UI;
 using Stellamod.Content.Areas.PunkerTown.BossesPT.Gothivia.Projectiles;
+using Stellamod.Content.Particles;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
-using Stellamod.Core.Particles;
-
-
-using Stellamod.Content.Particles;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -170,28 +166,10 @@ public partial class Gothivia : ScarletBoss
     private float FireTornado_EndingTime => 60;
 
     private float FireTornado_CircleCount => 8;
-    public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-    {
-        // We can use AddRange instead of calling Add multiple times in order to add multiple items at once
-        bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
-				// Sets the preferred biomes of this town NPC listed in the bestiary.
-				// With Town NPCs, you usually set this to what biome it likes the most in regards to NPC happiness.
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.VortexPillar,
-
-				// Sets your NPC's flavor text in the bestiary.
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "Empress of the Green sun and nature. Everything empowering and living falls under her reign.")),
-
-				// You can add multiple elements if you really wanted to
-				// You can also use localization keys (see Localization/en-US.lang)
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "Gothivia, One of the Green Sun", "2"))
-            });
-    }
 
     public override void SetStaticDefaults()
     {
         base.SetStaticDefaults();
-        Main.npcFrameCount[Type] = 1;
-
         NPCID.Sets.TrailCacheLength[Type] = 128;
         NPCID.Sets.TrailingMode[Type] = 3;
         NPCID.Sets.MustAlwaysDraw[Type] = true;

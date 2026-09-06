@@ -1,9 +1,4 @@
-﻿/*using Stellamod.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Stellamod.Core;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -25,12 +20,12 @@ public class AbyssFogRenderer : ModSystem
             var noiseSprite = AssetReferences.Assets.NoiseTextures.Clouds.Asset.Value;
             var ditherSprite = AssetReferences.Assets.Dithering.Dither8x8DoubleScaled.Asset.Value;
             var pass = AssetReferences.Effects.Abyss.AbyssFog.CreateBlackPass();
-            HlslSampler sampler = new HlslSampler();
+            HlslSampler sampler = new();
             sampler.Sampler = SamplerState.PointWrap;
             sampler.Texture = noiseSprite;
             pass.Parameters.spriteSampler = sampler;
 
-            HlslSampler ditherSampler = new HlslSampler();
+            HlslSampler ditherSampler = new();
             ditherSampler.Sampler = SamplerState.PointWrap;
             ditherSampler.Texture = ditherSprite;
             pass.Parameters.ditherSampler = ditherSampler;
@@ -57,4 +52,3 @@ public class AbyssFogRenderer : ModSystem
         orig(self);
     }
 }
-*/

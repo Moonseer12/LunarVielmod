@@ -1,9 +1,9 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common;
+using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace Stellamod.Content.Areas.Tundra.Snow.EnemiesSN
 {
@@ -11,16 +11,8 @@ namespace Stellamod.Content.Areas.Tundra.Snow.EnemiesSN
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Winterborn Slime");
+            this.AddToSnow();
             Main.npcFrameCount[NPC.type] = 4;
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            float chance = SpawnCondition.Overworld.Chance + SpawnCondition.Underground.Chance + SpawnCondition.Cavern.Chance;
-            if (!spawnInfo.Player.ZoneSnow)
-                return 0f;
-            return chance;
         }
 
         int frame = 0;

@@ -154,21 +154,21 @@ public class BarrierFog : ModSystem
         if (WhiteFogPoints.Count > 0 || RedFogPoints.Count > 0)
         {
             //Draw clouds over the screen with a nice mask
-            /*var noiseSprite = AssetReferences.Assets.NoiseTextures.Clouds.Asset.Value;
+            var noiseSprite = AssetReferences.Assets.NoiseTextures.Clouds.Asset.Value;
             var ditherSprite = AssetReferences.Assets.Dithering.Dither8x8DoubleScaled.Asset.Value;
             var pass = AssetReferences.Effects.Generic.BarrierFog.CreatePixelPass();
-            HlslSampler sampler = new HlslSampler();
+            HlslSampler sampler = new();
             sampler.Sampler = SamplerState.PointWrap;
             sampler.Texture = _maskRT;
             pass.Parameters.maskTarget = sampler;
 
 
-            HlslSampler cloudSampler = new HlslSampler();
+            HlslSampler cloudSampler = new();
             cloudSampler.Sampler = SamplerState.PointWrap;
             cloudSampler.Texture = noiseSprite;
             pass.Parameters.cloudSampler = cloudSampler;
 
-            HlslSampler ditherSampler = new HlslSampler();
+            HlslSampler ditherSampler = new();
             ditherSampler.Sampler = SamplerState.PointWrap;
             ditherSampler.Texture = ditherSprite;
             pass.Parameters.ditherSampler = ditherSampler;
@@ -183,7 +183,7 @@ public class BarrierFog : ModSystem
             SpriteBatch spriteBatch = Main.spriteBatch;
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, Main.Rasterizer, pass.Shader);
             spriteBatch.Draw(_maskRT, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
-            spriteBatch.End();*/
+            spriteBatch.End();
         }
     }
 

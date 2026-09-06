@@ -1,7 +1,7 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common;
+using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -33,6 +33,7 @@ namespace Stellamod.Content.Areas.Fable.EnemiesFB
 
         public override void SetStaticDefaults()
         {
+            this.AddToFable();
             Main.npcFrameCount[NPC.type] = 35;
         }
 
@@ -50,16 +51,6 @@ namespace Stellamod.Content.Areas.Fable.EnemiesFB
             NPC.knockBackResist = .5f;
         }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            Player player = spawnInfo.Player;
-            if (!(player.ZoneTowerSolar || player.ZoneTowerVortex || player.ZoneTowerNebula || player.ZoneTowerStardust && !Main.pumpkinMoon && !Main.snowMoon))
-            {
-                return spawnInfo.Player.ZoneFable() ? 1.0f : 0f;
-            }
-
-            return 0f;
-        }
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)
         {
             return State == ActionState.Fall;
@@ -229,16 +220,6 @@ namespace Stellamod.Content.Areas.Fable.EnemiesFB
                 float scale = Main.rand.NextFloat(0.5f, 1f);
                 Dust.NewDustPerfect(NPC.Center, DustID.Torch, Velocity: vel, Scale: scale);
             }
-        }
-
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            // We can use AddRange instead of calling Add multiple times in order to add multiple items at once
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-            {
-				// Sets the description of this NPC that is listed in the bestiary.
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "Even the weakest, most poor among the warriors in the morrow are still decent foes.."))
-            });
         }
     }
 }

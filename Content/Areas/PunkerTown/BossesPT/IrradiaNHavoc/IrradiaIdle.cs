@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using Terraria;
-using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
 
 namespace Stellamod.Content.Areas.PunkerTown.BossesPT.IrradiaNHavoc
 {
@@ -68,23 +66,6 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.IrradiaNHavoc
         public override bool CanChat()
         {
             return true;
-        }
-
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            // We can use AddRange instead of calling Add multiple times in order to add multiple items at once
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
-				// Sets the preferred biomes of this town NPC listed in the bestiary.
-				// With Town NPCs, you usually set this to what biome it likes the most in regards to NPC happiness.
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundJungle,
-
-				// Sets your NPC's flavor text in the bestiary.
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "A suspicious person at the bottom of the Govheil Castle")),
-
-				// You can add multiple elements if you really wanted to
-				// You can also use localization keys (see Localization/en-US.lang)
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "???", "2"))
-            });
         }
 
         // The PreDraw hook is useful for drawing things before our sprite is drawn or running code before the sprite is drawn

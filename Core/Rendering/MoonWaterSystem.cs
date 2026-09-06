@@ -1,5 +1,4 @@
 ﻿using ReLogic.Content;
-using Stellamod.Assets;
 using Stellamod.Assets.ContentReader.Pal;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas;

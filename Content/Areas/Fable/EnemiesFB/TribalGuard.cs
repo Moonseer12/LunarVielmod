@@ -1,9 +1,9 @@
+using Stellamod.Common;
 using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace Stellamod.Content.Areas.Fable.EnemiesFB
 {
@@ -11,7 +11,7 @@ namespace Stellamod.Content.Areas.Fable.EnemiesFB
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Morrowed Swampster");
+            this.AddToFable();
             Main.npcFrameCount[NPC.type] = 13;
         }
 
@@ -44,16 +44,6 @@ namespace Stellamod.Content.Areas.Fable.EnemiesFB
             NPC.knockBackResist = .45f;
             NPC.aiStyle = NPCAIStyleID.Fighter;
             AIType = NPCID.SnowFlinx;
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (spawnInfo.Player.InModBiome<FableBiome>())
-            {
-                return SpawnCondition.Overworld.Chance * 0.5f;
-            }
-
-            return 0f;
         }
 
         int invisibilityTimer;

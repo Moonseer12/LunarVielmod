@@ -1,4 +1,5 @@
 ﻿using ReLogic.Content;
+using Stellamod.Common;
 using Stellamod.Content.CommonMaterials;
 using System.IO;
 using Terraria;
@@ -13,7 +14,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.EnemiesRC
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Morrowed Swampster");
+            this.AddToRoyalCapital();
             Main.npcFrameCount[NPC.type] = 5;
             NPCID.Sets.TrailCacheLength[NPC.type] = 10;
             NPCID.Sets.TrailingMode[NPC.type] = 0;
@@ -47,24 +48,11 @@ namespace Stellamod.Content.Areas.RoyalCapital.EnemiesRC
             NPC.DeathSound = SoundID.NPCDeath6;
             NPC.value = 560f;
             NPC.knockBackResist = .45f;
-            NPC.aiStyle = 26;
+            NPC.aiStyle = NPCAIStyleID.Unicorn;
             AIType = NPCID.Unicorn;
             NPC.noTileCollide = false;
             NPC.noGravity = false;
 
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (spawnInfo.Player.InModBiome<AlcadziaBiome>())
-            {
-
-                return 0.6f;
-
-            }
-
-            //Else, the example bone merchant will not spawn if the above conditions are not met.
-            return 0f;
         }
 
         int invisibilityTimer;

@@ -2,11 +2,10 @@
 using System;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Stellamod.Content.Vanity.RedFeatherHat;
+namespace Stellamod.Content.Areas.Desert.VanitiesCL;
 
 public class RedFeatherHatDrawLayer : PlayerDrawLayer
 {

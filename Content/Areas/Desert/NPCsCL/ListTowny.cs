@@ -1,12 +1,11 @@
-﻿using Stellamod.Content.Areas.Shop.AccShop;
+﻿using Stellamod.Content.Areas.Desert.VanitiesCL;
+using Stellamod.Content.Areas.Shop.AccShop;
 using Stellamod.Content.Areas.Shop.InsourcesShop;
-using Stellamod.Content.Vanity.RedFeatherHat;
 using Stellamod.Core;
 using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -65,22 +64,6 @@ public class ListTowny : VeilTownNPC
         return false;
     }
 
-    public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-    {
-        // We can use AddRange instead of calling Add multiple times in order to add multiple items at once
-        bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
-				// Sets the preferred biomes of this town NPC listed in the bestiary.
-				// With Town NPCs, you usually set this to what biome it likes the most in regards to NPC happiness.
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.VortexPillar,
-
-				// Sets your NPC's flavor text in the bestiary.
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "Freezing to death")),
-
-				// You can add multiple elements if you really wanted to
-				// You can also use localization keys (see Localization/en-US.lang)
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "Rysa", "2"))
-        });
-    }
     public override List<string> SetNPCNameList()
     {
         return new List<string>() {

@@ -1,7 +1,6 @@
 ﻿using Stellamod.Content.Areas;
 using Stellamod.Core.Palettes;
 using Terraria;
-using Terraria.ModLoader;
 
 namespace Stellamod.Core.Rendering;
 
@@ -19,8 +18,8 @@ public class AbyssPixelWaterStyle : PixelWaterStyle
         pixelWater.EndGradientColor = Color.White;
         pixelWater.BackgroundColor = Color.Cyan;
         pixelWater.CausticsColor = Color.White;
-        pixelWater.NoiseTexture = ModContent.Request<Texture2D>("Stellamod/Assets/NoiseTextures/WaterCaustics");
-        pixelWater.CausticsTexture = ModContent.Request<Texture2D>("Stellamod/Assets/NoiseTextures/WaterCaustics");
+        pixelWater.NoiseTexture = AssetReferences.Assets.NoiseTextures.WaterCaustics.Asset;
+        pixelWater.CausticsTexture = AssetReferences.Assets.NoiseTextures.WaterCaustics.Asset;
         pixelWater.TilingMultiplier = Vector2.One;
         pixelWater.Palette = PaletteAssets.FromPaletteFile(PaletteAssets.ABYSSWATER).Value;
         pixelWater.vibrant = true;

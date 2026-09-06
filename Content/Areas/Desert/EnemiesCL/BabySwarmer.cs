@@ -1,7 +1,7 @@
-﻿using Terraria;
+﻿using Stellamod.Common;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace Stellamod.Content.Areas.Desert.EnemiesCL
 {
@@ -27,6 +27,7 @@ namespace Stellamod.Content.Areas.Desert.EnemiesCL
 
         public override void SetStaticDefaults()
         {
+            this.AddToDesert();
             Main.npcFrameCount[NPC.type] = 4;
         }
 
@@ -137,12 +138,5 @@ namespace Stellamod.Content.Areas.Desert.EnemiesCL
             }
 			return NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, NPC.type);
 		}
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (!NPC.downedPlantBoss)
-                return 0;
-            return (SpawnCondition.DesertCave.Chance * 0.05f) + (SpawnCondition.OverworldDayDesert.Chance * 0.05f);
-        }
     }
 }

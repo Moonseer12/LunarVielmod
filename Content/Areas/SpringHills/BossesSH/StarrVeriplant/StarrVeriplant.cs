@@ -1,17 +1,13 @@
-﻿using Stellamod.Common;
-using Stellamod.Content.Areas.Desert.BossesCL.CommanderGintzia.Hands;
+﻿using Stellamod.Content.Areas.Desert.BossesCL.CommanderGintzia.Hands;
 using Stellamod.Content.Areas.Desert.BossesCL.EliteCommander.Projectiles;
+using Stellamod.Content.Particles;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
-using Stellamod.Core.Particles;
-using Stellamod.Content.Particles;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
-using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -163,15 +159,6 @@ namespace Stellamod.Content.Areas.SpringHills.BossesSH.StarrVeriplant
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
         {
             NPC.lifeMax = (int)(NPC.lifeMax * balance);
-        }
-
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            // Sets the description of this NPC that is listed in the bestiary
-            bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
-                new MoonLordPortraitBackgroundProviderBestiaryInfoElement(), // Plain black background
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "A beloved magical stone guardian, protected the natural life and would petrify anyone who disturbs it."))
-            });
         }
 
         public override bool? CanFallThroughPlatforms()

@@ -1,17 +1,19 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common;
+using Stellamod.Content.Areas.Fable.EnemiesFB;
+using Stellamod.Content.CommonMaterials;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace Stellamod.Content.Areas.Fable.EnemiesFB
+namespace Stellamod.Content.Areas.Desert.EnemiesCL
 {
     public class RubyBeetle : BaseBeetleNPC
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Ruby Beetle");
+            this.AddToDesert();
             Main.npcFrameCount[NPC.type] = 6;
         }
 

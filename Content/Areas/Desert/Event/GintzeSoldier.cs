@@ -3,7 +3,6 @@ using Stellamod.Content.Areas.Desert.Event.Common;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
-using Terraria.GameContent.Bestiary;
 
 namespace Stellamod.Content.Areas.Desert.Event
 {
@@ -209,16 +208,6 @@ namespace Stellamod.Content.Areas.Desert.Event
         public void DrawOutlines(SpriteBatch spriteBatch, Vector2 screenPos, Color lightColor)
         {
             DrawExtensions.DrawOutline(DrawSprite, spriteBatch, screenPos, _outlineColor);
-        }
-
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            // We can use AddRange instead of calling Add multiple times in order to add multiple items at once
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-            {
-				// Sets the description of this NPC that is listed in the bestiary.
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "A Captain of Gofria's ranks, be careful"))
-            });
         }
     }
 }

@@ -1,19 +1,10 @@
-﻿
-
-using ReLogic.Content;
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Desert.Event.Common;
-using Stellamod.Core.Particles;
-
-
-using Stellamod.Content.Particles;
 using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
-using Terraria.GameContent.Bestiary;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Desert.Event
 {
@@ -177,16 +168,6 @@ namespace Stellamod.Content.Areas.Desert.Event
         public override bool? CanFallThroughPlatforms()
         {
             return Target.Bottom.Y - 16 > NPC.Bottom.Y;
-        }
-
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            // We can use AddRange instead of calling Add multiple times in order to add multiple items at once
-            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
-            {
-				// Sets the description of this NPC that is listed in the bestiary.
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "Lowest of the Gintze but can wipe you out fast! They need food too yknow :("))
-            });
         }
 
         private int _frame = 0;

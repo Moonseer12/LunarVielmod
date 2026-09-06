@@ -1,3 +1,4 @@
+using Stellamod.Common;
 using Stellamod.Content.CommonMaterials;
 using System;
 using System.IO;
@@ -5,7 +6,6 @@ using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace Stellamod.Content.Areas.Tundra.Snow.EnemiesSN
 {
@@ -27,7 +27,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.EnemiesSN
 
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Storm Spirit");
+            this.AddToSnow();
             Main.npcFrameCount[NPC.type] = 5;
             NPCID.Sets.TrailCacheLength[NPC.type] = 10;
             NPCID.Sets.TrailingMode[NPC.type] = 0;
@@ -51,14 +51,6 @@ namespace Stellamod.Content.Areas.Tundra.Snow.EnemiesSN
             NPC.dontTakeDamage = false;
             NPC.HitSound = SoundID.NPCHit30;
             NPC.DeathSound = SoundID.NPCDeath38;
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            float chance = SpawnCondition.OverworldNightMonster.Chance + SpawnCondition.Underground.Chance + SpawnCondition.Cavern.Chance;
-            if (!spawnInfo.Player.ZoneSnow)
-                return 0f;
-            return chance;
         }
 
         int frame = 0;
@@ -118,11 +110,8 @@ namespace Stellamod.Content.Areas.Tundra.Snow.EnemiesSN
             }
             alphaCounter = 4;
 
-            float num = 1f - NPC.alpha / 255f;
             alphaCounter = 4;
-            bool expertMode = Main.expertMode;
             NPC.spriteDirection = NPC.direction;
-            Player player = Main.player[NPC.target];
             NPC.TargetClosest(true);
             NPC.rotation = NPC.velocity.X * 0.08f;
 

@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using Stellamod.Common;
+using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,6 +11,7 @@ namespace Stellamod.Content.Areas.Cinderspark.EnemiesCS
         private ref float ai_Counter => ref NPC.ai[0];
         public override void SetStaticDefaults()
         {
+            this.AddToCinderspark();
             Main.npcFrameCount[Type] = 8; // The amount of frames the NPC has
             NPCID.Sets.TrailCacheLength[NPC.type] = 10;
             NPCID.Sets.TrailingMode[NPC.type] = 0;
@@ -112,17 +114,6 @@ namespace Stellamod.Content.Areas.Cinderspark.EnemiesCS
                 Dust.NewDust(NPC.position, NPC.width, NPC.height,
                     DustID.InfernoFork, speedX, speedY, Scale: scale);
             }
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (spawnInfo.Player.InModBiome<CindersparkBiome>())
-            {
-                return 0.02f;
-            }
-
-            //Else, the example bone merchant will not spawn if the above conditions are not met.
-            return 0f;
         }
 
         public override void OnKill()

@@ -1,11 +1,9 @@
 ﻿using Stellamod.Content.Gores;
 using Stellamod.Content.Areas.Illuria.BossesIL.Niivi.Projectiles;
-using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.GameContent.Bestiary;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -199,19 +197,6 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.Niivi
             NPCID.Sets.MPAllowedEnemies[Type] = true;
             NPCID.Sets.TrailCacheLength[Type] = Total_Segments;
             NPCID.Sets.TrailingMode[Type] = 2;
-            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers();
-            drawModifiers.CustomTexturePath = "Stellamod/Content/Areas/Illuria/BossesIL/Niivi/NiiviPreview";
-            drawModifiers.PortraitScale = 0.8f; // Portrait refers to the full picture when clicking on the icon in the bestiary
-            drawModifiers.PortraitPositionYOverride = 0f;
-        }
-
-        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
-        {
-            // Sets the description of this NPC that is listed in the bestiary
-            bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
-                new MoonLordPortraitBackgroundProviderBestiaryInfoElement(), // Plain black background
-				new FlavorTextBestiaryInfoElement(LangText.Bestiary(this, "Niivi, The First Dragon"))
-            });
         }
 
         public override void SetDefaults()

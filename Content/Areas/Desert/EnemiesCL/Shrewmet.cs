@@ -1,11 +1,10 @@
-﻿using Stellamod.Content.CommonMaterials;
+﻿using Stellamod.Common;
+using Stellamod.Content.CommonMaterials;
 using System.IO;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
-
 
 namespace Stellamod.Content.Areas.Desert.EnemiesCL
 {
@@ -13,7 +12,7 @@ namespace Stellamod.Content.Areas.Desert.EnemiesCL
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Morrowed Swampster");
+            this.AddToDesert();
             Main.npcFrameCount[NPC.type] = 30;
         }
 
@@ -46,11 +45,6 @@ namespace Stellamod.Content.Areas.Desert.EnemiesCL
             NPC.aiStyle = NPCAIStyleID.Snowman;
             AIType = NPCID.MisterStabby;
             NPC.noTileCollide = false;
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            return SpawnCondition.OverworldDayDesert.Chance * 0.8f;
         }
 
         int invisibilityTimer;
