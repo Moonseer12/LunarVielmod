@@ -172,12 +172,12 @@ public class AbyssPass : GenPass
 
         //Sprinkle several long caves throughout the biome
         int numCaves = 18;
-        Rectangle operationRectangle = new(left, abyssHigh, right - left, abyssLow - abyssHigh);
+        Rectangle operationRectangle = new Rectangle(left, abyssHigh, right - left, abyssLow - abyssHigh);
         operationRectangle = operationRectangle.CenterPad(25);
 
         for (int n = 0; n < numCaves; n++)
         {
-            caveConnectPoints.TryAdd(n, new());
+            caveConnectPoints.TryAdd(n, new List<Vector2>());
             int dir = 1;
             if (genRand.NextBool(2))
                 dir = -1;
@@ -234,20 +234,22 @@ public class AbyssPass : GenPass
             }
         }
 
-        Rectangle rect = new(left, abyssHigh, right - left, abyssLow - abyssHigh);
+        Rectangle rect = new Rectangle(left, abyssHigh, right - left, abyssLow - abyssHigh);
         VeilGen.PruneLonelyTiles(rect);
         VeilGen.GenerateWaterBowls(rect, 512, new Point(5, 12), new Point(5, 12));
         VeilGen.GenerateWaterBlobs(rect, 4, new Point(64, 100));
         var types = new ushort[]
         {
             ModContent.ZTileType<AbyssalFlower>(),
-            ModContent.ZTileType<AbyssalFlower>(),
-            ModContent.ZTileType<AbyssalFlower>(),
-            ModContent.ZTileType<AbyssalWhiteFlower>()
+
+                    ModContent.ZTileType<AbyssalFlower>(),
+                    ModContent.ZTileType<AbyssalFlower>(),
+                            ModContent.ZTileType<AbyssalWhiteFlower>()
         };
         var types2 = new ushort[]
         {
-            ModContent.ZTileType<AbyssalOrbFlower>()
+            ModContent.ZTileType<AbyssalOrbFlower>(),
+            ModContent.ZTileType<AbyssalPillar>()
         };
         var wetTypes = new ushort[]
         {

@@ -1,13 +1,11 @@
-﻿
-using ReLogic.Content;
+﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.ArmorRework;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.MoonlightMagic;
+using Stellamod.Content.Particles;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-
-using Stellamod.Content.Particles;
 using System;
 using Terraria;
 using Terraria.DataStructures;
@@ -15,7 +13,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Stellamod.Content.Armors.Moonsker
+namespace Stellamod.Content.Areas.MothlightManor.ArmorMM
 {
     public class MoonskerBlast : ModProjectile
     {
