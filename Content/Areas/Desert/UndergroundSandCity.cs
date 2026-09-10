@@ -1,5 +1,4 @@
-﻿using Stellamod.Content.Biomes;
-using Stellamod.Core.Foreground;
+﻿using Stellamod.Core.Foreground;
 using Terraria;
 
 namespace Stellamod.Content.Areas.Desert;
