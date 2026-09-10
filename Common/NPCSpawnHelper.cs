@@ -8,9 +8,11 @@ using Stellamod.Content.Areas.RoyalCapital;
 using Stellamod.Content.Areas.SpringHills;
 using Stellamod.Content.Areas.Terror;
 using Stellamod.Content.Areas.Tundra.Abyss;
+using Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB;
 using Stellamod.Content.Areas.Underground;
 using Stellamod.Content.Areas.WaterSide;
 using Stellamod.Content.Areas.WondrousDarkspace;
+using Stellamod.Core.NPCHelpers;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -33,6 +35,7 @@ public class SpawnSets : ModSystem
         FableEnemy = new List<int>();
         AbyssEnemy = new List<int>();
         AbyssWaterEnemy = new List<int>();
+        AbyssCritter = new List<int>();
         AbyssTempleEnemy = new List<int>();
         IshtarEnemy = new();
         UndergroundEnemy = new();
@@ -45,6 +48,13 @@ public class SpawnSets : ModSystem
         ModifiedWeights = NPCID.Sets.Factory.CreateFloatSet(1f);
         base.SetupContent();
     }
+
+    public override void ResizeArrays()
+    {
+        base.ResizeArrays();
+        ModifiedWeights = NPCID.Sets.Factory.CreateFloatSet(1f);
+        TryNotToSpawnOnWater = NPCID.Sets.Factory.CreateBoolSet();
+    }
     public static List<int> SpringEnemy;
     public static List<int> HarmonicEnemy;
     public static List<int> MarshEnemy;
@@ -52,6 +62,7 @@ public class SpawnSets : ModSystem
     public static List<int> HeatedDepthsEnemy;
     public static List<int> FableEnemy;
     public static List<int> AbyssEnemy;
+    public static List<int> AbyssCritter;
     public static List<int> AbyssWaterEnemy;
     public static List<int> AbyssTempleEnemy;
     public static List<int> IshtarEnemy;
@@ -63,10 +74,23 @@ public class SpawnSets : ModSystem
     public static List<int> RoyalCapitalEnemy;
     public static List<int> SnowEnemy;
     public static float[] ModifiedWeights;
+    public static bool[] TryNotToSpawnOnWater;
+
 }
 
 public static class NPCSpawnExtensions
 {
+    extension(NPCID.Sets)
+    {
+        public static bool[] TryNotToSpawnOnWater => SpawnSets.TryNotToSpawnOnWater;
+    }
+
+    public static void PreferLand(this ModNPC npc)
+    {
+        NPCID.Sets.TryNotToSpawnOnWater[npc.Type] = true;
+    }
+
+
     //Wrapper functions for this functionality just incase we want to change how this works
     public static void AddToSpringHills(this ModNPC npc)
     {
@@ -96,6 +120,11 @@ public static class NPCSpawnExtensions
     public static void AddToAbyss(this ModNPC npc)
     {
         SpawnSets.AbyssEnemy.Add(npc.Type);
+    }
+
+    public static void AddToAbyssCritter(this ModNPC npc)
+    {
+        SpawnSets.AbyssCritter.Add(npc.Type);
     }
 
     public static void AddToAbyssTemple(this ModNPC npc)
@@ -151,12 +180,14 @@ public static class NPCSpawnExtensions
 
 public class NPCSpawnHelper : GlobalNPC
 {
-
-    public static void AddEnemiesFromSpawnSet(List<int> set, IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
+    private void AddEnemiesFromSpawnSet(List<int> set, IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
     {
         for (int i = 0; i < set.Count; i++)
         {
             int enemyType = set[i];
+            if (spawnInfo.Water && NPCID.Sets.TryNotToSpawnOnWater[enemyType])
+                continue;
+
             float totalWeight = 1f;
             float weight = totalWeight / (float)set.Count;
 
@@ -175,6 +206,17 @@ public class NPCSpawnHelper : GlobalNPC
             float spRate = spawnRate;
             spawnRate = (int)(spRate * 0.3f);
             maxSpawns *= 2;
+        }
+        if (player.InModBiome<AbyssBiome>())
+        {
+            float sp = (float)spawnRate;
+            sp *= 0.6f;
+       //     spawnRate = (int)sp;
+
+
+            float ms = (float)maxSpawns;
+            ms *= 1.4f;
+//maxSpawns = (int)ms;
         }
     }
 
@@ -228,10 +270,15 @@ public class NPCSpawnHelper : GlobalNPC
         }
         if (spawnInfo.Player.InModBiome<AbyssBiome>())
         {
-            AddEnemiesFromSpawnSet(SpawnSets.AbyssEnemy, pool, spawnInfo);
+            pool.Clear();
+       
+            if(!BellFlowerSystem.Whispering)
+                AddEnemiesFromSpawnSet(SpawnSets.AbyssEnemy, pool, spawnInfo);
+            AddEnemiesFromSpawnSet(SpawnSets.AbyssCritter, pool, spawnInfo);
         }
         if (spawnInfo.Player.InModBiome<AurelusBiome>())
         {
+            pool.Clear();
             AddEnemiesFromSpawnSet(SpawnSets.AbyssTempleEnemy, pool, spawnInfo);
         }
         if (spawnInfo.Player.InModBiome<IshtarBiome>())

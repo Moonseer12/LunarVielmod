@@ -158,6 +158,7 @@ public partial class RekBoss : ScarletBoss
             return 1f;
         }
     }
+
     public override void SendExtraAI(BinaryWriter writer)
     {
         base.SendExtraAI(writer);

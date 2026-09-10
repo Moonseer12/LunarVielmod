@@ -1227,3 +1227,13 @@ BoomboxerPetBuff: {
 	DisplayName: Boomboxer
 	Description: Give me five big BOOMS
 }
+
+GoldenForkPetBuff: {
+	DisplayName: Little Demon
+	Description: The demons are watching...
+}
+
+WhisperingDeath: {
+	DisplayName: Whispering Death
+	Description: Mods.Stellamod.Buffs.WhisperingDeath.Description
+}

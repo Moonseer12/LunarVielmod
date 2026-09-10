@@ -1,4 +1,6 @@
 Common: {
+	Whisperer: The Whispers have stopped...
+	BellFlower: Bell Flower
 	Buy: Buy
 	ArmorShop: Armor Forge
 	ArmorShopHelp: Trade in materials and ManMan will make an armor for you!
@@ -2470,8 +2472,8 @@ BlankRune: {
 }
 
 ConvulgingMater: {
-	DisplayName: Convulging Matter
-	Tooltip: A dark matter that has corrupted the fallen.
+	DisplayName: Convulging Blood
+	Tooltip: The blood from those deep within Illuria's Abyss
 }
 
 DarkEssence: {
@@ -12132,5 +12134,30 @@ AbyssalCoarseDirtItem: {
 
 Undercross: {
 	DisplayName: Undercross
-	Tooltip: "While in pure underground, take 25% less damage from enemies and bosses"
+	Tooltip: While in pure underground, take 25% less damage from enemies and bosses
+}
+
+GoldenFork: {
+	DisplayName: Golden Fork
+	Tooltip: Summons a pet Little Demon
+}
+
+AbyssalGrassWallDarkItem: {
+	DisplayName: Abyssal Grass Wall Dark Item
+	Tooltip: ""
+}
+
+AbyssalGrassWallItem: {
+	DisplayName: Abyssal Grass Wall Item
+	Tooltip: ""
+}
+
+AbyssWaterFallWallBlock: {
+	DisplayName: Abyss Water Fall Wall Block
+	Tooltip: ""
+}
+
+RagingIceTorch: {
+	DisplayName: Raging Ice Torch
+	Tooltip: ""
 }

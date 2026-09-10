@@ -2,6 +2,7 @@
 using Stellamod.Assets;
 using Stellamod.Common;
 using Stellamod.Common.Particles;
+using Stellamod.Content.Areas.Cinderspark.BossesCS.Rek;
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Visual.Particles;
 using System;
@@ -12,7 +13,7 @@ using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB;
 
-public class AbyssalSoul : ModNPC
+public class AbyssalSoul : ModNPC, IWaterSilhouette
 {
     private Vector2 _wanderPos;
     private ref float Timer => ref NPC.ai[0];
@@ -22,7 +23,8 @@ public class AbyssalSoul : ModNPC
     {
         base.SetStaticDefaults();
         NPCSets.UseAseprite[Type] = true;
-        this.AddToAbyss();
+        this.AddToAbyssCritter();
+        this.PreferLand();
     }
 
     public override void SendExtraAI(BinaryWriter writer)
@@ -44,6 +46,7 @@ public class AbyssalSoul : ModNPC
         NPC.DeathSound = SoundID.NPCDeath39;
         NPC.aiStyle = -1;
         NPC.noGravity = true;
+        NPC.noTileCollide = true;
     }
 
     public override bool CanHitPlayer(Player target, ref int cooldownSlot)
@@ -141,5 +144,14 @@ public class AbyssalSoul : ModNPC
                 });
             }
         }
+    }
+
+    public void PrepareSilhouetteDrawing(RekSilhouetteSystem system)
+    {
+        void DrawWhite(SpriteBatch spriteBatch)
+        {
+            NPC.DrawAnimator(spriteBatch, Color.Black);
+        }
+        system.SilhouettesToDraw.Add(DrawWhite);
     }
 }

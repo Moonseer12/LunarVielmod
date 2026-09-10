@@ -1,5 +1,8 @@
+using Stellamod.Content.Areas.Cinderspark.BossesCS.Rek;
+using Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB;
 using Stellamod.Core.ZTileSystem;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Tundra.Abyss.TilesAB;
@@ -8,6 +11,8 @@ file static class AbyssalZTileUtilties
 {
     public static void SetAbyssFlowerWindDefaults(ZTile zTile)
     {
+        zTile.waterSilhouette = true;
+
         //idk
         zTile.windSwayOffset = 0f;
 
@@ -31,7 +36,14 @@ file static class AbyssalZTileUtilties
         drawer.color.A = 0;
         spriteBatch.Draw(drawer);
     }
+
+    public static void FadeOutDuringWhispering(ref ZTileDrawData drawData)
+    {
+        drawData.drawColor *= MathHelper.Lerp(1f, 0f, BellFlowerSystem.WhisperingAlpha);
+    }
 }
+
+
 public class AbyssalArchPillar : ZTile
 {
     public override void SetStaticDefaults()
@@ -73,6 +85,12 @@ public class AbyssalFlower : ZTile
         base.PostDraw(spriteBatch, drawData, drawParams);
         AbyssalZTileUtilties.DrawAbyssFlowerGlow(this, spriteBatch, drawData, drawParams);
     }
+
+    public override void ModifyDraw(ref ZTileDrawData drawData)
+    {
+        base.ModifyDraw(ref drawData);
+        AbyssalZTileUtilties.FadeOutDuringWhispering(ref drawData);
+    }
 }
 
 public class AbyssalReed : ZTile
@@ -82,6 +100,7 @@ public class AbyssalReed : ZTile
         base.SetStaticDefaults();
         frameCount = 3;
         drawOrigin = TileDrawOrigin.BottomUp;
+
         AbyssalZTileUtilties.SetAbyssFlowerWindDefaults(this);
     }
 
@@ -91,10 +110,16 @@ public class AbyssalReed : ZTile
         AbyssalZTileUtilties.AddAbyssFlowerLighting(i, j - 4);
     }
 
+
     public override void PostDraw(SpriteBatch spriteBatch, in ZTileDrawData drawData, in ZTileDrawParams drawParams)
     {
         base.PostDraw(spriteBatch, drawData, drawParams);
         AbyssalZTileUtilties.DrawAbyssFlowerGlow(this, spriteBatch, drawData, drawParams);
+    }
+    public override void ModifyDraw(ref ZTileDrawData drawData)
+    {
+        base.ModifyDraw(ref drawData);
+        AbyssalZTileUtilties.FadeOutDuringWhispering(ref drawData);
     }
 }
 public class AbyssalOrbFlower : ZTile
@@ -118,6 +143,12 @@ public class AbyssalOrbFlower : ZTile
         base.PostDraw(spriteBatch, drawData, drawParams);
         AbyssalZTileUtilties.DrawAbyssFlowerGlow(this, spriteBatch, drawData, drawParams);
     }
+
+    public override void ModifyDraw(ref ZTileDrawData drawData)
+    {
+        base.ModifyDraw(ref drawData);
+        AbyssalZTileUtilties.FadeOutDuringWhispering(ref drawData);
+    }
 }
 
 public class AbyssalWhiteFlower : ZTile
@@ -140,5 +171,10 @@ public class AbyssalWhiteFlower : ZTile
     {
         base.PostDraw(spriteBatch, drawData, drawParams);
         //  AbyssalZTileUtilties.DrawAbyssFlowerGlow(this, spriteBatch, drawData, drawParams);
+    }
+    public override void ModifyDraw(ref ZTileDrawData drawData)
+    {
+        base.ModifyDraw(ref drawData);
+        AbyssalZTileUtilties.FadeOutDuringWhispering(ref drawData);
     }
 }

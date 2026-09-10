@@ -1,4 +1,6 @@
 using Stellamod.Content.Areas.PunkerTown;
+using Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB;
+using Stellamod.Core.Biomes;
 using Stellamod.Core.LunarLightingSystem;
 using Terraria;
 using Terraria.ID;
@@ -9,7 +11,26 @@ namespace Stellamod.Content.Areas.Tundra.Abyss;
 public class AbyssBiome : BaseUrdveilBiome,
     IBackLightModifier
 {
-    public override int Music => MusicLoader.GetMusicSlot(Mod, "Assets/Music/ArtInTheShadows");
+    public override int Music
+    {
+        get
+        {
+            int music = MusicLoader.GetMusicSlot(Mod, "Assets/Music/ArtInTheShadows");
+            if (NPC.AnyNPCs(ModContent.NPCType<TheWhisperer>()))
+            {
+                music = MusicLoader.GetMusicSlot(Mod, "Assets/Music/HeWhoWhispss");
+                return music;
+            } 
+            else if (BellFlowerSystem.Whispering)
+            {
+                music = MusicLoader.GetMusicSlot(Mod, "Assets/Music/HeWhoWhispss");
+                return music;
+            }
+
+            return music;
+        }
+    }
+
     public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
     public override string BestiaryIcon => base.BestiaryIcon;
     public override string BackgroundPath => MapBackground;

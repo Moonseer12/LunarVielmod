@@ -1,4 +1,5 @@
 ﻿using ReLogic.Content;
+using Stellamod.Core;
 using Stellamod.Core.ZTileSystem;
 using System;
 using System;
@@ -31,12 +32,30 @@ public static class ColorExtensions
 }
 
 /// <summary>
+/// The section of the background to draw and the offset with it, make sure to use with a wrapping mode
+/// </summary>
+/// <param name="SourceRectangle"></param>
+/// <param name="DrawOffset"></param>
+public record struct BackgroundDrawParameters(Rectangle SourceRectangle, Vector2 DrawOffset);
+
+
+/// <summary>
 /// A collection of utility functions for drawing simple visual effects
 /// </summary>
 public static class DrawUtilities
 {
     public delegate Color GetTrailColor(float completionRatio);
     public delegate float GetTrailWidth(float completionRatio);
+
+
+    public static BackgroundDrawParameters CalculateScaledBackgroundDraw(Vector2 textureSize)
+    {
+        Vector2 drawOrigin = textureSize * 0.5f;
+        int sw = Main.screenWidth;
+        int sh = Main.screenHeight;
+        Rectangle drawRectangle = new Rectangle(0, 0, sw * 2, sh * 2);
+        return new BackgroundDrawParameters(drawRectangle, -new Vector2(sw / 2, sh / 2));
+    }
 
     public static Vector2 RandomScreenPositionForForegroundParticles()
     {
@@ -469,6 +488,15 @@ public static class DrawUtilities
             spriteBatch.Draw(spritebatchDrawer);
         }
     }
+
+    public static void DrawBasicGlow(SpriteBatch spriteBatch, Vector2 position, float scale, Color color)
+    {
+        SpritebatchDrawer glowDrawer = SpritebatchDrawer.FromTextureAsset(AssetReferences.Assets.GlowMasks.SimpleGlowCircle.Asset, position);
+        glowDrawer.color = color;
+        glowDrawer.color.A = 0;
+        glowDrawer.scale *= scale;
+        spriteBatch.Draw(glowDrawer);
+    }
 }
 
 /// <summary>
@@ -728,6 +756,12 @@ public struct SpritebatchDrawer
     public SpriteEffects spriteEffects;
     public Vector2 scale;
     public bool blackIsTransparency;
+
+    public void Flip(ref float xPosition)
+    {
+        xPosition = sourceRect.Value.Width - xPosition;
+    }
+
     public void VerticalFrame(int frameIndex, int frameCount)
     {
         sourceRect = texture.GetFrame(frameIndex, frameCount);

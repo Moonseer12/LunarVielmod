@@ -1,9 +1,4 @@
-﻿using Stellamod.Core.Particles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
@@ -17,8 +12,8 @@ public class AbyssFeatherGore : ModGore
         gore.numFrames = 8;
         gore.frame = (byte)Main.rand.Next(8);
         gore.timeLeft = 240;
-        //UpdateType = 910;
     }
+
     public override bool Update(Gore gore)
     {
         gore.velocity *= 0.93f;
@@ -27,7 +22,7 @@ public class AbyssFeatherGore : ModGore
         gore.position += gore.velocity;
         gore.rotation = Utils.AngleLerp(gore.rotation, gore.velocity.ToRotation() - MathHelper.PiOver2, 0.03f);
         gore.timeLeft--;
-        gore.alpha+=2;
+        gore.alpha += 2;
         if (gore.timeLeft <= 0)
             gore.active = false;
         return false;

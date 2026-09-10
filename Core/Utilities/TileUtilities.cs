@@ -1,4 +1,5 @@
-﻿using Stellamod.Content.Areas;
+using Stellamod.Content.Areas;
+using System;
 using Terraria;
 
 namespace Stellamod.Core.Utilities;
@@ -113,6 +114,28 @@ public static class TileUtilities
     {
         return FallToSolidTile(tile.X, tile.Y);
     }
+
+    public static bool TooCloseToTilePoint(Point tilePoint, Point referencePoint, int proximity)
+    {
+        int dx = Math.Abs(referencePoint.X - tilePoint.X);
+        int dy = Math.Abs(referencePoint.Y - tilePoint.Y);
+        int d = dx + dy;
+        if (d < proximity)
+            return true;
+        return false;
+    }
+    public static (Point, int takenSteps) FindCeiling(int x, int y, int maxSteps)
+    {
+        Point start = new Point(x, y);
+        Point current = start;
+        for (int i = 0; i < maxSteps; i++)
+        {
+            if (WorldGen.SolidTile(current.X, current.Y))
+                return (current, i);
+            current.Y-=1;
+        }
+        return (new Point(x, y), -1);
+    }
     public static Point FallToSolidTile(int x, int y, int direction = 1)
     {
         Point start = new(x, y);
@@ -124,6 +147,32 @@ public static class TileUtilities
             current.Y += direction;
         }
         return Point.Zero;
+    }
+    public static int FallToSolidOrWaterTile(int x, int y, int maxSteps = 255)
+    {
+        Point start = new Point(x, y);
+        Point current = start;
+        for (int i = 0; i < maxSteps; i++)
+        {
+            Tile tile = Main.tile[x, y];
+            if (tile.LiquidAmount > 0 || (tile.HasTile && Main.tileSolid[tile.TileType]))
+                return y;
+            y++;
+        }
+        return y;
+    }
+    public static int FallToWaterTile(int x, int y, int maxSteps = 255)
+    {
+        Point start = new Point(x, y);
+        Point current = start;
+        for (int i = 0; i < maxSteps; i++)
+        {
+            Tile tile = Main.tile[x, y];
+            if (tile.LiquidAmount > 0)
+                return y;
+            y++;
+        }
+        return y;
     }
 
     public static Rectangle Clamp(Rectangle rectangle)
@@ -197,6 +246,17 @@ public static class TileUtilities
         topLeftTile = Clamp(topLeftTile, inside);
         bottomRightTile = Clamp(bottomRightTile, inside);
         return (topLeftTile, bottomRightTile);
+    }
+    public static Rectangle CenterTileRectangle(Point tilePoint, int width, int height)
+    {
+        int leftX = tilePoint.X - width / 2;
+        int topY = tilePoint.Y - height / 2;
+        int rightX = tilePoint.X + width / 2;
+        int bottomY = tilePoint.Y + height / 2;
+
+        Rectangle rect = new Rectangle(leftX, topY, rightX - leftX, bottomY - topY);
+        rect = TileUtilities.Clamp(rect);
+        return rect;
     }
     public static (Point topLeft, Point bottomRight) CenterTileBounds(Vector2 centerWorld, int width, int height)
     {

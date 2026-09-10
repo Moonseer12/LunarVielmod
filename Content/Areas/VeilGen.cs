@@ -64,22 +64,6 @@ public class PassWriter
     }
 }
 
-/// <summary>
-/// Collection of helper functions for manipulating textures.
-/// </summary>
-public static class TextureUtilities
-{
-    public static int GetPixelIndex(Texture2D texture, int x, int y)
-    {
-        return x + y * texture.Width;
-    }
-
-    public static Color GetPixelColor(Texture2D texture, int x, int y, Color[] pixels)
-    {
-        return pixels[GetPixelIndex(texture, x, y)];
-    }
-}
-
 public enum PrefabPlacementType : byte
 {
     FromTopLeft,
@@ -138,15 +122,27 @@ public class GenerationPrefab : IDisposable
             }
         }
     }
+    private void PasteEraseInner(in int originX, in int originY, Action<int, int, Color> manipulator)
+    {
+        for (int x = 0; x < Width; x++)
+        {
+            for (int y = 0; y < Height; y++)
+            {
+                int tileX = originX + x;
+                int tileY = originY + y;
+                manipulator(tileX, tileY, Sample(x, y));
+            }
+        }
+    }
     public void PasteErase(int originX, int originY, Point pixelOrigin)
     {
         originX -= pixelOrigin.X;
         originY -= pixelOrigin.Y;
         PasteEraseInner(originX, originY);
     }
-    public void PasteErase(Point origin, PrefabPlacementType placementType)
+    public void PasteErase(Point origin, PrefabPlacementType placementType, Action<int, int, Color> manipulator = null)
     {
-        PasteErase(origin.X, origin.Y, placementType);
+        PasteErase(origin.X, origin.Y, placementType, manipulator);
     }
     public Rectangle GetBounds(int originX, int originY, PrefabPlacementType placementType)
     {
@@ -181,7 +177,7 @@ public class GenerationPrefab : IDisposable
         rectangle.Height = (int)MathHelper.Min(rectangle.Height, maxHeight);
         return rectangle;
     }
-    public void PasteErase(int originX, int originY, PrefabPlacementType placementType)
+    public void PasteErase(int originX, int originY, PrefabPlacementType placementType, Action<int, int, Color> manipulator = null)
     {
         switch (placementType)
         {
@@ -200,7 +196,15 @@ public class GenerationPrefab : IDisposable
 
         }
 
-        PasteEraseInner(originX, originY);
+        if(manipulator != null)
+        {
+            PasteEraseInner(originX, originY, manipulator);
+        }
+        else
+        {
+            PasteEraseInner(originX, originY);
+        }
+
     }
 
 
@@ -495,6 +499,25 @@ public partial class VeilGen : ModSystem
 
     public static readonly Room[] MineshaftPrefabs = DungeonSaveUtility.GetDungeonPrefabs("Mineshafts");
 
+    public static bool IsFilledEnough(Rectangle tileBounds, float tilePercent)
+    {
+        float total = 0;
+        for (int i = tileBounds.Left; i < tileBounds.Right; i++)
+        {
+            for (int j = tileBounds.Top; j < tileBounds.Bottom; j++)
+            {
+                Tile tile = Main.tile[i, j];
+                if (tile.HasTile)
+                    total++;
+            }
+        }
+        float tileCount = (tileBounds.Width * tileBounds.Height);
+        float pct = total / tileCount;
+        return pct >= tilePercent;
+
+
+    }
+
     public static void QuickOrePatch(int x, int y, int tileType)
     {
         Walker(x, y, WorldGen.genRand.Next(50, 90), tileType, maxDist: 3);
@@ -554,6 +577,10 @@ public partial class VeilGen : ModSystem
     }
 
 
+    /// <summary>
+    /// Removes tiles that have 1 or less neighbours, make sure to clamp the area rectangle before calling this function
+    /// </summary>
+    /// <param name="areaRectangle"></param>
     public static void PruneLonelyTiles(Rectangle areaRectangle)
     {
         for (int x = areaRectangle.Left; x < areaRectangle.Right; x++)
@@ -1353,6 +1380,7 @@ public partial class VeilGen : ModSystem
         public required ushort[] zTileTypes;
         public required int zLayer;
         public required ZRenderLayer renderLayer;
+        public byte value;
     }
 
     public static void KillZTilesInArea(Rectangle tileBounds)
@@ -1361,7 +1389,7 @@ public partial class VeilGen : ModSystem
         zTileMap.KillAnyArea(tileBounds);
     }
 
-  
+
 
     public static void QuickPlaceTile(int x, int y, ushort tileType)
     {

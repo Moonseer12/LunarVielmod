@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using ReLogic.Threading;
 using Stellamod.Common.Shaders;
+using System.Diagnostics;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -51,6 +52,8 @@ public partial class LunarLightingRenderer
         //Point lights do not need to be calculated every frame, we'll change this later
         if(Main.GameUpdateCount % 1 == 0)
         {
+          //  Stopwatch w = Stopwatch.StartNew();
+
             _pointLights.Clear();
             _pointLights.GatherLights();
 
@@ -65,6 +68,8 @@ public partial class LunarLightingRenderer
                     _shadowMap.RayMarch(j, light.position, light.diameter);
                 }
             });
+           // w.Stop();
+          //  Main.NewText($"{w.ElapsedTicks} t");
 
             //Prepare the index buffer, we need to draw all the lights in the same batch
             int indexLength = _pointLights.UsedLightCount * 6;
@@ -79,7 +84,6 @@ public partial class LunarLightingRenderer
                 _pointLightIndices[i + 5] = connectIndex + 3;
                 connectIndex += 4;
             }
-
 
             for (int i = 0; i < _pointLights.UsedLightCount; i++)
             {
@@ -105,9 +109,9 @@ public partial class LunarLightingRenderer
                 _pointLightBuffer[startIndex + 2] = new VertexPositionColorTexture(new Vector3(bottomLeft, 0), lightColor, new Vector2(0, 1));
                 _pointLightBuffer[startIndex + 3] = new VertexPositionColorTexture(new Vector3(bottomRight, 0), lightColor, new Vector2(1, 1));
             }
-
             //Get the shadow map texture
             _shadowMap.Output();
+
         }
 
         GraphicsDevice graphicsDevice = Main.graphics.GraphicsDevice;
@@ -122,7 +126,6 @@ public partial class LunarLightingRenderer
         {
             graphicsDevice.Clear(_backLightColor);
         }
-
 
         //Render Sun
         RenderSunLight();

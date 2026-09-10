@@ -35,7 +35,9 @@ namespace Stellamod.Helpers
         RoyalFox=24,
         Gothivia=25,
         E=26,
-        BunnyStorm=27
+        BunnyStorm=27,
+
+        TheWhisperer=28
     }
 
     public class Flawless : ModBuff
@@ -144,6 +146,10 @@ namespace Stellamod.Helpers
                 int count = 0;
                 for(int i = 0; i < downedBossFlags.Length; i++)
                 {
+
+                    if ((DownedBossFlag)i == DownedBossFlag.TheWhisperer)
+                        continue;
+
                     if (downedBossFlags[i])
                     {
                         count++;

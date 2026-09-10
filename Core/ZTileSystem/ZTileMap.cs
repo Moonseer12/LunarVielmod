@@ -1,3 +1,5 @@
+using Microsoft.CodeAnalysis.Text;
+using Stellamod.Content.Areas.Cinderspark.BossesCS.Rek;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,13 +32,13 @@ public enum Rotation : byte
 //We drop the dictionary
 //and instead straight up store a List of every ZTile in the world?
 
-public class ZTileData
+public struct ActiveZTileData
 {
-    public ZTileData()
+    public ActiveZTileData()
     {
 
     }
-    public ZTileData(ZTilePosition position, ZTileInstanceData instanceData, ZRenderLayer renderLayer)
+    public ActiveZTileData(ZTilePosition position, ZTileInstanceData instanceData, ZRenderLayer renderLayer)
     {
         this.position = position;
         this.instanceData = instanceData;
@@ -161,32 +163,71 @@ public class ZTileMap : ModSystem
 {
     private bool _needsResorting;
     private Point _lastChunk = new Point(-9999, -9999);
-    private List<ZTileData> _zTileInstances = new List<ZTileData>();
-    private List<ZTileData>[] _zTileActiveDrawingInstances;
+    private List<ActiveZTileData> _zTileInstances = new List<ActiveZTileData>();
+    private List<ActiveZTileData>[] _zTileActiveDrawingInstances;
 
     public const int Chunk_Size = 64;
 
     public static event Action OnRenderForeground;
-    public ZTilePosition Find(ushort type)
+    public bool Find(ushort type, out ZTilePosition tilePosition)
     {
-        ZTileData tileData = _zTileInstances.Find(x => x.instanceData.type == type)!;
-        if (tileData != null)
-            return tileData.position;
-        return default;
+        foreach(var instance in _zTileInstances)
+        {
+            if(instance.instanceData.type == type)
+            {
+                tilePosition = instance.position;
+                return true;
+            }
+        }
+        tilePosition = default;
+        return false;
     }
 
     public override void OnModLoad()
     {
         base.OnModLoad();
-        _zTileInstances = new List<ZTileData>();
-        _zTileActiveDrawingInstances = new List<ZTileData>[Enum.GetValues<ZRenderLayer>().Length];
+        _zTileInstances = new List<ActiveZTileData>();
+        _zTileActiveDrawingInstances = new List<ActiveZTileData>[Enum.GetValues<ZRenderLayer>().Length];
         for(int i = 0; i < _zTileActiveDrawingInstances.Length; i++)
         {
-            _zTileActiveDrawingInstances[i] = new List<ZTileData>();
+            _zTileActiveDrawingInstances[i] = new List<ActiveZTileData>();
         }
         On_Main.DoDraw_WallsAndBlacks += RenderOverWalls;
         On_Main.DrawPlayers_AfterProjectiles += RenderOverPlayers;
         On_Main.DrawDust += RenderForeground;
+        RekSilhouetteSystem.OnPrepareSilhouettes += PrepareSilhouettes;
+    }
+    public override void Unload()
+    {
+        base.Unload();
+        RekSilhouetteSystem.OnPrepareSilhouettes -= PrepareSilhouettes;
+    }
+    private void PrepareSilhouettes()
+    {
+        ZTileLoader zTileLoader = ModContent.GetInstance<ZTileLoader>();
+        foreach (var tileDatas in _zTileActiveDrawingInstances)
+        {
+            foreach (var tileData in tileDatas)
+            {
+                var zTile = zTileLoader.GetTile(tileData.instanceData.type);
+                if (zTile.waterSilhouette)
+                {
+                    ZTilePosition tilePosition = tileData.position;
+                    ZTileInstanceData t = tileData.instanceData;
+                    ZTileDrawParams drawParams = new ZTileDrawParams
+                    {
+                        tilePosition = tilePosition,
+                        tileData = t,
+                        lightColor = Color.DarkBlue
+                    };
+                    var silhouetteSystem = ModContent.GetInstance<RekSilhouetteSystem>();
+                    silhouetteSystem.SilhouettesToDraw.Add((SpriteBatch sb) =>
+                    {
+                        zTile.DrawSilhouette(sb, Main.screenPosition, drawParams);
+                    });
+                }
+            }
+        }
     }
 
     public override void PostUpdateEverything()
@@ -197,7 +238,8 @@ public class ZTileMap : ModSystem
         {
             foreach(var tileData in tileDatas)
             {
-                zTileLoader.GetTile(tileData.instanceData.type).Update(tileData.position.x, tileData.position.y);
+                var zTile = zTileLoader.GetTile(tileData.instanceData.type);
+                zTile.Update(tileData.position.x, tileData.position.y);
             }
         }
         Point chunk = GetCameraChunk();
@@ -226,7 +268,7 @@ public class ZTileMap : ModSystem
         {
             _zTileActiveDrawingInstances[i].Clear();
         }
-        foreach(ZTileData tileData in _zTileInstances)
+        foreach(ActiveZTileData tileData in _zTileInstances)
         {
             //Calculate the chunk
             int chunkX = tileData.position.x / ZTileMap.Chunk_Size;
@@ -245,7 +287,7 @@ public class ZTileMap : ModSystem
     //    Mod.Logger.Info($"{instanceDataWatch.ElapsedTicks} collect z tile data ticks");
     }
 
-    public void RenderRedBoxesLayer(SpriteBatch spriteBatch, in List<ZTileData> drawingData)
+    public void RenderRedBoxesLayer(SpriteBatch spriteBatch, in List<ActiveZTileData> drawingData)
     {
         Rectangle frame = new Rectangle(0, 0, 16, 16);
         foreach (var tileData in drawingData)
@@ -256,8 +298,9 @@ public class ZTileMap : ModSystem
             spriteBatch.Draw(TextureAssets.Tile[0].Value, drawPosition, frame, Color.Red, 0, frame.Size() / 2f, 1f, SpriteEffects.None, 0);
         }
     }
-    public void RenderLayer(SpriteBatch spriteBatch, in List<ZTileData> drawingData)
+    public void RenderLayer(SpriteBatch spriteBatch, in List<ActiveZTileData> drawingData)
     {
+      //  var watch = Stopwatch.StartNew();
         ZTileLoader zTileLoader = ModContent.GetInstance<ZTileLoader>();
         foreach (var zTile in drawingData)
         {
@@ -304,6 +347,8 @@ public class ZTileMap : ModSystem
             }
             tile.Draw(spriteBatch, Main.screenPosition, drawParams);
         }
+    //    watch.Stop();
+     //   Main.NewText($"{watch.ElapsedTicks} ticks");
     }
    
 
@@ -356,7 +401,7 @@ public class ZTileMap : ModSystem
                 instanceData.scale = saveData.scale;
                 instanceData.flipX = saveData.flipX;
                 instanceData.value = saveData.value;
-                ZTileData zTileData = new ZTileData(zTilePosition, instanceData, (ZRenderLayer)i);
+                ActiveZTileData zTileData = new ActiveZTileData(zTilePosition, instanceData, (ZRenderLayer)i);
                 _zTileInstances.Add(zTileData);
             }
         }
@@ -424,7 +469,7 @@ public class ZTileMap : ModSystem
                 instanceData.scale = saveData.scale;
                 instanceData.flipX = saveData.flipX;
                 instanceData.value = saveData.value;
-                ZTileData zTileData = new ZTileData(zTilePosition, instanceData, (ZRenderLayer)i);
+                ActiveZTileData zTileData = new ActiveZTileData(zTilePosition, instanceData, (ZRenderLayer)i);
                 _zTileInstances.Add(zTileData);
             }
         }
@@ -437,6 +482,7 @@ public class ZTileMap : ModSystem
         SendZTileSyncPacket();
     }
 
+    
 
     public override void NetReceive(BinaryReader reader)
     {
@@ -450,24 +496,17 @@ public class ZTileMap : ModSystem
         //Should work just fine lol
         try
         {
-            ModPacket packet = Stellamod.Instance.GetPacket(capacity: 65536);
-            packet.Write((byte)MessageType.ZTileSync);
-            packet.Write(_zTileInstances.Count);
-            for (int i = 0; i < _zTileInstances.Count; i++)
+            
+            int sectionsX = Main.maxTilesX / 4;
+            int sectionsY = Main.maxTilesY / 4;
+            for(int x = 0; x < 4; x++)
             {
-                var tileData = _zTileInstances[i];
-                packet.Write((byte)i);
-                packet.Write((ushort)tileData.position.x);
-                packet.Write((ushort)tileData.position.y);
-                packet.Write((ushort)tileData.position.z);
-                packet.Write(tileData.instanceData.scale);
-                packet.Write(tileData.instanceData.flipX);
-                packet.Write(tileData.instanceData.frameNumber);
-                packet.Write((byte)tileData.instanceData.rotation);
-                packet.Write(tileData.instanceData.type);
-                packet.Write(tileData.instanceData.value);
+                for(int y = 0; y < 4; y++)
+                {
+                    HandleZTileDataRequestPacket(-1, sectionsX * x, sectionsY * y, sectionsX, sectionsY);
+                }
             }
-            packet.Send();
+            
         }
         catch (System.Exception ex)
         {
@@ -475,10 +514,87 @@ public class ZTileMap : ModSystem
         }
     }
 
+
+    public void HandleZTileDataRequestPacket(int requester, int x, int y, int width, int height)
+    {
+        Rectangle rectangle = new Rectangle(x, y, width, height);
+        List<ActiveZTileData> datasToSync = new();
+        for(int i = 0; i < _zTileInstances.Count; i++)
+        {
+            var tileData = _zTileInstances[i];
+            if(rectangle.Contains(tileData.position.x, tileData.position.y))
+            {
+                datasToSync.Add(tileData);
+            }
+        }
+
+        int bytesPerTileData = 128;
+        int totalBytes = bytesPerTileData * (datasToSync.Count + 16);
+        ModPacket packet = Stellamod.Instance.GetPacket(capacity: totalBytes);
+        packet.Write((byte)MessageType.ZTileSync);
+        packet.Write(datasToSync.Count);
+        packet.Write(x);
+        packet.Write(y);
+        packet.Write(width);
+        packet.Write(height);
+        for (int i = 0; i < datasToSync.Count; i++)
+        {
+            var tileData = datasToSync[i];
+            packet.Write((byte)tileData.renderLayer);
+            packet.Write((ushort)tileData.position.x);
+            packet.Write((ushort)tileData.position.y);
+            packet.Write((ushort)tileData.position.z);
+            packet.Write(tileData.instanceData.scale);
+            packet.Write(tileData.instanceData.flipX);
+            packet.Write(tileData.instanceData.frameNumber);
+            packet.Write((byte)tileData.instanceData.rotation);
+            packet.Write(tileData.instanceData.type);
+            packet.Write(tileData.instanceData.value);
+        }
+        packet.Send(toClient: requester);
+    }
+
+    /// <summary>
+    /// Handles a sync packet for Z Tile data
+    /// </summary>
+    /// <param name="reader"></param>
     public void HandleZTileSyncPacket(BinaryReader reader)
     {
-        _zTileInstances.Clear();
+        if (Main.netMode == NetmodeID.Server)
+            return;
+
         int length = reader.ReadInt32();
+        int x = reader.ReadInt32();
+        int y = reader.ReadInt32();
+        int width = reader.ReadInt32();
+        int height = reader.ReadInt32();
+
+        Rectangle rectangle = new Rectangle(x, y, width, height);
+        List<ActiveZTileData> datasToRemove = new();
+        int popIndex = _zTileInstances.Count - 1;
+        for (int i = 0; i < _zTileInstances.Count; i++)
+        {
+            var tileData = _zTileInstances[i];
+            if (rectangle.Contains(tileData.position.x, tileData.position.y) && popIndex >= 0)
+            {
+                //Swap with last element
+                var temp = _zTileInstances[popIndex];
+                _zTileInstances[popIndex] = tileData;
+                _zTileInstances[i] = temp;
+
+                //Substract pop index
+                //              datasToRemove.Add(tileData);
+                popIndex--;
+                i--;
+            }
+        }
+
+        for(int k = _zTileInstances.Count - 1; k > popIndex; k--)
+        {
+            _zTileInstances.RemoveAt(k);
+        }
+  
+
         for (int i = 0; i < length; i++)
         {
             ZRenderLayer renderLayer = (ZRenderLayer)reader.ReadByte();
@@ -496,6 +612,7 @@ public class ZTileMap : ModSystem
             instanceData.value = reader.ReadByte();
             Add(renderLayer, tilePosition, instanceData);
         }
+        Refresh();
     }
 
     private void RenderOverWalls(On_Main.orig_DoDraw_WallsAndBlacks orig, Main self)
@@ -557,7 +674,7 @@ public class ZTileMap : ModSystem
 
     }
 
-    private List<ZTileData> GetZTileDatas(ZRenderLayer renderLayer)
+    private List<ActiveZTileData> GetZTileDatas(ZRenderLayer renderLayer)
     {
         return _zTileActiveDrawingInstances[(int)renderLayer];
     }
@@ -704,6 +821,7 @@ public class ZTileMap : ModSystem
                 tileData.value).Send(ignoreClient: clientToIgnore);
         }
         Add(renderLayer, zTilePosition, tileData);
+        Refresh();
     }
 
     public void SyncPlaceTile(int toWho, int fromWho, ZRenderLayer renderLayer, ZTilePosition tilePosition, ZTileInstanceData tileData)
@@ -733,7 +851,7 @@ public class ZTileMap : ModSystem
 
     public void Add(ZRenderLayer renderLayer, ZTilePosition tilePosition, ZTileInstanceData tileData)
     {
-        _zTileInstances.Add(new ZTileData(tilePosition, tileData, renderLayer));
+        _zTileInstances.Add(new ActiveZTileData(tilePosition, tileData, renderLayer));
     }
 
     public override void ClearWorld()

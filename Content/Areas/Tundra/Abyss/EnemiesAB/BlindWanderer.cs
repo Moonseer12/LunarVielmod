@@ -1,6 +1,8 @@
 ﻿using Stellamod.Assets;
 using Stellamod.Assets.ContentReader.Aseprite;
 using Stellamod.Common;
+using Stellamod.Content.Areas.Cinderspark.BossesCS.Rek;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Particles;
 using Stellamod.Content.Particles;
@@ -11,11 +13,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB;
-internal class BlindWanderer : ModNPC
+internal class BlindWanderer : ModNPC,
+     IWaterSilhouette
 {
     private enum AIState
     {
@@ -49,6 +53,7 @@ internal class BlindWanderer : ModNPC
         base.SetStaticDefaults();
         NPCSets.UseAseprite[Type] = true;
         this.AddToAbyss();
+        this.PreferLand();
     }
 
     public override bool CanHitPlayer(Player target, ref int cooldownSlot)
@@ -182,6 +187,7 @@ internal class BlindWanderer : ModNPC
             ChooseNextState();
         }
 
+        Collision.StepUp(ref NPC.position, ref NPC.velocity, NPC.width, NPC.height, ref NPC.stepSpeed, ref NPC.gfxOffY);
         float distTOTarget = Vector2.Distance(NPC.Center, MyTarget.Center);
         if(distTOTarget <= 64 && SpawnedMoth < 1)
         {
@@ -210,6 +216,11 @@ internal class BlindWanderer : ModNPC
         {
             SwitchState(AIState.LanternDown);
         }
+    }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        base.ModifyNPCLoot(npcLoot);
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ConvulgingMater>(), minimumDropped: 1, maximumDropped: 4));
     }
 
     private void AI_LanternDown()
@@ -260,5 +271,14 @@ internal class BlindWanderer : ModNPC
     public override void OnKill()
     {
         base.OnKill();
+    }
+
+    public void PrepareSilhouetteDrawing(RekSilhouetteSystem system)
+    {
+        void DrawWhite(SpriteBatch spriteBatch)
+        {
+            NPC.DrawAnimator(spriteBatch, Color.Black);
+        }
+        system.SilhouettesToDraw.Add(DrawWhite);
     }
 }
