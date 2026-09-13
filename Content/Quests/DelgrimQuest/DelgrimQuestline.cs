@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common.QuestSystem;
 using Stellamod.Content.Areas;
-using Stellamod.Content.Areas.SpringHills.WeaponsSH;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.TODO.Weapons;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;

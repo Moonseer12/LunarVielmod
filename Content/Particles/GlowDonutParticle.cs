@@ -8,9 +8,8 @@ namespace Stellamod.Content.Particles
 {
     public class GlowDonutParticle : Particle<GlowDonutParticle>
     {
-        private float _direction;
+        public float _direction;
         private Vector2 _stretchScale;
-        private bool _fast;
         public int FrameWidth = 128;
         public int FrameHeight = 128;
         public int MaxFrameCount = 1;

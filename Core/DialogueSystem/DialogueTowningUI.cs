@@ -12,10 +12,10 @@ namespace Stellamod.Core.DialogueSystem
     public class TalkingOptionsButtonGroupUI : UIPanel
     {
         private int _index;
-        private TalkingOptionButtonUI[] _buttons;
+        public TalkingOptionButtonUI[] _buttons;
         public int RelativeLeft => Main.screenWidth / 2 - (int)(Width.Pixels / 2) + 80;
-        public int RelativeTop => Main.screenHeight - 300;
-        public Vector2 DrawPos => new Vector2(Left.Pixels, Top.Pixels);
+        public static int RelativeTop => Main.screenHeight - 300;
+        public Vector2 DrawPos => new(Left.Pixels, Top.Pixels);
 
         public const int Max_Dialogue_Options = 4;
         public TalkingOptionsButtonGroupUI()
@@ -79,7 +79,7 @@ namespace Stellamod.Core.DialogueSystem
     public class TalkingOptionButtonUI : UIPanel
     {
         private float _alpha;
-        private float _timer;
+        public float _timer;
         private ITalkingOption _talkingOption;
         public TalkingOptionButtonUI()
         {

@@ -53,7 +53,7 @@ namespace Stellamod.Core.TriggersSystem
 
     public class TriggerWand : ModItem
     {
-        private int _triggerToPlace;
+        public int _triggerToPlace;
 
         public override void SetDefaults()
         {
@@ -108,8 +108,6 @@ namespace Stellamod.Core.TriggersSystem
     }
     public class TriggerEraser : ModItem
     {
-        private int _triggerToPlace;
-
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -127,7 +125,6 @@ namespace Stellamod.Core.TriggersSystem
         {
             int x = (int)Main.MouseWorld.X / 16;
             int y = (int)Main.MouseWorld.Y / 16;
-            Point16 point = new Point16(x, y);
             TriggerManager triggerManager = ModContent.GetInstance<TriggerManager>();
             triggerManager.RemoveTrigger(new Point(x, y));
 

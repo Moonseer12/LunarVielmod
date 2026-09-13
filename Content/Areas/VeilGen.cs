@@ -486,7 +486,6 @@ public partial class VeilGen : ModSystem
         passWriter.NextPass(new SkullrunnerPass());
         passWriter.NextPass(new DockPass());
         passWriter.NextPass(new AshotiTemplePass());
-        passWriter.NextPass(new AurelusTemplePass());
         passWriter.NextPass(new WindmillsPass());
         passWriter.NextPass(new ColosseumPass());
         passWriter.NextPass(new XixVillagePass());
@@ -2210,7 +2209,7 @@ public partial class VeilGen : ModSystem
         int caveSeed = genRand.Next();
 
         //Why make my own noise functions when I can just use this?!?!?1 Hhahahaha
-        FastNoiseLite fastNoiseLite = new FastNoiseLite();
+        FastNoiseLite fastNoiseLite = new();
         fastNoiseLite.SetNoiseType(FastNoiseLite.NoiseType.Perlin);
         fastNoiseLite.SetSeed(caveSeed);
 
@@ -2280,6 +2279,7 @@ public partial class VeilGen : ModSystem
         tag["SnowTop"] = SavedGenerationParameters.SnowTop;
         tag["SnowBottom"] = SavedGenerationParameters.SnowBottom;
         tag["RockLayerHigh"] = SavedGenerationParameters.RockLayerHigh;
+        tag["AbyssTemple"] = SavedGenerationParameters.AbyssTempleRectangle;
     }
 
     public override void LoadWorldData(TagCompound tag)
@@ -2298,5 +2298,6 @@ public partial class VeilGen : ModSystem
         SavedGenerationParameters.SnowTop = tag.Get<int>("SnowTop");
         SavedGenerationParameters.SnowBottom = tag.Get<int>("SnowBottom");
         SavedGenerationParameters.RockLayerHigh = tag.Get<double>("RockLayerHigh");
+        SavedGenerationParameters.AbyssTempleRectangle = tag.Get<Rectangle>("AbyssTemple");
     }
 }

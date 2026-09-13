@@ -3,6 +3,7 @@ using Stellamod.Assets.ContentReader.Pal;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas;
 using Stellamod.Core.LunarLightingSystem;
+using Stellamod.Core.Rendering.RTs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -256,14 +257,14 @@ public class MoonWaterSystem : ModSystem
         return new Point(Main.waterTarget.Width, Main.waterTarget.Height);
     }
     private readonly HashSet<Point> _edgeWaterPoints = new();
-    private RenderTargetProvider _reflectionRT = new RenderTargetProvider(RenderTargetParameters.DownsizedFunc(GetWaterTargetSize, 2));
-    private RenderTargetProvider _waterTextureRT = new RenderTargetProvider(RenderTargetParameters.DownsizedFunc(GetWaterTargetSize, 2));
-    private RenderTargetProvider _waterTextureRTSwap = new RenderTargetProvider(RenderTargetParameters.DownsizedFunc(GetWaterTargetSize, 2));
+    private LazyRenderTargetProvider _reflectionRT = new(RenderTargetParameters.DownsizedFunc(GetWaterTargetSize, 2));
+    private LazyRenderTargetProvider _waterTextureRT = new(RenderTargetParameters.DownsizedFunc(GetWaterTargetSize, 2));
+    private LazyRenderTargetProvider _waterTextureRTSwap = new(RenderTargetParameters.DownsizedFunc(GetWaterTargetSize, 2));
 
-    private RenderTargetProvider _waterTextureRTOutput = new RenderTargetProvider(RenderTargetParameters.DownsizedFunc(GetWaterTargetSize, 1));
-    private RenderTargetProvider _waterLightMapRT = new RenderTargetProvider(RenderTargetParameters.DownsizedFunc(GetWaterTargetSize, 1));
+    private LazyRenderTargetProvider _waterTextureRTOutput = new(RenderTargetParameters.DownsizedFunc(GetWaterTargetSize, 1));
+    private LazyRenderTargetProvider _waterLightMapRT = new(RenderTargetParameters.DownsizedFunc(GetWaterTargetSize, 1));
 
-    private RenderTargetProvider _waterHeightMapRT = new RenderTargetProvider(() =>
+    private LazyRenderTargetProvider _waterHeightMapRT = new(() =>
     {
         RenderTargetParameters p = RenderTargetParameters.DefaultScreenTarget;
         p.Width = GetWaterTargetSize().X;
@@ -272,7 +273,7 @@ public class MoonWaterSystem : ModSystem
         return p;
     });
 
-    private RenderTargetProvider _waterEdgeShadingRT = new RenderTargetProvider(() =>
+    private LazyRenderTargetProvider _waterEdgeShadingRT = new(() =>
     {
         RenderTargetParameters p = RenderTargetParameters.DefaultScreenTarget;
         p.Width = Main.instance.tileTarget.Width;

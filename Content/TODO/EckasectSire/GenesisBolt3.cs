@@ -124,8 +124,6 @@ namespace Stellamod.Content.TODO.EckasectSire
         Rectangle frame = new Rectangle(0, 0, 40, 40);
         Vector2 Drawoffset => new Vector2(0, Projectile.gfxOffY) + Vector2.UnitX * Projectile.spriteDirection * 0;
         public virtual string GlowTexturePath => Texture + "_Glow";
-        private Asset<Texture2D> _glowTexture;
-        public Texture2D GlowTexture => (_glowTexture ??= (RequestIfExists<Texture2D>(GlowTexturePath, out var asset) ? asset : null))?.Value;
         public override void PostDraw(Color lightColor)
         {
             float num108 = 4;
@@ -134,7 +132,7 @@ namespace Stellamod.Content.TODO.EckasectSire
             Color color1 = Color.PaleVioletRed * num107 * .8f;
             var effects = Projectile.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             Main.spriteBatch.Draw(
-                GlowTexture,
+                Request<Texture2D>(GlowTexturePath).Value,
                 Projectile.Center - Main.screenPosition + Drawoffset,
                 frame,
                 color1,
@@ -153,7 +151,7 @@ namespace Stellamod.Content.TODO.EckasectSire
                 color28 = Projectile.GetAlpha(color28);
                 color28 *= 1f - num107;
                 Vector2 vector29 = Projectile.Center + (num103 / (float)num108 * 6.28318548f + Projectile.rotation + num106).ToRotationVector2() * (4f * num107 + 2f) - Main.screenPosition + Drawoffset - Projectile.velocity * num103;
-                Main.spriteBatch.Draw(GlowTexture, vector29, frame, color28, Projectile.rotation, new Vector2(40, 40) / 2f, Projectile.scale, spriteEffects3, 0f);
+                Main.spriteBatch.Draw(Request<Texture2D>(GlowTexturePath).Value, vector29, frame, color28, Projectile.rotation, new Vector2(40, 40) / 2f, Projectile.scale, spriteEffects3, 0f);
             }
         }
 

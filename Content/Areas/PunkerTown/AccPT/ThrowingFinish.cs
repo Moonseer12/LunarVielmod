@@ -11,7 +11,7 @@ public class ThrowingFinish : AbstractMeleeAddon
     public override void DefineCombo(BaseSwingProjectileV2 projectile)
     {
         base.DefineCombo(projectile);
-        if (projectile.MeleeWeaponType != Core.Bases.MeleeWeaponType.Greatsword)
+        if (projectile.MeleeWeaponType != MeleeWeaponType.Greatsword)
             return;
 
         SoundStyle swingSound3 = SoundRegistry.NSwordSpin1;

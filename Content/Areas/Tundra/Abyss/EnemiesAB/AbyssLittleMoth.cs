@@ -1,10 +1,9 @@
-﻿
-using Stellamod.Assets;
+﻿using Stellamod.Assets;
 using Stellamod.Common;
 using Stellamod.Content.Areas.Cinderspark.BossesCS.Rek;
+using Stellamod.Content.Particles;
 using Stellamod.Core;
 using Stellamod.Core.NPCHelpers;
-using Stellamod.Visual.Particles;
 using System;
 using System.IO;
 using Terraria;

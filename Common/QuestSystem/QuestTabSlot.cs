@@ -12,10 +12,9 @@ namespace Stellamod.Common.QuestSystem
         IIndexedUI
     {
         private UIText _text;
-        private int _index;
+        public int _index;
         public Quest Quest;
 
-        private readonly int _context;
         private readonly float _scale;
         public QuestTabSlot(int index, float scale = 1f)
         {

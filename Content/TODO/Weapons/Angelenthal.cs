@@ -919,7 +919,7 @@ namespace Stellamod.Content.TODO.Weapons
         }
 
         float alphaCounter = 0;
-        Vector2 DrawOffset;
+        public Vector2 DrawOffset;
 
 
 

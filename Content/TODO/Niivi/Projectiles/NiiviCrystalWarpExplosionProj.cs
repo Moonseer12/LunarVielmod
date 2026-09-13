@@ -26,7 +26,7 @@ namespace Stellamod.Content.TODO.Niivi.Projectiles
         }
 
         //Draw Code
-        private int DrawMode;
+        public int DrawMode;
         private bool SpawnDustCircle;
 
         //Trailing

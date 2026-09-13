@@ -4,6 +4,7 @@ using Stellamod.Common;
 using Stellamod.Common.Particles;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Cinderspark.BossesCS.Rek;
+using Stellamod.Content.CommonMaterials;
 using Stellamod.Core;
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Particles;
@@ -11,6 +12,7 @@ using Stellamod.Core.Pixelation;
 using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -247,6 +249,12 @@ internal class BlastingBlossom : ModNPC, IWaterSilhouette
             Gore.NewGore(NPC.GetSource_Death(), NPC.position + new Vector2(34, 0), NPC.velocity, rightGore);
         }
     }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        base.ModifyNPCLoot(npcLoot);
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ConvulgingMater>(), minimumDropped: 1, maximumDropped: 4));
+    }
+
     public override void OnKill()
     {
         base.OnKill();
@@ -348,7 +356,7 @@ public class BlastingBlossomBeam : ModProjectile
                 }
                 if (Main.rand.NextBool(8))
                 {
-                    Particles.SwirlingFlameDust.Spawn(BitDustFactory.SlowingOverTime with
+                    ModContent.GetInstance<SwirlingFlameDust>().Spawn(BitDustFactory.SlowingOverTime with
                     {
                         position = beamPoint,
                         timeLeft = Main.rand.Next(60, 120),

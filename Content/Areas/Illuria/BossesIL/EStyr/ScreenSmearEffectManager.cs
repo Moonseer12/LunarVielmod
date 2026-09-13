@@ -1,9 +1,5 @@
-﻿
-
-using Stellamod.Common.Shaders;
-using Stellamod.Core.Rendering;
-
-
+﻿using Stellamod.Common.Shaders;
+using Stellamod.Core.Rendering.RTs;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -30,7 +26,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
             public bool screenBound;
             public Vector2 scale;
         }
-        private RenderTargetProvider _smearMaskRT = new RenderTargetProvider(RenderTargetParameters.DefaultScreenTargetCreationFunc);
+        private LazyRenderTargetProvider _smearMaskRT = new LazyRenderTargetProvider(RenderTargetParameters.DefaultScreenTargetCreationFunc);
         private List<SmearParticle> _particles;
         public override void OnModLoad()
         {

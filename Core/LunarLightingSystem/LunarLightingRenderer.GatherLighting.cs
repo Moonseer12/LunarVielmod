@@ -1,7 +1,5 @@
-﻿using Microsoft.Xna.Framework.Input;
-using ReLogic.Threading;
+﻿using ReLogic.Threading;
 using Stellamod.Common.Shaders;
-using System.Diagnostics;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -10,9 +8,35 @@ namespace Stellamod.Core.LunarLightingSystem;
 public partial class LunarLightingRenderer
 {
     private VertexPositionColorTexture[] _pointLightBuffer = new VertexPositionColorTexture[MAX_POINT_LIGHTS * 4];
-    private int[] _pointLightIndices = new int[MAX_POINT_LIGHTS * 6];
+    private int[] _pointLightIndicesBackingField;
+    private int[] PointLightIndices
+    {
+        get
+        {
+            if (_pointLightIndicesBackingField == null)
+            {
+                _pointLightIndicesBackingField = new int[MAX_POINT_LIGHTS * 6];
+                int indexLength = MAX_POINT_LIGHTS * 6;
+                int connectIndex = 0;
+                for (int i = 0; i < indexLength; i += 6)
+                {
+                    _pointLightIndicesBackingField[i] = connectIndex + 0;
+                    _pointLightIndicesBackingField[i + 1] = connectIndex + 2;
+                    _pointLightIndicesBackingField[i + 2] = connectIndex + 3;
+                    _pointLightIndicesBackingField[i + 3] = connectIndex + 0;
+                    _pointLightIndicesBackingField[i + 4] = connectIndex + 1;
+                    _pointLightIndicesBackingField[i + 5] = connectIndex + 3;
+                    connectIndex += 4;
+                }
+
+            }
+            return _pointLightIndicesBackingField;
+        }
+    }
+
     private void RenderToLightsRT()
     {
+
         if (Main.gameMenu)
             return;
         if (!IsLightingEnabled)
@@ -48,14 +72,15 @@ public partial class LunarLightingRenderer
         }
         _shadowMap.Clear();
 
-
         //Point lights do not need to be calculated every frame, we'll change this later
-        if(Main.GameUpdateCount % 1 == 0)
+        if (Main.GameUpdateCount % 2 == 0)
         {
-          //  Stopwatch w = Stopwatch.StartNew();
+            //  Stopwatch w = Stopwatch.StartNew();
 
             _pointLights.Clear();
             _pointLights.GatherLights();
+            // w.Stop();
+            //  Main.NewText($"{w.ElapsedTicks} t");
 
             FastParallel.For(0, _pointLights.UsedLightCount, delegate (int start, int end, object context)
             {
@@ -68,22 +93,7 @@ public partial class LunarLightingRenderer
                     _shadowMap.RayMarch(j, light.position, light.diameter);
                 }
             });
-           // w.Stop();
-          //  Main.NewText($"{w.ElapsedTicks} t");
 
-            //Prepare the index buffer, we need to draw all the lights in the same batch
-            int indexLength = _pointLights.UsedLightCount * 6;
-            int connectIndex = 0;
-            for (int i = 0; i < indexLength; i += 6)
-            {
-                _pointLightIndices[i] = connectIndex + 0;
-                _pointLightIndices[i + 1] = connectIndex + 2;
-                _pointLightIndices[i + 2] = connectIndex + 3;
-                _pointLightIndices[i + 3] = connectIndex + 0;
-                _pointLightIndices[i + 4] = connectIndex + 1;
-                _pointLightIndices[i + 5] = connectIndex + 3;
-                connectIndex += 4;
-            }
 
             for (int i = 0; i < _pointLights.UsedLightCount; i++)
             {
@@ -109,6 +119,7 @@ public partial class LunarLightingRenderer
                 _pointLightBuffer[startIndex + 2] = new VertexPositionColorTexture(new Vector3(bottomLeft, 0), lightColor, new Vector2(0, 1));
                 _pointLightBuffer[startIndex + 3] = new VertexPositionColorTexture(new Vector3(bottomRight, 0), lightColor, new Vector2(1, 1));
             }
+
             //Get the shadow map texture
             _shadowMap.Output();
 
@@ -171,7 +182,9 @@ public partial class LunarLightingRenderer
         shadow2.ApplyPasses();
         graphicsDevice.RasterizerState = RasterizerState.CullNone;
         graphicsDevice.DrawUserIndexedPrimitives(
-            PrimitiveType.TriangleList, _pointLightBuffer, 0, _pointLightBuffer.Length, _pointLightIndices, 0, primitiveCount);
+            PrimitiveType.TriangleList, _pointLightBuffer, 0, _pointLightBuffer.Length, PointLightIndices, 0, primitiveCount);
+
+
     }
 }
 

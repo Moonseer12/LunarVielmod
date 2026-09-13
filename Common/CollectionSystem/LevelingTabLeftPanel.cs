@@ -73,7 +73,6 @@ public class LevelTabStatsPanel : UIPanel
     private void DrawStatAmounts(SpriteBatch spriteBatch)
     {
         float yOffset = 220;
-        float xOffset = 20;
         float offsetDist = 28;
         for (int i = 0; i < LevelingPlayer.stats.Length; i++)
         {
@@ -492,7 +491,6 @@ public class LevelingTabLeftPanel : UIPanel
     public int RelativeLeft => Main.screenWidth / 2 - (int)(Width.Pixels - 12);
     public int RelativeTop => Main.screenHeight / 2 - (int)(Height.Pixels / 2 + 40 + 24);
 
-    private LevelingPlayer LevelingPlayer => Main.LocalPlayer.GetModPlayer<LevelingPlayer>();
     public LevelingTabLeftPanel()
     {
         _confirmPointsBtn = new LevelingConfirmButton(ConfirmPoints);

@@ -1,8 +1,4 @@
-﻿
-
-using ReLogic.Content;
-using Stellamod.Core;
-
+﻿using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -37,8 +33,8 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
         public void Draw(SpriteBatch spriteBatch, Vector2 screenPos)
         {
             Texture2D textureToDraw = _platformTextureAsset.Value;
-            Vector2 drawOrigin = new Vector2(textureToDraw.Width / 2f, textureToDraw.Height / 2f);
-            Vector2 drawPosition = new Vector2(rotatedPosition.X, rotatedPosition.Y);
+            Vector2 drawOrigin = new(textureToDraw.Width / 2f, textureToDraw.Height / 2f);
+            Vector2 drawPosition = new(rotatedPosition.X, rotatedPosition.Y);
             drawPosition += Main.Camera.Center;
             drawPosition -= screenPos;
 
@@ -50,11 +46,10 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
     public class BlackSeaPlatformManager
     {
         private float _timer;
-        private float _oscTimer;
         private UnifiedRandom _random;
         private readonly BlackSeaPlatform[] _platforms;
         private readonly BlackSeaPlatform[] _platformsByZLayer;
-        private PlatformZLayerComparer _zLayerComparer;
+        public PlatformZLayerComparer _zLayerComparer;
         public BlackSeaPlatformManager()
         {
             _platforms = new BlackSeaPlatform[Platform_Count];

@@ -3,13 +3,14 @@ using Stellamod.Assets;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Tundra.Abyss.TilesAB;
 using Stellamod.Core.Pixelation;
-using Stellamod.Core.Rendering;
+using Stellamod.Core.Rendering.RTs;
 using Stellamod.Effects.GothinFlames;
 using Stellamod.Effects.RekFlames;
 using Stellamod.Effects.RoyalMagic;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Cinderspark.BossesCS.Rek;
@@ -20,10 +21,11 @@ public delegate void SilhouetteDraw(SpriteBatch sb);
 [Autoload(Side = ModSide.Client)]
 public class RekSilhouetteSystem : ModSystem
 {
-    private RenderTargetProvider _maskedTarget = new RenderTargetProvider(RenderTargetParameters.DefaultScreenTargetCreationFunc);
-    private RenderTargetProvider _waterMaskRT = new RenderTargetProvider(RenderTargetParameters.DefaultScreenTargetCreationFunc);
+    private LazyRenderTargetProvider _maskedTarget = new LazyRenderTargetProvider(RenderTargetParameters.DefaultScreenTargetCreationFunc);
+    private LazyRenderTargetProvider _waterMaskRT = new LazyRenderTargetProvider(RenderTargetParameters.DefaultScreenTargetCreationFunc);
     public readonly List<SilhouetteDraw> SilhouettesToDraw = new();
     public readonly List<SilhouetteDraw> TileSilhouettesToDraw = new();
+    public readonly List<Point> KelpPoints = new();
     public static event Action OnPrepareSilhouettes;
     public override void Load()
     {
@@ -45,39 +47,51 @@ public class RekSilhouetteSystem : ModSystem
 
         if (SilhouettesToDraw.Count <= 0 && TileSilhouettesToDraw.Count <= 0)
             return;
-        TileSilhouettesToDraw.Clear();
         var kelp = ModContent.GetInstance<AbyssalKelp>();
-        (Point topLeft, Point bottomRight) = TileUtilities.CameraTileBounds(192);
-        for (int x = topLeft.X; x < bottomRight.X; x++)
+        if (Main.GameUpdateCount % 15 == 0)
         {
-            for (int y = topLeft.Y; y < bottomRight.Y; y++)
+            KelpPoints.Clear();
+            (Point topLeft, Point bottomRight) = TileUtilities.CameraTileBounds(192);
+            ushort ty = (ushort)ModContent.TileType<AbyssalKelp>();
+            for (int x = topLeft.X; x < bottomRight.X; x++)
             {
-                Tile tile = Main.tile[x, y];
-                if (tile.HasTile && tile.TileType == ModContent.TileType<AbyssalKelp>())
+                for (int y = topLeft.Y; y < bottomRight.Y; y++)
                 {
-                    kelp.PrepareSilhouetteDrawing(x, y, this);
+                    Tile tile = Main.tile[x, y];
+                    if (tile.TileType == ty && tile.HasTile)
+                    {
+                        KelpPoints.Add(new Point(x, y));
+                        // kelp.PrepareSilhouetteDrawing(x, y, this);
+                    }
                 }
             }
         }
+
         //We need the water target as a mask.
         //I really hope this isn't glitchy
         SpriteBatch spriteBatch = Main.spriteBatch;
         GraphicsDevice graphicsDevice = spriteBatch.GraphicsDevice;
         graphicsDevice.SetRenderTarget(_waterMaskRT);
         graphicsDevice.Clear(Color.Transparent);
-        spriteBatch.Begin();
+        spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, Main.Rasterizer, null,
+            Main.GameViewMatrix.TransformationMatrix);
         spriteBatch.Draw(Main.waterTarget, Main.sceneWaterPos - Main.screenPosition, Color.White);
         spriteBatch.End();
 
-
         graphicsDevice.SetRenderTarget(_maskedTarget);
         graphicsDevice.Clear(Color.Transparent);
-        spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, Main.Rasterizer, null, Main.GameViewMatrix.TransformationMatrix);
+        spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, Main.Rasterizer, null,
+            Main.GameViewMatrix.TransformationMatrix);
         foreach (var draw in SilhouettesToDraw)
             draw(spriteBatch);
+
         foreach (var draw in TileSilhouettesToDraw)
             draw(spriteBatch);
 
+        foreach (var point in KelpPoints)
+        {
+            kelp.DrawWaterSilhouette(point.X, point.Y, spriteBatch);
+        }
         spriteBatch.End();
     }
 
@@ -114,6 +128,8 @@ public class SilhouetteGlobalNPC : GlobalNPC
     public override void PostAI(NPC npc)
     {
         base.PostAI(npc);
+        if (Main.netMode == NetmodeID.Server)
+            return;
         if (npc.ModNPC is IWaterSilhouette silhouette)
         {
             silhouette.PrepareSilhouetteDrawing(ModContent.GetInstance<RekSilhouetteSystem>());
@@ -125,6 +141,8 @@ public class SilhouetteGlobalProjectile : GlobalProjectile
     public override void PostAI(Projectile projectile)
     {
         base.PostAI(projectile);
+        if (Main.netMode == NetmodeID.Server)
+            return;
         if (projectile.ModProjectile is IWaterSilhouette silhouette)
         {
             silhouette.PrepareSilhouetteDrawing(ModContent.GetInstance<RekSilhouetteSystem>());

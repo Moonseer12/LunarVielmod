@@ -6,8 +6,8 @@ using Stellamod.Common.Players;
 using Stellamod.Common.WaypointSystem;
 using Stellamod.Content.Areas.Desert.Event.Common;
 using Stellamod.Content.Areas.Fable.WeaponsFB;
-using Stellamod.Content.Areas.Tundra.MoonspiralTower.WeaponsMT;
 using Stellamod.Content.Special.DeadRomancesExcalibur;
+using Stellamod.Content.TODO.Weapons;
 using Stellamod.Core;
 using Stellamod.Core.PlayerLevelingSystem;
 using Stellamod.Core.RibbonSystem;
@@ -59,8 +59,15 @@ namespace Stellamod
             byte player;
             switch (id)
             {
+                case MessageType.RequestZTileData:
+                    if(Main.netMode == NetmodeID.Server)
+                    {
+                        ModContent.GetInstance<ZTileMap>().HandleZTileRequestPacket(reader, whoAmI);
+                    }
+                    break;
                 case MessageType.ZTileSync:
-                    ModContent.GetInstance<ZTileMap>().HandleZTileSyncPacket(reader);
+                    ZTileMap.ReceiveZTileSync(reader);
+
                     break;
                 case MessageType.BossDowned:
                     DownedBossRewardPlayer.HandleBossDownedMessage(reader, whoAmI);
@@ -224,12 +231,12 @@ namespace Stellamod
                         instanceData.type = reader.ReadUInt16();
                         instanceData.value = reader.ReadByte();
 
-                        ZTileMap tileMap = ModContent.GetInstance<ZTileMap>();
-                        tileMap.Add(layer, tilePosition, instanceData);
+                        ZTileMap.Add(layer, tilePosition, instanceData);
                         if (Main.netMode == NetmodeID.Server)
-                        {
+                        {     
                             //Forward all changes to other clients
-                            tileMap.SyncPlaceTile(-1, whoAmI, layer, tilePosition, instanceData);
+                          
+                            ZTileMap.SendZTileData(-1, -1, tilePosition.x, tilePosition.y, 4, 4);
                         }
                     }
 
@@ -245,7 +252,7 @@ namespace Stellamod
                         if (Main.netMode == NetmodeID.Server)
                         {
                             //Forward all changes to other clients
-                            tileMap.SyncBreakTile(-1, whoAmI, tilePosition);
+                            ZTileMap.SendZTileData(-1, -1, tilePosition.X, tilePosition.Y, 4, 4);
                         }
                     }
 

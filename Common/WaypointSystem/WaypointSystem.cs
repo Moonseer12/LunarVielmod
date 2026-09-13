@@ -71,7 +71,7 @@ public class OrganDragon : ModNPC
     private Asset<Texture2D> _headTextureAsset;
     private Asset<Texture2D>[] _bodyTextureAssets;
     private Asset<Texture2D>[] _frontLegTextureAssets;
-    private Asset<Texture2D>[] _backLegTextureAssets;
+    public Asset<Texture2D>[] _backLegTextureAssets;
     private Asset<Texture2D>[] _wingTextureAssets;
     private DragonSegment _headSegment;
     private DragonSegment[] _bodySegments;

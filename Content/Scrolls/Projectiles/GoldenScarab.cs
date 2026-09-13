@@ -1,10 +1,8 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Core.Pixelation;
-
-
 using Stellamod.Content.Particles;
+using Stellamod.Core.Pixelation;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -17,7 +15,6 @@ public class GoldenScarab : ModProjectile,
     IDrawToRenderTarget
 {
     private Asset<Texture2D> _goldenAuraTextureAsset;
-    private float _hitCount;
     private enum AIState
     {
         Summon,

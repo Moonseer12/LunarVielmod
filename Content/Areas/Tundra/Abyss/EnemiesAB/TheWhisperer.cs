@@ -1,19 +1,14 @@
-﻿using Stellamod.Assets;
-using Stellamod.Common.Particles;
+﻿using Stellamod.Common.Particles;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB.Gores;
+using Stellamod.Content.Particles;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
 using Stellamod.Core.NPCHelpers;
 using Stellamod.Core.Particles;
 using Stellamod.Core.Pixelation;
-using Stellamod.Visual.Particles;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
@@ -74,7 +69,7 @@ public class WhisperingDeath : ModBuff
         }
         if (Main.rand.NextBool(3))
         {
-            var ember = LegacyParticle.NewParticle<EmberParticle>(player.position + new Vector2(Main.rand.Next(0, player.width), Main.rand.Next(0, player.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.SkyBlue, Main.rand.NextFloat(0.9f, 1.5f));
+            EmberParticle ember = Particle<EmberParticle>.Spawn(player.position + new Vector2(Main.rand.Next(0, player.width), Main.rand.Next(0, player.height)), -Vector2.UnitY.RotatedByRandom(1.5f), Color.SkyBlue, Main.rand.NextFloat(0.9f, 1.5f));
             ember.innerColor = Color.SkyBlue;
             ember.outerColor = Color.DarkBlue;
         }
@@ -215,7 +210,7 @@ public class TheWhisperer : ModNPC,
                     Vector2 vel = pos - NPC.Center;
                     vel = vel.SafeNormalize(Vector2.Zero);
                     vel *= Main.rand.NextFloat(8f, 16f);
-                    Particles.SwirlingFlameDust.Spawn(BitDustFactory.SlowingOverTime with
+                    ModContent.GetInstance<SwirlingFlameDust>().Spawn(BitDustFactory.SlowingOverTime with
                     {
                         position = pos,
                         velocity = vel,
@@ -239,7 +234,7 @@ public class TheWhisperer : ModNPC,
 
             if(_spawnTimer % 10 == 0)
             {
-                Particles.InDonutDust.Spawn(new()
+                ModContent.GetInstance<InDonutDust>().Spawn(new()
                 {
                     position = NPC.Center,
                     timeLeft = 24
@@ -303,7 +298,7 @@ public class TheWhisperer : ModNPC,
 
         if (Main.rand.NextBool(7))
         {
-            Particles.TinyWhiteMothDust.Spawn(new()
+            ModContent.GetInstance<TinyWhiteMothDust>().Spawn(new()
             {
                 position = NPC.Center,
                 timeLeft = Main.rand.Next(60, 120),
@@ -323,7 +318,7 @@ public class TheWhisperer : ModNPC,
 
         if (Main.rand.NextBool(16))
         {
-            Particles.SwirlingFlameDust.Spawn(BitDustFactory.SlowingOverTime with
+            ModContent.GetInstance<SwirlingFlameDust>().Spawn(BitDustFactory.SlowingOverTime with
             {
                 position = NPC.Center + Main.rand.NextVector2Circular(80, 80),
                 velocity = Main.rand.NextVector2Circular(8, 8),
@@ -364,7 +359,7 @@ public class TheWhisperer : ModNPC,
         Vector2 vel = pos - NPC.Center;
         vel = vel.SafeNormalize(Vector2.Zero);
         vel *= Main.rand.NextFloat(8f, 16f);
-        Particles.TinyWhiteMothDust.Spawn(new()
+        ModContent.GetInstance<TinyWhiteMothDust>().Spawn(new()
         {
             position = pos,
             velocity = vel,
@@ -481,7 +476,7 @@ public class TheWhisperer : ModNPC,
             Vector2 vel = pos - NPC.Center;
             vel = vel.SafeNormalize(Vector2.Zero);
             vel *= Main.rand.NextFloat(8f, 16f);
-            Particles.SwirlingFlameDust.Spawn(BitDustFactory.SlowingOverTime with
+            ModContent.GetInstance<SwirlingFlameDust>().Spawn(BitDustFactory.SlowingOverTime with
             {
                 position = pos,
                 velocity = vel,
@@ -496,7 +491,7 @@ public class TheWhisperer : ModNPC,
         {
             TinyWhiteMothEffect();
         }
-        Particles.InDonutDust.Spawn(new()
+        ModContent.GetInstance<InDonutDust>().Spawn(new()
         {
             position = NPC.Center,
             timeLeft = 24
@@ -513,7 +508,7 @@ public class TheWhisperer : ModNPC,
             Vector2 vel = pos - NPC.Center;
             vel = vel.SafeNormalize(Vector2.Zero);
             vel *= Main.rand.NextFloat(8f, 16f);
-            Particles.SwirlingFlameDust.Spawn(BitDustFactory.SlowingOverTime with
+            ModContent.GetInstance<SwirlingFlameDust>().Spawn(BitDustFactory.SlowingOverTime with
             {
                 position = pos,
                 velocity = vel,
@@ -534,7 +529,7 @@ public class TheWhisperer : ModNPC,
             d.noGravity = true;
         }
 
-        Particles.RoarDust.Spawn(RoarDustData.Default with { position = NPC.Center, timeLeft = 24 });
+        ModContent.GetInstance<RoarDust>().Spawn(RoarDustData.Default with { position = NPC.Center, timeLeft = 24 });
         ShakeScreenPosition.Shake = 2;
         var sound = AssetReferences.Assets.Sounds.DeathShotBomb2.Asset with { Pitch = 0.5f, PitchVariance = 0.3f };
         SoundEngine.PlaySound(sound, NPC.Center);

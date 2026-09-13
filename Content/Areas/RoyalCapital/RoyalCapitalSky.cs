@@ -6,7 +6,7 @@ namespace Stellamod.Content.Areas.RoyalCapital;
 
 public class RoyalCapitalSky : CustomSky
 {
-    private float _strength;
+    public float _strength;
     public float Strength { get => _strength; }
     public float Fogginess { get; set; }
 

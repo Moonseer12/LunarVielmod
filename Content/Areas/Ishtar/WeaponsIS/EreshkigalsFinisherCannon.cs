@@ -833,7 +833,7 @@ public class EreshkigalsFinisherCannonHold : ModProjectile,
         _shootTimer++;
         if (_shootTimer == 1)
         {
-            if (SoundEngine.TryGetActiveSound(_chargeSoundSlotID, out ActiveSound? result))
+            if (SoundEngine.TryGetActiveSound(_chargeSoundSlotID, out ActiveSound result))
             {
                 result.Stop();
             }

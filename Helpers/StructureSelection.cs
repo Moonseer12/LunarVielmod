@@ -488,7 +488,7 @@ namespace Stellamod.Helpers
             Point topLeft = tilePoint;
             topLeft.Y -= height;
             NetMessage.SendTileSquare(-1, topLeft.X, topLeft.Y, width, height);
-            ModContent.GetInstance<ZTileMap>().SendZTileSyncPacket();
+            ZTileMap.SendZTileData(-1, -1, topLeft.X, topLeft.Y, width, height);
         }
 
         public void Erase()
@@ -511,7 +511,7 @@ namespace Stellamod.Helpers
             if (Main.netMode == NetmodeID.SinglePlayer)
                 return;
             NetMessage.SendTileSquare(-1, topLeft.X, topLeft.Y, width, height);
-            ztileMap.SendZTileSyncPacket();
+            ZTileMap.SendZTileData(-1, -1, topLeft.X, topLeft.Y, width, height);
         }
 
         public void SaveSelection(string fileName)

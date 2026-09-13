@@ -1,4 +1,3 @@
-using Stellamod.Common;
 using Stellamod.Content.TODO.IrradiaNHavoc.Havoc.Projectiles;
 using Stellamod.Content.Dusts;
 using System;

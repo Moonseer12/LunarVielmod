@@ -8,7 +8,7 @@ namespace Stellamod.Content.TODO.IrradiaNHavoc.Projectiles
     public class IrradiaElectricBoxConnectorProj : ModProjectile
     {
         private ref float Timer => ref Projectile.ai[0];
-        bool ConnectToStart => true;
+        static bool ConnectToStart => true;
         bool Init;
 
         NPC[] Nodes;
@@ -16,10 +16,6 @@ namespace Stellamod.Content.TODO.IrradiaNHavoc.Projectiles
         List<Point> ConnectionsToRemove;
         List<Vector2[]> LightningPos;
         bool[] NodesThatDied;
-
-        int FrameTick;
-        int FrameCounter;
-
 
         public override void SetDefaults()
         {
@@ -54,9 +50,9 @@ namespace Stellamod.Content.TODO.IrradiaNHavoc.Projectiles
             Timer++;
             if (!Init)
             {
-                LightningPos = new List<Vector2[]>();
-                ConnectionsToRemove = new List<Point>();
-                Connections = new List<Point>();
+                LightningPos = new();
+                ConnectionsToRemove = new();
+                Connections = new();
                 var nodes = new List<NPC>();
 
                 for (int i = 0; i < Main.maxNPCs; i++)

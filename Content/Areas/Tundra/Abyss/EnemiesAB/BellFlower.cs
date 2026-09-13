@@ -1,11 +1,11 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Particles;
+using Stellamod.Content.Particles;
 using Stellamod.Core;
 using Stellamod.Core.Godrays;
 using Stellamod.Core.LunarLightingSystem;
 using Stellamod.Core.NPCHelpers;
-using Stellamod.Visual.Particles;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
@@ -456,7 +456,7 @@ public class BellFlower : ModNPC
         Vector2 mothVelocity = bellPos - NPC.Center;
         mothVelocity = mothVelocity.SafeNormalize(Vector2.Zero);
         mothVelocity *= Main.rand.NextFloat(1, 6);
-        Particles.TinyWhiteMothDust.Spawn(new TinyWhiteMothDustData
+        ModContent.GetInstance<TinyWhiteMothDust>().Spawn(new TinyWhiteMothDustData
         {
             position = bellPos,
             velocity = mothVelocity,
@@ -499,7 +499,7 @@ public class BellFlower : ModNPC
                 Vector2 mothVelocity = bellPos - NPC.Center;
                 mothVelocity = mothVelocity.SafeNormalize(Vector2.Zero);
                 mothVelocity *= Main.rand.NextFloat(8, 16);
-                Particles.TinyWhiteMothDust.Spawn(new TinyWhiteMothDustData
+                ModContent.GetInstance<TinyWhiteMothDust>().Spawn(new TinyWhiteMothDustData
                 {
                     position = bellPos,
                     velocity = mothVelocity,
@@ -525,7 +525,7 @@ public class BellFlower : ModNPC
         }
         if (Timer % 10 == 0)
         {
-            Particles.RoarDust.Spawn(RoarDustData.Default with { position = NPC.Center, timeLeft = 24 });
+            ModContent.GetInstance<RoarDust>().Spawn(RoarDustData.Default with { position = NPC.Center, timeLeft = 24 });
         }
 
         float range = MathHelper.Lerp(0.25f, 0f, Timer / 60f);

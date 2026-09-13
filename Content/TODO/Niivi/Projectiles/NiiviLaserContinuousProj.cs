@@ -9,14 +9,12 @@ namespace Stellamod.Content.TODO.Niivi.Projectiles
     {
         public override string Texture => TextureRegistry.EmptyTexture;
 
-        private float LaserLength => 4800;
-        private float LifeTime => 600;
+        private static float LaserLength => 4800;
+        private static float LifeTime => 600;
         private ref float Timer => ref Projectile.ai[0];
         private NPC Owner => Main.npc[(int)Projectile.ai[1]];
         private ref float ExtraWidth => ref Projectile.ai[2];
-        private float Blend = 0.05f;
-        private float DrawMode = 0;
-        private Vector2 ScrollSpeed = new Vector2(0.0001f, 0.0001f);
+        public float DrawMode = 0;
         public override void SetDefaults()
         {
             Projectile.width = Projectile.height = 128;

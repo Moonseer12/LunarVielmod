@@ -68,7 +68,7 @@ public class Skullrunner : ScarletBoss
     private float _trailInterpolant;
     private bool _oscScale;
     private bool _grabbedTarget;
-    private bool _freezeFrame;
+    public bool _freezeFrame;
     private bool _showNamePlate;
     private int _frame;
     private Vector2 _scale = Vector2.One;

@@ -1,5 +1,4 @@
 using Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB;
-using Stellamod.WorldG;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;

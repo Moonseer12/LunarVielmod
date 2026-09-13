@@ -7,6 +7,7 @@ using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
 
 namespace Stellamod.Core.Backgrounds;
+
 public class CustomBGGlobalWall : GlobalWall
 {
 
@@ -22,17 +23,16 @@ public class CustomBGGlobalWall : GlobalWall
         }
     }
 }
+[Autoload(Side = ModSide.Client)]
 public class CustomBGManager : ModSystem
 {
     private IShader _currentShader;
     public List<CustomBG> Backgrounds = new List<CustomBG>();
-    public bool onScreen;
     public Color? darkenBGColor;
     public static bool drawingCustomBG;
     public override void OnModLoad()
     {
         base.OnModLoad();
-        On_Main.DoDraw_WallsTilesNPCs += DrawBehindWalls;
         On_OverlayManager.Draw += DrawBackgrounds;
         Backgrounds = ModContent.GetContent<CustomBG>().ToList();
     }
@@ -47,7 +47,6 @@ public class CustomBGManager : ModSystem
     public override void OnModUnload()
     {
         base.OnModUnload();
-        On_Main.DoDraw_WallsTilesNPCs -= DrawBehindWalls;
         On_OverlayManager.Draw -= DrawBackgrounds;
     }
     private void DrawBackgrounds(On_OverlayManager.orig_Draw orig, OverlayManager self, SpriteBatch spriteBatch, RenderLayers layer, bool beginSpriteBatch)
@@ -60,12 +59,6 @@ public class CustomBGManager : ModSystem
         }
         orig(self, spriteBatch, layer, beginSpriteBatch);
 
-    }
-
-    private void DrawBehindWalls(On_Main.orig_DoDraw_WallsTilesNPCs orig, Main self)
-    {
-        // DrawLoop();
-        orig(self);
     }
 
     private void DrawLoop()
@@ -113,6 +106,7 @@ public class CustomBGManager : ModSystem
                 }
             }
         }
+
     }
 
     private void DrawBG(CustomBG bg)

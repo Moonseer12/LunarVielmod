@@ -1,6 +1,5 @@
 ﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Trailers;
-using Stellamod.Core.Particles;
 using Stellamod.Content.Particles;
 using System;
 using Terraria;
@@ -13,7 +12,7 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles
     public class MegaConjureBallLightning : ModProjectile
     {
         private float _scale;
-        private float _width;
+        public float _width;
         private Vector2[] _lightningZaps;
         private ref float Timer => ref Projectile.ai[0];
         private ref float Charge => ref Projectile.ai[1];

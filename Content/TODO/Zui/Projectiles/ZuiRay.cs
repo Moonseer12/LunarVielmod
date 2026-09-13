@@ -7,7 +7,7 @@ namespace Stellamod.Content.TODO.Zui.Projectiles
 {
     public class ZuiRay : ModProjectile
     {
-        private float _degrees;
+        public float _degrees;
         public ref float Time => ref Projectile.ai[0];
         public NPC Owner => Main.npc[(int)Projectile.ai[1]];
         public const float LaserLength = 2400f;
@@ -66,11 +66,6 @@ namespace Stellamod.Content.TODO.Zui.Projectiles
             Vector2 start = Projectile.Center;
             Vector2 end = start + Projectile.velocity * (LaserLength - 80f);
             return Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), start, end, width, ref _);
-        }
-
-        public float WidthFunction(float completionRatio)
-        {
-            return Projectile.width * Projectile.scale * 1.3f;
         }
 
         public override bool ShouldUpdatePosition() => false;

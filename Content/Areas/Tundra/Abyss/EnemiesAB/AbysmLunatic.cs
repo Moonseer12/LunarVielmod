@@ -36,7 +36,7 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB
             NPC.buffImmune[BuffID.ShadowFlame] = true;
             NPC.alpha = 60;
             NPC.knockBackResist = .75f;
-            NPC.aiStyle = 14;
+            NPC.aiStyle = NPCAIStyleID.Bat;
             NPC.alpha = 0;
             NPC.noGravity = true;
         }
@@ -97,19 +97,16 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB
         }
 
         public virtual string GlowTexturePath => Texture + "_Glow";
-        private Asset<Texture2D> _glowTexture;
-        public Texture2D GlowTexture => (_glowTexture ??= (ModContent.RequestIfExists<Texture2D>(GlowTexturePath, out var asset) ? asset : null))?.Value;
+        private Texture2D GlowTexture => ModContent.Request<Texture2D>(GlowTexturePath).Value;
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Lighting.AddLight(NPC.Center, Color.LightBlue.ToVector3() * 1.75f * Main.essScale);
-            if (GlowTexture is not null)
-            {
                 SpriteEffects spriteEffects = SpriteEffects.None;
                 if (NPC.spriteDirection == 1)
                 {
                     spriteEffects = SpriteEffects.FlipHorizontally;
                 }
-                Vector2 halfSize = new Vector2(GlowTexture.Width / 2, GlowTexture.Height / Main.npcFrameCount[NPC.type] / 2);
+                Vector2 halfSize = new(GlowTexture.Width / 2, GlowTexture.Height / Main.npcFrameCount[NPC.type] / 2);
                 spriteBatch.Draw(
                     GlowTexture,
                     new Vector2(NPC.position.X - screenPos.X + NPC.width / 2 - GlowTexture.Width * NPC.scale / 2f + halfSize.X * NPC.scale, NPC.position.Y - screenPos.Y + NPC.height - GlowTexture.Height * NPC.scale / Main.npcFrameCount[NPC.type] + 4f + halfSize.Y * NPC.scale + Main.NPCAddHeight(NPC) + NPC.gfxOffY),
@@ -120,7 +117,6 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB
                     NPC.scale,
                     spriteEffects,
                 0);
-            }
         }
 
         public override void AI()

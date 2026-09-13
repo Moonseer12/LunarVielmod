@@ -171,7 +171,7 @@ namespace Stellamod.Content.TODO.EnemiesRC
             }
         }
 
-        Vector2 DrawOffset;
+        public Vector2 DrawOffset;
         public override bool PreDraw(ref Color lightColor)
         {
             if (Projectile.spriteDirection != 1)

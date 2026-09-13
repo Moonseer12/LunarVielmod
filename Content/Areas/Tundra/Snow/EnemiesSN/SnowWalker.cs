@@ -36,16 +36,6 @@ namespace Stellamod.Content.Areas.Tundra.Snow.EnemiesSN
 
             public override void SetDefaults()
             {
-                // width = 12;
-                // height = 10;
-                // aiStyle = 7;
-                // damage = 0;
-                // defense = 0;
-                // lifeMax = 5;
-                // HitSound = SoundID.NPCHit1;
-                // DeathSound = SoundID.NPCDeath1;
-                // catchItem = 2121;
-                // Sets the above
                 NPC.CloneDefaults(ClonedNPCID);
                 NPC.width = 24;
                 NPC.height = 16;

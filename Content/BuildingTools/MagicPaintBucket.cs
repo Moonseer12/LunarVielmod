@@ -1,3 +1,4 @@
+using Stellamod.Core.ZTileSystem;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -613,6 +614,7 @@ public static class MagicTileUtility
 
 
                 NetMessage.SendTileSquare(-1, topLeft.X, topLeft.Y, maxSquareSize, maxSquareSize);
+                ZTileMap.SendZTileData(-1, -1, topLeft.X, topLeft.Y, maxSquareSize, maxSquareSize);
             }
         }
     }

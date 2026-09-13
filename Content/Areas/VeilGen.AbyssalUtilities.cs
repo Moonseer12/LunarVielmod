@@ -1,20 +1,40 @@
-﻿using Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB;
+﻿using Stellamod.Content.Areas.Tundra.Abyss;
+using Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB;
 using Stellamod.Content.Areas.Tundra.Abyss.TilesAB;
 using Stellamod.Core.ZTileSystem;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
 using Terraria.WorldBuilding;
 
 namespace Stellamod.Content.Areas;
 
 public partial class VeilGen
 {
+    public static Rectangle AbyssRectangle
+    {
+        get
+        {
+            int left = SavedGenerationParameters.SnowLeft;
+            int right = SavedGenerationParameters.SnowRight;
+            int top = SavedGenerationParameters.SnowTop;
+            int bottom = ModContent.GetInstance<VeilGen>().DarkspaceStart;
+
+            Point AbyssCenter = new Point();
+            AbyssCenter.X = left + right;
+            AbyssCenter.X /= 2;
+            AbyssCenter.Y = (int)(SavedGenerationParameters.RockLayerHigh + Main.maxTilesY * 0.15);
+            AbyssCenter.Y -= 20;
+
+            int abyssHigh = AbyssCenter.Y - 500;
+            int abyssLow = bottom;
+
+            Rectangle rect = new Rectangle(left, abyssHigh, right - left, abyssLow - abyssHigh);
+            return rect;
+        }
+    }
+
     /// <summary>
     /// Returns the number of tiles that have any liquid within a given area
     /// </summary>
@@ -221,12 +241,16 @@ public partial class VeilGen
         int height = genRand.Next(minHeight, maxHeight);
         int endHeight = y - height;
         int startHeight = y;
+        ushort type = (ushort)ModContent.TileType<KelpTile>();
         for(int j = endHeight; j <= startHeight; j++)
         {
             Tile tile = Main.tile[x, j];
             if (tile.HasTile)
                 break;
-            WorldGen.PlaceTile(x, j, ModContent.TileType<KelpTile>());
+            tile.HasTile = true;
+            tile.TileFrameX = -1;
+            tile.TileFrameY = -1;
+            tile.TileType = type;
         }
     }
 

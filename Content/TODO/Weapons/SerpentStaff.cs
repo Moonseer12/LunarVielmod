@@ -54,9 +54,9 @@ namespace Stellamod.Content.TODO.Weapons
     public class SerpentMinionProj : ModProjectile
     {
 
-        private float SegmentStretch = 0.66f;
+        public float SegmentStretch = 0.66f;
         private float ChargeTrailOpacity;
-        private bool DrawChargeTrail;
+        public bool DrawChargeTrail;
 
         //Segments
         private SerpentSegment Head => Segments[0];

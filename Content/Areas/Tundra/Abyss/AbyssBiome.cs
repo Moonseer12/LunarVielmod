@@ -1,6 +1,5 @@
 using Stellamod.Content.Areas.PunkerTown;
 using Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB;
-using Stellamod.Core.Biomes;
 using Stellamod.Core.LunarLightingSystem;
 using Terraria;
 using Terraria.ID;
@@ -37,11 +36,13 @@ public class AbyssBiome : BaseUrdveilBiome,
     public override Color? BackgroundColor => base.BackgroundColor;
     public override ModWaterStyle WaterStyle => ModContent.GetInstance<AcidWaterStyle>();
 
-    public override bool IsBiomeActive(Player player) => (player.ZoneRockLayerHeight || player.ZoneDirtLayerHeight) && BiomeTileCounts.InAbyss;
+    public override bool IsBiomeActive(Player player) => 
+        (player.ZoneRockLayerHeight || player.ZoneDirtLayerHeight) && BiomeTileCounts.InAbyss && !player.InModBiome<AurelusBiome>();
     public override void OnEnter(Player player)
     {
         base.OnEnter(player);
         player.GetModPlayer<BiomePlayer>().ZoneAbyss = true;
+        player.GetModPlayer<BiomePlayer>().justEnteredAbyss = true;
         if (Main.netMode == NetmodeID.Server)
             return;
 

@@ -17,10 +17,10 @@ namespace Stellamod.Core.ZTileSystem.UI;
 /// </summary>
 public class ZTileBrowserWindow : UIPanel
 {
-    private UIScrollbar _scrollbar;
-    private ZTileBrowserMenu _inventoryMenu;
-    private ItemBrowserTabMenu _tabMenu;
-    private UIInputTextField _textBox;
+    public UIScrollbar _scrollbar;
+    public ZTileBrowserMenu _inventoryMenu;
+    public ItemBrowserTabMenu _tabMenu;
+    public UIInputTextField _textBox;
     static ZTileBrowserWindow()
     {
         // Don't run this on the server

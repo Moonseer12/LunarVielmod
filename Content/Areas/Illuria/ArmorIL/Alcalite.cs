@@ -1,10 +1,9 @@
 ﻿using ReLogic.Content;
 using Stellamod.Common.ArmorRework;
-using Stellamod.Content.Areas.Illuria.AccIL;
+using Stellamod.Content.TODO.Accessories;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.Areas.Illuria.ArmorIL;

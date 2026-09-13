@@ -1,7 +1,7 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Areas.TheFalling.WeaponsF;
+using Stellamod.Content.TODO.Weapons;
 using Stellamod.Core.Pixelation;
 using System.Collections.Generic;
 using Terraria;

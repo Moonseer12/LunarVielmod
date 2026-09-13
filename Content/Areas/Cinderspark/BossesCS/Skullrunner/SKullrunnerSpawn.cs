@@ -1,12 +1,7 @@
-﻿using Microsoft.Xna.Framework.Graphics.PackedVector;
-using Stellamod.Assets;
-using Stellamod.Common.Shaders;
+﻿using Stellamod.Common.Shaders;
 using Stellamod.Common.Shaders.MagicTrails;
-using Stellamod.Content.Areas.Cinderspark.BossesCS.Skullrunner.Projectiles;
-using Stellamod.Content.Areas.WondrousDarkspace.NPCsWD;
 using Stellamod.Content.Dusts;
 using Stellamod.Core.NPCHelpers;
-using Stellamod.Core.Particles;
 using Stellamod.Content.Particles;
 using System;
 using Terraria;

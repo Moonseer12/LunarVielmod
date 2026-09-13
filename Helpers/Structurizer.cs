@@ -34,7 +34,8 @@ namespace Stellamod.Helpers
                     path += ".str";
                 using var stream = Mod.GetFileStream(path);
                 return ReadRectangle(stream);
-            } catch(KeyNotFoundException ex)
+            }
+            catch(KeyNotFoundException)
             {
                 return Rectangle.Empty;
             }
@@ -740,7 +741,6 @@ namespace Stellamod.Helpers
             string FromMod = reader.ReadString();
             FromMod = Mod.Name;
             string Name = reader.ReadString();
-            Mod m = null;
             if (Mod.TryFind<ModTile>(Name, out ModTile modTile))
             {
                 return modTile.Type;

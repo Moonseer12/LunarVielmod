@@ -27,7 +27,7 @@ public class StarStorm : AbstractMeleeAddon
         base.AI(projectile);
         if (!projectile.OwnedByLocalClient())
             return;
-        if (projectile.MeleeWeaponType != Core.Bases.MeleeWeaponType.Scythe)
+        if (projectile.MeleeWeaponType != MeleeWeaponType.Scythe)
             return;
 
 

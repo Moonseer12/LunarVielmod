@@ -1,13 +1,13 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Areas.PunkerTown.WeaponsPT;
 using Stellamod.Core.Pixelation;
 using Stellamod.Content.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Stellamod.Content.TODO.Weapons;
 
 namespace Stellamod.Common.Steins;
 

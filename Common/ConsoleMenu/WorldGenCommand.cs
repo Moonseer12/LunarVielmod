@@ -1,6 +1,4 @@
-﻿using Stellamod.WorldG;
-
-namespace Stellamod.Common.ConsoleMenu;
+﻿namespace Stellamod.Common.ConsoleMenu;
 
 public class WorldGenCommand : ConsoleCommand
 {
@@ -27,7 +25,7 @@ public class WorldGenCommand : ConsoleCommand
         switch (args[1])
         {
             case "abyss":
-                VeilGen.GenerateAbyss();
+                //VeilGen.GenerateAbyss();
                 return true;
         }
 

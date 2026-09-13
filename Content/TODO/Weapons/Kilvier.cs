@@ -92,7 +92,7 @@ namespace Stellamod.Content.TODO.Weapons
             Main.spriteBatch.Draw(texture2D4, DrawOffset - Main.screenPosition, null, new Color((int)(35f * alphaCounter), (int)(85f * alphaCounter), (int)(15f * alphaCounter), 0), Projectile.rotation, new Vector2(200, 200), 0.07f * (counter + 0.6f), SpriteEffects.None, 0f);
 
         }
-        Vector2 DrawOffset;
+        public Vector2 DrawOffset;
         public override bool PreDraw(ref Color lightColor)
         {
 

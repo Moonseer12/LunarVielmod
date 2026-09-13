@@ -135,9 +135,8 @@ namespace Stellamod.Content.TODO.Niivi
         private int AttackSide;
         private int BreathingTimer;
         private bool DoAttack;
-        private bool IsCharging;
+        public bool IsCharging;
         private Vector2 AttackPos;
-        private Vector2 ChargeDirection;
         private Vector2 LaserAttackPos;
 
         private void FinishResetTimers()

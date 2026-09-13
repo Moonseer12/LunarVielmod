@@ -26,7 +26,7 @@ namespace Stellamod.Content.Areas.SpringHills.NPCsSH
             NPC.friendly = true;
             NPC.width = 38;
             NPC.height = 50;
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.damage = 90;
             NPC.defense = 42;
             NPC.lifeMax = 200;

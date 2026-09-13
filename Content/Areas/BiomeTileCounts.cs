@@ -28,9 +28,6 @@ namespace Stellamod.Content.Areas
         public int AurelusCount;
         public static bool InAurelus => ModContent.GetInstance<BiomeTileCounts>().AurelusCount > 70;
 
-        public int GovheilCount;
-        public static bool InGovheil => ModContent.GetInstance<BiomeTileCounts>().GovheilCount > 30;
-
         public int RoyalCapitalCount;
         public static bool InRoyalCapital => ModContent.GetInstance<BiomeTileCounts>().RoyalCapitalCount > 10;
 
@@ -127,7 +124,6 @@ namespace Stellamod.Content.Areas
             SpringGrassCount = tileCounts[ModContent.TileType<SpringGrass>()];
             AbyssCount = tileCounts[ModContent.TileType<AbyssalDirt>()];
             AurelusCount = tileCounts[ModContent.TileType<AurelusTempleBlock>()];
-            GovheilCount = tileCounts[ModContent.TileType<GovheilCastleTile>()];
             RoyalCapitalCount = tileCounts[ModContent.TileType<AlcazBlock>()];
             FableCount = tileCounts[ModContent.TileType<GovheilTile>()];
             XixCount = tileCounts[ModContent.TileType<HuntiacTile>()];

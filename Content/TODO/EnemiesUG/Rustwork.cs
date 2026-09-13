@@ -128,8 +128,6 @@ namespace Stellamod.Content.TODO.EnemiesUG
 
         Vector2 Drawoffset => new Vector2(0, NPC.gfxOffY) + Vector2.UnitX * NPC.spriteDirection * 0;
         public virtual string GlowTexturePath => Texture + "_Glow";
-        private Asset<Texture2D> _glowTexture;
-        public Texture2D GlowTexture => (_glowTexture ??= (RequestIfExists<Texture2D>(GlowTexturePath, out var asset) ? asset : null))?.Value;
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             float num108 = 4;
@@ -138,7 +136,7 @@ namespace Stellamod.Content.TODO.EnemiesUG
             Color color1 = Color.LightBlue * num107 * .8f;
             var effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             spriteBatch.Draw(
-                GlowTexture,
+                Request<Texture2D>(GlowTexturePath).Value,
                 NPC.Center - Main.screenPosition + Drawoffset,
                 NPC.frame,
                 color1,
@@ -157,7 +155,7 @@ namespace Stellamod.Content.TODO.EnemiesUG
                 color28 = NPC.GetAlpha(color28);
                 color28 *= 1f - num107;
                 Vector2 vector29 = NPC.Center + (num103 / (float)num108 * 6.28318548f + NPC.rotation + num106).ToRotationVector2() * (4f * num107 + 2f) - Main.screenPosition + Drawoffset - NPC.velocity * num103;
-                Main.spriteBatch.Draw(GlowTexture, vector29, NPC.frame, color28, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, spriteEffects3, 0f);
+                Main.spriteBatch.Draw(Request<Texture2D>(GlowTexturePath).Value, vector29, NPC.frame, color28, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, spriteEffects3, 0f);
             }
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color lightColor)

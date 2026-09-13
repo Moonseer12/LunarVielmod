@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using Terraria;
 
 namespace Stellamod.Content.MoonlightMagic.Movements
@@ -9,11 +7,9 @@ namespace Stellamod.Content.MoonlightMagic.Movements
     {
         public float maxHomingDetectDistance = 4012;
         float distance = 8;
-        int rotationalSpeed = 4;
-        int afterImgCancelDrawCount = 0;
-        float t = 0;
+        public int rotationalSpeed = 4;
         bool initialized = false;
-        float alphaCounter;
+        public float alphaCounter;
         Vector2 initialSpeed = Vector2.Zero;
         int TimerSpeed = 0;
         int TimerSwitch = 0;

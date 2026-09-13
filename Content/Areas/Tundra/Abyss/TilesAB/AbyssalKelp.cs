@@ -3,10 +3,8 @@ using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
 
 namespace Stellamod.Content.Areas.Tundra.Abyss.TilesAB;
 
@@ -17,16 +15,14 @@ public class AbyssalKelp : ModTile,
     {
         base.SetStaticDefaults();
         LocalizedText name = CreateMapEntryName();
-        Main.tileLighted[Type] = true;
-        Main.tileBlockLight[Type] = true;
-        Main.tileFrameImportant[Type] = true;
+        Main.tileLighted[Type] = false;
+        Main.tileBlockLight[Type] = false;
         Main.tileNoAttach[Type] = true;
         Main.tileLavaDeath[Type] = true;
         AddMapEntry(new Color(169, 200, 93), name);
-       // RegisterItemDrop(ItemID.Wood);
     }
 
-    private float GetLeafSway(float offset, float magnitude, float speed)
+    private static float GetLeafSway(float offset, float magnitude, float speed)
     {
         return (float)Math.Sin(Main.GameUpdateCount * speed + offset) * magnitude;
     }
@@ -82,7 +78,7 @@ public class AbyssalKelp : ModTile,
     }
     public void PrepareSilhouetteDrawing(int i, int j, RekSilhouetteSystem system)
     {
-        system.SilhouettesToDraw.Add((SpriteBatch sb) =>
+        system.TileSilhouettesToDraw.Add((SpriteBatch sb) =>
         {
             DrawWaterSilhouette(i, j, sb);
         });
@@ -120,7 +116,6 @@ public class AbyssalKelp : ModTile,
 
     public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)
     {
-        short x = 0;
         short y = 0;
 
         bool up = Framing.GetTileSafely(i, j - 1).TileType == Type|| Framing.GetTileSafely(i, j - 1).TileType == Type;

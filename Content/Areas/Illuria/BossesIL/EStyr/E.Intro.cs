@@ -1,8 +1,6 @@
 using Stellamod.Content.Dusts;
-using Stellamod.Core;
-using Stellamod.Core.Camera;
-using Stellamod.Core.Particles;
 using Stellamod.Content.Particles;
+using Stellamod.Core.Camera;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -221,7 +219,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
                 _drawDarkened = true;
                 ScreenShaderSystem screenShaderSystem = ModContent.GetInstance<ScreenShaderSystem>();
                 screenShaderSystem.TintScreen(Color.Black, 0.5f, 30);
-                SoundStyle explosionSound = new SoundStyle("Stellamod/Assets/Sounds/VoidBlasterExplosionBomb2");
+                SoundStyle explosionSound = new("Stellamod/Assets/Sounds/VoidBlasterExplosionBomb2");
                 explosionSound.Pitch = -0.3f;
                 SoundEngine.PlaySound(explosionSound);
             }

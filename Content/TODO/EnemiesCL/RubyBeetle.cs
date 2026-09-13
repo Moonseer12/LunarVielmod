@@ -5,7 +5,6 @@ using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace Stellamod.Content.TODO.EnemiesCL
 {
@@ -55,13 +54,6 @@ namespace Stellamod.Content.TODO.EnemiesCL
                     Vector2 speed = Main.rand.NextVector2Circular(0.5f, 0.5f);
                 }
             }
-        }
-
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            //Multiply by overworld chance so it doesn't spawn during vanilla events and such
-            float spawnChance = SpawnCondition.Overworld.Chance * (spawnInfo.Player.ZoneFable() ? 1.6f : 0f);
-            return spawnChance;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

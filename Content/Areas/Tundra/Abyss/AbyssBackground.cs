@@ -39,6 +39,6 @@ public class AbyssBackground : CustomBG
 
     public override bool IsActive()
     {
-        return Main.LocalPlayer.GetModPlayer<BiomePlayer>().ZoneAbyss;
+        return Main.LocalPlayer.GetModPlayer<BiomePlayer>().ZoneAbyss && !Main.LocalPlayer.GetModPlayer<BiomePlayer>().ZoneAurelus;
     }
 }

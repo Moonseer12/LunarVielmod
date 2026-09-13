@@ -37,7 +37,7 @@ public class FloralBlastEnchantment : BaseEnchantment
 
 public class FloralBlastEnchantmentExplosion : BaseExplosionProjectile
 {
-    int trailMode;
+    public int trailMode;
     int rStart = 4;
     public override void SetStaticDefaults()
     {

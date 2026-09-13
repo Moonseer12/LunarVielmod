@@ -1,7 +1,6 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Core.Bases;
 using Stellamod.Core.Effects.Trails;
-using Stellamod.Core.Particles;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Content.Particles;
 using System;
@@ -32,12 +31,11 @@ namespace Stellamod.Content.Areas.Ishtar.WeaponsIS
 
     public class ScytheOfSoulsSlash : BaseSwingProjectileV2
     {
-        private bool _playedSound;
         public override void DefineCombo()
         {
             base.DefineCombo();
             SwingV2Helper.AddScytheSwingStyle(this);
-            BlackFireShader blackFireShader = new BlackFireShader();
+            BlackFireShader blackFireShader = new();
             blackFireShader.SetDefaults();
             blackFireShader.InnerColor = Color.White;
             blackFireShader.OuterColor = Color.Blue;
@@ -330,8 +328,8 @@ namespace Stellamod.Content.Areas.Ishtar.WeaponsIS
             }
         }
 
-        Vector2 DrawOffset;
-        float alphaCounter = 7;
+        public Vector2 DrawOffset;
+        public float alphaCounter = 7;
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;

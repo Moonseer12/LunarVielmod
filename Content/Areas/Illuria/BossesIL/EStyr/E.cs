@@ -1,18 +1,11 @@
-﻿
-
-using Stellamod.Core;
+﻿using Stellamod.Core;
 using Stellamod.Core.Camera;
-using Stellamod.Core.Particles;
-
-
-using Stellamod.Content.Particles;
 using System;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
 {
@@ -110,7 +103,7 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
             Death_FlyOff,
         }
 
-        private bool _drawDarkened;
+        public bool _drawDarkened;
         private bool _startedFight;
         private bool _intro;
         private bool _showNamePlate;

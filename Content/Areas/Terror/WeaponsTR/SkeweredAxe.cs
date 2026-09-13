@@ -282,7 +282,7 @@ public class SkeweredAxesFury : ModBuff
 public class SkeweredAxeSlash : BaseSwingProjectileV2
 {
     private float _hitCount;
-    private bool _hit;
+    public bool _hit;
     private bool _playSound;
     public override void DefineCombo()
     {

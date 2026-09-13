@@ -90,7 +90,6 @@ namespace Stellamod.Content.Areas.PunkerTown.BossesPT.Ravager
 
             //Setup the music and boss bar
             Music = MusicLoader.GetMusicSlot(Mod, "Assets/Music/MysticalFoe");
-            //     NPC.aiStyle = 0;
         }
 
         public override bool CanHitNPC(NPC target)

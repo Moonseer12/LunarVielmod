@@ -9,7 +9,7 @@ namespace Stellamod.Content.Areas.Desert.VanitiesCL;
 
 public class GustbeakHatDrawLayer : PlayerDrawLayer
 {
-    private Asset<Texture2D>? _hatTextureAsset;
+    private Asset<Texture2D> _hatTextureAsset;
     public override bool IsHeadLayer => true;
 
     public override void SetStaticDefaults()

@@ -674,7 +674,7 @@ namespace Stellamod.TODO.Weapons
         }
 
         float alphaCounter = 0;
-        Vector2 DrawOffset;
+        public Vector2 DrawOffset;
         public override bool PreDraw(ref Color lightColor)
         {
 

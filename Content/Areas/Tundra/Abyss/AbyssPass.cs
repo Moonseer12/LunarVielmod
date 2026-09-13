@@ -1,4 +1,5 @@
-﻿using Stellamod.Content.Areas.Tundra.Abyss.TilesAB;
+﻿using Stellamod.Content.Areas.Tundra.Abyss.EnemiesAB;
+using Stellamod.Content.Areas.Tundra.Abyss.TilesAB;
 using Stellamod.Core.ZTileSystem;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.IO;
 using Terraria.ModLoader;
+using Terraria.Utilities;
 using Terraria.WorldBuilding;
 
 namespace Stellamod.Content.Areas.Tundra.Abyss;
@@ -18,6 +20,7 @@ public static class SavedGenerationParameters
     public static int SnowTop;
     public static int SnowBottom;
     public static double RockLayerHigh;
+    public static Rectangle AbyssTempleRectangle;
 }
 
 public class AbyssPass : GenPass
@@ -27,11 +30,11 @@ public class AbyssPass : GenPass
     }
 
     protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
-    {
+    {AbyssEffectsRenderer.rebuildWaterfalls = true;
         int left = SavedGenerationParameters.SnowLeft;
         int right = SavedGenerationParameters.SnowRight;
         int top = SavedGenerationParameters.SnowTop;
-        int bottom = ModContent.GetInstance<StellaWorld>().DarkspaceStart;
+        int bottom = ModContent.GetInstance<VeilGen>().DarkspaceStart;
 
         //Calculate center of the abyss
         ModContent.GetInstance<VeilGen>().AbyssCenter.X = left + right;
@@ -211,24 +214,6 @@ public class AbyssPass : GenPass
             }
             return otherPoints;
         }
-        List<Vector2> FindAnyPointsICanConnectTo(Vector2 referencePoint, float connectRadius = 150)
-        {
-            float maxConnectionRadiusSquared = connectRadius * connectRadius;
-            List<Vector2> otherPoints = new List<Vector2>(16);
-            foreach (var kvp in caveConnectPoints)
-            {
-                foreach (Vector2 cavePoint in kvp.Value)
-                {
-                    float distanceSquared = Vector2.DistanceSquared(referencePoint, cavePoint);
-                    if (distanceSquared <= maxConnectionRadiusSquared)
-                    {
-                        otherPoints.Add(cavePoint);
-                    }
-                }
-            }
-            return otherPoints;
-        }
-
 
         //Sprinkle several long caves throughout the biome
         int numCaves = 18;
@@ -269,39 +254,6 @@ public class AbyssPass : GenPass
                 n--;
             }
         }
-
-
-        //Create numerous clearings in the abyss
-        int numClearings = 8;
-
-        /*
-        for (int n = 0; n < numClearings; n++)
-        {
-            int dir = 1;
-            if (fastRandom.Next(2) == 0)
-                dir = -1;
-            Vector2 p = new Vector2();
-            p.X = fastRandom.Next(left - 25, left + 25);
-            if (dir == -1)
-                p.X = fastRandom.Next(right - 25, right);
-            p.X += fastRandom.Next(-250, 250);
-            p.Y = (int)MathHelper.Lerp(abyssHigh, abyssLow, n / (float)numClearings);
-
-            //All caves should be moving to the right
-            Vector2 initialDirection = Vector2.UnitX;
-            if (dir == -1)
-                initialDirection *= -1;
-
-            bool success = CreateAbyssClearing(n, p, initialDirection, operationRectangle);
-            if (!success)
-            {
-                n--;
-            }
-        }
-        */
-        //NOW WE CONNECT CAVES
-        //Let's make two connections per layer
-        //or atleast try to
 
         for (int n = 0; n < numCaves; n++)
         {
@@ -356,8 +308,8 @@ public class AbyssPass : GenPass
         //How do we palce these uhhhh
         //Yeahs
         int numBellFlowers = 5;
-        List<Point> placedFlowers = new List<Point>();
-        List<Vector2> allPoints = new List<Vector2>();
+        List<Point> placedFlowers = new();
+        List<Vector2> allPoints = new();
         foreach (var kvp in caveConnectPoints)
             allPoints.AddRange(kvp.Value);
         BellFlowerSystem.ClearBellFlowers();
@@ -368,6 +320,9 @@ public class AbyssPass : GenPass
 
                 bool TooCloseToAnotherPlacedFlower(Point p)
                 {
+                    int dx = Math.Abs(p.X - ModContent.GetInstance<VeilGen>().AbyssCenter.X);
+                    if (dx < 120)
+                        return true;
                     foreach (Point placed in placedFlowers)
                     {
                         if (TileUtilities.TooCloseToTilePoint(p, placed, proximity: 200))
@@ -411,7 +366,7 @@ public class AbyssPass : GenPass
 
                     VeilGen.CreateBellFlowerClearing(randPoint.ToVector2());
 
-                    CreateAbyssConnectionCaveMini(randPoint.ToVector2() + new Vector2(0, -16), pointToConnectTo);
+                    VeilGen.CreateAbyssConnectionCaveMini(randPoint.ToVector2() + new Vector2(0, -16), pointToConnectTo);
                     placedFlowers.Add(randPoint);
                     break;
                 }
@@ -446,15 +401,6 @@ public class AbyssPass : GenPass
         };
 
         VeilGen.KillZTilesInArea(rect);
-
-        int[] multiTileFlowers = new int[]
-        {
-            ModContent.TileType<BlueFlower>(),
-            ModContent.TileType<BlueFlower2>(),
-            ModContent.TileType<TealBulb>(),
-            ModContent.TileType<TealBulb2>(),
-            ModContent.TileType<TealBulb3>()
-        };
 
         var groundTiles = new List<int>
         {
@@ -511,42 +457,40 @@ public class AbyssPass : GenPass
             Rectangle kelpRect = TileUtilities.CenterTileRectangle(p, 50, 50);
             VeilGen.GrowKelpArea<AbyssalKelp>(kelpRect, minHeight: 20, maxHeight: 35, denom: 4);
         }
-
-        //This code down here only runs if not in world gen
-        if (WorldGen.SkipFramingBecauseOfGen)
-            return;
-        for (int x = left; x < right; x++)
+        if (!WorldGen.SkipFramingBecauseOfGen)
         {
-            for (int y = abyssHigh; y < abyssLow; y++)
+            for (int x = left; x < right; x++)
             {
-                WorldGen.SquareTileFrame(x, y, resetFrame: true);
-                WorldGen.SquareWallFrame(x, y, resetFrame: true);
+                for (int y = abyssHigh; y < abyssLow; y++)
+                {
+                    WorldGen.SquareTileFrame(x, y, resetFrame: true);
+                    WorldGen.SquareWallFrame(x, y, resetFrame: true);
+                }
             }
+            TileUtilities.UpdateMap(rect, 255);
         }
-
-        TileUtilities.UpdateMap(rect, 255);
-    }
-}
-
-public class AurelusTemplePass : GenPass
-{
-    public AurelusTemplePass() : base("Aurelus Temple", 449.3721923828125)
-    {
+        PlaceAbysmTemple(ModContent.GetInstance<VeilGen>().AbyssCenter + new Point(0, 256));
     }
 
-    protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
+    public static void PlaceAbysmTemple(Point abyssCenter)
     {
-        Rectangle rectangle = StructureLoader.ReadRectangle("Structures/Aurelus/AurelusTemple");
-        progress.Message = "Singularities Singing!";
+        Rectangle rectangle = StructureLoader.ReadRectangle("Struct/Aurelus/AurelusTemple2");
+
         bool placed = false;
         int attempts = 0;
         while (!placed && attempts++ < 1000000)
         {
-            Point Loc = ModContent.GetInstance<VeilGen>().AbyssCenter;
+            Point Loc = abyssCenter;
             Loc.X -= rectangle.Width / 2;
             Loc.Y += rectangle.Height / 2;
             rectangle.Location = Loc;
-            StructureLoader.ProtectStructure(Loc, "Structures/Aurelus/AurelusTemple");
+
+            Rectangle templeRectangle = rectangle;
+            templeRectangle.Y -= rectangle.Height;
+
+            VeilGen.KillZTilesInArea(templeRectangle);
+            SavedGenerationParameters.AbyssTempleRectangle = templeRectangle;
+            StructureLoader.ProtectStructure(Loc, "Struct/Aurelus/AurelusTemple2");
             placed = true;
         }
     }

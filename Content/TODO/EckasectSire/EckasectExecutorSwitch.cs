@@ -18,7 +18,7 @@ namespace Stellamod.Content.TODO.EckasectSire
             Projectile.width = 20;
             Projectile.height = 20;
 
-            Projectile.aiStyle = 2;
+            Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
 
             Projectile.friendly = true;
             Projectile.hostile = false;

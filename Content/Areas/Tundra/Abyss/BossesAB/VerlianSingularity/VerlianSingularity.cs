@@ -1,15 +1,16 @@
 ﻿using Stellamod.Common.Shaders;
+using Stellamod.Content.Areas.RoyalCapital;
 using Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity.Projectiles;
 using Stellamod.Content.Dusts;
 using Stellamod.Content.Particles;
 using Stellamod.Core;
+using Stellamod.Core.Camera;
 using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Stellamod.Content.Areas.RoyalCapital;
 
 namespace Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity
 {
@@ -289,7 +290,7 @@ namespace Stellamod.Content.Areas.Tundra.Abyss.BossesAB.VerlianSingularity
                     SwitchState(AIState.Despawn);
                 }
             }
-
+            CameraTargetSystem.AddTarget(Vector2.Lerp(Main.LocalPlayer.Center, NPC.Center, 0.5f));
             _spinTimer++;
             if (_starField)
             {

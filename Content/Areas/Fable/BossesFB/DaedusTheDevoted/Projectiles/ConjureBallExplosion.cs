@@ -1,7 +1,6 @@
 ﻿using Stellamod.Common.Shaders;
-using Stellamod.Content.Trailers;
-using Stellamod.Core.Particles;
 using Stellamod.Content.Particles;
+using Stellamod.Content.Trailers;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
@@ -13,7 +12,7 @@ namespace Stellamod.Content.Areas.Fable.BossesFB.DaedusTheDevoted.Projectiles;
 public class ConjureBallExplosion : ModProjectile
 {
     private float _lightningPower;
-    private float _lightningTime;
+    public float _lightningTime;
     private bool _calculatedStrikePoints;
     public override string Texture => TextureRegistry.EmptyTexture;
     private ref float Timer => ref Projectile.ai[0];
@@ -42,12 +41,12 @@ public class ConjureBallExplosion : ModProjectile
             SoundStyle explosionSound;
             if (Main.rand.NextBool(2))
             {
-                explosionSound = new SoundStyle("Stellamod/Assets/Sounds/StormDragon_StormSpike");
+                explosionSound = new("Stellamod/Assets/Sounds/StormDragon_StormSpike");
                 explosionSound.PitchVariance = 0.15f;
             }
             else
             {
-                explosionSound = new SoundStyle("Stellamod/Assets/Sounds/StormDragon_StormSpike2");
+                explosionSound = new("Stellamod/Assets/Sounds/StormDragon_StormSpike2");
                 explosionSound.PitchVariance = 0.15f;
             }
 

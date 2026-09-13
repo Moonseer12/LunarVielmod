@@ -1,7 +1,4 @@
-﻿using ReLogic.Content;
-using Stellamod.Assets;
-using Terraria;
-using Terraria.Graphics.Shaders;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 namespace Stellamod.Content.TODO.Niivi.Projectiles
@@ -12,7 +9,7 @@ namespace Stellamod.Content.TODO.Niivi.Projectiles
         public override string Texture => TextureRegistry.EmptyTexture;
 
         //AI
-        private float LifeTime => 32f;
+        private static float LifeTime => 32f;
         private ref float Timer => ref Projectile.ai[0];
 
         private float Progress
@@ -25,25 +22,13 @@ namespace Stellamod.Content.TODO.Niivi.Projectiles
         }
 
         //Draw Code
-        private int DrawMode;
-
-        //Trailing
-        private Asset<Texture2D> FrontTrailTexture => TrailRegistry.WaterTrail;
-        private MiscShaderData FrontTrailShader => TrailRegistry.LaserShader;
-
-        private Asset<Texture2D> BackTrailTexture => TrailRegistry.WhispyTrail;
-        private MiscShaderData BackTrailShader => TrailRegistry.FireWhiteVertexShader;
+        public int DrawMode;
 
         //Radius
-        private float StartRadius => 4;
-        private float EndRadius => 384;
-        private float Width => 128;
+        private static float StartRadius => 4;
+        private static float EndRadius => 384;
+        private static float Width => 128;
 
-        //Colors
-        private Color FrontCircleStartDrawColor => Color.White;
-        private Color FrontCircleEndDrawColor => Color.Transparent;
-        private Color BackCircleStartDrawColor => Color.Lerp(Color.White, Color.LightCyan, 0.4f);
-        private Color BackCircleEndDrawColor => Color.Lerp(Color.DarkCyan, Color.BlueViolet, 0.7f);
         private Vector2[] CirclePos;
 
         public override void SetDefaults()

@@ -1,4 +1,4 @@
-﻿namespace Stellamod.WorldG;
+﻿namespace Stellamod.Content.Areas;
 
 /// <summary>
 /// Collection of helper functions for manipulating textures.

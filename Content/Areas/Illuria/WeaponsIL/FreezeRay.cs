@@ -514,7 +514,7 @@ namespace Stellamod.Content.Areas.Illuria.WeaponsIL
         public override bool PreDraw(ref Color lightColor)
         {
             PixelationManager.QueueSpritebatchDrawAction(DrawPixelatedMuzzleFlash);
-            PixelationManager.QueuePrimitivesDrawAction(DrawPixelated, DrawLayer.OverNPCsWithOutline);
+            PixelationManager.QueuePrimitivesDrawAction(DrawPixelated, DrawLayer.OverNPCs);
             return false;
         }
 

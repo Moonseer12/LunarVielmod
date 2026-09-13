@@ -7,13 +7,10 @@ using Stellamod.Content.Dusts;
 using Stellamod.Content.Gores;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
-using Stellamod.Core.Particles;
 using Stellamod.Content.Particles;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.InteropServices;
-using System.Threading;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -44,8 +41,8 @@ namespace Stellamod.Content.Areas.Ishtar.BossesIS.SanguineSingularity;
 public class HeadlessSingularity : ModNPC
 
 {
-    private float _incresionDiskFrameBottom;
-    private float _incresionDiskFrameTop;
+    public float _incresionDiskFrameBottom;
+    public float _incresionDiskFrameTop;
     private NPC Parent => Main.npc[(int)NPC.ai[0]];
     private ref float MaxDamage => ref NPC.ai[1];
     private ref float NoiseTimer => ref NPC.ai[2];

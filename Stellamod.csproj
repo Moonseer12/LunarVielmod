@@ -9,7 +9,11 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<Platforms>AnyCPU;x64;x86</Platforms>
 	</PropertyGroup>
+
+
 	<ItemGroup>
-	  <Folder Include="Core\Foggy\" />
+		<Publicize Include="FNA" IncludeCompilerGeneratedMembers="false" IncludeVirtualMembers="false" />
+		<Publicize Include="ReLogic" IncludeCompilerGeneratedMembers="false" IncludeVirtualMembers="false" />
 	</ItemGroup>
+
 </Project>

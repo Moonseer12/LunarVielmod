@@ -30,7 +30,7 @@ public class SEXY : ModProjectile
     }
 
 
-    private static float _orbitingOffset;
+    public float _orbitingOffset;
     public override bool? CanCutTiles()
     {
         return false;

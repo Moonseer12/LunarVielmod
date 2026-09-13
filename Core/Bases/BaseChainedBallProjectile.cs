@@ -11,7 +11,6 @@ namespace Stellamod.Core.Bases
     public abstract class BaseChainedBallProjectile : ModProjectile
     {
         private Vector2[] _slashPos;
-        private Vector2[] _chainPos;
         private bool _playedSwingSound;
         private bool _playedBounceSound;
         private float _swingXRadius;

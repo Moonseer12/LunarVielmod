@@ -1,10 +1,9 @@
 ﻿using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas;
-using Stellamod.Core.Rendering;
+using Stellamod.Core.Rendering.RTs;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Graphics.Effects;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
@@ -23,8 +22,8 @@ namespace Stellamod.Core.LunarLightingSystem
             {
                 if (_offsets == null)
                 {
-                    List<Vector2> offsets = new List<Vector2>(16);
-                    UnifiedRandom random = new UnifiedRandom(1337);
+                    List<Vector2> offsets = new(16);
+                    UnifiedRandom random = new(1337);
                     for (int i = 0; i < 16; i++)
                     {
                         offsets.Add(random.NextVector2Circular(16, 16));
@@ -44,15 +43,7 @@ namespace Stellamod.Core.LunarLightingSystem
         private PointLights _pointLights;
         private ShadowMap _shadowMap;
         private Color _backLightColor;
-        private Vector2 _previousScreenSize;
-
-        private bool _isLoaded;
-        private RenderTargetProvider _lightsRT = new RenderTargetProvider(RenderTargetParameters.DefaultScreenTargetCreationFunc);
-
-        private RenderTarget2D _tileBlurRT;
-        private RenderTarget2D _tileSunShadowRT;
-
-
+        private LazyRenderTargetProvider _lightsRT = new(RenderTargetParameters.DefaultScreenTargetCreationFunc);
         private List<ILightEmitter> _emitters;
         private List<IBackLightModifier> _backLightModifiers;
 
@@ -68,8 +59,8 @@ namespace Stellamod.Core.LunarLightingSystem
         {
             _pointLights = new PointLights(MAX_POINT_LIGHTS);
             _shadowMap = new ShadowMap(MAX_POINT_LIGHTS, 64);
-            _backLightModifiers = new List<IBackLightModifier>();
-            _emitters = new List<ILightEmitter>();
+            _backLightModifiers = new();
+            _emitters = new();
 
             On_FilterManager.EndCapture += ApplyLighting;
             On_Main.CheckMonoliths += RenderToLightMaps;
@@ -156,7 +147,6 @@ namespace Stellamod.Core.LunarLightingSystem
         public override void Unload()
         {
             base.Unload();
-            Main.QueueMainThreadAction(UnloadRenderTargets);
             On_FilterManager.EndCapture -= ApplyLighting;
             On_Main.CheckMonoliths -= RenderToLightMaps;
             On_Main.DrawCachedNPCs -= DrawShadowsBehindTiles;
@@ -176,13 +166,6 @@ namespace Stellamod.Core.LunarLightingSystem
             if (LightingHelper.CanRenderPostProcessingEffects)
             {
                 RenderToLightsRT();
-                if (IsActive && _isLoaded)
-                {
-                    if (DrawSunShadows2())
-                    {
-                        RenderShadows();
-                    }
-                }
             }
 
 
@@ -192,9 +175,14 @@ namespace Stellamod.Core.LunarLightingSystem
         private void DrawShadowsBehindTiles(On_Main.orig_DrawCachedNPCs orig, Main self, List<int> npcCache, bool behindTiles)
         {
             SpriteBatch spriteBatch = Main.spriteBatch;
-            if (behindTiles && DrawSunShadows2() && IsActive && _isLoaded && LightingHelper.CanRenderPostProcessingEffects)
+            if (behindTiles && DrawSunShadows2() && IsActive && LightingHelper.CanRenderPostProcessingEffects)
             {
-                spriteBatch.Draw(_tileSunShadowRT, Vector2.Zero, Color.White);
+                spriteBatch.EndOut(out var oldParameters);
+                RenderTargetHandle tileBlurRT = RenderTargets.ScreenTarget;
+                RenderTargetHandle sunShadowRT = RenderTargets.ScreenTarget;
+                RenderShadows(tileBlurRT, sunShadowRT);
+                spriteBatch.Begin(oldParameters);
+                spriteBatch.Draw(sunShadowRT, Vector2.Zero, Color.White);
             }
 
             orig(self, npcCache, behindTiles);
@@ -216,14 +204,6 @@ namespace Stellamod.Core.LunarLightingSystem
         {
             _emitters.Clear();
             _backLightModifiers.Clear();
-        }
-
-        private void DrawToScreen()
-        {
-            if (!ShouldRender())
-                return;
-            if (!_isLoaded)
-                return;
         }
 
         public override void PostUpdateWorld()
@@ -291,62 +271,10 @@ namespace Stellamod.Core.LunarLightingSystem
             _backLightModifiers.Remove(backLightModifier);
         }
 
-        public override void PostUpdateEverything()
-        {
-            ResizeRenderTarget(false);
-        }
-
-        private static bool ShouldRender()
-        {
-            var config = ModContent.GetInstance<LunarVeilClientConfig>();
-            if (!config.BeamingLights)
-                return false;
-            if (Main.gameMenu)
-                return false;
-            if (!IsActive)
-                return false;
-            return true;
-        }
-
-
-        private void UnloadRenderTargets()
-        {
-            _tileBlurRT?.Dispose();
-            _tileSunShadowRT?.Dispose();
-
-            _tileBlurRT = null;
-            _tileSunShadowRT = null;
-            _isLoaded = false;
-        }
-
-        private void ResizeRenderTargets()
-        {
-            if (_tileBlurRT != null && !_tileBlurRT.IsDisposed)
-                _tileBlurRT.Dispose();
-            if (_tileSunShadowRT != null && !_tileSunShadowRT.IsDisposed)
-                _tileSunShadowRT.Dispose();
-
-            _tileSunShadowRT = new RenderTarget2D(Main.graphics.GraphicsDevice, Main.screenWidth, Main.screenHeight);
-            _tileBlurRT = new RenderTarget2D(Main.graphics.GraphicsDevice, Main.screenWidth, Main.screenHeight);
-            _isLoaded = true;
-        }
-
-        private void ResizeRenderTarget(bool load)
-        {
-            if (Main.gameMenu)
-                return;
-            if (Main.netMode == NetmodeID.Server)
-                return;
-            Vector2 currentScreenSize = new(Main.screenWidth, Main.screenHeight);
-            if (currentScreenSize == _previousScreenSize)
-                return;
-            Main.QueueMainThreadAction(ResizeRenderTargets);
-            _previousScreenSize = currentScreenSize;
-        }
 
         public void RenderToScreen()
         {
-            DrawToScreen();
+ 
         }
     }
 }

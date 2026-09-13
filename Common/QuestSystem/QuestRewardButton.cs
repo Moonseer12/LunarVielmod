@@ -11,7 +11,6 @@ namespace Stellamod.Common.QuestSystem
     {
         private UIText _text;
         
-        private readonly float _scale = 1f;
         public QuestRewardButton()
         {
             float scale = 1f;

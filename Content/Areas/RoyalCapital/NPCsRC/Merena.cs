@@ -1,4 +1,4 @@
-﻿using Stellamod.Content.Areas.RoyalCapital.WeaponsRC;
+﻿using Stellamod.Content.TODO.Weapons;
 using Stellamod.Core;
 using System.Collections.Generic;
 using Terraria;
@@ -32,7 +32,7 @@ namespace Stellamod.Content.Areas.RoyalCapital.NPCsRC
             NPC.friendly = true; // NPC Will not attack player
             NPC.width = 62;
             NPC.height = 90;
-            NPC.aiStyle = 0;
+            NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
             NPC.damage = 90;
             NPC.defense = 42;
             NPC.lifeMax = 200;

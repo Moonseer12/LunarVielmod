@@ -2,11 +2,8 @@
 using Stellamod.Core;
 using Stellamod.Core.ZTileSystem;
 using System;
-using System;
 using System.Collections.Generic;
-using System.Reflection;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent;
 
 namespace Stellamod.Helpers;
@@ -135,12 +132,8 @@ public static class DrawUtilities
 
     public static void IncreaseHueBy(ref Color color, float value)
     {
-        float h, s, v;
-
         Vector3 hsv = RgbToHsv(color.R, color.G, color.B);
         hsv.X += value;
-
-        float r, g, b;
 
         Vector3 rgb = HsvToRgb(hsv);
 
@@ -499,33 +492,34 @@ public static class DrawUtilities
     }
 }
 
+public static class SpriteBatchExtensions
+{
+    /// <summary>
+    /// Ends the spritebatch and spits out the parameters it was using to draw
+    /// </summary>
+    /// <param name="spriteBatch"></param>
+    /// <param name="parameters"></param>
+    public static void EndOut(this SpriteBatch spriteBatch, out SpritebatchParams parameters)
+    {
+        parameters = spriteBatch.Parameters;
+        spriteBatch.End();
+   
+    }
+
+    extension(SpriteBatch spriteBatch)
+    {
+        /// <summary>
+        /// Retrieves the parameters from the sprite batch
+        /// </summary>
+        public SpritebatchParams Parameters => SpritebatchParams.FromSpritebatch(spriteBatch);
+    }
+}
+
 /// <summary>
 /// Accesses the current parameters of the spritebatch
 /// </summary>
 public struct SpritebatchParams
 {
-    private readonly static FieldInfo _blendStateField;
-    private readonly static FieldInfo _samplerStateField;
-    private readonly static FieldInfo _depthStencilStateField;
-    private readonly static FieldInfo _rasterizerStateField;
-    private readonly static FieldInfo _matrixField;
-    private readonly static FieldInfo _effectField;
-    private readonly static FieldInfo _beginCalledInfoBackingField;
-    private readonly static FieldInfo _sortModeField;
-    static SpritebatchParams()
-    {
-        //Cache reflection fields
-        _sortModeField = GetPrivateSpritebatchField("sortMode");
-        _beginCalledInfoBackingField = GetPrivateSpritebatchField("beginCalled");
-        _effectField = GetPrivateSpritebatchField("customEffect");
-        _matrixField = GetPrivateSpritebatchField("transformMatrix");
-        _rasterizerStateField = GetPrivateSpritebatchField("rasterizerState");
-        _depthStencilStateField = GetPrivateSpritebatchField("depthStencilState");
-        _samplerStateField = GetPrivateSpritebatchField("samplerState");
-        _blendStateField = GetPrivateSpritebatchField("blendState");
-        _sortModeField = GetPrivateSpritebatchField("sortMode");
-    }
-
     public BlendState blendState;
     public SamplerState samplerState;
     public RasterizerState rasterizerState;
@@ -533,61 +527,16 @@ public struct SpritebatchParams
     public Effect effect;
     public SpriteSortMode sortMode;
     public Matrix matrix;
-    private static FieldInfo GetPrivateSpritebatchField(string name)
-    {
-        return typeof(SpriteBatch).GetField(name, BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic)!;
-    }
-
-    public static SpriteSortMode GetSortMode(SpriteBatch spriteBatch)
-    {
-        return (SpriteSortMode)_sortModeField.GetValue(spriteBatch)!;
-    }
-
-    public static BlendState GetBlendState(SpriteBatch spriteBatch)
-    {
-        return (BlendState)_blendStateField.GetValue(spriteBatch)!;
-    }
-
-    public static SamplerState GetSamplerState(SpriteBatch spriteBatch)
-    {
-        return (SamplerState)_samplerStateField.GetValue(spriteBatch)!;
-    }
-
-    public static DepthStencilState GetDepthStencilState(SpriteBatch spriteBatch)
-    {
-        return (DepthStencilState)_depthStencilStateField.GetValue(spriteBatch)!;
-    }
-
-    public static RasterizerState GetRasterizerState(SpriteBatch spriteBatch)
-    {
-        return (RasterizerState)_rasterizerStateField.GetValue(spriteBatch)!;
-    }
-
-    public static Matrix GetTransformMatrix(SpriteBatch spriteBatch)
-    {
-        return (Matrix)_matrixField.GetValue(spriteBatch)!;
-    }
-
-    public static Effect GetEffect(SpriteBatch spriteBatch)
-    {
-        return (Effect)_effectField.GetValue(spriteBatch)!;
-    }
-
-    public static bool GetBeginCalled(SpriteBatch spriteBatch)
-    {
-        bool beginCalled = (bool)_beginCalledInfoBackingField.GetValue(spriteBatch)!;
-        return beginCalled;
-    }
     public static SpritebatchParams FromSpritebatch(SpriteBatch spriteBatch)
     {
         SpritebatchParams starter = new SpritebatchParams();
-        starter.blendState = GetBlendState(spriteBatch);
-        starter.samplerState = GetSamplerState(spriteBatch);
-        starter.sortMode = GetSortMode(spriteBatch);
-        starter.depthStencilState = GetDepthStencilState(spriteBatch);
-        starter.effect = GetEffect(spriteBatch);
-        starter.matrix = GetTransformMatrix(spriteBatch);
-        starter.rasterizerState = GetRasterizerState(spriteBatch);
+        starter.blendState = spriteBatch.blendState;
+        starter.samplerState = spriteBatch.samplerState;
+        starter.sortMode = spriteBatch.sortMode;
+        starter.depthStencilState = spriteBatch.depthStencilState;
+        starter.effect = spriteBatch.customEffect;
+        starter.matrix = spriteBatch.transformMatrix;
+        starter.rasterizerState = spriteBatch.rasterizerState;
         return starter;
     }
 
@@ -638,17 +587,17 @@ public static class SpritebatchDrawExtensions
     public static void Begin(this SpriteBatch spriteBatch, SpritebatchParams spritebatchParams) => spritebatchParams.Begin(spriteBatch);
 }
 
-public class SpritebatchContext : IDisposable
+public struct SpritebatchContext : IDisposable
 {
     private SpritebatchParams? _oldParameters;
-    private SpriteBatch? _spriteBatch;
+    private SpriteBatch _spriteBatch;
 
     public SpritebatchParams spriteBatchParameters;
     public SpritebatchContext(SpriteBatch spriteBatch, SpritebatchParams requiredParameters)
     {
         spriteBatchParameters = requiredParameters;
         _spriteBatch = spriteBatch;
-        bool beginCalled = SpritebatchParams.GetBeginCalled(spriteBatch);
+        bool beginCalled = spriteBatch.beginCalled;
         if (beginCalled)
         {
             _oldParameters = SpritebatchParams.FromSpritebatch(spriteBatch);
@@ -687,7 +636,7 @@ public struct SpritebatchStarter :
     IDisposable
 {
     private SpritebatchParams? _oldParameters;
-    private SpriteBatch? _spriteBatch;
+    private SpriteBatch _spriteBatch;
 
     public required SpritebatchParams spriteBatchParameters;
 
@@ -700,7 +649,7 @@ public struct SpritebatchStarter :
     public void Begin(SpriteBatch spriteBatch)
     {
         _spriteBatch = spriteBatch;
-        bool beginCalled = SpritebatchParams.GetBeginCalled(spriteBatch);
+        bool beginCalled = spriteBatch.beginCalled;
         if (beginCalled)
         {
             _oldParameters = SpritebatchParams.FromSpritebatch(spriteBatch);

@@ -122,12 +122,12 @@ namespace Stellamod.Content.Areas.WaterSide
             return depth;
         }
 
+        public bool floridaStyle = false;
+        public bool floridaStyle2 = false;
         protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
         {
             int num731 = 50;
             progress.Message = Lang.gen[22].Value;
-            bool floridaStyle = false;
-            bool floridaStyle2 = false;
             var genRand = WorldGen.genRand;
             if (genRand.Next(4) == 0)
             {

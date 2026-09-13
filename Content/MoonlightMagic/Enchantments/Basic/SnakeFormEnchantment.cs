@@ -1,8 +1,5 @@
-﻿
-
-using Stellamod.Content.MoonlightMagic.Elements;
+﻿using Stellamod.Content.MoonlightMagic.Elements;
 using Stellamod.Content.MoonlightMagic.Forms;
-
 using Terraria;
 using Terraria.ModLoader;
 
@@ -10,8 +7,6 @@ namespace Stellamod.Content.MoonlightMagic.Enchantments.Basic
 {
     public class SnakeFormEnchantment : BaseEnchantment
     {
-        bool HitOnce = false;
-        int Attagain = 14;
         public override float GetStaffManaModifier()
         {
             return 0.1f;
@@ -39,14 +34,6 @@ namespace Stellamod.Content.MoonlightMagic.Enchantments.Basic
         {
             Projectile.velocity *= 1.5f;
             MagicProj.Form = FormRegistry.Snake.Value;
-
-
         }
-
-
-
-
     }
-
-
 }

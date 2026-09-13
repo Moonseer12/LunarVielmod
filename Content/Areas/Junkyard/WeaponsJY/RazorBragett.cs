@@ -281,8 +281,8 @@ namespace Stellamod.Content.Areas.Junkyard.WeaponsJY
             }
         }
 
-        Vector2 DrawOffset;
-        float alphaCounter = 7;
+        public Vector2 DrawOffset;
+        public float alphaCounter = 7;
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
@@ -302,7 +302,7 @@ namespace Stellamod.Content.Areas.Junkyard.WeaponsJY
             Main.spriteBatch.End();
             Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullNone, null, Main.GameViewMatrix.TransformationMatrix);
 
-            Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, Projectile.height * 0.5f);
+            Vector2 drawOrigin = new(texture.Width * 0.5f, Projectile.height * 0.5f);
             for (int k = 0; k < Projectile.oldPos.Length; k++)
             {
                 Vector2 drawPos = (Projectile.oldPos[k] - Main.screenPosition) + drawOrigin + new Vector2(0f, Projectile.gfxOffY);

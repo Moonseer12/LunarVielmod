@@ -132,7 +132,7 @@ public class DeadTreeTop : ModTile
     {
         int frameWidth = _topsTextureAsset.Width() / 3;
         int frameHeight = _topsTextureAsset.Height();
-        Rectangle frame = new Rectangle(frameWidth * rand, 0, frameWidth, frameHeight);
+        Rectangle frame = new(frameWidth * rand, 0, frameWidth, frameHeight);
         return frame;
     }
 
@@ -143,7 +143,7 @@ public class DeadTreeTop : ModTile
 
         Color color = Lighting.GetColor(i, j);
         Rectangle frame = GetTopFrame(_random.Next(0, 3));
-        Vector2 offset = new Vector2(-16, 16);
+        Vector2 offset = new(-16, 16);
         spriteBatch.Draw(_topsTextureAsset.Value, pos - Main.screenPosition + offset, frame, color, GetLeafSway(3, 0.05f, 0.008f),
             new Vector2(frame.Width / 2, frame.Height), 1, 0, 1);
     }
@@ -178,6 +178,7 @@ public class DeadTreeTop : ModTile
 }
 public class DeadTree : ModTile
 {
+    public SpriteEffects flip = 0;
     private UnifiedRandom _random;
   //  private Asset<Texture2D> _branchTextureAsset;
     public override void SetStaticDefaults()
@@ -192,25 +193,13 @@ public class DeadTree : ModTile
         RegisterItemDrop(ItemID.Shadewood);
     }
 
-    private float GetLeafSway(float offset, float magnitude, float speed)
-    {
-        return (float)Math.Sin(Main.GameUpdateCount * speed + offset) * magnitude;
-    }
-
-
     private void DrawBranches(int i, int j, SpriteBatch spriteBatch)
     {
-        Vector2 pos2 = (new Vector2(i + 1, j) + TileHelper.TileAdj) * 16;
-        Color color2 = Lighting.GetColor(i, j);
         _random.SetSeed(i + j);
-        SpriteEffects flip = 0;
         if (_random.NextBool(2))
         {
             flip = SpriteEffects.FlipHorizontally;
         }
-
-        bool drawBranch = _random.NextBool(4);
-        Vector2 branchoffset = new Vector2(-2, 0);
     }
 
     public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
@@ -271,7 +260,7 @@ public class BigDeadTreeTop : ModTile
         RegisterItemDrop(ItemID.Shadewood);
     }
 
-    private float GetLeafSway(float offset, float magnitude, float speed)
+    private static float GetLeafSway(float offset, float magnitude, float speed)
     {
         return (float)Math.Sin(Main.GameUpdateCount * speed + offset) * magnitude;
     }
@@ -357,7 +346,7 @@ public class BigDeadTree : ModTile
         RegisterItemDrop(ItemID.Shadewood);
     }
 
-    private float GetLeafSway(float offset, float magnitude, float speed)
+    private static float GetLeafSway(float offset, float magnitude, float speed)
     {
         return (float)Math.Sin(Main.GameUpdateCount * speed + offset) * magnitude;
     }

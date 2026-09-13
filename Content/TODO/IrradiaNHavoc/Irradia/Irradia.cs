@@ -157,8 +157,6 @@ namespace Stellamod.Content.TODO.IrradiaNHavoc.Irradia
             Jumpin = reader.ReadInt32();
         }
 
-        bool axed = false;
-        bool p2 = false;
         public override void HitEffect(NPC.HitInfo hit)
         {
             for (int k = 0; k < 20; k++)
@@ -375,14 +373,11 @@ namespace Stellamod.Content.TODO.IrradiaNHavoc.Irradia
         //Custom function so that I don't have to copy and paste the same thing in FindFrame
         int bee = 220;
         private Vector2 originalHitbox;
-        //int Timer2 = 0;
-        float timert = 0;
         public float Spawner = 0;
 
         public bool Elect = false;
         public override void AI()
         {
-            p2 = NPC.life < NPC.lifeMax * 0.5f;
             bee--;
             NPC.damage = 0;
             GothiviaStartPosTime++;
@@ -393,37 +388,6 @@ namespace Stellamod.Content.TODO.IrradiaNHavoc.Irradia
                 GothiviaStartPos = NPC.position;
 
             }
-
-            /*
-			for (int k = 0; k < Main.maxNPCs; k++)
-			{
-				NPC ba = Main.npc[k];
-				// Check if NPC able to be targeted. It means that NPC is
-				if (!ba.active && ba.type == ModContent.NPCType<Rek>() && axed == false)
-				{
-					timert++;
-
-					float speedXb = NPC.velocity.X * Main.rand.NextFloat(0f, 0f) + Main.rand.NextFloat(0f, 0f);
-					float speedYb = NPC.velocity.Y * Main.rand.Next(0, 0) * 0.0f + Main.rand.Next(0, 0) * 0f;
-
-					if (timert == 600)
-                    {
-						if (StellaMultiplayer.IsHost)
-						{
-							Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, speedXb * 0, speedYb * 0, 
-								ModContent.ProjectileType<Helios>(), 30, 0f, Owner: Main.myPlayer);
-
-						}
-
-						timert = 0;
-					}			
-				}
-			}
-			*/
-
-
-
-
             if (bee == 0)
             {
                 bee = 220;

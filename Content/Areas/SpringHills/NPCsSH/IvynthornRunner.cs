@@ -1,9 +1,8 @@
 ﻿using Stellamod.Common;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Particles;
 using Stellamod.Core;
-using Stellamod.Core.Particles;
-using Stellamod.Visual.Particles;
 using System;
 using Terraria;
 using Terraria.Audio;
@@ -343,7 +342,7 @@ public class IvynthornRunner : ModNPC
                 Vector2 pos = NPC.position;
                 pos.X += Main.rand.Next(0, NPC.width);
                 pos.Y += Main.rand.Next(0, NPC.height);
-                DustParticle dp = Particle<DustParticle>.Spawn(pos, Vector2.UnitX * hit.HitDirection * Main.rand.NextFloat(1f, 4f), Scale: 0.5f);
+                DustParticle dp = DustParticle.Spawn(pos, Vector2.UnitX * hit.HitDirection * Main.rand.NextFloat(1f, 4f), Scale: 0.5f);
                 dp.outerColor = Color.DarkGray;
                 dp.gravity = 0.01f;
                 dp.fast = true;

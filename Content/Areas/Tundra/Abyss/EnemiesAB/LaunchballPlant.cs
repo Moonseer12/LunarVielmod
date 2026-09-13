@@ -2,9 +2,9 @@
 using Stellamod.Common.Particles;
 using Stellamod.Content.Areas.Cinderspark.BossesCS.Rek;
 using Stellamod.Content.CommonMaterials;
+using Stellamod.Content.Particles;
 using Stellamod.Core;
 using Stellamod.Core.NPCHelpers;
-using Stellamod.Visual.Particles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
@@ -40,7 +40,7 @@ public class LaunchballBoom : ModProjectile
         {
             for (int i = 0; i < 24; i++)
             {
-                Particles.SwirlingFlameDust.Spawn(BitDustFactory.SlowingOverTime with
+                ModContent.GetInstance<SwirlingFlameDust>().Spawn(BitDustFactory.SlowingOverTime with
                 {
                     position = Projectile.Center,
                     timeLeft = Main.rand.Next(60, 120),
@@ -132,7 +132,7 @@ public class Launchball : ModProjectile,
 
         if (Main.rand.NextBool(32))
         {
-            Particles.SwirlingFlameDust.Spawn(BitDustFactory.SlowingOverTime with
+            ModContent.GetInstance<SwirlingFlameDust>().Spawn(BitDustFactory.SlowingOverTime with
             {
                 position = Projectile.Center,
                 timeLeft = Main.rand.Next(60, 120),
@@ -171,7 +171,7 @@ public class Launchball : ModProjectile,
     {
         for (int i = 0; i < 4; i++)
         {
-            Particles.SwirlingFlameDust.Spawn(BitDustFactory.SlowingOverTime with
+            ModContent.GetInstance<SwirlingFlameDust>().Spawn(BitDustFactory.SlowingOverTime with
             {
                 position = Projectile.Center,
                 timeLeft = Main.rand.Next(60, 120),

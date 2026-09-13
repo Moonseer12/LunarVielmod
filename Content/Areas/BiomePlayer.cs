@@ -34,6 +34,7 @@ namespace Stellamod.Content.Areas
         public bool ZoneColloseum;
         public bool ZoneMothlight;
         public bool ZoneWonder;
+        public bool justEnteredAbyss;
         public bool ZoneIshtar;
         public bool ZoneSacredUnknowns;
         public bool ZoneEveroseVillage;

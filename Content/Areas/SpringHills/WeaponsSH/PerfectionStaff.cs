@@ -17,7 +17,7 @@ namespace Stellamod.Content.Areas.SpringHills.WeaponsSH;
 
 public class PerfectionStaff : ModItem
 {
-    private int _dir;
+    public int _dir;
     public override void SetDefaults()
     {
         Item.DefaultToArtifact();

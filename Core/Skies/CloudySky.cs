@@ -10,7 +10,7 @@ namespace Stellamod.Core.Skies
     {
         private Vector2 _parallax;
         private Vector2 _lastCameraPos;
-        private float _strength;
+        public float _strength;
         private float _windSpeed;
 
         public float Strength { get => _strength; }
@@ -42,7 +42,7 @@ namespace Stellamod.Core.Skies
 
         private void Parallax()
         {
-            Vector2 parallaxAmt = new Vector2(0.5f, 0.25f);
+            Vector2 parallaxAmt = new(0.5f, 0.25f);
             Vector2 refPosition = Main.Camera.UnscaledPosition;
             Vector2 diff = _lastCameraPos - refPosition;
             _parallax += diff * parallaxAmt;
@@ -52,7 +52,7 @@ namespace Stellamod.Core.Skies
         private void Wind()
         {
             _windSpeed += 0.0025f;// Main.WindForVisuals * 0.005f;
-            _windSpeed = _windSpeed % 10f;
+            _windSpeed %= 10f;
         }
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
@@ -98,7 +98,7 @@ namespace Stellamod.Core.Skies
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.BackgroundViewMatrix.TransformationMatrix);
         }
 
-        private Color CloudColor
+        private static Color CloudColor
         {
             get
             {

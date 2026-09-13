@@ -40,7 +40,7 @@ public static class AbyssEnemyCommon
                 {
                     Vector2 velocity = Main.rand.NextVector2Circular(12, 12);
                     velocity.Y -= Main.rand.Next(4, 8);
-                    Particles.FeatherDust.Spawn(FeatherDustData.Default with
+                    ModContent.GetInstance<FeatherDust>().Spawn(FeatherDustData.Default with
                     {
                         position = NPC.Center + Main.rand.NextVector2Circular(16, 16),
                         velocity = velocity,

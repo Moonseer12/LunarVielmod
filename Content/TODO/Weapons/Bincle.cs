@@ -168,7 +168,6 @@ namespace Stellamod.Content.TODO.Weapons
             Projectile.tileCollide = true;
         }
 
-        private bool Moved;
         private float alphaCounter = 0;
         public override void AI()
         {

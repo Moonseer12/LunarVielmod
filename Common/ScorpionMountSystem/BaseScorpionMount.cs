@@ -1,5 +1,5 @@
 ﻿using ReLogic.Content;
-using Stellamod.Content.Scorpions.RoyalPalace;
+using Stellamod.Content.TODO.Scorpions.RoyalPalace;
 using System;
 using System.Collections.Generic;
 using System.Linq;

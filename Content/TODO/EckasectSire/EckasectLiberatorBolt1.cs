@@ -22,7 +22,7 @@ namespace Stellamod.Content.TODO.EckasectSire
             Projectile.penetrate = -1;
             Projectile.scale = 1f;
             Projectile.knockBack = 12.9f;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             AIType = ProjectileID.Bullet;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.tileCollide = false;

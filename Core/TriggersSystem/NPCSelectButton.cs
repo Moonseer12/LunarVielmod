@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.UI.Elements;
@@ -14,7 +13,6 @@ namespace Stellamod.Core.TriggersSystem
     {
         private readonly Action<ModNPC> _changeFunc;
         
-        private readonly float _scale = 1f;
         public NPCSelectButton(string pointName, Action<ModNPC> changeFunc)
         {
             _changeFunc = changeFunc;
@@ -22,7 +20,7 @@ namespace Stellamod.Core.TriggersSystem
             Height.Pixels = 36;
             BackgroundColor = Color.Blue * 0.5f;
             BorderColor = Color.Transparent;
-            Text = new UIText(pointName);
+            Text = new(pointName);
             Text.HAlign = 0.5f;
             OnLeftClick += OnButtonClick;
         }

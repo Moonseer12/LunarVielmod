@@ -7,6 +7,7 @@ using System.Linq;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
@@ -159,11 +160,26 @@ public class ZTileSerializer : TagSerializer<ZTileSaveData, TagCompound>
     }
 }
 
+public class ZTilePlayer : ModPlayer
+{
+    public override void OnEnterWorld()
+    {
+        base.OnEnterWorld();
+        if (Main.netMode == NetmodeID.SinglePlayer)
+            return;
+        if (Main.netMode == NetmodeID.Server)
+            return;
+
+        ZTileMap tileMap = ModContent.GetInstance<ZTileMap>();
+        tileMap.RequestAllZTileData();
+    }
+}
 public class ZTileMap : ModSystem
 {
-    private bool _needsResorting;
-    private Point _lastChunk = new Point(-9999, -9999);
-    private List<ActiveZTileData> _zTileInstances = new List<ActiveZTileData>();
+    private static bool _needsResorting;
+    private static Point _lastChunk = new Point(-9999, -9999);
+    private readonly static List<ActiveZTileData> _zTileInstances = new List<ActiveZTileData>();
+    private static List<ActiveZTileData> _zTileInstancesOrdered = new List<ActiveZTileData>();
     private List<ActiveZTileData>[] _zTileActiveDrawingInstances;
 
     public const int Chunk_Size = 64;
@@ -183,10 +199,13 @@ public class ZTileMap : ModSystem
         return false;
     }
 
+
+
+
+
     public override void OnModLoad()
     {
         base.OnModLoad();
-        _zTileInstances = new List<ActiveZTileData>();
         _zTileActiveDrawingInstances = new List<ActiveZTileData>[Enum.GetValues<ZRenderLayer>().Length];
         for(int i = 0; i < _zTileActiveDrawingInstances.Length; i++)
         {
@@ -250,17 +269,18 @@ public class ZTileMap : ModSystem
         CollectInstanceData(chunk);
     }
 
-    public void Refresh()
+    public static void Refresh()
     {
         _lastChunk = new Point(-9999, -9999);
         _needsResorting = true;
     }
+
     public void CollectInstanceData(in Point currentChunk)
     {
     //    Stopwatch instanceDataWatch = Stopwatch.StartNew();
         if (_needsResorting)
         {
-            _zTileInstances = _zTileInstances.OrderBy(X => X.position.z).ToList();
+            _zTileInstancesOrdered = _zTileInstances.OrderBy(X => X.position.z).ToList();
             _needsResorting = false;
         }
        
@@ -268,7 +288,7 @@ public class ZTileMap : ModSystem
         {
             _zTileActiveDrawingInstances[i].Clear();
         }
-        foreach(ActiveZTileData tileData in _zTileInstances)
+        foreach(ActiveZTileData tileData in _zTileInstancesOrdered)
         {
             //Calculate the chunk
             int chunkX = tileData.position.x / ZTileMap.Chunk_Size;
@@ -479,10 +499,9 @@ public class ZTileMap : ModSystem
     public override void NetSend(BinaryWriter writer)
     {
         base.NetSend(writer);
-        SendZTileSyncPacket();
     }
 
-    
+  
 
     public override void NetReceive(BinaryReader reader)
     {
@@ -490,32 +509,28 @@ public class ZTileMap : ModSystem
 
     }
 
-    public void SendZTileSyncPacket()
+    public void RequestAllZTileData()
     {
-        //We need a completely separate packet to sync this, so we just send this when world data gets sent
-        //Should work just fine lol
-        try
+        ModPacket packet = Stellamod.Instance.GetPacket(capacity: 16);
+        packet.Write((byte)MessageType.RequestZTileData);
+        packet.Send();
+    }
+
+    public void HandleZTileRequestPacket(BinaryReader reader, int whoAmI)
+    {
+        int sections = 4;
+        int sectionsX = Main.maxTilesX / sections;
+        int sectionsY = Main.maxTilesY / sections;
+        for (int x = 0; x < sections; x++)
         {
-            
-            int sectionsX = Main.maxTilesX / 4;
-            int sectionsY = Main.maxTilesY / 4;
-            for(int x = 0; x < 4; x++)
+            for (int y = 0; y < sections; y++)
             {
-                for(int y = 0; y < 4; y++)
-                {
-                    HandleZTileDataRequestPacket(-1, sectionsX * x, sectionsY * y, sectionsX, sectionsY);
-                }
+                SendZTileData(whoAmI, -1, sectionsX * x, sectionsY * y, sectionsX, sectionsY);
             }
-            
-        }
-        catch (System.Exception ex)
-        {
-            Console.WriteLine(ex);
         }
     }
 
-
-    public void HandleZTileDataRequestPacket(int requester, int x, int y, int width, int height)
+    public static void SendZTileData(int requester, int ignore, int x, int y, int width, int height)
     {
         Rectangle rectangle = new Rectangle(x, y, width, height);
         List<ActiveZTileData> datasToSync = new();
@@ -527,6 +542,7 @@ public class ZTileMap : ModSystem
                 datasToSync.Add(tileData);
             }
         }
+
 
         int bytesPerTileData = 128;
         int totalBytes = bytesPerTileData * (datasToSync.Count + 16);
@@ -551,18 +567,15 @@ public class ZTileMap : ModSystem
             packet.Write(tileData.instanceData.type);
             packet.Write(tileData.instanceData.value);
         }
-        packet.Send(toClient: requester);
+        packet.Send(toClient: requester, ignore);
     }
 
     /// <summary>
     /// Handles a sync packet for Z Tile data
     /// </summary>
     /// <param name="reader"></param>
-    public void HandleZTileSyncPacket(BinaryReader reader)
+    public static void ReceiveZTileSync(BinaryReader reader)
     {
-        if (Main.netMode == NetmodeID.Server)
-            return;
-
         int length = reader.ReadInt32();
         int x = reader.ReadInt32();
         int y = reader.ReadInt32();
@@ -570,31 +583,7 @@ public class ZTileMap : ModSystem
         int height = reader.ReadInt32();
 
         Rectangle rectangle = new Rectangle(x, y, width, height);
-        List<ActiveZTileData> datasToRemove = new();
-        int popIndex = _zTileInstances.Count - 1;
-        for (int i = 0; i < _zTileInstances.Count; i++)
-        {
-            var tileData = _zTileInstances[i];
-            if (rectangle.Contains(tileData.position.x, tileData.position.y) && popIndex >= 0)
-            {
-                //Swap with last element
-                var temp = _zTileInstances[popIndex];
-                _zTileInstances[popIndex] = tileData;
-                _zTileInstances[i] = temp;
-
-                //Substract pop index
-                //              datasToRemove.Add(tileData);
-                popIndex--;
-                i--;
-            }
-        }
-
-        for(int k = _zTileInstances.Count - 1; k > popIndex; k--)
-        {
-            _zTileInstances.RemoveAt(k);
-        }
-  
-
+        _zTileInstances.RemoveAll(x => rectangle.Contains(x.position.x, x.position.y));
         for (int i = 0; i < length; i++)
         {
             ZRenderLayer renderLayer = (ZRenderLayer)reader.ReadByte();
@@ -612,6 +601,13 @@ public class ZTileMap : ModSystem
             instanceData.value = reader.ReadByte();
             Add(renderLayer, tilePosition, instanceData);
         }
+
+        if (Main.netMode == NetmodeID.Server)
+        {
+            // Forward the changes to the other clients
+            ZTileMap.SendZTileData(-1, -1, x, y, width, height);
+        }
+
         Refresh();
     }
 
@@ -824,6 +820,8 @@ public class ZTileMap : ModSystem
         Refresh();
     }
 
+    /*
+
     public void SyncPlaceTile(int toWho, int fromWho, ZRenderLayer renderLayer, ZTilePosition tilePosition, ZTileInstanceData tileData)
     {
         int clientToIgnore = Main.LocalPlayer.whoAmI;
@@ -847,9 +845,9 @@ public class ZTileMap : ModSystem
             (ushort)tilePosition.Y).Send(toWho, fromWho);
     }
 
+    */
 
-
-    public void Add(ZRenderLayer renderLayer, ZTilePosition tilePosition, ZTileInstanceData tileData)
+    public static void Add(ZRenderLayer renderLayer, ZTilePosition tilePosition, ZTileInstanceData tileData)
     {
         _zTileInstances.Add(new ActiveZTileData(tilePosition, tileData, renderLayer));
     }

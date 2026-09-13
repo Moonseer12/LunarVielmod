@@ -1,8 +1,6 @@
 ﻿using Stellamod.Common.Shaders;
 using Stellamod.Core.Pixelation;
 using System.Collections.Generic;
-using Terraria;
-using Terraria.ModLoader;
 
 namespace Stellamod.Core.Rendering;
 
@@ -29,7 +27,7 @@ public abstract class Material<T, U, V> : AbstractMaterial
     where U : BaseShader, new()
     where V : Material<T, U, V>, new()
 {
-    private static V? _instance;
+    private static V _instance;
     private readonly List<T> _vertices = new List<T>(capacity: 100);
     public Material()
     {

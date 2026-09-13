@@ -1,7 +1,7 @@
 ﻿using ReLogic.Content;
 using Stellamod.Assets;
 using Stellamod.Common.Shaders;
-using Stellamod.Content.Areas.WaterSide.NPCsWS;
+using Stellamod.Content.Areas.WaterSide.EnemiesWS;
 using Stellamod.Content.Dusts;
 using Stellamod.Core.Pixelation;
 using Stellamod.Content.Particles;

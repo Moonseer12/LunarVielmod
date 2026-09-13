@@ -2,7 +2,7 @@
 using Stellamod.Common.Shaders;
 using Stellamod.Core;
 using Stellamod.Core.Camera;
-using Stellamod.Core.Rendering;
+using Stellamod.Core.Rendering.RTs;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -454,12 +454,6 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
     [Autoload(Side = ModSide.Client)]
     public class BlackRiverRenderer : ModSystem
     {
-        private RenderTargetProvider _riverRT = new RenderTargetProvider(RenderTargetParameters.DefaultScreenTargetCreationFunc);
-        private RenderTargetProvider _riverMaskRT = new RenderTargetProvider(RenderTargetParameters.DefaultScreenTargetCreationFunc);
-        private RenderTargetProvider _pixelRT = new RenderTargetProvider(() => RenderTargetParameters.DefaultScreenTarget with
-        {
-            Width = Main.screenWidth / 2, Height = Main.screenHeight / 2
-        });
         private Queue<IDrawBlackRiverMask> _draws;
         private Queue<IDrawBlackRiverMask> _postDraws;
         private Asset<Texture2D> _noiseTextureAsset;
@@ -473,8 +467,6 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
             base.OnModLoad();
             _draws = new Queue<IDrawBlackRiverMask>(100);
             _postDraws = new Queue<IDrawBlackRiverMask>(100);
-
-            On_Main.CheckMonoliths += RenderRiverRT;
             On_Main.DrawPlayers_BehindNPCs += DrawRiverToScreenBehindNPCs;
             On_Main.DrawPlayers_AfterProjectiles += DrawRiverToScreen;
         }
@@ -489,40 +481,77 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
         public override void OnModUnload()
         {
             base.OnModUnload();
-            On_Main.CheckMonoliths -= RenderRiverRT;
             On_Main.DrawPlayers_BehindNPCs -= DrawRiverToScreenBehindNPCs;
             On_Main.DrawPlayers_AfterProjectiles -= DrawRiverToScreen;
         }
 
-        private void RenderRiverMaskRT()
+        private void PrepareRenderTargetContent(RenderTargetHandle pixelRT, RenderTargetHandle riverRT, RenderTargetHandle riverMaskRT)
         {
-            SpriteBatch spriteBatch = Main.spriteBatch;
-            spriteBatch.GraphicsDevice.SetRenderTarget(_riverMaskRT);
-            spriteBatch.GraphicsDevice.Clear(Color.Transparent);
+            Color color = Color.Transparent;
             if (invert)
-                spriteBatch.GraphicsDevice.Clear(Color.White);
-            if (_draws.Count > 0)
+                color = Color.White;
+            SpriteBatch spriteBatch = Main.spriteBatch;
+            using(new RenderTargetContext(riverMaskRT))
             {
-                spriteBatch.Begin();
-                while (_draws.Count > 0)
+                if (_draws.Count > 0)
                 {
-                    IDrawBlackRiverMask mask = _draws.Dequeue();
-                    mask.DrawRiverMask();
+                    spriteBatch.Begin();
+                    while (_draws.Count > 0)
+                    {
+                        IDrawBlackRiverMask mask = _draws.Dequeue();
+                        mask.DrawRiverMask();
+                    }
+                    spriteBatch.End();
                 }
-                spriteBatch.End();
+                if (_postDraws.Count > 0)
+                {
+                    spriteBatch.Begin();
+                    while (_postDraws.Count > 0)
+                    {
+                        IDrawBlackRiverMask mask = _postDraws.Dequeue();
+                        mask.DrawRiverMask();
+                    }
+                    spriteBatch.End();
+                }
             }
-            if (_postDraws.Count > 0)
+
+            using(new RenderTargetContext(riverRT, Color.Black))
             {
-                spriteBatch.Begin();
-                while (_postDraws.Count > 0)
-                {
-                    IDrawBlackRiverMask mask = _postDraws.Dequeue();
-                    mask.DrawRiverMask();
-                }
+                MixerShader mixerShader = MixerShader.Instance;
+                Asset<Texture2D> mixTexture = _waterTextureAsset;
+                Asset<Texture2D> noiseTexture = _noiseTextureAsset;
+                mixerShader.MixTexture = mixTexture;
+                mixerShader.NoiseTexture = noiseTexture;
+                mixerShader.Time = Main.GlobalTimeWrappedHourly * 3;
+                mixerShader.Strength = 2;
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, Main.Rasterizer, mixerShader.Effect);
+                spriteBatch.Draw(riverRT, Vector2.Zero, Color.White * 0.6f);
                 spriteBatch.End();
             }
 
+            using(new RenderTargetContext(pixelRT, Color.Transparent))
+            {
+                MaskCombineShader maskCombineShader = MaskCombineShader.Instance;
+                //Draw at half size to downscale
+                maskCombineShader.MixTexture = riverRT;
+
+                SpriteWhiteShader whiteShader = SpriteWhiteShader.Instance;
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp,
+                    DepthStencilState.None, Main.Rasterizer, whiteShader.Effect);
+
+                spriteBatch.Draw(riverMaskRT, new Vector2(0, 2), null, Color.White, 0, Vector2.Zero, 0.5f, SpriteEffects.None, 0);
+                spriteBatch.Draw(riverMaskRT, new Vector2(-2, 0), null, Color.White, 0, Vector2.Zero, 0.5f, SpriteEffects.None, 0);
+                spriteBatch.Draw(riverMaskRT, new Vector2(2, 0), null, Color.White, 0, Vector2.Zero, 0.5f, SpriteEffects.None, 0);
+                spriteBatch.Draw(riverMaskRT, new Vector2(0, -2), null, Color.White, 0, Vector2.Zero, 0.5f, SpriteEffects.None, 0);
+                spriteBatch.End();
+
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp,
+                    DepthStencilState.None, Main.Rasterizer, maskCombineShader.Effect);
+                spriteBatch.Draw(riverMaskRT, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 0.5f, SpriteEffects.None, 0);
+                spriteBatch.End();
+            }
         }
+
 
         public static void QueueDraw(IDrawBlackRiverMask mask)
         {
@@ -538,61 +567,9 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
             BlackRiverRenderer renderer = ModContent.GetInstance<BlackRiverRenderer>();
             renderer._postDraws.Enqueue(mask);
         }
-        private void RenderRiverTextureRT()
-        {
-            SpriteBatch spriteBatch = Main.spriteBatch;
-            spriteBatch.GraphicsDevice.SetRenderTarget(_riverRT);
-            spriteBatch.GraphicsDevice.Clear(Color.Black);
 
-            MixerShader mixerShader = MixerShader.Instance;
-            Asset<Texture2D> mixTexture = _waterTextureAsset;
-            Asset<Texture2D> noiseTexture = _noiseTextureAsset;
-            mixerShader.MixTexture = mixTexture;
-            mixerShader.NoiseTexture = noiseTexture;
-            mixerShader.Time = Main.GlobalTimeWrappedHourly * 3;
-            mixerShader.Strength = 2;
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, Main.Rasterizer, mixerShader.Effect);
-            spriteBatch.Draw(_riverRT, Vector2.Zero, Color.White * 0.6f);
-            spriteBatch.End();
-        }
 
-        private void RenderToPixelRT()
-        {
-            SpriteBatch spriteBatch = Main.spriteBatch;
-            MaskCombineShader maskCombineShader = MaskCombineShader.Instance;
-            spriteBatch.GraphicsDevice.SetRenderTarget(_pixelRT);
-            spriteBatch.GraphicsDevice.Clear(Color.Transparent);
 
-            //Draw at half size to downscale
-            maskCombineShader.MixTexture = _riverRT;
-
-            SpriteWhiteShader whiteShader = SpriteWhiteShader.Instance;
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp,
-                DepthStencilState.None, Main.Rasterizer, whiteShader.Effect);
-
-            spriteBatch.Draw(_riverMaskRT, new Vector2(0, 2), null, Color.White, 0, Vector2.Zero, 0.5f, SpriteEffects.None, 0);
-            spriteBatch.Draw(_riverMaskRT, new Vector2(-2, 0), null, Color.White, 0, Vector2.Zero, 0.5f, SpriteEffects.None, 0);
-            spriteBatch.Draw(_riverMaskRT, new Vector2(2, 0), null, Color.White, 0, Vector2.Zero, 0.5f, SpriteEffects.None, 0);
-            spriteBatch.Draw(_riverMaskRT, new Vector2(0, -2), null, Color.White, 0, Vector2.Zero, 0.5f, SpriteEffects.None, 0);
-            spriteBatch.End();
-
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp,
-                DepthStencilState.None, Main.Rasterizer, maskCombineShader.Effect);
-            spriteBatch.Draw(_riverMaskRT, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 0.5f, SpriteEffects.None, 0);
-            spriteBatch.End();
-        }
-
-        private void RenderRiverRT(On_Main.orig_CheckMonoliths orig)
-        {
-            if (!Main.gameMenu)
-            {
-                RenderRiverMaskRT();
-                RenderRiverTextureRT();
-                RenderToPixelRT();
-            }
-
-            orig();
-        }
         private void DrawRiverToScreenBehindNPCs(On_Main.orig_DrawPlayers_BehindNPCs orig, Main self)
         {
             if (renderBehindNPCs)
@@ -614,18 +591,23 @@ namespace Stellamod.Content.Areas.Illuria.BossesIL.EStyr
 
         private void DrawRiverToScreen()
         {
+            bool shouldRender = _draws.Count > 0 || _postDraws.Count > 0;
+            if (!shouldRender)
+                return;
+
+            RenderTargetHandle pixelRT = RenderTargets.HalfScreenTarget;
+            RenderTargetHandle riverRT = RenderTargets.ScreenTarget;
+            RenderTargetHandle riverMaskRT = RenderTargets.ScreenTarget;
+            PrepareRenderTargetContent(pixelRT, riverRT, riverMaskRT);
+
             SpriteBatch spriteBatch = Main.spriteBatch;
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, Main.Rasterizer, null);
-            spriteBatch.Draw(_pixelRT, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 2, SpriteEffects.None, 0);
+            spriteBatch.Draw(pixelRT, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 2, SpriteEffects.None, 0);
             spriteBatch.End();
-
-        }
-
-        private Point GetScreenSize()
-        {
-            return new Point(Main.screenTarget.Width, Main.screenTarget.Height);
         }
     }
+
+
     public partial class E
     {
         /*

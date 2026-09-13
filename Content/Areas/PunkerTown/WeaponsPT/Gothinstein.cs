@@ -8,10 +8,7 @@ using Stellamod.Common.Steins;
 using Stellamod.Common.WeaponTypes;
 using Stellamod.Content.Areas.Desert.WeaponsCL;
 using Stellamod.Content.Areas.Jungle.WeaponsJN;
-using Stellamod.Content.Areas.TheFalling.WeaponsF;
-using Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
 using Stellamod.Content.Dusts;
-using Stellamod.Core.Bases;
 using Stellamod.Core.Pixelation;
 using Stellamod.Core.SwingSystem;
 using Stellamod.Effects.GothinFlames;
@@ -22,6 +19,7 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Stellamod.Content.TODO.Weapons;
 
 namespace Stellamod.Content.Areas.PunkerTown.WeaponsPT;
 

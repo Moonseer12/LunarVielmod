@@ -167,9 +167,7 @@ namespace Stellamod.Content.TODO.Weapons
 
         private ref float MaxDegreesRotate => ref Projectile.ai[1];
         public float Timer2;
-        private bool Moved;
-        private float alphaCounter = 0;
-        int Spin = 0;
+        public float alphaCounter = 0;
         public override void AI()
         {
             Timer++;

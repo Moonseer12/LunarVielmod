@@ -29,7 +29,7 @@ public class SOHOT : ModProjectile
         Projectile.penetrate = -1; // Needed so the minion doesn't despawn on collision with enemies or tiles
     }
 
-    private static float _orbitingOffset;
+    public float _orbitingOffset;
     public override bool? CanCutTiles()
     {
         return false;

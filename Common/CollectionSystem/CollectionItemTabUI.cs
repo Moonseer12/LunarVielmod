@@ -342,7 +342,7 @@ public class CollectionItemTabSlot : UIElement
             spriteBatch.End();
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, anisotropicClamp, DepthStencilState.None, rasterizerState, default, Main.UIScaleMatrix);
         }
-        SamplerState p = SpritebatchParams.GetSamplerState(spriteBatch);
+        SamplerState p = spriteBatch.samplerState;
         if (p != SamplerState.AnisotropicClamp)
         {
             spriteBatch.End();

@@ -105,8 +105,6 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
                 }
                 if (Main.myPlayer == Projectile.owner)
                 {
-                    Vector2 shootVelocity = Projectile.velocity;
-
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Owner.Center + new Vector2(0, -4), Projectile.velocity,
                         ModContent.ProjectileType<MooningProj>(), Projectile.damage * 2, Projectile.knockBack, Projectile.owner);
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Owner.Center + new Vector2(0, 4), Projectile.velocity,
@@ -133,7 +131,6 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
     {
         public override string Texture => TextureRegistry.EmptyTexture;
         private ref float Timer => ref Projectile.ai[0];
-        bool Moved;
         Vector2 StartVelocity;
         public override void SetStaticDefaults()
         {

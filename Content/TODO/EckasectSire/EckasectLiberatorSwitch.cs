@@ -1,5 +1,4 @@
-﻿
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,7 +16,7 @@ namespace Stellamod.Content.TODO.EckasectSire
         {
             Projectile.width = 20;
             Projectile.height = 20;
-            Projectile.aiStyle = 2;
+            Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.tileCollide = true;
@@ -39,13 +38,6 @@ namespace Stellamod.Content.TODO.EckasectSire
             ShakeScreenPosition.Shake = 4;
             float speedXa = -Projectile.velocity.X * Main.rand.NextFloat(.4f, .7f) + Main.rand.NextFloat(-8f, 8f);
             float speedYa = -Projectile.velocity.Y * Main.rand.Next(0, 0) * 0.01f + Main.rand.Next(-20, 21) * 0.0f;
-
-            for (int j = 0; j < 40; j++)
-            {
-                Vector2 speed = Main.rand.NextVector2Circular(1f, 1f);
-                Vector2 speed2 = Main.rand.NextVector2CircularEdge(1f, 1f);
-            }
-
             SoundEngine.PlaySound(new SoundStyle($"Stellamod/Assets/Sounds/flameup"), Projectile.position);
             Projectile.Kill();
         }
