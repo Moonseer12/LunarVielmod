@@ -1,5 +1,5 @@
 using Stellamod.Common.QuestSystem;
-using Stellamod.Content.Areas.Jungle.BossesJN.Zui;
+using Stellamod.Content.TODO.Zui;
 using Stellamod.Content.Areas.SpringHills.VanitiesSH;
 using Stellamod.Content.Quests.ZuiQuest;
 using Stellamod.Core;

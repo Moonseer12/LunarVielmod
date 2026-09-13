@@ -79,7 +79,6 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
         {
             base.AI();
 
-            Vector2 swingDirection = Projectile.velocity.SafeNormalize(Vector2.Zero);
             if (Interpolant > 0.5f && !_fire)
             {
                 for (float i = 0; i < 2f; i++)
@@ -87,7 +86,6 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
                     float progress = i / 4f;
                     float rot = progress * MathHelper.ToRadians(360);
                     rot += Main.rand.NextFloat(-0.5f, 0.5f);
-                    Vector2 offset = rot.ToRotationVector2() * 24;
                     var particle = FXUtil.GlowCircleDetailedBoom1(Projectile.Center,
                         innerColor: Color.LightCyan,
                         glowColor: Color.LightCyan,
@@ -139,7 +137,6 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
         Vector2 StartVelocity;
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Gladiator Spear");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 15;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 1;
         }
@@ -237,7 +234,6 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
         private ref float Timer => ref Projectile.ai[1];
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Pericarditis");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 20;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
@@ -255,7 +251,7 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
             Projectile.height = 40;
 
             Projectile.knockBack = 12.9f;
-            Projectile.aiStyle = 1;
+            Projectile.aiStyle = ProjAIStyleID.Arrow;
             AIType = ProjectileID.Bullet;
             Projectile.scale = 0.5f;
             Projectile.DamageType = DamageClass.Melee;
@@ -360,11 +356,11 @@ namespace Stellamod.Content.Areas.Tundra.Snow.WeaponsSN
             Main.spriteBatch.End();
             Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullNone, null, Main.GameViewMatrix.TransformationMatrix);
 
-            Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, Projectile.height * 0.5f);
+            Vector2 drawOrigin = new(texture.Width * 0.5f, Projectile.height * 0.5f);
             for (int k = 0; k < Projectile.oldPos.Length; k++)
             {
                 Vector2 drawPos = (Projectile.oldPos[k] - Main.screenPosition) + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
-                Color color = Projectile.GetAlpha(Color.Turquoise) * (float)(((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) / 2);
+                Color color = Projectile.GetAlpha(Color.Turquoise) * (float)((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length / 2);
                 Main.EntitySpriteDraw(texture, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
             }
 

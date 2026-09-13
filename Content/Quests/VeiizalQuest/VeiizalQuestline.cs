@@ -1,6 +1,6 @@
 ﻿using Stellamod.Common.QuestSystem;
 using Stellamod.Content.Areas.Underground.EnemiesUG;
-using Stellamod.Content.GunSwapping;
+using Stellamod.Content.TODO.GunSwapping;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

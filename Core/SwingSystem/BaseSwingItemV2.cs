@@ -1,7 +1,6 @@
 ﻿using Stellamod.Common.DashSystem;
 using Stellamod.Common.GunSystem;
 using Stellamod.Content.Scrolls;
-using Stellamod.Core.Bases;
 using Stellamod.Core.Tooltips;
 using System.Collections.Generic;
 using Terraria;
@@ -10,7 +9,17 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Stellamod.Core.SwingSystem
-{
+{public enum MeleeWeaponType
+    {
+        Sword,
+        Knives,
+        Spear,
+        Scythe,
+        Greatsword,
+        Hammer,
+        Stein,
+        Dualsword
+    }
     public interface IStaminaAttack
     {
         public string BasicEffectLocalizedText { get; }
@@ -119,14 +128,11 @@ namespace Stellamod.Core.SwingSystem
         public sealed override void SetDefaults()
         {
             base.SetDefaults();
-            Item.damage = 8;
-            Item.DamageType = DamageClass.Melee;
             Item.noUseGraphic = true;
             Item.noMelee = true;
             Item.useTime = 32;
             Item.useAnimation = 32;
             Item.useStyle = ItemUseStyleID.Swing;
-            Item.knockBack = 6;
             Item.shootSpeed = 10;
             staminaDamageMultiplier = 1;
             SetDefaults2();
@@ -194,7 +200,6 @@ namespace Stellamod.Core.SwingSystem
         public sealed override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             DashPlayer dashPlayer = player.GetModPlayer<DashPlayer>();
-            SwingPlayerV2 comboPlayer = player.GetModPlayer<SwingPlayerV2>();
             if (player.altFunctionUse == 2)
             {
                 if (dashPlayer.CanConsume(staminaCost))

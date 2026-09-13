@@ -1,5 +1,5 @@
 ﻿using ReLogic.Content;
-using Stellamod.Content.Areas.Illuria.BossesIL.Niivi;
+using Stellamod.Content.TODO.Niivi;
 using Stellamod.Content.Areas.RoyalCapital;
 using Stellamod.Content.Areas.Terror;
 using Stellamod.Content.Areas.TheFalling;

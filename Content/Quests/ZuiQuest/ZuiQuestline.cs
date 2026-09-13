@@ -5,7 +5,7 @@ using Stellamod.Content.Areas.SpringHills.NPCsSH;
 using Stellamod.Content.Areas.Tundra.Abyss.ItemsAB;
 using Stellamod.Content.Areas.WondrousDarkspace.WeaponsWD;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Content.Special.EckasectSire;
+using Stellamod.Content.TODO.EckasectSire;
 using Stellamod.Core.DialogueSystem;
 using Terraria;
 using Terraria.Audio;

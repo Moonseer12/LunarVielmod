@@ -1,4 +1,4 @@
-﻿using Stellamod.Content.GunSwapping;
+﻿using Stellamod.Content.TODO.GunSwapping;
 using System.IO;
 using Terraria;
 using Terraria.ModLoader;

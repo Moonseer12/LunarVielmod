@@ -1,5 +1,5 @@
 ﻿using ReLogic.Content;
-using Stellamod.Content.Armors.Velioza;
+using Stellamod.Content.TODO.Armors.Velioza;
 using System;
 using Terraria;
 using Terraria.DataStructures;

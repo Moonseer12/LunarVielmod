@@ -1,0 +1,21 @@
+﻿using Terraria;
+using Terraria.ModLoader;
+
+namespace Stellamod.Content.TODO.EckasectSire
+{
+    public class Genesis : ModBuff
+    {
+        public override void SetStaticDefaults()
+        {
+            Main.pvpBuff[Type] = true;
+            Main.buffNoTimeDisplay[Type] = false;
+        }
+        public override void Update(Player player, ref int buffIndex)
+        {
+            EckasectPlayer EckasectPlayer = player.GetModPlayer<EckasectPlayer>();
+            EckasectPlayer.Genesis = true;
+
+
+        }
+    }
+}

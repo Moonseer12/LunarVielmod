@@ -3,7 +3,7 @@ using Stellamod.Assets;
 using Stellamod.Common.MagicCauldron;
 using Stellamod.Common.Shaders;
 using Stellamod.Content.Areas.WaterSide.BossesWS.KingJellyfishBoss;
-using Stellamod.Content.Armors.Radianthal;
+using Stellamod.Content.TODO.Armors.Radianthal;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Gores;
 using Stellamod.Content.Trailers;

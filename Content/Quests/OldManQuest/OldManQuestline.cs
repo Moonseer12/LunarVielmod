@@ -1,7 +1,7 @@
 ﻿using Stellamod.Common.QuestSystem;
 using Stellamod.Content.Areas.Underground.EnemiesUG;
 using Stellamod.Content.CommonMaterials;
-using Stellamod.Content.Special.PikpikGlove;
+using Stellamod.Content.TODO.PikpikGlove;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

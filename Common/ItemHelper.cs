@@ -150,8 +150,6 @@ namespace Stellamod.Common
             AddAmmo(ItemID.CrystalBullet);
             AddAmmo(ItemID.NanoBullet);
             AddAmmo(ModContent.ItemType<DriveRound>());
-            AddAmmo(ModContent.ItemType<AdamantiteBullet>());
-            AddAmmo(ModContent.ItemType<TitaniumBullet>());
             AddAmmo(ItemID.CursedBullet);
             AddAmmo(ItemID.IchorBullet);
 

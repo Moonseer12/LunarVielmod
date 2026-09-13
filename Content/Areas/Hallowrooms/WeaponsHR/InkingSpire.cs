@@ -2,6 +2,7 @@ using Stellamod.Common.MagicCauldron;
 using Stellamod.Content.Areas.Hallowrooms.ArmorHR;
 using Stellamod.Content.CommonMaterials;
 using Stellamod.Content.Dusts;
+using Stellamod.Content.TODO.Weapons;
 using Stellamod.Content.Trailers;
 using Stellamod.Core.Bases;
 using Stellamod.Core.SwingSystem;
